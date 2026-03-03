@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAIFI Blog Post Review</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #111;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        nav a.current {
+            color: #111;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Card sections */
+        .card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Pipeline section */
+        #pipeline-btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        #pipeline-btn:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        #pipeline-btn:disabled {
+            background: #93c5fd;
+            cursor: not-allowed;
+        }
+
+        #pipeline-status {
+            margin-top: 1rem;
+            min-height: 1.5rem;
+        }
+
+        .status-message {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .status-running {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .spinner {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Filter buttons */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .filter-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .filter-btn.active {
+            background: #2563eb;
+            color: #fff;
+            border-color: #2563eb;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        tr:hover td {
+            background: #f8f9fa;
+        }
+
+        td a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        .title-cell {
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .post-count {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badge-draft {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-approved {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Review button in table */
+        .btn-review {
+            padding: 0.3rem 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .btn-review:hover {
+            background: #1d4ed8;
+        }
+
+        /* Post detail view */
+        #post-detail {
+            display: none;
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .detail-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .btn-back {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .btn-back:hover {
+            background: #e5e7eb;
+        }
+
+        /* Figures */
+        .figures-row {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .figure-img {
+            max-height: 250px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .no-figures {
+            color: #888;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Split-pane editor */
+        .editor-container {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        textarea#editor {
+            width: 50%;
+            min-height: 400px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.85rem;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            resize: vertical;
+            line-height: 1.5;
+            color: #1a1a1a;
+        }
+
+        textarea#editor:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
+        #preview {
+            width: 50%;
+            min-height: 400px;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow-y: auto;
+            background: #fff;
+        }
+
+        /* Preview content styling */
+        #preview h1 { font-size: 1.5rem; margin: 1rem 0 0.5rem; }
+        #preview h2 { font-size: 1.25rem; margin: 0.75rem 0 0.5rem; }
+        #preview h3 { font-size: 1.1rem; margin: 0.5rem 0 0.35rem; }
+        #preview p { margin: 0.5rem 0; }
+        #preview ul, #preview ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+        #preview li { margin: 0.25rem 0; }
+        #preview code {
+            background: #f3f4f6;
+            padding: 0.15rem 0.35rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+        }
+        #preview pre {
+            background: #f3f4f6;
+            padding: 0.75rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+        #preview pre code {
+            background: none;
+            padding: 0;
+        }
+        #preview blockquote {
+            border-left: 3px solid #d1d5db;
+            padding-left: 1rem;
+            color: #6b7280;
+            margin: 0.5rem 0;
+        }
+        #preview img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        /* Action buttons */
+        .actions-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+
+        .btn-save {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .btn-save:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        .btn-approve {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #059669;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .btn-approve:hover:not(:disabled) {
+            background: #047857;
+        }
+
+        .btn-reject {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .btn-reject:hover:not(:disabled) {
+            background: #b91c1c;
+        }
+
+        .btn-save:disabled,
+        .btn-approve:disabled,
+        .btn-reject:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .save-confirm {
+            color: #059669;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Concepts */
+        .concepts-section {
+            margin-top: 1rem;
+        }
+
+        .concept-tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+            color: #333;
+        }
+
+        .concept-score {
+            color: #888;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Discovery</a>
+        <a href="/review.html" class="current">Review</a>
+    </nav>
+
+    <h1>Blog Post Review</h1>
+
+    <!-- Pipeline Trigger Section -->
+    <div class="card">
+        <h2 style="margin-top: 0;">Run Full Pipeline</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.75rem;">Discover new papers, then generate blog posts for all eligible papers.</p>
+        <button id="pipeline-btn" onclick="triggerPipeline()">Run Full Pipeline</button>
+        <div id="pipeline-status"></div>
+    </div>
+
+    <!-- Posts List Section -->
+    <div id="post-list" class="card">
+        <h2 style="margin-top: 0;">Blog Posts</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterPosts(null, this)">All</button>
+            <button class="filter-btn" onclick="filterPosts('draft', this)">Drafts</button>
+            <button class="filter-btn" onclick="filterPosts('approved', this)">Approved</button>
+            <button class="filter-btn" onclick="filterPosts('rejected', this)">Rejected</button>
+        </div>
+        <div id="post-count" class="post-count"></div>
+        <table id="posts-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Paper Title</th>
+                    <th>Status</th>
+                    <th>Word Count</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="posts-body"></tbody>
+        </table>
+        <div id="posts-empty" class="empty-state">
+            No blog posts found. Run the full pipeline to generate posts from discovered papers.
+        </div>
+    </div>
+
+    <!-- Post Detail View -->
+    <div id="post-detail" class="card">
+        <div class="detail-header">
+            <div>
+                <div class="detail-title" id="detail-title"></div>
+                <div class="detail-meta">
+                    <span id="detail-arxiv"></span>
+                    <span id="detail-badge"></span>
+                    <span id="detail-wordcount"></span>
+                </div>
+            </div>
+            <button class="btn-back" onclick="backToList()">Back to list</button>
+        </div>
+
+        <h2>Figures</h2>
+        <div id="detail-figures" class="figures-row"></div>
+
+        <h2>Content Editor</h2>
+        <div class="editor-container">
+            <textarea id="editor" oninput="updatePreview(); markUnsaved();" placeholder="Markdown content..."></textarea>
+            <div id="preview"></div>
+        </div>
+
+        <div class="actions-row">
+            <button class="btn-save" id="btn-save" onclick="saveContent()">Save Changes</button>
+            <button class="btn-approve" id="btn-approve" onclick="approvePost()">Approve</button>
+            <button class="btn-reject" id="btn-reject" onclick="rejectPost()">Reject</button>
+            <span id="save-confirm" class="save-confirm"></span>
+        </div>
+
+        <div class="concepts-section">
+            <h2>Concepts</h2>
+            <div id="detail-concepts"></div>
+        </div>
+    </div>
+
+    <script>
+        let pipelinePollInterval = null;
+        let currentArxivId = null;
+        let hasUnsavedChanges = false;
+        let currentStatus = null;
+
+        // Warn on page leave if unsaved changes
+        window.addEventListener('beforeunload', function(e) {
+            if (hasUnsavedChanges) {
+                e.preventDefault();
+                e.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
+                return e.returnValue;
+            }
+        });
+
+        // --- Utility ---
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        function badgeHtml(status) {
+            var cls = 'badge badge-' + (status || 'draft');
+            return '<span class="' + cls + '">' + escapeHtml(status || 'draft') + '</span>';
+        }
+
+        function markUnsaved() {
+            hasUnsavedChanges = true;
+        }
+
+        // --- Post List ---
+
+        async function loadPosts(status) {
+            var tbody = document.getElementById('posts-body');
+            var table = document.getElementById('posts-table');
+            var emptyState = document.getElementById('posts-empty');
+            var countDiv = document.getElementById('post-count');
+
+            var url = '/api/posts';
+            if (status) {
+                url += '?status=' + encodeURIComponent(status);
+            }
+
+            try {
+                var resp = await fetch(url);
+                if (!resp.ok) {
+                    throw new Error('HTTP ' + resp.status);
+                }
+                var posts = await resp.json();
+
+                if (posts.length === 0) {
+                    table.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    countDiv.textContent = status ? 'No ' + status + ' posts found' : '';
+                    return;
+                }
+
+                table.style.display = 'table';
+                emptyState.style.display = 'none';
+                countDiv.textContent = 'Showing ' + posts.length + ' post' + (posts.length !== 1 ? 's' : '');
+
+                tbody.innerHTML = posts.map(function(p) {
+                    var title = escapeHtml(p.paper_title || p.title || 'Untitled');
+                    var wc = p.word_count || 0;
+                    return '<tr>' +
+                        '<td class="title-cell" title="' + title + '">' + title + '</td>' +
+                        '<td>' + badgeHtml(p.status) + '</td>' +
+                        '<td>' + wc + '</td>' +
+                        '<td><button class="btn-review" onclick="viewPost(\'' + escapeHtml(p.arxiv_id) + '\')">Review</button></td>' +
+                        '</tr>';
+                }).join('');
+            } catch (err) {
+                countDiv.textContent = 'Error loading posts: ' + err.message;
+            }
+        }
+
+        function filterPosts(status, btnEl) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btnEl.classList.add('active');
+            loadPosts(status);
+        }
+
+        // --- Post Detail ---
+
+        async function viewPost(arxivId) {
+            try {
+                var resp = await fetch('/api/posts/' + encodeURIComponent(arxivId));
+                if (!resp.ok) {
+                    throw new Error('HTTP ' + resp.status);
+                }
+                var data = await resp.json();
+                var post = data.post;
+                var figures = data.figures || [];
+                var concepts = data.concepts || [];
+
+                currentArxivId = arxivId;
+                currentStatus = post.status;
+                hasUnsavedChanges = false;
+
+                // Populate header
+                document.getElementById('detail-title').textContent = post.paper_title || post.title || 'Untitled';
+                document.getElementById('detail-arxiv').innerHTML =
+                    '<a href="https://arxiv.org/abs/' + encodeURIComponent(arxivId) + '" target="_blank">' +
+                    escapeHtml(arxivId) + '</a>';
+                document.getElementById('detail-badge').innerHTML = badgeHtml(post.status);
+                document.getElementById('detail-wordcount').textContent = (post.word_count || 0) + ' words';
+
+                // Populate figures
+                var figuresDiv = document.getElementById('detail-figures');
+                if (figures.length === 0) {
+                    figuresDiv.innerHTML = '<span class="no-figures">No figures extracted</span>';
+                } else {
+                    figuresDiv.innerHTML = figures.map(function(f) {
+                        return '<img class="figure-img" src="' + escapeHtml(f.url) + '" alt="Figure from paper" />';
+                    }).join('');
+                }
+
+                // Populate editor
+                var editor = document.getElementById('editor');
+                editor.value = post.content || '';
+                updatePreview();
+
+                // Populate concepts
+                var conceptsDiv = document.getElementById('detail-concepts');
+                if (concepts.length === 0) {
+                    conceptsDiv.innerHTML = '<span class="no-figures">No concepts extracted</span>';
+                } else {
+                    conceptsDiv.innerHTML = concepts.map(function(c) {
+                        var score = c.relevance_score != null ? ' <span class="concept-score">(' + c.relevance_score.toFixed(2) + ')</span>' : '';
+                        return '<span class="concept-tag">' + escapeHtml(c.name) + score + '</span>';
+                    }).join('');
+                }
+
+                // Update action buttons state
+                updateActionButtons(post.status);
+
+                // Show detail, hide list
+                document.getElementById('post-list').style.display = 'none';
+                document.getElementById('post-detail').style.display = 'block';
+
+            } catch (err) {
+                alert('Error loading post: ' + err.message);
+            }
+        }
+
+        function updateActionButtons(status) {
+            var btnApprove = document.getElementById('btn-approve');
+            var btnReject = document.getElementById('btn-reject');
+
+            if (status !== 'draft') {
+                btnApprove.disabled = true;
+                btnReject.disabled = true;
+            } else {
+                btnApprove.disabled = false;
+                btnReject.disabled = false;
+            }
+        }
+
+        function updatePreview() {
+            var editor = document.getElementById('editor');
+            var preview = document.getElementById('preview');
+            try {
+                preview.innerHTML = marked.parse(editor.value || '');
+            } catch (e) {
+                preview.innerHTML = '<p style="color:red;">Preview error: ' + escapeHtml(e.message) + '</p>';
+            }
+        }
+
+        async function saveContent() {
+            if (!currentArxivId) return;
+
+            var editor = document.getElementById('editor');
+            var confirmSpan = document.getElementById('save-confirm');
+            var btnSave = document.getElementById('btn-save');
+
+            btnSave.disabled = true;
+            confirmSpan.textContent = 'Saving...';
+
+            try {
+                var resp = await fetch('/api/posts/' + encodeURIComponent(currentArxivId), {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: editor.value })
+                });
+
+                if (!resp.ok) {
+                    throw new Error('HTTP ' + resp.status);
+                }
+
+                var result = await resp.json();
+                document.getElementById('detail-wordcount').textContent = (result.word_count || 0) + ' words';
+                hasUnsavedChanges = false;
+                confirmSpan.textContent = 'Saved';
+                setTimeout(function() {
+                    confirmSpan.textContent = '';
+                }, 2000);
+            } catch (err) {
+                confirmSpan.textContent = 'Error: ' + err.message;
+            } finally {
+                btnSave.disabled = false;
+            }
+        }
+
+        async function approvePost() {
+            if (!currentArxivId) return;
+            if (!confirm('Are you sure you want to approve this post?')) return;
+
+            try {
+                var resp = await fetch('/api/posts/' + encodeURIComponent(currentArxivId) + '/approve', {
+                    method: 'POST'
+                });
+                if (!resp.ok) {
+                    var errData = await resp.json().catch(function() { return {}; });
+                    throw new Error(errData.detail || 'HTTP ' + resp.status);
+                }
+
+                currentStatus = 'approved';
+                document.getElementById('detail-badge').innerHTML = badgeHtml('approved');
+                updateActionButtons('approved');
+            } catch (err) {
+                alert('Error approving post: ' + err.message);
+            }
+        }
+
+        async function rejectPost() {
+            if (!currentArxivId) return;
+            if (!confirm('Are you sure you want to reject this post?')) return;
+
+            try {
+                var resp = await fetch('/api/posts/' + encodeURIComponent(currentArxivId) + '/reject', {
+                    method: 'POST'
+                });
+                if (!resp.ok) {
+                    var errData = await resp.json().catch(function() { return {}; });
+                    throw new Error(errData.detail || 'HTTP ' + resp.status);
+                }
+
+                currentStatus = 'rejected';
+                document.getElementById('detail-badge').innerHTML = badgeHtml('rejected');
+                updateActionButtons('rejected');
+            } catch (err) {
+                alert('Error rejecting post: ' + err.message);
+            }
+        }
+
+        function backToList() {
+            if (hasUnsavedChanges) {
+                if (!confirm('You have unsaved changes. Are you sure you want to go back?')) {
+                    return;
+                }
+            }
+            hasUnsavedChanges = false;
+            currentArxivId = null;
+            currentStatus = null;
+
+            document.getElementById('post-detail').style.display = 'none';
+            document.getElementById('post-list').style.display = 'block';
+            loadPosts(null);
+        }
+
+        // --- Pipeline ---
+
+        async function triggerPipeline() {
+            var btn = document.getElementById('pipeline-btn');
+            var statusDiv = document.getElementById('pipeline-status');
+
+            btn.disabled = true;
+
+            try {
+                var resp = await fetch('/api/pipeline/run', { method: 'POST' });
+                if (!resp.ok) {
+                    throw new Error('HTTP ' + resp.status + ': ' + resp.statusText);
+                }
+                var data = await resp.json();
+
+                statusDiv.innerHTML =
+                    '<div class="status-message status-running">' +
+                    '<span class="spinner">&#9679;</span> Pipeline starting...' +
+                    '</div>';
+
+                pollPipelineStatus(data.task_id);
+            } catch (err) {
+                statusDiv.innerHTML =
+                    '<div class="status-message status-error">' +
+                    'Failed to start pipeline: ' + escapeHtml(err.message) +
+                    '</div>';
+                btn.disabled = false;
+            }
+        }
+
+        function pollPipelineStatus(taskId) {
+            if (pipelinePollInterval) {
+                clearInterval(pipelinePollInterval);
+            }
+
+            pipelinePollInterval = setInterval(async function() {
+                var statusDiv = document.getElementById('pipeline-status');
+                var btn = document.getElementById('pipeline-btn');
+
+                try {
+                    var resp = await fetch('/api/pipeline/' + taskId + '/status');
+                    if (!resp.ok) {
+                        throw new Error('HTTP ' + resp.status);
+                    }
+                    var data = await resp.json();
+
+                    if (data.status === 'running') {
+                        var stepLabel = data.step || 'running';
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-running">' +
+                            '<span class="spinner">&#9679;</span> Pipeline running: ' + escapeHtml(stepLabel) + '...' +
+                            '</div>';
+                    } else if (data.status === 'complete') {
+                        clearInterval(pipelinePollInterval);
+                        pipelinePollInterval = null;
+                        btn.disabled = false;
+
+                        var summary = '';
+                        if (data.result) {
+                            summary = data.result.papers_discovered + ' papers discovered, ' +
+                                      data.result.posts_generated + ' posts generated';
+                        }
+
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-complete">' +
+                            'Pipeline complete. ' + escapeHtml(summary) +
+                            '</div>';
+
+                        // Refresh post list
+                        loadPosts(null);
+                    } else if (data.status === 'error') {
+                        clearInterval(pipelinePollInterval);
+                        pipelinePollInterval = null;
+                        btn.disabled = false;
+
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-error">' +
+                            'Pipeline failed: ' + escapeHtml(data.error || 'Unknown error') +
+                            '</div>';
+                    }
+                } catch (err) {
+                    clearInterval(pipelinePollInterval);
+                    pipelinePollInterval = null;
+                    btn.disabled = false;
+
+                    statusDiv.innerHTML =
+                        '<div class="status-message status-error">' +
+                        'Error polling status: ' + escapeHtml(err.message) +
+                        '</div>';
+                }
+            }, 2000);
+        }
+
+        // Load posts on page load
+        loadPosts(null);
+    </script>
+</body>
+</html>
