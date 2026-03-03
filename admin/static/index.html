@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAIFI Paper Discovery</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #111;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        /* Discovery section */
+        .discovery-section {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #discover-btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        #discover-btn:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        #discover-btn:disabled {
+            background: #93c5fd;
+            cursor: not-allowed;
+        }
+
+        /* Status display */
+        #status {
+            margin-top: 1rem;
+            min-height: 1.5rem;
+        }
+
+        .status-message {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .status-idle { display: none; }
+
+        .status-running {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .spinner {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Papers section */
+        .papers-section {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .paper-count {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        tr:hover td {
+            background: #f8f9fa;
+        }
+
+        td a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        .title-cell {
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badge-discovered {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-metadata_fetched {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-pdf_downloaded {
+            background: #ccfbf1;
+            color: #0f766e;
+        }
+
+        .badge-ingestion_complete {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-running {
+            background: #fef3c7;
+            color: #92400e;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .badge-error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <h1>IAIFI Paper Discovery</h1>
+
+    <div class="discovery-section">
+        <button id="discover-btn" onclick="triggerDiscovery()">Discover New Papers</button>
+        <div id="status"></div>
+    </div>
+
+    <div class="papers-section">
+        <h2>Ingested Papers</h2>
+        <div id="paper-count" class="paper-count"></div>
+        <div id="papers-container">
+            <table id="papers-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>arXiv ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody id="papers-body"></tbody>
+            </table>
+            <div id="empty-state" class="empty-state">
+                No papers ingested yet. Click "Discover New Papers" to start.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let pollInterval = null;
+
+        async function triggerDiscovery() {
+            const btn = document.getElementById('discover-btn');
+            const statusDiv = document.getElementById('status');
+
+            btn.disabled = true;
+
+            try {
+                const resp = await fetch('/api/discover', { method: 'POST' });
+                if (!resp.ok) {
+                    throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
+                }
+                const data = await resp.json();
+
+                statusDiv.innerHTML =
+                    '<div class="status-message status-running">' +
+                    '<span class="spinner">&#9679;</span> Discovery running...' +
+                    '</div>';
+
+                pollStatus(data.task_id);
+            } catch (err) {
+                statusDiv.innerHTML =
+                    '<div class="status-message status-error">' +
+                    'Failed to start discovery: ' + escapeHtml(err.message) +
+                    '</div>';
+                btn.disabled = false;
+            }
+        }
+
+        function pollStatus(taskId) {
+            if (pollInterval) {
+                clearInterval(pollInterval);
+            }
+
+            pollInterval = setInterval(async () => {
+                const statusDiv = document.getElementById('status');
+                const btn = document.getElementById('discover-btn');
+
+                try {
+                    const resp = await fetch('/api/discover/' + taskId + '/status');
+                    if (!resp.ok) {
+                        throw new Error(`HTTP ${resp.status}`);
+                    }
+                    const data = await resp.json();
+
+                    if (data.status === 'running') {
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-running">' +
+                            '<span class="spinner">&#9679;</span> Discovery running...' +
+                            '</div>';
+                    } else if (data.status === 'complete') {
+                        clearInterval(pollInterval);
+                        pollInterval = null;
+                        btn.disabled = false;
+
+                        let summary = '';
+                        if (data.result) {
+                            summary =
+                                'Found ' + data.result.new_papers + ' new papers, ' +
+                                'fetched ' + data.result.metadata_fetched + ' metadata, ' +
+                                'downloaded ' + data.result.pdfs_downloaded + ' PDFs';
+                            if (data.result.errors && data.result.errors.length > 0) {
+                                summary += ' (' + data.result.errors.length + ' errors)';
+                            }
+                        }
+
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-complete">' +
+                            'Discovery complete. ' + escapeHtml(summary) +
+                            '</div>';
+
+                        loadPapers();
+                    } else if (data.status === 'error') {
+                        clearInterval(pollInterval);
+                        pollInterval = null;
+                        btn.disabled = false;
+
+                        statusDiv.innerHTML =
+                            '<div class="status-message status-error">' +
+                            'Discovery failed: ' + escapeHtml(data.error || 'Unknown error') +
+                            '</div>';
+                    }
+                } catch (err) {
+                    clearInterval(pollInterval);
+                    pollInterval = null;
+                    btn.disabled = false;
+
+                    statusDiv.innerHTML =
+                        '<div class="status-message status-error">' +
+                        'Error polling status: ' + escapeHtml(err.message) +
+                        '</div>';
+                }
+            }, 2000);
+        }
+
+        async function loadPapers() {
+            const tbody = document.getElementById('papers-body');
+            const table = document.getElementById('papers-table');
+            const emptyState = document.getElementById('empty-state');
+            const countDiv = document.getElementById('paper-count');
+
+            try {
+                const resp = await fetch('/api/papers');
+                if (!resp.ok) {
+                    throw new Error(`HTTP ${resp.status}`);
+                }
+                const papers = await resp.json();
+
+                if (papers.length === 0) {
+                    table.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    countDiv.textContent = '';
+                    return;
+                }
+
+                table.style.display = 'table';
+                emptyState.style.display = 'none';
+                countDiv.textContent = 'Showing ' + papers.length + ' papers';
+
+                tbody.innerHTML = papers.map(function(p) {
+                    const arxivUrl = 'https://arxiv.org/abs/' + encodeURIComponent(p.arxiv_id);
+                    const title = escapeHtml(p.title || 'Untitled');
+                    const category = escapeHtml(p.iaifi_category || '-');
+                    const badgeClass = 'badge badge-' + (p.status || 'discovered');
+                    const statusText = escapeHtml((p.status || 'discovered').replace(/_/g, ' '));
+                    const published = p.published ? formatDate(p.published) : '-';
+
+                    return '<tr>' +
+                        '<td><a href="' + arxivUrl + '" target="_blank">' + escapeHtml(p.arxiv_id) + '</a></td>' +
+                        '<td class="title-cell" title="' + title + '">' + title + '</td>' +
+                        '<td>' + category + '</td>' +
+                        '<td><span class="' + badgeClass + '">' + statusText + '</span></td>' +
+                        '<td>' + published + '</td>' +
+                        '</tr>';
+                }).join('');
+            } catch (err) {
+                countDiv.textContent = 'Error loading papers: ' + err.message;
+            }
+        }
+
+        function formatDate(isoString) {
+            try {
+                const d = new Date(isoString);
+                if (isNaN(d.getTime())) return '-';
+                return d.toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'short', day: 'numeric'
+                });
+            } catch (e) {
+                return '-';
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        // Load papers on page load
+        loadPapers();
+    </script>
+</body>
+</html>
