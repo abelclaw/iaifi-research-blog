@@ -18,6 +18,14 @@ class PaperStatus(str, Enum):
     POST_GENERATED = "post_generated"
 
 
+class BlogPostStatus(str, Enum):
+    """Tracks a blog post's review status."""
+
+    DRAFT = "draft"
+    APPROVED = "approved"
+    REJECTED = "rejected"
+
+
 class ScrapedPaper(BaseModel):
     """Raw paper data scraped from the IAIFI website."""
 

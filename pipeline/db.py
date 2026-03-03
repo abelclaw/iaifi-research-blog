@@ -284,6 +284,63 @@ class Database:
             )
             await db.commit()
 
+    async def get_blog_posts(self, status: str | None = None) -> list[dict]:
+        """Retrieve all blog posts, optionally filtered by status.
+
+        Joins with papers table to include paper title and iaifi_category.
+        Ordered by created_at DESC.
+        """
+        async with aiosqlite.connect(self.db_path) as db:
+            db.row_factory = aiosqlite.Row
+            if status:
+                cursor = await db.execute(
+                    """SELECT bp.*, p.title as paper_title, p.iaifi_category
+                       FROM blog_posts bp
+                       LEFT JOIN papers p ON bp.paper_arxiv_id = p.arxiv_id
+                       WHERE bp.status = ?
+                       ORDER BY bp.created_at DESC""",
+                    (status,),
+                )
+            else:
+                cursor = await db.execute(
+                    """SELECT bp.*, p.title as paper_title, p.iaifi_category
+                       FROM blog_posts bp
+                       LEFT JOIN papers p ON bp.paper_arxiv_id = p.arxiv_id
+                       ORDER BY bp.created_at DESC"""
+                )
+            rows = await cursor.fetchall()
+            return [dict(row) for row in rows]
+
+    async def update_blog_post_content(
+        self, arxiv_id: str, content: str
+    ) -> None:
+        """Update blog post content and recalculate word count.
+
+        Recalculates word_count server-side to prevent drift.
+        """
+        word_count = len(content.split())
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                """UPDATE blog_posts
+                   SET content = ?, word_count = ?, updated_at = datetime('now')
+                   WHERE paper_arxiv_id = ?""",
+                (content, word_count, arxiv_id),
+            )
+            await db.commit()
+
+    async def update_blog_post_status(
+        self, arxiv_id: str, status: str
+    ) -> None:
+        """Update blog post status (draft/approved/rejected)."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                """UPDATE blog_posts
+                   SET status = ?, updated_at = datetime('now')
+                   WHERE paper_arxiv_id = ?""",
+                (status, arxiv_id),
+            )
+            await db.commit()
+
     async def get_blog_post(self, arxiv_id: str) -> dict | None:
         """Retrieve a blog post by paper arxiv_id."""
         async with aiosqlite.connect(self.db_path) as db:
