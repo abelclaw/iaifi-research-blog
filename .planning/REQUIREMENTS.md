@@ -44,7 +44,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **SITE-03**: Chronological timeline feed with paper cards
 - [x] **SITE-04**: Individual blog post pages with full content, figures, and metadata
 - [x] **SITE-05**: IAIFI theme filtering on both network and timeline views
-- [ ] **SITE-06**: Client-side search across posts (title, concepts, authors)
+- [x] **SITE-06**: Client-side search across posts (title, concepts, authors)
 - [x] **SITE-07**: Responsive design (mobile-friendly, touch-friendly network)
 - [x] **SITE-08**: Paper metadata display (authors, arxiv link, date, abstract)
 
@@ -114,7 +114,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SITE-03 | Phase 4 | Complete |
 | SITE-04 | Phase 4 | Complete |
 | SITE-05 | Phase 4 | Complete |
-| SITE-06 | Phase 4 | Pending |
+| SITE-06 | Phase 4 | Complete |
 | SITE-07 | Phase 4 | Complete |
 | SITE-08 | Phase 4 | Complete |
 
