@@ -12,7 +12,7 @@ This roadmap transforms IAIFI research papers into accessible blog posts through
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Paper Ingestion Pipeline** - Fetch papers from IAIFI website and arxiv, download PDFs, persist state
+- [x] **Phase 1: Paper Ingestion Pipeline** - Fetch papers from IAIFI website and arxiv, download PDFs, persist state
 - [ ] **Phase 2: Content Generation and Concept Extraction** - LLM-generated blog posts, figure extraction, and concept tagging
 - [ ] **Phase 3: Admin Review Interface** - Local web app for reviewing, editing, and approving blog post drafts
 - [ ] **Phase 4: Static Site and Timeline** - Public blog with post pages, chronological feed, filtering, and search
@@ -32,8 +32,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Pipeline core: project setup, data models, SQLite database, IAIFI scraper, arXiv client, discovery orchestrator
-- [ ] 01-02-PLAN.md -- Admin layer: FastAPI app, discovery/papers API routes, admin HTML interface, end-to-end verification
+- [x] 01-01-PLAN.md -- Pipeline core: project setup, data models, SQLite database, IAIFI scraper, arXiv client, discovery orchestrator
+- [x] 01-02-PLAN.md -- Admin layer: FastAPI app, discovery/papers API routes, admin HTML interface, end-to-end verification
 
 ### Phase 2: Content Generation and Concept Extraction
 **Goal**: Every ingested paper gets a draft blog post with figures and concept tags ready for human review
@@ -106,7 +106,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Paper Ingestion Pipeline | 1/2 | In Progress | - |
+| 1. Paper Ingestion Pipeline | 2/2 | Complete | 2026-03-03 |
 | 2. Content Generation and Concept Extraction | 0/3 | Not started | - |
 | 3. Admin Review Interface | 0/2 | Not started | - |
 | 4. Static Site and Timeline | 0/3 | Not started | - |
