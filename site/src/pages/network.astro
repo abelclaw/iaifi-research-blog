@@ -1,0 +1,307 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = await getCollection("posts");
+
+// Build nodes array: each post becomes a node
+const nodes = posts.map((post) => ({
+  id: post.id,
+  title: post.data.title,
+  theme: post.data.theme,
+  concepts: post.data.concepts,
+  url: "/posts/" + post.id,
+}));
+
+// Build links array: for each pair of posts, find shared concepts
+const links: { source: string; target: string; sharedConcepts: string[] }[] = [];
+for (let i = 0; i < posts.length; i++) {
+  for (let j = i + 1; j < posts.length; j++) {
+    const shared = posts[i].data.concepts.filter((c) =>
+      posts[j].data.concepts.includes(c)
+    );
+    if (shared.length > 0) {
+      links.push({
+        source: posts[i].id,
+        target: posts[j].id,
+        sharedConcepts: shared,
+      });
+    }
+  }
+}
+
+const graphData = JSON.stringify({ nodes, links });
+---
+
+<BaseLayout title="Concept Network - IAIFI Research Blog">
+  <section class="mb-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Concept Network</h1>
+    <p class="text-lg text-gray-600 mb-1">
+      Explore connections between papers through shared concepts. Nodes are
+      papers, edges are shared concepts.
+    </p>
+    <p class="text-sm text-gray-400">
+      Drag nodes to rearrange. Scroll to zoom. Click a node to read the paper.
+    </p>
+  </section>
+
+  {nodes.length < 2 ? (
+    <div class="text-center py-16 text-gray-500 bg-white rounded-lg shadow-sm border border-gray-200">
+      <p class="text-lg font-medium mb-2">Not enough papers to visualize connections.</p>
+      <p class="text-sm">Add more papers through the admin interface.</p>
+    </div>
+  ) : (
+    <>
+      <div
+        id="network-container"
+        class="w-full min-h-[500px] h-[70vh] bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+        data-graph={graphData}
+      ></div>
+
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded-full bg-blue-500"></span>
+          <span>Foundational AI</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded-full bg-violet-500"></span>
+          <span>Theoretical Physics</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded-full bg-amber-500"></span>
+          <span>Experimental Physics</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded-full bg-emerald-500"></span>
+          <span>Astrophysics</span>
+        </div>
+      </div>
+    </>
+  )}
+</BaseLayout>
+
+<script>
+  import {
+    forceSimulation,
+    forceLink,
+    forceManyBody,
+    forceCenter,
+    forceCollide,
+  } from "d3-force";
+  import { select } from "d3-selection";
+  import { zoom, zoomIdentity } from "d3-zoom";
+  import { drag } from "d3-drag";
+
+  interface GraphNode {
+    id: string;
+    title: string;
+    theme: string;
+    concepts: string[];
+    url: string;
+    x?: number;
+    y?: number;
+    fx?: number | null;
+    fy?: number | null;
+    index?: number;
+  }
+
+  interface GraphLink {
+    source: GraphNode | string;
+    target: GraphNode | string;
+    sharedConcepts: string[];
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("network-container");
+    if (!container || !container.dataset.graph) return;
+
+    const { nodes, links } = JSON.parse(container.dataset.graph) as {
+      nodes: GraphNode[];
+      links: GraphLink[];
+    };
+
+    if (nodes.length < 2) return;
+
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // Theme color map matching global.css
+    const themeColors: Record<string, string> = {
+      "Foundational AI": "#3b82f6",
+      "Theoretical Physics": "#8b5cf6",
+      "Experimental Physics": "#f59e0b",
+      Astrophysics: "#10b981",
+    };
+
+    // Create SVG
+    const svg = select(container)
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", `0 0 ${width} ${height}`);
+
+    // Group for zoom/pan transforms
+    const g = svg.append("g");
+
+    // Build adjacency set for hover highlight
+    const adjacency = new Set<string>();
+    links.forEach((link) => {
+      const sid = typeof link.source === "string" ? link.source : link.source.id;
+      const tid = typeof link.target === "string" ? link.target : link.target.id;
+      adjacency.add(`${sid}-${tid}`);
+      adjacency.add(`${tid}-${sid}`);
+    });
+
+    function isConnected(a: string, b: string): boolean {
+      return a === b || adjacency.has(`${a}-${b}`);
+    }
+
+    // Render links
+    const linkGroup = g
+      .append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("stroke", "#d1d5db")
+      .attr("stroke-opacity", 0.6)
+      .attr("stroke-width", (d: GraphLink) =>
+        Math.sqrt(d.sharedConcepts.length)
+      );
+
+    // Render nodes
+    const nodeGroup = g
+      .append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+      .data(nodes)
+      .join("circle")
+      .attr("r", 8)
+      .attr("fill", (d: GraphNode) => themeColors[d.theme] || "#6b7280")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 1.5)
+      .attr("cursor", "pointer");
+
+    // Create tooltip
+    const tooltip = select("body")
+      .append("div")
+      .attr(
+        "class",
+        "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs"
+      )
+      .style("position", "absolute");
+
+    // Track drag state
+    let isDragging = false;
+
+    // Set up force simulation
+    const simulation = forceSimulation<GraphNode>(nodes)
+      .force(
+        "link",
+        forceLink<GraphNode, GraphLink>(links)
+          .id((d) => d.id)
+          .distance((d) =>
+            Math.max(50, 150 - d.sharedConcepts.length * 20)
+          )
+          .strength((d) =>
+            Math.min(1, d.sharedConcepts.length * 0.15)
+          )
+      )
+      .force(
+        "charge",
+        forceManyBody().strength(-200).distanceMax(400)
+      )
+      .force(
+        "center",
+        forceCenter(width / 2, height / 2).strength(0.05)
+      )
+      .force("collide", forceCollide(12).strength(0.7));
+
+    // Update positions on tick
+    simulation.on("tick", () => {
+      linkGroup
+        .attr("x1", (d: any) => d.source.x)
+        .attr("y1", (d: any) => d.source.y)
+        .attr("x2", (d: any) => d.target.x)
+        .attr("y2", (d: any) => d.target.y);
+
+      nodeGroup
+        .attr("cx", (d: GraphNode) => d.x!)
+        .attr("cy", (d: GraphNode) => d.y!);
+    });
+
+    // Zoom and pan
+    svg.call(
+      zoom<SVGSVGElement, unknown>()
+        .scaleExtent([0.3, 5])
+        .on("zoom", (event) => {
+          g.attr("transform", event.transform);
+        }) as any
+    );
+
+    // Drag behavior
+    const dragBehavior = drag<SVGCircleElement, GraphNode>()
+      .on("start", (event, d) => {
+        isDragging = false;
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      })
+      .on("drag", (event, d) => {
+        isDragging = true;
+        d.fx = event.x;
+        d.fy = event.y;
+      })
+      .on("end", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      });
+
+    nodeGroup.call(dragBehavior as any);
+
+    // Click handler (navigate to post)
+    nodeGroup.on("click", (_event: MouseEvent, d: GraphNode) => {
+      if (!isDragging) {
+        window.location.href = d.url;
+      }
+    });
+
+    // Hover: tooltip + neighborhood highlight
+    nodeGroup
+      .on("mouseover", (event: MouseEvent, d: GraphNode) => {
+        tooltip
+          .html(
+            `<strong>${d.title}</strong><br/><span style="opacity:0.7">${d.theme}</span><br/><span style="opacity:0.5">${d.concepts.length} concepts</span>`
+          )
+          .classed("hidden", false);
+
+        // Highlight connected neighborhood
+        nodeGroup
+          .attr("opacity", (o: GraphNode) =>
+            isConnected(d.id, o.id) ? 1 : 0.15
+          )
+          .attr("stroke-width", (o: GraphNode) =>
+            o.id === d.id ? 3 : 1.5
+          );
+
+        linkGroup.attr("stroke-opacity", (l: any) => {
+          const sid =
+            typeof l.source === "string" ? l.source : l.source.id;
+          const tid =
+            typeof l.target === "string" ? l.target : l.target.id;
+          return sid === d.id || tid === d.id ? 0.8 : 0.05;
+        });
+      })
+      .on("mousemove", (event: MouseEvent) => {
+        tooltip
+          .style("left", event.pageX + 12 + "px")
+          .style("top", event.pageY - 12 + "px");
+      })
+      .on("mouseout", () => {
+        tooltip.classed("hidden", true);
+        nodeGroup.attr("opacity", 1).attr("stroke-width", 1.5);
+        linkGroup.attr("stroke-opacity", 0.6);
+      });
+  });
+</script>
