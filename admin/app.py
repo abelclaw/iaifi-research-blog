@@ -5,6 +5,7 @@ and paper listing.
 """
 
 import logging
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +14,8 @@ from fastapi.staticfiles import StaticFiles
 from admin.routes.discovery import router as discovery_router
 from admin.routes.generation import router as generation_router
 from admin.routes.papers import router as papers_router
+from admin.routes.pipeline import router as pipeline_router
+from admin.routes.posts import router as posts_router
 from pipeline.config import settings
 from pipeline.db import Database
 
@@ -38,8 +41,20 @@ app.add_middleware(
 app.include_router(discovery_router)
 app.include_router(generation_router)
 app.include_router(papers_router)
+app.include_router(posts_router)
+app.include_router(pipeline_router)
 
-# Mount static files AFTER API routes
+# Mount figures directory for serving extracted images
+# MUST come BEFORE the catch-all "/" mount (Pitfall 1)
+figures_path = Path(settings.FIGURES_DIR)
+figures_path.mkdir(parents=True, exist_ok=True)
+app.mount(
+    "/figures",
+    StaticFiles(directory=str(figures_path)),
+    name="figures",
+)
+
+# Mount static files AFTER API routes and /figures
 app.mount(
     "/",
     StaticFiles(directory="admin/static", html=True),
