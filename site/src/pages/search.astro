@@ -11,15 +11,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div id="search-container" class="mb-12"></div>
 
-  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
-  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}pagefind/pagefind-ui.css`} />
+  <script is:inline define:vars={{ base: import.meta.env.BASE_URL }}>
+    window.__pagefindBase = base;
+  </script>
   <script is:inline>
-    window.addEventListener("DOMContentLoaded", () => {
+    // Load Pagefind UI dynamically with correct base path
+    var s = document.createElement("script");
+    s.src = (window.__pagefindBase || "/") + "pagefind/pagefind-ui.js";
+    s.onload = function() {
       new PagefindUI({
         element: "#search-container",
         showSubResults: true,
         showImages: false,
+        baseUrl: window.__pagefindBase || "/",
       });
-    });
+    };
+    document.head.appendChild(s);
   </script>
 </BaseLayout>

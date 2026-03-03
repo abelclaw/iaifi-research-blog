@@ -4,7 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://iaifi.github.io",
+  site: "https://abelclaw.github.io",
+  base: "/iaifi-research-blog",
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

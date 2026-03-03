@@ -10,7 +10,7 @@ const nodes = posts.map((post) => ({
   title: post.data.title,
   theme: post.data.theme,
   concepts: post.data.concepts,
-  url: "/posts/" + post.id,
+  url: import.meta.env.BASE_URL + "posts/" + post.id,
 }));
 
 // Build links array: for each pair of posts, find shared concepts
