@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 ## Current Position
 
 Phase: 5 of 5 (Concept Network Visualization)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-03-03 -- Phase 4 complete, transitioning to Phase 5
+Plan: 1 of 1 -- COMPLETE
+Status: Phase 5 complete -- all phases done
+Last activity: 2026-03-03 -- Phase 5 Plan 1 complete
 
-Progress: [████████░░] 80%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 3.3min
-- Total execution time: 0.35 hours
+- Total plans completed: 8
+- Average duration: 3.1min
+- Total execution time: 0.38 hours
 
 **By Phase:**
 
@@ -32,13 +32,14 @@ Progress: [████████░░] 80%
 | 03-admin-review-interface | 2/2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 2min, 3min, 2min, 3min
+- Last 5 plans: 2min, 3min, 2min, 3min, 3min
 - Trend: Fast
 
 *Updated after each plan completion*
 | Phase 04 P01 | 3min | 2 tasks | 8 files |
 | Phase 04 P02 | 2min | 2 tasks | 10 files |
 | Phase 04 P03 | 2min | 2 tasks | 2 files |
+| Phase 05 P01 | 3min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,11 @@ Recent decisions affecting current work:
 - [Phase 04]: ThemeFilter uses inline script with vanilla JS for client-side filtering (no framework hydration needed)
 - [Phase 04]: Tailwind v4 typography plugin enabled via @plugin directive in CSS (not tailwind.config.js)
 - [Phase 04-03]: Pagefind UI scripts use is:inline since assets are generated post-build
+- [Phase 05-01]: Individual D3 packages (d3-force, d3-selection, d3-zoom, d3-drag) instead of full d3 bundle for tree-shaking
+- [Phase 05-01]: Regular script tag (not is:inline) lets Vite bundle D3 imports
+- [Phase 05-01]: HTML tooltip div instead of SVG title for richer display with Tailwind classes
+- [Phase 05-01]: isDragging flag pattern prevents click-to-navigate from firing after drag
+- [Phase 05-01]: Adjacency set for O(1) connected-node lookup during hover highlighting
 
 ### Pending Todos
 
@@ -94,5 +100,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Phase 4 complete, ready to plan Phase 5
+Stopped at: Completed 05-01-PLAN.md -- all phases complete
 Resume file: None

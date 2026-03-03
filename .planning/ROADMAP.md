@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Content Generation and Concept Extraction** - LLM-generated blog posts, figure extraction, and concept tagging (completed 2026-03-03)
 - [x] **Phase 3: Admin Review Interface** - Local web app for reviewing, editing, and approving blog post drafts (completed 2026-03-03)
 - [x] **Phase 4: Static Site and Timeline** - Public blog with post pages, chronological feed, filtering, and search (completed 2026-03-03)
-- [ ] **Phase 5: Concept Network Visualization** - Interactive force-directed graph connecting papers through shared concepts
+- [x] **Phase 5: Concept Network Visualization** - Interactive force-directed graph connecting papers through shared concepts (completed 2026-03-03)
 
 ## Phase Details
 
@@ -97,7 +97,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 05-01-PLAN.md -- D3.js force-directed graph: install d3-force/selection/zoom/drag, build-time graph data from content collection, SVG visualization with zoom/pan/drag/tooltips/click navigation, network nav link
+- [x] 05-01-PLAN.md -- D3.js force-directed graph: install d3-force/selection/zoom/drag, build-time graph data from content collection, SVG visualization with zoom/pan/drag/tooltips/click navigation, network nav link
 
 ## Progress
 
@@ -110,4 +110,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Content Generation and Concept Extraction | 0/3 | Complete    | 2026-03-03 |
 | 3. Admin Review Interface | 2/2 | Complete    | 2026-03-03 |
 | 4. Static Site and Timeline | 3/3 | Complete    | 2026-03-03 |
-| 5. Concept Network Visualization | 0/1 | Not started | - |
+| 5. Concept Network Visualization | 1/1 | Complete    | 2026-03-03 |
