@@ -31,11 +31,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Admin Interface
 
-- [ ] **ADMIN-01**: Local web app for reviewing generated blog post drafts
-- [ ] **ADMIN-02**: Admin can view extracted figures inline with blog text
-- [ ] **ADMIN-03**: Admin can edit generated blog text before approval
-- [ ] **ADMIN-04**: Admin can approve or reject drafts
-- [ ] **ADMIN-05**: Admin can trigger paper discovery and blog generation pipeline
+- [x] **ADMIN-01**: Local web app for reviewing generated blog post drafts
+- [x] **ADMIN-02**: Admin can view extracted figures inline with blog text
+- [x] **ADMIN-03**: Admin can edit generated blog text before approval
+- [x] **ADMIN-04**: Admin can approve or reject drafts
+- [x] **ADMIN-05**: Admin can trigger paper discovery and blog generation pipeline
 
 ### Public Site
 
@@ -104,11 +104,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONCEPT-01 | Phase 2 | Complete |
 | CONCEPT-02 | Phase 2 | Complete |
 | CONCEPT-03 | Phase 2 | Complete |
-| ADMIN-01 | Phase 3 | Pending |
-| ADMIN-02 | Phase 3 | Pending |
-| ADMIN-03 | Phase 3 | Pending |
-| ADMIN-04 | Phase 3 | Pending |
-| ADMIN-05 | Phase 3 | Pending |
+| ADMIN-01 | Phase 3 | Complete |
+| ADMIN-02 | Phase 3 | Complete |
+| ADMIN-03 | Phase 3 | Complete |
+| ADMIN-04 | Phase 3 | Complete |
+| ADMIN-05 | Phase 3 | Complete |
 | SITE-01 | Phase 4 | Pending |
 | SITE-02 | Phase 5 | Pending |
 | SITE-03 | Phase 4 | Pending |

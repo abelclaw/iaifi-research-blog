@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-03-03)
 
 **Core value:** Every IAIFI paper gets a well-written, accessible blog post that connects it to the broader landscape of AI and fundamental physics research -- without requiring manual writing effort.
-**Current focus:** Phase 2: Content Generation and Concept Extraction
+**Current focus:** Phase 3: Admin Review Interface
 
 ## Current Position
 
-Phase: 2 of 5 (Content Generation and Concept Extraction) -- COMPLETE
-Plan: 3 of 3 in current phase
-Status: Phase complete
-Last activity: 2026-03-03 -- Completed 02-03-PLAN.md
+Phase: 3 of 5 (Admin Review Interface)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-03-03 -- Completed 03-01-PLAN.md
 
-Progress: [█████░░░░░] 50%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 3.6min
-- Total execution time: 0.26 hours
+- Total plans completed: 6
+- Average duration: 3.3min
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [█████░░░░░] 50%
 |-------|-------|-------|----------|
 | 01-paper-ingestion-pipeline | 2/2 | 8min | 4min |
 | 02-content-generation-and-concept-extraction | 3/3 | 8min | 2.7min |
+| 03-admin-review-interface | 1/2 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 3min, 2min, 3min
+- Last 5 plans: 3min, 3min, 2min, 3min, 2min
 - Trend: Fast
 
 *Updated after each plan completion*
@@ -65,6 +66,9 @@ Recent decisions affecting current work:
 - [02-03]: ConceptExtractor uses generate_structured() with Pydantic response_format for reliable JSON extraction
 - [02-03]: ContentGenerator runs all steps sequentially (figures -> text -> blog -> concepts) with status updates between each
 - [02-03]: Generation task IDs include arxiv_id and timestamp for uniqueness and traceability
+- [03-01]: Figure path transformation done server-side in API, not client-side in JS
+- [03-01]: Pipeline generation targets pdf_downloaded, figures_extracted, and concepts_extracted statuses
+- [03-01]: Individual generation failures in pipeline do not abort the entire pipeline run
 
 ### Pending Todos
 
@@ -77,5 +81,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Completed 02-03-PLAN.md (Concept extraction and generation pipeline -- Phase 2 complete)
+Stopped at: Completed 03-01-PLAN.md (Post review API and pipeline trigger)
 Resume file: None
