@@ -39,8 +39,48 @@ CREATE TABLE IF NOT EXISTS discovery_runs (
     status TEXT NOT NULL DEFAULT 'running'
 );
 
+CREATE TABLE IF NOT EXISTS blog_posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    paper_arxiv_id TEXT NOT NULL REFERENCES papers(arxiv_id),
+    title TEXT NOT NULL,
+    slug TEXT NOT NULL UNIQUE,
+    content TEXT NOT NULL,
+    word_count INTEGER NOT NULL,
+    llm_model TEXT NOT NULL,
+    generation_cost REAL DEFAULT 0,
+    status TEXT NOT NULL DEFAULT 'draft',
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS figures (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    paper_arxiv_id TEXT NOT NULL REFERENCES papers(arxiv_id),
+    figure_path TEXT NOT NULL,
+    page_number INTEGER NOT NULL,
+    width INTEGER NOT NULL,
+    height INTEGER NOT NULL,
+    extraction_type TEXT NOT NULL,
+    sort_order INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS concepts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    paper_arxiv_id TEXT NOT NULL REFERENCES papers(arxiv_id),
+    name TEXT NOT NULL,
+    description TEXT,
+    relevance REAL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_papers_status ON papers(status);
 CREATE INDEX IF NOT EXISTS idx_papers_iaifi_category ON papers(iaifi_category);
+CREATE INDEX IF NOT EXISTS idx_blog_posts_paper ON blog_posts(paper_arxiv_id);
+CREATE INDEX IF NOT EXISTS idx_blog_posts_status ON blog_posts(status);
+CREATE INDEX IF NOT EXISTS idx_figures_paper ON figures(paper_arxiv_id);
+CREATE INDEX IF NOT EXISTS idx_concepts_paper ON concepts(paper_arxiv_id);
+CREATE INDEX IF NOT EXISTS idx_concepts_name ON concepts(name);
 """
 
 
@@ -173,3 +213,106 @@ class Database:
                 values,
             )
             await db.commit()
+
+    async def insert_blog_post(self, post: dict) -> int:
+        """Insert a new blog post and return its ID."""
+        async with aiosqlite.connect(self.db_path) as db:
+            cursor = await db.execute(
+                """
+                INSERT INTO blog_posts
+                (paper_arxiv_id, title, slug, content, word_count,
+                 llm_model, generation_cost, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    post["paper_arxiv_id"],
+                    post["title"],
+                    post["slug"],
+                    post["content"],
+                    post["word_count"],
+                    post["llm_model"],
+                    post.get("generation_cost", 0),
+                    post.get("status", "draft"),
+                ),
+            )
+            await db.commit()
+            return cursor.lastrowid  # type: ignore[return-value]
+
+    async def insert_figure(self, figure: dict) -> int:
+        """Insert a figure record and return its ID."""
+        async with aiosqlite.connect(self.db_path) as db:
+            cursor = await db.execute(
+                """
+                INSERT INTO figures
+                (paper_arxiv_id, figure_path, page_number, width, height,
+                 extraction_type, sort_order)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    figure["paper_arxiv_id"],
+                    figure["figure_path"],
+                    figure["page_number"],
+                    figure["width"],
+                    figure["height"],
+                    figure["extraction_type"],
+                    figure.get("sort_order", 0),
+                ),
+            )
+            await db.commit()
+            return cursor.lastrowid  # type: ignore[return-value]
+
+    async def insert_concepts(
+        self, arxiv_id: str, concepts: list[dict]
+    ) -> None:
+        """Insert multiple concept records for a paper."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.executemany(
+                """
+                INSERT INTO concepts
+                (paper_arxiv_id, name, description, relevance)
+                VALUES (?, ?, ?, ?)
+                """,
+                [
+                    (
+                        arxiv_id,
+                        c["name"],
+                        c.get("description", ""),
+                        c.get("relevance", 0),
+                    )
+                    for c in concepts
+                ],
+            )
+            await db.commit()
+
+    async def get_blog_post(self, arxiv_id: str) -> dict | None:
+        """Retrieve a blog post by paper arxiv_id."""
+        async with aiosqlite.connect(self.db_path) as db:
+            db.row_factory = aiosqlite.Row
+            cursor = await db.execute(
+                "SELECT * FROM blog_posts WHERE paper_arxiv_id = ?",
+                (arxiv_id,),
+            )
+            row = await cursor.fetchone()
+            return dict(row) if row else None
+
+    async def get_figures(self, arxiv_id: str) -> list[dict]:
+        """Retrieve all figures for a paper, ordered by sort_order."""
+        async with aiosqlite.connect(self.db_path) as db:
+            db.row_factory = aiosqlite.Row
+            cursor = await db.execute(
+                "SELECT * FROM figures WHERE paper_arxiv_id = ? ORDER BY sort_order",
+                (arxiv_id,),
+            )
+            rows = await cursor.fetchall()
+            return [dict(row) for row in rows]
+
+    async def get_concepts(self, arxiv_id: str) -> list[dict]:
+        """Retrieve all concepts for a paper, ordered by relevance."""
+        async with aiosqlite.connect(self.db_path) as db:
+            db.row_factory = aiosqlite.Row
+            cursor = await db.execute(
+                "SELECT * FROM concepts WHERE paper_arxiv_id = ? ORDER BY relevance DESC",
+                (arxiv_id,),
+            )
+            rows = await cursor.fetchall()
+            return [dict(row) for row in rows]

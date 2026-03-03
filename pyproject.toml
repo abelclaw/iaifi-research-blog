@@ -13,6 +13,11 @@ dependencies = [
     "aiosqlite>=0.22",
     "pydantic>=2.10",
     "httpx>=0.28",
+    "litellm>=1.40",
+    "pymupdf>=1.24",
+    "pymupdf4llm>=0.0.10",
+    "jinja2>=3.1",
+    "pillow>=10.0",
 ]
 
 [project.optional-dependencies]
