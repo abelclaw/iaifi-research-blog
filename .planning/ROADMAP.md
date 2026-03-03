@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Paper Ingestion Pipeline** - Fetch papers from IAIFI website and arxiv, download PDFs, persist state
 - [x] **Phase 2: Content Generation and Concept Extraction** - LLM-generated blog posts, figure extraction, and concept tagging (completed 2026-03-03)
-- [ ] **Phase 3: Admin Review Interface** - Local web app for reviewing, editing, and approving blog post drafts
+- [x] **Phase 3: Admin Review Interface** - Local web app for reviewing, editing, and approving blog post drafts (completed 2026-03-03)
 - [ ] **Phase 4: Static Site and Timeline** - Public blog with post pages, chronological feed, filtering, and search
 - [ ] **Phase 5: Concept Network Visualization** - Interactive force-directed graph connecting papers through shared concepts
 
@@ -65,8 +65,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Backend: BlogPostStatus enum, Database CRUD methods, post review API routes, pipeline trigger endpoint, figures static mount
-- [ ] 03-02-PLAN.md -- Frontend: Review UI page with post list, split-pane markdown editor, figure display, approve/reject workflow, pipeline trigger
+- [x] 03-01-PLAN.md -- Backend: BlogPostStatus enum, Database CRUD methods, post review API routes, pipeline trigger endpoint, figures static mount
+- [x] 03-02-PLAN.md -- Frontend: Review UI page with post list, split-pane markdown editor, figure display, approve/reject workflow, pipeline trigger
 
 ### Phase 4: Static Site and Timeline
 **Goal**: Approved blog posts are published to a static site with chronological navigation, filtering, and search
@@ -108,6 +108,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Paper Ingestion Pipeline | 2/2 | Complete    | 2026-03-03 |
 | 2. Content Generation and Concept Extraction | 0/3 | Complete    | 2026-03-03 |
-| 3. Admin Review Interface | 0/2 | Not started | - |
+| 3. Admin Review Interface | 2/2 | Complete    | 2026-03-03 |
 | 4. Static Site and Timeline | 0/3 | Not started | - |
 | 5. Concept Network Visualization | 0/1 | Not started | - |
