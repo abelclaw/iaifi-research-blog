@@ -45,12 +45,12 @@ Plans:
   3. System extracts 1-3 figures from the paper PDF and associates them with the blog post
   4. System extracts 5-15 scientific concepts per paper and stores them as structured JSON
   5. LLM backend can be switched between providers (Claude, OpenAI, others) via configuration
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md -- Foundation: dependencies, extended models/config/DB schema, LLM client, PDF reader, figure extractor
+- [ ] 02-02-PLAN.md -- Blog generation: Jinja2 prompt templates, multi-pass PostGenerator (journalist-reader-editor)
+- [ ] 02-03-PLAN.md -- Concept extraction and orchestration: ConceptExtractor, generation pipeline wiring, admin API endpoint
 
 ### Phase 3: Admin Review Interface
 **Goal**: Admin can review, edit, and approve or reject generated blog posts before they reach the public site
