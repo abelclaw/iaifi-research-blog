@@ -694,7 +694,7 @@
                     conceptsDiv.innerHTML = '<span class="no-figures">No concepts extracted</span>';
                 } else {
                     conceptsDiv.innerHTML = concepts.map(function(c) {
-                        var score = c.relevance_score != null ? ' <span class="concept-score">(' + c.relevance_score.toFixed(2) + ')</span>' : '';
+                        var score = c.relevance != null ? ' <span class="concept-score">(' + c.relevance.toFixed(2) + ')</span>' : '';
                         return '<span class="concept-tag">' + escapeHtml(c.name) + score + '</span>';
                     }).join('');
                 }
