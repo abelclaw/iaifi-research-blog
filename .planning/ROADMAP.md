@@ -78,12 +78,12 @@ Plans:
   3. Visitor can click a paper card to read the full blog post with figures and paper metadata (authors, arxiv link, date, abstract)
   4. Visitor can search across posts by title, concepts, or authors and get relevant results
   5. Site is responsive and usable on mobile devices
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md -- Foundation: Python export script bridging SQLite to markdown, Astro 5.x project with Tailwind CSS v4, content collection schema
+- [ ] 04-02-PLAN.md -- Pages and components: BaseLayout, PostLayout, PostCard, ThemeFilter, PostMetadata, timeline index, blog post dynamic pages
+- [ ] 04-03-PLAN.md -- Search and verification: Pagefind client-side search, build pipeline, end-to-end verification with test content
 
 ### Phase 5: Concept Network Visualization
 **Goal**: Visitors can explore the research landscape through an interactive force-directed graph that reveals connections between papers
