@@ -9,29 +9,29 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 
 ## Current Position
 
-Phase: 2 of 5 (Content Generation and Concept Extraction)
-Plan: 2 of 3 in current phase
-Status: Executing phase
-Last activity: 2026-03-03 -- Completed 02-02-PLAN.md
+Phase: 2 of 5 (Content Generation and Concept Extraction) -- COMPLETE
+Plan: 3 of 3 in current phase
+Status: Phase complete
+Last activity: 2026-03-03 -- Completed 02-03-PLAN.md
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 4min
-- Total execution time: 0.21 hours
+- Total plans completed: 5
+- Average duration: 3.6min
+- Total execution time: 0.26 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-paper-ingestion-pipeline | 2/2 | 8min | 4min |
-| 02-content-generation-and-concept-extraction | 2/3 | 5min | 2.5min |
+| 02-content-generation-and-concept-extraction | 3/3 | 8min | 2.7min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 3min, 2min
+- Last 5 plans: 5min, 3min, 3min, 2min, 3min
 - Trend: Fast
 
 *Updated after each plan completion*
@@ -62,6 +62,9 @@ Recent decisions affecting current work:
 - [02-02]: Three distinct system prompts give each LLM pass a clear persona: journalist drafts, reader simplifies, editor polishes
 - [02-02]: Word count tolerance (700-1600) wider than target (800-1500) to avoid rejecting borderline posts
 - [02-02]: Cost tracked per post via LLMClient total_cost delta rather than per-call tracking
+- [02-03]: ConceptExtractor uses generate_structured() with Pydantic response_format for reliable JSON extraction
+- [02-03]: ContentGenerator runs all steps sequentially (figures -> text -> blog -> concepts) with status updates between each
+- [02-03]: Generation task IDs include arxiv_id and timestamp for uniqueness and traceability
 
 ### Pending Todos
 
@@ -74,5 +77,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Completed 02-02-PLAN.md (Multi-pass blog post generation pipeline)
+Stopped at: Completed 02-03-PLAN.md (Concept extraction and generation pipeline -- Phase 2 complete)
 Resume file: None

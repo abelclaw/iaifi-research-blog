@@ -25,9 +25,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Concept & Categorization
 
-- [ ] **CONCEPT-01**: LLM extracts 5-15 scientific concepts per paper as structured data
-- [ ] **CONCEPT-02**: Papers auto-categorized into IAIFI themes (Foundational AI, Theoretical Physics, Experimental Physics, Astrophysics)
-- [ ] **CONCEPT-03**: Concept data stored as JSON for network visualization consumption
+- [x] **CONCEPT-01**: LLM extracts 5-15 scientific concepts per paper as structured data
+- [x] **CONCEPT-02**: Papers auto-categorized into IAIFI themes (Foundational AI, Theoretical Physics, Experimental Physics, Astrophysics)
+- [x] **CONCEPT-03**: Concept data stored as JSON for network visualization consumption
 
 ### Admin Interface
 
@@ -101,9 +101,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GEN-04 | Phase 2 | Complete |
 | GEN-05 | Phase 2 | Complete |
 | GEN-06 | Phase 2 | Complete |
-| CONCEPT-01 | Phase 2 | Pending |
-| CONCEPT-02 | Phase 2 | Pending |
-| CONCEPT-03 | Phase 2 | Pending |
+| CONCEPT-01 | Phase 2 | Complete |
+| CONCEPT-02 | Phase 2 | Complete |
+| CONCEPT-03 | Phase 2 | Complete |
 | ADMIN-01 | Phase 3 | Pending |
 | ADMIN-02 | Phase 3 | Pending |
 | ADMIN-03 | Phase 3 | Pending |
