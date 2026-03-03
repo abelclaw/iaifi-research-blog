@@ -1,0 +1,128 @@
+# Requirements: IAIFI Research Blog
+
+**Defined:** 2026-03-03
+**Core Value:** Every IAIFI paper gets a well-written, accessible blog post that connects it to the broader landscape of AI and fundamental physics research — without requiring manual writing effort.
+
+## v1 Requirements
+
+Requirements for initial release. Each maps to roadmap phases.
+
+### Paper Ingestion
+
+- [ ] **INGEST-01**: System can scrape IAIFI website (iaifi.org/papers.html) for paper list with arxiv IDs, authors, abstracts, categories
+- [ ] **INGEST-02**: System can fetch full paper metadata and PDFs from arxiv API
+- [ ] **INGEST-03**: System cross-references arxiv scan against IAIFI master list to identify new papers
+- [ ] **INGEST-04**: Admin can trigger paper discovery on demand via local web app
+
+### Content Generation
+
+- [ ] **GEN-01**: LLM generates ~800-1500 word blog post from paper (broad overview, highlights, impact/implications)
+- [ ] **GEN-02**: Blog posts start accessible then get more technical (mixed audience)
+- [ ] **GEN-03**: LLM uses structured templates for consistent post format
+- [ ] **GEN-04**: Multi-pass readability refinement (journalist-reader-editor pattern)
+- [ ] **GEN-05**: System auto-selects 1-3 most informative figures from paper PDF
+- [ ] **GEN-06**: Flexible LLM backend (Claude, OpenAI, others via LiteLLM)
+
+### Concept & Categorization
+
+- [ ] **CONCEPT-01**: LLM extracts 5-15 scientific concepts per paper as structured data
+- [ ] **CONCEPT-02**: Papers auto-categorized into IAIFI themes (Foundational AI, Theoretical Physics, Experimental Physics, Astrophysics)
+- [ ] **CONCEPT-03**: Concept data stored as JSON for network visualization consumption
+
+### Admin Interface
+
+- [ ] **ADMIN-01**: Local web app for reviewing generated blog post drafts
+- [ ] **ADMIN-02**: Admin can view extracted figures inline with blog text
+- [ ] **ADMIN-03**: Admin can edit generated blog text before approval
+- [ ] **ADMIN-04**: Admin can approve or reject drafts
+- [ ] **ADMIN-05**: Admin can trigger paper discovery and blog generation pipeline
+
+### Public Site
+
+- [ ] **SITE-01**: Static site generated from approved content (deployable to GitHub Pages/Netlify/Vercel)
+- [ ] **SITE-02**: Interactive force-directed concept network (papers as nodes, shared concepts as edges)
+- [ ] **SITE-03**: Chronological timeline feed with paper cards
+- [ ] **SITE-04**: Individual blog post pages with full content, figures, and metadata
+- [ ] **SITE-05**: IAIFI theme filtering on both network and timeline views
+- [ ] **SITE-06**: Client-side search across posts (title, concepts, authors)
+- [ ] **SITE-07**: Responsive design (mobile-friendly, touch-friendly network)
+- [ ] **SITE-08**: Paper metadata display (authors, arxiv link, date, abstract)
+
+## v2 Requirements
+
+Deferred to future release. Tracked but not in current roadmap.
+
+### Quality Enhancements
+
+- **QUALITY-01**: "Why this matters" contextual framing sections in blog posts
+- **QUALITY-02**: Reading difficulty indicator badge per post
+- **QUALITY-03**: Concept detail panels (click concept → see all related papers with explanations)
+
+### Automation
+
+- **AUTO-01**: Scheduled automatic paper fetching (cron-based)
+- **AUTO-02**: RSS feed for new blog posts
+- **AUTO-03**: Historical paper backfill (process full IAIFI archive)
+
+### Discovery
+
+- **DISC-01**: Visual theme clustering in concept network (spatial grouping by research area)
+
+## Out of Scope
+
+Explicitly excluded. Documented to prevent scope creep.
+
+| Feature | Reason |
+|---------|--------|
+| Fully automated publishing | LLM content must be human-reviewed before publication — reputation risk |
+| Multi-user CMS | Single admin is sufficient for this use case — avoid CMS complexity |
+| User accounts / personalization | Static site model; discovery via concept network instead |
+| Comment system | Academic discussion happens on arxiv/social media, not blog comments |
+| AI-generated figures | Scientifically inaccurate; use actual paper figures instead |
+| Multi-language support | IAIFI audience reads English; massive scope increase |
+| 3D force-directed graph | Harder to navigate, worse on mobile, no information gain over 2D |
+| Real-time collaborative editing | Single admin workflow; share externally if collaboration needed |
+| Mobile app | Responsive web is sufficient |
+| Social media auto-posting | API restrictions, risk of amplifying errors — use OG meta tags instead |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| INGEST-01 | — | Pending |
+| INGEST-02 | — | Pending |
+| INGEST-03 | — | Pending |
+| INGEST-04 | — | Pending |
+| GEN-01 | — | Pending |
+| GEN-02 | — | Pending |
+| GEN-03 | — | Pending |
+| GEN-04 | — | Pending |
+| GEN-05 | — | Pending |
+| GEN-06 | — | Pending |
+| CONCEPT-01 | — | Pending |
+| CONCEPT-02 | — | Pending |
+| CONCEPT-03 | — | Pending |
+| ADMIN-01 | — | Pending |
+| ADMIN-02 | — | Pending |
+| ADMIN-03 | — | Pending |
+| ADMIN-04 | — | Pending |
+| ADMIN-05 | — | Pending |
+| SITE-01 | — | Pending |
+| SITE-02 | — | Pending |
+| SITE-03 | — | Pending |
+| SITE-04 | — | Pending |
+| SITE-05 | — | Pending |
+| SITE-06 | — | Pending |
+| SITE-07 | — | Pending |
+| SITE-08 | — | Pending |
+
+**Coverage:**
+- v1 requirements: 26 total
+- Mapped to phases: 0
+- Unmapped: 26 ⚠️
+
+---
+*Requirements defined: 2026-03-03*
+*Last updated: 2026-03-03 after initial definition*
