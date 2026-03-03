@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 ## Current Position
 
 Phase: 2 of 5 (Content Generation and Concept Extraction)
-Plan: 0 of 3 in current phase
-Status: Ready for next phase
-Last activity: 2026-03-03 -- Completed 01-02-PLAN.md (Phase 1 complete)
+Plan: 1 of 3 in current phase
+Status: Executing phase
+Last activity: 2026-03-03 -- Completed 02-01-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: 4min
-- Total execution time: 0.13 hours
+- Total execution time: 0.18 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-paper-ingestion-pipeline | 2/2 | 8min | 4min |
+| 02-content-generation-and-concept-extraction | 1/3 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min
+- Last 5 plans: 5min, 3min, 3min
 - Trend: Fast
 
 *Updated after each plan completion*
@@ -53,6 +54,11 @@ Recent decisions affecting current work:
 - [01-02]: In-memory dict for task tracking (sufficient for single-user local app)
 - [01-02]: Vanilla JS only for admin UI (no frontend framework needed)
 - [01-02]: Database instantiated per-request matching aiosqlite connection-per-op pattern
+- [02-01]: Used litellm for provider-agnostic LLM access -- single model string config switches between Claude, GPT, Ollama
+- [02-01]: Disk caching via litellm Cache avoids redundant API calls during development iteration
+- [02-01]: Dual figure extraction: raster + vector captures both embedded images and drawn diagrams
+- [02-01]: Figure scoring by area * aspect_ratio * page_position prefers large, well-proportioned, early-page figures
+- [02-01]: Pillow normalizes all extracted images to PNG for consistent downstream handling
 
 ### Pending Todos
 
@@ -65,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Completed 01-02-PLAN.md (Phase 1 complete -- admin layer with discovery UI)
+Stopped at: Completed 02-01-PLAN.md (Foundation infrastructure for Phase 2)
 Resume file: None

@@ -20,8 +20,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **GEN-02**: Blog posts start accessible then get more technical (mixed audience)
 - [ ] **GEN-03**: LLM uses structured templates for consistent post format
 - [ ] **GEN-04**: Multi-pass readability refinement (journalist-reader-editor pattern)
-- [ ] **GEN-05**: System auto-selects 1-3 most informative figures from paper PDF
-- [ ] **GEN-06**: Flexible LLM backend (Claude, OpenAI, others via LiteLLM)
+- [x] **GEN-05**: System auto-selects 1-3 most informative figures from paper PDF
+- [x] **GEN-06**: Flexible LLM backend (Claude, OpenAI, others via LiteLLM)
 
 ### Concept & Categorization
 
@@ -99,8 +99,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GEN-02 | Phase 2 | Pending |
 | GEN-03 | Phase 2 | Pending |
 | GEN-04 | Phase 2 | Pending |
-| GEN-05 | Phase 2 | Pending |
-| GEN-06 | Phase 2 | Pending |
+| GEN-05 | Phase 2 | Complete |
+| GEN-06 | Phase 2 | Complete |
 | CONCEPT-01 | Phase 2 | Pending |
 | CONCEPT-02 | Phase 2 | Pending |
 | CONCEPT-03 | Phase 2 | Pending |
