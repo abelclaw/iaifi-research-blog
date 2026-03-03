@@ -29,11 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. System scrapes IAIFI website and returns paper entries with arxiv IDs, authors, and categories
   3. System fetches full metadata and downloads PDFs from arxiv for each discovered paper
   4. System identifies which papers are new by cross-referencing against previously ingested papers
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Pipeline core: project setup, data models, SQLite database, IAIFI scraper, arXiv client, discovery orchestrator
+- [ ] 01-02-PLAN.md -- Admin layer: FastAPI app, discovery/papers API routes, admin HTML interface, end-to-end verification
 
 ### Phase 2: Content Generation and Concept Extraction
 **Goal**: Every ingested paper gets a draft blog post with figures and concept tags ready for human review
@@ -106,7 +106,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Paper Ingestion Pipeline | 0/2 | Not started | - |
+| 1. Paper Ingestion Pipeline | 0/2 | Planning complete | - |
 | 2. Content Generation and Concept Extraction | 0/3 | Not started | - |
 | 3. Admin Review Interface | 0/2 | Not started | - |
 | 4. Static Site and Timeline | 0/3 | Not started | - |
