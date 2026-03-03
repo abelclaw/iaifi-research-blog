@@ -39,7 +39,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Public Site
 
-- [ ] **SITE-01**: Static site generated from approved content (deployable to GitHub Pages/Netlify/Vercel)
+- [x] **SITE-01**: Static site generated from approved content (deployable to GitHub Pages/Netlify/Vercel)
 - [ ] **SITE-02**: Interactive force-directed concept network (papers as nodes, shared concepts as edges)
 - [ ] **SITE-03**: Chronological timeline feed with paper cards
 - [ ] **SITE-04**: Individual blog post pages with full content, figures, and metadata
@@ -109,7 +109,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ADMIN-03 | Phase 3 | Complete |
 | ADMIN-04 | Phase 3 | Complete |
 | ADMIN-05 | Phase 3 | Complete |
-| SITE-01 | Phase 4 | Pending |
+| SITE-01 | Phase 4 | Complete |
 | SITE-02 | Phase 5 | Pending |
 | SITE-03 | Phase 4 | Pending |
 | SITE-04 | Phase 4 | Pending |

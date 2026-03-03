@@ -9,12 +9,13 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 
 ## Current Position
 
-Phase: 4 of 5 (Static Site and Timeline)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-03-03 -- Phase 3 complete, transitioning to Phase 4
+**Phase:** 4 of 5 (Static Site and Timeline)
+**Current Plan:** 2
+**Total Plans in Phase:** 3
+**Status:** Ready to execute
+**Last activity:** 2026-03-03
 
-Progress: [███████░░░] 70%
+**Progress:** [████████░░] 76%
 
 ## Performance Metrics
 
@@ -36,6 +37,7 @@ Progress: [███████░░░] 70%
 - Trend: Fast
 
 *Updated after each plan completion*
+| Phase 04 P01 | 3min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -72,6 +74,9 @@ Recent decisions affecting current work:
 - [03-02]: Single self-contained HTML file with inline CSS/JS matching index.html conventions
 - [03-02]: Marked.js loaded via CDN rather than bundled -- keeps build-free approach
 - [03-02]: List-to-detail view toggle within same page rather than separate routes
+- [Phase 04-01]: Used sync sqlite3 instead of async aiosqlite for build-time export script
+- [Phase 04-01]: Tailwind CSS v4 via @tailwindcss/vite plugin (not deprecated @astrojs/tailwind)
+- [Phase 04-01]: Content collection uses glob loader with Zod enum for iaifi_category themes
 
 ### Pending Todos
 
@@ -83,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-03
-Stopped at: Phase 3 complete, ready to plan Phase 4
-Resume file: None
+**Last session:** 2026-03-03
+**Stopped at:** Completed 04-01-PLAN.md
+**Resume file:** None
