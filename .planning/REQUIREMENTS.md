@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Paper Ingestion
 
-- [ ] **INGEST-01**: System can scrape IAIFI website (iaifi.org/papers.html) for paper list with arxiv IDs, authors, abstracts, categories
-- [ ] **INGEST-02**: System can fetch full paper metadata and PDFs from arxiv API
-- [ ] **INGEST-03**: System cross-references arxiv scan against IAIFI master list to identify new papers
+- [x] **INGEST-01**: System can scrape IAIFI website (iaifi.org/papers.html) for paper list with arxiv IDs, authors, abstracts, categories
+- [x] **INGEST-02**: System can fetch full paper metadata and PDFs from arxiv API
+- [x] **INGEST-03**: System cross-references arxiv scan against IAIFI master list to identify new papers
 - [ ] **INGEST-04**: Admin can trigger paper discovery on demand via local web app
 
 ### Content Generation
@@ -91,9 +91,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INGEST-01 | Phase 1 | Pending |
-| INGEST-02 | Phase 1 | Pending |
-| INGEST-03 | Phase 1 | Pending |
+| INGEST-01 | Phase 1 | Complete |
+| INGEST-02 | Phase 1 | Complete |
+| INGEST-03 | Phase 1 | Complete |
 | INGEST-04 | Phase 1 | Pending |
 | GEN-01 | Phase 2 | Pending |
 | GEN-02 | Phase 2 | Pending |
