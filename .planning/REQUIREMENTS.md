@@ -16,10 +16,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content Generation
 
-- [ ] **GEN-01**: LLM generates ~800-1500 word blog post from paper (broad overview, highlights, impact/implications)
-- [ ] **GEN-02**: Blog posts start accessible then get more technical (mixed audience)
-- [ ] **GEN-03**: LLM uses structured templates for consistent post format
-- [ ] **GEN-04**: Multi-pass readability refinement (journalist-reader-editor pattern)
+- [x] **GEN-01**: LLM generates ~800-1500 word blog post from paper (broad overview, highlights, impact/implications)
+- [x] **GEN-02**: Blog posts start accessible then get more technical (mixed audience)
+- [x] **GEN-03**: LLM uses structured templates for consistent post format
+- [x] **GEN-04**: Multi-pass readability refinement (journalist-reader-editor pattern)
 - [x] **GEN-05**: System auto-selects 1-3 most informative figures from paper PDF
 - [x] **GEN-06**: Flexible LLM backend (Claude, OpenAI, others via LiteLLM)
 
@@ -95,10 +95,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INGEST-02 | Phase 1 | Complete |
 | INGEST-03 | Phase 1 | Complete |
 | INGEST-04 | Phase 1 | Complete |
-| GEN-01 | Phase 2 | Pending |
-| GEN-02 | Phase 2 | Pending |
-| GEN-03 | Phase 2 | Pending |
-| GEN-04 | Phase 2 | Pending |
+| GEN-01 | Phase 2 | Complete |
+| GEN-02 | Phase 2 | Complete |
+| GEN-03 | Phase 2 | Complete |
+| GEN-04 | Phase 2 | Complete |
 | GEN-05 | Phase 2 | Complete |
 | GEN-06 | Phase 2 | Complete |
 | CONCEPT-01 | Phase 2 | Pending |
