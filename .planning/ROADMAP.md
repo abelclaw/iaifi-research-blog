@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Paper Ingestion Pipeline** - Fetch papers from IAIFI website and arxiv, download PDFs, persist state
 - [x] **Phase 2: Content Generation and Concept Extraction** - LLM-generated blog posts, figure extraction, and concept tagging (completed 2026-03-03)
 - [x] **Phase 3: Admin Review Interface** - Local web app for reviewing, editing, and approving blog post drafts (completed 2026-03-03)
-- [ ] **Phase 4: Static Site and Timeline** - Public blog with post pages, chronological feed, filtering, and search
+- [x] **Phase 4: Static Site and Timeline** - Public blog with post pages, chronological feed, filtering, and search (completed 2026-03-03)
 - [ ] **Phase 5: Concept Network Visualization** - Interactive force-directed graph connecting papers through shared concepts
 
 ## Phase Details
@@ -81,9 +81,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md -- Foundation: Python export script bridging SQLite to markdown, Astro 5.x project with Tailwind CSS v4, content collection schema
-- [ ] 04-02-PLAN.md -- Pages and components: BaseLayout, PostLayout, PostCard, ThemeFilter, PostMetadata, timeline index, blog post dynamic pages
-- [ ] 04-03-PLAN.md -- Search and verification: Pagefind client-side search, build pipeline, end-to-end verification with test content
+- [x] 04-01-PLAN.md -- Foundation: Python export script bridging SQLite to markdown, Astro 5.x project with Tailwind CSS v4, content collection schema
+- [x] 04-02-PLAN.md -- Pages and components: BaseLayout, PostLayout, PostCard, ThemeFilter, PostMetadata, timeline index, blog post dynamic pages
+- [x] 04-03-PLAN.md -- Search and verification: Pagefind client-side search, build pipeline, end-to-end verification with test content
 
 ### Phase 5: Concept Network Visualization
 **Goal**: Visitors can explore the research landscape through an interactive force-directed graph that reveals connections between papers
@@ -109,5 +109,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Paper Ingestion Pipeline | 2/2 | Complete    | 2026-03-03 |
 | 2. Content Generation and Concept Extraction | 0/3 | Complete    | 2026-03-03 |
 | 3. Admin Review Interface | 2/2 | Complete    | 2026-03-03 |
-| 4. Static Site and Timeline | 0/3 | Not started | - |
+| 4. Static Site and Timeline | 3/3 | Complete    | 2026-03-03 |
 | 5. Concept Network Visualization | 0/1 | Not started | - |
