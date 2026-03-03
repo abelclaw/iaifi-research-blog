@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Search Papers - IAIFI Research Blog">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">Search Papers</h1>
+
+  <p class="text-gray-600 mb-8">
+    Search across all published papers by title, authors, or concepts.
+  </p>
+
+  <div id="search-container" class="mb-12"></div>
+
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", () => {
+      new PagefindUI({
+        element: "#search-container",
+        showSubResults: true,
+        showImages: false,
+      });
+    });
+  </script>
+</BaseLayout>
