@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 ## Current Position
 
 Phase: 3 of 5 (Admin Review Interface)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-03-03 -- Completed 03-01-PLAN.md
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-03-03 -- Completed 03-02-PLAN.md
 
-Progress: [██████░░░░] 60%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: 3.3min
-- Total execution time: 0.30 hours
+- Total execution time: 0.35 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [██████░░░░] 60%
 |-------|-------|-------|----------|
 | 01-paper-ingestion-pipeline | 2/2 | 8min | 4min |
 | 02-content-generation-and-concept-extraction | 3/3 | 8min | 2.7min |
-| 03-admin-review-interface | 1/2 | 2min | 2min |
+| 03-admin-review-interface | 2/2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 2min, 3min, 2min
+- Last 5 plans: 3min, 2min, 3min, 2min, 3min
 - Trend: Fast
 
 *Updated after each plan completion*
@@ -69,6 +69,9 @@ Recent decisions affecting current work:
 - [03-01]: Figure path transformation done server-side in API, not client-side in JS
 - [03-01]: Pipeline generation targets pdf_downloaded, figures_extracted, and concepts_extracted statuses
 - [03-01]: Individual generation failures in pipeline do not abort the entire pipeline run
+- [03-02]: Single self-contained HTML file with inline CSS/JS matching index.html conventions
+- [03-02]: Marked.js loaded via CDN rather than bundled -- keeps build-free approach
+- [03-02]: List-to-detail view toggle within same page rather than separate routes
 
 ### Pending Todos
 
@@ -81,5 +84,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Completed 03-01-PLAN.md (Post review API and pipeline trigger)
+Stopped at: Completed 03-02-PLAN.md (Blog post review UI)
 Resume file: None
