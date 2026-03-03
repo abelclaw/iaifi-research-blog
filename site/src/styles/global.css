@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-ai: #3b82f6;
+  --color-theme-theory: #8b5cf6;
+  --color-theme-experiment: #f59e0b;
+  --color-theme-astro: #10b981;
+}

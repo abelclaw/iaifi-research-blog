@@ -23,5 +23,10 @@ build/
 *.swp
 *.swo
 
+# Astro site
+site/node_modules/
+site/dist/
+site/.astro/
+
 # OS
 .DS_Store
