@@ -94,10 +94,10 @@ Plans:
   2. Papers with more shared concepts cluster together naturally in the graph
   3. Visitor can click a paper node to navigate to its blog post page
   4. Graph renders smoothly with zoom, pan, and hover interactions
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 05-01: TBD
+- [ ] 05-01-PLAN.md -- D3.js force-directed graph: install d3-force/selection/zoom/drag, build-time graph data from content collection, SVG visualization with zoom/pan/drag/tooltips/click navigation, network nav link
 
 ## Progress
 
