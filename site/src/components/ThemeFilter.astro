@@ -1,0 +1,48 @@
+---
+const themes = [
+  { label: "All", value: "all" },
+  { label: "Foundational AI", value: "Foundational AI" },
+  { label: "Theoretical Physics", value: "Theoretical Physics" },
+  { label: "Experimental Physics", value: "Experimental Physics" },
+  { label: "Astrophysics", value: "Astrophysics" },
+];
+---
+
+<div class="flex flex-wrap gap-2 mb-6" role="group" aria-label="Filter by theme">
+  {themes.map((t) => (
+    <button
+      class="theme-filter-btn rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 data-[active]:bg-gray-900 data-[active]:text-white data-[active]:border-gray-900"
+      data-filter={t.value}
+      data-active={t.value === "all" ? "" : undefined}
+    >
+      {t.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-filter-btn");
+    const timeline = document.getElementById("timeline");
+    if (!timeline) return;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Update active state
+        buttons.forEach((b) => b.removeAttribute("data-active"));
+        btn.setAttribute("data-active", "");
+
+        const filter = btn.getAttribute("data-filter");
+        const articles = timeline.querySelectorAll<HTMLElement>("article");
+
+        articles.forEach((article) => {
+          if (filter === "all" || article.getAttribute("data-theme") === filter) {
+            article.style.display = "";
+          } else {
+            article.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>

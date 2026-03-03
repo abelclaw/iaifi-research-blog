@@ -1,0 +1,85 @@
+---
+interface Props {
+  post: {
+    id: string;
+    data: {
+      title: string;
+      authors: string[];
+      abstract: string;
+      theme: string;
+      published: Date;
+      concepts: string[];
+      arxivUrl: string;
+    };
+  };
+}
+
+const { post } = Astro.props;
+const { title, authors, abstract, theme, published, concepts } = post.data;
+
+const themeColors: Record<string, { badge: string; border: string }> = {
+  "Foundational AI": {
+    badge: "bg-blue-100 text-blue-800",
+    border: "border-l-blue-500",
+  },
+  "Theoretical Physics": {
+    badge: "bg-violet-100 text-violet-800",
+    border: "border-l-violet-500",
+  },
+  "Experimental Physics": {
+    badge: "bg-amber-100 text-amber-800",
+    border: "border-l-amber-500",
+  },
+  "Astrophysics": {
+    badge: "bg-emerald-100 text-emerald-800",
+    border: "border-l-emerald-500",
+  },
+};
+
+const colors = themeColors[theme] ?? { badge: "bg-gray-100 text-gray-800", border: "border-l-gray-500" };
+
+const displayAuthors =
+  authors.length > 3
+    ? authors.slice(0, 3).join(", ") + ` et al.`
+    : authors.join(", ");
+
+const displayDate = published.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+const displayConcepts = concepts.slice(0, 5);
+---
+
+<article
+  class={`border-l-4 ${colors.border} bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow`}
+  data-theme={theme}
+>
+  <div class="flex flex-wrap items-center gap-2 mb-2">
+    <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${colors.badge}`}>
+      {theme}
+    </span>
+    <span class="text-xs text-gray-500">{displayDate}</span>
+  </div>
+
+  <h2 class="text-lg font-semibold mb-1">
+    <a href={`/posts/${post.id}`} class="text-gray-900 hover:text-blue-600 transition-colors">
+      {title}
+    </a>
+  </h2>
+
+  <p class="text-sm text-gray-600 mb-2">{displayAuthors}</p>
+
+  <p class="text-sm text-gray-700 line-clamp-3 mb-3">{abstract}</p>
+
+  {displayConcepts.length > 0 && (
+    <div class="flex flex-wrap gap-1.5">
+      {displayConcepts.map((concept) => (
+        <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+          {concept}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

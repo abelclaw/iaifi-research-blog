@@ -1,0 +1,87 @@
+---
+interface Props {
+  authors: string[];
+  arxivUrl: string;
+  pdfUrl: string;
+  published: Date;
+  abstract: string;
+  theme: string;
+  concepts: string[];
+  figures: string[];
+}
+
+const { authors, arxivUrl, pdfUrl, published, abstract, theme, concepts } = Astro.props;
+
+const themeColors: Record<string, string> = {
+  "Foundational AI": "bg-blue-100 text-blue-800",
+  "Theoretical Physics": "bg-violet-100 text-violet-800",
+  "Experimental Physics": "bg-amber-100 text-amber-800",
+  "Astrophysics": "bg-emerald-100 text-emerald-800",
+};
+
+const badgeClass = themeColors[theme] ?? "bg-gray-100 text-gray-800";
+
+const displayDate = published.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<div class="mb-8 space-y-4">
+  <div class="flex flex-wrap items-center gap-3">
+    <span class={`inline-block text-sm font-semibold px-3 py-1 rounded-full ${badgeClass}`} data-pagefind-filter="theme">
+      {theme}
+    </span>
+    <time class="text-sm text-gray-500" datetime={published.toISOString()}>
+      {displayDate}
+    </time>
+  </div>
+
+  <div data-pagefind-meta="authors">
+    <h3 class="text-sm font-medium text-gray-500 mb-1">Authors</h3>
+    <p class="text-gray-800">{authors.join(", ")}</p>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-500 mb-1">Abstract</h3>
+    <blockquote class="text-gray-700 text-sm leading-relaxed border-l-2 border-gray-200 pl-4 italic">
+      {abstract}
+    </blockquote>
+  </div>
+
+  <div class="flex flex-wrap gap-3 text-sm">
+    <a
+      href={arxivUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors font-medium"
+    >
+      arXiv Paper &rarr;
+    </a>
+    <a
+      href={pdfUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors font-medium"
+    >
+      PDF &rarr;
+    </a>
+  </div>
+
+  {concepts.length > 0 && (
+    <div>
+      <h3 class="text-sm font-medium text-gray-500 mb-2">Concepts</h3>
+      <div class="flex flex-wrap gap-1.5">
+        {concepts.map((concept) => (
+          <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+            {concept}
+          </span>
+        ))}
+      </div>
+      {concepts.map((concept) => (
+        <span class="hidden" data-pagefind-meta="concepts">{concept}</span>
+      ))}
+    </div>
+  )}
+</div>
