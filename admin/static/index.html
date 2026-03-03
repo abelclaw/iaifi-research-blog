@@ -211,9 +211,35 @@
             background: #fee2e2;
             color: #991b1b;
         }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        nav a.current {
+            color: #111;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="/" class="current">Discovery</a>
+        <a href="/review.html">Review Posts</a>
+    </nav>
+
     <h1>IAIFI Paper Discovery</h1>
 
     <div class="discovery-section">
