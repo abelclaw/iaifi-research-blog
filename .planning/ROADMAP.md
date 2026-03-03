@@ -62,11 +62,11 @@ Plans:
   3. Admin can edit the generated blog text directly in the review interface
   4. Admin can approve or reject each draft, and only approved posts proceed to publication
   5. Admin can trigger the full pipeline (paper discovery through blog generation) from the interface
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Backend: BlogPostStatus enum, Database CRUD methods, post review API routes, pipeline trigger endpoint, figures static mount
+- [ ] 03-02-PLAN.md -- Frontend: Review UI page with post list, split-pane markdown editor, figure display, approve/reject workflow, pipeline trigger
 
 ### Phase 4: Static Site and Timeline
 **Goal**: Approved blog posts are published to a static site with chronological navigation, filtering, and search
