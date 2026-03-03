@@ -5,100 +5,50 @@
 See: .planning/PROJECT.md (updated 2026-03-03)
 
 **Core value:** Every IAIFI paper gets a well-written, accessible blog post that connects it to the broader landscape of AI and fundamental physics research -- without requiring manual writing effort.
-**Current focus:** Phase 5: Concept Network Visualization
+**Current focus:** v1.0 milestone complete. Planning next milestone.
 
 ## Current Position
 
-Phase: 5 of 5 (Concept Network Visualization)
-Plan: 1 of 1 -- COMPLETE
-Status: Phase 5 complete -- all phases done
-Last activity: 2026-03-03 -- Phase 5 Plan 1 complete
+Milestone: v1.0 MVP -- SHIPPED
+Phases: 5/5 complete (11 plans)
+Status: Milestone complete
+Last activity: 2026-03-03 -- v1.0 milestone archived
 
 Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 3.1min
-- Total execution time: 0.38 hours
+- Total plans completed: 11
+- Total execution time: ~35 minutes
+- Average duration per plan: ~3 minutes
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01-paper-ingestion-pipeline | 2/2 | 8min | 4min |
-| 02-content-generation-and-concept-extraction | 3/3 | 8min | 2.7min |
-| 03-admin-review-interface | 2/2 | 5min | 2.5min |
-
-**Recent Trend:**
-- Last 5 plans: 2min, 3min, 2min, 3min, 3min
-- Trend: Fast
-
-*Updated after each plan completion*
-| Phase 04 P01 | 3min | 2 tasks | 8 files |
-| Phase 04 P02 | 2min | 2 tasks | 10 files |
-| Phase 04 P03 | 2min | 2 tasks | 2 files |
-| Phase 05 P01 | 3min | 2 tasks | 4 files |
+| Phase | Plans | Duration |
+|-------|-------|----------|
+| 01-paper-ingestion-pipeline | 2/2 | 8min |
+| 02-content-generation-and-concept-extraction | 3/3 | 8min |
+| 03-admin-review-interface | 2/2 | 5min |
+| 04-static-site-and-timeline | 3/3 | 7min |
+| 05-concept-network-visualization | 1/1 | 3min |
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- [Roadmap]: 5-phase structure derived from 26 requirements across 5 categories
-- [Roadmap]: Content generation and concept extraction combined into single phase (shared LLM pipeline)
-- [Roadmap]: Concept network visualization isolated as final phase (depends on quality concept data + site shell)
-- [01-01]: Used hatchling build backend with packages=["pipeline"] for non-standard package name
-- [01-01]: Scrape all 4 category pages (not main papers.html) for definitive category assignments
-- [01-01]: Store authors/categories as JSON strings in SQLite, parsed to lists on read
-- [01-01]: arXiv ID normalization: always strip version suffix for consistent cross-referencing
-- [01-02]: Static files mount AFTER API routers to prevent /api/* interception
-- [01-02]: In-memory dict for task tracking (sufficient for single-user local app)
-- [01-02]: Vanilla JS only for admin UI (no frontend framework needed)
-- [01-02]: Database instantiated per-request matching aiosqlite connection-per-op pattern
-- [02-01]: Used litellm for provider-agnostic LLM access -- single model string config switches between Claude, GPT, Ollama
-- [02-01]: Disk caching via litellm Cache avoids redundant API calls during development iteration
-- [02-01]: Dual figure extraction: raster + vector captures both embedded images and drawn diagrams
-- [02-01]: Figure scoring by area * aspect_ratio * page_position prefers large, well-proportioned, early-page figures
-- [02-01]: Pillow normalizes all extracted images to PNG for consistent downstream handling
-- [02-02]: Three distinct system prompts give each LLM pass a clear persona: journalist drafts, reader simplifies, editor polishes
-- [02-02]: Word count tolerance (700-1600) wider than target (800-1500) to avoid rejecting borderline posts
-- [02-02]: Cost tracked per post via LLMClient total_cost delta rather than per-call tracking
-- [02-03]: ConceptExtractor uses generate_structured() with Pydantic response_format for reliable JSON extraction
-- [02-03]: ContentGenerator runs all steps sequentially (figures -> text -> blog -> concepts) with status updates between each
-- [02-03]: Generation task IDs include arxiv_id and timestamp for uniqueness and traceability
-- [03-01]: Figure path transformation done server-side in API, not client-side in JS
-- [03-01]: Pipeline generation targets pdf_downloaded, figures_extracted, and concepts_extracted statuses
-- [03-01]: Individual generation failures in pipeline do not abort the entire pipeline run
-- [03-02]: Single self-contained HTML file with inline CSS/JS matching index.html conventions
-- [03-02]: Marked.js loaded via CDN rather than bundled -- keeps build-free approach
-- [03-02]: List-to-detail view toggle within same page rather than separate routes
-- [Phase 04-01]: Used sync sqlite3 instead of async aiosqlite for build-time export script
-- [Phase 04-01]: Tailwind CSS v4 via @tailwindcss/vite plugin (not deprecated @astrojs/tailwind)
-- [Phase 04-01]: Content collection uses glob loader with Zod enum for iaifi_category themes
-- [Phase 04]: Theme color coding uses Tailwind utility class maps rather than CSS custom properties for component-scoped styling
-- [Phase 04]: ThemeFilter uses inline script with vanilla JS for client-side filtering (no framework hydration needed)
-- [Phase 04]: Tailwind v4 typography plugin enabled via @plugin directive in CSS (not tailwind.config.js)
-- [Phase 04-03]: Pagefind UI scripts use is:inline since assets are generated post-build
-- [Phase 05-01]: Individual D3 packages (d3-force, d3-selection, d3-zoom, d3-drag) instead of full d3 bundle for tree-shaking
-- [Phase 05-01]: Regular script tag (not is:inline) lets Vite bundle D3 imports
-- [Phase 05-01]: HTML tooltip div instead of SVG title for richer display with Tailwind classes
-- [Phase 05-01]: isDragging flag pattern prevents click-to-navigate from firing after drag
-- [Phase 05-01]: Adjacency set for O(1) connected-node lookup during hover highlighting
+Full decision log in PROJECT.md Key Decisions table.
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ## Session Continuity
 
 Last session: 2026-03-03
-Stopped at: Completed 05-01-PLAN.md -- all phases complete
+Stopped at: v1.0 milestone complete and archived
 Resume file: None
