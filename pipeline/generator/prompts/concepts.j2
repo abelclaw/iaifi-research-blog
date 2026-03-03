@@ -1,0 +1,36 @@
+You are analyzing a research paper to extract key scientific concepts and validate its categorization.
+
+## Paper Information
+
+**Title:** {{ title }}
+**Authors:** {{ authors | join(', ') }}
+**Current Category:** {{ iaifi_category }}
+
+## Abstract
+
+{{ abstract }}
+
+## Paper Content
+
+{{ paper_content }}
+
+## Extraction Instructions
+
+Extract 5-15 key scientific concepts from this paper. For each concept provide:
+- A short **name** (1-4 words)
+- A one-sentence **description** of what it means in the context of this paper
+- A **relevance** score (0-1) indicating how central it is to the paper's contribution
+
+Focus on:
+- Specific methods or algorithms
+- Theoretical frameworks
+- Physical phenomena
+- Mathematical tools
+- Datasets
+- Key results
+
+Avoid generic terms like "machine learning" or "physics" unless the paper makes a specific novel contribution to that general area.
+
+Determine the **primary IAIFI theme**: one of "Foundational AI", "Theoretical Physics", "Experimental Physics", or "Astrophysics". The current assigned category is {{ iaifi_category }} -- validate or correct based on paper content.
+
+List any **secondary themes** that are also relevant (can be empty).
