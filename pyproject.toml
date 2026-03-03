@@ -1,0 +1,29 @@
+[project]
+name = "iaifi-blog"
+version = "0.1.0"
+description = "Automated blog generator for IAIFI research papers"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "beautifulsoup4>=4.14",
+    "lxml>=5.0",
+    "arxiv>=2.4.0",
+    "requests>=2.32",
+    "aiosqlite>=0.22",
+    "pydantic>=2.10",
+    "httpx>=0.28",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["pipeline"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
