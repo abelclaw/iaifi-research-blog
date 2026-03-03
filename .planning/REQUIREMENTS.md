@@ -41,12 +41,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **SITE-01**: Static site generated from approved content (deployable to GitHub Pages/Netlify/Vercel)
 - [ ] **SITE-02**: Interactive force-directed concept network (papers as nodes, shared concepts as edges)
-- [ ] **SITE-03**: Chronological timeline feed with paper cards
-- [ ] **SITE-04**: Individual blog post pages with full content, figures, and metadata
-- [ ] **SITE-05**: IAIFI theme filtering on both network and timeline views
+- [x] **SITE-03**: Chronological timeline feed with paper cards
+- [x] **SITE-04**: Individual blog post pages with full content, figures, and metadata
+- [x] **SITE-05**: IAIFI theme filtering on both network and timeline views
 - [ ] **SITE-06**: Client-side search across posts (title, concepts, authors)
-- [ ] **SITE-07**: Responsive design (mobile-friendly, touch-friendly network)
-- [ ] **SITE-08**: Paper metadata display (authors, arxiv link, date, abstract)
+- [x] **SITE-07**: Responsive design (mobile-friendly, touch-friendly network)
+- [x] **SITE-08**: Paper metadata display (authors, arxiv link, date, abstract)
 
 ## v2 Requirements
 
@@ -111,12 +111,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ADMIN-05 | Phase 3 | Complete |
 | SITE-01 | Phase 4 | Complete |
 | SITE-02 | Phase 5 | Pending |
-| SITE-03 | Phase 4 | Pending |
-| SITE-04 | Phase 4 | Pending |
-| SITE-05 | Phase 4 | Pending |
+| SITE-03 | Phase 4 | Complete |
+| SITE-04 | Phase 4 | Complete |
+| SITE-05 | Phase 4 | Complete |
 | SITE-06 | Phase 4 | Pending |
-| SITE-07 | Phase 4 | Pending |
-| SITE-08 | Phase 4 | Pending |
+| SITE-07 | Phase 4 | Complete |
+| SITE-08 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 26 total

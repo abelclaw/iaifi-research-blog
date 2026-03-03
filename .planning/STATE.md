@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 ## Current Position
 
 **Phase:** 4 of 5 (Static Site and Timeline)
-**Current Plan:** 2
+**Current Plan:** 3
 **Total Plans in Phase:** 3
 **Status:** Ready to execute
 **Last activity:** 2026-03-03
 
-**Progress:** [████████░░] 76%
+**Progress:** [█████████░] 90%
 
 ## Performance Metrics
 
@@ -38,6 +38,7 @@ See: .planning/PROJECT.md (updated 2026-03-03)
 
 *Updated after each plan completion*
 | Phase 04 P01 | 3min | 2 tasks | 8 files |
+| Phase 04 P02 | 2min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [Phase 04-01]: Used sync sqlite3 instead of async aiosqlite for build-time export script
 - [Phase 04-01]: Tailwind CSS v4 via @tailwindcss/vite plugin (not deprecated @astrojs/tailwind)
 - [Phase 04-01]: Content collection uses glob loader with Zod enum for iaifi_category themes
+- [Phase 04]: Theme color coding uses Tailwind utility class maps rather than CSS custom properties for component-scoped styling
+- [Phase 04]: ThemeFilter uses inline script with vanilla JS for client-side filtering (no framework hydration needed)
+- [Phase 04]: Tailwind v4 typography plugin enabled via @plugin directive in CSS (not tailwind.config.js)
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-**Last session:** 2026-03-03
-**Stopped at:** Completed 04-01-PLAN.md
+**Last session:** 2026-03-03T18:05:23.948Z
+**Stopped at:** Completed 04-02-PLAN.md
 **Resume file:** None
