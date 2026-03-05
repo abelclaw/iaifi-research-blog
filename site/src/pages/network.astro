@@ -1,81 +1,437 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+// Simple taxonomy YAML parser (avoids js-yaml dependency)
+function parseTaxonomy(text: string): Record<string, string[]> {
+  const result: Record<string, string[]> = {};
+  let currentCat = "";
+  for (const line of text.split("\n")) {
+    const t = line.trim();
+    if (!t || t.startsWith("#") || t === "categories:") continue;
+    if (!line.startsWith("    ") && t.endsWith(":")) {
+      currentCat = t.slice(0, -1);
+      result[currentCat] = [];
+    } else if (line.startsWith("    ") && t.startsWith("- ") && currentCat) {
+      result[currentCat].push(t.slice(2));
+    }
+  }
+  return result;
+}
+
+// Load taxonomy
+const taxonomyPath = path.join(process.cwd(), "../pipeline/concepts_taxonomy.yaml");
+let taxonomyCategories: Record<string, string[]> = {};
+try {
+  taxonomyCategories = parseTaxonomy(fs.readFileSync(taxonomyPath, "utf-8"));
+} catch {}
+
+// Concept -> category lookup
+const conceptToCategory: Record<string, string> = {};
+for (const [cat, concepts] of Object.entries(taxonomyCategories)) {
+  for (const c of concepts) conceptToCategory[c] = cat;
+}
+
+// Category color definitions
+const categoryColorMap: Record<string, { bg: string; border: string; text: string; header: string }> = {
+  "Representation & Manifold Learning": { bg: "#dbeafe", border: "#93c5fd", text: "#1e40af", header: "#3b82f6" },
+  "Generative Models": { bg: "#e0e7ff", border: "#a5b4fc", text: "#3730a3", header: "#6366f1" },
+  "Uncertainty Quantification & Robust AI": { bg: "#fce7f3", border: "#f9a8d4", text: "#9d174d", header: "#ec4899" },
+  "Physics-Motivated Optimization": { bg: "#ccfbf1", border: "#5eead4", text: "#115e59", header: "#14b8a6" },
+  "Reinforcement Learning & Search": { bg: "#ffedd5", border: "#fdba74", text: "#9a3412", header: "#f97316" },
+  "Neural Architectures": { bg: "#cffafe", border: "#67e8f9", text: "#155e75", header: "#0891b2" },
+  "Statistical & Mathematical Methods": { bg: "#f3e8ff", border: "#d8b4fe", text: "#6b21a8", header: "#a855f7" },
+  "Training & Optimization": { bg: "#ecfccb", border: "#bef264", text: "#3f6212", header: "#65a30d" },
+  "Particle & High-Energy Physics": { bg: "#fee2e2", border: "#fca5a5", text: "#991b1b", header: "#ef4444" },
+  "Quantum Field Theory & Formal Theory": { bg: "#ede9fe", border: "#c4b5fd", text: "#5b21b6", header: "#7c3aed" },
+  "Quantum Computing & Information": { bg: "#fae8ff", border: "#e879f9", text: "#86198f", header: "#d946ef" },
+  "Astrophysics & Cosmology": { bg: "#d1fae5", border: "#6ee7b7", text: "#065f46", header: "#10b981" },
+  "Condensed Matter & Materials": { bg: "#fef3c7", border: "#fcd34d", text: "#92400e", header: "#f59e0b" },
+  "Scientific Discovery": { bg: "#dcfce7", border: "#86efac", text: "#166534", header: "#16a34a" },
+};
+const defaultColor = { bg: "#f3f4f6", border: "#d1d5db", text: "#4b5563", header: "#6b7280" };
+
+// Load approved concepts from exported JSON
+let conceptEntries: any[] = [];
+const conceptsPath = path.join(process.cwd(), "src/data/concepts.json");
+try {
+  conceptEntries = JSON.parse(fs.readFileSync(conceptsPath, "utf-8"));
+} catch {}
 
 const posts = await getCollection("posts");
 
-// Build nodes array: each post becomes a node
-const nodes = posts.map((post) => ({
-  id: post.id,
-  title: post.data.title,
-  theme: post.data.theme,
-  concepts: post.data.concepts,
-  url: import.meta.env.BASE_URL + "posts/" + post.id,
+// Build unified paper set
+const paperMap = new Map<string, { id: string; title: string; nickname: string | null; theme: string; concepts: string[]; authors: string[]; url: string | null }>();
+for (const entry of conceptEntries) {
+  paperMap.set(entry.arxivId, {
+    id: entry.arxivId,
+    title: entry.title,
+    nickname: entry.nickname || null,
+    theme: entry.theme,
+    concepts: entry.concepts || [],
+    authors: entry.authors || [],
+    url: entry.blogSlug ? import.meta.env.BASE_URL + "posts/" + entry.blogSlug : null,
+  });
+}
+for (const post of posts) {
+  if (!paperMap.has(post.data.arxivId)) {
+    paperMap.set(post.data.arxivId, {
+      id: post.data.arxivId,
+      title: post.data.title,
+      nickname: null,
+      theme: post.data.theme,
+      concepts: post.data.concepts || [],
+      authors: post.data.authors || [],
+      url: import.meta.env.BASE_URL + "posts/" + post.id,
+    });
+  } else {
+    // Merge authors from blog post if concepts.json didn't have them
+    const existing = paperMap.get(post.data.arxivId)!;
+    if (existing.authors.length === 0 && post.data.authors?.length > 0) {
+      existing.authors = post.data.authors;
+    }
+  }
+}
+
+const allPapers = Array.from(paperMap.values());
+
+const paperNodes = allPapers.map((p) => ({
+  id: p.id, type: "paper" as const, title: p.title, nickname: p.nickname, theme: p.theme, concepts: p.concepts, authors: p.authors, url: p.url,
 }));
 
-// Build links array: for each pair of posts, find shared concepts
-const links: { source: string; target: string; sharedConcepts: string[] }[] = [];
-for (let i = 0; i < posts.length; i++) {
-  for (let j = i + 1; j < posts.length; j++) {
-    const shared = posts[i].data.concepts.filter((c) =>
-      posts[j].data.concepts.includes(c)
-    );
-    if (shared.length > 0) {
-      links.push({
-        source: posts[i].id,
-        target: posts[j].id,
-        sharedConcepts: shared,
+const conceptUsage: Record<string, string[]> = {};
+for (const p of allPapers) {
+  for (const c of p.concepts) {
+    if (!conceptUsage[c]) conceptUsage[c] = [];
+    conceptUsage[c].push(p.id);
+  }
+}
+
+const sharedConcepts = Object.entries(conceptUsage)
+  .filter(([_, papers]) => papers.length >= 2)
+  .map(([name, papers]) => ({ name, papers }));
+
+const conceptNodes = sharedConcepts.map((c) => ({
+  id: `concept:${c.name}`, type: "concept" as const, title: c.name, papers: c.papers,
+}));
+
+const links: { source: string; target: string }[] = [];
+for (const c of sharedConcepts) {
+  for (const paperId of c.papers) {
+    links.push({ source: paperId, target: `concept:${c.name}` });
+  }
+}
+
+// Build relevance lookup: paper -> concept -> relevance score
+const relevanceMap: Record<string, Record<string, number>> = {};
+for (const entry of conceptEntries) {
+  relevanceMap[entry.arxivId] = {};
+  for (const cd of (entry.conceptDetails || [])) {
+    relevanceMap[entry.arxivId][cd.name] = cd.relevance || 0;
+  }
+}
+
+// Build paper-paper links with weighted connection scores
+// Score = sum of (relevance_a * relevance_b) for each shared concept
+const paperLinks: { source: string; target: string; score: number; sharedConcepts: string[] }[] = [];
+for (let i = 0; i < allPapers.length; i++) {
+  for (let j = i + 1; j < allPapers.length; j++) {
+    const shared = allPapers[i].concepts.filter((c: string) => allPapers[j].concepts.includes(c));
+    if (shared.length < 2) continue;
+    let score = 0;
+    for (const c of shared) {
+      const ra = relevanceMap[allPapers[i].id]?.[c] ?? 0;
+      const rb = relevanceMap[allPapers[j].id]?.[c] ?? 0;
+      score += ra * rb;
+    }
+    if (score >= 2) { // Only include pairs with meaningful weighted connection
+      paperLinks.push({
+        source: allPapers[i].id, target: allPapers[j].id,
+        score: Math.round(score * 100) / 100, sharedConcepts: shared,
       });
     }
   }
 }
 
-const graphData = JSON.stringify({ nodes, links });
+const conceptIndex = Object.entries(conceptUsage)
+  .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+  .map(([name, papers]) => ({ name, count: papers.length, papers }));
+
+// Group concepts by taxonomy category
+const conceptsByCategory: Record<string, typeof conceptIndex> = {};
+for (const entry of conceptIndex) {
+  const cat = conceptToCategory[entry.name] || "Other";
+  if (!conceptsByCategory[cat]) conceptsByCategory[cat] = [];
+  conceptsByCategory[cat].push(entry);
+}
+const sortedCategories = [
+  ...Object.keys(taxonomyCategories).filter((c) => conceptsByCategory[c]),
+  ...(conceptsByCategory["Other"] ? ["Other"] : []),
+];
+
+// Strip sharedConcepts from paperLinks for the client payload (saves ~MB)
+// Strip sharedConcepts from paperLinks; drop conceptNodes/links (rebuilt client-side)
+const paperLinksSlim = paperLinks.map(({ source, target, score }) => ({ source, target, score }));
+const graphData = JSON.stringify({
+  paperNodes, paperLinks: paperLinksSlim, conceptIndex,
+  conceptToCategory, categoryColorMap: { ...categoryColorMap, Other: defaultColor },
+});
 ---
 
 <BaseLayout title="Concept Network - IAIFI Research Blog">
   <section class="mb-6">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">Concept Network</h1>
-    <p class="text-lg text-gray-600 mb-1">
-      Explore connections between papers through shared concepts. Nodes are
-      papers, edges are shared concepts.
+    <h1 class="text-2xl font-bold text-[#212529] mb-2 flex items-center gap-2">
+      <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
+      Concept Network
+    </h1>
+    <p class="text-gray-600 text-sm mb-1">
+      Papers connected through shared research concepts. Large nodes are papers,
+      small nodes are concepts bridging them.
     </p>
-    <p class="text-sm text-gray-400">
-      Drag nodes to rearrange. Scroll to zoom. Click a node to read the paper.
+    <p class="text-xs text-gray-400">
+      Drag to rearrange. Scroll to zoom. Click a node for details. Double-click to center it.
     </p>
   </section>
 
-  {nodes.length < 2 ? (
-    <div class="text-center py-16 text-gray-500 bg-white rounded-lg shadow-sm border border-gray-200">
-      <p class="text-lg font-medium mb-2">Not enough papers to visualize connections.</p>
-      <p class="text-sm">Add more papers through the admin interface.</p>
+  {paperNodes.length === 0 ? (
+    <div class="text-center py-16 text-gray-500 bg-white rounded-lg border border-gray-200">
+      <p class="text-lg font-medium mb-2">No papers published yet.</p>
+      <p class="text-sm">Add papers through the admin interface.</p>
     </div>
   ) : (
     <>
-      <div
-        id="network-container"
-        class="w-full min-h-[500px] h-[70vh] bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
-        data-graph={graphData}
-      ></div>
+      <!-- Search + Theme Controls -->
+      <div class="mb-4 space-y-3">
+        <div class="relative">
+          <input
+            id="paper-search"
+            type="text"
+            placeholder="Search papers by title, author, or arXiv ID..."
+            class="w-full px-4 py-2 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:border-[#663399] focus:ring-1 focus:ring-[#663399]/30"
+          />
+          <div id="search-results" class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-40 max-h-60 overflow-y-auto"></div>
+        </div>
 
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs text-gray-500 font-medium mr-1">Depth:</span>
+          <input id="depth-slider" type="range" min="1" max="3" value="2" class="w-20 accent-[#663399]" />
+          <span id="depth-label" class="text-xs text-gray-600 font-mono w-4">2</span>
+          <span class="text-xs text-gray-400 mx-1">|</span>
+          <span class="text-xs text-gray-500 font-medium mr-1">Strength:</span>
+          <input id="min-shared-slider" type="range" min="20" max="60" value="35" step="1" class="w-20 accent-[#663399]" />
+          <span id="min-shared-label" class="text-xs text-gray-600 font-mono w-6">3.5</span>
+          <span class="text-xs text-gray-400 mx-1">|</span>
+          <span id="center-label" class="text-xs text-gray-500 truncate max-w-[250px]">Most connected paper</span>
+          <button id="reset-center" class="text-xs text-[#663399] hover:underline ml-1 hidden">reset</button>
+        </div>
+
+      </div>
+
+      <!-- Graph wrapper (relative for floating panel) -->
+      <div class="relative">
+        <div
+          id="network-container"
+          class="w-full min-h-[500px] h-[70vh] bg-white rounded-lg border border-gray-200 overflow-hidden"
+          data-graph={graphData}
+        ></div>
+
+        <!-- Settings toggle -->
+        <button id="settings-toggle" class="absolute top-3 right-3 z-30 w-8 h-8 rounded-lg bg-white/90 border border-gray-200 shadow-sm hover:bg-gray-50 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors" title="Graph settings">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="8" r="2.5"/>
+            <path d="M13.5 8a5.5 5.5 0 01-.3 1.8l1.3.8-1 1.7-1.3-.7a5.5 5.5 0 01-1.5 1l.1 1.5h-2l.1-1.5a5.5 5.5 0 01-1.5-1l-1.3.7-1-1.7 1.3-.8A5.5 5.5 0 012.5 8a5.5 5.5 0 01.3-1.8L1.5 5.4l1-1.7 1.3.7a5.5 5.5 0 011.5-1L5.2 1.9h2l-.1 1.5a5.5 5.5 0 011.5 1l1.3-.7 1 1.7-1.3.8a5.5 5.5 0 01.3 1.8z"/>
+          </svg>
+        </button>
+
+        <!-- Settings panel -->
+        <div id="settings-panel" class="hidden absolute top-12 right-3 z-30 w-60 bg-[#1e1e2e]/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-700/50 text-white text-xs overflow-hidden max-h-[calc(100%-60px)] overflow-y-auto">
+
+          <!-- Filters -->
+          <div class="border-b border-white/10">
+            <button class="settings-section-toggle w-full flex items-center justify-between px-3 py-2 hover:bg-white/5" data-section="filters">
+              <span class="font-semibold text-white/80 uppercase tracking-wider text-[10px]">Filters</span>
+              <svg class="section-chevron w-3 h-3 text-white/40 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+            </button>
+            <div id="section-filters" class="px-3 pb-3 space-y-2">
+              <div class="flex flex-wrap gap-1">
+                <button class="theme-toggle text-[10px] px-2 py-0.5 rounded-full border font-medium transition-all"
+                  data-theme="Foundational AI" data-color="#3b82f6"
+                  style="border-color:#3b82f6;background:#3b82f6;color:white">Foundational AI</button>
+                <button class="theme-toggle text-[10px] px-2 py-0.5 rounded-full border font-medium transition-all"
+                  data-theme="Theoretical Physics" data-color="#8b5cf6"
+                  style="border-color:#8b5cf6;background:#8b5cf6;color:white">Theoretical Physics</button>
+                <button class="theme-toggle text-[10px] px-2 py-0.5 rounded-full border font-medium transition-all"
+                  data-theme="Experimental Physics" data-color="#f59e0b"
+                  style="border-color:#f59e0b;background:#f59e0b;color:white">Experimental Physics</button>
+                <button class="theme-toggle text-[10px] px-2 py-0.5 rounded-full border font-medium transition-all"
+                  data-theme="Astrophysics" data-color="#10b981"
+                  style="border-color:#10b981;background:#10b981;color:white">Astrophysics</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Display -->
+          <div class="border-b border-white/10">
+            <button class="settings-section-toggle w-full flex items-center justify-between px-3 py-2 hover:bg-white/5" data-section="display">
+              <span class="font-semibold text-white/80 uppercase tracking-wider text-[10px]">Display</span>
+              <svg class="section-chevron w-3 h-3 text-white/40 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+            </button>
+            <div id="section-display" class="px-3 pb-3 space-y-2">
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="text-white/70">Show labels</span>
+                <input id="toggle-labels" type="checkbox" class="accent-[#663399] w-3.5 h-3.5" />
+              </label>
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="text-white/70">Show concepts</span>
+                <input id="toggle-concepts" type="checkbox" class="accent-[#663399] w-3.5 h-3.5" />
+              </label>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Node size</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-node-size" type="range" min="30" max="200" value="100" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-node-size" class="text-white/50 w-7 text-right font-mono">1.0</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Link opacity</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-link-opacity" type="range" min="0" max="100" value="60" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-link-opacity" class="text-white/50 w-7 text-right font-mono">0.6</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Label size</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-label-size" type="range" min="6" max="18" value="9" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-label-size" class="text-white/50 w-7 text-right font-mono">9</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forces -->
+          <div>
+            <button class="settings-section-toggle w-full flex items-center justify-between px-3 py-2 hover:bg-white/5" data-section="forces">
+              <span class="font-semibold text-white/80 uppercase tracking-wider text-[10px]">Forces</span>
+              <svg class="section-chevron w-3 h-3 text-white/40 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+            </button>
+            <div id="section-forces" class="px-3 pb-3 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Center force</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-center-force" type="range" min="0" max="20" value="5" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-center-force" class="text-white/50 w-7 text-right font-mono">0.05</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Repel force</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-repel" type="range" min="0" max="500" value="150" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-repel" class="text-white/50 w-7 text-right font-mono">150</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Link force</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-link-force" type="range" min="0" max="100" value="40" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-link-force" class="text-white/50 w-7 text-right font-mono">0.4</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Link distance</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-link-dist" type="range" min="10" max="200" value="60" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-link-dist" class="text-white/50 w-7 text-right font-mono">60</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/70">Collision</span>
+                <div class="flex items-center gap-1">
+                  <input id="slider-collision" type="range" min="0" max="100" value="70" class="w-16 accent-[#663399] h-1" />
+                  <span id="val-collision" class="text-white/50 w-7 text-right font-mono">0.7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side panel -->
+      <div id="concept-panel" class="hidden fixed top-0 right-0 h-full w-80 bg-white shadow-xl border-l border-gray-200 z-50 overflow-y-auto">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 id="panel-header" class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Paper</h3>
+            <button id="close-panel" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+          </div>
+          <h2 id="panel-title" class="text-base font-bold text-gray-900 mb-1"></h2>
+          <p id="panel-theme" class="text-xs mb-3"></p>
+          <div id="panel-body"></div>
+        </div>
+      </div>
+
+      <!-- Legend -->
       <div class="mt-4 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-blue-500"></span>
+          <span class="inline-block w-3 h-3 rounded-full" style="background:#3b82f6"></span>
           <span>Foundational AI</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-violet-500"></span>
+          <span class="inline-block w-3 h-3 rounded-full" style="background:#8b5cf6"></span>
           <span>Theoretical Physics</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-amber-500"></span>
+          <span class="inline-block w-3 h-3 rounded-full" style="background:#f59e0b"></span>
           <span>Experimental Physics</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-emerald-500"></span>
+          <span class="inline-block w-3 h-3 rounded-full" style="background:#10b981"></span>
           <span>Astrophysics</span>
         </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-6 border-t-2 border-gray-400"></span>
+          <span class="text-gray-400">Shared concepts (thicker = more)</span>
+        </div>
       </div>
+
+      <!-- Categorized Concept Index -->
+      {sortedCategories.length > 0 && (
+        <section class="mt-8">
+          <h2 class="text-lg font-bold text-[#212529] mb-4 flex items-center gap-2">
+            <span class="w-1 h-5 rounded-full bg-[#444] inline-block"></span>
+            Concept Index
+          </h2>
+          <div class="space-y-4">
+            {sortedCategories.map((category) => {
+              const colors = categoryColorMap[category] || defaultColor;
+              const concepts = conceptsByCategory[category];
+              return (
+                <div>
+                  <h3 class="text-sm font-semibold mb-2 flex items-center gap-2" style={`color:${colors.header}`}>
+                    <span class="w-2 h-2 rounded-full inline-block" style={`background:${colors.header}`}></span>
+                    {category}
+                    <span class="text-xs font-normal text-gray-400">({concepts.length})</span>
+                  </h3>
+                  <div class="flex flex-wrap gap-1.5">
+                    {concepts.map((c) => (
+                      <button
+                        class="concept-tag text-xs px-2.5 py-1 rounded-full border cursor-pointer hover:opacity-80 transition-opacity"
+                        style={`background:${colors.bg};border-color:${colors.border};color:${colors.text}`}
+                        data-concept={c.name}
+                        data-papers={JSON.stringify(c.papers)}
+                      >
+                        {c.name}
+                        <span class="ml-1 opacity-60">{c.count}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </>
   )}
 </BaseLayout>
@@ -92,40 +448,39 @@ const graphData = JSON.stringify({ nodes, links });
   import { zoom, zoomIdentity } from "d3-zoom";
   import { drag } from "d3-drag";
 
-  interface GraphNode {
-    id: string;
-    title: string;
-    theme: string;
-    concepts: string[];
-    url: string;
-    x?: number;
-    y?: number;
-    fx?: number | null;
-    fy?: number | null;
-    index?: number;
+  interface PaperNode {
+    id: string; type: "paper"; title: string; nickname: string | null; theme: string; concepts: string[];
+    authors: string[]; url: string; x?: number; y?: number; fx?: number | null; fy?: number | null;
   }
-
-  interface GraphLink {
-    source: GraphNode | string;
-    target: GraphNode | string;
-    sharedConcepts: string[];
+  interface ConceptNode {
+    id: string; type: "concept"; title: string; papers: string[];
+    x?: number; y?: number; fx?: number | null; fy?: number | null;
   }
+  type GraphNode = PaperNode | ConceptNode;
+  interface GraphLink { source: GraphNode | string; target: GraphNode | string; }
+  interface PaperLink { source: string; target: string; score: number; }
+  interface ConceptIndexEntry { name: string; count: number; papers: string[]; }
 
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("network-container");
     if (!container || !container.dataset.graph) return;
 
-    const { nodes, links } = JSON.parse(container.dataset.graph) as {
-      nodes: GraphNode[];
-      links: GraphLink[];
+    const {
+      paperNodes: allPaperNodes, paperLinks: allPaperLinks, conceptIndex,
+      conceptToCategory, categoryColorMap,
+    } = JSON.parse(container.dataset.graph) as {
+      paperNodes: PaperNode[];
+      paperLinks: PaperLink[];
+      conceptIndex: ConceptIndexEntry[];
+      conceptToCategory: Record<string, string>;
+      categoryColorMap: Record<string, { bg: string; border: string; text: string; header: string }>;
     };
 
-    if (nodes.length < 2) return;
+    if (allPaperNodes.length === 0) return;
 
     const width = container.clientWidth;
     const height = container.clientHeight;
 
-    // Theme color map matching global.css
     const themeColors: Record<string, string> = {
       "Foundational AI": "#3b82f6",
       "Theoretical Physics": "#8b5cf6",
@@ -133,175 +488,711 @@ const graphData = JSON.stringify({ nodes, links });
       Astrophysics: "#10b981",
     };
 
-    // Create SVG
+    // === Lookup maps (built once from full data) ===
+    const paperNodeById = new Map(allPaperNodes.map((p) => [p.id, p]));
+    const maxLinkScore = Math.max(1, ...allPaperLinks.map((l) => l.score));
+    const minR = 6, maxR = 22;
+
+    // These are recomputed whenever minShared changes
+    let minSharedThreshold = 3.5;
+    let filteredLinks: PaperLink[] = [];
+    let paperAdj: Record<string, Set<string>> = {};
+    let connectivityScore: Record<string, number> = {};
+    let maxScore = 1;
+    let centerPaperId = allPaperNodes[0]?.id || "";
+    let defaultCenterId = centerPaperId;
+    let maxDepth = 2;
+
+    function recomputeAdjacency() {
+      filteredLinks = allPaperLinks.filter((l) => l.score >= minSharedThreshold);
+      paperAdj = {};
+      connectivityScore = {};
+      for (const pl of filteredLinks) {
+        if (!paperAdj[pl.source]) paperAdj[pl.source] = new Set();
+        if (!paperAdj[pl.target]) paperAdj[pl.target] = new Set();
+        paperAdj[pl.source].add(pl.target);
+        paperAdj[pl.target].add(pl.source);
+        connectivityScore[pl.source] = (connectivityScore[pl.source] || 0) + pl.score;
+        connectivityScore[pl.target] = (connectivityScore[pl.target] || 0) + pl.score;
+      }
+      maxScore = Math.max(1, ...Object.values(connectivityScore));
+      // Pick most connected paper as default center
+      let best = 0;
+      let bestId = "";
+      for (const [id, s] of Object.entries(connectivityScore)) {
+        if (s > best) { best = s; bestId = id; }
+      }
+      defaultCenterId = bestId || allPaperNodes[0]?.id || "";
+    }
+    recomputeAdjacency();
+    centerPaperId = defaultCenterId;
+
+    function paperRadius(d: PaperNode): number {
+      return minR + (maxR - minR) * ((connectivityScore[d.id] || 0) / maxScore);
+    }
+
+    function isConnected(a: string, b: string): boolean {
+      return a === b || (paperAdj[a]?.has(b) ?? false);
+    }
+
+    function bfsNeighborhood(centerId: string, dist: number): Set<string> {
+      const visited = new Set<string>([centerId]);
+      let frontier = [centerId];
+      for (let d = 0; d < dist; d++) {
+        const next: string[] = [];
+        for (const id of frontier) {
+          for (const nb of paperAdj[id] || []) {
+            if (!visited.has(nb)) { visited.add(nb); next.push(nb); }
+          }
+        }
+        frontier = next;
+      }
+      return visited;
+    }
+
+    // === SVG setup (created once) ===
     const svg = select(container)
       .append("svg")
       .attr("width", width)
       .attr("height", height)
       .attr("viewBox", `0 0 ${width} ${height}`);
-
-    // Group for zoom/pan transforms
     const g = svg.append("g");
 
-    // Build adjacency set for hover highlight
-    const adjacency = new Set<string>();
-    links.forEach((link) => {
-      const sid = typeof link.source === "string" ? link.source : link.source.id;
-      const tid = typeof link.target === "string" ? link.target : link.target.id;
-      adjacency.add(`${sid}-${tid}`);
-      adjacency.add(`${tid}-${sid}`);
-    });
+    // Persistent sub-groups for layering
+    const linkLayer = g.append("g");
+    const nodeLayer = g.append("g");
+    const labelLayer = g.append("g");
 
-    function isConnected(a: string, b: string): boolean {
-      return a === b || adjacency.has(`${a}-${b}`);
-    }
-
-    // Render links
-    const linkGroup = g
-      .append("g")
-      .attr("class", "links")
-      .selectAll("line")
-      .data(links)
-      .join("line")
-      .attr("stroke", "#d1d5db")
-      .attr("stroke-opacity", 0.6)
-      .attr("stroke-width", (d: GraphLink) =>
-        Math.sqrt(d.sharedConcepts.length)
-      );
-
-    // Render nodes
-    const nodeGroup = g
-      .append("g")
-      .attr("class", "nodes")
-      .selectAll("circle")
-      .data(nodes)
-      .join("circle")
-      .attr("r", 8)
-      .attr("fill", (d: GraphNode) => themeColors[d.theme] || "#6b7280")
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5)
-      .attr("cursor", "pointer");
-
-    // Create tooltip
-    const tooltip = select("body")
-      .append("div")
-      .attr(
-        "class",
-        "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs"
-      )
+    // Tooltip
+    const tooltip = select("body").append("div")
+      .attr("class", "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs")
       .style("position", "absolute");
 
-    // Track drag state
-    let isDragging = false;
+    // === Zoom ===
+    let currentZoomTransform = zoomIdentity;
+    const zoomBehavior = zoom<SVGSVGElement, unknown>()
+      .scaleExtent([0.3, 5])
+      .filter((event: any) => !event.shiftKey && !event.button)
+      .on("zoom", (event) => {
+        currentZoomTransform = event.transform;
+        g.attr("transform", rotationAngle
+          ? `${currentZoomTransform} rotate(${rotationAngle}, ${width / 2}, ${height / 2})`
+          : String(currentZoomTransform));
+      });
+    svg.call(zoomBehavior as any);
+    svg.on("dblclick.zoom", null);
 
-    // Set up force simulation
-    const simulation = forceSimulation<GraphNode>(nodes)
-      .force(
-        "link",
-        forceLink<GraphNode, GraphLink>(links)
-          .id((d) => d.id)
-          .distance((d) =>
-            Math.max(50, 150 - d.sharedConcepts.length * 20)
-          )
-          .strength((d) =>
-            Math.min(1, d.sharedConcepts.length * 0.15)
-          )
-      )
-      .force(
-        "charge",
-        forceManyBody().strength(-200).distanceMax(400)
-      )
-      .force(
-        "center",
-        forceCenter(width / 2, height / 2).strength(0.05)
-      )
-      .force("collide", forceCollide(12).strength(0.7));
-
-    // Update positions on tick
-    simulation.on("tick", () => {
-      linkGroup
-        .attr("x1", (d: any) => d.source.x)
-        .attr("y1", (d: any) => d.source.y)
-        .attr("x2", (d: any) => d.target.x)
-        .attr("y2", (d: any) => d.target.y);
-
-      nodeGroup
-        .attr("cx", (d: GraphNode) => d.x!)
-        .attr("cy", (d: GraphNode) => d.y!);
+    // === Shift+drag rotation ===
+    let rotationAngle = 0;
+    let rotStartAngle = 0;
+    let rotBaseAngle = 0;
+    const svgNode = svg.node()!;
+    svgNode.addEventListener("mousedown", (e: MouseEvent) => {
+      if (!e.shiftKey) return;
+      e.preventDefault();
+      const rect = svgNode.getBoundingClientRect();
+      const cx = rect.width / 2, cy = rect.height / 2;
+      rotStartAngle = Math.atan2(e.clientY - rect.top - cy, e.clientX - rect.left - cx);
+      rotBaseAngle = rotationAngle;
+      const onMove = (ev: MouseEvent) => {
+        const a = Math.atan2(ev.clientY - rect.top - cy, ev.clientX - rect.left - cx);
+        rotationAngle = rotBaseAngle + (a - rotStartAngle) * (180 / Math.PI);
+        g.attr("transform", `${currentZoomTransform} rotate(${rotationAngle}, ${width / 2}, ${height / 2})`);
+      };
+      const onUp = () => {
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("mouseup", onUp);
+      };
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("mouseup", onUp);
     });
 
-    // Zoom and pan
-    svg.call(
-      zoom<SVGSVGElement, unknown>()
-        .scaleExtent([0.3, 5])
-        .on("zoom", (event) => {
-          g.attr("transform", event.transform);
-        }) as any
-    );
+    // === Side panel refs ===
+    const panel = document.getElementById("concept-panel")!;
+    const panelHeader = document.getElementById("panel-header")!;
+    const panelTitle = document.getElementById("panel-title")!;
+    const panelTheme = document.getElementById("panel-theme")!;
+    const panelBody = document.getElementById("panel-body")!;
+    document.getElementById("close-panel")!.addEventListener("click", () => panel.classList.add("hidden"));
 
-    // Drag behavior
-    const dragBehavior = drag<SVGCircleElement, GraphNode>()
-      .on("start", (event, d) => {
-        isDragging = false;
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      })
-      .on("drag", (event, d) => {
-        isDragging = true;
-        d.fx = event.x;
-        d.fy = event.y;
-      })
-      .on("end", (event, d) => {
-        if (!event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
+    // === Theme toggle state ===
+    const activeThemes = new Set(Object.keys(themeColors));
+
+    // === Settings panel state ===
+    let showLabels = false;
+    let showConcepts = false;
+    let nodeScale = 1.0;
+    let linkOpacity = 0.6;
+    let labelSize = 9;
+    let centerForceStrength = 0.05;
+    let repelStrength = 150;
+    let linkForceStrength = 0.4;
+    let linkDistance = 60;
+    let collisionStrength = 0.7;
+
+    // === Settings panel toggle ===
+    const settingsToggle = document.getElementById("settings-toggle")!;
+    const settingsPanel = document.getElementById("settings-panel")!;
+    settingsToggle.addEventListener("click", () => {
+      settingsPanel.classList.toggle("hidden");
+      sessionStorage.setItem("graph-settings-open", settingsPanel.classList.contains("hidden") ? "0" : "1");
+    });
+    if (sessionStorage.getItem("graph-settings-open") === "1") settingsPanel.classList.remove("hidden");
+
+    // Section collapsing
+    document.querySelectorAll(".settings-section-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const section = (btn as HTMLElement).dataset.section!;
+        const content = document.getElementById(`section-${section}`)!;
+        const chevron = btn.querySelector(".section-chevron")!;
+        content.classList.toggle("hidden");
+        chevron.classList.toggle("rotate-180");
+      });
+    });
+
+    // === Mutable graph state — rebuilt on every center/depth change ===
+    let simulation: ReturnType<typeof forceSimulation> | null = null;
+    let currentVisibleIds = new Set<string>();
+    let currentApplyThemeFilter: (() => void) | null = null;
+    // Track current visible paper data for click/hover handlers
+    let visPapers: PaperNode[] = [];
+    let visPaperLinks: PaperLink[] = [];
+    let visConceptNodes: ConceptNode[] = [];
+
+    function rebuildGraph() {
+      // 1. Compute visible set
+      currentVisibleIds = bfsNeighborhood(centerPaperId, maxDepth);
+
+      // 2. Filter data to visible subset only
+      visPapers = allPaperNodes.filter((p) => currentVisibleIds.has(p.id));
+      const visIds = currentVisibleIds;
+      // Only show links radiating from the center paper (star topology).
+      // At depth > 1 also show links between depth-N and depth-N+1 (tree edges).
+      // This avoids the O(n^2) cross-link mess between neighbors.
+      // Show all links between visible papers
+      visPaperLinks = filteredLinks.filter(
+        (l) => visIds.has(l.source) && visIds.has(l.target)
+      );
+
+      // Concept nodes that bridge at least 2 visible papers
+      const conceptUsage: Record<string, string[]> = {};
+      for (const p of visPapers) {
+        for (const c of p.concepts) {
+          if (!conceptUsage[c]) conceptUsage[c] = [];
+          conceptUsage[c].push(p.id);
+        }
+      }
+      const sharedConcepts = Object.entries(conceptUsage)
+        .filter(([_, ps]) => ps.length >= 2);
+      visConceptNodes = sharedConcepts.map(([name, ps]) => ({
+        id: `concept:${name}`, type: "concept" as const, title: name, papers: ps,
+      }));
+      const visConceptIdSet = new Set(visConceptNodes.map((c) => c.id));
+
+      // Links for force simulation (paper <-> concept)
+      const visLinks: GraphLink[] = [];
+      for (const [name, ps] of sharedConcepts) {
+        for (const pid of ps) {
+          visLinks.push({ source: pid, target: `concept:${name}` });
+        }
+      }
+
+      const allVisNodes: GraphNode[] = [...visPapers, ...visConceptNodes];
+
+      // 3. Stop old simulation
+      if (simulation) simulation.stop();
+
+      // 4. Clear SVG layers
+      linkLayer.selectAll("*").remove();
+      nodeLayer.selectAll("*").remove();
+      labelLayer.selectAll("*").remove();
+
+      // 5. Reset positions to center so layout starts fresh
+      for (const n of allVisNodes) {
+        n.x = width / 2 + (Math.random() - 0.5) * 100;
+        n.y = height / 2 + (Math.random() - 0.5) * 100;
+        n.fx = null; n.fy = null;
+      }
+
+      // 6. Render only visible elements
+      const plGroup = linkLayer.selectAll("line").data(visPaperLinks).join("line")
+        .attr("stroke", "#94a3b8")
+        .attr("stroke-opacity", linkOpacity)
+        .attr("stroke-width", (d: PaperLink) => 1 + 4 * (d.score / maxLinkScore))
+        .attr("stroke-linecap", "round")
+        .attr("cursor", "pointer")
+        .on("mouseover", (ev: MouseEvent, d: PaperLink) => {
+          select(ev.currentTarget as Element).attr("stroke", "#6366f1").attr("stroke-opacity", 1);
+          const srcP = paperNodeById.get(d.source);
+          const tgtP = paperNodeById.get(d.target);
+          const srcName = srcP?.nickname || srcP?.title || d.source;
+          const tgtName = tgtP?.nickname || tgtP?.title || d.target;
+          // Compute shared concepts on the fly from paper nodes
+          const srcConcepts = new Set(srcP?.concepts || []);
+          const shared = (tgtP?.concepts || []).filter((c: string) => srcConcepts.has(c));
+          tooltip.html(
+            `<strong>${srcName}</strong> — <strong>${tgtName}</strong>` +
+            `<br/><span style="opacity:0.6">score: ${d.score.toFixed(1)}</span>` +
+            (shared.length > 0 ? `<br/><span style="opacity:0.5">${shared.slice(0, 5).join(", ")}${shared.length > 5 ? " ..." : ""}</span>` : "")
+          ).classed("hidden", false);
+        })
+        .on("mousemove", (ev: MouseEvent) => {
+          tooltip.style("left", ev.pageX + 12 + "px").style("top", ev.pageY - 12 + "px");
+        })
+        .on("mouseout", (ev: MouseEvent) => {
+          select(ev.currentTarget as Element).attr("stroke", "#94a3b8").attr("stroke-opacity", linkOpacity);
+          tooltip.classed("hidden", true);
+        });
+
+      const pGroup = nodeLayer.selectAll("circle").data(visPapers).join("circle")
+        .attr("r", (d: PaperNode) => paperRadius(d) * nodeScale)
+        .attr("fill", (d: PaperNode) => themeColors[d.theme] || "#6b7280")
+        .attr("stroke", (d: PaperNode) => d.id === centerPaperId ? "#663399" : "#fff")
+        .attr("stroke-width", (d: PaperNode) => d.id === centerPaperId ? 3 : 2)
+        .attr("cursor", "pointer");
+
+      // Paper title labels (shown when showLabels is on)
+      const pLabels = labelLayer.selectAll("text.paper-label").data(visPapers).join("text")
+        .attr("class", "paper-label")
+        .attr("font-size", `${labelSize}px`).attr("fill", "#374151").attr("text-anchor", "start")
+        .attr("dx", (d: PaperNode) => paperRadius(d) * nodeScale + 4).attr("dy", 3)
+        .attr("pointer-events", "none").attr("opacity", showLabels ? 0.8 : 0)
+        .text((d: PaperNode) => d.nickname || (d.title.length > 30 ? d.title.slice(0, 28) + "..." : d.title));
+
+      // Concept bridge dots
+      const cDots = nodeLayer.selectAll("circle.concept-dot").data(visConceptNodes).join("circle")
+        .attr("class", "concept-dot")
+        .attr("r", 3).attr("fill", "#9ca3af").attr("stroke", "#e5e7eb").attr("stroke-width", 1)
+        .attr("opacity", showConcepts ? 0.5 : 0)
+        .attr("pointer-events", showConcepts ? "all" : "none")
+        .attr("cursor", "default")
+        .on("mouseover", (ev: MouseEvent, d: ConceptNode) => {
+          tooltip.html(
+            `<strong>${d.title}</strong><br/><span style="opacity:0.5">${d.papers.length} papers</span>`
+          ).classed("hidden", false);
+        })
+        .on("mousemove", (ev: MouseEvent) => {
+          tooltip.style("left", ev.pageX + 12 + "px").style("top", ev.pageY - 12 + "px");
+        })
+        .on("mouseout", () => { tooltip.classed("hidden", true); });
+
+      const cLabels = labelLayer.selectAll("text.concept-label").data(visConceptNodes).join("text")
+        .attr("class", "concept-label")
+        .attr("font-size", `${Math.max(7, labelSize - 2)}px`).attr("fill", "#6b7280").attr("text-anchor", "middle")
+        .attr("dy", -8).attr("pointer-events", "none").attr("opacity", showConcepts ? 0.6 : 0)
+        .text((d: ConceptNode) => d.title);
+
+      // 7. Force simulation on visible subset only
+      simulation = forceSimulation<GraphNode>(allVisNodes)
+        .force("link", forceLink<GraphNode, GraphLink>(visLinks).id((d) => d.id).distance(linkDistance).strength(linkForceStrength))
+        .force("charge", forceManyBody().strength((d: any) =>
+          d.type === "paper" ? -repelStrength - 10 * paperRadius(d as PaperNode) * nodeScale : -30
+        ).distanceMax(400))
+        .force("center", forceCenter(width / 2, height / 2).strength(centerForceStrength))
+        .force("collide", forceCollide<GraphNode>((d: any) =>
+          d.type === "paper" ? (paperRadius(d as PaperNode) + 4) * nodeScale : 6
+        ).strength(collisionStrength));
+
+      const visPaperById = new Map(visPapers.map((p) => [p.id, p]));
+
+      simulation.on("tick", () => {
+        plGroup
+          .attr("x1", (d: PaperLink) => visPaperById.get(d.source)?.x ?? 0)
+          .attr("y1", (d: PaperLink) => visPaperById.get(d.source)?.y ?? 0)
+          .attr("x2", (d: PaperLink) => visPaperById.get(d.target)?.x ?? 0)
+          .attr("y2", (d: PaperLink) => visPaperById.get(d.target)?.y ?? 0);
+        pGroup.attr("cx", (d: PaperNode) => d.x!).attr("cy", (d: PaperNode) => d.y!);
+        pLabels.attr("x", (d: PaperNode) => d.x!).attr("y", (d: PaperNode) => d.y!);
+        cDots.attr("cx", (d: ConceptNode) => d.x!).attr("cy", (d: ConceptNode) => d.y!);
+        cLabels.attr("x", (d: ConceptNode) => d.x!).attr("y", (d: ConceptNode) => d.y!);
       });
 
-    nodeGroup.call(dragBehavior as any);
+      // 8. Drag behavior
+      let isDragging = false;
+      const dragBehavior = drag<SVGCircleElement, PaperNode>()
+        .on("start", (event, d) => {
+          isDragging = false;
+          if (!event.active) simulation!.alphaTarget(0.3).restart();
+          d.fx = d.x; d.fy = d.y;
+        })
+        .on("drag", (event, d) => { isDragging = true; d.fx = event.x; d.fy = event.y; })
+        .on("end", (event, d) => {
+          if (!event.active) simulation!.alphaTarget(0);
+          d.fx = null; d.fy = null;
+        });
+      pGroup.call(dragBehavior as any);
 
-    // Click handler (navigate to post)
-    nodeGroup.on("click", (_event: MouseEvent, d: GraphNode) => {
-      if (!isDragging) {
-        window.location.href = d.url;
+      // 9. Click: set as new center
+      let clickTimer: ReturnType<typeof setTimeout> | null = null;
+      pGroup.on("click", (_ev: MouseEvent, d: PaperNode) => {
+        if (isDragging) return;
+        if (clickTimer) return;
+        clickTimer = setTimeout(() => {
+          clickTimer = null;
+          centerPaperId = d.id;
+          rebuildGraph();
+          updateCenterLabel();
+          openPaperPanel(d);
+        }, 250);
+      });
+
+      pGroup.on("dblclick", (_ev: MouseEvent, d: PaperNode) => {
+        _ev.stopPropagation();
+        if (clickTimer) { clearTimeout(clickTimer); clickTimer = null; }
+        centerPaperId = d.id;
+        rebuildGraph();
+        updateCenterLabel();
+        // Center viewport after rebuild — find the new node data
+        const nd = visPapers.find((p) => p.id === d.id);
+        if (nd) openPaperPanel(nd);
+      });
+
+      // 10. Hover
+      pGroup
+        .on("mouseover", (_ev: MouseEvent, d: PaperNode) => {
+          const authorPreview = d.authors.length > 0
+            ? d.authors.slice(0, 2).join(", ") + (d.authors.length > 2 ? " et al." : "") : "";
+          const conceptPreview = d.concepts.length > 0
+            ? d.concepts.slice(0, 3).join(", ") + (d.concepts.length > 3 ? " ..." : "") : "";
+          tooltip.html(
+            `<strong>${d.title}</strong>${authorPreview ? `<br/><span style="opacity:0.7">${authorPreview}</span>` : ""}<br/><span style="opacity:0.5">${d.theme}${conceptPreview ? " · " + conceptPreview : ""}</span>`
+          ).classed("hidden", false);
+
+          pGroup.attr("opacity", (o: PaperNode) => isConnected(d.id, o.id) ? 1 : 0.15);
+          pLabels.attr("opacity", (o: PaperNode) => isConnected(d.id, o.id) && showLabels ? 0.8 : 0);
+          cDots.attr("opacity", (o: ConceptNode) => isConnected(d.id, o.id) ? 0.7 : 0.1);
+          cLabels.attr("opacity", (o: ConceptNode) => isConnected(d.id, o.id) ? 1 : 0);
+          plGroup.attr("stroke-opacity", (pl: PaperLink) =>
+            pl.source === d.id || pl.target === d.id ? 0.8 : 0.05);
+        })
+        .on("mousemove", (ev: MouseEvent) => {
+          tooltip.style("left", ev.pageX + 12 + "px").style("top", ev.pageY - 12 + "px");
+        })
+        .on("mouseout", () => {
+          tooltip.classed("hidden", true);
+          applyThemeFilter();
+        });
+
+      function applyThemeFilter() {
+        pGroup
+          .attr("opacity", (d: PaperNode) => activeThemes.has(d.theme) ? 1 : 0)
+          .attr("pointer-events", (d: PaperNode) => activeThemes.has(d.theme) ? "all" : "none");
+        pLabels.attr("opacity", (d: PaperNode) => showLabels && activeThemes.has(d.theme) ? 0.8 : 0);
+        cDots.attr("opacity", showConcepts ? 0.5 : 0).attr("pointer-events", showConcepts ? "all" : "none");
+        cLabels.attr("opacity", showConcepts ? 0.6 : 0);
+        plGroup.attr("stroke-opacity", (d: PaperLink) => {
+          const src = visPaperById.get(d.source);
+          const tgt = visPaperById.get(d.target);
+          return (src && activeThemes.has(src.theme) && tgt && activeThemes.has(tgt.theme)) ? linkOpacity : 0;
+        });
+      }
+      applyThemeFilter();
+      currentApplyThemeFilter = applyThemeFilter;
+
+      // Reset zoom to center
+      const transform = zoomIdentity.translate(0, 0).scale(1);
+      currentZoomTransform = transform;
+      svg.call(zoomBehavior.transform as any, transform);
+    }
+
+    function updateCenterLabel() {
+      const cp = paperNodeById.get(centerPaperId);
+      const label = document.getElementById("center-label")!;
+      label.textContent = cp ? cp.title : centerPaperId;
+      label.title = cp ? `${cp.title} (${centerPaperId})` : centerPaperId;
+      document.getElementById("reset-center")!.classList.remove("hidden");
+    }
+
+    function openPaperPanel(d: PaperNode) {
+      panelHeader.textContent = "Paper Concepts";
+      panelTitle.textContent = d.title;
+      panelTheme.textContent = d.theme;
+      panelTheme.style.color = themeColors[d.theme] || "#6b7280";
+
+      let html = "";
+      if (d.authors.length > 0) {
+        html += `<p class="text-xs text-gray-500 mb-3">${d.authors.join(", ")}</p>`;
+      }
+      if (d.concepts.length === 0) {
+        html += '<p class="text-sm text-gray-400 italic">No concepts extracted yet.</p>';
+      } else {
+        html += '<div class="flex flex-wrap gap-1.5 mb-4">';
+        for (const c of d.concepts) {
+          const cat = conceptToCategory[c] || "Other";
+          const colors = categoryColorMap[cat] || categoryColorMap["Other"];
+          html += `<span class="inline-block text-xs px-2 py-1 rounded-full border" style="background:${colors.bg};border-color:${colors.border};color:${colors.text}">${c}</span>`;
+        }
+        html += "</div>";
+      }
+
+      // Show ALL connections for this paper (not just visible ones)
+      const connections = filteredLinks.filter((l) => l.source === d.id || l.target === d.id);
+      if (connections.length > 0) {
+        html += '<div class="border-t border-gray-100 pt-3"><p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Connected Papers</p>';
+        for (const link of connections) {
+          const otherId = link.source === d.id ? link.target : link.source;
+          const other = paperNodeById.get(otherId);
+          if (other) {
+            html += `<div class="mb-2 flex items-start justify-between gap-2">`;
+            // Compute shared concepts on-demand
+            const shared = d.concepts.filter((c: string) => other.concepts.includes(c));
+            html += `<div><p class="text-xs font-medium text-gray-700">${other.title}</p><p class="text-xs text-gray-400">score: ${link.score.toFixed(1)} · ${shared.slice(0, 3).join(", ")}${shared.length > 3 ? " ..." : ""}</p></div>`;
+            html += `<button data-recenter="${other.id}" class="shrink-0 text-xs text-[#663399] hover:text-[#663399]/70 font-medium" title="Center on this paper">&#8982;</button>`;
+            html += `</div>`;
+          }
+        }
+        html += "</div>";
+      }
+
+      html += '<div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-3">';
+      if (d.url) {
+        html += `<a href="${d.url}" class="text-sm text-blue-600 hover:text-blue-800 font-medium">Read blog post &rarr;</a>`;
+      }
+      html += `<button data-recenter="${d.id}" class="text-sm text-[#663399] hover:text-[#663399]/70 font-medium">Center in graph &#8982;</button>`;
+      html += '</div>';
+
+      panelBody.innerHTML = html;
+      panel.classList.remove("hidden");
+    }
+
+    function openConceptPanel(name: string, papers: string[]) {
+      panelHeader.textContent = "Concept";
+      panelTitle.textContent = name;
+      panelTheme.textContent = `Appears in ${papers.length} papers`;
+      panelTheme.style.color = "#6b7280";
+
+      let html = '<div class="space-y-1">';
+      for (const pid of papers) {
+        const paper = paperNodeById.get(pid);
+        if (paper) {
+          html += `<div class="flex items-start justify-between gap-2 p-2 rounded-lg hover:bg-gray-50"><div>`;
+          html += paper.url
+            ? `<a href="${paper.url}" class="text-sm font-medium text-gray-800 hover:text-blue-600">${paper.title}</a>`
+            : `<p class="text-sm font-medium text-gray-800">${paper.title}</p>`;
+          html += `<p class="text-xs text-gray-400">${paper.theme}</p></div>`;
+          html += `<button data-recenter="${paper.id}" class="shrink-0 text-xs text-[#663399] hover:text-[#663399]/70 font-medium" title="Center on this paper">&#8982;</button></div>`;
+        }
+      }
+      html += "</div>";
+      panelBody.innerHTML = html;
+      panel.classList.remove("hidden");
+    }
+
+    // Recenter button delegation in side panel
+    panelBody.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest("[data-recenter]");
+      if (!btn) return;
+      const paperId = (btn as HTMLElement).dataset.recenter!;
+      centerPaperId = paperId;
+      rebuildGraph();
+      updateCenterLabel();
+      const paper = paperNodeById.get(paperId);
+      if (paper) openPaperPanel(paper);
+    });
+
+    // === Depth slider ===
+    const depthSlider = document.getElementById("depth-slider") as HTMLInputElement;
+    const depthLabelEl = document.getElementById("depth-label")!;
+    depthSlider?.addEventListener("input", () => {
+      maxDepth = parseInt(depthSlider.value);
+      depthLabelEl.textContent = String(maxDepth);
+      rebuildGraph();
+      updateCenterLabel();
+    });
+
+    // === Min shared slider ===
+    const minSharedSlider = document.getElementById("min-shared-slider") as HTMLInputElement;
+    const minSharedLabelEl = document.getElementById("min-shared-label")!;
+    minSharedSlider?.addEventListener("input", () => {
+      minSharedThreshold = parseFloat(minSharedSlider.value) / 10;
+      minSharedLabelEl.textContent = minSharedThreshold.toFixed(1);
+      recomputeAdjacency();
+      rebuildGraph();
+      updateCenterLabel();
+    });
+
+    // Reset center
+    document.getElementById("reset-center")!.addEventListener("click", () => {
+      centerPaperId = defaultCenterId;
+      rebuildGraph();
+      updateCenterLabel();
+    });
+
+    // Theme toggles — fully hide non-active themes
+    document.querySelectorAll(".theme-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const theme = (btn as HTMLElement).dataset.theme!;
+        const color = (btn as HTMLElement).dataset.color!;
+        if (activeThemes.has(theme)) {
+          activeThemes.delete(theme);
+          (btn as HTMLElement).style.background = "transparent";
+          (btn as HTMLElement).style.color = color;
+        } else {
+          activeThemes.add(theme);
+          (btn as HTMLElement).style.background = color;
+          (btn as HTMLElement).style.color = "white";
+        }
+        if (currentApplyThemeFilter) currentApplyThemeFilter();
+      });
+    });
+
+    // === Display controls ===
+    function updateDisplay() {
+      if (currentApplyThemeFilter) currentApplyThemeFilter();
+    }
+
+    function updateForces() {
+      if (!simulation) return;
+      (simulation.force("center") as any)?.strength(centerForceStrength);
+      (simulation.force("charge") as any)?.strength((d: any) =>
+        d.type === "paper" ? -repelStrength - 10 * paperRadius(d as PaperNode) * nodeScale : -30
+      );
+      (simulation.force("link") as any)?.strength(linkForceStrength).distance(linkDistance);
+      (simulation.force("collide") as any)?.strength(collisionStrength).radius((d: any) =>
+        d.type === "paper" ? (paperRadius(d as PaperNode) + 4) * nodeScale : 6
+      );
+      simulation.alpha(0.3).restart();
+    }
+
+    (document.getElementById("toggle-labels") as HTMLInputElement)?.addEventListener("change", (e) => {
+      showLabels = (e.target as HTMLInputElement).checked;
+      updateDisplay();
+    });
+    (document.getElementById("toggle-concepts") as HTMLInputElement)?.addEventListener("change", (e) => {
+      showConcepts = (e.target as HTMLInputElement).checked;
+      updateDisplay();
+    });
+
+    function bindSlider(id: string, valId: string, formatter: (v: number) => string, onChange: (v: number) => void) {
+      const slider = document.getElementById(id) as HTMLInputElement;
+      const valEl = document.getElementById(valId);
+      if (!slider) return;
+      slider.addEventListener("input", () => {
+        const v = parseFloat(slider.value);
+        if (valEl) valEl.textContent = formatter(v);
+        onChange(v);
+      });
+    }
+
+    bindSlider("slider-node-size", "val-node-size", (v) => (v / 100).toFixed(1), (v) => {
+      nodeScale = v / 100;
+      // Update node radii without full rebuild
+      nodeLayer.selectAll("circle").attr("r", (d: any) => d.type === "paper" ? paperRadius(d) * nodeScale : 4);
+      labelLayer.selectAll("text.paper-label").attr("dx", (d: any) => paperRadius(d) * nodeScale + 4);
+      updateForces();
+    });
+    bindSlider("slider-link-opacity", "val-link-opacity", (v) => (v / 100).toFixed(1), (v) => {
+      linkOpacity = v / 100;
+      updateDisplay();
+    });
+    bindSlider("slider-label-size", "val-label-size", (v) => String(v), (v) => {
+      labelSize = v;
+      labelLayer.selectAll("text.paper-label").attr("font-size", `${labelSize}px`);
+      labelLayer.selectAll("text.concept-label").attr("font-size", `${Math.max(7, labelSize - 2)}px`);
+    });
+
+    // Force sliders
+    bindSlider("slider-center-force", "val-center-force", (v) => (v / 100).toFixed(2), (v) => {
+      centerForceStrength = v / 100;
+      updateForces();
+    });
+    bindSlider("slider-repel", "val-repel", (v) => String(Math.round(v)), (v) => {
+      repelStrength = v;
+      updateForces();
+    });
+    bindSlider("slider-link-force", "val-link-force", (v) => (v / 100).toFixed(1), (v) => {
+      linkForceStrength = v / 100;
+      updateForces();
+    });
+    bindSlider("slider-link-dist", "val-link-dist", (v) => String(Math.round(v)), (v) => {
+      linkDistance = v;
+      updateForces();
+    });
+    bindSlider("slider-collision", "val-collision", (v) => (v / 100).toFixed(1), (v) => {
+      collisionStrength = v / 100;
+      updateForces();
+    });
+
+    // === Paper search (searches ALL papers, not just visible) ===
+    const searchInput = document.getElementById("paper-search") as HTMLInputElement;
+    const searchResultsEl = document.getElementById("search-results")!;
+
+    searchInput?.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (query.length < 2) { searchResultsEl.classList.add("hidden"); return; }
+
+      const matches = allPaperNodes
+        .filter((p) =>
+          p.title.toLowerCase().includes(query) ||
+          p.id.toLowerCase().includes(query) ||
+          p.authors.some((a) => a.toLowerCase().includes(query))
+        ).slice(0, 8);
+
+      if (matches.length === 0) {
+        searchResultsEl.innerHTML = '<div class="px-4 py-3 text-sm text-gray-400">No papers found</div>';
+      } else {
+        searchResultsEl.innerHTML = matches.map((p) =>
+          `<button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-gray-50 border-b border-gray-100 last:border-b-0" data-paper-id="${p.id}">
+            <div class="font-medium text-gray-800 truncate">${p.title}</div>
+            <div class="text-xs text-gray-400">${p.authors.length > 0 ? p.authors.slice(0, 3).join(", ") + (p.authors.length > 3 ? " ..." : "") + " &middot; " : ""}${p.id} &middot; ${p.theme}</div>
+          </button>`
+        ).join("");
+      }
+      searchResultsEl.classList.remove("hidden");
+
+      searchResultsEl.querySelectorAll(".search-result").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const paperId = (btn as HTMLElement).dataset.paperId!;
+          centerPaperId = paperId;
+          rebuildGraph();
+          updateCenterLabel();
+          const paper = paperNodeById.get(paperId);
+          if (paper) openPaperPanel(paper);
+          searchResultsEl.classList.add("hidden");
+          searchInput.value = "";
+        });
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!searchInput?.contains(e.target as Node) && !searchResultsEl?.contains(e.target as Node)) {
+        searchResultsEl?.classList.add("hidden");
       }
     });
 
-    // Hover: tooltip + neighborhood highlight
-    nodeGroup
-      .on("mouseover", (event: MouseEvent, d: GraphNode) => {
-        tooltip
-          .html(
-            `<strong>${d.title}</strong><br/><span style="opacity:0.7">${d.theme}</span><br/><span style="opacity:0.5">${d.concepts.length} concepts</span>`
-          )
-          .classed("hidden", false);
+    // === Concept index tag clicks ===
+    document.querySelectorAll(".concept-tag").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const conceptName = (btn as HTMLElement).dataset.concept!;
+        const papers: string[] = JSON.parse((btn as HTMLElement).dataset.papers!);
 
-        // Highlight connected neighborhood
-        nodeGroup
-          .attr("opacity", (o: GraphNode) =>
-            isConnected(d.id, o.id) ? 1 : 0.15
-          )
-          .attr("stroke-width", (o: GraphNode) =>
-            o.id === d.id ? 3 : 1.5
-          );
+        // Find a paper with this concept that has the most connections, center on it
+        let bestPaper = papers[0];
+        let bestS = 0;
+        for (const pid of papers) {
+          const s = connectivityScore[pid] || 0;
+          if (s > bestS) { bestS = s; bestPaper = pid; }
+        }
+        centerPaperId = bestPaper;
+        // Increase depth enough to hopefully show all papers with this concept
+        const origDepth = maxDepth;
+        maxDepth = Math.max(maxDepth, 3);
+        depthSlider.value = String(maxDepth);
+        depthLabelEl.textContent = String(maxDepth);
+        rebuildGraph();
+        updateCenterLabel();
 
-        linkGroup.attr("stroke-opacity", (l: any) => {
-          const sid =
-            typeof l.source === "string" ? l.source : l.source.id;
-          const tid =
-            typeof l.target === "string" ? l.target : l.target.id;
-          return sid === d.id || tid === d.id ? 0.8 : 0.05;
+        openConceptPanel(conceptName, papers);
+
+        document.querySelectorAll(".concept-tag").forEach((t) => {
+          (t as HTMLElement).style.fontWeight = "normal";
         });
-      })
-      .on("mousemove", (event: MouseEvent) => {
-        tooltip
-          .style("left", event.pageX + 12 + "px")
-          .style("top", event.pageY - 12 + "px");
-      })
-      .on("mouseout", () => {
-        tooltip.classed("hidden", true);
-        nodeGroup.attr("opacity", 1).attr("stroke-width", 1.5);
-        linkGroup.attr("stroke-opacity", 0.6);
+        (btn as HTMLElement).style.fontWeight = "bold";
       });
+    });
+
+    // === Initial render ===
+    rebuildGraph();
+    updateCenterLabel();
   });
 </script>

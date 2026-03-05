@@ -1,0 +1,164 @@
+# IAIFI Concept Taxonomy
+# Curated vocabulary for consistent concept extraction and network visualization.
+# Organized by IAIFI's cross-cutting methodological pillars and domain areas.
+# The LLM maps each paper to 5-15 concepts from this list.
+
+categories:
+
+  # === IAIFI Cross-Cutting Methodological Pillars ===
+
+  Representation & Manifold Learning:
+    - representation learning
+    - manifold learning
+    - dimensionality reduction
+    - contrastive learning
+    - self-supervised learning
+    - autoencoders
+    - embeddings
+    - feature extraction
+    - disentangled representations
+
+  Generative Models:
+    - generative models
+    - normalizing flows
+    - diffusion models
+    - variational autoencoders
+    - generative adversarial networks
+    - score-based models
+    - flow matching
+    - likelihood estimation
+    - density estimation
+    - simulation-based inference
+
+  Uncertainty Quantification & Robust AI:
+    - uncertainty quantification
+    - calibration
+    - Bayesian inference
+    - posterior estimation
+    - conformal prediction
+    - robustness
+    - out-of-distribution detection
+    - model validation
+    - goodness-of-fit testing
+
+  Physics-Motivated Optimization:
+    - physics-informed neural networks
+    - equivariant neural networks
+    - symmetry preservation
+    - group theory
+    - geometric deep learning
+    - conservation laws
+    - Hamiltonian systems
+    - Lagrangian methods
+    - optimal transport
+
+  Reinforcement Learning & Search:
+    - reinforcement learning
+    - test-time scaling
+    - reward optimization
+    - active learning
+    - experimental design
+    - automated discovery
+
+  # === AI/ML Architecture & Methods ===
+
+  Neural Architectures:
+    - transformers
+    - graph neural networks
+    - convolutional networks
+    - recurrent networks
+    - attention mechanisms
+    - Kolmogorov-Arnold networks
+    - perceiver architectures
+    - neural operators
+    - mixture of experts
+
+  Statistical & Mathematical Methods:
+    - anomaly detection
+    - classification
+    - regression
+    - clustering
+    - hypothesis testing
+    - likelihood ratio
+    - kernel methods
+    - sparse models
+    - ensemble methods
+    - Monte Carlo methods
+    - stochastic processes
+    - spectral methods
+    - eigenvalue decomposition
+
+  Training & Optimization:
+    - fine-tuning
+    - transfer learning
+    - multi-task learning
+    - data augmentation
+    - semi-supervised learning
+    - loss function design
+    - scalability
+
+  # === Physics Domains ===
+
+  Particle & High-Energy Physics:
+    - collider physics
+    - jet physics
+    - event reconstruction
+    - particle tracking
+    - detector simulation
+    - trigger systems
+    - calorimetry
+    - new physics searches
+    - Standard Model
+
+  Quantum Field Theory & Formal Theory:
+    - lattice QCD
+    - lattice gauge theory
+    - quantum field theory
+    - scattering amplitudes
+    - conformal field theory
+    - string theory
+    - effective field theory
+    - renormalization
+    - symmetry breaking
+    - phase transitions
+
+  Quantum Computing & Information:
+    - quantum computing
+    - quantum states
+    - quantum simulation
+    - entanglement
+    - tensor networks
+
+  Astrophysics & Cosmology:
+    - gravitational waves
+    - dark matter
+    - dark energy
+    - galaxy classification
+    - cosmic microwave background
+    - supernova classification
+    - stellar evolution
+    - cosmological simulation
+    - exoplanets
+    - neutrino detection
+
+  Condensed Matter & Materials:
+    - molecular dynamics
+    - interatomic potentials
+    - materials discovery
+    - phonon properties
+    - crystal structure
+    - force fields
+    - thermal conductivity
+
+  # === Cross-Domain Applications ===
+
+  Scientific Discovery:
+    - novelty detection
+    - signal detection
+    - unfolding
+    - inverse problems
+    - surrogate modeling
+    - emulation
+    - superresolution
+    - interpretability
+    - scientific workflows

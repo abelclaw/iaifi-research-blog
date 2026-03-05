@@ -16,12 +16,17 @@
     "@astrojs/sitemap": "^3.7.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
+    "@types/d3-scale": "^4.0.9",
     "astro": "^5.18.0",
     "d3-drag": "^3.0.0",
     "d3-force": "^3.0.0",
+    "d3-scale": "^4.0.2",
     "d3-selection": "^3.0.0",
     "d3-zoom": "^3.0.0",
+    "ml-matrix": "^6.12.1",
+    "ml-pca": "^4.1.1",
     "tailwindcss": "^4.2.1",
+    "tsne-js": "^1.0.3",
     "typescript": "^5.9.3"
   },
   "devDependencies": {

@@ -10,33 +10,40 @@ interface Props {
       published: Date;
       concepts: string[];
       arxivUrl: string;
+      figures?: string[];
     };
   };
+  featured?: boolean;
+  noImage?: boolean;
 }
 
-const { post } = Astro.props;
-const { title, authors, abstract, theme, published, concepts } = post.data;
+const { post, featured = false, noImage = false } = Astro.props;
+const { title, authors, abstract, theme, published, concepts, figures } = post.data;
 
-const themeColors: Record<string, { badge: string; border: string }> = {
+const themeColors: Record<string, { badge: string; border: string; accent: string }> = {
   "Foundational AI": {
     badge: "bg-blue-100 text-blue-800",
     border: "border-l-blue-500",
+    accent: "#3b82f6",
   },
   "Theoretical Physics": {
     badge: "bg-violet-100 text-violet-800",
     border: "border-l-violet-500",
+    accent: "#8b5cf6",
   },
   "Experimental Physics": {
     badge: "bg-amber-100 text-amber-800",
     border: "border-l-amber-500",
+    accent: "#f59e0b",
   },
   "Astrophysics": {
     badge: "bg-emerald-100 text-emerald-800",
     border: "border-l-emerald-500",
+    accent: "#10b981",
   },
 };
 
-const colors = themeColors[theme] ?? { badge: "bg-gray-100 text-gray-800", border: "border-l-gray-500" };
+const colors = themeColors[theme] ?? { badge: "bg-gray-100 text-gray-800", border: "border-l-gray-500", accent: "#6b7280" };
 
 const displayAuthors =
   authors.length > 3
@@ -49,37 +56,101 @@ const displayDate = published.toLocaleDateString("en-US", {
   day: "numeric",
 });
 
-const displayConcepts = concepts.slice(0, 5);
+const displayConcepts = concepts.slice(0, featured ? 8 : 5);
+const heroFigure = featured && !noImage && figures && figures.length > 0 ? figures[0] : null;
 ---
 
 <article
-  class={`border-l-4 ${colors.border} bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow`}
+  class:list={[
+    `border-l-4 ${colors.border} bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow`,
+    featured ? "p-0 overflow-hidden" : "p-5",
+  ]}
   data-theme={theme}
 >
-  <div class="flex flex-wrap items-center gap-2 mb-2">
-    <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${colors.badge}`}>
-      {theme}
-    </span>
-    <span class="text-xs text-gray-500">{displayDate}</span>
-  </div>
-
-  <h2 class="text-lg font-semibold mb-1">
-    <a href={`${import.meta.env.BASE_URL}posts/${post.id}`} class="text-gray-900 hover:text-blue-600 transition-colors">
-      {title}
-    </a>
-  </h2>
-
-  <p class="text-sm text-gray-600 mb-2">{displayAuthors}</p>
-
-  <p class="text-sm text-gray-700 line-clamp-3 mb-3">{abstract}</p>
-
-  {displayConcepts.length > 0 && (
-    <div class="flex flex-wrap gap-1.5">
-      {displayConcepts.map((concept) => (
-        <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-          {concept}
-        </span>
-      ))}
+  {featured && heroFigure ? (
+    <div class="flex flex-col sm:flex-row">
+      <div class="sm:w-2/5 bg-gray-50">
+        <img
+          src={heroFigure}
+          alt={`Figure from ${title}`}
+          class="w-full h-48 sm:h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="sm:w-3/5 p-6">
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+          <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${colors.badge}`}>
+            {theme}
+          </span>
+          <span class="text-xs text-gray-500">{displayDate}</span>
+        </div>
+        <h2 class="text-xl font-bold mb-2">
+          <a href={`${import.meta.env.BASE_URL}posts/${post.id}`} class="text-gray-900 hover:text-blue-600 transition-colors">
+            {title}
+          </a>
+        </h2>
+        <p class="text-sm text-gray-600 mb-2">{displayAuthors}</p>
+        <p class="text-sm text-gray-700 line-clamp-3 mb-3">{abstract}</p>
+        {displayConcepts.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {displayConcepts.map((concept) => (
+              <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                {concept}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
+  ) : featured ? (
+    <div class="p-6">
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${colors.badge}`}>
+          {theme}
+        </span>
+        <span class="text-xs text-gray-500">{displayDate}</span>
+      </div>
+      <h2 class="text-xl font-bold mb-2">
+        <a href={`${import.meta.env.BASE_URL}posts/${post.id}`} class="text-gray-900 hover:text-blue-600 transition-colors">
+          {title}
+        </a>
+      </h2>
+      <p class="text-sm text-gray-600 mb-2">{displayAuthors}</p>
+      <p class="text-sm text-gray-700 line-clamp-3 mb-3">{abstract}</p>
+      {displayConcepts.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {displayConcepts.map((concept) => (
+            <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+              {concept}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  ) : (
+    <>
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full ${colors.badge}`}>
+          {theme}
+        </span>
+        <span class="text-xs text-gray-500">{displayDate}</span>
+      </div>
+      <h2 class="text-lg font-semibold mb-1">
+        <a href={`${import.meta.env.BASE_URL}posts/${post.id}`} class="text-gray-900 hover:text-blue-600 transition-colors">
+          {title}
+        </a>
+      </h2>
+      <p class="text-sm text-gray-600 mb-2">{displayAuthors}</p>
+      <p class="text-sm text-gray-700 line-clamp-3 mb-3">{abstract}</p>
+      {displayConcepts.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {displayConcepts.map((concept) => (
+            <span class="inline-block text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+              {concept}
+            </span>
+          ))}
+        </div>
+      )}
+    </>
   )}
 </article>

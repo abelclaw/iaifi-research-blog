@@ -2,6 +2,7 @@
 
 import json
 import logging
+from datetime import datetime
 from pathlib import Path
 
 import aiosqlite
@@ -92,10 +93,23 @@ class Database:
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
 
     async def initialize(self) -> None:
-        """Create tables and enable WAL mode."""
+        """Create tables, enable WAL mode, and run migrations."""
         async with aiosqlite.connect(self.db_path) as db:
             await db.execute("PRAGMA journal_mode=WAL")
             await db.executescript(SCHEMA)
+            # Migration: add concepts_status column if missing
+            cursor = await db.execute("PRAGMA table_info(papers)")
+            columns = {row[1] for row in await cursor.fetchall()}
+            if "concepts_status" not in columns:
+                await db.execute(
+                    "ALTER TABLE papers ADD COLUMN concepts_status TEXT DEFAULT NULL"
+                )
+                logger.info("Migrated: added concepts_status column to papers")
+            if "nickname" not in columns:
+                await db.execute(
+                    "ALTER TABLE papers ADD COLUMN nickname TEXT DEFAULT NULL"
+                )
+                logger.info("Migrated: added nickname column to papers")
             await db.commit()
         logger.info(f"Database initialized at {self.db_path}")
 
@@ -217,12 +231,13 @@ class Database:
     async def insert_blog_post(self, post: dict) -> int:
         """Insert a new blog post and return its ID."""
         async with aiosqlite.connect(self.db_path) as db:
+            now = datetime.utcnow().isoformat()
             cursor = await db.execute(
                 """
                 INSERT INTO blog_posts
                 (paper_arxiv_id, title, slug, content, word_count,
-                 llm_model, generation_cost, status)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                 llm_model, generation_cost, status, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     post["paper_arxiv_id"],
@@ -233,6 +248,8 @@ class Database:
                     post["llm_model"],
                     post.get("generation_cost", 0),
                     post.get("status", "draft"),
+                    now,
+                    now,
                 ),
             )
             await db.commit()
@@ -245,8 +262,8 @@ class Database:
                 """
                 INSERT INTO figures
                 (paper_arxiv_id, figure_path, page_number, width, height,
-                 extraction_type, sort_order)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                 extraction_type, sort_order, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     figure["paper_arxiv_id"],
@@ -256,6 +273,7 @@ class Database:
                     figure["height"],
                     figure["extraction_type"],
                     figure.get("sort_order", 0),
+                    figure.get("created_at", datetime.utcnow().isoformat()),
                 ),
             )
             await db.commit()
@@ -266,11 +284,12 @@ class Database:
     ) -> None:
         """Insert multiple concept records for a paper."""
         async with aiosqlite.connect(self.db_path) as db:
+            now = datetime.utcnow().isoformat()
             await db.executemany(
                 """
                 INSERT INTO concepts
-                (paper_arxiv_id, name, description, relevance)
-                VALUES (?, ?, ?, ?)
+                (paper_arxiv_id, name, description, relevance, created_at)
+                VALUES (?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -278,11 +297,61 @@ class Database:
                         c["name"],
                         c.get("description", ""),
                         c.get("relevance", 0),
+                        now,
                     )
                     for c in concepts
                 ],
             )
             await db.commit()
+
+    async def delete_concepts(self, arxiv_id: str) -> None:
+        """Delete all concepts for a paper (for re-extraction)."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                "DELETE FROM concepts WHERE paper_arxiv_id = ?", (arxiv_id,)
+            )
+            await db.commit()
+
+    async def set_concepts_status(self, arxiv_id: str, status: str) -> None:
+        """Set the concepts review status for a paper."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                "UPDATE papers SET concepts_status = ? WHERE arxiv_id = ?",
+                (status, arxiv_id),
+            )
+            await db.commit()
+
+    async def get_papers_with_concepts(
+        self, concepts_status: str | None = None
+    ) -> list[dict]:
+        """Get papers that have concepts, with paper info and concept count.
+
+        Args:
+            concepts_status: Filter by concepts_status (pending/approved/rejected).
+        """
+        async with aiosqlite.connect(self.db_path) as db:
+            db.row_factory = aiosqlite.Row
+            if concepts_status:
+                cursor = await db.execute(
+                    """SELECT p.arxiv_id, p.title, p.iaifi_category,
+                              p.concepts_status, COUNT(c.id) as concept_count
+                       FROM papers p
+                       JOIN concepts c ON c.paper_arxiv_id = p.arxiv_id
+                       WHERE p.concepts_status = ?
+                       GROUP BY p.arxiv_id
+                       ORDER BY c.created_at DESC""",
+                    (concepts_status,),
+                )
+            else:
+                cursor = await db.execute(
+                    """SELECT p.arxiv_id, p.title, p.iaifi_category,
+                              p.concepts_status, COUNT(c.id) as concept_count
+                       FROM papers p
+                       JOIN concepts c ON c.paper_arxiv_id = p.arxiv_id
+                       GROUP BY p.arxiv_id
+                       ORDER BY c.created_at DESC""",
+                )
+            return [dict(row) for row in await cursor.fetchall()]
 
     async def get_blog_posts(self, status: str | None = None) -> list[dict]:
         """Retrieve all blog posts, optionally filtered by status.
@@ -342,15 +411,28 @@ class Database:
             await db.commit()
 
     async def get_blog_post(self, arxiv_id: str) -> dict | None:
-        """Retrieve a blog post by paper arxiv_id."""
+        """Retrieve a blog post by paper arxiv_id with paper metadata."""
         async with aiosqlite.connect(self.db_path) as db:
             db.row_factory = aiosqlite.Row
             cursor = await db.execute(
-                "SELECT * FROM blog_posts WHERE paper_arxiv_id = ?",
+                """SELECT bp.*, p.title as paper_title, p.authors as paper_authors,
+                          p.iaifi_category
+                   FROM blog_posts bp
+                   LEFT JOIN papers p ON bp.paper_arxiv_id = p.arxiv_id
+                   WHERE bp.paper_arxiv_id = ?""",
                 (arxiv_id,),
             )
             row = await cursor.fetchone()
-            return dict(row) if row else None
+            if not row:
+                return None
+            result = dict(row)
+            # Authors are stored as JSON array in papers table
+            if result.get("paper_authors"):
+                try:
+                    result["paper_authors"] = json.loads(result["paper_authors"])
+                except (json.JSONDecodeError, TypeError):
+                    pass
+            return result
 
     async def get_figures(self, arxiv_id: str) -> list[dict]:
         """Retrieve all figures for a paper, ordered by sort_order."""

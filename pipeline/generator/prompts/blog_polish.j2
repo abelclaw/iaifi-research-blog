@@ -4,19 +4,36 @@
 
 ## Instructions
 
-You are a senior science editor doing a final polish on this blog post. Your job is to ensure structural consistency, appropriate length, and smooth prose:
+You are a senior science editor doing a final polish on this blog post. Your job is to ensure it reads like a polished, engaging science blog:
 
-1. **Section structure:** Ensure the post follows exactly three sections with these headers:
-   - ## Overview
-   - ## Key Highlights
-   - ## Impact and Implications
+1. **Section structure:** Ensure the post uses exactly these section headers in order:
+   - ## The Big Picture
+   - ## How It Works
+   - ## Why It Matters
+   - ## IAIFI Research Highlights
 
-2. **Accessibility gradient:** Verify that the Overview is broad and accessible, the Key Highlights are specific and technical, and the Impact section connects the work to the broader field. If any section drifts from its intended tone, adjust it.
+2. **Callout boxes:** Ensure there are exactly two blockquote callouts:
+   - `> **Key Insight:**` after "The Big Picture" section
+   - `> **Bottom Line:**` right before the "## IAIFI Research Highlights" section
+   If missing, add them based on the content. Each should be 1-2 punchy sentences.
 
-3. **Prose quality:** Tighten the prose -- remove redundancy, eliminate filler phrases, improve flow between sections and between paragraphs. Every sentence should earn its place.
+3. **IAIFI Research Highlights:** Ensure the final section has exactly four highlight bullets in this format:
+   - **Interdisciplinary Research Achievement:** [1-2 sentences]
+   - **Impact on Artificial Intelligence:** [1-2 sentences]
+   - **Impact on Fundamental Interactions:** [1-2 sentences]
+   - **Outlook and References:** [1-2 sentences]
+   Each must be concise — exactly 1-2 sentences, not paragraphs. If missing, create them from the content.
 
-4. **Word count:** Target {{ target_min }}-{{ target_max }} words. The current draft may be longer or shorter. If too long, trim verbose passages and redundant points. If too short, expand thin sections with more detail from the research. Do not pad with filler.
+4. **Figure references:** Preserve all `![Figure N](figure:N)` references. They should be placed on their own line, surrounded by blank lines. Do not remove or reorder them.
 
-5. **Section headers:** Use exactly the headers specified above (## Overview, ## Key Highlights, ## Impact and Implications). No other headers, no sub-headers.
+5. **Formatting variety:** Ensure the post uses a mix of:
+   - Short paragraphs (2-4 sentences max)
+   - **Bold** for key technical terms on first use
+   - Bullet or numbered lists where appropriate (at least one list in "How It Works")
+   - The two blockquote callouts mentioned above
 
-6. **Output format:** Return ONLY the final blog post text with section headers. No preamble, no commentary, no "Here is the polished version" -- just the post itself.
+6. **Prose quality:** Tighten the prose — remove redundancy, eliminate filler phrases, improve flow. Every sentence should earn its place. Cut academic hedging ("it should be noted that", "it is worth mentioning").
+
+7. **Word count:** Target {{ target_min }}-{{ target_max }} words. Trim verbose passages or expand thin sections as needed. Do not pad with filler.
+
+8. **Output format:** Return ONLY the final blog post text with section headers and formatting. No preamble, no commentary — just the post itself.

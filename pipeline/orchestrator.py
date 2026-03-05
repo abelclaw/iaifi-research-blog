@@ -13,14 +13,13 @@ from collections.abc import Callable
 from datetime import datetime
 from pathlib import Path
 
-from pipeline.config import settings
+from pipeline.config import llm_settings, settings
 from pipeline.db import Database
 from pipeline.extractor.figure_extractor import FigureExtractor
 from pipeline.extractor.pdf_reader import extract_paper_text
 from pipeline.fetcher import arxiv_client as arxiv_mod
 from pipeline.fetcher import iaifi_scraper as scraper_mod
 from pipeline.generator.concept_extractor import ConceptExtractor
-from pipeline.generator.llm_client import LLMClient
 from pipeline.generator.post_generator import PostGenerator
 from pipeline.models import DiscoveryResult, Paper, PaperStatus
 
@@ -169,16 +168,24 @@ class DiscoveryOrchestrator:
                     logger.error(error_msg)
                     errors.append(error_msg)
 
-            # Step 5: Download PDFs
-            _progress("downloading_pdfs", {
-                "message": "Downloading PDFs..."
-            })
-            logger.info("Step 5: Downloading PDFs")
+            # Step 5: Download PDFs (new papers + any stuck at metadata_fetched)
+            stale_papers = await self.db.get_papers(
+                status=PaperStatus.METADATA_FETCHED.value
+            )
+            stale_ids = [p["arxiv_id"] for p in stale_papers
+                         if p["arxiv_id"] not in new_ids]
+            all_pdf_ids = new_ids + stale_ids
 
-            # Re-fetch metadata results for PDF download
-            # (we need the arxiv.Result objects for download_pdf)
-            for i in range(0, len(new_ids), batch_size):
-                batch = new_ids[i : i + batch_size]
+            _progress("downloading_pdfs", {
+                "message": f"Downloading PDFs for {len(all_pdf_ids)} papers..."
+            })
+            logger.info(
+                "Step 5: Downloading PDFs (%d new + %d stale)",
+                len(new_ids), len(stale_ids),
+            )
+
+            for i in range(0, len(all_pdf_ids), batch_size):
+                batch = all_pdf_ids[i : i + batch_size]
                 try:
                     results = self.arxiv_client.fetch_metadata_batch(batch)
                     for arxiv_id, result in results.items():
@@ -267,6 +274,16 @@ class DiscoveryOrchestrator:
         return result
 
 
+def _create_llm_client():
+    """Create the appropriate LLM client based on config."""
+    if llm_settings.BACKEND == "claude-cli":
+        from pipeline.generator.claude_cli_client import ClaudeCLIClient
+        return ClaudeCLIClient(model=llm_settings.MODEL)
+    else:
+        from pipeline.generator.llm_client import LLMClient
+        return LLMClient()
+
+
 class ContentGenerator:
     """Orchestrates the full content generation pipeline for a paper.
 
@@ -277,7 +294,7 @@ class ContentGenerator:
 
     def __init__(self, db: Database):
         self.db = db
-        self.llm = LLMClient()
+        self.llm = _create_llm_client()
         self.post_generator = PostGenerator(llm_client=self.llm)
         self.concept_extractor = ConceptExtractor(llm_client=self.llm)
         self.figure_extractor = FigureExtractor()
@@ -349,26 +366,42 @@ class ContentGenerator:
 
             cost_before = self.llm.total_cost
 
-            # Step 1: Extract figures
-            _progress("extracting_figures", {
-                "message": f"Extracting figures from {arxiv_id}...",
-            })
-            logger.info("Step 1: Extracting figures for %s", arxiv_id)
-            figures = self.figure_extractor.extract_figures(pdf_path, arxiv_id)
-            for fig in figures:
-                await self.db.insert_figure({
-                    "paper_arxiv_id": arxiv_id,
-                    "figure_path": fig["path"],
-                    "page_number": fig["page_number"],
-                    "width": fig["width"],
-                    "height": fig["height"],
-                    "extraction_type": fig["extraction_type"],
-                    "sort_order": figures.index(fig),
+            # Step 1: Extract figures (skip if already done)
+            existing_figures = await self.db.get_figures(arxiv_id)
+            if existing_figures:
+                figures = [
+                    {"path": f["figure_path"], "page_number": f["page_number"],
+                     "width": f["width"], "height": f["height"],
+                     "extraction_type": f["extraction_type"]}
+                    for f in existing_figures
+                ]
+                logger.info("Skipping figure extraction for %s — %d already exist", arxiv_id, len(figures))
+            else:
+                _progress("extracting_figures", {
+                    "message": f"Extracting figures from {arxiv_id}...",
                 })
-            await self.db.update_paper_status(
-                arxiv_id, PaperStatus.FIGURES_EXTRACTED.value
-            )
-            logger.info("Extracted %d figures for %s", len(figures), arxiv_id)
+                logger.info("Step 1: Extracting figures for %s", arxiv_id)
+                figures = await self.figure_extractor.extract_figures(
+                    pdf_path, arxiv_id,
+                    paper_title=paper.title,
+                    paper_abstract=paper.abstract,
+                    llm_client=self.llm,
+                )
+                for idx, fig in enumerate(figures):
+                    await self.db.insert_figure({
+                        "paper_arxiv_id": arxiv_id,
+                        "figure_path": fig["path"],
+                        "page_number": fig["page_number"],
+                        "width": fig["width"],
+                        "height": fig["height"],
+                        "extraction_type": fig["extraction_type"],
+                        "sort_order": idx,
+                        "created_at": datetime.utcnow().isoformat(),
+                    })
+                await self.db.update_paper_status(
+                    arxiv_id, PaperStatus.FIGURES_EXTRACTED.value
+                )
+                logger.info("Extracted %d figures for %s", len(figures), arxiv_id)
 
             # Step 2: Extract text from PDF
             _progress("extracting_text", {
@@ -383,7 +416,7 @@ class ContentGenerator:
             })
             logger.info("Step 3: Generating blog post for %s", arxiv_id)
             blog_post = await self.post_generator.generate_post(
-                paper, pdf_path
+                paper, pdf_path, figures=figures
             )
             await self.db.insert_blog_post({
                 "paper_arxiv_id": blog_post.paper_arxiv_id,
@@ -403,49 +436,118 @@ class ContentGenerator:
                 arxiv_id, blog_post.word_count,
             )
 
-            # Step 4: Extract concepts
-            _progress("extracting_concepts", {
-                "message": "Extracting scientific concepts...",
-            })
-            logger.info("Step 4: Extracting concepts for %s", arxiv_id)
-            concept_result = await self.concept_extractor.extract_concepts(
-                paper, pdf_text
-            )
-            await self.db.insert_concepts(
-                arxiv_id,
-                [c.model_dump() for c in concept_result.concepts],
-            )
-            await self.db.update_paper_status(
-                arxiv_id, PaperStatus.CONCEPTS_EXTRACTED.value
-            )
-            logger.info(
-                "Extracted %d concepts for %s (theme: %s)",
-                len(concept_result.concepts),
-                arxiv_id,
-                concept_result.iaifi_theme,
-            )
-
             generation_cost = self.llm.total_cost - cost_before
 
             _progress("complete", {
-                "message": f"Content generation complete for {arxiv_id}",
+                "message": f"Blog generation complete for {arxiv_id}",
                 "figures": len(figures),
                 "word_count": blog_post.word_count,
-                "concepts": len(concept_result.concepts),
                 "cost": generation_cost,
             })
 
             return {
                 "blog_post": blog_post.model_dump(),
                 "figures": figures,
-                "concepts": [
-                    c.model_dump() for c in concept_result.concepts
-                ],
                 "generation_cost": generation_cost,
             }
 
         except Exception as e:
             error_msg = f"Content generation failed for {arxiv_id}: {e}"
+            logger.exception(error_msg)
+            _progress("error", {"message": error_msg})
+            raise
+
+    async def extract_concepts_only(
+        self,
+        arxiv_id: str,
+        on_progress: Callable[[str, dict], None] | None = None,
+    ) -> dict:
+        """Extract concepts for a paper (standalone, separate from blog generation).
+
+        Args:
+            arxiv_id: arXiv ID of the paper.
+            on_progress: Optional callback(step_name, details).
+
+        Returns:
+            Dict with concepts list and concept_count.
+        """
+
+        def _progress(step: str, details: dict | None = None):
+            if on_progress:
+                on_progress(step, details or {})
+
+        try:
+            # Fetch paper from database
+            papers = await self.db.get_papers()
+            paper_dict = next(
+                (p for p in papers if p["arxiv_id"] == arxiv_id), None
+            )
+            if paper_dict is None:
+                raise ValueError(f"Paper not found in database: {arxiv_id}")
+
+            paper = Paper(
+                arxiv_id=paper_dict["arxiv_id"],
+                arxiv_id_versioned=paper_dict.get("arxiv_id_versioned"),
+                title=paper_dict["title"],
+                authors=paper_dict["authors"],
+                abstract=paper_dict["abstract"],
+                arxiv_categories=paper_dict["arxiv_categories"],
+                iaifi_category=paper_dict["iaifi_category"],
+                published=paper_dict.get("published"),
+                pdf_path=paper_dict.get("pdf_path"),
+                pdf_url=paper_dict.get("pdf_url"),
+                code_url=paper_dict.get("code_url"),
+                status=paper_dict.get("status", "discovered"),
+            )
+
+            pdf_path = paper.pdf_path
+            if not pdf_path or not Path(pdf_path).exists():
+                raise FileNotFoundError(
+                    f"PDF not found for paper {arxiv_id}: {pdf_path}"
+                )
+
+            _progress("extracting_text", {
+                "message": "Extracting paper text...",
+            })
+            pdf_text = extract_paper_text(pdf_path)
+
+            _progress("extracting_concepts", {
+                "message": "Extracting scientific concepts...",
+            })
+            logger.info("Extracting concepts for %s", arxiv_id)
+
+            concept_result = await self.concept_extractor.extract_concepts(
+                paper, pdf_text
+            )
+
+            # Clear any existing concepts for this paper before inserting
+            await self.db.delete_concepts(arxiv_id)
+            await self.db.insert_concepts(
+                arxiv_id,
+                [c.model_dump() for c in concept_result.concepts],
+            )
+            await self.db.set_concepts_status(arxiv_id, "pending")
+
+            concept_count = len(concept_result.concepts)
+            logger.info(
+                "Extracted %d concepts for %s (theme: %s)",
+                concept_count,
+                arxiv_id,
+                concept_result.iaifi_theme,
+            )
+
+            _progress("complete", {
+                "message": f"Concept extraction complete for {arxiv_id}",
+                "concepts": concept_count,
+            })
+
+            return {
+                "concepts": [c.model_dump() for c in concept_result.concepts],
+                "concept_count": concept_count,
+            }
+
+        except Exception as e:
+            error_msg = f"Concept extraction failed for {arxiv_id}: {e}"
             logger.exception(error_msg)
             _progress("error", {"message": error_msg})
             raise

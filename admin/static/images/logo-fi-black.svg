@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- FI mark — F path extracted from official IAIFI logo, I as matching bar -->
+  <path fill="#1a1a1a" d="M44,0h-8c-13.51,0-22.45,3.38-28.15,10.62C2.42,17.54,0,27.83,0,44h8c-.03-4.01.17-8.01.59-12h23.41v-8H10.11c3.37-11.75,11.14-16,25.89-16h8V0Z"/>
+  <rect fill="#1a1a1a" x="36" y="12" width="8" height="32"/>
+</svg>

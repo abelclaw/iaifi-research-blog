@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- fi mark (lowercase) — f with curved hook echoing IAIFI F, matching i with dot -->
+  <path fill="#7b2d8e" d="M8,46 V24 H2 V16 H8 V10 C8,4 14,0 22,0 H30 V8 H22 C18,8 16,9 16,10 V16 H24 V24 H16 V46 Z"/>
+  <rect fill="#7b2d8e" x="34" y="0" width="8" height="8" rx="1"/>
+  <rect fill="#7b2d8e" x="34" y="16" width="8" height="30"/>
+</svg>

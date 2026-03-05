@@ -30,7 +30,9 @@ class Settings:
 class LLMSettings:
     """LLM configuration with environment variable overrides."""
 
-    MODEL: str = os.environ.get("IAIFI_LLM_MODEL", "claude-sonnet-4-20250514")
+    # Backend: "litellm" (API-based) or "claude-cli" (uses `claude -p`)
+    BACKEND: str = os.environ.get("IAIFI_LLM_BACKEND", "claude-cli")
+    MODEL: str = os.environ.get("IAIFI_LLM_MODEL", "sonnet")
     TEMPERATURE: float = float(
         os.environ.get("IAIFI_LLM_TEMPERATURE", "0.7")
     )

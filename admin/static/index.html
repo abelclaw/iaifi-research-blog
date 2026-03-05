@@ -9,7 +9,7 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1rem;
             color: #1a1a1a;
@@ -165,10 +165,60 @@
         }
 
         .title-cell {
-            max-width: 400px;
+            max-width: 350px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+        }
+
+        .authors-cell {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 0.82rem;
+            color: #555;
+        }
+
+        /* Search */
+        .search-bar {
+            margin-bottom: 0.75rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .search-bar input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Sortable columns */
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th.sortable:hover {
+            color: #2563eb;
+        }
+
+        th .sort-arrow {
+            font-size: 0.7rem;
+            margin-left: 0.25rem;
+            opacity: 0.3;
+        }
+
+        th.sort-asc .sort-arrow,
+        th.sort-desc .sort-arrow {
+            opacity: 1;
         }
 
         /* Status badges */
@@ -212,6 +262,86 @@
             color: #991b1b;
         }
 
+        .badge-blog_generated {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .btn-generate {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #059669;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .btn-generate:hover:not(:disabled) {
+            background: #047857;
+        }
+
+        .btn-generate:disabled {
+            background: #6ee7b7;
+            cursor: not-allowed;
+        }
+
+        .btn-concepts {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #7c3aed;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .btn-concepts:hover:not(:disabled) {
+            background: #6d28d9;
+        }
+
+        .btn-concepts:disabled {
+            background: #c4b5fd;
+            cursor: not-allowed;
+        }
+
+        .btn-download {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .btn-download:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        .btn-download:disabled {
+            background: #93c5fd;
+            cursor: not-allowed;
+        }
+
+        .action-group {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .done-check {
+            color: #059669;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
         /* Navigation */
         nav {
             display: flex;
@@ -238,27 +368,39 @@
     <nav>
         <a href="/" class="current">Discovery</a>
         <a href="/review.html">Review Posts</a>
+        <a href="/concepts.html">Review Concepts</a>
     </nav>
 
     <h1>IAIFI Paper Discovery</h1>
 
     <div class="discovery-section">
         <button id="discover-btn" onclick="triggerDiscovery()">Discover New Papers</button>
+        <button class="btn-download" style="padding:0.6rem 1.25rem;font-size:1rem;" onclick="downloadAll()">Download All PDFs</button>
+        <button class="btn-concepts" style="padding:0.6rem 1.25rem;font-size:1rem;" onclick="extractAllConcepts()">Extract All Concepts</button>
+        <button class="btn-generate" style="padding:0.6rem 1.25rem;font-size:1rem;" onclick="generateAllBlogs()">Generate All Blogs</button>
+        <button id="reindex-btn" onclick="reindexSearch()" style="padding:0.6rem 1.25rem;font-size:1rem;font-weight:500;background:#7c3aed;color:#fff;border:none;border-radius:6px;cursor:pointer;">Reindex Search</button>
+        <button id="bulk-stop-btn" onclick="stopBulk()" style="display:none;padding:0.6rem 1.25rem;font-size:1rem;font-weight:500;background:#dc2626;color:#fff;border:none;border-radius:6px;cursor:pointer;">Stop</button>
         <div id="status"></div>
+        <div id="bulk-status" style="margin-top:0.5rem;font-size:0.9rem;color:#666;"></div>
     </div>
 
     <div class="papers-section">
         <h2>Ingested Papers</h2>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search titles or authors..." oninput="filterPapers()">
+        </div>
         <div id="paper-count" class="paper-count"></div>
         <div id="papers-container">
             <table id="papers-table" style="display: none;">
                 <thead>
                     <tr>
-                        <th>arXiv ID</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Status</th>
-                        <th>Published</th>
+                        <th class="sortable" data-sort="arxiv_id">arXiv ID <span class="sort-arrow">&#9650;</span></th>
+                        <th class="sortable" data-sort="title">Title <span class="sort-arrow">&#9650;</span></th>
+                        <th class="sortable" data-sort="authors">Authors <span class="sort-arrow">&#9650;</span></th>
+                        <th class="sortable" data-sort="iaifi_category">Category <span class="sort-arrow">&#9650;</span></th>
+                        <th class="sortable" data-sort="status">Status <span class="sort-arrow">&#9650;</span></th>
+                        <th class="sortable" data-sort="published">Published <span class="sort-arrow">&#9650;</span></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="papers-body"></tbody>
@@ -271,6 +413,12 @@
 
     <script>
         let pollInterval = null;
+        let allPapers = [];
+        let sortColumn = 'published';
+        let sortAsc = false;
+        // Track active tasks: arxivId -> { taskId, step, status, error }
+        let activeGenerations = {};
+        let activeConcepts = {};
 
         async function triggerDiscovery() {
             const btn = document.getElementById('discover-btn');
@@ -367,9 +515,6 @@
         }
 
         async function loadPapers() {
-            const tbody = document.getElementById('papers-body');
-            const table = document.getElementById('papers-table');
-            const emptyState = document.getElementById('empty-state');
             const countDiv = document.getElementById('paper-count');
 
             try {
@@ -377,38 +522,161 @@
                 if (!resp.ok) {
                     throw new Error(`HTTP ${resp.status}`);
                 }
-                const papers = await resp.json();
-
-                if (papers.length === 0) {
-                    table.style.display = 'none';
-                    emptyState.style.display = 'block';
-                    countDiv.textContent = '';
-                    return;
-                }
-
-                table.style.display = 'table';
-                emptyState.style.display = 'none';
-                countDiv.textContent = 'Showing ' + papers.length + ' papers';
-
-                tbody.innerHTML = papers.map(function(p) {
-                    const arxivUrl = 'https://arxiv.org/abs/' + encodeURIComponent(p.arxiv_id);
-                    const title = escapeHtml(p.title || 'Untitled');
-                    const category = escapeHtml(p.iaifi_category || '-');
-                    const badgeClass = 'badge badge-' + (p.status || 'discovered');
-                    const statusText = escapeHtml((p.status || 'discovered').replace(/_/g, ' '));
-                    const published = p.published ? formatDate(p.published) : '-';
-
-                    return '<tr>' +
-                        '<td><a href="' + arxivUrl + '" target="_blank">' + escapeHtml(p.arxiv_id) + '</a></td>' +
-                        '<td class="title-cell" title="' + title + '">' + title + '</td>' +
-                        '<td>' + category + '</td>' +
-                        '<td><span class="' + badgeClass + '">' + statusText + '</span></td>' +
-                        '<td>' + published + '</td>' +
-                        '</tr>';
-                }).join('');
+                allPapers = await resp.json();
+                filterPapers();
             } catch (err) {
                 countDiv.textContent = 'Error loading papers: ' + err.message;
             }
+        }
+
+        function filterPapers() {
+            const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
+            var filtered = allPapers;
+            if (query) {
+                filtered = allPapers.filter(function(p) {
+                    var authorsStr = Array.isArray(p.authors) ? p.authors.join(' ') : '';
+                    return (p.title || '').toLowerCase().indexOf(query) !== -1 ||
+                           authorsStr.toLowerCase().indexOf(query) !== -1;
+                });
+            }
+            renderPapers(filtered);
+        }
+
+        function sortPapers(papers) {
+            var col = sortColumn;
+            return papers.slice().sort(function(a, b) {
+                var va, vb;
+                if (col === 'authors') {
+                    va = Array.isArray(a.authors) && a.authors.length > 0 ? a.authors[0] : '';
+                    vb = Array.isArray(b.authors) && b.authors.length > 0 ? b.authors[0] : '';
+                } else if (col === 'published') {
+                    va = a.published || '';
+                    vb = b.published || '';
+                } else {
+                    va = a[col] || '';
+                    vb = b[col] || '';
+                }
+                if (typeof va === 'string') va = va.toLowerCase();
+                if (typeof vb === 'string') vb = vb.toLowerCase();
+                var cmp = va < vb ? -1 : va > vb ? 1 : 0;
+                return sortAsc ? cmp : -cmp;
+            });
+        }
+
+        function renderPapers(papers) {
+            const tbody = document.getElementById('papers-body');
+            const table = document.getElementById('papers-table');
+            const emptyState = document.getElementById('empty-state');
+            const countDiv = document.getElementById('paper-count');
+
+            if (allPapers.length === 0) {
+                table.style.display = 'none';
+                emptyState.style.display = 'block';
+                countDiv.textContent = '';
+                return;
+            }
+
+            table.style.display = 'table';
+            emptyState.style.display = 'none';
+
+            var sorted = sortPapers(papers);
+            var showing = sorted.length === allPapers.length
+                ? 'Showing ' + sorted.length + ' papers'
+                : 'Showing ' + sorted.length + ' of ' + allPapers.length + ' papers';
+            countDiv.textContent = showing;
+
+            tbody.innerHTML = sorted.map(function(p) {
+                const arxivUrl = 'https://arxiv.org/abs/' + encodeURIComponent(p.arxiv_id);
+                const title = escapeHtml(p.title || 'Untitled');
+                const authorsArr = Array.isArray(p.authors) ? p.authors : [];
+                const authorsShort = authorsArr.length > 3
+                    ? authorsArr.slice(0, 3).join(', ') + ' +' + (authorsArr.length - 3)
+                    : authorsArr.join(', ');
+                const authorsFull = authorsArr.join(', ');
+                const category = escapeHtml(p.iaifi_category || '-');
+                const badgeClass = 'badge badge-' + (p.status || 'discovered');
+                const statusText = escapeHtml((p.status || 'discovered').replace(/_/g, ' '));
+                const published = p.published ? formatDate(p.published) : '-';
+
+                var needsPdf = ['discovered', 'metadata_fetched'].indexOf(p.status) !== -1;
+                var hasPdf = !needsPdf && p.pdf_path;
+                var eid = p.arxiv_id.replace(/'/g, "\\'");
+                var actionCell;
+
+                if (needsPdf) {
+                    actionCell = '<button class="btn-download" onclick="downloadPdf(\'' + eid + '\', this)">Download PDF</button>';
+                } else if (hasPdf) {
+                    var parts = [];
+
+                    // Blog button/status
+                    var genTask = activeGenerations[p.arxiv_id];
+                    if (genTask && genTask.status === 'running') {
+                        var stepText = escapeHtml((genTask.step || 'starting').replace(/_/g, ' '));
+                        parts.push('<span class="badge badge-running">' + stepText + '...</span>');
+                    } else if (genTask && genTask.status === 'error') {
+                        parts.push('<button class="btn-generate" style="background:#fee2e2;color:#991b1b;" title="' + escapeHtml(genTask.error || '') + '" onclick="delete activeGenerations[\'' + eid + '\']; generateForPaper(\'' + eid + '\')">Retry Blog</button>');
+                    } else if (p.has_blog_post) {
+                        parts.push('<span class="done-check" title="Blog post generated">Blog &#10003;</span>');
+                    } else {
+                        parts.push('<button class="btn-generate" onclick="generateForPaper(\'' + eid + '\')">Blog</button>');
+                        resumeBlogPolling(p.arxiv_id); // check if server has an active task
+                    }
+
+                    // Concepts button/status
+                    var conTask = activeConcepts[p.arxiv_id];
+                    var isExtracting = p.concepts_status === 'extracting';
+                    if (conTask && conTask.status === 'running') {
+                        var conStep = escapeHtml((conTask.step || 'starting').replace(/_/g, ' '));
+                        parts.push('<span class="badge badge-running">' + conStep + '...</span>');
+                    } else if (conTask && conTask.status === 'error') {
+                        parts.push('<button class="btn-concepts" style="background:#fee2e2;color:#991b1b;" title="' + escapeHtml(conTask.error || '') + '" onclick="delete activeConcepts[\'' + eid + '\']; conceptsForPaper(\'' + eid + '\')">Retry</button>');
+                    } else if (isExtracting && !conTask) {
+                        // Server says extracting but we have no local task — resume polling
+                        parts.push('<span class="badge badge-running">extracting...</span>');
+                        resumeConceptPolling(p.arxiv_id);
+                    } else if (p.has_concepts) {
+                        parts.push('<span class="done-check" title="Concepts extracted">Concepts &#10003;</span>');
+                    } else {
+                        parts.push('<button class="btn-concepts" onclick="conceptsForPaper(\'' + eid + '\')">Concepts</button>');
+                    }
+
+                    actionCell = '<div class="action-group">' + parts.join('') + '</div>';
+                } else {
+                    actionCell = '<span style="color:#999;font-size:0.8rem;">-</span>';
+                }
+
+                return '<tr>' +
+                    '<td><a href="' + arxivUrl + '" target="_blank">' + escapeHtml(p.arxiv_id) + '</a></td>' +
+                    '<td class="title-cell" title="' + title + '">' + title + '</td>' +
+                    '<td class="authors-cell" title="' + escapeHtml(authorsFull) + '">' + escapeHtml(authorsShort) + '</td>' +
+                    '<td>' + category + '</td>' +
+                    '<td><span class="' + badgeClass + '">' + statusText + '</span></td>' +
+                    '<td>' + published + '</td>' +
+                    '<td>' + actionCell + '</td>' +
+                    '</tr>';
+            }).join('');
+        }
+
+        function setupSorting() {
+            document.querySelectorAll('th.sortable').forEach(function(th) {
+                th.addEventListener('click', function() {
+                    var col = th.dataset.sort;
+                    if (sortColumn === col) {
+                        sortAsc = !sortAsc;
+                    } else {
+                        sortColumn = col;
+                        sortAsc = true;
+                    }
+                    // Update header styles
+                    document.querySelectorAll('th.sortable').forEach(function(t) {
+                        t.classList.remove('sort-asc', 'sort-desc');
+                        t.querySelector('.sort-arrow').innerHTML = '&#9650;';
+                    });
+                    th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+                    th.querySelector('.sort-arrow').innerHTML = sortAsc ? '&#9650;' : '&#9660;';
+                    filterPapers();
+                });
+            });
         }
 
         function formatDate(isoString) {
@@ -430,8 +698,456 @@
             return div.innerHTML;
         }
 
-        // Load papers on page load
+        async function generateForPaper(arxivId) {
+            // Prevent double-click
+            if (activeGenerations[arxivId] && activeGenerations[arxivId].status === 'running') return;
+
+            activeGenerations[arxivId] = { taskId: null, step: 'starting', status: 'running', error: null };
+            filterPapers(); // re-render to show "starting..." badge
+
+            try {
+                const resp = await fetch('/api/generate/' + encodeURIComponent(arxivId), { method: 'POST' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const data = await resp.json();
+
+                activeGenerations[arxivId].taskId = data.task_id;
+
+                const genPoll = setInterval(async () => {
+                    try {
+                        const sr = await fetch('/api/generate/' + encodeURIComponent(data.task_id) + '/status');
+                        if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                        const sd = await sr.json();
+
+                        if (sd.status === 'running') {
+                            activeGenerations[arxivId].step = sd.step || 'generating';
+                            filterPapers();
+                        } else if (sd.status === 'complete') {
+                            clearInterval(genPoll);
+                            delete activeGenerations[arxivId];
+                            loadPapers();
+                        } else if (sd.status === 'error') {
+                            clearInterval(genPoll);
+                            activeGenerations[arxivId].status = 'error';
+                            activeGenerations[arxivId].error = sd.error || 'Unknown error';
+                            filterPapers();
+                        }
+                    } catch (e) {
+                        clearInterval(genPoll);
+                        activeGenerations[arxivId].status = 'error';
+                        activeGenerations[arxivId].error = e.message;
+                        filterPapers();
+                    }
+                }, 2000);
+            } catch (err) {
+                activeGenerations[arxivId].status = 'error';
+                activeGenerations[arxivId].error = err.message;
+                filterPapers();
+            }
+        }
+
+        // Resume polling for a paper whose concepts_status is 'extracting' in the DB
+        // (e.g. after page refresh). Queries server for the active task.
+        var _resumingConcepts = {};
+        async function resumeConceptPolling(arxivId) {
+            if (_resumingConcepts[arxivId]) return; // already resuming
+            _resumingConcepts[arxivId] = true;
+            try {
+                var resp = await fetch('/api/tasks/' + encodeURIComponent(arxivId));
+                if (!resp.ok) return;
+                var tasks = await resp.json();
+                if (tasks.concepts && tasks.concepts.task_id) {
+                    var task = tasks.concepts;
+                    if (task.status === 'running') {
+                        activeConcepts[arxivId] = { taskId: task.task_id, step: task.step || 'extracting', status: 'running', error: null };
+                        // Start polling
+                        var conPoll = setInterval(async function() {
+                            try {
+                                var sr = await fetch('/api/concepts/' + encodeURIComponent(task.task_id) + '/status');
+                                if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                                var sd = await sr.json();
+                                if (sd.status === 'running') {
+                                    activeConcepts[arxivId].step = sd.step || 'extracting';
+                                    filterPapers();
+                                } else if (sd.status === 'complete') {
+                                    clearInterval(conPoll);
+                                    delete activeConcepts[arxivId];
+                                    delete _resumingConcepts[arxivId];
+                                    loadPapers();
+                                } else if (sd.status === 'error') {
+                                    clearInterval(conPoll);
+                                    activeConcepts[arxivId].status = 'error';
+                                    activeConcepts[arxivId].error = sd.error || 'Unknown error';
+                                    delete _resumingConcepts[arxivId];
+                                    filterPapers();
+                                }
+                            } catch (e) {
+                                clearInterval(conPoll);
+                                delete activeConcepts[arxivId];
+                                delete _resumingConcepts[arxivId];
+                                loadPapers(); // re-check from DB
+                            }
+                        }, 2000);
+                        filterPapers();
+                    } else if (task.status === 'complete') {
+                        delete _resumingConcepts[arxivId];
+                        loadPapers();
+                    } else if (task.status === 'error') {
+                        activeConcepts[arxivId] = { taskId: task.task_id, step: null, status: 'error', error: task.error };
+                        delete _resumingConcepts[arxivId];
+                        filterPapers();
+                    }
+                } else {
+                    // No server-side task found — extraction may have completed between
+                    // page loads, just reload to get fresh DB state
+                    delete _resumingConcepts[arxivId];
+                    loadPapers();
+                }
+            } catch (e) {
+                delete _resumingConcepts[arxivId];
+            }
+        }
+
+        // Resume polling for a paper whose blog generation may still be running
+        // on the server (e.g. after page refresh).
+        var _resumingBlog = {};
+        async function resumeBlogPolling(arxivId) {
+            if (_resumingBlog[arxivId]) return;
+            _resumingBlog[arxivId] = true;
+            try {
+                var resp = await fetch('/api/tasks/' + encodeURIComponent(arxivId));
+                if (!resp.ok) return;
+                var tasks = await resp.json();
+                if (tasks.generate && tasks.generate.task_id) {
+                    var task = tasks.generate;
+                    if (task.status === 'running') {
+                        activeGenerations[arxivId] = { taskId: task.task_id, step: task.step || 'generating', status: 'running', error: null };
+                        var genPoll = setInterval(async function() {
+                            try {
+                                var sr = await fetch('/api/generate/' + encodeURIComponent(task.task_id) + '/status');
+                                if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                                var sd = await sr.json();
+                                if (sd.status === 'running') {
+                                    activeGenerations[arxivId].step = sd.step || 'generating';
+                                    filterPapers();
+                                } else if (sd.status === 'complete') {
+                                    clearInterval(genPoll);
+                                    delete activeGenerations[arxivId];
+                                    delete _resumingBlog[arxivId];
+                                    loadPapers();
+                                } else if (sd.status === 'error') {
+                                    clearInterval(genPoll);
+                                    activeGenerations[arxivId].status = 'error';
+                                    activeGenerations[arxivId].error = sd.error || 'Unknown error';
+                                    delete _resumingBlog[arxivId];
+                                    filterPapers();
+                                }
+                            } catch (e) {
+                                clearInterval(genPoll);
+                                delete activeGenerations[arxivId];
+                                delete _resumingBlog[arxivId];
+                                loadPapers();
+                            }
+                        }, 2000);
+                        filterPapers();
+                    } else if (task.status === 'complete') {
+                        delete _resumingBlog[arxivId];
+                        loadPapers();
+                    } else if (task.status === 'error') {
+                        activeGenerations[arxivId] = { taskId: task.task_id, step: null, status: 'error', error: task.error };
+                        delete _resumingBlog[arxivId];
+                        filterPapers();
+                    }
+                } else {
+                    delete _resumingBlog[arxivId];
+                }
+            } catch (e) {
+                delete _resumingBlog[arxivId];
+            }
+        }
+
+        async function conceptsForPaper(arxivId) {
+            if (activeConcepts[arxivId] && activeConcepts[arxivId].status === 'running') return;
+
+            activeConcepts[arxivId] = { taskId: null, step: 'starting', status: 'running', error: null };
+            filterPapers();
+
+            try {
+                const resp = await fetch('/api/concepts/' + encodeURIComponent(arxivId), { method: 'POST' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const data = await resp.json();
+
+                activeConcepts[arxivId].taskId = data.task_id;
+
+                const conPoll = setInterval(async () => {
+                    try {
+                        const sr = await fetch('/api/concepts/' + encodeURIComponent(data.task_id) + '/status');
+                        if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                        const sd = await sr.json();
+
+                        if (sd.status === 'running') {
+                            activeConcepts[arxivId].step = sd.step || 'extracting';
+                            filterPapers();
+                        } else if (sd.status === 'complete') {
+                            clearInterval(conPoll);
+                            delete activeConcepts[arxivId];
+                            loadPapers();
+                        } else if (sd.status === 'error') {
+                            clearInterval(conPoll);
+                            activeConcepts[arxivId].status = 'error';
+                            activeConcepts[arxivId].error = sd.error || 'Unknown error';
+                            filterPapers();
+                        }
+                    } catch (e) {
+                        clearInterval(conPoll);
+                        activeConcepts[arxivId].status = 'error';
+                        activeConcepts[arxivId].error = e.message;
+                        filterPapers();
+                    }
+                }, 2000);
+            } catch (err) {
+                activeConcepts[arxivId].status = 'error';
+                activeConcepts[arxivId].error = err.message;
+                filterPapers();
+            }
+        }
+
+        async function downloadPdf(arxivId, btn) {
+            btn.disabled = true;
+            btn.textContent = 'Downloading...';
+
+            try {
+                const resp = await fetch('/api/papers/' + encodeURIComponent(arxivId) + '/download-pdf', { method: 'POST' });
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    throw new Error(err.detail || 'HTTP ' + resp.status);
+                }
+                const data = await resp.json();
+                btn.textContent = 'Done!';
+                btn.style.background = '#d1fae5';
+                btn.style.color = '#065f46';
+                loadPapers();
+            } catch (err) {
+                btn.textContent = 'Failed';
+                btn.style.background = '#fee2e2';
+                btn.style.color = '#991b1b';
+                btn.disabled = false;
+                btn.title = err.message;
+            }
+        }
+
+        // --- Bulk Actions (server-side with polling) ---
+
+        var bulkRunning = false;
+        var bulkTaskId = null;
+        var bulkPollInterval = null;
+
+        function setBulkStatus(msg) {
+            document.getElementById('bulk-status').textContent = msg;
+        }
+
+        function setBulkStatusHtml(html) {
+            document.getElementById('bulk-status').innerHTML = html;
+        }
+
+        async function stopBulk() {
+            if (!bulkTaskId) return;
+            var btn = document.getElementById('bulk-stop-btn');
+            btn.disabled = true;
+            btn.textContent = 'Stopping...';
+            try {
+                await fetch('/api/bulk/' + bulkTaskId + '/cancel', { method: 'POST' });
+            } catch (e) {
+                console.error('Cancel failed:', e);
+            }
+        }
+
+        function showStopButton() {
+            var btn = document.getElementById('bulk-stop-btn');
+            btn.style.display = 'inline-block';
+            btn.disabled = false;
+            btn.textContent = 'Stop';
+        }
+
+        function hideStopButton() {
+            document.getElementById('bulk-stop-btn').style.display = 'none';
+        }
+
+        function bulkDone() {
+            bulkRunning = false;
+            bulkTaskId = null;
+            hideStopButton();
+            if (bulkPollInterval) { clearInterval(bulkPollInterval); bulkPollInterval = null; }
+            loadPapers();
+        }
+
+        function pollBulkStatus(taskId, typeLabel) {
+            if (bulkPollInterval) clearInterval(bulkPollInterval);
+            bulkPollInterval = setInterval(async function() {
+                try {
+                    var resp = await fetch('/api/bulk/' + taskId + '/status');
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    var d = await resp.json();
+
+                    if (d.status === 'running') {
+                        setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || typeLabel + '...'));
+                    } else if (d.status === 'complete') {
+                        var r = d.result || {};
+                        setBulkStatus(typeLabel + ' complete! ' + (r.done || 0) + ' done' + (r.errors > 0 ? ', ' + r.errors + ' errors' : '') + ' of ' + (r.total || 0));
+                        bulkDone();
+                    } else if (d.status === 'cancelled') {
+                        var r = d.result || {};
+                        setBulkStatus('Stopped. ' + (r.done || 0) + ' done' + (r.errors > 0 ? ', ' + r.errors + ' errors' : '') + ' of ' + (r.total || 0));
+                        bulkDone();
+                    } else if (d.status === 'error') {
+                        setBulkStatus(typeLabel + ' failed: ' + (d.error || 'unknown'));
+                        bulkDone();
+                    }
+                } catch (e) {
+                    setBulkStatus('Error polling: ' + e.message);
+                    bulkDone();
+                }
+            }, 2000);
+        }
+
+        async function startBulk(endpoint, typeLabel) {
+            if (bulkRunning) return;
+            bulkRunning = true;
+            showStopButton();
+            setBulkStatus('Starting ' + typeLabel + '...');
+            try {
+                var resp = await fetch(endpoint, { method: 'POST' });
+                if (!resp.ok) {
+                    var err = await resp.json().catch(function() { return {}; });
+                    throw new Error(err.detail || 'HTTP ' + resp.status);
+                }
+                var data = await resp.json();
+                bulkTaskId = data.task_id;
+                pollBulkStatus(data.task_id, typeLabel);
+            } catch (e) {
+                setBulkStatus('Error: ' + e.message);
+                bulkDone();
+            }
+        }
+
+        // Check for active bulk task on page load (survives refresh)
+        async function checkActiveBulk() {
+            try {
+                var resp = await fetch('/api/bulk/active');
+                if (!resp.ok) return;
+                var d = await resp.json();
+                if (d.status === 'running' && d.task_id) {
+                    bulkRunning = true;
+                    bulkTaskId = d.task_id;
+                    showStopButton();
+                    var label = d.type === 'concepts' ? 'Concept extraction' : 'Blog generation';
+                    setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || label + '...'));
+                    pollBulkStatus(d.task_id, label);
+                }
+            } catch (e) {}
+        }
+
+        // Download All PDFs (stays client-side — no LLM cost, fast)
+        async function downloadAll() {
+            if (bulkRunning) return;
+            bulkRunning = true;
+            showStopButton();
+            setBulkStatus('Starting downloads...');
+            var cancelled = false;
+
+            // Hijack stop for client-side download loop
+            var origStop = stopBulk;
+            stopBulk = function() { cancelled = true; var btn = document.getElementById('bulk-stop-btn'); btn.disabled = true; btn.textContent = 'Stopping...'; };
+
+            try {
+                await loadPapers();
+                var pending = allPapers.filter(function(p) {
+                    return ['discovered', 'metadata_fetched'].indexOf(p.status) !== -1 && !p.pdf_path;
+                });
+
+                if (pending.length === 0) {
+                    setBulkStatus('No papers need PDF download.');
+                    bulkDone();
+                    return;
+                }
+
+                var done = 0, errors = 0;
+                for (var i = 0; i < pending.length; i++) {
+                    if (cancelled) {
+                        setBulkStatus('Stopped. ' + done + ' downloaded' + (errors > 0 ? ', ' + errors + ' errors' : ''));
+                        bulkDone();
+                        return;
+                    }
+                    var p = pending[i];
+                    setBulkStatus('Downloading PDF ' + (i + 1) + ' of ' + pending.length + ': ' + p.arxiv_id + '...');
+                    try {
+                        var resp = await fetch('/api/papers/' + encodeURIComponent(p.arxiv_id) + '/download-pdf', { method: 'POST' });
+                        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                        done++;
+                    } catch (e) { errors++; }
+                    if (i < pending.length - 1) await new Promise(function(r) { setTimeout(r, 4000); });
+                }
+                setBulkStatus('Downloads complete! ' + done + ' downloaded' + (errors > 0 ? ', ' + errors + ' errors' : ''));
+            } catch (e) {
+                setBulkStatus('Error: ' + e.message);
+            } finally {
+                stopBulk = origStop;
+                bulkDone();
+            }
+        }
+
+        // Extract All Concepts (server-side)
+        function extractAllConcepts() {
+            startBulk('/api/bulk/concepts', 'Concept extraction');
+        }
+
+        // Generate All Blogs (server-side)
+        function generateAllBlogs() {
+            startBulk('/api/bulk/generate', 'Blog generation');
+        }
+
+        // Reindex Search
+        async function reindexSearch() {
+            var btn = document.getElementById('reindex-btn');
+            btn.disabled = true;
+            btn.textContent = 'Reindexing…';
+            btn.style.opacity = '0.6';
+            setBulkStatus('Starting search reindex…');
+            try {
+                var resp = await fetch('/api/pipeline/reindex', { method: 'POST' });
+                if (!resp.ok) throw new Error('Failed to start reindex');
+                var data = await resp.json();
+                var taskId = data.task_id;
+                var poll = setInterval(async function() {
+                    var sr = await fetch('/api/pipeline/reindex/' + taskId + '/status');
+                    var st = await sr.json();
+                    if (st.status === 'running') {
+                        setBulkStatus('Reindexing: ' + (st.step || '…'));
+                    } else if (st.status === 'complete') {
+                        clearInterval(poll);
+                        setBulkStatus('Search index rebuilt ✓ (' + st.result.posts_exported + ' posts)');
+                        btn.disabled = false;
+                        btn.textContent = 'Reindex Search';
+                        btn.style.opacity = '1';
+                    } else {
+                        clearInterval(poll);
+                        setBulkStatus('Reindex failed: ' + (st.error || 'unknown error'));
+                        btn.disabled = false;
+                        btn.textContent = 'Reindex Search';
+                        btn.style.opacity = '1';
+                    }
+                }, 2000);
+            } catch (e) {
+                setBulkStatus('Reindex error: ' + e.message);
+                btn.disabled = false;
+                btn.textContent = 'Reindex Search';
+                btn.style.opacity = '1';
+            }
+        }
+
+        // Initialize sorting and load papers
+        setupSorting();
         loadPapers();
+        checkActiveBulk();
     </script>
 </body>
 </html>

@@ -4,27 +4,98 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import ThemeFilter from "../components/ThemeFilter.astro";
 
+const base = import.meta.env.BASE_URL;
+
 const posts = await getCollection("posts");
 posts.sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const recentPosts = posts.slice(0, 4);
+const olderPosts = posts.slice(4);
+
+const themeCount: Record<string, number> = {};
+posts.forEach(p => {
+  themeCount[p.data.theme] = (themeCount[p.data.theme] || 0) + 1;
+});
 ---
 
 <BaseLayout title="IAIFI Research Blog">
-  <section class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">IAIFI Research Blog</h1>
-    <p class="text-lg text-gray-600">
-      Exploring the intersection of AI and fundamental physics
-    </p>
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden rounded-xl mb-8">
+    <div class="absolute inset-0">
+      <img
+        src={`${base}images/iaifi-hero.jpg`}
+        alt=""
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#212529]/90 via-[#212529]/75 to-[#212529]/50"></div>
+    </div>
+    <div class="relative z-10 px-8 py-10 sm:py-14">
+      <h1 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+        <span class="text-[#cd853f]">Deep Learning</span>{" "}
+        <span class="text-white/70">+</span>{" "}
+        <span class="text-[#663399]">Deep Thinking</span>{" "}
+        <span class="text-white/70">=</span>{" "}
+        <span class="text-[#008080]">Deeper Understanding</span>
+      </h1>
+      <p class="text-white/80 max-w-xl text-sm sm:text-base mb-5">
+        AI-generated summaries of the latest research from the Institute for
+        Artificial Intelligence and Fundamental Interactions.
+      </p>
+      <div class="flex flex-wrap gap-3 text-xs sm:text-sm">
+        <span class="bg-white/15 text-white/90 px-3 py-1 rounded-full">
+          {posts.length} papers
+        </span>
+        {Object.entries(themeCount).map(([theme, count]) => (
+          <span class={`px-3 py-1 rounded-full ${
+            theme === "Foundational AI" ? "bg-blue-500/20 text-blue-200" :
+            theme === "Theoretical Physics" ? "bg-violet-500/20 text-violet-200" :
+            theme === "Experimental Physics" ? "bg-amber-500/20 text-amber-200" :
+            "bg-emerald-500/20 text-emerald-200"
+          }`}>
+            {count} {theme}
+          </span>
+        ))}
+      </div>
+    </div>
   </section>
 
-  <ThemeFilter />
+  <!-- Latest Posts -->
+  {recentPosts.length > 0 && (
+    <section class="mb-8">
+      <h2 class="text-lg font-bold text-[#212529] mb-4 flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
+        Latest
+      </h2>
+      <PostCard post={recentPosts[0]} featured={true} noImage={true} />
+      {recentPosts.length > 1 && (
+        <div class="grid gap-4 sm:grid-cols-3 mt-4">
+          {recentPosts.slice(1).map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      )}
+    </section>
+  )}
 
-  {posts.length > 0 ? (
-    <div id="timeline" class="space-y-6">
-      {posts.map((post) => (
-        <PostCard post={post} />
-      ))}
-    </div>
-  ) : (
+  <!-- All Posts -->
+  {olderPosts.length > 0 && (
+    <section>
+      <h2 class="text-lg font-bold text-[#212529] mb-4 flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-[#444] inline-block"></span>
+        All Posts
+      </h2>
+
+      <ThemeFilter />
+
+      <div id="timeline" class="space-y-4">
+        {olderPosts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {posts.length === 0 && (
     <div class="text-center py-12 text-gray-500">
       <p class="text-lg">No published posts yet.</p>
       <p class="text-sm mt-2">

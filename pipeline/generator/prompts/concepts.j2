@@ -1,4 +1,4 @@
-You are analyzing a research paper to extract key scientific concepts and validate its categorization.
+You are analyzing a research paper to extract key scientific concepts from a curated IAIFI taxonomy and validate its categorization.
 
 ## Paper Information
 
@@ -14,23 +14,25 @@ You are analyzing a research paper to extract key scientific concepts and valida
 
 {{ paper_content }}
 
+## IAIFI Concept Taxonomy
+
+Select concepts from this curated vocabulary. Each paper should map to 5-15 concepts.
+
+{% for category, concepts in taxonomy.items() %}
+**{{ category }}:** {{ concepts | join(', ') }}
+{% endfor %}
+
 ## Extraction Instructions
 
-Extract 5-15 key scientific concepts from this paper. For each concept provide:
-- A short **name** (1-4 words)
-- A one-sentence **description** of what it means in the context of this paper
-- A **relevance** score (0-1) indicating how central it is to the paper's contribution
+1. Select 5-12 concepts from the taxonomy above that are central to this paper. Use the **exact names** from the taxonomy — do not paraphrase or invent synonyms.
 
-Focus on:
-- Specific methods or algorithms
-- Theoretical frameworks
-- Physical phenomena
-- Mathematical tools
-- Datasets
-- Key results
+2. You may add up to 3 **novel concepts** not in the taxonomy if the paper introduces genuinely new methods or phenomena. Keep names short (1-4 words), lowercase, and specific. Avoid generic terms.
 
-Avoid generic terms like "machine learning" or "physics" unless the paper makes a specific novel contribution to that general area.
+3. For each concept (taxonomy or novel), provide:
+   - **name**: Exact taxonomy term, or a short novel name
+   - **description**: One sentence explaining its role in this paper
+   - **relevance**: Score 0-1 indicating how central it is to the paper's contribution
 
-Determine the **primary IAIFI theme**: one of "Foundational AI", "Theoretical Physics", "Experimental Physics", or "Astrophysics". The current assigned category is {{ iaifi_category }} -- validate or correct based on paper content.
+4. Determine the **primary IAIFI theme**: one of "Foundational AI", "Theoretical Physics", "Experimental Physics", or "Astrophysics". The current assigned category is {{ iaifi_category }} — validate or correct based on paper content.
 
-List any **secondary themes** that are also relevant (can be empty).
+5. List any **secondary themes** that are also relevant (can be empty).

@@ -11,6 +11,8 @@ const {
   title,
   description = "IAIFI Research Blog - AI meets Fundamental Physics",
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -19,23 +21,37 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}images/logo-fi-purple.svg`} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+  <body class="min-h-screen bg-white text-[#212529] flex flex-col" style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
     <Header />
-    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
       <slot />
     </main>
-    <footer class="border-t border-gray-200 bg-white mt-auto">
-      <div class="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-gray-500">
-        <a
-          href="https://iaifi.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-gray-700 transition-colors"
-        >
-          IAIFI - Institute for Artificial Intelligence and Fundamental Interactions
-        </a>
+    <footer class="bg-[#212529] text-white/70 mt-auto">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <img src={`${base}images/iaifi-logo-white.svg`} alt="IAIFI" class="h-7 w-auto opacity-60" />
+            <div class="text-sm">
+              <a
+                href="https://iaifi.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white transition-colors"
+              >
+                Institute for AI and Fundamental Interactions
+              </a>
+            </div>
+          </div>
+          <div class="text-xs text-white/40">
+            Harvard &middot; MIT &middot; Northeastern &middot; Tufts
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-white/10 text-xs text-white/30 text-center">
+          NSF AI Institute &middot; Cooperative Agreement PHY-2019786
+        </div>
       </div>
     </footer>
   </body>

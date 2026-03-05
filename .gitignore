@@ -1,9 +1,5 @@
-# Database
-data/papers.db
-data/test.db
-
-# Downloaded PDFs
-data/pdfs/
+# Data (local only — DBs, PDFs, intermediate figures)
+data/
 
 # Python
 __pycache__/

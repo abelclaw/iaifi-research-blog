@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://abelclaw.github.io",
-  base: "/iaifi-research-blog",
+  base: "/iaifi-research-blog/",
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

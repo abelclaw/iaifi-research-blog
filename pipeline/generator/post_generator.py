@@ -7,7 +7,6 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 from pipeline.extractor.pdf_reader import extract_paper_text
-from pipeline.generator.llm_client import LLMClient
 from pipeline.models import BlogPost, Paper
 
 logger = logging.getLogger(__name__)
@@ -58,7 +57,7 @@ class PostGenerator:
 
     def __init__(
         self,
-        llm_client: LLMClient,
+        llm_client,
         prompts_dir: str = "pipeline/generator/prompts",
     ):
         self.llm = llm_client
@@ -68,16 +67,21 @@ class PostGenerator:
         )
         logger.info("PostGenerator initialized with prompts from %s", prompts_dir)
 
-    async def generate_post(self, paper: Paper, pdf_path: str) -> BlogPost:
+    async def generate_post(
+        self, paper: Paper, pdf_path: str, figures: list[dict] | None = None,
+    ) -> BlogPost:
         """Generate a blog post from a paper through three LLM passes.
 
         Args:
             paper: Paper model with metadata (title, authors, abstract, etc.).
             pdf_path: Path to the paper's PDF file.
+            figures: List of extracted figure dicts with 'path' keys.
 
         Returns:
             BlogPost model with generated content, word count, and cost.
         """
+        figures = figures or []
+
         # Reset cost tracking for this generation
         cost_before = self.llm.total_cost
 
@@ -95,6 +99,7 @@ class PostGenerator:
             abstract=paper.abstract,
             paper_content=paper_content,
             iaifi_category=paper.iaifi_category,
+            num_figures=len(figures),
         )
         pass1_output = await self.llm.generate(
             system_prompt=JOURNALIST_SYSTEM,

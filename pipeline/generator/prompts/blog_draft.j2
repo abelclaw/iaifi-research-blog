@@ -12,24 +12,58 @@
 
 {{ paper_content }}
 
+## Available Figures
+
+This paper has {{ num_figures }} extracted figure(s). Reference them using the syntax `![Figure N](figure:N)` where N is the figure number (1-indexed). Place figures where they best illustrate the surrounding text.
+
 ## Instructions
 
-Write an 800-1500 word blog post about this research paper. Structure the post with exactly three sections:
+Write a 900-1500 word blog post about this research paper. Write it like an engaging science blog — NOT like an academic abstract or press release. Use varied formatting to break up the text and keep readers engaged.
 
-### Overview (2-3 paragraphs)
-Provide a broad, accessible explanation of the research. Use analogies and everyday language to convey the core ideas. A scientifically curious non-expert -- someone who reads popular science articles but has no background in this specific field -- should be able to understand this section fully. Set the stage for why this research matters.
+### Structure and Formatting
 
-### Key Highlights (2-3 paragraphs)
-Describe the main findings, methods, and innovations of this work. You may introduce technical terms here, but always explain each term on its first use. Be specific about what makes this work novel -- what did the researchers do differently, and what did they find? Reference specific numbers, methods, and results from the paper.
+Use these section headers and formatting elements:
 
-### Impact and Implications (1-2 paragraphs)
-Explain what this research means for the broader field. Discuss potential future directions, how it advances AI and/or fundamental physics, and how it connects to larger scientific goals.
+1. **## The Big Picture** (2-3 paragraphs)
+   - Open with a vivid hook — an analogy, a surprising fact, or a provocative question
+   - Explain the core problem and why it matters using everyday language
+   - End with a one-sentence thesis of what the researchers achieved
 
-## Important Rules
+2. **> Key Insight:** Use a blockquote callout after the opening to highlight the single most important takeaway in 1-2 sentences.
 
-- Start accessible and gradually increase technical depth across the three sections.
-- Never fabricate results, numbers, or claims not present in the paper.
-- Use active voice throughout.
-- Include specific numbers, methods, and results from the paper wherever possible.
-- Do NOT include a title line -- start directly with the Overview content.
-- Do NOT use section headers in your output -- just write flowing prose in the three-section structure.
+3. **## How It Works** (2-4 paragraphs)
+   - Walk through the method/approach step by step
+   - Use **bold** for key technical terms on first introduction, followed by a plain-language gloss
+   - Embed figures where they illustrate the method or results (e.g., `![Figure 1](figure:1)`)
+   - Use bullet lists or numbered lists to break up dense sequences of steps
+
+4. **## Why It Matters** (1-2 paragraphs)
+   - Connect the work to the bigger picture in AI and/or fundamental physics
+   - Mention concrete future directions or open questions
+
+5. **> Bottom Line:** Use a final blockquote callout summarizing the key result and its significance in 1-2 punchy sentences.
+
+6. **## IAIFI Research Highlights** — End with exactly four brief highlight bullets using this exact format:
+
+```
+## IAIFI Research Highlights
+
+**Interdisciplinary Research Achievement:** [1-2 sentences on how this work bridges AI and physics]
+
+**Impact on Artificial Intelligence:** [1-2 sentences on the AI contribution or advance]
+
+**Impact on Fundamental Interactions:** [1-2 sentences on the physics contribution or advance]
+
+**Outlook and References:** [1-2 sentences on future directions, with a mention of the arXiv ID]
+```
+
+### Style Rules
+
+- **Write like a journalist**, not like a textbook. Short paragraphs (2-4 sentences). Vary sentence length.
+- **Use analogies** freely in "The Big Picture" — compare abstract concepts to tangible things.
+- **Be specific** in "How It Works" — reference actual numbers, methods, architectures, and results from the paper.
+- **Never fabricate** results, numbers, or claims not present in the paper.
+- Use **active voice** throughout. Avoid passive constructions.
+- Do NOT include a title line — start directly with the ## The Big Picture header.
+- Place at least one figure within the body if figures are available. Don't cluster them all together.
+- The IAIFI Research Highlights should be concise and punchy — exactly 1-2 sentences each, not paragraphs.

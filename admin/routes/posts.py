@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from pipeline.config import settings
 from pipeline.db import Database
+from pipeline.export import export_approved_posts
 
 logger = logging.getLogger(__name__)
 
@@ -117,7 +118,15 @@ async def approve_post(arxiv_id: str):
             detail=f"Cannot approve post with status '{post['status']}'",
         )
     await db.update_blog_post_status(arxiv_id, "approved")
-    return {"status": "approved"}
+
+    # Export all approved posts to the Astro site
+    try:
+        count = export_approved_posts(settings.DB_PATH, "site")
+        logger.info("Exported %d approved posts to Astro site", count)
+    except Exception as e:
+        logger.error("Export to Astro failed: %s", e)
+
+    return {"status": "approved", "exported": True}
 
 
 @router.post("/api/posts/{arxiv_id}/reject")

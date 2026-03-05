@@ -1,0 +1,551 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import scatterData from "../data/scatter-data.json";
+
+const baseUrl = import.meta.env.BASE_URL;
+// Add blog post URLs
+const papers = scatterData.papers.map((p: any) => ({
+  ...p,
+  url: p.slug ? baseUrl + "posts/" + p.slug : null,
+}));
+const hasPapers = papers.length > 0;
+---
+
+<BaseLayout title="Paper Map - IAIFI Research Blog">
+  <section class="mb-6">
+    <h1 class="text-2xl font-bold text-[#212529] mb-2 flex items-center gap-2">
+      <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
+      Paper Map
+    </h1>
+    <p class="text-gray-600 text-sm mb-1">
+      Papers positioned by conceptual similarity using dimensionality reduction.
+      Nearby papers share similar research concepts.
+    </p>
+    <p class="text-xs text-gray-400">
+      Hover for details. Click to visit the blog post. Scroll to zoom.
+    </p>
+  </section>
+
+  {!hasPapers ? (
+    <div class="text-center py-16 text-gray-500 bg-white rounded-lg border border-gray-200">
+      <p class="text-lg font-medium mb-2">No papers published yet.</p>
+      <p class="text-sm">Add papers through the admin interface.</p>
+    </div>
+  ) : (
+    <>
+      <!-- Controls -->
+      <div class="mb-4 space-y-3">
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Method:</span>
+            <button id="btn-tsne" class="px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white">t-SNE</button>
+            <button id="btn-pca" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">PCA</button>
+          </div>
+          <span class="text-xs text-gray-400">|</span>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Color by:</span>
+            <button id="btn-color-theme" class="px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white">Theme</button>
+            <button id="btn-color-concept" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Concept</button>
+            <button id="btn-color-year" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Year</button>
+            <button id="btn-color-author" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Author</button>
+            <button id="btn-color-institution" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Institution</button>
+          </div>
+        </div>
+        <div id="sub-controls" class="flex flex-wrap items-center gap-2"></div>
+      </div>
+
+      <!-- Scatter plot -->
+      <div
+        id="scatter-container"
+        class="w-full bg-white rounded-lg border border-gray-200 overflow-hidden"
+        style="height: 600px"
+      ></div>
+    </>
+  )}
+</BaseLayout>
+
+<script>
+  import { select } from "d3-selection";
+  import { scaleLinear } from "d3-scale";
+  import { zoom, zoomIdentity } from "d3-zoom";
+  import type { ZoomBehavior } from "d3-zoom";
+  import scatterData from "../data/scatter-data.json";
+
+  interface PaperPoint {
+    id: string;
+    title: string;
+    nick: string | null;
+    theme: string;
+    a: string[];
+    inst: string | null;
+    year: number | null;
+    slug: string | null;
+    url: string | null;
+    cc: number;
+    pca: [number, number];
+    tsne: [number, number];
+  }
+
+  function init() {
+    const container = document.getElementById("scatter-container");
+    if (!container) return;
+
+    const { topConcepts, topAuthors, topInstitutions, conceptIndex, authorIndex, institutionIndex } = scatterData as any;
+    const papers: PaperPoint[] = (scatterData as any).papers.map((p: any) => ({
+      ...p,
+      url: p.slug ? import.meta.env.BASE_URL + "posts/" + p.slug : null,
+    }));
+    if (papers.length === 0) return;
+
+    // Build per-paper lookup sets from indices
+    const paperConceptSet: Set<string>[] = papers.map(() => new Set());
+    for (const [concept, indices] of Object.entries(conceptIndex as Record<string, number[]>)) {
+      for (const i of indices) paperConceptSet[i].add(concept);
+    }
+    const paperAuthorSet: Set<string>[] = papers.map(() => new Set());
+    for (const [author, indices] of Object.entries(authorIndex as Record<string, number[]>)) {
+      for (const i of indices) paperAuthorSet[i].add(author);
+    }
+
+    const rect = container.getBoundingClientRect();
+    const width = rect.width || container.clientWidth || 800;
+    const height = rect.height || container.clientHeight || 600;
+    const padding = 40;
+
+    const themeColors: Record<string, string> = {
+      "Foundational AI": "#3b82f6",
+      "Theoretical Physics": "#8b5cf6",
+      "Experimental Physics": "#f59e0b",
+      Astrophysics: "#10b981",
+    };
+
+    // Year color scale
+    const years = papers.map((p) => p.year).filter((y): y is number => y !== null);
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
+    const yearColorScale = scaleLinear<string>()
+      .domain([minYear, (minYear + maxYear) / 2, maxYear])
+      .range(["#6366f1", "#06b6d4", "#10b981"]);
+
+    const dimColor = "#d1d5db";
+    // Palette for multi-select highlighting
+    const palette = ["#e11d48", "#f59e0b", "#3b82f6", "#10b981", "#8b5cf6", "#ec4899", "#14b8a6", "#f97316", "#6366f1", "#84cc16"];
+    const institutionColors: Record<string, string> = {
+      "MIT": "#a31f34",
+      "Harvard": "#a51c30",
+      "Northeastern": "#d41b2c",
+      "Tufts": "#3e8ede",
+      "Brandeis": "#003478",
+      "Brown": "#4e3629",
+      "UMass Boston": "#005a8b",
+      "UPRM": "#00703c",
+      "U. Bern": "#e6002e",
+      "U. New Hampshire": "#003da5",
+      "U. Minnesota": "#7a0019",
+    };
+
+    // State
+    let currentMethod: "tsne" | "pca" = "tsne";
+    let colorMode: "theme" | "concept" | "year" | "author" | "institution" = "theme";
+    const selectedConcepts: string[] = [];
+    const selectedAuthors: string[] = [];
+    const selectedInstitutions: string[] = [];
+    const activeThemes = new Set(Object.keys(themeColors));
+    const minR = 4, maxR = 14;
+    const maxConcepts = Math.max(1, ...papers.map((p) => p.cc));
+
+    function radius(p: PaperPoint) { return minR + (maxR - minR) * (p.cc / maxConcepts); }
+
+    // Index helpers
+    const idxMap = new Map(papers.map((p, i) => [p, i]));
+    function idx(d: PaperPoint) { return idxMap.get(d) ?? -1; }
+    function hasConcept(d: PaperPoint, c: string) { return paperConceptSet[idx(d)]?.has(c) ?? false; }
+    function hasAuthor(d: PaperPoint, a: string) { return paperAuthorSet[idx(d)]?.has(a) ?? false; }
+
+    function getFill(d: PaperPoint): string {
+      if (colorMode === "theme") return themeColors[d.theme] || "#6b7280";
+      if (colorMode === "concept") {
+        if (selectedConcepts.length === 0) return "#94a3b8";
+        // Use color of first matching concept
+        for (let i = 0; i < selectedConcepts.length; i++) {
+          if (hasConcept(d, selectedConcepts[i])) return palette[i % palette.length];
+        }
+        return dimColor;
+      }
+      if (colorMode === "year") return d.year !== null ? yearColorScale(d.year) : "#9ca3af";
+      if (colorMode === "author") {
+        if (selectedAuthors.length === 0) return "#94a3b8";
+        for (let i = 0; i < selectedAuthors.length; i++) {
+          if (hasAuthor(d, selectedAuthors[i])) return palette[i % palette.length];
+        }
+        return dimColor;
+      }
+      if (colorMode === "institution") {
+        if (selectedInstitutions.length === 0) {
+          // Default: color by institution using fixed colors
+          return institutionColors[d.inst || ""] || "#94a3b8";
+        }
+        if (d.inst && selectedInstitutions.includes(d.inst)) {
+          return palette[selectedInstitutions.indexOf(d.inst) % palette.length];
+        }
+        return dimColor;
+      }
+      return "#6b7280";
+    }
+
+    function getOpacity(d: PaperPoint): number {
+      if (colorMode === "theme") return activeThemes.has(d.theme) ? 0.8 : 0;
+      if (colorMode === "concept" && selectedConcepts.length > 0) {
+        return selectedConcepts.some((c) => hasConcept(d, c)) ? 0.9 : 0.15;
+      }
+      if (colorMode === "author" && selectedAuthors.length > 0) {
+        return selectedAuthors.some((a) => hasAuthor(d, a)) ? 0.9 : 0.15;
+      }
+      if (colorMode === "institution" && selectedInstitutions.length > 0) {
+        return d.inst && selectedInstitutions.includes(d.inst) ? 0.9 : 0.15;
+      }
+      return 0.8;
+    }
+
+    function getPointerEvents(d: PaperPoint): string {
+      if (colorMode === "theme") return activeThemes.has(d.theme) ? "all" : "none";
+      return "all";
+    }
+
+    // SVG
+    const svg = select(container).append("svg").attr("width", width).attr("height", height).style("cursor", "grab");
+    const g = svg.append("g");
+    const tooltip = select("body").append("div")
+      .attr("class", "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs")
+      .style("position", "absolute");
+
+    const zoomBehavior: ZoomBehavior<SVGSVGElement, unknown> = zoom<SVGSVGElement, unknown>()
+      .scaleExtent([0.5, 10])
+      .on("zoom", (event) => { g.attr("transform", event.transform); });
+    svg.call(zoomBehavior);
+    svg.on("dblclick.zoom", null);
+
+    function getScales(method: "tsne" | "pca") {
+      const coords = papers.map((p) => p[method]);
+      const xs = coords.map((c) => c[0]), ys = coords.map((c) => c[1]);
+      const xExt = [Math.min(...xs), Math.max(...xs)];
+      const yExt = [Math.min(...ys), Math.max(...ys)];
+      const xM = (xExt[1] - xExt[0]) * 0.05 || 1;
+      const yM = (yExt[1] - yExt[0]) * 0.05 || 1;
+      return {
+        x: scaleLinear().domain([xExt[0] - xM, xExt[1] + xM]).range([padding, width - padding]),
+        y: scaleLinear().domain([yExt[0] - yM, yExt[1] + yM]).range([padding, height - padding]),
+      };
+    }
+
+    let scales = getScales(currentMethod);
+
+    const dots = g.selectAll<SVGCircleElement, PaperPoint>("circle")
+      .data(papers).join("circle")
+      .attr("cx", (d) => scales.x(d[currentMethod][0]))
+      .attr("cy", (d) => scales.y(d[currentMethod][1]))
+      .attr("r", (d) => radius(d))
+      .attr("fill", (d) => getFill(d))
+      .attr("opacity", (d) => getOpacity(d))
+      .attr("stroke", "white").attr("stroke-width", 0.5)
+      .style("cursor", "pointer")
+      .on("mouseover", (event, d) => {
+        select(event.currentTarget).attr("opacity", 1).attr("stroke-width", 2);
+        const auth = d.a.length > 0 ? `<br><span class="text-gray-300 text-xs">${d.a.slice(0, 3).join(", ")}${d.a.length > 3 ? " et al." : ""}</span>` : "";
+        const yr = d.year ? ` · ${d.year}` : "";
+        const instLabel = d.inst ? ` · ${d.inst}` : "";
+        const nickLabel = d.nick ? `<span class="text-blue-300 text-xs font-semibold">${d.nick}</span><br>` : "";
+        tooltip.html(`${nickLabel}<strong>${d.title}</strong>${auth}<br><span class="text-gray-400 text-xs">${d.theme}${yr}${instLabel} · ${d.id}</span>`)
+          .classed("hidden", false).style("left", `${event.pageX + 12}px`).style("top", `${event.pageY - 10}px`);
+      })
+      .on("mousemove", (event) => {
+        tooltip.style("left", `${event.pageX + 12}px`).style("top", `${event.pageY - 10}px`);
+      })
+      .on("mouseout", (event, d) => {
+        select(event.currentTarget).attr("opacity", getOpacity(d)).attr("stroke-width", 0.5);
+        tooltip.classed("hidden", true);
+      })
+      .on("click", (_, d) => { if (d.url) window.open(d.url, "_self"); });
+
+    function applyColors() {
+      dots.attr("fill", (d: PaperPoint) => getFill(d))
+        .attr("opacity", (d: PaperPoint) => getOpacity(d))
+        .attr("pointer-events", (d: PaperPoint) => getPointerEvents(d));
+    }
+
+    function updatePositions() {
+      scales = getScales(currentMethod);
+      dots.attr("cx", (d: PaperPoint) => scales.x(d[currentMethod][0]))
+        .attr("cy", (d: PaperPoint) => scales.y(d[currentMethod][1]));
+      svg.call(zoomBehavior.transform as any, zoomIdentity);
+    }
+
+    // --- Method toggle ---
+    const btnTsne = document.getElementById("btn-tsne")!;
+    const btnPca = document.getElementById("btn-pca")!;
+    const onPill = "px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white";
+    const offPill = "px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300";
+
+    btnTsne.addEventListener("click", () => { currentMethod = "tsne"; btnTsne.className = onPill; btnPca.className = offPill; updatePositions(); });
+    btnPca.addEventListener("click", () => { currentMethod = "pca"; btnPca.className = onPill; btnTsne.className = offPill; updatePositions(); });
+
+    // --- Color mode ---
+    const colorBtns: Record<string, HTMLElement> = {
+      theme: document.getElementById("btn-color-theme")!,
+      concept: document.getElementById("btn-color-concept")!,
+      year: document.getElementById("btn-color-year")!,
+      author: document.getElementById("btn-color-author")!,
+      institution: document.getElementById("btn-color-institution")!,
+    };
+    const subControls = document.getElementById("sub-controls")!;
+
+    function setColorMode(mode: "theme" | "concept" | "year" | "author" | "institution") {
+      colorMode = mode;
+      selectedConcepts.length = 0;
+      selectedAuthors.length = 0;
+      selectedInstitutions.length = 0;
+      for (const [k, b] of Object.entries(colorBtns)) b.className = k === mode ? onPill : offPill;
+      buildSubControls();
+      applyColors();
+    }
+    for (const [m, b] of Object.entries(colorBtns)) {
+      if (!b) { console.error("Missing button:", m); continue; }
+      b.addEventListener("click", () => setColorMode(m as any));
+    }
+
+    function buildSubControls() {
+      subControls.innerHTML = "";
+      if (colorMode === "theme") buildThemeToggles();
+      else if (colorMode === "concept") buildConceptPicker();
+      else if (colorMode === "year") buildYearLegend();
+      else if (colorMode === "author") buildAuthorPicker();
+      else if (colorMode === "institution") buildInstitutionPicker();
+    }
+
+    // Theme toggles
+    function buildThemeToggles() {
+      const w = document.createElement("div"); w.className = "flex flex-wrap gap-1";
+      for (const [theme, color] of Object.entries(themeColors)) {
+        const b = document.createElement("button");
+        b.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors";
+        b.style.cssText = `border-color:${color};color:${color};background:${color}20;opacity:${activeThemes.has(theme) ? 1 : 0.3}`;
+        b.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${theme}`;
+        b.onclick = () => { activeThemes.has(theme) ? activeThemes.delete(theme) : activeThemes.add(theme); b.style.opacity = activeThemes.has(theme) ? "1" : "0.3"; applyColors(); };
+        w.appendChild(b);
+      }
+      subControls.appendChild(w);
+    }
+
+    // Concept picker (multi-select)
+    function buildConceptPicker() {
+      const w = document.createElement("div"); w.className = "flex flex-col gap-2 w-full";
+
+      // Search
+      const sr = document.createElement("div"); sr.className = "relative";
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.placeholder = "Search concepts...";
+      inp.className = "w-full max-w-sm px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]";
+
+      const dd = document.createElement("div");
+      dd.className = "absolute left-0 top-full mt-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto hidden";
+
+      function toggleConcept(name: string) {
+        const i = selectedConcepts.indexOf(name);
+        if (i >= 0) selectedConcepts.splice(i, 1);
+        else if (selectedConcepts.length < palette.length) selectedConcepts.push(name);
+        applyColors(); buildConceptPicker();
+      }
+
+      function showDD(f: string) {
+        const list = f.length > 0 ? topConcepts.filter((c: any) => c.name.toLowerCase().includes(f.toLowerCase())).slice(0, 20) : topConcepts.slice(0, 20);
+        dd.innerHTML = list.length === 0 ? '<div class="px-3 py-2 text-xs text-gray-400">No matches</div>' : "";
+        for (const c of list) {
+          const ci = selectedConcepts.indexOf(c.name);
+          const it = document.createElement("button");
+          it.className = "w-full text-left px-3 py-1.5 text-sm hover:bg-gray-50 flex justify-between items-center";
+          const dot = ci >= 0 ? `<span class="w-2 h-2 rounded-full inline-block mr-1" style="background:${palette[ci]}"></span>` : "";
+          it.innerHTML = `<span>${dot}${c.name}</span><span class="text-xs text-gray-400">${c.count}</span>`;
+          it.onmousedown = (e) => { e.preventDefault(); toggleConcept(c.name); inp.value = ""; dd.classList.add("hidden"); };
+          dd.appendChild(it);
+        }
+        dd.classList.remove("hidden");
+      }
+      inp.onfocus = () => showDD(inp.value);
+      inp.oninput = () => showDD(inp.value);
+      inp.onblur = () => setTimeout(() => dd.classList.add("hidden"), 150);
+      sr.appendChild(inp); sr.appendChild(dd); w.appendChild(sr);
+
+      // Chips (top concepts)
+      const cr = document.createElement("div"); cr.className = "flex flex-wrap gap-1";
+      for (const c of topConcepts.slice(0, 12)) {
+        const ci = selectedConcepts.indexOf(c.name);
+        const ch = document.createElement("button");
+        if (ci >= 0) {
+          ch.className = "px-2 py-0.5 text-xs rounded-full border transition-colors font-medium";
+          ch.style.cssText = `border-color:${palette[ci]};color:${palette[ci]};background:${palette[ci]}15`;
+        } else {
+          ch.className = "px-2 py-0.5 text-xs rounded-full border border-gray-300 text-gray-500 hover:border-gray-400 transition-colors";
+        }
+        ch.textContent = c.name;
+        ch.onclick = () => toggleConcept(c.name);
+        cr.appendChild(ch);
+      }
+      w.appendChild(cr);
+
+      // Legend for selected
+      if (selectedConcepts.length > 0) {
+        const legend = document.createElement("div"); legend.className = "flex flex-wrap gap-2 text-xs text-gray-500";
+        for (let i = 0; i < selectedConcepts.length; i++) {
+          const count = ((conceptIndex as any)[selectedConcepts[i]] || []).length;
+          const item = document.createElement("span");
+          item.innerHTML = `<span class="inline-block w-2 h-2 rounded-full mr-0.5" style="background:${palette[i]}"></span><strong>${selectedConcepts[i]}</strong> (${count})`;
+          legend.appendChild(item);
+        }
+        w.appendChild(legend);
+      }
+      subControls.appendChild(w);
+    }
+
+    // Year legend
+    function buildYearLegend() {
+      const w = document.createElement("div"); w.className = "flex items-center gap-2 flex-wrap";
+      const bw = document.createElement("div"); bw.className = "flex items-center gap-1";
+      const lMin = document.createElement("span"); lMin.className = "text-xs text-gray-500"; lMin.textContent = String(minYear);
+      const bar = document.createElement("div"); bar.className = "rounded-full h-3 w-32"; bar.style.background = "linear-gradient(to right, #6366f1, #06b6d4, #10b981)";
+      const lMax = document.createElement("span"); lMax.className = "text-xs text-gray-500"; lMax.textContent = String(maxYear);
+      bw.append(lMin, bar, lMax); w.appendChild(bw);
+
+      const cw = document.createElement("div"); cw.className = "flex flex-wrap gap-1 ml-2";
+      for (const y of [...new Set(years)].sort()) {
+        const s = document.createElement("span");
+        s.className = "px-2 py-0.5 text-xs rounded-full font-medium";
+        const c = yearColorScale(y);
+        s.style.cssText = `background:${c}30;color:${c};border:1px solid ${c}50`;
+        s.textContent = `${y} (${papers.filter((p) => p.year === y).length})`;
+        cw.appendChild(s);
+      }
+      w.appendChild(cw); subControls.appendChild(w);
+    }
+
+    // Author picker (multi-select)
+    function buildAuthorPicker() {
+      const w = document.createElement("div"); w.className = "flex flex-col gap-2 w-full";
+
+      const sr = document.createElement("div"); sr.className = "relative";
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.placeholder = "Search authors...";
+      inp.className = "w-full max-w-sm px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]";
+
+      const dd = document.createElement("div");
+      dd.className = "absolute left-0 top-full mt-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto hidden";
+
+      function toggleAuthor(name: string) {
+        const i = selectedAuthors.indexOf(name);
+        if (i >= 0) selectedAuthors.splice(i, 1);
+        else if (selectedAuthors.length < palette.length) selectedAuthors.push(name);
+        applyColors(); buildAuthorPicker();
+      }
+
+      function showDD(f: string) {
+        const list = f.length > 0 ? topAuthors.filter((a: any) => a.name.toLowerCase().includes(f.toLowerCase())).slice(0, 20) : topAuthors.slice(0, 20);
+        dd.innerHTML = list.length === 0 ? '<div class="px-3 py-2 text-xs text-gray-400">No matches</div>' : "";
+        for (const a of list) {
+          const ai = selectedAuthors.indexOf(a.name);
+          const it = document.createElement("button");
+          it.className = "w-full text-left px-3 py-1.5 text-sm hover:bg-gray-50 flex justify-between items-center";
+          const dot = ai >= 0 ? `<span class="w-2 h-2 rounded-full inline-block mr-1" style="background:${palette[ai]}"></span>` : "";
+          it.innerHTML = `<span>${dot}${a.name}</span><span class="text-xs text-gray-400">${a.count}</span>`;
+          it.onmousedown = (e) => { e.preventDefault(); toggleAuthor(a.name); inp.value = ""; dd.classList.add("hidden"); };
+          dd.appendChild(it);
+        }
+        dd.classList.remove("hidden");
+      }
+      inp.onfocus = () => showDD(inp.value);
+      inp.oninput = () => showDD(inp.value);
+      inp.onblur = () => setTimeout(() => dd.classList.add("hidden"), 150);
+      sr.appendChild(inp); sr.appendChild(dd); w.appendChild(sr);
+
+      // Top author chips
+      const cr = document.createElement("div"); cr.className = "flex flex-wrap gap-1";
+      for (const a of topAuthors.slice(0, 10)) {
+        const ai = selectedAuthors.indexOf(a.name);
+        const ch = document.createElement("button");
+        if (ai >= 0) {
+          ch.className = "px-2 py-0.5 text-xs rounded-full border transition-colors font-medium";
+          ch.style.cssText = `border-color:${palette[ai]};color:${palette[ai]};background:${palette[ai]}15`;
+        } else {
+          ch.className = "px-2 py-0.5 text-xs rounded-full border border-gray-300 text-gray-500 hover:border-gray-400 transition-colors";
+        }
+        ch.textContent = `${a.name} (${a.count})`;
+        ch.onclick = () => toggleAuthor(a.name);
+        cr.appendChild(ch);
+      }
+      w.appendChild(cr);
+
+      // Legend
+      if (selectedAuthors.length > 0) {
+        const legend = document.createElement("div"); legend.className = "flex flex-wrap gap-2 text-xs text-gray-500";
+        for (let i = 0; i < selectedAuthors.length; i++) {
+          const count = ((authorIndex as any)[selectedAuthors[i]] || []).length;
+          const item = document.createElement("span");
+          item.innerHTML = `<span class="inline-block w-2 h-2 rounded-full mr-0.5" style="background:${palette[i]}"></span><strong>${selectedAuthors[i]}</strong> (${count})`;
+          legend.appendChild(item);
+        }
+        w.appendChild(legend);
+      }
+      subControls.appendChild(w);
+    }
+
+    // Institution picker
+    function buildInstitutionPicker() {
+      const w = document.createElement("div"); w.className = "flex flex-wrap gap-2";
+      for (const inst of (topInstitutions || [])) {
+        const si = selectedInstitutions.indexOf(inst.name);
+        const isSelected = si >= 0;
+        const defaultColor = institutionColors[inst.name] || "#6b7280";
+        const activeColor = isSelected ? palette[si % palette.length] : defaultColor;
+        const b = document.createElement("button");
+        b.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors";
+        if (selectedInstitutions.length === 0) {
+          // No selection: show all with their default colors
+          b.style.cssText = `border-color:${defaultColor};color:${defaultColor};background:${defaultColor}20`;
+        } else if (isSelected) {
+          b.style.cssText = `border-color:${activeColor};color:${activeColor};background:${activeColor}15`;
+        } else {
+          b.style.cssText = "border-color:#d1d5db;color:#9ca3af;background:transparent";
+        }
+        b.innerHTML = `<span class="w-2.5 h-2.5 rounded-full" style="background:${selectedInstitutions.length === 0 ? defaultColor : (isSelected ? activeColor : '#d1d5db')}"></span>${inst.name} <span class="text-[10px] opacity-60">${inst.count}</span>`;
+        b.onclick = () => {
+          const idx = selectedInstitutions.indexOf(inst.name);
+          if (idx >= 0) selectedInstitutions.splice(idx, 1);
+          else if (selectedInstitutions.length < palette.length) selectedInstitutions.push(inst.name);
+          applyColors(); buildInstitutionPicker();
+        };
+        w.appendChild(b);
+      }
+      // Show count of papers with no institution data
+      const unknownCount = papers.filter(p => !p.inst).length;
+      if (unknownCount > 0) {
+        const s = document.createElement("span");
+        s.className = "text-xs text-gray-400 self-center ml-1";
+        s.textContent = `+ ${unknownCount} unaffiliated`;
+        w.appendChild(s);
+      }
+      subControls.appendChild(w);
+    }
+
+    // Init sub-controls
+    buildSubControls();
+  }
+
+  function safeInit() {
+    try { init(); } catch (e: any) {
+      console.error("Scatter init error:", e);
+      const c = document.getElementById("scatter-container");
+      if (c) c.innerHTML = `<div style="padding:2rem;color:red;font-size:14px;">Error: ${e.message}</div>`;
+    }
+  }
+  function scheduleInit() { requestAnimationFrame(() => safeInit()); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", scheduleInit);
+  else scheduleInit();
+</script>

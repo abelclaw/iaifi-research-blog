@@ -11,6 +11,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from admin.routes.concepts import router as concepts_router
 from admin.routes.discovery import router as discovery_router
 from admin.routes.generation import router as generation_router
 from admin.routes.papers import router as papers_router
@@ -38,6 +39,7 @@ app.add_middleware(
 
 # Include API routers BEFORE static file mount
 # so /api/* routes take precedence
+app.include_router(concepts_router)
 app.include_router(discovery_router)
 app.include_router(generation_router)
 app.include_router(papers_router)

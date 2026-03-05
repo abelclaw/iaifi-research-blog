@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAIFI Concept Review</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+
+        h1 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #111; }
+        h2 { font-size: 1.25rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.75rem; color: #333; }
+
+        nav {
+            display: flex; gap: 1.5rem; margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0;
+        }
+        nav a { text-decoration: none; color: #2563eb; font-weight: 500; }
+        nav a.current { color: #111; font-weight: 600; text-decoration: underline; }
+
+        .card {
+            background: #fff; border: 1px solid #e0e0e0;
+            border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;
+        }
+
+        .filter-bar {
+            display: flex; gap: 0.5rem; margin-bottom: 1rem;
+        }
+        .filter-bar button {
+            padding: 0.4rem 0.8rem; font-size: 0.85rem; cursor: pointer;
+            border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: #555;
+        }
+        .filter-bar button.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+
+        /* Paper list */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        th { background: #f8f9fa; font-weight: 600; color: #555; font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid #e0e0e0; }
+        tr:hover td { background: #f8f9fa; }
+        td a { color: #2563eb; text-decoration: none; }
+        td a:hover { text-decoration: underline; }
+
+        .badge {
+            display: inline-block; padding: 0.15rem 0.5rem; border-radius: 9999px;
+            font-size: 0.75rem; font-weight: 500; white-space: nowrap;
+        }
+        .badge-pending { background: #fef3c7; color: #92400e; }
+        .badge-approved { background: #d1fae5; color: #065f46; }
+        .badge-rejected { background: #fee2e2; color: #991b1b; }
+
+        .title-cell { max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* Detail panel */
+        #detail-panel { display: none; }
+        #detail-panel.open { display: block; }
+
+        .detail-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 1rem; gap: 1rem;
+        }
+        .detail-header h2 { margin: 0; font-size: 1.1rem; }
+
+        .detail-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+        .btn {
+            padding: 0.4rem 0.8rem; font-size: 0.85rem; font-weight: 500;
+            cursor: pointer; border: none; border-radius: 4px; color: #fff;
+        }
+        .btn-approve { background: #059669; }
+        .btn-approve:hover { background: #047857; }
+        .btn-reject { background: #dc2626; }
+        .btn-reject:hover { background: #b91c1c; }
+        .btn-back { background: #6b7280; }
+        .btn-back:hover { background: #4b5563; }
+
+        /* Concept pills */
+        .concepts-grid {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;
+        }
+
+        .concept-pill {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 0.7rem; border-radius: 8px;
+            background: #f3f0ff; border: 1px solid #ddd6fe;
+            font-size: 0.85rem; color: #5b21b6;
+            position: relative;
+        }
+
+        .concept-pill .relevance-btn {
+            font-size: 0.7rem; color: #8b5cf6; font-weight: 600;
+            cursor: pointer; padding: 0.1rem 0.2rem; border-radius: 3px;
+            border: none; background: transparent;
+            min-width: 2rem; text-align: center;
+        }
+        .concept-pill .relevance-btn:hover {
+            background: #ddd6fe;
+        }
+
+        .concept-pill .relevance-edit {
+            width: 3rem; font-size: 0.7rem; padding: 0.1rem 0.2rem;
+            border: 1px solid #8b5cf6; border-radius: 3px;
+            text-align: center; color: #5b21b6; font-weight: 600;
+            outline: none;
+        }
+
+        .concept-pill .description {
+            display: none;
+        }
+
+        .concept-pill:hover .description {
+            display: block; position: absolute; z-index: 10;
+            background: #fff; border: 1px solid #ddd6fe; border-radius: 6px;
+            padding: 0.5rem 0.75rem; max-width: 300px; font-size: 0.8rem;
+            color: #374151; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            top: 100%; left: 0; margin-top: 0.25rem;
+        }
+
+        .concept-pill .delete-btn {
+            cursor: pointer; color: #dc2626; font-weight: bold;
+            font-size: 0.7rem; margin-left: 0.2rem; opacity: 0.5;
+        }
+        .concept-pill .delete-btn:hover { opacity: 1; }
+
+        .empty-state { text-align: center; padding: 2rem; color: #888; font-size: 0.95rem; }
+
+        .meta-line { font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; }
+
+        /* Add concept section */
+        .add-concept-bar {
+            display: flex; gap: 0.5rem; align-items: center;
+            margin-top: 1.25rem; padding-top: 1rem;
+            border-top: 1px solid #eee; flex-wrap: wrap;
+        }
+
+        .add-concept-bar select {
+            padding: 0.35rem 0.5rem; font-size: 0.85rem;
+            border: 1px solid #d1d5db; border-radius: 6px;
+            background: #fff; color: #333; max-width: 220px;
+        }
+
+        .add-concept-bar input[type="text"] {
+            padding: 0.35rem 0.5rem; font-size: 0.85rem;
+            border: 1px solid #d1d5db; border-radius: 6px;
+            width: 180px;
+        }
+
+        .add-concept-bar input[type="number"] {
+            padding: 0.35rem 0.5rem; font-size: 0.85rem;
+            border: 1px solid #d1d5db; border-radius: 6px;
+            width: 60px; text-align: center;
+        }
+
+        .add-concept-bar button {
+            padding: 0.35rem 0.7rem; font-size: 0.85rem;
+            cursor: pointer; border: none; border-radius: 4px;
+            background: #7c3aed; color: #fff; font-weight: 500;
+        }
+        .add-concept-bar button:hover { background: #6d28d9; }
+        .add-concept-bar button:disabled { background: #c4b5fd; cursor: not-allowed; }
+
+        .add-concept-bar label {
+            font-size: 0.8rem; color: #666; font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Discovery</a>
+        <a href="/review.html">Review Posts</a>
+        <a href="/concepts.html" class="current">Review Concepts</a>
+    </nav>
+
+    <h1>Concept Review</h1>
+
+    <!-- List view -->
+    <div id="list-view" class="card">
+        <div class="filter-bar">
+            <button class="active" onclick="setFilter(null, this)">All</button>
+            <button onclick="setFilter('pending', this)">Pending</button>
+            <button onclick="setFilter('approved', this)">Approved</button>
+            <button onclick="setFilter('rejected', this)">Rejected</button>
+            <button id="approve-all-btn" class="btn btn-approve" style="margin-left:auto;" onclick="approveAll()">Approve All Pending</button>
+        </div>
+        <div id="approve-all-status" style="font-size:0.85rem;color:#666;margin-bottom:0.5rem;"></div>
+        <div style="margin-bottom:0.75rem;">
+            <input type="text" id="concept-search" placeholder="Search titles or arXiv IDs..." oninput="renderFilteredList()" style="width:100%;padding:0.5rem 0.75rem;font-size:0.9rem;border:1px solid #d1d5db;border-radius:6px;outline:none;">
+        </div>
+        <table id="concepts-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>arXiv ID</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Concepts</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="concepts-body"></tbody>
+        </table>
+        <div id="empty-state" class="empty-state">
+            No papers with extracted concepts yet.
+        </div>
+    </div>
+
+    <!-- Detail view -->
+    <div id="detail-panel" class="card">
+        <div class="detail-header">
+            <div>
+                <h2 id="detail-title"></h2>
+                <div class="meta-line" id="detail-meta"></div>
+            </div>
+            <div class="detail-actions">
+                <button class="btn btn-back" onclick="closeDetail()">Back</button>
+                <button class="btn btn-approve" id="btn-approve" onclick="approveConcepts()">Approve</button>
+                <button class="btn btn-reject" id="btn-reject" onclick="rejectConcepts()">Reject</button>
+                <button class="btn" style="background:#7c3aed;" id="btn-regenerate" onclick="regenerateConcepts()">Regenerate</button>
+            </div>
+        </div>
+        <div id="regenerate-status" style="font-size:0.85rem;color:#666;margin-bottom:0.5rem;"></div>
+        <div id="detail-concepts"></div>
+
+        <!-- Add concept bar -->
+        <div class="add-concept-bar">
+            <label>Add:</label>
+            <select id="add-category" onchange="onCategoryChange()">
+                <option value="">-- category --</option>
+            </select>
+            <select id="add-concept-select" style="display:none;" onchange="onConceptSelect()">
+                <option value="">-- concept --</option>
+            </select>
+            <input type="text" id="add-concept-custom" placeholder="or type custom..." />
+            <label>Rel:</label>
+            <input type="number" id="add-relevance" value="80" min="0" max="100" step="5" />
+            <button id="add-concept-btn" onclick="addConcept()">Add</button>
+        </div>
+    </div>
+
+    <script>
+        let currentFilter = null;
+        let currentArxivId = null;
+        let taxonomy = {};
+        let allConceptPapers = [];
+
+        // Load taxonomy on page load
+        async function loadTaxonomy() {
+            try {
+                var resp = await fetch('/api/taxonomy');
+                if (resp.ok) taxonomy = await resp.json();
+                populateCategoryDropdown();
+            } catch (e) { /* silent */ }
+        }
+
+        function populateCategoryDropdown() {
+            var sel = document.getElementById('add-category');
+            sel.innerHTML = '<option value="">-- category --</option>';
+            Object.keys(taxonomy).forEach(function(cat) {
+                var opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+        }
+
+        function onCategoryChange() {
+            var cat = document.getElementById('add-category').value;
+            var conceptSel = document.getElementById('add-concept-select');
+            if (!cat || !taxonomy[cat]) {
+                conceptSel.style.display = 'none';
+                return;
+            }
+            conceptSel.style.display = '';
+            conceptSel.innerHTML = '<option value="">-- concept --</option>';
+            taxonomy[cat].forEach(function(name) {
+                var opt = document.createElement('option');
+                opt.value = name;
+                opt.textContent = name;
+                conceptSel.appendChild(opt);
+            });
+        }
+
+        function onConceptSelect() {
+            var val = document.getElementById('add-concept-select').value;
+            if (val) {
+                document.getElementById('add-concept-custom').value = val;
+            }
+        }
+
+        async function addConcept() {
+            if (!currentArxivId) return;
+            var name = document.getElementById('add-concept-custom').value.trim();
+            if (!name) { alert('Enter a concept name'); return; }
+            var relPct = parseInt(document.getElementById('add-relevance').value) || 80;
+            var relevance = Math.max(0, Math.min(100, relPct)) / 100;
+
+            var btn = document.getElementById('add-concept-btn');
+            btn.disabled = true;
+            try {
+                var resp = await fetch('/api/concepts-review/' + encodeURIComponent(currentArxivId) + '/concepts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, relevance: relevance }),
+                });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var data = await resp.json();
+
+                // Add pill to the grid
+                var grid = document.querySelector('.concepts-grid');
+                var pill = document.createElement('div');
+                pill.className = 'concept-pill';
+                pill.id = 'concept-' + data.id;
+                pill.innerHTML =
+                    '<button class="relevance-btn" onclick="event.stopPropagation(); editRelevance(' + data.id + ', this)" title="Click to edit">' + relPct + '%</button>' +
+                    esc(data.name) +
+                    '<span class="delete-btn" onclick="event.stopPropagation(); deleteConcept(' + data.id + ')" title="Remove concept">&times;</span>';
+                grid.appendChild(pill);
+
+                // Clear inputs
+                document.getElementById('add-concept-custom').value = '';
+                document.getElementById('add-concept-select').value = '';
+            } catch (e) {
+                alert('Add failed: ' + e.message);
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        async function loadList() {
+            try {
+                var url = '/api/concepts-review';
+                if (currentFilter) url += '?status=' + currentFilter;
+                var resp = await fetch(url);
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                allConceptPapers = await resp.json();
+                renderFilteredList();
+            } catch (e) {
+                document.getElementById('empty-state').textContent = 'Error: ' + e.message;
+            }
+        }
+
+        function renderFilteredList() {
+            var query = (document.getElementById('concept-search').value || '').toLowerCase().trim();
+            var papers = allConceptPapers;
+            if (query) {
+                papers = papers.filter(function(p) {
+                    return (p.title || '').toLowerCase().indexOf(query) !== -1 ||
+                           (p.arxiv_id || '').toLowerCase().indexOf(query) !== -1;
+                });
+            }
+            renderList(papers);
+        }
+
+        function renderList(papers) {
+            var tbody = document.getElementById('concepts-body');
+            var table = document.getElementById('concepts-table');
+            var empty = document.getElementById('empty-state');
+
+            if (papers.length === 0) {
+                table.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+            table.style.display = 'table';
+            empty.style.display = 'none';
+
+            tbody.innerHTML = papers.map(function(p) {
+                var status = p.concepts_status || 'pending';
+                var badgeClass = 'badge badge-' + status;
+                return '<tr style="cursor:pointer" onclick="openDetail(\'' + p.arxiv_id.replace(/'/g, "\\'") + '\')">' +
+                    '<td>' + esc(p.arxiv_id) + '</td>' +
+                    '<td class="title-cell" title="' + esc(p.title) + '">' + esc(p.title) + '</td>' +
+                    '<td>' + esc(p.iaifi_category || '-') + '</td>' +
+                    '<td>' + p.concept_count + '</td>' +
+                    '<td><span class="' + badgeClass + '">' + status + '</span></td>' +
+                    '</tr>';
+            }).join('');
+        }
+
+        function setFilter(f, btn) {
+            currentFilter = f;
+            document.querySelectorAll('.filter-bar button').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            loadList();
+        }
+
+        async function openDetail(arxivId) {
+            currentArxivId = arxivId;
+            try {
+                var resp = await fetch('/api/concepts-review/' + encodeURIComponent(arxivId));
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var data = await resp.json();
+                renderDetail(data);
+            } catch (e) {
+                alert('Failed to load concepts: ' + e.message);
+            }
+        }
+
+        function renderDetail(data) {
+            document.getElementById('list-view').style.display = 'none';
+            document.getElementById('detail-panel').className = 'card open';
+
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-meta').innerHTML =
+                '<strong>' + esc(data.arxiv_id) + '</strong> &middot; ' +
+                esc(data.iaifi_category || '') + ' &middot; ' +
+                data.concepts.length + ' concepts &middot; Status: ' +
+                '<span class="badge badge-' + (data.concepts_status || 'pending') + '">' +
+                (data.concepts_status || 'pending') + '</span>';
+
+            var html = '<div class="concepts-grid">';
+            data.concepts.forEach(function(c) {
+                var rel = (c.relevance * 100).toFixed(0);
+                html += '<div class="concept-pill" id="concept-' + c.id + '">' +
+                    '<button class="relevance-btn" onclick="event.stopPropagation(); editRelevance(' + c.id + ', this)" title="Click to edit">' + rel + '%</button>' +
+                    esc(c.name) +
+                    '<span class="delete-btn" onclick="event.stopPropagation(); deleteConcept(' + c.id + ')" title="Remove concept">&times;</span>' +
+                    '<div class="description">' + esc(c.description || '') + '</div>' +
+                    '</div>';
+            });
+            html += '</div>';
+            document.getElementById('detail-concepts').innerHTML = html;
+
+            // Show/hide approve/reject based on status
+            var isApproved = data.concepts_status === 'approved';
+            document.getElementById('btn-approve').style.display = isApproved ? 'none' : '';
+            document.getElementById('btn-reject').style.display = isApproved ? 'none' : '';
+        }
+
+        function editRelevance(conceptId, btn) {
+            var currentPct = parseInt(btn.textContent);
+            var input = document.createElement('input');
+            input.type = 'number';
+            input.className = 'relevance-edit';
+            input.value = currentPct;
+            input.min = 0;
+            input.max = 100;
+            input.step = 5;
+            btn.replaceWith(input);
+            input.focus();
+            input.select();
+
+            function save() {
+                var newPct = Math.max(0, Math.min(100, parseInt(input.value) || 0));
+                var newRel = newPct / 100;
+                fetch('/api/concepts-review/' + encodeURIComponent(currentArxivId) + '/concepts/' + conceptId, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ relevance: newRel }),
+                }).then(function(resp) {
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                }).catch(function(e) {
+                    alert('Update failed: ' + e.message);
+                });
+
+                var newBtn = document.createElement('button');
+                newBtn.className = 'relevance-btn';
+                newBtn.title = 'Click to edit';
+                newBtn.textContent = newPct + '%';
+                newBtn.onclick = function(ev) { ev.stopPropagation(); editRelevance(conceptId, newBtn); };
+                input.replaceWith(newBtn);
+            }
+
+            input.addEventListener('blur', save);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { input.blur(); }
+                if (e.key === 'Escape') {
+                    var restoreBtn = document.createElement('button');
+                    restoreBtn.className = 'relevance-btn';
+                    restoreBtn.title = 'Click to edit';
+                    restoreBtn.textContent = currentPct + '%';
+                    restoreBtn.onclick = function(ev) { ev.stopPropagation(); editRelevance(conceptId, restoreBtn); };
+                    input.replaceWith(restoreBtn);
+                }
+            });
+        }
+
+        function closeDetail() {
+            document.getElementById('detail-panel').className = 'card';
+            document.getElementById('list-view').style.display = 'block';
+            loadList();
+        }
+
+        async function approveConcepts() {
+            if (!currentArxivId) return;
+            try {
+                var resp = await fetch('/api/concepts-review/' + encodeURIComponent(currentArxivId) + '/approve', { method: 'POST' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                closeDetail();
+            } catch (e) {
+                alert('Approve failed: ' + e.message);
+            }
+        }
+
+        async function rejectConcepts() {
+            if (!currentArxivId) return;
+            try {
+                var resp = await fetch('/api/concepts-review/' + encodeURIComponent(currentArxivId) + '/reject', { method: 'POST' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                closeDetail();
+            } catch (e) {
+                alert('Reject failed: ' + e.message);
+            }
+        }
+
+        async function deleteConcept(conceptId) {
+            if (!currentArxivId) return;
+            try {
+                var resp = await fetch('/api/concepts-review/' + encodeURIComponent(currentArxivId) + '/concepts/' + conceptId, { method: 'DELETE' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var pill = document.getElementById('concept-' + conceptId);
+                if (pill) pill.remove();
+            } catch (e) {
+                alert('Delete failed: ' + e.message);
+            }
+        }
+
+        function esc(str) {
+            if (!str) return '';
+            var d = document.createElement('div');
+            d.appendChild(document.createTextNode(str));
+            return d.innerHTML;
+        }
+
+        async function regenerateConcepts() {
+            if (!currentArxivId) return;
+            if (!confirm('Regenerate concepts for this paper? This will overwrite existing concepts.')) return;
+
+            var statusDiv = document.getElementById('regenerate-status');
+            var btn = document.getElementById('btn-regenerate');
+            btn.disabled = true;
+            statusDiv.textContent = 'Regenerating concepts...';
+
+            try {
+                var resp = await fetch('/api/concepts/' + encodeURIComponent(currentArxivId), { method: 'POST' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var data = await resp.json();
+
+                var done = false;
+                while (!done) {
+                    await new Promise(function(resolve) { setTimeout(resolve, 2000); });
+                    var sr = await fetch('/api/concepts/' + encodeURIComponent(data.task_id) + '/status');
+                    if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                    var sd = await sr.json();
+                    if (sd.status === 'complete') {
+                        done = true;
+                        statusDiv.textContent = 'Regenerated! Reloading...';
+                        openDetail(currentArxivId);
+                    } else if (sd.status === 'error') {
+                        throw new Error(sd.error || 'extraction failed');
+                    } else {
+                        statusDiv.textContent = 'Regenerating: ' + (sd.step || 'working') + '...';
+                    }
+                }
+            } catch (e) {
+                statusDiv.textContent = 'Regeneration failed: ' + e.message;
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        async function approveAll() {
+            var btn = document.getElementById('approve-all-btn');
+            var statusDiv = document.getElementById('approve-all-status');
+            btn.disabled = true;
+
+            try {
+                // Fetch all pending papers
+                var resp = await fetch('/api/concepts-review?status=pending');
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var papers = await resp.json();
+
+                if (papers.length === 0) {
+                    statusDiv.textContent = 'No pending papers to approve.';
+                    btn.disabled = false;
+                    return;
+                }
+
+                var total = papers.length;
+                var approved = 0;
+                var errors = 0;
+
+                for (var i = 0; i < papers.length; i++) {
+                    var p = papers[i];
+                    statusDiv.textContent = 'Approving ' + (i + 1) + ' of ' + total + ': ' + p.arxiv_id + '...';
+                    try {
+                        var r = await fetch('/api/concepts-review/' + encodeURIComponent(p.arxiv_id) + '/approve', { method: 'POST' });
+                        if (!r.ok) throw new Error('HTTP ' + r.status);
+                        approved++;
+                    } catch (e) {
+                        errors++;
+                    }
+                }
+
+                statusDiv.textContent = 'Done! Approved ' + approved + ' of ' + total + (errors > 0 ? ' (' + errors + ' errors)' : '');
+                loadList();
+            } catch (e) {
+                statusDiv.textContent = 'Error: ' + e.message;
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        loadTaxonomy();
+        loadList();
+    </script>
+</body>
+</html>
