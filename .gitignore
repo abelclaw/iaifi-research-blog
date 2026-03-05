@@ -1,5 +1,5 @@
 # Data (local only — DBs, PDFs, intermediate figures)
-data/
+/data/
 
 # Python
 __pycache__/
