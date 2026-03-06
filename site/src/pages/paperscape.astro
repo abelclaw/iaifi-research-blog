@@ -1,0 +1,451 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import psData from "../data/paperscape-data.json";
+
+const hasPapers = psData.papers.length > 0;
+---
+
+<BaseLayout title="Paperscape - IAIFI Research Blog">
+  <section class="mb-4">
+    <h1 class="text-2xl font-bold text-[#212529] mb-2 flex items-center gap-2">
+      <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
+      Paperscape
+    </h1>
+    <p class="text-gray-600 text-sm mb-1">
+      IAIFI papers on the arXiv Paperscape map. Background shows all ~3M arXiv papers;
+      highlighted circles are IAIFI publications.
+    </p>
+    <p class="text-xs text-gray-400">
+      Scroll to zoom. Drag to pan. Hover for details. Click to visit.
+    </p>
+  </section>
+
+  {!hasPapers ? (
+    <div class="text-center py-16 text-gray-500 bg-white rounded-lg border border-gray-200">
+      <p class="text-lg font-medium mb-2">No papers published yet.</p>
+    </div>
+  ) : (
+    <>
+      <!-- Controls -->
+      <div class="mb-4 space-y-3">
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Theme:</span>
+            <div id="theme-buttons" class="flex flex-wrap gap-1"></div>
+          </div>
+          <span class="text-xs text-gray-400">|</span>
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
+            <span class="text-xs text-gray-500 font-medium">Search:</span>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Title, author, or arXiv ID..."
+              class="flex-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]"
+            />
+          </div>
+        </div>
+        <div id="search-results" class="flex flex-wrap gap-1 text-xs"></div>
+      </div>
+
+      <!-- Map container -->
+      <div
+        id="ps-container"
+        class="w-full bg-[#1a1a2e] rounded-lg border border-gray-200 overflow-hidden relative"
+        style="height: 650px; cursor: grab;"
+      >
+        <canvas id="ps-tiles" class="absolute inset-0 w-full h-full"></canvas>
+        <svg id="ps-overlay" class="absolute inset-0 w-full h-full"></svg>
+      </div>
+
+      <div class="mt-3 flex items-center justify-between">
+        <div class="text-xs text-gray-400">
+          Showing <span id="paper-count" class="font-medium text-gray-600">{psData.papers.length}</span> IAIFI papers
+        </div>
+        <div class="text-xs text-gray-400">
+          Background: <a href="https://paperscape.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">Paperscape</a>
+          · <a href="https://github.com/paperscape" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">GitHub</a>
+        </div>
+      </div>
+    </>
+  )}
+</BaseLayout>
+
+<script>
+  import { select } from "d3-selection";
+  import { zoom, zoomIdentity } from "d3-zoom";
+  import type { ZoomBehavior, ZoomTransform } from "d3-zoom";
+  import psData from "../data/paperscape-data.json";
+
+  interface PaperPoint {
+    arxiv_id: string;
+    title: string;
+    theme: string;
+    slug: string | null;
+    ps_id: number;
+    x: number;
+    y: number;
+    r: number;
+    nc: number;
+  }
+
+  async function init() {
+    const container = document.getElementById("ps-container");
+    const canvas = document.getElementById("ps-tiles") as HTMLCanvasElement;
+    const svgEl = document.getElementById("ps-overlay") as SVGSVGElement;
+    if (!container || !canvas || !svgEl) return;
+
+    const baseUrl = import.meta.env.BASE_URL;
+    const papers: PaperPoint[] = psData.papers as PaperPoint[];
+    const world = psData.world;
+    if (papers.length === 0) return;
+
+    // Dimensions
+    const rect = container.getBoundingClientRect();
+    const W = rect.width || 800;
+    const H = rect.height || 650;
+    canvas.width = W;
+    canvas.height = H;
+
+    const ctx = canvas.getContext("2d")!;
+    const svg = select(svgEl).attr("width", W).attr("height", H);
+    const g = svg.append("g");
+
+    // World coordinate system
+    const worldW = world.xmax - world.xmin;
+    const worldH = world.ymax - world.ymin;
+
+    // Fit IAIFI paper cluster with padding
+    const xs = papers.map((p) => p.x);
+    const ys = papers.map((p) => p.y);
+    const pxMin = Math.min(...xs) - 5000;
+    const pxMax = Math.max(...xs) + 5000;
+    const pyMin = Math.min(...ys) - 5000;
+    const pyMax = Math.max(...ys) + 5000;
+
+    // Initial scale to fit IAIFI papers
+    const scaleX = W / (pxMax - pxMin);
+    const scaleY = H / (pyMax - pyMin);
+    const initialScale = Math.min(scaleX, scaleY);
+    const cx = (pxMin + pxMax) / 2;
+    const cy = (pyMin + pyMax) / 2;
+
+    // Transform: world coords -> screen coords
+    let currentTransform: ZoomTransform = zoomIdentity
+      .translate(W / 2, H / 2)
+      .scale(initialScale)
+      .translate(-cx, -cy);
+
+    // Theme colors
+    const themeColors: Record<string, string> = {
+      "Foundational AI": "#3b82f6",
+      "Theoretical Physics": "#8b5cf6",
+      "Experimental Physics": "#f59e0b",
+      "Astrophysics": "#10b981",
+    };
+
+    // State
+    const activeThemes = new Set(Object.keys(themeColors));
+    let searchQuery = "";
+    const searchMatches = new Set<string>();
+
+    // Tile system
+    // Paperscape tiles: zoom level z, nx*ny grid, each tile covers tw*th world units
+    // Tile URL: http://tile{1-4}.paperscape.org/world/tiles/{z}/{ix}/{iy}.png
+    const tileServers = [
+      "https://tile1.paperscape.org",
+      "https://tile2.paperscape.org",
+      "https://tile3.paperscape.org",
+      "https://tile4.paperscape.org",
+    ];
+    let tileServerIdx = 0;
+    function getTileServer() {
+      tileServerIdx = (tileServerIdx + 1) % tileServers.length;
+      return tileServers[tileServerIdx];
+    }
+
+    const tilings = [
+      { z: 0, tw: 45392, th: 45392, nx: 4, ny: 4 },
+      { z: 1, tw: 22696, th: 22696, nx: 8, ny: 8 },
+      { z: 2, tw: 11348, th: 11348, nx: 16, ny: 16 },
+      { z: 3, tw: 5674, th: 5674, nx: 32, ny: 32 },
+      { z: 4, tw: 2837, th: 2837, nx: 64, ny: 64 },
+      { z: 5, tw: 1418, th: 1418, nx: 128, ny: 128 },
+    ];
+    const TILE_PX = 512;
+
+    // Tile cache
+    const tileCache = new Map<string, HTMLImageElement | "loading" | "error">();
+
+    function getBestTiling(transform: ZoomTransform) {
+      // Pick tiling where tile world-width * scale ~ TILE_PX
+      const scale = transform.k;
+      let best = tilings[0];
+      for (const t of tilings) {
+        if (t.tw * scale >= TILE_PX * 0.5) {
+          best = t;
+          break;
+        }
+      }
+      return best;
+    }
+
+    function drawTiles(transform: ZoomTransform) {
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#1a1a2e";
+      ctx.fillRect(0, 0, W, H);
+
+      const tiling = getBestTiling(transform);
+      const scale = transform.k;
+
+      // Visible world-coord bounds
+      const invX = (sx: number) => (sx - transform.x) / scale;
+      const invY = (sy: number) => (sy - transform.y) / scale;
+      const vxMin = invX(0);
+      const vxMax = invX(W);
+      const vyMin = invY(0);
+      const vyMax = invY(H);
+
+      // Which tiles are visible?
+      const ixMin = Math.max(1, Math.floor((vxMin - world.xmin) / tiling.tw) + 1);
+      const ixMax = Math.min(tiling.nx, Math.ceil((vxMax - world.xmin) / tiling.tw));
+      const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / tiling.th) + 1);
+      const iyMax = Math.min(tiling.ny, Math.ceil((vyMax - world.ymin) / tiling.th));
+
+      ctx.globalAlpha = 0.3; // Faint background
+
+      for (let ix = ixMin; ix <= ixMax; ix++) {
+        for (let iy = iyMin; iy <= iyMax; iy++) {
+          const tileKey = `${tiling.z}/${ix}/${iy}`;
+          const worldX = world.xmin + (ix - 1) * tiling.tw;
+          const worldY = world.ymin + (iy - 1) * tiling.th;
+
+          // Screen position
+          const sx = transform.x + worldX * scale;
+          const sy = transform.y + worldY * scale;
+          const sw = tiling.tw * scale;
+          const sh = tiling.th * scale;
+
+          const cached = tileCache.get(tileKey);
+          if (cached instanceof HTMLImageElement) {
+            ctx.drawImage(cached, sx, sy, sw, sh);
+          } else if (cached !== "loading") {
+            // Load tile
+            tileCache.set(tileKey, "loading");
+            const img = new Image();
+            // No crossOrigin needed - we only draw, never read pixels
+            img.onload = () => {
+              tileCache.set(tileKey, img);
+              requestAnimationFrame(() => render(currentTransform));
+            };
+            img.onerror = () => {
+              tileCache.set(tileKey, "error");
+            };
+            img.src = `${getTileServer()}/world/tiles/${tileKey}.png`;
+          }
+        }
+      }
+
+      ctx.globalAlpha = 1.0;
+    }
+
+    // Paper rendering
+    function isVisible(p: PaperPoint): boolean {
+      if (!activeThemes.has(p.theme)) return false;
+      if (searchQuery && !searchMatches.has(p.arxiv_id)) return false;
+      return true;
+    }
+
+    function paperRadius(p: PaperPoint, scale: number): number {
+      const base = Math.max(3, Math.min(12, 3 + p.nc * 0.15));
+      return base / Math.sqrt(scale / initialScale);
+    }
+
+    // Create dots
+    const tooltip = select("body")
+      .append("div")
+      .attr("class", "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs")
+      .style("position", "absolute");
+
+    const dots = g
+      .selectAll<SVGCircleElement, PaperPoint>("circle")
+      .data(papers)
+      .join("circle")
+      .attr("cx", (d) => d.x)
+      .attr("cy", (d) => d.y)
+      .attr("r", (d) => paperRadius(d, initialScale))
+      .attr("fill", (d) => themeColors[d.theme] || "#6b7280")
+      .attr("opacity", (d) => (isVisible(d) ? 0.9 : 0))
+      .attr("stroke", "white")
+      .attr("stroke-width", 0.3)
+      .attr("pointer-events", (d) => (isVisible(d) ? "all" : "none"))
+      .style("cursor", "pointer")
+      .on("mouseover", (event, d) => {
+        select(event.currentTarget).attr("opacity", 1).attr("stroke-width", 1.5);
+        tooltip
+          .html(
+            `<strong>${d.title}</strong><br>` +
+              `<span class="text-gray-300 text-xs">${d.arxiv_id} · ${d.theme}</span>` +
+              (d.nc > 0 ? `<br><span class="text-gray-400 text-xs">${d.nc} concepts</span>` : "")
+          )
+          .classed("hidden", false)
+          .style("left", `${event.pageX + 12}px`)
+          .style("top", `${event.pageY - 10}px`);
+      })
+      .on("mousemove", (event) => {
+        tooltip.style("left", `${event.pageX + 12}px`).style("top", `${event.pageY - 10}px`);
+      })
+      .on("mouseout", (event, d) => {
+        select(event.currentTarget)
+          .attr("opacity", isVisible(d) ? 0.9 : 0)
+          .attr("stroke-width", 0.3);
+        tooltip.classed("hidden", true);
+      })
+      .on("click", (_, d) => {
+        if (d.slug) window.open(baseUrl + "posts/" + d.slug, "_self");
+      });
+
+    function render(transform: ZoomTransform) {
+      currentTransform = transform;
+      drawTiles(transform);
+
+      // Update SVG overlay transform
+      g.attr("transform", transform.toString());
+
+      // Update dot radii for zoom level
+      dots.attr("r", (d: PaperPoint) => paperRadius(d, transform.k));
+    }
+
+    function applyFilters() {
+      const visibleCount = papers.filter((p) => isVisible(p)).length;
+      document.getElementById("paper-count")!.textContent = String(visibleCount);
+
+      dots
+        .attr("opacity", (d: PaperPoint) => (isVisible(d) ? 0.9 : 0))
+        .attr("pointer-events", (d: PaperPoint) => (isVisible(d) ? "all" : "none"));
+    }
+
+    // Zoom behavior
+    const zoomBehavior: ZoomBehavior<SVGSVGElement, unknown> = zoom<SVGSVGElement, unknown>()
+      .scaleExtent([initialScale * 0.1, initialScale * 50])
+      .on("zoom", (event) => {
+        render(event.transform);
+      });
+
+    svg.call(zoomBehavior);
+    svg.call(zoomBehavior.transform as any, currentTransform);
+
+    // Also let canvas receive zoom events by forwarding from SVG
+    // SVG is on top so it catches events naturally
+
+    // Build theme buttons
+    const themeBtnContainer = document.getElementById("theme-buttons")!;
+    for (const [theme, color] of Object.entries(themeColors)) {
+      const btn = document.createElement("button");
+      btn.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors";
+      btn.style.cssText = `border-color:${color};color:${color};background:${color}20;opacity:${activeThemes.has(theme) ? 1 : 0.3}`;
+      btn.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${theme}`;
+      btn.addEventListener("click", () => {
+        if (activeThemes.has(theme)) activeThemes.delete(theme);
+        else activeThemes.add(theme);
+        btn.style.opacity = activeThemes.has(theme) ? "1" : "0.3";
+        applyFilters();
+      });
+      themeBtnContainer.appendChild(btn);
+    }
+
+    // Search
+    const searchInput = document.getElementById("search-input") as HTMLInputElement;
+    const searchResultsEl = document.getElementById("search-results")!;
+
+    // Build search index
+    const searchIndex = papers.map((p) => ({
+      paper: p,
+      text: `${p.title} ${p.arxiv_id}`.toLowerCase(),
+    }));
+
+    // Also include author data from scatter-data if available
+    let authorLookup: Record<string, string[]> = {};
+    try {
+      const scatterData = (await import("../data/scatter-data.json")).default as any;
+      const scatterPapers = scatterData?.papers || [];
+      for (const sp of scatterPapers) {
+        if (sp.a && sp.a.length > 0) {
+          authorLookup[sp.id] = sp.a;
+          const entry = searchIndex.find((e) => e.paper.arxiv_id === sp.id);
+          if (entry) {
+            entry.text += " " + sp.a.join(" ").toLowerCase();
+          }
+        }
+      }
+    } catch {}
+
+    function doSearch(query: string) {
+      searchQuery = query.trim().toLowerCase();
+      searchMatches.clear();
+
+      if (searchQuery.length === 0) {
+        searchResultsEl.innerHTML = "";
+        applyFilters();
+        return;
+      }
+
+      const terms = searchQuery.split(/\s+/);
+      for (const entry of searchIndex) {
+        if (terms.every((t) => entry.text.includes(t))) {
+          searchMatches.add(entry.paper.arxiv_id);
+        }
+      }
+
+      const matchCount = searchMatches.size;
+      searchResultsEl.innerHTML =
+        matchCount > 0
+          ? `<span class="text-gray-500">${matchCount} match${matchCount !== 1 ? "es" : ""}</span>` +
+            (matchCount <= 10
+              ? Array.from(searchMatches)
+                  .map((id) => {
+                    const p = papers.find((pp) => pp.arxiv_id === id)!;
+                    return `<button class="px-2 py-0.5 rounded-full border border-gray-300 text-gray-600 hover:border-[#663399] hover:text-[#663399]" data-id="${id}">${p.title.slice(0, 40)}${p.title.length > 40 ? "..." : ""}</button>`;
+                  })
+                  .join("")
+              : "")
+          : '<span class="text-gray-400">No matches</span>';
+
+      // Click on search result chip to zoom to paper
+      searchResultsEl.querySelectorAll("button[data-id]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = (btn as HTMLElement).dataset.id!;
+          const p = papers.find((pp) => pp.arxiv_id === id);
+          if (p) {
+            const targetScale = initialScale * 5;
+            const t = zoomIdentity.translate(W / 2, H / 2).scale(targetScale).translate(-p.x, -p.y);
+            svg.transition().duration(750).call(zoomBehavior.transform as any, t);
+          }
+        });
+      });
+
+      applyFilters();
+    }
+
+    let searchTimeout: number;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = window.setTimeout(() => doSearch(searchInput.value), 200);
+    });
+
+    // Initial render
+    render(currentTransform);
+  }
+
+  async function safeInit() {
+    try {
+      await init();
+    } catch (e: any) {
+      console.error("Paperscape init error:", e);
+      const c = document.getElementById("ps-container");
+      if (c) c.innerHTML = `<div style="padding:2rem;color:red;font-size:14px;">Error: ${e.message}</div>`;
+    }
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(safeInit));
+  else requestAnimationFrame(safeInit);
+</script>

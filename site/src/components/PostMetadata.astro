@@ -33,7 +33,7 @@ const displayDate = published.toLocaleDateString("en-US", {
     <span class={`inline-block text-sm font-semibold px-3 py-1 rounded-full ${badgeClass}`} data-pagefind-filter="theme">
       {theme}
     </span>
-    <time class="text-sm text-gray-500" datetime={published.toISOString()}>
+    <time class="text-sm text-gray-500" datetime={published.toISOString()} data-pagefind-meta="date" data-pagefind-sort="date">
       {displayDate}
     </time>
   </div>

@@ -1,0 +1,71 @@
+## Blog Post to Fix
+
+{{ content }}
+
+## Original Paper Details
+- **Title:** {{ title }}
+- **arXiv ID:** {{ arxiv_id }}
+- **Authors:** {{ authors }}
+- **Abstract:** {{ abstract }}
+
+## Instructions
+
+You are an expert editor who specializes in making LLM-generated blog posts read naturally. Your job is two-fold:
+
+### 1. Fix errors and broken references
+
+- Fix any broken arXiv references (e.g., "arixv:", "arxiv: xxxx", malformed IDs). The correct arXiv ID for this paper is **{{ arxiv_id }}**. Format references as: [arXiv:{{ arxiv_id }}](https://arxiv.org/abs/{{ arxiv_id }})
+- Fix typos, grammar errors, and awkward phrasing
+- Verify that all claims are consistent with the abstract provided above. If something looks fabricated or unsupported, remove or soften it
+- Ensure all `![Figure N](figure:N)` references are intact and properly formatted
+- Make sure section structure is preserved: ## The Big Picture / ## How It Works / ## Why It Matters / ## IAIFI Research Highlights
+
+### 2. Remove ALL traces of LLM-generated writing
+
+Identify and fix these telltale patterns:
+
+**Banned phrases — rewrite or delete entirely:**
+- "It is important to note that..." — just state the thing
+- "This is a crucial/critical/key aspect..."
+- "Let's delve into..." / "Let's explore..." / "Let's dive into..."
+- "In the realm of..." / "In the context of..."
+- "It's worth noting that..." / "It's worth mentioning..."
+- "Notably," / "Crucially," / "Importantly," / "Remarkably," / "Interestingly,"
+- "serves as a" / "plays a vital role" / "plays a crucial role"
+- "aims to" / "is designed to" / "seeks to"
+- "a testament to"
+- "landscape" (when not referring to actual terrain or loss landscapes in ML)
+- "leverage" (as a verb meaning "use")
+- "foster" / "facilitate" / "underpin" / "underscore"
+- "comprehensive" / "robust" / "streamlined" / "cutting-edge" / "holistic" / "groundbreaking"
+- "In summary," / "To summarize," / "In conclusion,"
+- "Overall," / "Furthermore," / "Moreover," / "Additionally," at paragraph starts
+- "paves the way" / "sheds light on" / "bridges the gap"
+- "the findings suggest" / "this work demonstrates"
+- "exciting" / "fascinating" / "remarkable" when describing results
+
+**Formatting fixes:**
+- Remove excessive bold text used for emphasis in running prose — only bold key technical terms on first use
+- Em dashes (—) — replace with commas, parentheses, or restructure
+- Break up any paragraph that is more than 4 sentences
+- Vary sentence length — mix short punchy sentences with longer explanatory ones
+- Don't start consecutive sentences the same way
+
+**Structural fixes:**
+- Don't let every paragraph be exactly the same length
+- Avoid the formulaic pattern: topic sentence → explanation → example → conclusion
+- Remove unnaturally smooth transitions ("Building on this," "Taking this further,")
+- Each paragraph should feel like a different person could have written it
+
+**Voice target:**
+Write like a confident science journalist — direct, clear, occasionally informal. Not like a textbook and not like a corporate blog. Think "smart friend explaining something cool" not "AI summarizing a paper."
+
+Good: "The eigenvalues turn out to be ±1, which makes sense since H² = I."
+Bad: "It is important to note that the eigenvalues are ±1, which serves as a testament to the fundamental property that H² = I."
+
+Good: "The team trained their model on 50,000 crystal structures."
+Bad: "The researchers leveraged a comprehensive dataset comprising 50,000 crystal structures to facilitate the training process."
+
+### 3. Output format
+
+Return ONLY the fixed blog post. No preamble, no commentary, no "Here is the fixed version" — just the post itself. Preserve the exact section structure and all figure references.

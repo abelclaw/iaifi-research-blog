@@ -989,7 +989,13 @@
                     var d = await resp.json();
 
                     if (d.status === 'running') {
-                        setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || typeLabel + '...'));
+                        var usageTag = '';
+                        if (d.usage_5h != null) {
+                            var pct = Math.round(d.usage_5h);
+                            var color = pct >= 80 ? '#dc2626' : pct >= 50 ? '#d97706' : '#16a34a';
+                            usageTag = ' <span style="color:' + color + ';font-weight:500;">[5h usage: ' + pct + '%]</span>';
+                        }
+                        setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || typeLabel + '...') + usageTag);
                     } else if (d.status === 'complete') {
                         var r = d.result || {};
                         setBulkStatus(typeLabel + ' complete! ' + (r.done || 0) + ' done' + (r.errors > 0 ? ', ' + r.errors + ' errors' : '') + ' of ' + (r.total || 0));

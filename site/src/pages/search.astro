@@ -4,7 +4,7 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Search Papers - IAIFI Research Blog">
-  <section class="mb-8">
+  <section class="mb-6">
     <h1 class="text-2xl font-bold text-[#212529] mb-2 flex items-center gap-2">
       <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
       Search Papers
@@ -14,31 +14,137 @@ const base = import.meta.env.BASE_URL;
     </p>
   </section>
 
-  <div id="search-container" class="mb-12"></div>
+  <!-- Search input -->
+  <div class="mb-4">
+    <input
+      id="search-input"
+      type="text"
+      placeholder="Search by title, author, concept, or keyword..."
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-[#663399]/40 focus:border-[#663399] transition-colors"
+    />
+  </div>
+
+  <!-- Category filter buttons -->
+  <div class="flex flex-wrap gap-2 mb-6" id="category-filters">
+    <button data-filter="all" class="filter-btn active px-3 py-1.5 text-sm font-medium rounded-full border transition-colors bg-[#663399] text-white border-[#663399]">
+      All
+    </button>
+    <button data-filter="Foundational AI" class="filter-btn px-3 py-1.5 text-sm font-medium rounded-full border transition-colors bg-white text-blue-800 border-blue-200 hover:bg-blue-50">
+      Foundational AI
+    </button>
+    <button data-filter="Theoretical Physics" class="filter-btn px-3 py-1.5 text-sm font-medium rounded-full border transition-colors bg-white text-violet-800 border-violet-200 hover:bg-violet-50">
+      Theoretical Physics
+    </button>
+    <button data-filter="Experimental Physics" class="filter-btn px-3 py-1.5 text-sm font-medium rounded-full border transition-colors bg-white text-amber-800 border-amber-200 hover:bg-amber-50">
+      Experimental Physics
+    </button>
+    <button data-filter="Astrophysics" class="filter-btn px-3 py-1.5 text-sm font-medium rounded-full border transition-colors bg-white text-emerald-800 border-emerald-200 hover:bg-emerald-50">
+      Astrophysics
+    </button>
+  </div>
+
+  <!-- Results count -->
+  <div id="result-count" class="text-sm text-gray-500 mb-4 hidden"></div>
+
+  <!-- Search results -->
+  <div id="search-results" class="space-y-4"></div>
+
+  <!-- Fallback -->
   <div id="search-fallback" style="display:none;" class="text-center py-8 text-gray-500">
     <p class="text-lg mb-2">Search index not yet built.</p>
     <p class="text-sm">Run <code class="bg-gray-100 px-2 py-0.5 rounded text-gray-700">npm run build</code> in the site directory to generate the search index.</p>
   </div>
 
-  <link rel="stylesheet" href={`${base}pagefind/pagefind-ui.css`} />
   <script is:inline define:vars={{ base }}>
-    window.__pagefindBase = base;
-  </script>
-  <script is:inline>
-    var s = document.createElement("script");
-    s.src = (window.__pagefindBase || "/") + "pagefind/pagefind-ui.js";
-    s.onload = function() {
-      new PagefindUI({
-        element: "#search-container",
-        showSubResults: true,
-        showImages: false,
-        baseUrl: window.__pagefindBase || "/",
+    const themeColors = {
+      "Foundational AI": "bg-blue-100 text-blue-800",
+      "Theoretical Physics": "bg-violet-100 text-violet-800",
+      "Experimental Physics": "bg-amber-100 text-amber-800",
+      "Astrophysics": "bg-emerald-100 text-emerald-800",
+    };
+    const themeButtonStyles = {
+      "all": "bg-white text-gray-700 border-gray-300 hover:bg-gray-50",
+      "Foundational AI": "bg-white text-blue-800 border-blue-200 hover:bg-blue-50",
+      "Theoretical Physics": "bg-white text-violet-800 border-violet-200 hover:bg-violet-50",
+      "Experimental Physics": "bg-white text-amber-800 border-amber-200 hover:bg-amber-50",
+      "Astrophysics": "bg-white text-emerald-800 border-emerald-200 hover:bg-emerald-50",
+    };
+
+    let pagefind = null;
+    let activeFilter = "all";
+    let debounceTimer = null;
+
+    async function initPagefind() {
+      try {
+        pagefind = await import((base || "/") + "pagefind/pagefind.js");
+        await pagefind.init();
+      } catch (e) {
+        document.getElementById("search-fallback").style.display = "block";
+      }
+    }
+
+    async function doSearch() {
+      if (!pagefind) return;
+
+      const query = document.getElementById("search-input").value.trim();
+      const resultsEl = document.getElementById("search-results");
+      const countEl = document.getElementById("result-count");
+
+      if (!query && activeFilter === "all") {
+        resultsEl.innerHTML = "";
+        countEl.classList.add("hidden");
+        return;
+      }
+
+      const filters = activeFilter !== "all" ? { theme: activeFilter } : {};
+      const search = await pagefind.search(query || null, { filters });
+
+      countEl.textContent = search.results.length + " result" + (search.results.length !== 1 ? "s" : "") + " found";
+      countEl.classList.remove("hidden");
+
+      const loaded = await Promise.all(search.results.slice(0, 50).map(function(r) { return r.data(); }));
+
+      resultsEl.innerHTML = loaded.map(function(result) {
+        var theme = (result.filters && result.filters.theme && result.filters.theme[0]) || "";
+        var colors = themeColors[theme] || "bg-gray-100 text-gray-800";
+        var authors = (result.meta && result.meta.authors) || "";
+        var date = (result.meta && result.meta.date) || "";
+        var title = (result.meta && result.meta.title) || "Untitled";
+        var excerpt = result.excerpt || "";
+
+        return '<a href="' + result.url + '" class="block p-4 border border-gray-200 rounded-lg hover:border-[#663399]/40 hover:shadow-sm transition-all">' +
+          '<div class="flex flex-wrap items-center gap-2 mb-2">' +
+            (theme ? '<span class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full ' + colors + '">' + theme + '</span>' : '') +
+            (date ? '<span class="text-xs text-gray-400">' + date + '</span>' : '') +
+          '</div>' +
+          '<h3 class="font-semibold text-gray-900 mb-1">' + title + '</h3>' +
+          (authors ? '<p class="text-sm text-gray-500 mb-2">' + authors + '</p>' : '') +
+          (excerpt ? '<p class="text-sm text-gray-600 leading-relaxed">' + excerpt + '</p>' : '') +
+        '</a>';
+      }).join("");
+    }
+
+    // Filter button logic
+    document.getElementById("category-filters").addEventListener("click", function(e) {
+      var btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+
+      var baseCls = "filter-btn px-3 py-1.5 text-sm font-medium rounded-full border transition-colors ";
+      document.querySelectorAll(".filter-btn").forEach(function(b) {
+        b.className = baseCls + (themeButtonStyles[b.dataset.filter] || themeButtonStyles["all"]);
       });
-    };
-    s.onerror = function() {
-      document.getElementById("search-container").style.display = "none";
-      document.getElementById("search-fallback").style.display = "block";
-    };
-    document.head.appendChild(s);
+
+      btn.className = baseCls + "active bg-[#663399] text-white border-[#663399]";
+      activeFilter = btn.dataset.filter;
+      doSearch();
+    });
+
+    // Debounced search on input
+    document.getElementById("search-input").addEventListener("input", function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(doSearch, 200);
+    });
+
+    initPagefind();
   </script>
 </BaseLayout>

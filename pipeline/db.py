@@ -110,6 +110,14 @@ class Database:
                     "ALTER TABLE papers ADD COLUMN nickname TEXT DEFAULT NULL"
                 )
                 logger.info("Migrated: added nickname column to papers")
+            # Migration: add fix_count column to blog_posts if missing
+            bp_cursor = await db.execute("PRAGMA table_info(blog_posts)")
+            bp_columns = {row[1] for row in await bp_cursor.fetchall()}
+            if "fix_count" not in bp_columns:
+                await db.execute(
+                    "ALTER TABLE blog_posts ADD COLUMN fix_count INTEGER DEFAULT 0"
+                )
+                logger.info("Migrated: added fix_count column to blog_posts")
             await db.commit()
         logger.info(f"Database initialized at {self.db_path}")
 
@@ -394,6 +402,18 @@ class Database:
                    SET content = ?, word_count = ?, updated_at = datetime('now')
                    WHERE paper_arxiv_id = ?""",
                 (content, word_count, arxiv_id),
+            )
+            await db.commit()
+
+    async def increment_fix_count(self, arxiv_id: str) -> None:
+        """Increment the fix_count for a blog post."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                """UPDATE blog_posts
+                   SET fix_count = COALESCE(fix_count, 0) + 1,
+                       updated_at = datetime('now')
+                   WHERE paper_arxiv_id = ?""",
+                (arxiv_id,),
             )
             await db.commit()
 

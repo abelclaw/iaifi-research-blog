@@ -1,16 +1,129 @@
 """Generation API routes for triggering and monitoring blog + concept tasks."""
 
+import asyncio
+import json
 import logging
+import subprocess
 import time
 from datetime import datetime, timezone
 
+import httpx
 from fastapi import APIRouter, BackgroundTasks, HTTPException
+
+import aiosqlite
 
 from pipeline.config import settings
 from pipeline.db import Database
 from pipeline.orchestrator import ContentGenerator
 
+
+async def _get_paper_metadata(arxiv_id: str) -> dict | None:
+    """Fetch paper title, authors, abstract directly from DB."""
+    async with aiosqlite.connect(settings.DB_PATH) as conn:
+        conn.row_factory = aiosqlite.Row
+        cur = await conn.execute(
+            "SELECT title, authors, abstract FROM papers WHERE arxiv_id = ?",
+            (arxiv_id,),
+        )
+        row = await cur.fetchone()
+        return dict(row) if row else None
+
 logger = logging.getLogger(__name__)
+
+USAGE_THRESHOLD = 80.0  # Pause bulk generation above this % of 5-hour limit
+USAGE_CHECK_INTERVAL = 60  # Seconds between re-checks while waiting
+
+
+async def _get_claude_oauth_token() -> str | None:
+    """Retrieve Claude Code OAuth access token from macOS Keychain."""
+    try:
+        result = subprocess.run(
+            ["security", "find-generic-password", "-s", "Claude Code-credentials", "-w"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if result.returncode != 0:
+            logger.warning("Failed to read Claude Code credentials from Keychain")
+            return None
+        creds = json.loads(result.stdout.strip())
+        return creds.get("claudeAiOauth", {}).get("accessToken")
+    except Exception as e:
+        logger.warning("Could not retrieve Claude OAuth token: %s", e)
+        return None
+
+
+async def _get_claude_usage() -> dict | None:
+    """Check Claude Code subscription usage via the OAuth usage endpoint.
+
+    Returns dict with five_hour/seven_day utilization, or None on failure.
+    """
+    token = await _get_claude_oauth_token()
+    if not token:
+        return None
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(
+                "https://api.anthropic.com/api/oauth/usage",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "anthropic-beta": "oauth-2025-04-20",
+                    "User-Agent": "claude-code/2.0.32",
+                    "Accept": "application/json",
+                },
+                timeout=10,
+            )
+            resp.raise_for_status()
+            return resp.json()
+    except Exception as e:
+        logger.warning("Failed to check Claude usage: %s", e)
+        return None
+
+
+async def _wait_for_usage_clearance(task_id: str, bulk_tasks: dict, usage: dict | None = None) -> None:
+    """If 5-hour usage is above threshold, wait until it drops below."""
+    if usage is None:
+        usage = await _get_claude_usage()
+    if not usage:
+        logger.info("Could not check usage, continuing without throttle")
+        return
+
+    five_hour = usage.get("five_hour", {})
+    utilization = five_hour.get("utilization", 0.0)
+    resets_at = five_hour.get("resets_at")
+
+    if utilization < USAGE_THRESHOLD:
+        logger.info("Claude 5h usage at %.1f%% (threshold %.0f%%), continuing",
+                     utilization, USAGE_THRESHOLD)
+        return
+
+    logger.info("Claude 5h usage at %.1f%% (>= %.0f%%), pausing bulk generation",
+                utilization, USAGE_THRESHOLD)
+    bulk_tasks[task_id]["step"] = (
+        f"paused — Claude usage at {utilization:.0f}% "
+        f"(waiting for < {USAGE_THRESHOLD:.0f}%)"
+    )
+    if resets_at:
+        bulk_tasks[task_id]["usage_resets_at"] = resets_at
+
+    while utilization >= USAGE_THRESHOLD:
+        await asyncio.sleep(USAGE_CHECK_INTERVAL)
+        # Check if cancelled while waiting
+        if task_id in _bulk_cancelled:
+            return
+        usage = await _get_claude_usage()
+        if not usage:
+            logger.info("Usage check failed, resuming to avoid infinite wait")
+            break
+        utilization = usage.get("five_hour", {}).get("utilization", 0.0)
+        bulk_tasks[task_id]["usage_5h"] = utilization
+        bulk_tasks[task_id]["step"] = (
+            f"paused — Claude usage at {utilization:.0f}% "
+            f"(waiting for < {USAGE_THRESHOLD:.0f}%)"
+        )
+        logger.info("Claude 5h usage at %.1f%%, threshold %.0f%%",
+                     utilization, USAGE_THRESHOLD)
+
+    logger.info("Claude usage cleared (%.1f%%), resuming bulk generation", utilization)
+
 
 router = APIRouter()
 
@@ -34,7 +147,7 @@ async def get_paper_tasks(arxiv_id: str):
     Returns task info if a task exists, so the UI can resume polling.
     """
     result = {}
-    for task_type in ("generate", "concepts"):
+    for task_type in ("generate", "concepts", "fix"):
         key = (arxiv_id, task_type)
         task_id = _paper_tasks.get(key)
         if task_id and task_id in _tasks:
@@ -185,6 +298,17 @@ async def _run_concepts(task_id: str, arxiv_id: str) -> None:
             pass
 
 
+# --- Usage endpoint ---
+
+@router.get("/api/usage")
+async def get_usage():
+    """Return current Claude subscription usage (5h and 7d windows)."""
+    usage = await _get_claude_usage()
+    if not usage:
+        return {"error": "Could not fetch usage", "five_hour": None, "seven_day": None}
+    return usage
+
+
 # --- Bulk operations (server-side, survive page refresh) ---
 
 @router.get("/api/bulk/active")
@@ -293,6 +417,22 @@ async def _run_bulk_generate(task_id: str) -> None:
                 _bulk_tasks[task_id]["errors"] = errors
                 logger.error("Bulk generate %s: failed for %s: %s", task_id, aid, e)
 
+            # Check usage after each blog, show it in status, and wait if above threshold
+            usage = await _get_claude_usage()
+            if usage:
+                _bulk_tasks[task_id]["usage_5h"] = usage.get("five_hour", {}).get("utilization", 0.0)
+            await _wait_for_usage_clearance(task_id, _bulk_tasks, usage=usage)
+            if task_id in _bulk_cancelled:
+                _bulk_cancelled.discard(task_id)
+                _bulk_tasks[task_id].update({
+                    "status": "cancelled", "step": "cancelled",
+                    "done": done, "errors": errors,
+                    "result": {"done": done, "errors": errors, "total": len(eligible)},
+                    "completed_at": datetime.now(timezone.utc).isoformat(),
+                })
+                logger.info("Bulk generate %s: cancelled while waiting for usage, %d/%d", task_id, done, len(eligible))
+                return
+
         _bulk_tasks[task_id].update({
             "status": "complete", "step": "complete",
             "done": done, "errors": errors,
@@ -303,6 +443,193 @@ async def _run_bulk_generate(task_id: str) -> None:
 
     except Exception as e:
         logger.exception("Bulk generate %s failed", task_id)
+        _bulk_tasks[task_id].update({
+            "status": "error", "error": str(e),
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+
+
+# --- Blog post fixing (remove LLM signatures, fix references) ---
+
+@router.post("/api/fix/{arxiv_id}")
+async def trigger_fix(arxiv_id: str, background_tasks: BackgroundTasks):
+    """Trigger blog post fix (remove LLM signatures, fix typos) in the background."""
+    task_id = f"fix-{arxiv_id}-{int(time.time())}"
+    _tasks[task_id] = {
+        "task_id": task_id,
+        "arxiv_id": arxiv_id,
+        "type": "fix",
+        "status": "running",
+        "step": "starting",
+        "result": None,
+        "error": None,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }
+    _paper_tasks[(arxiv_id, "fix")] = task_id
+    background_tasks.add_task(_run_fix, task_id, arxiv_id)
+    return {"task_id": task_id, "status": "started"}
+
+
+async def _run_fix(task_id: str, arxiv_id: str) -> None:
+    """Background: fix a single blog post."""
+    try:
+        db = Database(db_path=settings.DB_PATH)
+        await db.initialize()
+
+        _tasks[task_id]["step"] = "loading_post"
+
+        # Get the blog post
+        post = await db.get_blog_post(arxiv_id)
+        if not post:
+            raise ValueError(f"No blog post found for {arxiv_id}")
+
+        # Get the paper for metadata
+        paper = await _get_paper_metadata(arxiv_id)
+        if not paper:
+            raise ValueError(f"No paper found for {arxiv_id}")
+
+        _tasks[task_id]["step"] = "fixing_post"
+
+        # Initialize fixer with the same LLM client used for generation
+        from pipeline.generator.post_fixer import PostFixer
+        from pipeline.generator.claude_cli_client import ClaudeCLIClient
+
+        llm = ClaudeCLIClient(model="claude-opus-4-6")
+        fixer = PostFixer(llm_client=llm)
+
+        fixed_content = await fixer.fix_post(
+            content=post["content"],
+            title=paper["title"],
+            arxiv_id=arxiv_id,
+            authors=paper.get("authors", ""),
+            abstract=paper.get("abstract", ""),
+        )
+
+        # Update the blog post in the database
+        word_count = len(fixed_content.split())
+        await db.update_blog_post_content(arxiv_id, fixed_content)
+        await db.increment_fix_count(arxiv_id)
+
+        _tasks[task_id].update({
+            "status": "complete",
+            "step": "complete",
+            "result": {
+                "word_count": word_count,
+            },
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+        logger.info("Fix task %s complete for %s (%d words)", task_id, arxiv_id, word_count)
+
+    except Exception as e:
+        logger.exception("Fix task %s failed for %s", task_id, arxiv_id)
+        _tasks[task_id].update({
+            "status": "error",
+            "error": str(e),
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+
+
+@router.post("/api/bulk/fix")
+async def trigger_bulk_fix(background_tasks: BackgroundTasks):
+    """Fix all blog posts that have content (remove LLM signatures)."""
+    for task in _bulk_tasks.values():
+        if task["status"] == "running":
+            raise HTTPException(status_code=409, detail="A bulk task is already running")
+    task_id = f"bulk-fix-{int(time.time())}"
+    _bulk_tasks[task_id] = {
+        "task_id": task_id,
+        "type": "fix",
+        "status": "running",
+        "step": "starting",
+        "done": 0,
+        "errors": 0,
+        "total": 0,
+        "current_paper": None,
+        "result": None,
+        "error": None,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }
+    background_tasks.add_task(_run_bulk_fix, task_id)
+    return {"task_id": task_id, "status": "started"}
+
+
+async def _run_bulk_fix(task_id: str) -> None:
+    """Background: fix all blog posts."""
+    try:
+        db = Database(db_path=settings.DB_PATH)
+        await db.initialize()
+
+        from pipeline.generator.post_fixer import PostFixer
+        from pipeline.generator.claude_cli_client import ClaudeCLIClient
+
+        llm = ClaudeCLIClient(model="claude-opus-4-6")
+        fixer = PostFixer(llm_client=llm)
+
+        # Get all posts with content
+        all_posts = await db.get_blog_posts()
+        eligible = [p for p in all_posts if p.get("content")]
+        _bulk_tasks[task_id]["total"] = len(eligible)
+
+        if not eligible:
+            _bulk_tasks[task_id].update({
+                "status": "complete", "step": "complete",
+                "result": {"done": 0, "errors": 0, "total": 0},
+                "completed_at": datetime.now(timezone.utc).isoformat(),
+            })
+            return
+
+        done = 0
+        errors = 0
+        for i, post in enumerate(eligible):
+            if task_id in _bulk_cancelled:
+                _bulk_cancelled.discard(task_id)
+                _bulk_tasks[task_id].update({
+                    "status": "cancelled", "step": "cancelled",
+                    "done": done, "errors": errors,
+                    "result": {"done": done, "errors": errors, "total": len(eligible)},
+                    "completed_at": datetime.now(timezone.utc).isoformat(),
+                })
+                logger.info("Bulk fix %s: cancelled after %d/%d", task_id, done, len(eligible))
+                return
+
+            aid = post["paper_arxiv_id"]
+            _bulk_tasks[task_id].update({
+                "step": f"fixing ({i + 1}/{len(eligible)}): {aid}",
+                "current_paper": aid,
+                "done": done,
+                "errors": errors,
+            })
+            try:
+                paper = await _get_paper_metadata(aid)
+                if not paper:
+                    raise ValueError(f"No paper found for {aid}")
+
+                fixed_content = await fixer.fix_post(
+                    content=post["content"],
+                    title=paper["title"],
+                    arxiv_id=aid,
+                    authors=paper.get("authors", ""),
+                    abstract=paper.get("abstract", ""),
+                )
+                await db.update_blog_post_content(aid, fixed_content)
+                await db.increment_fix_count(aid)
+                done += 1
+                _bulk_tasks[task_id]["done"] = done
+            except Exception as e:
+                errors += 1
+                _bulk_tasks[task_id]["errors"] = errors
+                logger.error("Bulk fix %s: failed for %s: %s", task_id, aid, e)
+
+        _bulk_tasks[task_id].update({
+            "status": "complete", "step": "complete",
+            "done": done, "errors": errors,
+            "result": {"done": done, "errors": errors, "total": len(eligible)},
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+        logger.info("Bulk fix %s: complete, %d done, %d errors", task_id, done, errors)
+
+    except Exception as e:
+        logger.exception("Bulk fix %s failed", task_id)
         _bulk_tasks[task_id].update({
             "status": "error", "error": str(e),
             "completed_at": datetime.now(timezone.utc).isoformat(),
