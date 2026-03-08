@@ -11,7 +11,7 @@ authors:
 concepts: []
 figures: []
 pdfUrl: https://arxiv.org/pdf/2010.00670
-published: ''
+published: 2020-10-01
 theme: Theoretical Physics
 title: Elliptic stable envelopes and hypertoric loop spaces
 wordCount: 1168
