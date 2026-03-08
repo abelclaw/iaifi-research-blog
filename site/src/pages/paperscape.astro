@@ -417,8 +417,12 @@ const hasPapers = papers.length > 0;
 
     function setPanelOpen(open: boolean) {
       panelOpen = open;
-      panel.classList.toggle("hidden", !open);
-      if (!open) {
+      if (open) {
+        panel.classList.remove("hidden");
+        document.body.style.marginRight = "20rem";
+      } else {
+        panel.classList.add("hidden");
+        document.body.style.marginRight = "";
         selectedPaper = null;
         scheduleRender();
       }
