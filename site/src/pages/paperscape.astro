@@ -224,6 +224,7 @@ const hasPapers = papers.length > 0;
       { z: 3, tw: 5674, th: 5674, nx: 32, ny: 32 },
       { z: 4, tw: 2837, th: 2837, nx: 64, ny: 64 },
       { z: 5, tw: 1418, th: 1418, nx: 128, ny: 128 },
+      { z: 6, tw: 709, th: 709, nx: 256, ny: 256 },
     ];
     const TILE_PX = 512;
 
@@ -501,6 +502,106 @@ const hasPapers = papers.length > 0;
       scheduleRender();
     }
 
+    // ── Paperscape API: fetch any paper at a world location ──
+    function fetchPapescapePaper(wx: number, wy: number) {
+      const url = `https://paperscape.org/wombat?ml2p%5B%5D=${Math.round(wx)}&ml2p%5B%5D=${Math.round(wy)}&tbl=&callback=__ps_cb`;
+
+      // Clean up old callback
+      (window as any).__ps_cb = null;
+
+      const script = document.createElement("script");
+      (window as any).__ps_cb = (data: any) => {
+        script.remove();
+        if (!data?.r?.id) return;
+
+        const paperId = data.r.id;
+        // Now fetch metadata
+        fetchPapescapeMeta(paperId);
+      };
+      script.src = url;
+      script.onerror = () => script.remove();
+      document.head.appendChild(script);
+    }
+
+    function fetchPapescapeMeta(paperId: number) {
+      const url = `https://paperscape.org/wombat?gdata%5B%5D=${paperId}&flags%5B%5D=1&tbl=&callback=__ps_meta`;
+
+      const script = document.createElement("script");
+      (window as any).__ps_meta = (data: any) => {
+        script.remove();
+        if (!data?.r?.papr?.[0]) return;
+
+        const p = data.r.papr[0];
+        openExternalPaperPanel({
+          id: p.id,
+          title: p.titl || "Unknown",
+          authors: p.auth || "",
+          arxivId: p.arxv || "",
+          categories: p.cats || "",
+          citations: p.nc || 0,
+          references: p.nr || 0,
+        });
+      };
+      script.src = url;
+      script.onerror = () => script.remove();
+      document.head.appendChild(script);
+    }
+
+    interface ExternalPaper {
+      id: number;
+      title: string;
+      authors: string;
+      arxivId: string;
+      categories: string;
+      citations: number;
+      references: number;
+    }
+
+    function openExternalPaperPanel(p: ExternalPaper) {
+      selectedPaper = null;
+      panelHeader.textContent = "arXiv Paper";
+      panelTitle.textContent = p.title;
+      panelTheme.textContent = p.categories.replace(/,/g, " · ");
+      panelTheme.style.color = "#6b7280";
+
+      let html = "";
+      if (p.authors) {
+        html += `<p class="text-xs text-gray-500 mb-2">${p.authors}</p>`;
+      }
+      if (p.arxivId) {
+        html += `<p class="text-xs text-gray-400 mb-1">${p.arxivId}</p>`;
+      }
+      html += `<p class="text-xs text-gray-400 mb-3">${p.references} references · ${p.citations} citations</p>`;
+
+      html += '<div class="mt-3 pt-3 border-t border-gray-100 space-y-2">';
+      if (p.arxivId) {
+        html += `<a href="https://arxiv.org/abs/${p.arxivId}" target="_blank" rel="noopener noreferrer" class="block text-sm text-blue-600 hover:text-blue-800 font-medium">View on arXiv &nearr;</a>`;
+        html += `<a href="https://arxiv.org/pdf/${p.arxivId}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">Download PDF &nearr;</a>`;
+      }
+      html += '</div>';
+
+      // Check if there's a matching IAIFI paper
+      const iaifiMatch = papers.find(pp => pp.arxiv_id === p.arxivId);
+      if (iaifiMatch) {
+        html += '<div class="mt-3 pt-3 border-t border-gray-100">';
+        html += `<p class="text-xs text-[#663399] font-semibold mb-1">This is an IAIFI paper!</p>`;
+        html += `<button class="ps-select-paper text-sm text-[#663399] hover:text-[#663399]/70 font-medium" data-id="${iaifiMatch.arxiv_id}">View IAIFI details &rarr;</button>`;
+        html += '</div>';
+      }
+
+      panelBody.innerHTML = html;
+      setPanelOpen(true);
+
+      // Bind IAIFI link if present
+      panelBody.querySelectorAll(".ps-select-paper").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = (btn as HTMLElement).dataset.id!;
+          const paper = papers.find(pp => pp.arxiv_id === id);
+          if (paper) openPaperPanel(paper);
+        });
+      });
+    }
+
     // ── Render loop ──
     let renderScheduled = false;
     let animating = true;
@@ -612,13 +713,17 @@ const hasPapers = papers.length > 0;
       scheduleRender();
     });
 
-    // Click opens side panel instead of navigating
+    // Click opens side panel — IAIFI paper or query Paperscape for any paper
     canvas.addEventListener("click", (e) => {
       if (Math.abs(e.offsetX - dragStartX) > 5 || Math.abs(e.offsetY - dragStartY) > 5) return;
       const hit = hitTest(e.offsetX, e.offsetY);
       if (hit) {
         openPaperPanel(hit);
         hideTooltip();
+      } else {
+        // Query Paperscape API for the paper at this world location
+        const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
+        fetchPapescapePaper(wx, wy);
       }
     });
 
@@ -626,7 +731,7 @@ const hasPapers = papers.length > 0;
     canvas.addEventListener("wheel", (e) => {
       e.preventDefault();
       const zoomFactor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * zoomFactor));
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * zoomFactor));
 
       const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
       camScale = newScale;
@@ -678,7 +783,7 @@ const hasPapers = papers.length > 0;
           const mx = mid.x - canvasRect.left;
           const my = mid.y - canvasRect.top;
           const [wx, wy] = screenToWorld(mx, my);
-          camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * zoomFactor));
+          camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * zoomFactor));
           camX = wx - (mx - W / 2) / camScale;
           camY = wy - (my - H / 2) / camScale;
         }
@@ -815,7 +920,7 @@ const hasPapers = papers.length > 0;
     const initCamY = camY;
 
     function zoomByFactor(factor: number) {
-      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * factor));
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * factor));
       camScale = newScale;
       scheduleRender();
       restartAnimation();
