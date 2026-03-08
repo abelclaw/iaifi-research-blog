@@ -734,10 +734,12 @@ const graphData = JSON.stringify({
         .attr("cursor", "pointer")
         .on("mouseover", (ev: MouseEvent, d: PaperLink) => {
           select(ev.currentTarget as Element).attr("stroke", "#6366f1").attr("stroke-opacity", 1);
-          const srcP = paperNodeById.get(d.source);
-          const tgtP = paperNodeById.get(d.target);
-          const srcName = srcP?.nickname || srcP?.title || d.source;
-          const tgtName = tgtP?.nickname || tgtP?.title || d.target;
+          const srcId = linkId(d.source);
+          const tgtId = linkId(d.target);
+          const srcP = paperNodeById.get(srcId);
+          const tgtP = paperNodeById.get(tgtId);
+          const srcName = srcP?.nickname || srcP?.title || srcId;
+          const tgtName = tgtP?.nickname || tgtP?.title || tgtId;
           // Compute shared concepts on the fly from paper nodes
           const srcConcepts = new Set(srcP?.concepts || []);
           const shared = (tgtP?.concepts || []).filter((c: string) => srcConcepts.has(c));
@@ -806,12 +808,15 @@ const graphData = JSON.stringify({
 
       const visPaperById = new Map(visPapers.map((p) => [p.id, p]));
 
+      // D3 forceLink replaces source/target string IDs with node object references
+      function linkId(end: any): string { return typeof end === "string" ? end : end.id; }
+
       simulation.on("tick", () => {
         plGroup
-          .attr("x1", (d: PaperLink) => visPaperById.get(d.source)?.x ?? 0)
-          .attr("y1", (d: PaperLink) => visPaperById.get(d.source)?.y ?? 0)
-          .attr("x2", (d: PaperLink) => visPaperById.get(d.target)?.x ?? 0)
-          .attr("y2", (d: PaperLink) => visPaperById.get(d.target)?.y ?? 0);
+          .attr("x1", (d: PaperLink) => visPaperById.get(linkId(d.source))?.x ?? 0)
+          .attr("y1", (d: PaperLink) => visPaperById.get(linkId(d.source))?.y ?? 0)
+          .attr("x2", (d: PaperLink) => visPaperById.get(linkId(d.target))?.x ?? 0)
+          .attr("y2", (d: PaperLink) => visPaperById.get(linkId(d.target))?.y ?? 0);
         pGroup.attr("cx", (d: PaperNode) => d.x!).attr("cy", (d: PaperNode) => d.y!);
         pLabels.attr("x", (d: PaperNode) => d.x!).attr("y", (d: PaperNode) => d.y!);
         cDots.attr("cx", (d: ConceptNode) => d.x!).attr("cy", (d: ConceptNode) => d.y!);
@@ -874,7 +879,7 @@ const graphData = JSON.stringify({
           cDots.attr("opacity", (o: ConceptNode) => isConnected(d.id, o.id) ? 0.7 : 0.1);
           cLabels.attr("opacity", (o: ConceptNode) => isConnected(d.id, o.id) ? 1 : 0);
           plGroup.attr("stroke-opacity", (pl: PaperLink) =>
-            pl.source === d.id || pl.target === d.id ? 0.8 : 0.05);
+            linkId(pl.source) === d.id || linkId(pl.target) === d.id ? 0.8 : 0.05);
         })
         .on("mousemove", (ev: MouseEvent) => {
           tooltip.style("left", ev.pageX + 12 + "px").style("top", ev.pageY - 12 + "px");
@@ -892,8 +897,8 @@ const graphData = JSON.stringify({
         cDots.attr("opacity", showConcepts ? 0.5 : 0).attr("pointer-events", showConcepts ? "all" : "none");
         cLabels.attr("opacity", showConcepts ? 0.6 : 0);
         plGroup.attr("stroke-opacity", (d: PaperLink) => {
-          const src = visPaperById.get(d.source);
-          const tgt = visPaperById.get(d.target);
+          const src = visPaperById.get(linkId(d.source));
+          const tgt = visPaperById.get(linkId(d.target));
           return (src && activeThemes.has(src.theme) && tgt && activeThemes.has(tgt.theme)) ? linkOpacity : 0;
         });
       }
