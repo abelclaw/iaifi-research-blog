@@ -76,7 +76,7 @@ The architecture adapts **ResNet34** ("Residual Network with 34 layers"), a deep
 - **1D convolutions** replace standard 2D convolutions, processing data that unfolds over time (like a seismograph readout) rather than across a two-dimensional image.
 - **Group Normalization** replaces Batch Normalization. Standard batch normalization tracks statistics across the full training batch, but training batches are loaded with simulated signals while live inference sees mostly noise. Group Normalization computes statistics within smaller channel groups, keeping the network's behavior consistent between training and deployment.
 
-![Figure 1](/iaifi-research-blog/figures/2403_18661/figure_1.png)
+![Figure 1](figure:1)
 
 The pipeline runs in a sliding-window fashion at **4 Hz**, evaluating a new window every 0.25 seconds. Each raw output is smoothed with a one-second **"top hat" filter** (a moving average over a one-second window), converting noisy frame-by-frame scores into a stable detection statistic. Four Hz strikes the right balance: frequent enough to catch transient signals, light enough to keep compute costs manageable.
 
@@ -84,7 +84,7 @@ For live throughput, Aframe uses an **inference-as-a-service (IaaS)** architectu
 
 Training relies on aggressive **data augmentation**: simulated binary black hole waveforms are injected at varying signal strengths into real LIGO noise, forcing the network to handle the non-stationary, glitchy character of real detector data rather than idealized Gaussian noise. The network trains with binary cross-entropy loss, an Adam optimizer, and a one-cycle learning rate schedule with cosine annealing.
 
-![Figure 2](/iaifi-research-blog/figures/2403_18661/figure_2.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 
@@ -96,15 +96,18 @@ But Aframe's deeper significance is infrastructural. The field has struggled for
 
 Binary neutron star mergers are the obvious next target: they spend far longer in the detector's sensitive band and present harder detection challenges. The IaaS architecture, the normalization choices, and the augmentation strategies developed here all carry over directly.
 
-![Figure 3](/iaifi-research-blog/figures/2403_18661/figure_3.png)
+![Figure 3](figure:3)
 
 > **Bottom Line:** Aframe proves that a fully ML-based gravitational wave search pipeline can operate in real time with competitive sensitivity and a fraction of traditional latency. Faster multi-messenger alerts and AI-powered astrophysics infrastructure are now within reach.
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects deep learning infrastructure with gravitational-wave astrophysics, deploying a production-ready neural network pipeline inside the LIGO computing environment and benchmarking it against established physics search algorithms.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The team's use of Group Normalization to resolve the training-inference distribution mismatch, combined with an inference-as-a-service architecture for scalable deployment, provides practical lessons for any real-time ML system in scientific computing.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Aframe achieves state-of-the-art sensitivity to higher-mass binary black hole mergers at millisecond inference latency, enabling the sub-second gravitational-wave alerts that multi-messenger astronomy needs to maximize follow-up science.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets binary neutron star detection and adaptation to next-generation detectors; the full pipeline and methods are described in [arXiv:2403.18661](https://arxiv.org/abs/2403.18661) (Marx et al., 2024).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects deep learning infrastructure with gravitational-wave astrophysics, deploying a production-ready neural network pipeline inside the LIGO computing environment and benchmarking it against established physics search algorithms.
+
+- **Impact on Artificial Intelligence:** The team's use of Group Normalization to resolve the training-inference distribution mismatch, combined with an inference-as-a-service architecture for scalable deployment, provides practical lessons for any real-time ML system in scientific computing.
+
+- **Impact on Fundamental Interactions:** Aframe achieves state-of-the-art sensitivity to higher-mass binary black hole mergers at millisecond inference latency, enabling the sub-second gravitational-wave alerts that multi-messenger astronomy needs to maximize follow-up science.
+
+- **Outlook and References:** Future work targets binary neutron star detection and adaptation to next-generation detectors; the full pipeline and methods are described in [arXiv:2403.18661](https://arxiv.org/abs/2403.18661) (Marx et al., 2024).

@@ -43,61 +43,68 @@ wordCount: 1138
 
 ## The Big Picture
 
-Imagine folding origami. No matter how many folds you make, certain fundamental measurements — the area of the paper, its color — stay the same. Now scale that intuition up to eleven dimensions and make the paper a six-dimensional geometric space twisted into exotic shapes.
+Imagine folding origami. No matter how many folds you make, certain fundamental measurements stay the same: the area of the paper, its color. Now scale that intuition up to eleven dimensions and make the paper a six-dimensional geometric space twisted into exotic shapes.
 
-Physicists believe these shapes describe the hidden structure of reality itself. These are **Calabi-Yau manifolds**, and they lie at the heart of string theory's attempt to unify all fundamental forces. The shapes of these spaces determine everything: the particles we see, the forces they feel, the constants of nature.
+Physicists believe these shapes describe the hidden structure of reality itself. These are **Calabi-Yau manifolds**, and they sit at the core of string theory's attempt to unify all fundamental forces. The shapes of these spaces determine everything: the particles we see, the forces they feel, the constants of nature.
 
-Within this landscape, something peculiar happens at boundaries between different geometric configurations. You can perform a surgery on a Calabi-Yau manifold — snipping out a sphere and sewing it back in differently — causing it to snap into a completely new configuration. These shape-changing operations are called **flop transitions**, and they've been central to string theorists exploring how geometry underpins physics.
+Within this framework, something peculiar happens at boundaries between different geometric configurations. You can perform a surgery on a Calabi-Yau manifold, snipping out a sphere and sewing it back in differently, causing it to snap into a completely new configuration. These shape-changing operations are called **flop transitions**, and they've been central to string theorists exploring how geometry gives rise to physics.
 
-Most flops lead to genuinely different manifolds. But a special class — **isomorphic flops**, where "isomorphic" means geometrically identical — send the manifold back to an exact copy of itself, like a mirror image indistinguishable from the original.
+Most flops lead to genuinely different manifolds. But a special class, **isomorphic flops** (where "isomorphic" means geometrically identical), send the manifold back to an exact copy of itself, like a mirror image indistinguishable from the original.
 
-Researchers Andre Lukas (Oxford) and Fabian Ruehle (Northeastern/IAIFI) show that these self-returning flops are far more than a curiosity: they generate hidden symmetry groups with profound implications for the quantum corrections governing string theory, ultimately connecting exotic geometry to classical mathematical objects called theta functions.
+Researchers Andre Lukas (Oxford) and Fabian Ruehle (Northeastern/IAIFI) show that these self-returning flops are far more than a curiosity. They generate hidden symmetry groups that tightly constrain the quantum corrections governing string theory, connecting exotic geometry to classical mathematical objects called theta functions.
 
-> **Key Insight:** When a Calabi-Yau manifold admits infinitely many isomorphic flop transitions, the symmetry group organizing those flops is a Coxeter group — and that symmetry forces stringy quantum corrections to organize into beautifully structured invariant functions, sometimes expressible as classical theta functions.
+> **Key Insight:** When a Calabi-Yau manifold admits infinitely many isomorphic flop transitions, the symmetry group organizing those flops is a Coxeter group, and that symmetry forces stringy quantum corrections to organize into invariant functions, sometimes expressible as classical theta functions.
 
 ## How It Works
 
-The geometric stage is the **Kähler cone** — the region of parameter space describing all valid sizes and shapes a Calabi-Yau can take. Every point inside corresponds to a physically sensible geometry; the walls mark boundaries where geometry becomes singular.
+The setting is the **Kähler cone**, the region of parameter space describing all valid sizes and shapes a Calabi-Yau can take. Every point inside corresponds to a physically sensible geometry; the walls mark boundaries where geometry becomes singular.
 
-![Figure 1](/iaifi-research-blog/figures/2210_09369/figure_1.png)
+![Figure 1](figure:1)
 
-When the manifold hits a wall, a flop transition can occur. Ordinarily, crossing a wall takes you into a neighboring cone describing a genuinely different manifold. For isomorphic flops, crossing the wall reflects you into a cone for a manifold *identical* to the one you started with. The key mathematical object is an **involution matrix** $\tilde{M}$ satisfying $\tilde{M}^2 = 1$ — squaring it returns you to the start, like a mirror reflection.
+When the manifold hits a wall, a flop transition can occur. Ordinarily, crossing a wall takes you into a neighboring cone describing a genuinely different manifold. For isomorphic flops, crossing the wall reflects you into a cone for a manifold *identical* to the one you started with. The key mathematical object is an **involution matrix** $\tilde{M}$ satisfying $\tilde{M}^2 = 1$. Squaring it returns you to the start, just like a mirror reflection.
 
-The paper's central discovery unfolds in three steps:
+The paper's central result breaks into three steps:
 
-1. **Building the symmetry group.** If a Calabi-Yau has two isomorphic flop boundaries, the two reflection matrices $\tilde{M}_1$ and $\tilde{M}_2$ generate an infinite group. Lukas and Ruehle prove this group is always a **Coxeter group** — a mathematical structure from the 1930s classifying groups generated by geometric reflections. The simplest nontrivial case is an infinite dihedral group, like the symmetries of an infinite strip of triangles.
+1. **Building the symmetry group.** If a Calabi-Yau has two isomorphic flop boundaries, the two reflection matrices $\tilde{M}_1$ and $\tilde{M}_2$ generate an infinite group. Lukas and Ruehle prove this group is always a **Coxeter group**, a mathematical structure from the 1930s classifying groups generated by geometric reflections. The simplest nontrivial case is an infinite dihedral group, like the symmetries of an infinite strip of triangles.
 
 2. **Tiling the extended Kähler cone.** Applying these reflections repeatedly tiles an **extended Kähler cone** with infinitely many copies of the original cone, one for each manifold in the isomorphic flop chain. The cone structure is a precise geometric fingerprint of the Coxeter group.
 
-3. **Constraining quantum corrections.** String theory on a Calabi-Yau receives **quantum corrections** from world-sheet instantons — strings wrapping curves inside the manifold. Each curve class $d$ contributes to the **prepotential** (the master function encoding the theory's physics) weighted by its **Gopakumar-Vafa (GV) invariant** $n_d$, an integer counting **BPS states** — stable quantum particles formed when strings wrap those curves. Curve classes identified by the Coxeter symmetry must carry identical GV invariants: $n_d = n_{gd}$ for all group elements $g$.
+3. **Constraining quantum corrections.** String theory on a Calabi-Yau receives **quantum corrections** from world-sheet instantons, strings wrapping curves inside the manifold. Each curve class $d$ contributes to the **prepotential** (the master function encoding the theory's physics) weighted by its **Gopakumar-Vafa (GV) invariant** $n_d$, an integer counting **BPS states**, stable quantum particles formed when strings wrap those curves. Curve classes identified by the Coxeter symmetry must carry identical GV invariants: $n_d = n_{gd}$ for all group elements $g$.
 
-![Figure 2](/iaifi-research-blog/figures/2210_09369/figure_1.png)
+![Figure 2](figure:2)
 
-This GV invariant matching means the prepotential itself is Coxeter-invariant. The authors construct **Coxeter-invariant functions** $\psi_d^G(T)$ by summing over all images of a curve class under the group action — the natural building blocks for the instanton prepotential.
+This GV invariant matching means the prepotential itself is Coxeter-invariant. The authors construct **Coxeter-invariant functions** $\psi_d^G(T)$ by summing over all images of a curve class under the group action. These are the natural building blocks for the instanton prepotential.
 
-For Calabi-Yau manifolds with an **elliptic fibration** structure — manifolds that fiber over a base with torus fibers — these invariant functions collapse into **Jacobi theta functions**, the same objects appearing throughout number theory and the physics of integrable systems. The torus fibers introduce a natural periodicity that theta functions are built to capture.
+For Calabi-Yau manifolds with an **elliptic fibration** structure (manifolds that fiber over a base with torus fibers) these invariant functions collapse into **Jacobi theta functions**, the same objects that appear throughout number theory and integrable systems. The torus fibers introduce a natural periodicity that theta functions are built to capture.
 
-![Figure 3](/iaifi-research-blog/figures/2210_09369/figure_2.png)
+![Figure 3](figure:3)
 
-The paper works through explicit examples using **complete intersection Calabi-Yau manifolds (CICYs)** — defined by polynomial equations inside products of projective spaces. For Picard rank two, the authors exhibit concrete examples with infinitely many flops, constructing the invariant prepotentials and verifying both the Coxeter symmetry and the theta function expressions.
+The paper works through explicit examples using **complete intersection Calabi-Yau manifolds (CICYs)**, defined by polynomial equations inside products of projective spaces. For Picard rank two, the authors exhibit concrete examples with infinitely many flops, constructing the invariant prepotentials and verifying both the Coxeter symmetry and the theta function expressions.
 
 ## Why It Matters
 
-The prepotential controls the **low-energy effective field theory** — the simplified description of physics that emerges when string theory is compactified on a Calabi-Yau. It determines the scalar field potential, gauge couplings, and Yukawa interactions that might ultimately describe the real world.
+The prepotential controls the **low-energy effective field theory**, the simplified description of physics that emerges when string theory is compactified on a Calabi-Yau. It determines the scalar field potential, gauge couplings, and Yukawa interactions that might ultimately describe the real world.
 
-Hidden symmetries in the prepotential don't just make calculations cleaner; they reveal structure with a deep physical origin, likely tied to **mirror symmetry** — a remarkable duality between the geometric size parameters of one Calabi-Yau and the shape parameters of its mirror partner. These aren't computational shortcuts; they constrain what the theory can possibly predict.
+Hidden symmetries in the prepotential don't just make calculations cleaner. They reveal structure with a physical origin, likely tied to **mirror symmetry**, a duality between the geometric size parameters of one Calabi-Yau and the shape parameters of its mirror partner. These aren't computational shortcuts; they constrain what the theory can possibly predict.
 
-On the mathematical side, the appearance of Coxeter groups and theta functions connects string theory to some of the most powerful machinery in modern mathematics. The framework Lukas and Ruehle construct — invariant functions for Coxeter group representations acting on instanton sums — is new, and opens a systematic research program: classify which Calabi-Yau manifolds admit isomorphic flops, identify the resulting Coxeter groups, and determine when the prepotential organizes into known special functions.
+On the mathematical side, Coxeter groups and theta functions connect string theory to some of the most powerful machinery in modern mathematics. The framework Lukas and Ruehle construct (invariant functions for Coxeter group representations acting on instanton sums) is new and opens several directions for future work: classify which Calabi-Yau manifolds admit isomorphic flops, identify the resulting Coxeter groups, and determine when the prepotential organizes into known special functions.
 
-The authors also note a connection to recent work on Euclidean D3-branes and non-perturbative superpotentials in Type IIB string theory, suggesting these symmetries may have broader implications across different string compactification schemes.
+![Figure 4](figure:4)
 
-![Figure 4](/iaifi-research-blog/figures/2210_09369/figure_2.png)
+> **Bottom Line:** Isomorphic flop transitions, rare geometry-preserving surgeries on Calabi-Yau manifolds, secretly organize into Coxeter reflection groups that constrain the quantum corrections governing string theory, sometimes producing elegant theta function structures tied to the manifold's elliptic fibration geometry.
 
-> **Bottom Line:** Isomorphic flop transitions — rare geometry-preserving surgeries on Calabi-Yau manifolds — secretly organize into Coxeter reflection groups that constrain the quantum corrections governing string theory, sometimes producing elegant theta function structures tied to the manifold's elliptic fibration geometry.
+## IAIFI Research Highlights
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges abstract mathematical structures — Coxeter groups and Jacobi theta functions — with fundamental string theory physics, demonstrating how algebraic geometry can expose hidden symmetries in quantum gravity.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Classifying Calabi-Yau manifolds and their symmetry groups contributes to the mathematical datasets and structural understanding that machine learning approaches will need to navigate the vast string landscape.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By revealing Coxeter group symmetries in the instanton prepotential, the work constrains low-energy string compactification physics and provides new tools for computing quantum corrections to moduli-space metrics and Yukawa couplings.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the analysis to manifolds with more than two isomorphic flop boundaries, where richer Coxeter groups and new classes of invariant functions await discovery; the paper is available at arXiv:2412.02798.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects abstract mathematical structures (Coxeter groups and Jacobi theta functions) with string theory physics, showing how algebraic geometry can expose hidden symmetries in quantum gravity.
+
+- **Impact on Artificial Intelligence:** Classifying Calabi-Yau manifolds and their symmetry groups adds to the mathematical datasets and structural understanding that machine learning approaches need to navigate the vast string landscape.
+
+- **Impact on Fundamental Interactions:** The Coxeter group symmetries in the instanton prepotential constrain low-energy string compactification physics and provide new tools for computing quantum corrections to moduli-space metrics and Yukawa couplings.
+
+- **Outlook and References:** Future work will extend the analysis to manifolds with more than two isomorphic flop boundaries, where richer Coxeter groups and new classes of invariant functions await discovery; the paper is available at [arXiv:2210.09369](https://arxiv.org/abs/2210.09369).
+
+## Original Paper Details
+- **Title:** Symmetries of Calabi-Yau Prepotentials with Isomorphic Flops
+- **arXiv ID:** 2210.09369
+- **Authors:** ["Andre Lukas", "Fabian Ruehle"]
+- **Abstract:** Calabi-Yau threefolds with infinitely many flops to isomorphic manifolds have an extended Kahler cone made up from an infinite number of individual Kahler cones. These cones are related by reflection symmetries across flop walls. We study the implications of this cone structure for mirror symmetry, by considering the instanton part of the prepotential in Calabi-Yau threefolds. We show that such isomorphic flops across facets of the Kahler cone boundary give rise to symmetry groups isomorphic to Coxeter groups. In the dual Mori cone, non-flopping curve classes that are identified under these groups have the same Gopakumar-Vafa invariants. This leads to instanton prepotentials invariant under Coxeter groups, which we make manifest by introducing appropriate invariant functions. For some cases, these functions can be expressed in terms of theta functions whose appearance can be linked to an elliptic fibration structure of the Calabi-Yau manifold.

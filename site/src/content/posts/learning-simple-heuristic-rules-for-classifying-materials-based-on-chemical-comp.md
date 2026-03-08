@@ -57,7 +57,7 @@ Andrew Ma and Marin Soljačić at MIT have shown that machine learning can produ
 
 The foundation is a concept the authors previously introduced: **topogivity**, a single number assigned to each element. To classify a material, look up the topogivity of each element present, take a composition-weighted average (weighted by how much of each element appears in the compound), and check the sign. Positive means topological, negative means conventional. No matrix multiplications, no hidden layers, no hyperparameter tuning.
 
-![Figure 1](/iaifi-research-blog/figures/2505_02361/figure_1.png)
+![Figure 1](figure:1)
 
 This paper extends the approach to a second task: **metallicity classification**, predicting whether a compound is a metal from its chemical formula alone. The team defines two types of models:
 
@@ -72,7 +72,7 @@ Instead of fitting hundreds of completely independent numbers, the algorithm fit
 
 The results are clear: the restricted model consistently reaches a given accuracy level with *less training data* than the unconstrained full model. In materials science, labeled data is expensive, often requiring *ab initio* calculations (quantum-mechanics-based simulations built from first principles, without experimental input) or difficult experiments. A model that learns effectively from fewer examples has direct practical value for accelerating materials discovery.
 
-![Figure 2](/iaifi-research-blog/figures/2505_02361/figure_2.png)
+![Figure 2](figure:2)
 
 There's something deeper here about interpretability. The numbers the full model learns for metallicity classification reflect genuine chemical intuition: cesium and francium get high "metallic" scores; oxygen and fluorine score low. The model is rediscovering textbook chemistry from data. That kind of result is rare in modern machine learning, where high accuracy usually comes at the cost of opacity.
 
@@ -82,9 +82,9 @@ The open questions are worth sitting with. Can this framework extend to properti
 
 > **Bottom Line:** By learning simple, one-number-per-element rules augmented with periodic table structure, Ma and Soljačić show that interpretable ML can match complex models for materials classification, requiring less data and producing results that make chemical sense.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses condensed matter physics (knowledge of the periodic table, electronic topology, and metallicity) with machine learning methodology, producing models that are simultaneously predictive and physically interpretable.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The chemistry-informed inductive bias framework demonstrates a general principle: encoding domain structure into model architecture reduces data requirements, a transferable insight for AI in any data-scarce scientific domain.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By extending the topogivity approach to metallicity and providing a systematic framework for heuristic rules, this work offers new tools for rapidly screening and discovering materials with targeted electronic properties, including topological phases.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could explore richer periodic-table embeddings and extension to structure-dependent properties; the paper is available at [arXiv:2505.02361](https://arxiv.org/abs/2505.02361) and builds directly on the topogivity work introduced by Ma et al.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work fuses condensed matter physics (knowledge of the periodic table, electronic topology, and metallicity) with machine learning methodology, producing models that are simultaneously predictive and physically interpretable.
+- **Impact on Artificial Intelligence:** The chemistry-informed inductive bias framework demonstrates a general principle: encoding domain structure into model architecture reduces data requirements, a transferable insight for AI in any data-scarce scientific domain.
+- **Impact on Fundamental Interactions:** By extending the topogivity approach to metallicity and providing a systematic framework for heuristic rules, this work offers new tools for rapidly screening and discovering materials with targeted electronic properties, including topological phases.
+- **Outlook and References:** Future work could explore richer periodic-table embeddings and extension to structure-dependent properties; the paper is available at [arXiv:2505.02361](https://arxiv.org/abs/2505.02361) and builds directly on the topogivity work introduced by Ma et al.

@@ -66,21 +66,21 @@ Here's the trouble. When the **Dirac operator** (the matrix governing fermion be
 - Sample variance keeps growing with each new sample instead of stabilizing
 - No finite number of Monte Carlo samples yields a statistically reliable result
 
-![Figure 1](/iaifi-research-blog/figures/2205_01001/figure_1.png)
+![Figure 1](figure:1)
 
 The authors first study a zero-dimensional toy model, stripping away spacetime entirely and keeping only the algebraic structure. Because the toy model is analytically tractable, they can verify their results against exact calculations before testing two proposed solutions on the full 2D theory.
 
 **Solution 1: Discrete Hubbard-Stratonovich.** Replace the continuous auxiliary field with one taking only a finite set of values. Variance becomes finite by construction since no single sample can produce an infinite contribution. The tradeoff is that the number of configurations grows exponentially with system size, limiting scalability. For small systems, though, it works well.
 
-![Figure 2](/iaifi-research-blog/figures/2205_01001/figure_1.png)
+![Figure 2](figure:2)
 
 **Solution 2: Sequential Reweighting.** For physical quantities that are always zero or positive (covering many observables in these theories), write the mean of a high-variance quantity as a *product* of means of lower-variance quantities. Instead of estimating one wildly fluctuating number directly, you decompose it into a chain: estimate the first factor, use those results to estimate the second conditioned on the first, and so on. Each factor has finite variance, even when the direct estimate does not.
 
-![Figure 3](/iaifi-research-blog/figures/2205_01001/figure_2.png)
+![Figure 3](figure:3)
 
 In numerical tests, sequential reweighting correctly recovers exact answers where the standard HS estimator fails completely. What makes the failure especially treacherous is that the standard estimator's sample variance can *appear* well-behaved, hiding the underlying divergence.
 
-![Figure 4](/iaifi-research-blog/figures/2205_01001/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -88,17 +88,17 @@ This isn't abstract. Lattice QCD, the framework governing the strong nuclear for
 
 The root cause is structural. Whenever you use a continuous HS transformation to handle fermionic interactions, you potentially introduce infinite-variance estimators. This spans condensed matter physics (the Hubbard model, central to theories of high-temperature superconductivity) and particle physics alike. Sequential reweighting is general enough to apply well beyond the Gross-Neveu model, offering a practical path forward where discrete HS transformations become computationally infeasible.
 
-![Figure 5](/iaifi-research-blog/figures/2205_01001/figure_3.png)
+![Figure 5](figure:5)
 
 Open questions remain. The discrete HS approach needs a way to scale to larger volumes, perhaps through importance sampling within the discrete space. Both methods also need testing in full 4D lattice QCD, where the computational stakes are highest.
 
-![Figure 6](/iaifi-research-blog/figures/2205_01001/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** Yunus and Detmold have identified a fundamental statistical failure mode in Monte Carlo simulations of lattice field theories and offered two workable remedies. Their sequential reweighting method opens a path toward reliable first-principles calculations of fermion observables that were previously out of reach.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects rigorous statistical theory with lattice quantum field theory, using tools from probability and stochastic analysis to diagnose and fix a fundamental computational problem in nuclear and particle physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The sequential reweighting framework offers a general strategy for taming infinite-variance estimators in Monte Carlo methods, with potential applications wherever importance sampling and stochastic estimation face similar breakdown modes, including in machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By characterizing and resolving infinite-variance failures in the Gross-Neveu model and outlining the path to Lattice QCD, this work improves prospects for reliable first-principles calculations of hadronic and nuclear observables from the strong force.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these methods to larger spacetime volumes and full 4D lattice QCD; the paper is available at [arXiv:2205.01001](https://arxiv.org/abs/2205.01001).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects rigorous statistical theory with lattice quantum field theory, using tools from probability and stochastic analysis to diagnose and fix a fundamental computational problem in nuclear and particle physics.
+- **Impact on Artificial Intelligence:** The sequential reweighting framework offers a general strategy for taming infinite-variance estimators in Monte Carlo methods, with potential applications wherever importance sampling and stochastic estimation face similar breakdown modes, including in machine learning.
+- **Impact on Fundamental Interactions:** By characterizing and resolving infinite-variance failures in the Gross-Neveu model and outlining the path to Lattice QCD, this work improves prospects for reliable first-principles calculations of hadronic and nuclear observables from the strong force.
+- **Outlook and References:** Future work will extend these methods to larger spacetime volumes and full 4D lattice QCD; the paper is available at [arXiv:2205.01001](https://arxiv.org/abs/2205.01001).

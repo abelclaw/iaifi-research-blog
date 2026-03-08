@@ -74,21 +74,21 @@ The training loop:
 
 Once trained, the flow gives you an exact probability density. You can draw as many independent samples as you want, instantly. Traditional samplers produce correlated chains; this produces truly independent draws.
 
-![Figure 1](/iaifi-research-blog/figures/2504_07197/figure_1.png)
+![Figure 1](figure:1)
 
 What if the flow misses part of the posterior? The team deploys **Pareto smoothed importance sampling (PSIS)** as a safety net. After training, samples from the flow are reweighted by the ratio of the true posterior to the flow's approximation, correcting for any gaps in coverage.
 
 A fitted **Pareto shape parameter** *k̂* acts as a built-in diagnostic: *k̂* < 0.7 means the approximation is reliable, while higher values signal that the flow needs more training or flexibility. No need to run an independent sampler for comparison.
 
-![Figure 2](/iaifi-research-blog/figures/2504_07197/figure_1.png)
+![Figure 2](figure:2)
 
 PSIS also yields the **Bayesian evidence**, the integral quantifying how well a model fits the data overall. With evidence values in hand, researchers can compute **Bayes factors** to rigorously compare competing population models. Traditional variational methods struggle with evidence estimation, but the PSIS approach provides unbiased estimates when the flow covers the posterior support.
 
-![Figure 4](/iaifi-research-blog/figures/2504_07197/figure_2.png)
+![Figure 4](figure:4)
 
 The team validated their method against state-of-the-art nested sampling on real LVK black hole merger data. For the current catalog, the GPU-accelerated flow trains in seconds and recovers posteriors matching nested sampling with high fidelity. They also stress-tested on a mock catalog of 1,599 events, comparable to what future LVK observing runs will produce. Neural variational inference handled it in minutes. Nested sampling would have taken hours.
 
-![Figure 5](/iaifi-research-blog/figures/2504_07197/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -100,9 +100,12 @@ As LVK accumulates detections through future observing runs, and as next-generat
 
 > **Bottom Line:** Neural variational posteriors with normalizing flows cut gravitational-wave population analysis from hours to seconds, unlock fast Bayesian model comparison, and scale gracefully to the massive catalogs that next-generation detectors will deliver.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects modern deep generative modeling (normalizing flows from machine learning) with Bayesian gravitational-wave astrophysics, showing that neural methods can work as rigorous, drop-in replacements for established statistical samplers.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Variational inference with normalizing flows, combined with Pareto smoothed importance sampling as a principled diagnostic, matches gold-standard stochastic samplers while requiring up to three orders of magnitude fewer model evaluations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Faster population inference directly accelerates the astrophysical interpretation of LVK data, enabling more thorough exploration of black hole formation models and more rigorous Bayesian model comparison across the growing catalog of gravitational-wave events.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As gravitational-wave catalogs grow toward thousands of events with future observing runs and next-generation detectors, this approach will become increasingly valuable; code is publicly available and the work appears as [arXiv:2504.07197](https://arxiv.org/abs/2504.07197).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects modern deep generative modeling (normalizing flows from machine learning) with Bayesian gravitational-wave astrophysics, showing that neural methods can work as rigorous, drop-in replacements for established statistical samplers.
+
+- **Impact on Artificial Intelligence:** Variational inference with normalizing flows, combined with Pareto smoothed importance sampling as a principled diagnostic, matches gold-standard stochastic samplers while requiring up to three orders of magnitude fewer model evaluations.
+
+- **Impact on Fundamental Interactions:** Faster population inference directly accelerates the astrophysical interpretation of LVK data, enabling more thorough exploration of black hole formation models and more rigorous Bayesian model comparison across the growing catalog of gravitational-wave events.
+
+- **Outlook and References:** As gravitational-wave catalogs grow toward thousands of events with future observing runs and next-generation detectors, this approach will become increasingly valuable; code is publicly available and the work appears as [arXiv:2504.07197](https://arxiv.org/abs/2504.07197).

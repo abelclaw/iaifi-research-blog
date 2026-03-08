@@ -62,7 +62,7 @@ The paper draws a conceptual line that has real practical consequences. Physical
 
 This distinction maps directly onto how machine learning can use each type. PIL exploits discriminative properties: it adds a penalty term to the training loss using a discriminator operator, essentially a mathematical test for whether the physics is satisfied. For differential equation constraints, separability conditions, or directly visible symmetries, this works well.
 
-![Figure 1](/iaifi-research-blog/figures/2109_13901/figure_1.png)
+![Figure 1](figure:1)
 
 Now consider the **Lagrangian property**, whether a given set of equations of motion can be derived from an underlying energy function (a Lagrangian). Generation is trivial: pick a Lagrangian and derive the dynamics. But determining whether an arbitrary acceleration field is Lagrangian has no known efficient solution. PIL simply cannot enforce this structure.
 
@@ -70,13 +70,13 @@ The same goes for **positive definiteness**, the guarantee that a quantity like 
 
 PAL's solution is architectural. Rather than starting with a generic network and constraining it, PAL builds the property into the network's structure. For Lagrangian systems, the model directly parameterizes the Lagrangian function $L(q, \dot{q}; \theta)$ and derives accelerations via the Euler-Lagrange equations, the classical rules connecting an energy function to the motion it implies. The model *cannot* output non-Lagrangian dynamics, not because it's penalized, but because the architecture makes it impossible.
 
-![Figure 2](/iaifi-research-blog/figures/2109_13901/figure_1.png)
+![Figure 2](figure:2)
 
 The paper uses **additive separability**, the property that $f(x_1, x_2) = f_1(x_1) + f_2(x_2)$, as a benchmark where both approaches go head-to-head. Separability is both discriminative (via the cross-derivative test $\partial^2 f / \partial x_1 \partial x_2 = 0$) and generative, so it allows a direct comparison. In the PAL approach, the network is structured as $f_1(x_1; \theta_1) + f_2(x_2; \theta_2) + f_{12}(x_1, x_2; \theta_{12})$, with a loss penalizing the residual $f_{12}$ term. PIL uses a single network with a cross-derivative penalty. Both work here. For purely generative properties, only PAL succeeds.
 
 The full taxonomy covers Lagrangian structure, positive definiteness, manifest symmetry, hidden symmetry, separability, and PDE satisfiability, organized into a table showing which properties are generative, discriminative, or both. PIL covers the discriminative column. PAL covers the generative column. Together, they span the full space.
 
-![Figure 3](/iaifi-research-blog/figures/2109_13901/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -92,9 +92,9 @@ The framework also points toward a clear research agenda. One direction is syste
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work formalizes a precise mathematical distinction between discriminative and generative physical properties, connecting GAN-inspired machine learning concepts with classical structures like Lagrangian mechanics and Lie group symmetries.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">PAL provides a principled way to embed physical inductive biases directly into network architecture, covering cases that existing loss-based approaches cannot encode and expanding the range of physical knowledge that ML models can reliably learn.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling neural networks to represent Lagrangian systems, hidden symmetries, and positive-definite operators, PAL opens ML-based modeling to a much wider class of fundamental physics problems where no efficient discriminator is known.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend PAL to more complex physical symmetries and hybrid PIL+PAL architectures; the paper appeared at the NeurIPS 2021 AI for Science Workshop and is available as [arXiv:2109.13901](https://arxiv.org/abs/2109.13901).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work formalizes a precise mathematical distinction between discriminative and generative physical properties, connecting GAN-inspired machine learning concepts with classical structures like Lagrangian mechanics and Lie group symmetries.
+- **Impact on Artificial Intelligence:** PAL provides a principled way to embed physical inductive biases directly into network architecture, covering cases that existing loss-based approaches cannot encode and expanding the range of physical knowledge that ML models can reliably learn.
+- **Impact on Fundamental Interactions:** By enabling neural networks to represent Lagrangian systems, hidden symmetries, and positive-definite operators, PAL opens ML-based modeling to a much wider class of fundamental physics problems where no efficient discriminator is known.
+- **Outlook and References:** Future work will extend PAL to more complex physical symmetries and hybrid PIL+PAL architectures; the paper appeared at the NeurIPS 2021 AI for Science Workshop and is available as [arXiv:2109.13901](https://arxiv.org/abs/2109.13901).

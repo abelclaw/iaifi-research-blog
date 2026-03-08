@@ -54,58 +54,58 @@ wordCount: 1012
 
 ## The Big Picture
 
-Imagine trying to hear a whisper in a noisy room. You can strain to catch every faint syllable — or focus only on the clearest voices, close enough to be unmistakably real. Gravitational-wave astronomy faces exactly this dilemma, and it's about to get much worse.
+Imagine trying to hear a whisper in a noisy room. You can strain to catch every faint syllable, or focus only on the clearest voices, close enough to be unmistakably real. Gravitational-wave astronomy faces exactly this dilemma, and it's about to get much worse.
 
 Since LIGO first detected gravitational waves from colliding black holes in 2015, the catalog of cosmic events has exploded. We now have over 200 candidates from just the first part of the fourth observing run, each carrying information about black hole masses, spins, and collision rates across different periods in cosmic history.
 
-The uncomfortable truth: some of these "detections" are almost certainly noise glitches masquerading as real signals. And even setting aside contamination, the computational challenge of combining hundreds — soon thousands — of events into a coherent analysis grows at a rapidly accelerating pace, roughly proportional to the square of the catalog size.
+Some of these "detections" are almost certainly noise glitches masquerading as real signals. And even setting aside contamination, the computational challenge of combining hundreds (soon thousands) of events into a coherent analysis grows fast, roughly proportional to the square of the catalog size.
 
-Researchers at MIT tested a surprisingly simple fix: be more selective. Tightening the detection cutoff — requiring candidates to be more clearly distinguishable from background noise — doesn't cost nearly as much scientific information as you might fear, and it pays substantial dividends in analysis reliability.
+Researchers at MIT tested a simple fix: be more selective. Tightening the detection cutoff, requiring candidates to be more clearly distinguishable from background noise, doesn't cost nearly as much scientific information as you might fear. It pays substantial dividends in analysis reliability.
 
-> **Key Insight:** Raising the signal-to-noise threshold to exclude the faintest gravitational-wave candidates sacrifices little information about black hole masses and spins while dramatically reducing both noise contamination and computational error in population-level inference.
+> **Key Insight:** Raising the signal-to-noise threshold to exclude the faintest gravitational-wave candidates sacrifices little information about black hole masses and spins while substantially reducing both noise contamination and computational error in population-level inference.
 
 ## How It Works
 
-The team, led by Noah Wolfe and colleagues at MIT's LIGO Laboratory, built their study around **simulated catalogs** — synthetic datasets of up to 1,600 binary black hole mergers injected into realistic detector noise. Using simulations rather than real data let them compare inferred population properties against known ground truth, a crucial advantage when testing any statistical method.
+The team, led by Noah Wolfe and colleagues at MIT's LIGO Laboratory, built their study around **simulated catalogs**: synthetic datasets of up to 1,600 binary black hole mergers injected into realistic detector noise. Using simulations rather than real data let them compare inferred population properties against known ground truth. You can't do that with actual observations, which makes simulations indispensable for stress-testing any statistical method.
 
-The standard approach to gravitational-wave population science is **hierarchical Bayesian inference**: estimate each individual merger's properties, then combine all estimates to constrain the underlying population model. Think of it like a poll — each event is one respondent, and you want to characterize the full electorate.
+The standard approach to gravitational-wave population science is **hierarchical Bayesian inference**: estimate each individual merger's properties, then combine all estimates to constrain the underlying population model. Think of it like a poll, where each event is one respondent and you want to characterize the full electorate.
 
 This polling exercise has two compounding problems:
 
-1. **Unreliable respondents.** Events near the detection threshold are individually imprecise — some may not be real mergers at all.
-2. **Accumulating numerical error.** The **population likelihood** — a score measuring how well a proposed model fits the entire catalog — is computed by combining finite parameter samples from every event. As catalogs grow, these imperfect representations introduce systematic inaccuracies that quietly bias conclusions about the whole population.
+1. **Unreliable respondents.** Events near the detection threshold are individually imprecise. Some may not be real mergers at all.
+2. **Accumulating numerical error.** The **population likelihood**, a score measuring how well a proposed model fits the entire catalog, is computed by combining finite parameter samples from every event. As catalogs grow, these imperfect representations introduce systematic inaccuracies that quietly bias conclusions about the whole population.
 
-![Figure 1](/iaifi-research-blog/figures/2510_06220/figure_1.png)
+![Figure 1](figure:1)
 
-The proposed remedy: raise the **network SNR threshold** — a measure of signal loudness relative to detector noise — from the standard value of 11 up to 15, 17, or 19. A higher cut means fewer events in the analysis. But how much do scientific conclusions actually suffer?
+The proposed remedy: raise the **network SNR threshold**, a measure of signal loudness relative to detector noise, from the standard value of 11 up to 15, 17, or 19. A higher cut means fewer events in the analysis. But how much do the scientific conclusions actually suffer?
 
-The answer depends strongly on which black hole properties you care about:
+The answer depends on which black hole properties you care about:
 
-- **Mass distribution:** Cutting two-thirds of the catalog (SNR > 11 to SNR > 15) inflated mass parameter uncertainties by only a few tens of percent — remarkably modest for a 67% data reduction.
+- **Mass distribution:** Cutting two-thirds of the catalog (SNR > 11 to SNR > 15) inflated mass parameter uncertainties by only a few tens of percent. That's modest for a 67% data reduction.
 - **Spin distribution:** Constraints on black hole spin remained essentially *unchanged* even with the higher cut. Loud, nearby signals carry nearly all the spin information.
 - **Cosmic merger rate:** Here's the real cost. Uncertainties on how the merger rate evolves across cosmic history more than doubled. Distant mergers are the quiet ones, so cutting by loudness disproportionately removes high-redshift events.
 
-![Figure 2](/iaifi-research-blog/figures/2510_06220/figure_2.png)
+![Figure 2](figure:2)
 
-On the computational side, raising the threshold from SNR > 11 to SNR > 15 caused numerical uncertainty in the population likelihood estimate to more than halve. This is the central payoff: more reliable analysis at no additional computational expense.
+On the computational side, raising the threshold from SNR > 11 to SNR > 15 caused numerical uncertainty in the population likelihood estimate to drop by more than half. This is the central payoff: more reliable analysis at no additional computational expense.
 
-The intuition is clean. Louder signals are more precisely characterized — their parameter estimates are tighter and better-behaved. Quiet events near the detection threshold are individually imprecise, collectively problematic, and potentially not even real astrophysical signals.
+The intuition is clean. Louder signals are more precisely characterized, with tighter and better-behaved parameter estimates. Quiet events near the detection threshold are individually imprecise, collectively problematic, and potentially not even real astrophysical signals.
 
-![Figure 3](/iaifi-research-blog/figures/2510_06220/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
-This work sits at a critical juncture for gravitational-wave astronomy. The field is transitioning from an era where every detection is a milestone into one where detections are routine and the science lives entirely in population statistics. Next-generation observatories like Einstein Telescope and Cosmic Explorer will detect events at rates of thousands per year.
+Gravitational-wave astronomy is transitioning from an era where every detection is a milestone into one where detections are routine and the science lives entirely in population statistics. Next-generation observatories like Einstein Telescope and Cosmic Explorer will detect events at rates of thousands per year.
 
-Biased population inferences could lead to wrong conclusions about how black holes form — whether from isolated binary stars, dense stellar clusters, or more exotic channels. They could also skew measurements of the Hubble constant derived from gravitational-wave standard sirens. The researchers' findings offer a concrete, implementable strategy: apply a more conservative threshold for analyses focused on mass and spin distributions, and reserve maximal event inclusion for cases where high-redshift rate evolution is the primary target.
+Biased population inferences could lead to wrong conclusions about how black holes form, whether from isolated binary stars, dense stellar clusters, or more exotic channels. The findings here offer a concrete strategy: apply a more conservative threshold for analyses focused on mass and spin distributions, and reserve maximal event inclusion for cases where high-redshift rate evolution is the primary target.
 
-The result carries a broader methodological lesson. In data-hungry science, there's a temptation to include everything. But data quality and computational accuracy matter too. Sometimes the most principled approach is strategic selectivity — knowing when to stop reaching for the faintest signal.
+There's a broader methodological lesson, too. In data-hungry science, the temptation is always to include everything. But data quality and computational accuracy matter. Sometimes the most principled approach is strategic selectivity, knowing when to stop reaching for the faintest signal.
 
-> **Bottom Line:** By raising gravitational-wave detection thresholds, researchers lose little information about black hole masses and spins but gain substantially more reliable inference — a trade-off that becomes increasingly attractive as catalogs scale toward thousands of events.
+> **Bottom Line:** By raising gravitational-wave detection thresholds, researchers lose little information about black hole masses and spins but gain substantially more reliable inference, a trade-off that becomes increasingly attractive as catalogs scale toward thousands of events.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges gravitational-wave astrophysics with rigorous statistical inference, showing how principled data curation can preserve scientific conclusions while dramatically improving computational tractability for large-scale population analyses.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study demonstrates how numerical errors in likelihood estimation — analogous to approximation errors in large-scale probabilistic machine learning — can be controlled through input selection, offering a template for Bayesian inference pipelines at scale.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By identifying which black hole population parameters are robust to significance cuts and which are not, this research provides a concrete roadmap for unbiased astrophysical inference about black hole formation channels as next-generation detectors come online.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With Einstein Telescope and Cosmic Explorer expected to detect thousands of mergers annually, strategies like this will become essential; the full analysis is available at arXiv:2502.10894.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects gravitational-wave astrophysics with rigorous statistical inference, showing how principled data curation can preserve scientific conclusions while greatly improving computational tractability for large-scale population analyses.
+- **Impact on Artificial Intelligence:** The study shows how numerical errors in likelihood estimation, analogous to approximation errors in large-scale probabilistic machine learning, can be controlled through input selection. This offers a template for Bayesian inference pipelines at scale.
+- **Impact on Fundamental Interactions:** By identifying which black hole population parameters are robust to significance cuts and which are not, this research provides a concrete roadmap for unbiased astrophysical inference about black hole formation channels as next-generation detectors come online.
+- **Outlook and References:** With Einstein Telescope and Cosmic Explorer expected to detect thousands of mergers annually, strategies like this will become essential; the full analysis is available at [arXiv:2510.06220](https://arxiv.org/abs/2510.06220).

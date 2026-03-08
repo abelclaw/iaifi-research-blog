@@ -56,7 +56,7 @@ Researchers at MIT's Improbable AI Lab built DribbleBot, a quadruped robot that 
 
 The robot is a Unitree Go1, a small quadruped standing just 40 cm tall, roughly the height of a beagle. It carries two wide-angle fisheye cameras (each with a 210-degree field of view), two onboard NVIDIA Jetson Xavier NX computers, and a size-3 soccer ball as its permanent partner.
 
-![Figure 1](/iaifi-research-blog/figures/2304_01159/figure_1.png)
+![Figure 1](figure:1)
 
 The core strategy is **sim-to-real transfer**: train the control policy inside a physics simulator, then deploy it on real hardware. This sidesteps the painful problem of collecting millions of physical robot trials, which would destroy the hardware, by letting the robot practice virtually. The team used NVIDIA's Isaac Gym running on a single RTX 3090 GPU.
 
@@ -68,7 +68,7 @@ Simulation alone isn't enough, though. Three specific engineering challenges had
 
 3. **Fall recovery.** Rough terrain will occasionally trip the robot. The team trained a dedicated **recovery policy** optimized for harsh falling conditions, enabling the robot to stand back up autonomously and resume dribbling.
 
-![Figure 3](/iaifi-research-blog/figures/2304_01159/figure_2.png)
+![Figure 3](figure:3)
 
 The dribbling policy takes **proprioceptive sensor data** (joint angles, speeds, and foot contact forces) plus the estimated ball position and a commanded ball velocity. It outputs target positions for all 12 motors at 50 Hz.
 
@@ -84,9 +84,12 @@ The modular design, separating perception, dribbling control, and fall recovery 
 
 > **Bottom Line:** Sim-to-real reinforcement learning, combined with careful engineering of terrain dynamics and onboard perception, can unlock dynamic whole-body manipulation in the wild using hardware and compute that already exist today.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of robotics, computer vision, and physics-based simulation, combining reinforcement learning with custom terrain dynamics modeling to solve a real-world control problem that no single discipline could address alone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">DribbleBot advances sim-to-real transfer by showing how separating perception and control, combined with domain randomization over physical parameters, enables deployment on hardware with severe computational constraints.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The custom ball drag model captures the physics of rolling contact across different surface types, providing a concrete example of how accurate physical modeling in simulation directly determines whether a learned policy succeeds in the real world.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending whole-body dribbling to bipedal platforms and tackling multi-object manipulation; the paper is available as [arXiv:2304.01159](https://arxiv.org/abs/2304.01159) from MIT's Improbable AI Lab.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits at the intersection of robotics, computer vision, and physics-based simulation, combining reinforcement learning with custom terrain dynamics modeling to solve a real-world control problem that no single discipline could address alone.
+
+- **Impact on Artificial Intelligence:** DribbleBot advances sim-to-real transfer by showing how separating perception and control, combined with domain randomization over physical parameters, enables deployment on hardware with severe computational constraints.
+
+- **Impact on Fundamental Interactions:** The custom ball drag model captures the physics of rolling contact across different surface types, providing a concrete example of how accurate physical modeling in simulation directly determines whether a learned policy succeeds in the real world.
+
+- **Outlook and References:** Future directions include extending whole-body dribbling to bipedal platforms and tackling multi-object manipulation; the paper is available as [arXiv:2304.01159](https://arxiv.org/abs/2304.01159) from MIT's Improbable AI Lab.

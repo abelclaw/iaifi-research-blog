@@ -64,15 +64,15 @@ The procedure works in four steps:
 3. **Adversarial optimization.** A second network acts as a discriminator, trained to tell the detector-level simulation (what the detector actually records) apart from real experimental data. This setup borrows from **Generative Adversarial Networks (GANs)**, where two networks compete: one generating realistic outputs and the other catching fakes. The reweighter tries to fool the discriminator. The discriminator tries not to be fooled.
 4. **Read off the moments.** When training converges, the parameters of the reweighting function are the unfolded moments. No histogram required.
 
-![Figure 1](/iaifi-research-blog/figures/2407_11284/figure_1.png)
+![Figure 1](figure:1)
 
 This GAN-like architecture has a clear advantage over existing methods. Unlike OmniFold, a popular unbinned unfolding approach that iterates back and forth between particle level and detector level, Moment Unfolding solves the problem in a single pass. No iteration means less computation and more stability.
 
-![Figure 2](/iaifi-research-blog/figures/2407_11284/figure_1.png)
+![Figure 2](figure:2)
 
 The team validated their method on **jet substructure** observables, properties of the collimated sprays of particles produced when quarks and gluons scatter at high energy. Specifically, they studied moments of the jet groomed momentum fraction ($z_g$), a measure of how unevenly a jet's energy splits between its two main branches after stripping away soft, wide-angle radiation, as a function of jet transverse momentum $p_T$. This is exactly the regime where moments carry precise theoretical predictions from DGLAP evolution equations (mathematical rules describing how quark and gluon distributions shift with collision energy) but full spectral unfolding is overkill.
 
-![Figure 4](/iaifi-research-blog/figures/2407_11284/figure_2.png)
+![Figure 4](figure:4)
 
 Moment Unfolding achieves lower statistical uncertainty than traditional bin-based approaches like Iterative Bayesian Unfolding (IBU), and matches or beats fully unbinned methods like OmniFold, while targeting only the moments you care about.
 
@@ -82,15 +82,15 @@ The precision of fundamental physics measurements depends on cleanly separating 
 
 The payoff goes well beyond QCD. Some of the most precise extractions of the strong coupling constant $\alpha_s$, which sets the overall strength of the strong nuclear force, come from comparing measured jet shape moments to theoretical predictions. Any improvement in extracting those moments translates directly into sharper tests of the Standard Model, and potentially into greater sensitivity to new physics hiding in subtle deviations. The technique generalizes naturally to deep-inelastic scattering, heavy-ion collisions, and anywhere moments matter more than full spectra.
 
-![Figure 5](/iaifi-research-blog/figures/2407_11284/figure_3.png)
+![Figure 5](figure:5)
 
 Open questions remain. The current implementation targets moments of a single observable at a time. Extending Moment Unfolding to handle multiple correlated observables simultaneously, or to recover full distributions rather than just their summaries, is a natural next step the authors flag for future work.
 
 > **Bottom Line:** By marrying Boltzmann weight factors with adversarial machine learning, Moment Unfolding delivers more precise extractions of statistical moments from collider data than any previous approach, with no histogram and no iterative algorithm needed.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects the mathematical structure of statistical mechanics (Boltzmann distributions) with adversarial machine learning to solve a core challenge in experimental particle physics, a combination that reflects IAIFI's cross-disciplinary mission.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a constrained GAN architecture where the generator's functional form is physically motivated, giving learned parameters direct interpretive meaning as statistical moments, a step toward more physically transparent machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Moment Unfolding enables more precise extractions of QCD observables like jet substructure moments, tightening measurements that test quantum chromodynamics and constrain the strong coupling constant.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could target multi-observable moment unfolding and full distribution recovery; the full paper and code are available at [arXiv:2407.11284](https://arxiv.org/abs/2407.11284).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects the mathematical structure of statistical mechanics (Boltzmann distributions) with adversarial machine learning to solve a core challenge in experimental particle physics, a combination that reflects IAIFI's cross-disciplinary mission.
+- **Impact on Artificial Intelligence:** The paper introduces a constrained GAN architecture where the generator's functional form is physically motivated, giving learned parameters direct interpretive meaning as statistical moments, a step toward more physically transparent machine learning.
+- **Impact on Fundamental Interactions:** Moment Unfolding enables more precise extractions of QCD observables like jet substructure moments, tightening measurements that test quantum chromodynamics and constrain the strong coupling constant.
+- **Outlook and References:** Future extensions could target multi-observable moment unfolding and full distribution recovery; the full paper and code are available at [arXiv:2407.11284](https://arxiv.org/abs/2407.11284).

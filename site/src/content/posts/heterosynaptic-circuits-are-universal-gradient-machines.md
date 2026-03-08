@@ -62,7 +62,7 @@ The central character is **heterosynaptic plasticity (HSP)**: a synapse changes 
 
 The key architectural ingredient is deceptively simple: a neuron that receives two distinct signals at two different times. The authors call this a **heterosynaptic circuit**, and in its minimal form it's just a neuron with two incoming pathways, one carrying sensory input and one carrying a learning or error signal. This two-signal structure appears throughout the brain.
 
-![Figure 1](/iaifi-research-blog/figures/2505_02248/figure_1.png)
+![Figure 1](figure:1)
 
 The cerebellum is a textbook example. Purkinje cells receive input from **parallel fibers** (sensory data) and **climbing fibers** (error or teaching signals), two separate pathways converging on the same neuron. The feedforward-feedback loops between visual cortex regions like V1 and V2 form the same motif at larger scale.
 
@@ -73,7 +73,7 @@ The theoretical machinery rests on two conditions:
 
 Together, HS and DC are sufficient: the network performs gradient descent without any neuron ever computing a gradient. The gradient *emerges* from local interactions.
 
-![Figure 2](/iaifi-research-blog/figures/2505_02248/figure_2.png)
+![Figure 2](figure:2)
 
 The authors demonstrate this across a wide range of architectures: structured networks inspired by the Kolen-Pollack algorithm, random amorphous networks, and everything in between. Standard gradient descent turns out to be the special case where the two pathways start symmetric, a natural initialization condition rather than a special design requirement.
 
@@ -93,9 +93,9 @@ The implications extend beyond neuroscience. If physical circuits implementing t
 
 > **Bottom Line:** Heterosynaptic circuits, found throughout the brain from individual synapses to large cortical loops, are universal gradient machines. This discovery bridges biological and artificial learning in a single framework, suggesting that nature discovered gradient descent long before we did.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges theoretical neuroscience and machine learning by showing that biologically observed synaptic plasticity rules are mathematically equivalent to gradient-based optimization, grounding AI training in biology and vice versa.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The theory provides a principled foundation for gradient-free and physically implemented learning algorithms, potentially enabling AI hardware where learning emerges from circuit dynamics rather than explicit backpropagation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By demonstrating that gradient computation can arise from local synaptic rules and evolutionary dynamics, the paper offers a new mechanistic explanation for how biological intelligence emerged and operates at the circuit level.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may focus on neuromorphic hardware exploiting heterosynaptic motifs for energy-efficient learning; the full framework and proofs are available at [arXiv:2505.02248](https://arxiv.org/abs/2505.02248) (Ziyin, Chuang, Poggio, 2025).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work bridges theoretical neuroscience and machine learning by showing that biologically observed synaptic plasticity rules are mathematically equivalent to gradient-based optimization, grounding AI training in biology and vice versa.
+- **Impact on Artificial Intelligence:** The theory provides a principled foundation for gradient-free and physically implemented learning algorithms, potentially enabling AI hardware where learning emerges from circuit dynamics rather than explicit backpropagation.
+- **Impact on Fundamental Interactions:** By demonstrating that gradient computation can arise from local synaptic rules and evolutionary dynamics, the paper offers a new mechanistic explanation for how biological intelligence emerged and operates at the circuit level.
+- **Outlook and References:** Future work may focus on neuromorphic hardware exploiting heterosynaptic motifs for energy-efficient learning; the full framework and proofs are available at [arXiv:2505.02248](https://arxiv.org/abs/2505.02248) (Ziyin, Chuang, Poggio, 2025).

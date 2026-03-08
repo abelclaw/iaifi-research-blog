@@ -60,11 +60,11 @@ A team of physicists has now pushed this physics into new territory. They've sho
 
 The story begins with cosmic rays: high-energy protons and nuclei raining down from space. When they slam into atmospheric nuclei, they produce a shower of short-lived particles called pions and kaons, which decay into muon neutrinos. These atmospheric neutrinos are produced not at a single altitude but spread across a range of heights, from roughly 10 to 40 kilometers above the surface.
 
-![Figure 1](/iaifi-research-blog/figures/2405_12140/figure_1.png)
+![Figure 1](figure:1)
 
 That spread matters more than physicists had previously accounted for. The team upgraded **nuSQuIDS** (Neutrino Simple Quantum Integro-Differential Solver), a publicly available code for computing neutrino flavor evolution, to model the atmosphere as a proper three-dimensional spherical shell rather than an infinitely thin surface. When you track neutrinos produced at different heights traveling through air of varying density, the odds of a neutrino changing flavor shift and smear in ways that are observationally significant.
 
-![Figure 2](/iaifi-research-blog/figures/2405_12140/figure_1.png)
+![Figure 2](figure:2)
 
 The real payoff comes when you introduce **quasi-sterile neutrinos**, hypothetical particles immune to the weak nuclear force but still capable of affecting ordinary matter through some undiscovered interaction. The key physics unfolds in three steps:
 
@@ -74,7 +74,7 @@ The real payoff comes when you introduce **quasi-sterile neutrinos**, hypothetic
 
 So would this resonance actually survive the journey? The atmosphere isn't uniform; it's warm and dense at low altitudes, thin and cold higher up. For a resonance to fully develop, it must remain narrow enough not to wash out, and neutrinos must be produced at high enough altitudes to traverse the resonance region. Both conditions hold, but only for neutrinos arriving from near the **horizon**, not from directly overhead or below.
 
-![Figure 3](/iaifi-research-blog/figures/2405_12140/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -84,21 +84,24 @@ There's also a direct connection to long-standing anomalies in particle physics.
 
 IceCube, the world's largest neutrino detector buried in a cubic kilometer of Antarctic ice, can test these models independently. The signature: a 10% deficit in the muon neutrino flux along the horizon. That's a smoking-gun signal with a distinctive angular pattern that would be very hard to fake with conventional physics.
 
-![Figure 4](/iaifi-research-blog/figures/2405_12140/figure_2.png)
+![Figure 4](figure:4)
 
 This search would complement, not duplicate, existing sterile neutrino searches at IceCube. Those look for neutrinos coming up through the Earth, where the planet's core provides the dense matter needed for resonance. This new search looks sideways, along the horizon, where the atmosphere provides the resonance. Different geometry, different energy scale, different new-physics sensitivity.
 
 > **Bottom Line:** By upgrading neutrino simulation software to treat the atmosphere as the extended, varying-density shell it actually is, this team revealed that exotic neutrino physics visible at short-baseline accelerator experiments would leave a distinctive 10% dip in the GeV-to-TeV muon neutrino flux at IceCube, a new handle on particle physics' most stubborn anomalies.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects computational particle physics with observational neutrino astronomy, upgrading open-source simulation tools (nuSQuIDS) to link short-baseline laboratory anomalies to signals in a cubic-kilometer Antarctic ice detector.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The improved nuSQuIDS framework enables more accurate training data and likelihood calculations for machine-learning-based neutrino event classification and new-physics inference at IceCube and KM3NeT.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The atmospheric air column acts as a resonance chamber for quasi-sterile neutrino conversion at 300–700 GeV, offering a geometry-distinct probe of beyond-Standard-Model neutrino interactions motivated by the MiniBooNE and LSND anomalies.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work can implement this framework in full IceCube likelihood analyses to set constraints on, or discover, quasi-sterile neutrino mixing; the study is available at [arXiv:2405.12140](https://arxiv.org/abs/2405.12140).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Resonant Neutrino Flavor Conversion in the Atmosphere</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2405.12140</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Connor Sponsler", "Matheus Hostert", "Ivan Martinez-Soler", "Carlos A. Argüelles"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Neutrinos produced in the atmosphere traverse a column density of air before being detected at neutrino observatories like IceCube or KM3NeT. In this work, we extend the neutrino flavor evolution in the {nuSQuIDS} code accounting for the varying height of neutrino production and the variable air density in the atmosphere. These effects can lead to sizeable spectral distortions in standard neutrino oscillations and are crucial to accurately describe some new physics scenarios. As an example, we study a model of quasi-sterile neutrinos that induce resonant flavor conversions at neutrino energies of ${O}(300)\text{ MeV}$ in matter densities of $1 \text{ g/cm}^3$. In atmospheric air densities, the same resonance is then realized at neutrino energies of ${O}(300- 700)$~GeV. We find that the new resonance can deplete the $ν_μ+ \overlineν_μ$ flux at the IceCube Neutrino Observatory by as much as $10\%$ in the direction of the horizon.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects computational particle physics with observational neutrino astronomy, upgrading open-source simulation tools (nuSQuIDS) to link short-baseline laboratory anomalies to signals in a cubic-kilometer Antarctic ice detector.
+
+- **Impact on Artificial Intelligence:** The improved nuSQuIDS framework enables more accurate training data and likelihood calculations for machine-learning-based neutrino event classification and new-physics inference at IceCube and KM3NeT.
+
+- **Impact on Fundamental Interactions:** The atmospheric air column acts as a resonance chamber for quasi-sterile neutrino conversion at 300–700 GeV, offering a geometry-distinct probe of beyond-Standard-Model neutrino interactions motivated by the MiniBooNE and LSND anomalies.
+
+- **Outlook and References:** Future work can implement this framework in full IceCube likelihood analyses to set constraints on, or discover, quasi-sterile neutrino mixing; the study is available at [arXiv:2405.12140](https://arxiv.org/abs/2405.12140).
+
+## Original Paper Details
+- **Title:** Resonant Neutrino Flavor Conversion in the Atmosphere
+- **arXiv ID:** 2405.12140
+- **Authors:** ["Connor Sponsler", "Matheus Hostert", "Ivan Martinez-Soler", "Carlos A. Argüelles"]
+- **Abstract:** Neutrinos produced in the atmosphere traverse a column density of air before being detected at neutrino observatories like IceCube or KM3NeT. In this work, we extend the neutrino flavor evolution in the {nuSQuIDS} code accounting for the varying height of neutrino production and the variable air density in the atmosphere. These effects can lead to sizeable spectral distortions in standard neutrino oscillations and are crucial to accurately describe some new physics scenarios. As an example, we study a model of quasi-sterile neutrinos that induce resonant flavor conversions at neutrino energies of ${O}(300)\text{ MeV}$ in matter densities of $1 \text{ g/cm}^3$. In atmospheric air densities, the same resonance is then realized at neutrino energies of ${O}(300- 700)$~GeV. We find that the new resonance can deplete the $ν_μ+ \overlineν_μ$ flux at the IceCube Neutrino Observatory by as much as $10\%$ in the direction of the horizon.

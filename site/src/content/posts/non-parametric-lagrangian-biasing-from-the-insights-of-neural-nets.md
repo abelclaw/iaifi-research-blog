@@ -75,7 +75,7 @@ These are computed at multiple **smoothing scales**, meaning the density map is 
 
 The neural network learns a weight function: given these initial conditions, how much halo mass forms here? The architecture is modest (three fully connected layers with 20 neurons each) and trained on particles from the AbacusSummit simulation suite at redshift z=0.5.
 
-![Figure 1](/iaifi-research-blog/figures/2212_08095/figure_1.png)
+![Figure 1](figure:1)
 
 Before training, the team applied **feature orthogonalization**: transforming correlated inputs into independent ones. Density fields at different smoothing scales are highly correlated. The field smoothed over 20 Mpc/h and 30 Mpc/h tell very similar stories. Transforming these into orthogonal components ensures the network isn't processing the same information twice in disguise.
 
@@ -87,7 +87,7 @@ The team then tested different combinations of smoothing scales:
 
 That last result deserves emphasis. More information makes things worse. Finely spaced smoothing scales are nearly redundant; they add correlated noise rather than new physics, and the network gets confused.
 
-![Figure 2](/iaifi-research-blog/figures/2212_08095/figure_1.png)
+![Figure 2](figure:2)
 
 ## The Two-Direction Discovery
 
@@ -95,13 +95,13 @@ After training the full network with nine features (three quantities at three sc
 
 They computed **principal components** of this gradient field, a standard technique for finding the axes of greatest variation. Think of it as identifying the main axes of an elongated cloud of points. The result was unambiguous: two components dominate. Two directions, in a nine-dimensional space, capture nearly all the variation in how halos form.
 
-![Figure 4](/iaifi-research-blog/figures/2212_08095/figure_2.png)
+![Figure 4](figure:4)
 
 When they compressed the nine features down to these two principal components and retrained, performance matched or *improved* over the full nine-dimensional version. Dimensionality reduction made the model more accurate, not less.
 
 What do these two directions represent physically? The team resists assigning clean labels. Because the original features are so strongly correlated across scales, the principal components are complex mixtures that don't map neatly onto familiar concepts like "density" or "tidal shear." The network has found something real, but it speaks a different language than traditional bias theory.
 
-![Figure 5](/iaifi-research-blog/figures/2212_08095/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -115,9 +115,9 @@ The multi-scale approach has practical value too. Traditional bias expansions ty
 
 > **Bottom Line:** A neural network trained on initial cosmic density fields learns galaxy bias in a way that requires just two dominant directions to describe. This compression recovers the halo power spectrum to 1–2% and points to a low-dimensional structure underlying halo formation, one that traditional polynomial bias models cannot easily express.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of machine learning and large-scale structure cosmology, using neural networks not just as predictors but as scientific instruments that reveal the intrinsic dimensionality of galaxy bias physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Principal component analysis of learned gradients both improves neural network performance and exposes interpretable structure in high-dimensional astrophysical feature spaces.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Achieving 1–2% recovery of the halo power spectrum in a non-parametric framework advances the precision modeling needed to constrain inflation physics and dark energy from upcoming galaxy surveys.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this framework to observable galaxies and test whether the two dominant principal components correspond to known physical quantities. The paper is available as [arXiv:2212.08095](https://arxiv.org/abs/2212.08095), part of the AbacusSummit simulation analysis series.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits at the intersection of machine learning and large-scale structure cosmology, using neural networks not just as predictors but as scientific instruments that reveal the intrinsic dimensionality of galaxy bias physics.
+- **Impact on Artificial Intelligence:** Principal component analysis of learned gradients both improves neural network performance and exposes interpretable structure in high-dimensional astrophysical feature spaces.
+- **Impact on Fundamental Interactions:** Achieving 1–2% recovery of the halo power spectrum in a non-parametric framework advances the precision modeling needed to constrain inflation physics and dark energy from upcoming galaxy surveys.
+- **Outlook and References:** Future work will extend this framework to observable galaxies and test whether the two dominant principal components correspond to known physical quantities. The paper is available as [arXiv:2212.08095](https://arxiv.org/abs/2212.08095), part of the AbacusSummit simulation analysis series.

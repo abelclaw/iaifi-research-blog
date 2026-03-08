@@ -73,11 +73,11 @@ Here's how:
 
 3. **Parallelize across GPUs.** The *K* linear systems are independent, so they run simultaneously on GPU hardware. Most SBL competitors can't exploit this due to memory constraints.
 
-![Figure 1](/iaifi-research-blog/figures/2105_10439/figure_1.png)
+![Figure 1](figure:1)
 
 Per-iteration cost drops from *O(D³)* to *O(UKτD)*, where *τD* is one matrix-vector multiply and *U, K* are small fixed hyperparameters. Memory drops from *O(D²)* to *O(DK)*. For measurement matrices satisfying the **restricted isometry property (RIP)**, a standard condition in compressed sensing ensuring measurements capture the signal broadly, the authors prove *U* and *K* can stay fixed as *D* grows. More unknowns doesn't mean more probes.
 
-![Figure 2](/iaifi-research-blog/figures/2105_10439/figure_1.png)
+![Figure 2](figure:2)
 
 In simulations, CoFEM matches standard EM on sparse signal recovery while cutting runtime by hundreds to thousands of times. With GPU acceleration, computation that previously took hours shrinks to seconds.
 
@@ -85,21 +85,24 @@ In simulations, CoFEM matches standard EM on sparse signal recovery while cuttin
 
 SBL's ability to quantify uncertainty has always set it apart from LASSO and ℓ₁-regularized compressed sensing. But that ability was locked behind a computational wall for any problem at scale. CoFEM removes that wall.
 
-![Figure 3](/iaifi-research-blog/figures/2105_10439/figure_2.png)
+![Figure 3](figure:3)
 
 The paper tests this on two real applications. In **calcium imaging deconvolution**, where the goal is to infer neural spiking activity from fluorescence traces, CoFEM-equipped SBL recovers firing patterns with competitive accuracy while delivering the uncertainty estimates that purely deterministic methods cannot. In **multi-contrast MRI reconstruction**, the goal is to simultaneously reconstruct multiple tissue-contrast images from undersampled k-space data. CoFEM handles the enormous dimensionality of volumetric brain scans in practical compute times.
 
 Both extensions (multi-task learning across MRI contrasts, non-negativity constraints for calcium signals) slot cleanly into the CoFEM framework, showing its flexibility beyond the baseline setting.
 
-![Figure 4](/iaifi-research-blog/figures/2105_10439/figure_2.png)
+![Figure 4](figure:4)
 
 There's a broader template here. Many Bayesian methods remain confined to low-dimensional settings because their inference costs scale catastrophically. CoFEM shows a path forward: identify what you *actually* need from an expensive intermediate object, then estimate it cheaply using randomized numerical linear algebra. The same approach could extend to other scientific domains where uncertainty quantification matters but computational cost has been prohibitive.
 
 > **Bottom Line:** CoFEM makes Sparse Bayesian Learning fast enough for high-dimensional real-world problems by replacing explicit covariance matrix inversion with randomized linear solvers, achieving thousands-fold speedups with no accuracy loss and opening the door to principled uncertainty quantification at scale.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects Bayesian statistics, numerical linear algebra, and signal processing, delivering a method applicable to scientific imaging (from MRI reconstruction to neural calcium imaging) where uncertainty quantification has genuine interpretive value.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">CoFEM shows that randomized numerical methods can dramatically accelerate Bayesian inference, reducing covariance-matrix EM from cubic to near-linear complexity, a major step for scalable probabilistic machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By making principled uncertainty quantification tractable in high-dimensional inverse problems, CoFEM offers a practical tool for physics-adjacent domains that share the same mathematical structure as sensing problems in fundamental physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending CoFEM to non-Gaussian priors, deeper integration with physics-informed forward models, and applications to large-scale inverse problems in astrophysics and particle physics; see [arXiv:2105.10439](https://arxiv.org/abs/2105.10439) for the full technical treatment.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects Bayesian statistics, numerical linear algebra, and signal processing, delivering a method applicable to scientific imaging (from MRI reconstruction to neural calcium imaging) where uncertainty quantification has genuine interpretive value.
+
+- **Impact on Artificial Intelligence:** CoFEM shows that randomized numerical methods can dramatically accelerate Bayesian inference, reducing covariance-matrix EM from cubic to near-linear complexity, a major step for scalable probabilistic machine learning.
+
+- **Impact on Fundamental Interactions:** By making principled uncertainty quantification tractable in high-dimensional inverse problems, CoFEM offers a practical tool for physics-adjacent domains that share the same mathematical structure as sensing problems in fundamental physics.
+
+- **Outlook and References:** Future directions include extending CoFEM to non-Gaussian priors, deeper integration with physics-informed forward models, and applications to large-scale inverse problems in astrophysics and particle physics; see [arXiv:2105.10439](https://arxiv.org/abs/2105.10439) for the full technical treatment.

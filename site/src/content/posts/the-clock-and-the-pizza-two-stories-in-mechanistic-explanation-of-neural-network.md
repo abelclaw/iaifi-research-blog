@@ -69,7 +69,7 @@ The previously known **Clock algorithm** works like this:
 
 The Clock algorithm requires multiplication, and the transformer's attention mechanism provides it. Model B, with standard trainable attention, implements this cleanly.
 
-![Figure 1](/iaifi-research-blog/figures/2306_17844/figure_1.png)
+![Figure 1](figure:1)
 
 Model A is a different story. Without learnable attention, it can't multiply the same way. Two signs revealed this. First, the output scores (logits) for each possible answer showed perfect **gradient symmetry**: the network treated inputs *a* and *b* as completely interchangeable. The Clock algorithm breaks this symmetry, so whatever Model A was doing, it wasn't the Clock. Second, while both models learned circular embeddings, the intermediate computations diverged sharply.
 
@@ -82,11 +82,11 @@ What Model A discovered is the **Pizza algorithm**, named because it treats the 
 
 The math works because the mean of two unit-circle vectors points in the direction of their angle average, and its magnitude encodes the angle difference. No multiplication required, just the absolute value step.
 
-![Figure 2](/iaifi-research-blog/figures/2306_17844/figure_1.png)
+![Figure 2](figure:2)
 
 The sharpest result involves **phase transitions**. By systematically varying model width and attention strength, the researchers found sharp boundaries where models flipped from Clock to Pizza. They also uncovered messier **non-circular algorithms** using line-like or Lissajous-curve embeddings (patterns traced by two overlapping oscillations, like a spirograph), and some models ran multiple imperfect Pizza copies in parallel, voting on the answer. The space of solutions has real structure, but it's far richer than anyone expected.
 
-![Figure 4](/iaifi-research-blog/figures/2306_17844/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -100,15 +100,18 @@ It also connects to physics: transitions between algorithmic regimes look struct
 
 > **Bottom Line:** Neural networks don't converge on a single algorithm for algorithmic tasks. They explore a phase space of solutions, and small architectural changes can trigger sharp transitions between qualitatively different approaches. To build reliable interpretability tools, we'll need to map this full phase space rather than settle for one clean explanation.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings the physics concept of phase transitions into neural network analysis. Networks undergo sharp, qualitative shifts in their internal computational strategies as architectural parameters change, a framework borrowed directly from condensed matter physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The discovery of the Pizza algorithm and the characterization of algorithmic phase spaces challenge a core assumption in mechanistic interpretability: that networks reliably converge on known algorithms. This motivates new tools for systematically mapping the full diversity of solutions networks can discover.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Even for simple learned systems, mechanistic understanding turns out to be harder than it looks. Researchers should be cautious when assuming a network has "learned" a known physical law or algorithm in scientific applications.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should develop systematic methods for exploring algorithmic phase spaces across model families, transforming how researchers validate neural network solutions in scientific domains. The paper appeared at NeurIPS 2023 and is available at [arXiv:2306.17844](https://arxiv.org/abs/2306.17844), with code at github.com/fjzzq2002/pizza.
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2306.17844</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ziqian Zhong", "Ziming Liu", "Max Tegmark", "Jacob Andreas"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Do neural networks, trained on well-understood algorithmic tasks, reliably rediscover known algorithms for solving those tasks? Several recent studies, on tasks ranging from group arithmetic to in-context linear regression, have suggested that the answer is yes. Using modular addition as a prototypical problem, we show that algorithm discovery in neural networks is sometimes more complex. Small changes to model hyperparameters and initializations can induce the discovery of qualitatively different algorithms from a fixed training set, and even parallel implementations of multiple such algorithms. Some networks trained to perform modular addition implement a familiar Clock algorithm; others implement a previously undescribed, less intuitive, but comprehensible procedure which we term the Pizza algorithm, or a variety of even more complex procedures. Our results show that even simple learning problems can admit a surprising diversity of solutions, motivating the development of new tools for characterizing the behavior of neural networks across their algorithmic phase space.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work brings the physics concept of phase transitions into neural network analysis. Networks undergo sharp, qualitative shifts in their internal computational strategies as architectural parameters change, a framework borrowed directly from condensed matter physics.
+
+- **Impact on Artificial Intelligence:** The discovery of the Pizza algorithm and the characterization of algorithmic phase spaces challenge a core assumption in mechanistic interpretability: that networks reliably converge on known algorithms. This motivates new tools for systematically mapping the full diversity of solutions networks can discover.
+
+- **Impact on Fundamental Interactions:** Even for simple learned systems, mechanistic understanding turns out to be harder than it looks. Researchers should be cautious when assuming a network has "learned" a known physical law or algorithm in scientific applications.
+
+- **Outlook and References:** Future work should develop systematic methods for exploring algorithmic phase spaces across model families, transforming how researchers validate neural network solutions in scientific domains. The paper appeared at NeurIPS 2023 and is available at [arXiv:2306.17844](https://arxiv.org/abs/2306.17844), with code at github.com/fjzzq2002/pizza.
+
+## Original Paper Details
+- **Title:** The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks
+- **arXiv ID:** 2306.17844
+- **Authors:** ["Ziqian Zhong", "Ziming Liu", "Max Tegmark", "Jacob Andreas"]
+- **Abstract:** Do neural networks, trained on well-understood algorithmic tasks, reliably rediscover known algorithms for solving those tasks? Several recent studies, on tasks ranging from group arithmetic to in-context linear regression, have suggested that the answer is yes. Using modular addition as a prototypical problem, we show that algorithm discovery in neural networks is sometimes more complex. Small changes to model hyperparameters and initializations can induce the discovery of qualitatively different algorithms from a fixed training set, and even parallel implementations of multiple such algorithms. Some networks trained to perform modular addition implement a familiar Clock algorithm; others implement a previously undescribed, less intuitive, but comprehensible procedure which we term the Pizza algorithm, or a variety of even more complex procedures. Our results show that even simple learning problems can admit a surprising diversity of solutions, motivating the development of new tools for characterizing the behavior of neural networks across their algorithmic phase space.

@@ -74,11 +74,11 @@ So what actually explains the success? The paper argues for three principles, ea
 
 3. **Benign overfitting, or memorizing noise without harm.** This is the most surprising phenomenon. Any minimum-norm interpolant can be decomposed into two components: a signal component capturing the true underlying relationship, and a spiky component fitting the noise. In high dimensions, when data has favorable **spectral structure** (variation spread across many small, independent directions), the spiky component becomes orthogonal to the directions that matter for prediction. It memorizes the noise, but that noise lives in directions the predictor never uses.
 
-![Figure 1](/iaifi-research-blog/figures/2103_09177/figure_1.png)
+![Figure 1](figure:1)
 
 For two-layer networks in the **proportional scaling regime**, where parameters grow proportionally to training examples, the authors provide an exact asymptotic analysis. They compute precise test error as a function of the overparametrization ratio, revealing a **double descent curve**: error rises as parameters increase (the classical regime), peaks near the **interpolation threshold** where the model just barely fits all training data, then *falls* again with further overparametrization. That second descent is the benign overfitting regime.
 
-![Figure 2](/iaifi-research-blog/figures/2103_09177/figure_1.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 
@@ -92,9 +92,12 @@ The authors are clear-eyed about this. But proving that *any* aspect of the over
 
 > **Bottom Line:** Deep learning generalizes not despite overfitting, but partly *because* of it. Overparametrization makes optimization tractable, gradient descent quietly regularizes, and memorized noise gets harmlessly buried in high-dimensional directions that don't affect predictions. This trio of mechanisms is now theoretically grounded, at least in the linear regime.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This survey brings rigorous statistical theory to bear on the empirical phenomena underlying AI-driven physics research. Overparametrized models are ubiquitous in scientific ML, and understanding when and why they generalize is directly relevant to trustworthy scientific inference.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper synthesizes mathematically precise characterizations of benign overfitting and implicit regularization in neural networks, including exact asymptotic test error formulas for two-layer networks in the proportional scaling regime.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Reliable generalization theory matters for physics applications from gravitational wave analysis to particle physics classification, where overparametrized networks are deployed on high-dimensional data with limited labeled examples.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work must close the gap between linear-regime results and the feature-learning regime that drives deep learning's practical power; the paper is available at [arXiv:2103.09177](https://arxiv.org/abs/2103.09177) and remains a foundational reference for statistical learning theory.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This survey brings rigorous statistical theory to bear on the empirical phenomena underlying AI-driven physics research. Overparametrized models are ubiquitous in scientific ML, and understanding when and why they generalize is directly relevant to trustworthy scientific inference.
+
+- **Impact on Artificial Intelligence:** The paper synthesizes mathematically precise characterizations of benign overfitting and implicit regularization in neural networks, including exact asymptotic test error formulas for two-layer networks in the proportional scaling regime.
+
+- **Impact on Fundamental Interactions:** Reliable generalization theory matters for physics applications from gravitational wave analysis to particle physics classification, where overparametrized networks are deployed on high-dimensional data with limited labeled examples.
+
+- **Outlook and References:** Future work must close the gap between linear-regime results and the feature-learning regime that drives deep learning's practical power; the paper is available at [arXiv:2103.09177](https://arxiv.org/abs/2103.09177) and remains a foundational reference for statistical learning theory.

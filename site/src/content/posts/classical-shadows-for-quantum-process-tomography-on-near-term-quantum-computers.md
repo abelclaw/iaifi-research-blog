@@ -68,7 +68,7 @@ ShadowQPT extends this logic from quantum *states* to quantum *processes*. The b
 
 The team develops two formulations: one using **ancilla qubits** (extra quantum bits entangled with the input) and one applying random operations on both input and output sides, a two-sided scheme that works without ancillas.
 
-![Figure 1](/iaifi-research-blog/figures/2110_02965/figure_1.png)
+![Figure 1](figure:1)
 
 The measurement procedure follows concrete steps:
 
@@ -80,25 +80,25 @@ The measurement procedure follows concrete steps:
 
 One practical improvement stands out: the **pair-factorized Clifford shadow**. Instead of costly global random Clifford gates (structured quantum operations that are mathematically convenient but expensive to implement across all qubits simultaneously), the team applies random two-qubit Clifford gates to neighboring pairs. This is far more tractable on real hardware while preserving most of the statistical benefits.
 
-![Figure 2](/iaifi-research-blog/figures/2110_02965/figure_1.png)
+![Figure 2](figure:2)
 
 Raw shadow reconstructions can be unphysical, producing matrices with negative probabilities or other artifacts. The team addresses this by projecting the reconstructed Choi matrix back into the space of valid physical channels and applying a purification step. These corrections make a measurable difference on noisy hardware.
 
-![Figure 3](/iaifi-research-blog/figures/2110_02965/figure_2.png)
+![Figure 3](figure:3)
 
 The efficiency gains are stark. For tasks like predicting how a process acts on a specific input/output pair, or extracting the behavior of any *k*-qubit subsystem, measurements scale only **logarithmically** with qubit count. That's the difference between needing 30 measurements versus 10³⁰ for a 100-qubit system.
 
 The team validated ShadowQPT on IonQ's trapped-ion quantum computer, characterizing processes on 2, 3, and 4 qubits using both Pauli and Clifford measurements. They tested both unitary processes (clean, reversible quantum gates) and non-unitary channels involving noise.
 
-![Figure 4](/iaifi-research-blog/figures/2110_02965/figure_2.png)
+![Figure 4](figure:4)
 
 ShadowQPT-reconstructed processes showed good agreement with direct measurements. Clifford shadows outperformed Pauli measurements for full process reconstruction, consistent with theory. The physical projection and purification steps measurably boosted accuracy.
 
-![Figure 5](/iaifi-research-blog/figures/2110_02965/figure_3.png)
+![Figure 5](figure:5)
 
 The team also demonstrated **Hamiltonian learning**, reconstructing the physical equations governing a quantum system directly from ShadowQPT data. They recovered parameters of a random 1D Ising model (a standard model of interacting quantum particles arranged in a line), with measurement requirements scaling logarithmically in system size.
 
-![Figure 6](/iaifi-research-blog/figures/2110_02965/figure_3.png)
+![Figure 6](figure:6)
 
 ## Why It Matters
 
@@ -110,9 +110,12 @@ Classical shadow ideas were developed in quantum information theory, but they tr
 
 > ShadowQPT provides the first classical-shadow approach to quantum process tomography, achieving exponential measurement savings for tasks of practical interest and validated on real trapped-ion hardware. It is a concrete step forward for characterizing and trusting near-term quantum devices.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work merges quantum information theory, quantum physics, and machine learning-inspired statistical methods into a practical tool for quantum device characterization, connecting theoretical guarantees with experimental implementation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">ShadowQPT's logarithmic measurement scaling parallels advances in efficient learning theory, showing how AI-inspired statistical compression can drastically cut the data requirements for learning complex quantum systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling efficient Hamiltonian learning from quantum process data, ShadowQPT opens a route for quantum computers to reconstruct the physical laws governing quantum many-body systems, directly supporting IAIFI's mission of using AI to probe fundamental physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend ShadowQPT to larger qubit counts, more complex noise models, and continuous-variable systems; the full paper is available at [arXiv:2110.02965](https://arxiv.org/abs/2110.02965).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work merges quantum information theory, quantum physics, and machine learning-inspired statistical methods into a practical tool for quantum device characterization, connecting theoretical guarantees with experimental implementation.
+
+- **Impact on Artificial Intelligence:** ShadowQPT's logarithmic measurement scaling parallels advances in efficient learning theory, showing how AI-inspired statistical compression can drastically cut the data requirements for learning complex quantum systems.
+
+- **Impact on Fundamental Interactions:** By enabling efficient Hamiltonian learning from quantum process data, ShadowQPT opens a route for quantum computers to reconstruct the physical laws governing quantum many-body systems, directly supporting IAIFI's mission of using AI to probe fundamental physics.
+
+- **Outlook and References:** Future work will extend ShadowQPT to larger qubit counts, more complex noise models, and continuous-variable systems; the full paper is available at [arXiv:2110.02965](https://arxiv.org/abs/2110.02965).

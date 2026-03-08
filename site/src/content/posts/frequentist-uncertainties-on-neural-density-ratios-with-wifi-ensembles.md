@@ -67,7 +67,7 @@ log r̃(x|w) = Σ wᵢ fᵢ(x)
 
 The wᵢ are treated as **M-estimators**, a class of estimators with well-established mathematical guarantees. From there, the authors derive asymptotic confidence intervals (error bars that provably improve as more data is collected) directly from classical statistics. No retraining. No bootstrapping. Just matrix algebra.
 
-![Figure 1](/iaifi-research-blog/figures/2506_00113/figure_1.png)
+![Figure 1](figure:1)
 
 Once you have uncertainties on the weights, you propagate them forward. If the density ratio is a likelihood ratio conditioned on some physics parameter (say, the quark fraction in a sample), the **Gong-Samaniego theorem** translates weight uncertainties into parameter uncertainties. The pipeline is computationally cheap.
 
@@ -75,11 +75,11 @@ There's a distinction here worth spelling out: mismodeling vs. uncertainty. Mism
 
 **Validation.** The team first confirmed the method on a Gaussian example where the true density ratio is known analytically, verifying that confidence intervals achieve correct frequentist coverage (a 68% interval contains the true value 68% of the time).
 
-![Figure 2](/iaifi-research-blog/figures/2506_00113/figure_1.png)
+![Figure 2](figure:2)
 
 Then came the real test: quark/gluon jet discrimination using QCD simulations. Quark and gluon jets look similar but differ subtly. Gluons spray more particles; quarks are more collimated. The team trained wifi ensembles on simulated jet data, learned the likelihood ratio between jet types, and inferred the quark fraction in a synthetic mixed sample.
 
-![Figure 4](/iaifi-research-blog/figures/2506_00113/figure_2.png)
+![Figure 4](figure:4)
 
 The inferred fractions matched ground truth, and uncertainty intervals showed proper frequentist coverage across a range of true quark fractions, all without the computationally expensive Neyman construction that traditional bootstrapping requires.
 
@@ -97,9 +97,12 @@ Open questions remain. The method assumes the model is well-specified, meaning t
 
 > **Bottom Line:** wifi ensembles give high-energy physicists statistically rigorous, frequentist uncertainty bars on machine-learned density ratios, without the computational cost of bootstrapping, demonstrated on real quark/gluon jet data at the LHC.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together frequentist statistics, M-estimator theory, and neural network ensembles to solve a fundamental uncertainty quantification problem in high-energy physics, connecting ML methodology directly to LHC data analysis.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">wifi ensembles advance uncertainty quantification for neural density ratio estimation by converting unquantifiable model error into statistically rigorous frequentist confidence intervals using the Gong-Samaniego theorem, a new application of classical statistics to deep learning ensembles.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By providing principled uncertainty estimates on learned likelihood ratios, this framework strengthens simulation-based inference for precision measurements of QCD parameters and could improve the reliability of LHC analyses across jet physics and beyond.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend wifi ensembles to handle model misspecification and higher-dimensional parameter estimation, with potential applications across cosmology, neutrino physics, and any field relying on SBI; the paper is available at [arXiv:2506.00113](https://arxiv.org/abs/2506.00113).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work brings together frequentist statistics, M-estimator theory, and neural network ensembles to solve a fundamental uncertainty quantification problem in high-energy physics, connecting ML methodology directly to LHC data analysis.
+
+- **Impact on Artificial Intelligence:** wifi ensembles advance uncertainty quantification for neural density ratio estimation by converting unquantifiable model error into statistically rigorous frequentist confidence intervals using the Gong-Samaniego theorem, a new application of classical statistics to deep learning ensembles.
+
+- **Impact on Fundamental Interactions:** By providing principled uncertainty estimates on learned likelihood ratios, this framework strengthens simulation-based inference for precision measurements of QCD parameters and could improve the reliability of LHC analyses across jet physics and beyond.
+
+- **Outlook and References:** Future work may extend wifi ensembles to handle model misspecification and higher-dimensional parameter estimation, with potential applications across cosmology, neutrino physics, and any field relying on SBI; the paper is available at [arXiv:2506.00113](https://arxiv.org/abs/2506.00113).

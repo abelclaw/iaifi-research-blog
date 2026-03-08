@@ -250,7 +250,7 @@ The MicroBooNE detector is a 170-tonne tank of ultra-pure liquid argon threaded 
 
 The workaround is indirect detection. A neutron speeding through liquid argon will eventually collide with an argon nucleus and knock out a proton, and *that* proton is charged, leaving a clean track. By searching for these **neutron-induced secondary protons (NISPs)**, the team can infer a neutron's presence even though the neutron itself was invisible.
 
-![Figure 1](/iaifi-research-blog/figures/2406_10583/figure_1.png)
+![Figure 1](figure:1)
 
 The detection strategy unfolds in several steps:
 
@@ -260,11 +260,11 @@ The detection strategy unfolds in several steps:
 
 Many short proton-like tracks arise from other sources. Pions bouncing off nuclei, misidentified muon segments, or ordinary protons from the primary collision placed at the wrong location can all mimic the signal. Separating genuine NISPs from this background required careful study of the neutron interaction length in argon (roughly 40 cm, the average distance a neutron travels before hitting a nucleus) and the characteristic energy-loss pattern of stopping protons.
 
-![Figure 3](/iaifi-research-blog/figures/2406_10583/figure_2.png)
+![Figure 3](figure:3)
 
 The team validated their method using muon-neutrino charged current interactions, where an incoming muon-neutrino produces a muon plus other particles. These are the best-understood neutrino collisions, making them ideal for a proof-of-concept test. Simulations using GENIE (which models neutrino-nucleus interactions) and GEANT4 (which tracks how resulting particles travel through detector material) predicted the neutron production and scattering rates. The data agreed well with those predictions.
 
-![Figure 5](/iaifi-research-blog/figures/2406_10583/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -276,9 +276,12 @@ This result changes that. Future analyses can use neutron tagging to measure how
 
 > **Bottom Line:** MicroBooNE has demonstrated the first data-driven technique to identify neutrons in a liquid argon neutrino detector, achieving 60% purity in a neutron-tagged sample. This is a concrete step toward solving the "missing energy" problem that limits neutrino oscillation measurements at DUNE and other next-generation experiments.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Interdisciplinary Research</strong><br/><span style="color:#374151;">This work sits at the intersection of nuclear physics, particle physics, and detector science, combining advanced LArTPC reconstruction with sophisticated simulation to identify signals that were previously invisible.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The analysis shows how simulation-driven reconstruction algorithms can pick out rare, indirect signatures in complex detector data. These techniques feed into AI-driven event reconstruction frameworks being developed for future experiments.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By tagging neutrons in a LArTPC for the first time, this result addresses the largest uncontrolled systematic uncertainty in neutrino energy reconstruction, with direct implications for DUNE's sensitivity to CP violation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this technique to larger datasets and additional interaction channels to pin down neutron production cross-sections; the full analysis is available at [arXiv:2406.10583](https://arxiv.org/abs/2406.10583).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research:** This work sits at the intersection of nuclear physics, particle physics, and detector science, combining advanced LArTPC reconstruction with sophisticated simulation to identify signals that were previously invisible.
+
+- **Impact on Artificial Intelligence:** The analysis shows how simulation-driven reconstruction algorithms can pick out rare, indirect signatures in complex detector data. These techniques feed into AI-driven event reconstruction frameworks being developed for future experiments.
+
+- **Impact on Fundamental Interactions:** By tagging neutrons in a LArTPC for the first time, this result addresses the largest uncontrolled systematic uncertainty in neutrino energy reconstruction, with direct implications for DUNE's sensitivity to CP violation.
+
+- **Outlook and References:** Future work will extend this technique to larger datasets and additional interaction channels to pin down neutron production cross-sections; the full analysis is available at [arXiv:2406.10583](https://arxiv.org/abs/2406.10583).

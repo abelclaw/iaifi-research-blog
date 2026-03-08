@@ -70,7 +70,7 @@ The central mathematical object in I-Con is deceptively simple. Given a data poi
 
 That's it. One equation.
 
-![Figure 2](/iaifi-research-blog/figures/2504_16929/figure_2.png)
+![Figure 2](figure:2)
 
 The flexibility is in how those distributions are defined. A Gaussian neighborhood — a smooth bell-curve of similarity scores — gives you SNE. A heavy-tailed Student-T distribution, which spreads scores more broadly to better separate distant points, gives you t-SNE. Uniform distributions over augmentation pairs give you SimCLR. Uniform distributions over class prototypes give you cross-entropy loss. Clustering-based distributions give you k-Means or spectral clustering.
 
@@ -78,7 +78,7 @@ Each choice of distribution snaps a different well-known algorithm into place li
 
 The authors describe the result as a "periodic table" of representation learning — a grid where rows correspond to different learned distributions and columns to different supervisory signals. Every cell is a real, named algorithm. Some cells were previously unnamed, suggesting undiscovered methods live in the gaps.
 
-![Figure 1](/iaifi-research-blog/figures/2504_16929/figure_1.png)
+![Figure 1](figure:1)
 
 The team proved 15 formal theorems connecting specific algorithms to I-Con, spanning from Pearson's PCA (1901) to CLIP (2021). Then they used the framework to design something new. By treating image clusters as the learned distribution and contrastive pairs as the supervisory signal — a combination the table exposes as natural but previously unexplored — they built a novel unsupervised classification pipeline.
 
@@ -96,9 +96,12 @@ The longer-term implications run deeper. Physics has benefited enormously from u
 
 > **Bottom Line:** I-Con proves that 23+ machine learning algorithms are all doing the same thing in disguise — and by making that structure explicit, it achieves an 8% breakthrough on unsupervised ImageNet classification while opening a systematic path to inventing better algorithms.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">I-Con's information-geometric framework echoes the kind of unification sought in theoretical physics — finding a single principle beneath apparent diversity — and applies it directly to the mathematical foundations of modern AI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By unifying over 23 representation learning algorithms under one KL-divergence objective, I-Con gives researchers a principled basis for designing new loss functions, achieving state-of-the-art unsupervised ImageNet accuracy with an 8% gain over prior methods.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework's information-theoretic foundation draws on concepts from statistical mechanics and information geometry, revealing deep mathematical connections between learned representations and physical theories of inference.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may systematically explore the "empty cells" in I-Con's periodic table to discover novel training objectives; the paper appeared at ICLR 2025 and the project page is at [arXiv:2504.16929](https://arxiv.org/abs/2504.16929).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** I-Con's information-geometric framework echoes the kind of unification sought in theoretical physics — finding a single principle beneath apparent diversity — and applies it directly to the mathematical foundations of modern AI.
+
+- **Impact on Artificial Intelligence:** By unifying over 23 representation learning algorithms under one KL-divergence objective, I-Con gives researchers a principled basis for designing new loss functions, achieving state-of-the-art unsupervised ImageNet accuracy with an 8% gain over prior methods.
+
+- **Impact on Fundamental Interactions:** The framework's information-theoretic foundation draws on concepts from statistical mechanics and information geometry, revealing deep mathematical connections between learned representations and physical theories of inference.
+
+- **Outlook and References:** Future work may systematically explore the "empty cells" in I-Con's periodic table to discover novel training objectives; the paper appeared at ICLR 2025 and the project page is at [arXiv:2504.16929](https://arxiv.org/abs/2504.16929).

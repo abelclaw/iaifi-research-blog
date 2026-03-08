@@ -66,11 +66,11 @@ Not all quanta are equally useful. Some appear constantly in text (basic grammar
 
 From this, the researchers derive a prediction: if models learn quanta in order of decreasing frequency, and those frequencies follow a power law, then the model's overall error rate should also fall as a power law with model size. Smooth scaling emerges not because learning is continuous, but because you're averaging over thousands of discrete on/off events of varying magnitude. The illusion of a smooth curve works the same way that water flows smoothly through a pipe while being composed of billions of individual bouncing molecules.
 
-![Figure 1](/iaifi-research-blog/figures/2303_13506/figure_1.png)
+![Figure 1](figure:1)
 
 The team validates this on carefully constructed toy datasets where the ground truth is known, synthetic text distributions where each skill is explicitly defined. Models learn quanta one by one in frequency order, and the resulting scaling curves match theoretical predictions.
 
-![Figure 2](/iaifi-research-blog/figures/2303_13506/figure_1.png)
+![Figure 2](figure:2)
 
 Then they turn to real language models. To study how scaling decomposes for actual LLMs, they develop a method for **automatically discovering quanta** using model gradients, the mathematical signals that tell a network which way to adjust its weights during training. The core insight is that training samples producing similar gradient updates likely require the same underlying skill. By clustering gradient similarities across a large sample of text, the team partitions model behavior into coherent groups, each cluster a candidate quantum.
 
@@ -78,7 +78,7 @@ Then they turn to real language models. To study how scaling decomposes for actu
 
 The clusters are revealing. One groups texts where the model's job is to increment a numbered list, whether of song titles, legal clauses, or book chapters. Another captures the task of predicting line breaks in fixed-width formats across wildly different content. These quanta are genuinely **universal**: the same computational skill applies across many superficially different contexts, exactly as the theory predicts.
 
-![Figure 4](/iaifi-research-blog/figures/2303_13506/figure_2.png)
+![Figure 4](figure:4)
 
 The team then asks whether the discovered quanta obey the predicted frequency distribution. The answer: yes. The frequency at which auto-discovered skill clusters appear in training data roughly follows a power law, with an exponent matching the empirical scaling exponent for language models. The circle closes. The same Zipfian structure in skill frequencies that the theory requires to produce power law scaling is actually present in the data these models train on.
 
@@ -90,15 +90,18 @@ The conceptual move here is worth pausing on. Borrowing from Max Planck's 1900 i
 
 > **Bottom Line:** The Quantization Model unifies two of the most puzzling features of modern AI scaling, smooth power laws and sudden emergent abilities, by showing that both follow from a Zipf-distributed collection of discrete skills that models learn one by one. It's a physics-style theory of how AI minds are built.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports the conceptual machinery of quantum physics (discretization, universality, power law statistics) into the theory of neural network scaling, applying physics thinking to advance AI understanding.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Quantization Model provides a unified theoretical explanation for both smooth scaling laws and emergent abilities, and introduces a practical gradient-based method for automatically discovering discrete skills inside language models.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that Zipfian distributions in skill frequencies produce power law scaling, the work ties statistical physics and information theory to the empirical behavior of large-scale machine learning systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could use this framework to predict which capabilities will emerge at specific model scales before training, and to design more interpretable architectures; the paper is available at [arXiv:2303.13506](https://arxiv.org/abs/2303.13506).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">The Quantization Model of Neural Scaling</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2303.13506</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Eric J. Michaud", "Ziming Liu", "Uzay Girit", "Max Tegmark"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We propose the Quantization Model of neural scaling laws, explaining both the observed power law dropoff of loss with model and data size, and also the sudden emergence of new capabilities with scale. We derive this model from what we call the Quantization Hypothesis, where network knowledge and skills are "quantized" into discrete chunks ($\textbf{quanta}$). We show that when quanta are learned in order of decreasing use frequency, then a power law in use frequencies explains observed power law scaling of loss. We validate this prediction on toy datasets, then study how scaling curves decompose for large language models. Using language model gradients, we automatically decompose model behavior into a diverse set of skills (quanta). We tentatively find that the frequency at which these quanta are used in the training distribution roughly follows a power law corresponding with the empirical scaling exponent for language models, a prediction of our theory.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work imports the conceptual machinery of quantum physics (discretization, universality, power law statistics) into the theory of neural network scaling, applying physics thinking to advance AI understanding.
+
+- **Impact on Artificial Intelligence:** The Quantization Model provides a unified theoretical explanation for both smooth scaling laws and emergent abilities, and introduces a practical gradient-based method for automatically discovering discrete skills inside language models.
+
+- **Impact on Fundamental Interactions:** By showing that Zipfian distributions in skill frequencies produce power law scaling, the work ties statistical physics and information theory to the empirical behavior of large-scale machine learning systems.
+
+- **Outlook and References:** Future work could use this framework to predict which capabilities will emerge at specific model scales before training, and to design more interpretable architectures; the paper is available at [arXiv:2303.13506](https://arxiv.org/abs/2303.13506).
+
+## Original Paper Details
+- **Title:** The Quantization Model of Neural Scaling
+- **arXiv ID:** 2303.13506
+- **Authors:** ["Eric J. Michaud", "Ziming Liu", "Uzay Girit", "Max Tegmark"]
+- **Abstract:** We propose the Quantization Model of neural scaling laws, explaining both the observed power law dropoff of loss with model and data size, and also the sudden emergence of new capabilities with scale. We derive this model from what we call the Quantization Hypothesis, where network knowledge and skills are "quantized" into discrete chunks ($\textbf{quanta}$). We show that when quanta are learned in order of decreasing use frequency, then a power law in use frequencies explains observed power law scaling of loss. We validate this prediction on toy datasets, then study how scaling curves decompose for large language models. Using language model gradients, we automatically decompose model behavior into a diverse set of skills (quanta). We tentatively find that the frequency at which these quanta are used in the training distribution roughly follows a power law corresponding with the empirical scaling exponent for language models, a prediction of our theory.

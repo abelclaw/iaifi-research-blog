@@ -77,7 +77,7 @@ A team led by Kaylee de Soto at the Center for Astrophysics | Harvard & Smithson
 
 The pipeline has two stages: fit the raw light curve data to a mathematical model, then feed those model parameters into a machine learning classifier.
 
-![Figure 1](/iaifi-research-blog/figures/2403_07975/figure_1.png)
+![Figure 1](figure:1)
 
 The fitting stage uses a parametric model originally developed for the earlier Superphot pipeline. Given brightness measurements over time in multiple color bands (ZTF observes in red and green), Superphot+ finds the best parameters describing a light curve's rise, peak, and decay. It does this with **nested sampling**, a statistical technique that systematically explores all plausible parameter combinations rather than sampling at random. Fitting each light curve takes only seconds, which matters for a real-time system.
 
@@ -89,7 +89,7 @@ The second stage is where machine learning takes over. Those best-fit parameters
 - **Type IIn**: explosions interacting with surrounding circumstellar material
 - **SLSN-I**: superluminous supernovae, the brightest explosions known
 
-![Figure 2](/iaifi-research-blog/figures/2403_07975/figure_1.png)
+![Figure 2](figure:2)
 
 One important design choice was handling class imbalance. Type Ia supernovae dominate the training set; rarer types like SLSNe are scarce. The team synthetically generated extra training examples of underrepresented classes, a technique called **oversampling**, so the classifier doesn't just default to shouting "Type Ia!" at everything.
 
@@ -105,13 +105,16 @@ When compared to the independent ALeRCE classifier (another redshift-free system
 
 The bigger story is preparation for Rubin. LSST will observe in six photometric bands, more than ZTF's two, and the team built Superphot+ for straightforward adaptation to that richer dataset. In a world where millions of supernovae go unclassified each year, tools like this become the primary scientific record. The classifications Superphot+ assigns will shape which events get studied in detail, which cosmological samples get assembled, and what we learn about stellar life cycles and the expansion history of the universe.
 
-![Figure 5](/iaifi-research-blog/figures/2403_07975/figure_3.png)
+![Figure 5](figure:5)
 
 > **Bottom Line:** Machine learning on light curve shapes alone can classify supernovae with better than 80% accuracy, and Superphot+ is already doing it on live telescope data, ready to scale to the Rubin deluge.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Superphot+ puts the IAIFI mission into practice, deploying gradient-boosted ensembles and Bayesian nested sampling directly on real astrophysical survey data to turn raw telescope photometry into scientifically actionable supernova classifications.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work shows how to build multi-class classification under severe label imbalance and missing features. The ML pipeline degrades gracefully when expected inputs (like redshift) are unavailable, rather than failing entirely.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling photometric classification of thousands of supernovae at scale, Superphot+ expands the samples available for studying stellar evolution, nucleosynthesis, and the use of Type Ia supernovae as cosmological distance indicators.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The team plans to extend Superphot+ to Rubin's six-band photometry as LSST comes online; the paper is available at [arXiv:2403.07975](https://arxiv.org/abs/2403.07975) and the code is publicly installable as the `superphot-plus` Python package.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** Superphot+ puts the IAIFI mission into practice, deploying gradient-boosted ensembles and Bayesian nested sampling directly on real astrophysical survey data to turn raw telescope photometry into scientifically actionable supernova classifications.
+
+- **Impact on Artificial Intelligence:** The work shows how to build multi-class classification under severe label imbalance and missing features. The ML pipeline degrades gracefully when expected inputs (like redshift) are unavailable, rather than failing entirely.
+
+- **Impact on Fundamental Interactions:** By enabling photometric classification of thousands of supernovae at scale, Superphot+ expands the samples available for studying stellar evolution, nucleosynthesis, and the use of Type Ia supernovae as cosmological distance indicators.
+
+- **Outlook and References:** The team plans to extend Superphot+ to Rubin's six-band photometry as LSST comes online; the paper is available at [arXiv:2403.07975](https://arxiv.org/abs/2403.07975) and the code is publicly installable as the `superphot-plus` Python package.

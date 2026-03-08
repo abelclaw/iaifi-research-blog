@@ -76,7 +76,7 @@ The researchers formalize two related problems:
 
 EIP-I is the coarser target; EIP-II is more precise. Solving EIP-II automatically gives you EIP-I, but not vice versa — you can approximate EIP-I with wrong posteriors that happen to integrate correctly, as Figure 1 illustrates.
 
-![Figure 1](/iaifi-research-blog/figures/2601_22029/figure_1.png)
+![Figure 1](figure:1)
 
 Their solution is a new class of models called **ensemble inverse generative models**, trained with a three-step recipe:
 
@@ -92,19 +92,22 @@ The practical stakes are high across multiple fields. In particle physics, **unf
 
 Current state-of-the-art methods like OmniFold require iterative reweighting of simulated events — computationally expensive and dependent on explicit access to the forward model. The EIP framework sidesteps this entirely.
 
-![Figure 2](/iaifi-research-blog/figures/2601_22029/figure_2.png)
+![Figure 2](figure:2)
 
 In seismology, full waveform inversion already demands supercomputers running physics simulations for days. A method that learns the forward model implicitly — and inverts instantly for new observations — could transform how geoscientists image the Earth's interior. The authors demonstrate this isn't hypothetical: they benchmark against real FWI datasets alongside synthetic tests and particle physics benchmarks, showing competitive or superior performance across all three domains. The ensemble context proves especially powerful for generalizing to distributions the model never encountered during training.
 
 The work also connects to an emerging thread in AI research: **in-context learning** — the ability of AI systems to pick up new tasks from examples provided at query time, without any retraining. Large language models demonstrate this: show them a few examples in the prompt, and they adapt on the fly. The EIP framework formalizes an analogous capability for physical inverse problems, using the ensemble as a kind of context that lets the model adapt to a new prior without modification.
 
-![Figure 3](/iaifi-research-blog/figures/2601_22029/figure_3.png)
+![Figure 3](figure:3)
 
 > **Bottom Line:** The Ensemble Inverse Problem gives a unified mathematical home to inverse challenges across physics, geoscience, and imaging — and the proposed generative model approach solves them without forward-model simulations at inference time, while generalizing to distributions never seen during training.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work formally unifies particle physics unfolding, seismic full waveform inversion, and inverse imaging under a single statistical framework, enabling shared methodological progress across fields that have historically solved these problems in isolation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The ensemble inverse generative model introduces a new class of conditional generative models that use observation-set context to enable prior generalization — a capability with implications for in-context learning and scalable Bayesian inference beyond physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By eliminating the need for explicit forward-model simulation at inference time, the method could significantly accelerate precision measurements at particle colliders, reducing a key computational bottleneck in Standard Model tests and new-physics searches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could explore scaling to higher-dimensional physics observables and tighter integration with LHC data pipelines; the paper is available on arXiv as [2602.09093](https://arxiv.org/abs/2602.09093).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work formally unifies particle physics unfolding, seismic full waveform inversion, and inverse imaging under a single statistical framework, enabling shared methodological progress across fields that have historically solved these problems in isolation.
+
+- **Impact on Artificial Intelligence:** The ensemble inverse generative model introduces a new class of conditional generative models that use observation-set context to enable prior generalization — a capability with implications for in-context learning and scalable Bayesian inference beyond physics.
+
+- **Impact on Fundamental Interactions:** By eliminating the need for explicit forward-model simulation at inference time, the method could significantly accelerate precision measurements at particle colliders, reducing a key computational bottleneck in Standard Model tests and new-physics searches.
+
+- **Outlook and References:** Future work could explore scaling to higher-dimensional physics observables and tighter integration with LHC data pipelines; the paper is available on arXiv as [2602.09093](https://arxiv.org/abs/2602.09093).

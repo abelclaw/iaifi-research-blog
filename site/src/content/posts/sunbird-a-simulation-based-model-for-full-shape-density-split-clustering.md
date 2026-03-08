@@ -77,7 +77,7 @@ Turning that intuition into a rigorous measurement tool is hard. Modeling galaxy
 
 The core idea is **density-split clustering (DSC)**: divide the surveyed volume into regions ranked by local galaxy density, then measure how galaxies cluster within each density slice separately. Instead of one correlation function averaged over everything, you get a family of them. One for voids, one for average regions, one for the densest knots. Each carries complementary information.
 
-![Figure 1](/iaifi-research-blog/figures/2309_16539/figure_1.png)
+![Figure 1](figure:1)
 
 To use these statistics scientifically, you need a model. Given a set of cosmological parameters, you need to predict what the DSC signal should look like, accounting for how gravity amplifies tiny density differences into filaments and voids, galaxy formation physics, and observational effects, all at once. Standard mathematical approximations break down well before reaching the scales where the signal is richest.
 
@@ -88,19 +88,19 @@ The SUNBIRD team's approach:
 3. **Measure density-split clustering statistics** across all mock catalogs, building a training dataset that spans realistic parameter space.
 4. **Train neural-network emulators** to interpolate those measurements. Given any point in parameter space, the network predicts the full DSC signal across all scales and density quantiles.
 
-![Figure 3](/iaifi-research-blog/figures/2309_16539/figure_2.png)
+![Figure 3](figure:3)
 
 The emulators reach sub-percent precision down to scales of 1 h⁻¹ Mpc, well into the regime where individual halos dominate and simple equations fail. They also hold up when tested against galaxy catalogs generated with different HOD prescriptions than those used in training, which suggests the cosmological signal is genuinely captured rather than overfitted to a particular galaxy formation recipe.
 
 The model correctly handles two important observational effects: **redshift-space distortions** (apparent squashing and stretching of galaxy distributions caused by galaxies' own peculiar motions along the line of sight) and **Alcock-Paczynski distortions** (geometric distortions that appear when the wrong cosmology is assumed in converting redshifts to distances).
 
-![Figure 4](/iaifi-research-blog/figures/2309_16539/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
 When the researchers combine DSC with a standard 2PCF analysis, parameter constraints tighten considerably. The uncertainty on ω_cdm, the physical density of cold dark matter, shrinks by a factor of 2.9. Constraints on σ_8, the amplitude of matter fluctuations at the center of the ongoing S8 tension between early- and late-universe measurements, improve by 1.9×. The spectral index n_s, which encodes information about inflation, improves by 2.1×. These aren't incremental gains. They come from extracting information that was already in the data but invisible to the standard two-point analysis.
 
-![Figure 6](/iaifi-research-blog/figures/2309_16539/figure_3.png)
+![Figure 6](figure:6)
 
 Beyond cosmological parameters, DSC turns out to be uniquely sensitive to **assembly bias**, the phenomenon where galaxy clustering depends not just on halo mass but on the broader environment in which those halos formed. This is exactly the kind of subtle effect that density-sensitive statistics are built to detect, and it could help distinguish competing models of galaxy formation.
 
@@ -108,9 +108,12 @@ The framework is also a natural starting point for testing modified gravity theo
 
 > SUNBIRD turns the overlooked environmental dependence of galaxy clustering into a precision cosmological tool, tightening constraints on dark matter and structure growth by up to a factor of three without requiring any new observations.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">SUNBIRD is a clean example of AI-for-physics: neural-network emulators trained on cosmological simulations make it possible to do rigorous inference from statistics that were previously impossible to model analytically, connecting machine learning methods directly to observational cosmology.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work shows that simulation-based inference with neural emulators can achieve sub-percent accuracy across extended parameter spaces while remaining insensitive to specific modeling choices, a useful proof-of-concept for emulator-based forward modeling more broadly.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By extracting non-Gaussian information from the large-scale structure of the universe, SUNBIRD tightens constraints on dark matter density and the growth of cosmic structure, with direct bearing on the S8 tension and tests of gravity.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">SUNBIRD is ready to apply to current and upcoming surveys including DESI and Euclid. The code is publicly available at [github.com/florpi/sunbird](https://github.com/florpi/sunbird), and the paper is available as [arXiv:2309.16539](https://arxiv.org/abs/2309.16539).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** SUNBIRD is a clean example of AI-for-physics: neural-network emulators trained on cosmological simulations make it possible to do rigorous inference from statistics that were previously impossible to model analytically, connecting machine learning methods directly to observational cosmology.
+
+- **Impact on Artificial Intelligence:** The work shows that simulation-based inference with neural emulators can achieve sub-percent accuracy across extended parameter spaces while remaining insensitive to specific modeling choices, a useful proof-of-concept for emulator-based forward modeling more broadly.
+
+- **Impact on Fundamental Interactions:** By extracting non-Gaussian information from the large-scale structure of the universe, SUNBIRD tightens constraints on dark matter density and the growth of cosmic structure, with direct bearing on the S8 tension and tests of gravity.
+
+- **Outlook and References:** SUNBIRD is ready to apply to current and upcoming surveys including DESI and Euclid. The code is publicly available at [github.com/florpi/sunbird](https://github.com/florpi/sunbird), and the paper is available as [arXiv:2309.16539](https://arxiv.org/abs/2309.16539).

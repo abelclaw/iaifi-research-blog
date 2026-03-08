@@ -73,7 +73,7 @@ Computing MI for real neural networks is notoriously hard. The researchers sides
 
 Both yield a conditional Gaussian predictive distribution, making MI estimation clean and parameter-free. Using an "InfoNCE" variational leave-one-out upper bound applied to these Gaussian distributions, the researchers compute an upper bound on MI entirely from training data, which feeds into the ICB to produce a bound on generalization error.
 
-![Figure 1](/iaifi-research-blog/figures/2207_09408/figure_1.png)
+![Figure 1](figure:1)
 
 They tested this across five binary classification datasets, drawing random combinations of architecture and training hyperparameters:
 
@@ -81,15 +81,15 @@ They tested this across five binary classification datasets, drawing random comb
 - **Non-vacuous bounds:** On fewer than 2,000 training samples, the ICB produced bounds below 50%, the trivial threshold for binary classification, making it practically useful.
 - **Ranking accuracy:** The bound tracked model rankings reasonably well, though less reliably when many hyperparameters varied simultaneously.
 
-![Figure 2](/iaifi-research-blog/figures/2207_09408/figure_1.png)
+![Figure 2](figure:2)
 
 Two other results are worth highlighting. First, the ICB detects **label randomization**: when models are trained on shuffled labels (a classic diagnostic for memorization), MI spikes and so does the ICB. The bound can flag memorizing models without ever checking test accuracy.
 
-![Figure 3](/iaifi-research-blog/figures/2207_09408/figure_2.png)
+![Figure 3](figure:3)
 
 Second, models with lower ICB are more **robust to test-time perturbations**, small corruptions of input data that fool brittle models. This connection to robustness holds without assuming access to a differentiable model, which is both surprising and practically useful.
 
-![Figure 4](/iaifi-research-blog/figures/2207_09408/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -101,15 +101,18 @@ Open questions remain. The infinite-width limit is an approximation to real fini
 
 > **Bottom Line:** This paper is the first empirical demonstration that an information-theoretic bound on generalization error actually works in practice. It is tight enough to be useful, computable without test data, and predictive of both label memorization and robustness. That makes it a real step toward replacing intuition and trial-and-error in deep learning with principled guarantees.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies the Information Bottleneck framework, rooted in statistical physics intuitions about compression, to derive empirically testable guarantees for AI systems. It sits squarely at the intersection of physics and deep learning theory.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides the first empirical validation of an input-compression-based generalization bound, showing it is non-vacuous and practically informative on real datasets with fewer than 2,000 training samples.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The analysis is grounded in infinite-width network theory via NTK and NNGP kernels, tools with deep roots in mathematical physics. The work connects kernel methods to modern deep learning generalization and provides a cleaner theoretical handle on a notoriously difficult problem.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Extending these results to finite-width architectures and higher-dimensional datasets is a natural next step. The paper is available at [arXiv:2207.09408](https://arxiv.org/abs/2207.09408).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Bounding generalization error with input compression: An empirical study with infinite-width networks</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2207.09408</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Angus Galloway", "Anna Golubeva", "Mahmoud Salem", "Mihai Nica", "Yani Ioannou", "Graham W. Taylor"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Estimating the Generalization Error (GE) of Deep Neural Networks (DNNs) is an important task that often relies on availability of held-out data. The ability to better predict GE based on a single training set may yield overarching DNN design principles to reduce a reliance on trial-and-error, along with other performance assessment advantages. In search of a quantity relevant to GE, we investigate the Mutual Information (MI) between the input and final layer representations, using the infinite-width DNN limit to bound MI. An existing input compression-based GE bound is used to link MI and GE. To the best of our knowledge, this represents the first empirical study of this bound. In our attempt to empirically falsify the theoretical bound, we find that it is often tight for best-performing models. Furthermore, it detects randomization of training labels in many cases, reflects test-time perturbation robustness, and works well given only few training samples. These results are promising given that input compression is broadly applicable where MI can be estimated with confidence.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work applies the Information Bottleneck framework, rooted in statistical physics intuitions about compression, to derive empirically testable guarantees for AI systems. It sits squarely at the intersection of physics and deep learning theory.
+
+- **Impact on Artificial Intelligence:** The paper provides the first empirical validation of an input-compression-based generalization bound, showing it is non-vacuous and practically informative on real datasets with fewer than 2,000 training samples.
+
+- **Impact on Fundamental Interactions:** The analysis is grounded in infinite-width network theory via NTK and NNGP kernels, tools with deep roots in mathematical physics. The work connects kernel methods to modern deep learning generalization and provides a cleaner theoretical handle on a notoriously difficult problem.
+
+- **Outlook and References:** Extending these results to finite-width architectures and higher-dimensional datasets is a natural next step. The paper is available at [arXiv:2207.09408](https://arxiv.org/abs/2207.09408).
+
+## Original Paper Details
+- **Title:** Bounding generalization error with input compression: An empirical study with infinite-width networks
+- **arXiv ID:** 2207.09408
+- **Authors:** ["Angus Galloway", "Anna Golubeva", "Mahmoud Salem", "Mihai Nica", "Yani Ioannou", "Graham W. Taylor"]
+- **Abstract:** Estimating the Generalization Error (GE) of Deep Neural Networks (DNNs) is an important task that often relies on availability of held-out data. The ability to better predict GE based on a single training set may yield overarching DNN design principles to reduce a reliance on trial-and-error, along with other performance assessment advantages. In search of a quantity relevant to GE, we investigate the Mutual Information (MI) between the input and final layer representations, using the infinite-width DNN limit to bound MI. An existing input compression-based GE bound is used to link MI and GE. To the best of our knowledge, this represents the first empirical study of this bound. In our attempt to empirically falsify the theoretical bound, we find that it is often tight for best-performing models. Furthermore, it detects randomization of training labels in many cases, reflects test-time perturbation robustness, and works well given only few training samples. These results are promising given that input compression is broadly applicable where MI can be estimated with confidence.

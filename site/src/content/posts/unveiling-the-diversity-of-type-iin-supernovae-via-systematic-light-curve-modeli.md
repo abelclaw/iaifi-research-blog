@@ -69,11 +69,11 @@ The pipeline worked in four steps:
 3. **Bayesian inference:** Use Markov Chain Monte Carlo sampling, a computational technique for systematically exploring which parameter combinations best fit the data, to find the range of values that best explain each light curve.
 4. **Population analysis:** Search across all 142 fits for correlations and trends revealing the underlying population.
 
-![Figure 1](/iaifi-research-blog/figures/2409_10596/figure_1.png)
+![Figure 1](figure:1)
 
 The result is a set of inferred physical parameters for each supernova, quantities encoded in the light curve's shape, duration, and brightness but impossible to observe directly. The circumstellar medium turns out to be dense, with a typical density around 10⁻¹² g/cm³ and a median mass of about one solar mass. The ejecta are typically massive, exceeding 10 solar masses, pointing toward heavy progenitor stars.
 
-![Figure 2](/iaifi-research-blog/figures/2409_10596/figure_2.png)
+![Figure 2](figure:2)
 
 The analysis also turned up real correlations hiding in the noise. Higher CSM mass correlates with longer rise and fall times, which makes physical sense: more material means the ejecta-CSM collision lasts longer. Brighter supernovae also tend to have longer rise and fall times. These patterns aren't statistical flukes. They're telling us something fundamental about how these explosions work.
 
@@ -81,7 +81,7 @@ The analysis also turned up real correlations hiding in the noise. Higher CSM ma
 
 The mass-loss rates derived from the sample are extreme. The median sits around 10⁻² solar masses per year, ranging from 10⁻⁴ to a full solar mass per year. For comparison, our sun loses about 10⁻¹⁴ solar masses per year in its relatively gentle solar wind. These progenitors were shedding material at rates millions to trillions of times higher.
 
-![Figure 3](/iaifi-research-blog/figures/2409_10596/figure_3.png)
+![Figure 3](figure:3)
 
 That level of mass loss most closely matches the behavior of **luminous blue variables (LBVs)**, massive, unstable stars that undergo sudden, dramatic eruptions. The most famous example is Eta Carinae, which ejected several solar masses of material in a single event in the 1840s. The paper also finds that binary star interactions likely play a role in at least some Type IIn supernovae, consistent with direct progenitor detections in the literature.
 
@@ -89,9 +89,12 @@ The stakes for this work are about to get much higher. The upcoming **Legacy Sur
 
 > **Bottom Line:** By fitting 142 Type IIn supernovae with a physically motivated model, Ransome and Villar showed that these explosions trace the dramatic, irregular mass-loss events of luminous blue variables, and established population-level trends that will anchor the interpretation of tens of thousands of new detections from next-generation surveys.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges astrophysics and computational inference by applying Bayesian modeling tools to extract physical properties from a population of supernovae too diverse to interpret case-by-case, showing how systematic computational analysis can uncover structure in heterogeneous astronomical datasets.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study puts Bayesian population-scale inference to work, fitting 142 multi-band light curves to build a statistically meaningful picture of physical parameters that no single observation could reveal.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By constraining the mass-loss histories and progenitor properties of Type IIn supernovae at population scale, this work sharpens our understanding of how massive stars end their lives and enrich the interstellar medium with heavy elements.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With LSST expected to detect ~160,000 Type IIn supernovae per year, the systematic framework developed here will be essential for interpreting the coming flood of transient data; see [arXiv:2409.10596](https://arxiv.org/abs/2409.10596) for the full analysis.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work bridges astrophysics and computational inference by applying Bayesian modeling tools to extract physical properties from a population of supernovae too diverse to interpret case-by-case, showing how systematic computational analysis can uncover structure in heterogeneous astronomical datasets.
+
+- **Impact on Artificial Intelligence:** The study puts Bayesian population-scale inference to work, fitting 142 multi-band light curves to build a statistically meaningful picture of physical parameters that no single observation could reveal.
+
+- **Impact on Fundamental Interactions:** By constraining the mass-loss histories and progenitor properties of Type IIn supernovae at population scale, this work sharpens our understanding of how massive stars end their lives and enrich the interstellar medium with heavy elements.
+
+- **Outlook and References:** With LSST expected to detect ~160,000 Type IIn supernovae per year, the systematic framework developed here will be essential for interpreting the coming flood of transient data; see [arXiv:2409.10596](https://arxiv.org/abs/2409.10596) for the full analysis.

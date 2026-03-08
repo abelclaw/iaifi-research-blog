@@ -63,7 +63,7 @@ The starting point is **pionless effective field theory (EFT_π/)**, a framework
 
 The core idea: run this EFT *inside the same finite box* as the LQCD calculation. Finite-volume effects are long-range phenomena, arising from long-wavelength physics being cut off by the box walls, placing them squarely within EFT_π/'s domain of validity. Match the EFT to LQCD results in the box, fix the LECs, then run the EFT without a box to get infinite-volume predictions.
 
-![Figure 1](/iaifi-research-blog/figures/2102_04329/figure_1.png)
+![Figure 1](figure:1)
 
 The computational engine is the **stochastic variational method (SVM)**, a technique for building approximate wavefunctions of few-body systems. The SVM constructs trial quantum states as combinations of Gaussian basis functions, then iteratively adjusts them to minimize the system's energy. For two- and three-nucleon systems, this yields highly accurate variational wavefunctions both inside the box and in infinite volume.
 
@@ -73,11 +73,11 @@ The procedure has two matched stages:
 
 2. **Matrix element matching:** Using wavefunctions from stage one, finite-volume matrix elements of external currents are computed within FVEFT_π/ and matched to LQCD calculations of the same operators. This fixes additional two-body counterterms, coupling constants that encode how nucleon pairs respond collectively to external probes beyond what single-nucleon responses predict.
 
-![Figure 3](/iaifi-research-blog/figures/2102_04329/figure_2.png)
+![Figure 3](figure:3)
 
 The framework covers scalar matrix elements (sensitive to how nucleon mass arises from quark condensates), tensor matrix elements (related to quark spin distributions), axial matrix elements (tied to weak interactions and beta decay), magnetic moments, and the isovector longitudinal momentum fraction. The axial matrix element is a particularly high-value target: it governs proton-proton fusion in the sun and neutrino-nucleus scattering, and its two-body LEC, L₁,A, has been notoriously difficult to pin down.
 
-![Figure 5](/iaifi-research-blog/figures/2102_04329/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -89,15 +89,18 @@ As LQCD calculations gradually approach physical quark masses and larger nuclei,
 
 > **Bottom Line:** Detmold and Shanahan have built the theoretical infrastructure to systematically extract infinite-volume nuclear matrix elements from finite-volume lattice QCD, connecting first-principles computation to measurable nuclear physics for scalar, tensor, axial, magnetic, and momentum-fraction properties of two- and three-nucleon systems.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of lattice QCD computation, nuclear effective field theory, and the stochastic variational method (a technique borrowed from quantum chemistry), combining modern computational tools with fundamental physics in a way that reflects IAIFI's core mission.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The stochastic variational method applied here, which iteratively optimizes basis functions to minimize energy in complex many-body systems, shares structural similarities with variational strategies in modern machine learning. It's a concrete example of methodology flowing between nuclear theory and AI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">For the first time, finite-volume pionless EFT is systematically applied to nuclear matrix elements, making it possible to extrapolate magnetic moments, axial charges, and other quantities governing weak nuclear processes (including stellar fusion and neutrino-nucleus scattering) to infinite volume.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this framework to physical quark masses and larger nuclei as LQCD calculations continue to advance. The full methodology is detailed in [arXiv:2102.04329](https://arxiv.org/abs/2102.04329).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Few-nucleon matrix elements in pionless effective field theory in a finite volume</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2102.04329</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["W. Detmold", "P. E. Shanahan"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Pionless effective field theory in a finite volume (FVEFT$_{π\!/}$) is investigated as a framework for the analysis of multi-nucleon spectra and matrix elements calculated in lattice QCD (LQCD). By combining FVEFT$_{π\!/}$ with the stochastic variational method, the spectra of nuclei with atomic number $A\in\{2,3\}$ are matched to existing finite-volume LQCD calculations at heavier-than-physical quark masses corresponding to a pion mass $m_π=806$ MeV, thereby enabling infinite-volume binding energies to be determined using infinite-volume variational calculations. Based on the variational wavefunctions that are constructed in this approach, the finite-volume matrix elements of various local operators are computed in FVEFT$_{π\!/}$ and matched to LQCD calculations of the corresponding QCD operators in the same volume, thereby determining the relevant one and two-body EFT counterterms and enabling an extrapolation of the LQCD matrix elements to infinite volume. As examples, the scalar, tensor, and axial matrix elements are considered, as well as the magnetic moments and the isovector longitudinal momentum fraction.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work sits at the intersection of lattice QCD computation, nuclear effective field theory, and the stochastic variational method (a technique borrowed from quantum chemistry), combining modern computational tools with fundamental physics in a way that reflects IAIFI's core mission.
+
+- **Impact on Artificial Intelligence:** The stochastic variational method applied here, which iteratively optimizes basis functions to minimize energy in complex many-body systems, shares structural similarities with variational strategies in modern machine learning. It's a concrete example of methodology flowing between nuclear theory and AI.
+
+- **Impact on Fundamental Interactions:** For the first time, finite-volume pionless EFT is systematically applied to nuclear matrix elements, making it possible to extrapolate magnetic moments, axial charges, and other quantities governing weak nuclear processes (including stellar fusion and neutrino-nucleus scattering) to infinite volume.
+
+- **Outlook and References:** Future work will extend this framework to physical quark masses and larger nuclei as LQCD calculations continue to advance. The full methodology is detailed in [arXiv:2102.04329](https://arxiv.org/abs/2102.04329).
+
+## Original Paper Details
+- **Title:** Few-nucleon matrix elements in pionless effective field theory in a finite volume
+- **arXiv ID:** 2102.04329
+- **Authors:** ["W. Detmold", "P. E. Shanahan"]
+- **Abstract:** Pionless effective field theory in a finite volume (FVEFT$_{π\!/}$) is investigated as a framework for the analysis of multi-nucleon spectra and matrix elements calculated in lattice QCD (LQCD). By combining FVEFT$_{π\!/}$ with the stochastic variational method, the spectra of nuclei with atomic number $A\in\{2,3\}$ are matched to existing finite-volume LQCD calculations at heavier-than-physical quark masses corresponding to a pion mass $m_π=806$ MeV, thereby enabling infinite-volume binding energies to be determined using infinite-volume variational calculations. Based on the variational wavefunctions that are constructed in this approach, the finite-volume matrix elements of various local operators are computed in FVEFT$_{π\!/}$ and matched to LQCD calculations of the corresponding QCD operators in the same volume, thereby determining the relevant one and two-body EFT counterterms and enabling an extrapolation of the LQCD matrix elements to infinite volume. As examples, the scalar, tensor, and axial matrix elements are considered, as well as the magnetic moments and the isovector longitudinal momentum fraction.

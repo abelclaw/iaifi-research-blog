@@ -69,7 +69,7 @@ The core framework is **jet topic modeling**, borrowed from natural language pro
 
 The two mixed samples come from splitting jets by **pseudorapidity** (η), a measure of a jet's angle relative to the beam. Central jets (|η| ≤ 0.65) tend to be quark-enriched; forward jets (|η| > 0.65) tend to be gluon-enriched. Neither sample is pure, but their differences are enough to work with.
 
-![Figure 1](/iaifi-research-blog/figures/2205_04459/figure_1.png)
+![Figure 1](figure:1)
 
 The challenge is then extracting the **reducibility factors**, numbers that pin down how much of one distribution "leaks" into the other and fix the quark fraction in each sample. The paper introduces and compares three approaches:
 
@@ -77,7 +77,7 @@ The challenge is then extracting the **reducibility factors**, numbers that pin 
 - **Log-likelihood ratio fit (L-fit)**: Fit probability distributions across all data using quantile binning, dividing data into equally populated buckets. More data contribute to the estimate, which improves stability.
 - **ROC curve fit (R-fit)**: The most original approach. Train a machine learning classifier to distinguish central from forward jets, then analyze the endpoints of the resulting **receiver operating characteristic (ROC) curve**. These endpoints encode the reducibility factors directly, bypassing binning altogether.
 
-![Figure 2](/iaifi-research-blog/figures/2205_04459/figure_1.png)
+![Figure 2](figure:2)
 
 The R-fit turned out to be the most stable option. By parametrizing only the endpoints of the ROC curve rather than its full shape, it sidesteps sensitivity to training imperfections and statistical fluctuations in the body of the distribution.
 
@@ -85,7 +85,7 @@ One significant complication: the CMS detector doesn't respond to jets identical
 
 To correct for this, the team applied **OmniFold**, a machine-learning-based unfolding technique that statistically removes detector distortions to recover the true underlying particle distributions. This was the first application of full phase-space unfolding to real collider data. After unfolding, the extracted quark/gluon fractions agreed well with predictions from Pythia, the standard LHC collision simulator.
 
-![Figure 3](/iaifi-research-blog/figures/2205_04459/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -95,15 +95,18 @@ One finding offers a clean validation: **Casimir scaling of intrinsic dimensiona
 
 The extracted intrinsic dimensionality from the unfolded quark and gluon samples follows exactly this ratio. A deep QCD prediction, confirmed with machine learning on publicly available data. No proprietary datasets, no special experimental access.
 
-![Figure 5](/iaifi-research-blog/figures/2205_04459/figure_3.png)
+![Figure 5](figure:5)
 
 For particle physics, the takeaway is that jet topic modeling works on real experimental data. Open LHC data can serve as a testbed for QCD measurements that previously seemed to require direct quark/gluon labels. For machine learning in science, methods like OmniFold and ROC-curve-based inference can handle messy real-world data, not just clean simulations.
 
 > **Bottom Line:** By combining jet topic modeling with machine-learning-based unfolding on CMS Open Data, this work separates quark and gluon jets from data alone and validates QCD's Casimir scaling prediction, marking the first full phase-space unfolding of real LHC data.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects statistical topic modeling from computational linguistics with experimental particle physics, extracting fundamental QCD properties from real LHC data without requiring direct quark or gluon labels.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a ROC-curve-fit method and applies OmniFold to real collider data for the first time, showing that ML-based inference can handle the statistical and systematic challenges of actual experimental environments.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By extracting separate quark and gluon jet distributions from CMS Open Data and observing Casimir scaling in their intrinsic dimensionality, the work provides a new empirical handle on QCD jet physics that does not depend on Monte Carlo simulation assumptions.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this approach to include full systematic uncertainty analyses and apply topic modeling to other mixed jet samples at the LHC. The full analysis is publicly available; the paper appears as [arXiv:2205.04459](https://arxiv.org/abs/2205.04459).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects statistical topic modeling from computational linguistics with experimental particle physics, extracting fundamental QCD properties from real LHC data without requiring direct quark or gluon labels.
+
+- **Impact on Artificial Intelligence:** The paper introduces a ROC-curve-fit method and applies OmniFold to real collider data for the first time, showing that ML-based inference can handle the statistical and systematic challenges of actual experimental environments.
+
+- **Impact on Fundamental Interactions:** By extracting separate quark and gluon jet distributions from CMS Open Data and observing Casimir scaling in their intrinsic dimensionality, the work provides a new empirical handle on QCD jet physics that does not depend on Monte Carlo simulation assumptions.
+
+- **Outlook and References:** Future work will extend this approach to include full systematic uncertainty analyses and apply topic modeling to other mixed jet samples at the LHC. The full analysis is publicly available; the paper appears as [arXiv:2205.04459](https://arxiv.org/abs/2205.04459).

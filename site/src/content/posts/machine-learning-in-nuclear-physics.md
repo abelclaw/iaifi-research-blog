@@ -69,7 +69,7 @@ This is not a promise of future breakthroughs. It is a field already transformed
 
 The authors organize ML applications into four major pillars: **nuclear theory**, **experimental methods**, **accelerator science**, and **nuclear data**. Each pillar uses different architectures to address fundamentally different problems.
 
-![Figure 1](/iaifi-research-blog/figures/2112_02309/figure_1.png)
+![Figure 1](figure:1)
 
 Start with nuclear theory. **Low-energy nuclear theory**, the study of how forces between protons and neutrons determine nuclear structure, has long been limited by quantum-mechanical complexity. Even moderate nuclei contain dozens of interacting particles, and exact solutions are computationally forbidden. ML now provides surrogate models that predict nuclear masses, binding energies, and decay rates orders of magnitude faster than traditional methods.
 
@@ -86,7 +86,7 @@ On the experimental side, the challenges are different but equally brutal:
 - **Particle identification** and **event classification** use boosted decision trees and deep networks to distinguish signal from noise in flooded data environments
 - **Streaming detector readout** poses a data-volume problem that ML-based trigger systems address by compressing and filtering data on the fly, before it can be written to disk
 
-![Figure 2](/iaifi-research-blog/figures/2112_02309/figure_1.png)
+![Figure 2](figure:2)
 
 Accelerator science brings its own set of headaches. Modern accelerators are enormously complex machines with thousands of coupled parameters. **ML-based surrogate models** trained on simulation data replace expensive physics-based models during real-time optimization, enabling feedback loops fast enough to correct beam instabilities as they emerge. **Adaptive ML** handles the additional wrinkle that accelerator systems are non-stationary: components age, conditions drift, and a model trained yesterday may fail today.
 
@@ -102,9 +102,12 @@ Open questions remain sharp. How do we rigorously propagate uncertainties throug
 
 > **Bottom Line:** Machine learning has already reshaped nuclear physics across theory, experiment, and infrastructure. This review provides a detailed map of that transformation, revealing a field not waiting for AI but actively co-developing it.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This review, co-authored by MIT IAIFI affiliate Cristiano Fanelli, documents the two-way partnership between nuclear physics and machine learning: physics problems drive new ML methods, and ML opens regimes of nuclear science that were previously out of reach.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Nuclear physics has been a proving ground for physics-informed generative models, uncertainty-aware Bayesian networks, and equivariant architectures that enforce fundamental symmetries, all of which now influence ML research more broadly.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">ML is opening up problems in nuclear structure, lattice QCD at finite density, and real-time detector reconstruction that were previously beyond reach, pushing toward more precise measurements of the forces governing matter.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The paper anticipates that ML will become standard infrastructure in nuclear science over the next decade, particularly for accelerator control and lattice field theory; see [arXiv:2112.02309](https://arxiv.org/abs/2112.02309) for the full review.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This review, co-authored by MIT IAIFI affiliate Cristiano Fanelli, documents the two-way partnership between nuclear physics and machine learning: physics problems drive new ML methods, and ML opens regimes of nuclear science that were previously out of reach.
+
+- **Impact on Artificial Intelligence:** Nuclear physics has been a proving ground for physics-informed generative models, uncertainty-aware Bayesian networks, and equivariant architectures that enforce fundamental symmetries, all of which now influence ML research more broadly.
+
+- **Impact on Fundamental Interactions:** ML is opening up problems in nuclear structure, lattice QCD at finite density, and real-time detector reconstruction that were previously beyond reach, pushing toward more precise measurements of the forces governing matter.
+
+- **Outlook and References:** The paper anticipates that ML will become standard infrastructure in nuclear science over the next decade, particularly for accelerator control and lattice field theory; see [arXiv:2112.02309](https://arxiv.org/abs/2112.02309) for the full review.

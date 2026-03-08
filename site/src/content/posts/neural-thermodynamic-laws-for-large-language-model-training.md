@@ -48,7 +48,7 @@ The researchers introduce **Neural Thermodynamic Laws (NTL)**: a formal framewor
 
 The foundation of NTL is a specific model of the **loss landscape** (the terrain where every point represents how wrong the model's predictions are) called the **river-valley structure**, recently identified in real LLM training runs. The loss surface has long, flat "rivers" running through it, flanked by steep "valley" walls. Training does two things simultaneously: it slowly drifts *along* the river toward lower loss, and bounces *rapidly* back and forth across the valley.
 
-![Figure 1](/iaifi-research-blog/figures/2505_10559/figure_1.png)
+![Figure 1](figure:1)
 
 This separation of timescales (fast valley dynamics and slow river dynamics) is what unlocks the thermodynamic analogy. The researchers introduce a minimal 2D toy model, `ℓ(x,y) = c(y) + ½a(y)x²`, where `x` is the fast "valley" variable and `y` is the slow "river" variable. Simple as it looks, this model is exactly solvable, yielding closed-form expressions for training behavior rather than simulations.
 
@@ -60,7 +60,7 @@ The correspondences they uncover are precise:
 - **Second Law / Thermal Conduction** — When the learning rate decays through **annealing** (gradually dialing back how aggressively the model updates itself), the system cools. The fast variable's distribution contracts toward the valley floor. A hot system cannot cool below its thermostat's temperature; analogously, the model's fluctuation level cannot drop below what the learning rate permits.
 - **Entropic Force and Third Law** — Fast fluctuations exert an effective **entropic force** (invisible pressure from statistics, not explicit gradients) that pushes the system toward regions of wider valleys. Those regions have more accessible microscopic states, exactly mirroring entropic forces in physical polymer systems.
 
-![Figure 2](/iaifi-research-blog/figures/2505_10559/figure_2.png)
+![Figure 2](figure:2)
 
 The team validates these predictions against actual LLM training runs, showing the toy model captures qualitative and often quantitative behavior of real models with billions of parameters.
 
@@ -70,7 +70,7 @@ This work does something rare: it turns an analogy into a theorem. Researchers h
 
 The immediate payoff is practical. The framework provides a principled basis for designing **learning rate schedules**, the programmed plan for how the learning rate changes over training. The standard warmup-stable-decay (WSD) schedule used in modern LLM pretraining now has a physical interpretation: the stable phase corresponds to thermal equilibration along the river, the decay phase to controlled cooling. NTL predicts *why* these schedules work and suggests how to improve them.
 
-![Figure 3](/iaifi-research-blog/figures/2505_10559/figure_3.png)
+![Figure 3](figure:3)
 
 The deeper implications stretch further. If LLM training obeys thermodynamic laws, then tools from statistical mechanics (phase transitions, free energy minimization, fluctuation-dissipation theorems) become available for analyzing AI systems. The third-law analog hints at a "ground state" for trained models determined by loss landscape geometry.
 
@@ -78,9 +78,9 @@ Open questions remain: Do larger models exhibit phase transitions analogous to t
 
 > **Bottom Line:** Neural Thermodynamic Laws establish that LLM training dynamics follow the same mathematical principles as classical thermodynamics, giving researchers a physical framework for understanding, predicting, and improving how large language models learn.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly instantiates IAIFI's core mission by deriving classical thermodynamic laws (temperature, entropy, heat capacity, and all three laws of thermodynamics) as exact mathematical consequences of LLM training dynamics, connecting statistical physics with modern AI through rigorous mathematics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">NTL provides the first mechanistic, physics-grounded theory for designing learning rate schedules in LLM pretraining, moving the field beyond empirical heuristics toward principled optimization strategies.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework demonstrates that thermodynamic universality extends to artificial learning systems, revealing deep structural connections between physical entropy and the geometry of neural loss landscapes.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore whether NTL's predictions generalize to other optimizers, larger models, and multimodal architectures; the paper is available at [arXiv:2505.10559](https://arxiv.org/abs/2505.10559).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work directly instantiates IAIFI's core mission by deriving classical thermodynamic laws (temperature, entropy, heat capacity, and all three laws of thermodynamics) as exact mathematical consequences of LLM training dynamics, connecting statistical physics with modern AI through rigorous mathematics.
+- **Impact on Artificial Intelligence:** NTL provides the first mechanistic, physics-grounded theory for designing learning rate schedules in LLM pretraining, moving the field beyond empirical heuristics toward principled optimization strategies.
+- **Impact on Fundamental Interactions:** The framework demonstrates that thermodynamic universality extends to artificial learning systems, revealing deep structural connections between physical entropy and the geometry of neural loss landscapes.
+- **Outlook and References:** Future work will explore whether NTL's predictions generalize to other optimizers, larger models, and multimodal architectures; the paper is available at [arXiv:2505.10559](https://arxiv.org/abs/2505.10559).

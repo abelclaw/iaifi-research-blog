@@ -66,11 +66,11 @@ GemiNet's key move is replacing the simple, hand-crafted pair amplitude with a *
 3. **Build the graph.** Electrons and holes become nodes; their interactions become edges. The GNN passes messages between nodes, letting each particle's effective wavefunction depend on its neighbors.
 4. **Optimize with Variational Monte Carlo.** Network parameters are trained by minimizing the system's energy, sampling many random configurations of particle positions to estimate the answer.
 
-![Figure 1](/iaifi-research-blog/figures/2311_02143/figure_1.png)
+![Figure 1](figure:1)
 
 The physics is *built in*, not learned from scratch. The BCS skeleton ensures the network starts with sensible pairing structure. The GNN layers then learn corrections that capture strong correlations, spatial pattern formation, and other effects the mean-field treatment misses.
 
-![Figure 2](/iaifi-research-blog/figures/2311_02143/figure_1.png)
+![Figure 2](figure:2)
 
 **Transfer learning across system sizes** turns out to be a practical advantage worth highlighting. Because the GNN operates on local particle interactions, a network trained on a small system can initialize training on a larger one. Purely data-driven approaches lack this kind of scalability. The authors verify the technique works well, enabling simulation of bilayers with up to 30 electron-hole pairs.
 
@@ -78,25 +78,28 @@ The physics is *built in*, not learned from scratch. The BCS skeleton ensures th
 
 The electron-hole bilayer is a rich laboratory for quantum phases. Depending on particle density and interlayer separation, the system can be an **exciton Bose-Einstein condensate** (tightly bound electron-hole pairs condensed into a superfluid), an **electron-hole superconductor** (loosely paired carriers in a BCS state), or a **bilayer Wigner crystal** (electrons and holes separately crystallizing into locked lattices). Probing all three phases with a single unbiased method has been a longstanding challenge.
 
-![Figure 3](/iaifi-research-blog/figures/2311_02143/figure_2.png)
+![Figure 3](figure:3)
 
 GemiNet delivers quantitatively accurate energies across the entire phase diagram. It outperforms Hartree-Fock-Bogoliubov calculations, especially in the intermediate-density regime where correlations matter most. The network correctly captures the **BEC-BCS crossover**, the smooth evolution from tightly bound excitons to loosely paired superconducting carriers, as well as the crystalline Wigner phase at large separations and low densities. Because the network doesn't presuppose a particular phase, it detects which one is energetically favored without methodological bias.
 
-![Figure 4](/iaifi-research-blog/figures/2311_02143/figure_2.png)
+![Figure 4](figure:4)
 
 Many of the most scientifically interesting materials fall into the same category of strongly correlated systems where conventional methods break down: high-temperature superconductors, frustrated magnets, topological insulators. Physically motivated neural network wavefunctions offer a route to simulating these materials from first principles, free of the biases baked into hand-crafted starting-point formulas.
 
-![Figure 5](/iaifi-research-blog/figures/2311_02143/figure_3.png)
+![Figure 5](figure:5)
 
 GemiNet's success on the electron-hole bilayer suggests the strategy can extend to twisted bilayer graphene, moiré materials, and systems relevant to quantum computing hardware. Open questions remain: scalability to larger systems, handling of spin-orbit coupling and magnetic fields, and incorporating longer-range correlations into the GNN architecture. Each is a productive frontier.
 
-![Figure 6](/iaifi-research-blog/figures/2311_02143/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** GemiNet shows that fusing physics-motivated wavefunction structure with graph neural network flexibility enables accurate, scalable, and unbiased simulation of competing quantum phases, opening a new route to understanding strongly correlated quantum materials from first principles.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work translates graph neural network architectures from machine learning into a physically motivated quantum wavefunction that outperforms traditional condensed matter methods on a challenging benchmark, directly embodying the IAIFI mission.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">GemiNet introduces a strategy for physics-informed neural network design, showing that encoding known physical structure (BCS pairing) into the architectural inductive bias improves sample efficiency, accuracy, and scalability over generic approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The method achieves accurate simulation of the full electron-hole bilayer phase diagram, spanning exciton BEC, BCS superconductor, and Wigner crystal phases, in a regime where mean-field theory fails. It provides a new quantitative tool for understanding interaction-driven quantum phases in two-dimensional materials.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend GemiNet to twisted moiré systems, spin-orbit coupled materials, and real-time dynamics; the full paper is available at [arXiv:2311.02143](https://arxiv.org/abs/2311.02143).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work translates graph neural network architectures from machine learning into a physically motivated quantum wavefunction that outperforms traditional condensed matter methods on a challenging benchmark, directly embodying the IAIFI mission.
+
+- **Impact on Artificial Intelligence:** GemiNet introduces a strategy for physics-informed neural network design, showing that encoding known physical structure (BCS pairing) into the architectural inductive bias improves sample efficiency, accuracy, and scalability over generic approaches.
+
+- **Impact on Fundamental Interactions:** The method achieves accurate simulation of the full electron-hole bilayer phase diagram, spanning exciton BEC, BCS superconductor, and Wigner crystal phases, in a regime where mean-field theory fails. It provides a new quantitative tool for understanding interaction-driven quantum phases in two-dimensional materials.
+
+- **Outlook and References:** Future work may extend GemiNet to twisted moiré systems, spin-orbit coupled materials, and real-time dynamics; the full paper is available at [arXiv:2311.02143](https://arxiv.org/abs/2311.02143).

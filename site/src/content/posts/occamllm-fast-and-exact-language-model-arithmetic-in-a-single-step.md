@@ -60,7 +60,7 @@ Researchers at MIT have built a smarter fix: a framework called **OccamLLM** tha
 
 When a language model processes text, it builds up rich internal representations called **hidden states** that encode what the model "understands" about the context so far. OccamLLM intercepts those hidden states and uses them as a control signal for a separate symbolic computation engine.
 
-![Figure 1](/iaifi-research-blog/figures/2406_06576/figure_1.png)
+![Figure 1](figure:1)
 
 That engine is **OccamNet**, a hybrid architecture combining neural-network pattern-matching with traditional rule-based symbolic reasoning. It represents mathematical functions as small, selective combinations of primitive operations (addition, subtraction, multiplication, division, sine, cosine, logarithm, exponential, square root) using only a few at a time to keep computation readable and traceable. Think of OccamNet as a reconfigurable calculator: its internal settings determine which operation it performs. OccamLLM's job is to dial in those settings correctly based on what the language model understands the problem to be.
 
@@ -75,7 +75,7 @@ Here's the pipeline in action:
 
 The base language model (Llama 3, in the paper's implementation) is never fine-tuned. Only the decoder block gets trained, on a modest dataset of labeled examples: tens per task, not thousands. This sidesteps **catastrophic forgetting**, where fine-tuning a model on one task degrades its performance on everything else it previously knew.
 
-![Figure 2](/iaifi-research-blog/figures/2406_06576/figure_2.png)
+![Figure 2](figure:2)
 
 The architecture reflects Occam's Razor in practice: find the simplest explanation. OccamNet's selective function representations produce interpretable outputs. You can see exactly which operation was selected and why, rather than trusting a black-box neural network's numerical answer.
 
@@ -95,9 +95,12 @@ The framework isn't limited to arithmetic, either. The authors point out that Oc
 
 > **Bottom Line:** OccamLLM proves that giving language models exact arithmetic doesn't require writing code or retraining the model, just a smarter connection between neural understanding and symbolic computation. It achieves perfect accuracy while running dramatically faster than today's code-interpreter approaches.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings ideas from symbolic AI and neurosymbolic computing, fields with deep roots in mathematical physics, into practical LLM engineering. The result: principled hybrid architectures outperform purely neural approaches even at much larger scale.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">OccamLLM introduces a new approach for augmenting pretrained language models with exact computational tools. No fine-tuning, no code execution, single-step inference, and full interpretability of every computation performed.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Reliable, interpretable arithmetic in language models removes a real bottleneck for LLM-powered scientific tools, from physics tutors to automated research assistants, that need quantitative reasoning without sacrificing safety or speed.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The OccamLLM framework generalizes beyond arithmetic to any symbolic architecture, pointing toward language models that natively control scientific simulators and solvers. The paper is available as a preprint at [arXiv:2406.06576](https://arxiv.org/abs/2406.06576), from the MIT groups of Marin Soljačić and collaborators.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work brings ideas from symbolic AI and neurosymbolic computing, fields with deep roots in mathematical physics, into practical LLM engineering. The result: principled hybrid architectures outperform purely neural approaches even at much larger scale.
+
+- **Impact on Artificial Intelligence:** OccamLLM introduces a new approach for augmenting pretrained language models with exact computational tools. No fine-tuning, no code execution, single-step inference, and full interpretability of every computation performed.
+
+- **Impact on Fundamental Interactions:** Reliable, interpretable arithmetic in language models removes a real bottleneck for LLM-powered scientific tools, from physics tutors to automated research assistants, that need quantitative reasoning without sacrificing safety or speed.
+
+- **Outlook and References:** The OccamLLM framework generalizes beyond arithmetic to any symbolic architecture, pointing toward language models that natively control scientific simulators and solvers. The paper is available as a preprint at [arXiv:2406.06576](https://arxiv.org/abs/2406.06576), from the MIT groups of Marin Soljačić and collaborators.

@@ -71,7 +71,7 @@ FeatUp learns to combine these views into a single high-resolution feature map u
 
 This is the same logic that lets **Neural Radiance Fields (NeRF)** reconstruct a full 3D scene from 2D photos taken at different angles. You know what each camera angle should produce, so you work backwards to find the underlying structure that explains all the views simultaneously.
 
-![Figure 2](/iaifi-research-blog/figures/2403_10516/figure_1.png)
+![Figure 2](figure:2)
 
 The team built two architectures around this idea:
 
@@ -81,7 +81,7 @@ The team built two architectures around this idea:
 
 Both approaches include two learned **downsampler** variants: a simple blur and an **attention-based downsampler** that weights spatial locations by content, mimicking how transformers compress information.
 
-![Figure 3](/iaifi-research-blog/figures/2403_10516/figure_2.png)
+![Figure 3](figure:3)
 
 The feedforward approach is built for production: fast, general, a drop-in module. The implicit approach is built for analysis: maximum fidelity when a single image demands close scrutiny.
 
@@ -93,15 +93,18 @@ But the bigger story is about modularity. A persistent friction in applying foun
 
 The NeRF analogy is more than decorative. It suggests a broader direction: using consistency constraints across multiple views or perturbations as a supervision signal when ground-truth labels are unavailable. FeatUp applies this to 2D features. The same principle could extend to video, 3D point clouds, or multimodal representations where spatial alignment is costly to supervise directly.
 
-![Figure 1](/iaifi-research-blog/figures/2403_10516/figure_1.png)
+![Figure 1](figure:1)
 
 > **Bottom Line:** FeatUp gives any vision model's features a sharp spatial upgrade with no retraining required. By treating high-resolution reconstruction as a multi-view consistency problem, it turns a longstanding bottleneck in dense prediction into a modular, pluggable component.
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">FeatUp imports a core concept from physics-inspired neural rendering (NeRF's multi-view consistency) and applies it to recover spatial structure in 2D feature representations, showing how geometric reasoning principles transfer across domains.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">FeatUp is a model-agnostic, task-agnostic drop-in module that improves dense prediction performance across segmentation, depth estimation, and explainability without modifying or retraining the underlying backbone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling finer-grained feature maps from pretrained vision encoders, FeatUp has potential relevance to scientific imaging tasks such as particle physics event reconstruction or astrophysical image analysis, where spatial precision directly affects measurement accuracy.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend FeatUp's multi-view consistency framework to video, 3D representations, and scientific foundation models. The paper appeared at ICLR 2024 and is available as [arXiv:2403.10516](https://arxiv.org/abs/2403.10516).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** FeatUp imports a core concept from physics-inspired neural rendering (NeRF's multi-view consistency) and applies it to recover spatial structure in 2D feature representations, showing how geometric reasoning principles transfer across domains.
+
+- **Impact on Artificial Intelligence:** FeatUp is a model-agnostic, task-agnostic drop-in module that improves dense prediction performance across segmentation, depth estimation, and explainability without modifying or retraining the underlying backbone.
+
+- **Impact on Fundamental Interactions:** By enabling finer-grained feature maps from pretrained vision encoders, FeatUp has potential relevance to scientific imaging tasks such as particle physics event reconstruction or astrophysical image analysis, where spatial precision directly affects measurement accuracy.
+
+- **Outlook and References:** Future work could extend FeatUp's multi-view consistency framework to video, 3D representations, and scientific foundation models. The paper appeared at ICLR 2024 and is available as [arXiv:2403.10516](https://arxiv.org/abs/2403.10516).

@@ -64,7 +64,7 @@ The starting point is a **convolutional autoencoder (CAE)**, a neural network tr
 
 But which features of the jet make it weird? The autoencoder operates on raw pixel-level jet images, thousands of numbers per event, and never reveals whether it's reacting to the jet's mass, its angular spread, or some subtle three-pronged substructure.
 
-![Figure 1](/iaifi-research-blog/figures/2203_01343/figure_1.png)
+![Figure 1](figure:1)
 
 To extract that hidden logic, the researchers adapted an interpretability technique originally designed for classifiers. Their approach uses **Energy Flow Polynomials (EFPs)** as a vocabulary: a mathematically complete set of measurements covering every physically meaningful way to characterize a jet's shape and energy distribution. Think of EFPs as a giant dictionary of jet properties. Some measure how "pronglike" a jet is; others capture its angular moments.
 
@@ -75,19 +75,19 @@ From this dictionary, the team built two competing mimicker networks:
 
 Both networks use an iterative selection procedure: start with one observable, find which EFP best improves agreement with the CAE, add it, repeat. Selection stops when additional observables provide diminishing returns.
 
-![Figure 2](/iaifi-research-blog/figures/2203_01343/figure_1.png)
+![Figure 2](figure:2)
 
 The result is striking. Both strategies independently converged on the **same six observables**, even though they approached the problem from completely different mathematical angles. The matched set includes the jet mass, multiplicity-related quantities, and specific EFPs capturing two- and three-body angular correlations. Two fundamentally different formulations of "what does the autoencoder care about?" reached the same answer. Both mimickers agreed with the autoencoder's event ordering about 83% of the time on ordinary background jets.
 
 The real test: can mimickers trained only on ordinary jets detect exotic new physics they were never trained for?
 
-![Figure 3](/iaifi-research-blog/figures/2203_01343/figure_2.png)
+![Figure 3](figure:3)
 
 The researchers tested eight signal types: W bosons of four different masses, top quarks at two masses, and Higgs bosons at two masses. These span exotic jet shapes with two, three, and four distinct prongs of energy deposition. Performance was measured using **signal significance improvement (SSI)**, which quantifies how much better than random chance the detector isolates signal from background.
 
 For seven out of eight signals, at least one mimicker matched or exceeded the autoencoder's performance. The lone exception was a very light W boson (59 GeV), where the jet substructure looks nearly identical to background, a hard case for every method. The interpretable networks also held their own against **Isolation Forests**, another popular anomaly detection approach.
 
-![Figure 5](/iaifi-research-blog/figures/2203_01343/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -99,9 +99,9 @@ That's reassuring, but it also opens a question: is there a regime where deep ne
 
 > **Bottom Line:** Six simple, human-readable jet observables can replicate what a convolutional autoencoder does when hunting for exotic particles, making anomaly detection at the LHC both more interpretable and more deployable without sacrificing sensitivity.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of deep learning interpretability and experimental particle physics, adapting classifier mimicry methods to unsupervised anomaly detection in a way that produces physics-meaningful outputs.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Iterative knowledge distillation from a black-box neural network yielded compact, interpretable models that match performance on out-of-distribution data, a result relevant to explainable AI well beyond physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By revealing which jet substructure observables drive anomaly detection decisions, this work provides both practical tools and conceptual clarity for model-agnostic new physics searches at the LHC.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this interpretability framework to other autoencoder architectures and higher-dimensional jet representations; the paper is available at [arXiv:2203.01343](https://arxiv.org/abs/2203.01343).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of deep learning interpretability and experimental particle physics, adapting classifier mimicry methods to unsupervised anomaly detection in a way that produces physics-meaningful outputs.
+- **Impact on Artificial Intelligence:** Iterative knowledge distillation from a black-box neural network yielded compact, interpretable models that match performance on out-of-distribution data, a result relevant to explainable AI well beyond physics.
+- **Impact on Fundamental Interactions:** By revealing which jet substructure observables drive anomaly detection decisions, this work provides both practical tools and conceptual clarity for model-agnostic new physics searches at the LHC.
+- **Outlook and References:** Future work could extend this interpretability framework to other autoencoder architectures and higher-dimensional jet representations; the paper is available at [arXiv:2203.01343](https://arxiv.org/abs/2203.01343).

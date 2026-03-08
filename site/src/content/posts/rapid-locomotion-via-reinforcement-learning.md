@@ -56,7 +56,7 @@ Researchers at MIT's Improbable AI Lab and IAIFI have pushed past this barrier. 
 
 The core idea is **reinforcement learning** (RL), a training paradigm where an agent learns by trying things, collecting rewards for good outcomes, and gradually improving. Here, the agent is a neural network that watches sensor data (just a gyroscope and joint encoders) and outputs joint position commands 50 times per second. No cameras, no LiDAR, no explicit terrain model. Just raw sensor readings mapped to leg movements.
 
-![Figure 1](/iaifi-research-blog/figures/2205_02824/figure_1.png)
+![Figure 1](figure:1)
 
 Training happens entirely in simulation. The researchers randomize everything that might differ between virtual and real: ground friction (from near-frictionless ice to sticky rubber), ground restitution, payload mass, motor strength, even the robot's center of mass. This technique, called **domain randomization**, forces the policy to develop strategies that work across a wide range of conditions, not just the idealized simulation.
 
@@ -72,7 +72,7 @@ The implementation uses a teacher-student setup. During simulation training, a "
 
 The student also includes an **adaptation module**, a small network that reads recent sensor history and infers a compact representation of terrain and robot properties on the fly.
 
-![Figure 2](/iaifi-research-blog/figures/2205_02824/figure_1.png)
+![Figure 2](figure:2)
 
 The result is a policy that, when dropped onto real-world terrain it has never physically experienced, figures out what kind of ground it's on and adjusts within milliseconds. No fine-tuning after deployment.
 
@@ -88,9 +88,12 @@ The minimal sensing requirement also matters in practice. Because the controller
 
 > **Bottom Line:** A neural network trained entirely in simulation, using an adaptive speed curriculum and on-the-fly terrain inference, breaks the speed record for the MIT Mini Cheetah and runs reliably on grass, ice, and gravel. RL can deliver agile, adaptable locomotion that was once thought to require hand-crafted physics models.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects reinforcement learning and classical mechanics by encoding physical constraints (centrifugal force limits, actuator dynamics, contact force regulation) directly into the training curriculum, turning physical laws into a guide for AI learning rather than a barrier to it.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The adaptive velocity curriculum and teacher-student architecture provide broadly applicable strategies for multi-task RL in settings where task difficulty is physically constrained and not known in advance.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Zero-shot sim-to-real transfer at record agility levels shows that learned models can faithfully capture and exploit real-world physical dynamics without direct physical experience.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend these techniques to more complex morphologies, richer sensing, and higher-level navigation; the full system and videos are documented at [arXiv:2205.02824](https://arxiv.org/abs/2205.02824) alongside the IROS 2022 proceedings.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects reinforcement learning and classical mechanics by encoding physical constraints (centrifugal force limits, actuator dynamics, contact force regulation) directly into the training curriculum, turning physical laws into a guide for AI learning rather than a barrier to it.
+
+- **Impact on Artificial Intelligence:** The adaptive velocity curriculum and teacher-student architecture provide broadly applicable strategies for multi-task RL in settings where task difficulty is physically constrained and not known in advance.
+
+- **Impact on Fundamental Interactions:** Zero-shot sim-to-real transfer at record agility levels shows that learned models can faithfully capture and exploit real-world physical dynamics without direct physical experience.
+
+- **Outlook and References:** Future work may extend these techniques to more complex morphologies, richer sensing, and higher-level navigation; the full system and videos are documented at [arXiv:2205.02824](https://arxiv.org/abs/2205.02824) alongside the IROS 2022 proceedings.

@@ -66,7 +66,7 @@ The core design decision is philosophical: don't classify materials into fixed b
 
 To answer this, the system builds on **DINO** (self-distillation with no labels), a pretrained visual model that learns to recognize meaningful structure in image patches without human annotation. Raw DINO features mix color, texture, shape, and object type together. Materialistic adds a specialized layer on top to tease them apart.
 
-![Figure 1](/iaifi-research-blog/figures/2305_13291/figure_1.png)
+![Figure 1](figure:1)
 
 The pipeline works in three steps:
 
@@ -76,7 +76,7 @@ The pipeline works in three steps:
 
 Training data posed its own challenge. Real photographs rarely carry per-pixel material identity labels. To sidestep this, the team built a synthetic dataset of 50,000 physically rendered images from 100 indoor scenes using 16,000 physically-based materials. A physics-based light simulator ensured realistic shading, reflections, and shadows, providing ground-truth labels while exposing the model to the full complexity of light interacting with surfaces.
 
-![Figure 2](/iaifi-research-blog/figures/2305_13291/figure_1.png)
+![Figure 2](figure:2)
 
 Despite training only on synthetic indoor scenes, the model generalizes to real-world photographs, including outdoor images with entirely different lighting and materials. This synthetic-to-real transfer suggests the Cross-Similarity module is learning genuine material identity rather than overfitting to rendering artifacts.
 
@@ -86,7 +86,7 @@ For evaluation, the team assembled a hand-annotated benchmark of 50 real photogr
 
 Material selection sounds niche, but it opens up a wide range of practical uses. The paper shows material editing and replacement (change all the upholstery in a scene at once), in-video selection (identify a material in one frame and track it across subsequent frames), and image retrieval (find product photographs containing objects made from a specific material). Each has direct applications in e-commerce, digital content creation, architectural visualization, and film production.
 
-![Figure 3](/iaifi-research-blog/figures/2305_13291/figure_2.png)
+![Figure 3](figure:3)
 
 At a deeper level, Materialistic contributes to a long-standing computer vision goal: decomposing images into physical constituents. An image isn't just a pixel grid. It's the result of geometry, illumination, and materials interacting through the physics of light. Systems that pull apart these components push forward **inverse rendering** (inferring 3D scene properties from 2D photos), physically accurate image synthesis, and AI that reasons about the world in terms of physical properties rather than surface statistics.
 
@@ -94,9 +94,12 @@ Open questions remain. The method operates at the patch level, limiting spatial 
 
 > **Bottom Line:** Materialistic proves that material identity can be extracted from photographs without semantic labels, using a query-driven similarity architecture over self-supervised features. It's a concrete step toward AI that understands the physical world, not just its appearance.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of computer graphics and machine learning, using physically-based rendering to generate training data for a visual AI system. It combines light transport physics with self-supervised deep learning to solve a problem neither field could tackle alone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Cross-Similarity Feature Weighting module shows a principled way to condition patch-level visual features on a user query, enabling similarity tasks that go beyond fixed-class classification. The design pattern has broad applicability across visual computing.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By learning to separate material identity from illumination, Materialistic moves toward the scientific goal of inverse rendering: recovering physical scene parameters (geometry, materials, and lights) from raw image data, a central problem in physically-grounded computer vision.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include finer spatial resolution, improved handling of transparent materials, and integration with full inverse rendering pipelines. The work and synthetic dataset are publicly released. [arXiv:2305.13291](https://arxiv.org/abs/2305.13291)</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits at the intersection of computer graphics and machine learning, using physically-based rendering to generate training data for a visual AI system. It combines light transport physics with self-supervised deep learning to solve a problem neither field could tackle alone.
+
+- **Impact on Artificial Intelligence:** The Cross-Similarity Feature Weighting module shows a principled way to condition patch-level visual features on a user query, enabling similarity tasks that go beyond fixed-class classification. The design pattern has broad applicability across visual computing.
+
+- **Impact on Fundamental Interactions:** By learning to separate material identity from illumination, Materialistic moves toward the scientific goal of inverse rendering: recovering physical scene parameters (geometry, materials, and lights) from raw image data, a central problem in physically-grounded computer vision.
+
+- **Outlook and References:** Future directions include finer spatial resolution, improved handling of transparent materials, and integration with full inverse rendering pipelines. The work and synthetic dataset are publicly released. [arXiv:2305.13291](https://arxiv.org/abs/2305.13291)

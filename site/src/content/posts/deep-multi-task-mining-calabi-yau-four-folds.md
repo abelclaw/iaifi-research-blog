@@ -60,13 +60,13 @@ Their result: a single neural network called *CICYMiner* that learns all four in
 
 The raw input to the network is surprisingly visual. Each of the 921,497 CICY four-fold manifolds in the dataset is described by a **configuration matrix**, a rectangular grid of integers encoding how the manifold is built from polynomial equations in a high-dimensional mathematical space. Earlier work showed that treating these matrices as grayscale images and feeding them to a neural network worked well for simpler three-dimensional Calabi-Yau spaces. The same intuition carries over here.
 
-![Figure 1](/iaifi-research-blog/figures/2108_02221/figure_1.png)
+![Figure 1](figure:1)
 
 The team stacked **Inception modules**, the same building blocks behind Google's image recognition models, to process these mathematical matrices. An Inception module applies multiple convolutional filters of different sizes in parallel, then concatenates their outputs. This lets the network pick up on both local structure (individual matrix entries) and global patterns (relationships spanning the whole matrix) at the same time.
 
 What sets CICYMiner apart is its **multi-task architecture**. Rather than training four separate networks, one for each Hodge number, CICYMiner branches at its top layers into four task-specific heads while sharing a common trunk of Inception modules. This **hard parameter sharing** forces all four prediction tasks to draw on the same learned internal representation. The network develops a single view of Calabi-Yau geometry, with each head specializing to extract a different invariant. There is physical motivation here too: all four Hodge numbers arise from the same underlying geometry, so a single model ought to capture them all. The shared representation also acts as a regularizer, reducing overfitting.
 
-![Figure 3](/iaifi-research-blog/figures/2108_02221/figure_2.png)
+![Figure 3](figure:3)
 
 Training had to contend with severe **class imbalance**. The distribution of Hodge numbers across the dataset is wildly skewed: a handful of values appear tens of thousands of times while others show up exactly once. The team treated prediction as a classification problem (which discrete value does each Hodge number take?) rather than regression, and tuned their loss functions to prevent the network from simply memorizing the most common classes.
 
@@ -79,7 +79,7 @@ The results came in strong:
 
 The hardest number, h^(2,2), reflects genuinely richer geometric complexity. Its values span a much wider range and the dataset distribution is more spread out. But physics saves the day. The **Euler characteristic**, a single integer summarizing a manifold's overall topological shape, satisfies a linear formula tying all four Hodge numbers together. Since the Euler characteristic is easy to compute algebraically, you can plug it in as a constraint. Do that, and the model achieves **100% total accuracy** even where individual predictions were uncertain.
 
-![Figure 5](/iaifi-research-blog/figures/2108_02221/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -89,15 +89,18 @@ The multi-task framing is interesting in its own right. When a single neural net
 
 > **Bottom Line:** CICYMiner shows that computer vision architectures adapted for abstract mathematical data can master Calabi-Yau geometry at scale. Combining multi-task learning with known physical constraints pushes accuracy to 100%, and the approach could help guide the search for physically realistic string vacua.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects state-of-the-art computer vision (Inception modules, multi-task learning) with one of the central mathematical challenges in string theory, showing that image-inspired architectures can extract deep geometric information from algebraic data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper treats CICY four-folds as a rigorous, large-scale benchmark for multi-task learning on structured mathematical inputs. Hard parameter sharing with task-specific heads significantly outperforms single-task baselines on highly imbalanced classification problems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By achieving near-perfect prediction of all four Hodge numbers of Calabi-Yau four-folds, the work provides a practical tool for rapidly characterizing string compactifications and sorting through the enormous space of possible vacuum configurations in F-theory.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend CICYMiner to non-standard vector bundles whose cohomologies directly determine particle spectra in string phenomenology; the full paper and code are available at [arXiv:2108.02221](https://arxiv.org/abs/2108.02221) and on GitHub.
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Deep multi-task mining Calabi-Yau four-folds</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2108.02221</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Harold Erbin", "Riccardo Finotello", "Robin Schneider", "Mohamed Tamaazousti"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We continue earlier efforts in computing the dimensions of tangent space cohomologies of Calabi-Yau manifolds using deep learning. In this paper, we consider the dataset of all Calabi-Yau four-folds constructed as complete intersections in products of projective spaces. Employing neural networks inspired by state-of-the-art computer vision architectures, we improve earlier benchmarks and demonstrate that all four non-trivial Hodge numbers can be learned at the same time using a multi-task architecture. With 30% (80%) training ratio, we reach an accuracy of 100% for $h^{(1,1)}$ and 97% for $h^{(2,1)}$ (100% for both), 81% (96%) for $h^{(3,1)}$, and 49% (83%) for $h^{(2,2)}$. Assuming that the Euler number is known, as it is easy to compute, and taking into account the linear constraint arising from index computations, we get 100% total accuracy.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects state-of-the-art computer vision (Inception modules, multi-task learning) with one of the central mathematical challenges in string theory, showing that image-inspired architectures can extract deep geometric information from algebraic data.
+
+- **Impact on Artificial Intelligence:** The paper treats CICY four-folds as a rigorous, large-scale benchmark for multi-task learning on structured mathematical inputs. Hard parameter sharing with task-specific heads significantly outperforms single-task baselines on highly imbalanced classification problems.
+
+- **Impact on Fundamental Interactions:** By achieving near-perfect prediction of all four Hodge numbers of Calabi-Yau four-folds, the work provides a practical tool for rapidly characterizing string compactifications and sorting through the enormous space of possible vacuum configurations in F-theory.
+
+- **Outlook and References:** Future work will extend CICYMiner to non-standard vector bundles whose cohomologies directly determine particle spectra in string phenomenology; the full paper and code are available at [arXiv:2108.02221](https://arxiv.org/abs/2108.02221) and on GitHub.
+
+## Original Paper Details
+- **Title:** Deep multi-task mining Calabi-Yau four-folds
+- **arXiv ID:** 2108.02221
+- **Authors:** ["Harold Erbin", "Riccardo Finotello", "Robin Schneider", "Mohamed Tamaazousti"]
+- **Abstract:** We continue earlier efforts in computing the dimensions of tangent space cohomologies of Calabi-Yau manifolds using deep learning. In this paper, we consider the dataset of all Calabi-Yau four-folds constructed as complete intersections in products of projective spaces. Employing neural networks inspired by state-of-the-art computer vision architectures, we improve earlier benchmarks and demonstrate that all four non-trivial Hodge numbers can be learned at the same time using a multi-task architecture. With 30% (80%) training ratio, we reach an accuracy of 100% for $h^{(1,1)}$ and 97% for $h^{(2,1)}$ (100% for both), 81% (96%) for $h^{(3,1)}$, and 49% (83%) for $h^{(2,2)}$. Assuming that the Euler number is known, as it is easy to compute, and taking into account the linear constraint arising from index computations, we get 100% total accuracy.

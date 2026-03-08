@@ -65,13 +65,13 @@ To decode this, the team trained a **conditional denoising diffusion model** (th
 - **Shift-invariant PSF:** Because the diffractive lens produces the same blur response across the entire image plane, a patch-trained model generalizes to any image size, from a small test crop to a 1280×1280 full-field scene.
 - **PSF-guided inference:** Patches are denoised in parallel, assembled into a full image, then a PSF-derived guidance signal forces the result to be consistent with the original grayscale measurement, resolving the ambiguity where neighboring patches bleed spectral signal across boundaries.
 
-![Figure 2](/iaifi-research-blog/figures/2412_02798/figure_2.png)
+![Figure 2](figure:2)
 
 The team tested eight different PSF designs and found that even the simplest phase-only configurations, with PSF supports as small as 32×32 pixels, yielded excellent spectral reconstructions.
 
 Drawing multiple samples from the model produces per-pixel uncertainty estimates (a probabilistic map of where the model is confident or guessing). These estimates strongly correlate with actual reconstruction error, giving users a built-in quality indicator at no extra cost.
 
-![Figure 1](/iaifi-research-blog/figures/2412_02798/figure_1.png)
+![Figure 1](figure:1)
 
 ## Why It Matters
 
@@ -83,9 +83,12 @@ On the AI side, the paper makes a quieter but equally important contribution: pa
 
 > **Bottom Line:** By marrying a minimalist single-optic design with patch-based diffusion and physics-guided inference, this Harvard team achieved what was previously unsolved: high-quality hyperspectral reconstruction from a grayscale snapshot, opening the door to compact, high-resolution spectral cameras built from a single flat lens and a plain photosensor.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses diffractive optics design with generative AI, showing that purposeful chromatic aberration encoded by a flat diffractive lens can be decoded by a physics-informed diffusion model to recover full spectral information from a grayscale image.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a patch-based conditional diffusion framework with PSF-guided inference synchronization, demonstrating for the first time that diffusion models can solve blurred inverse problems where the blur kernel is large relative to patch size, with uncertainty quantification that reliably tracks reconstruction error.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling snapshot hyperspectral imaging with a single flat optic and no color filters, this work could bring compact spectral sensing to scientific contexts ranging from astrophysical observation to materials characterization, where light efficiency and portability are at a premium.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include co-optimizing the diffractive lens design jointly with the reconstruction network, extending the approach to RGB measurements, and validating the system with physical hardware prototypes; the paper is available at [arXiv:2412.02798](https://arxiv.org/abs/2412.02798).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work fuses diffractive optics design with generative AI, showing that purposeful chromatic aberration encoded by a flat diffractive lens can be decoded by a physics-informed diffusion model to recover full spectral information from a grayscale image.
+
+- **Impact on Artificial Intelligence:** The paper introduces a patch-based conditional diffusion framework with PSF-guided inference synchronization, demonstrating for the first time that diffusion models can solve blurred inverse problems where the blur kernel is large relative to patch size, with uncertainty quantification that reliably tracks reconstruction error.
+
+- **Impact on Fundamental Interactions:** By enabling snapshot hyperspectral imaging with a single flat optic and no color filters, this work could bring compact spectral sensing to scientific contexts ranging from astrophysical observation to materials characterization, where light efficiency and portability are at a premium.
+
+- **Outlook and References:** Future directions include co-optimizing the diffractive lens design jointly with the reconstruction network, extending the approach to RGB measurements, and validating the system with physical hardware prototypes; the paper is available at [arXiv:2412.02798](https://arxiv.org/abs/2412.02798).

@@ -64,7 +64,7 @@ Through **coarse-graining**: the deliberate act of blurring out fine details. Ex
 
 The specific mechanism is **dephasing**. The qubit's **Bloch vector**, a geometric arrow representing the qubit's state in a 3D picture whose length reflects how "pure" or well-defined that state is, precesses rapidly like a wobbly spinning top. Time-average that spinning arrow and it shrinks. A shorter Bloch vector means higher entropy.
 
-![Figure 1](/iaifi-research-blog/figures/2506_16570/figure_1.png)
+![Figure 1](figure:1)
 
 The researchers studied the **Landau-Zener protocol**, a textbook scenario where two energy levels (think of two rungs on a ladder) are swept through a crossing point at a finite rate. At the crossing, the system faces its highest chance of jumping between rungs. This protocol has an exact analytical solution and appears everywhere from quantum computing to neutrino physics.
 
@@ -73,7 +73,7 @@ Does entropy build up smoothly as you sweep through the crossing, or does it osc
 - **The adiabatic frame** (ordinary energy eigenstates of the lab-frame Hamiltonian): entropy production lurches up and down as quantum phases interfere, wildly non-monotonic.
 - **The optimal superadiabatic frame**: entropy increases in a smooth, one-way ramp, mimicking gradual heat dissipation as a classical system approaches equilibrium.
 
-![Figure 2](/iaifi-research-blog/figures/2506_16570/figure_1.png)
+![Figure 2](figure:2)
 
 The superadiabatic frame incorporates a correction to the Hamiltonian that accounts for energy eigenstates moving in time. It's like switching from a stationary map to one that rotates with your compass; suddenly the view makes sense. In this frame, the effective equilibrium state is always well-defined, and the second law is obeyed far more faithfully.
 
@@ -81,7 +81,7 @@ The superadiabatic frame incorporates a correction to the Hamiltonian that accou
 
 The implications reach beyond quantum computing. The team also explored **Landau-Zener-Stückelberg-Majorana (LZSM) interferometry**, where the qubit starts in an arbitrary quantum state rather than the ground state. Here something unexpected shows up: nonadiabatic driving can actually *decrease* entropy, an apparent violation of the second law.
 
-![Figure 3](/iaifi-research-blog/figures/2506_16570/figure_2.png)
+![Figure 3](figure:3)
 
 Don't start building a perpetual motion machine just yet. These entropy-decreasing trajectories require extraordinarily precise initial conditions. Tiny errors in preparation wipe out the effect. The researchers carefully quantify how fine-tuned control must be, showing that deliberate second-law violations are thermodynamically possible but practically forbidding.
 
@@ -89,13 +89,16 @@ The deeper contribution is conceptual. Quantum thermodynamics usually focuses on
 
 The same mathematical structure (Landau-Zener transitions, frame-dependent particle definitions, superadiabatic corrections) appears in wildly different physical contexts: particle production in an expanding universe, neutrino flavor oscillations in stellar interiors, quantum heat engines. A thermodynamic language that unifies nonadiabaticity and decoherence could prove useful across all of them.
 
-![Figure 4](/iaifi-research-blog/figures/2506_16570/figure_2.png)
+![Figure 4](figure:4)
 
 > **Bottom Line:** By treating nonadiabatic control errors as entropy production and identifying the superadiabatic frame as the natural thermodynamic reference, this work lays groundwork for a unified theory of quantum control fidelity, one where noise and speed finally speak the same language.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects quantum information theory, quantum thermodynamics, and quantum control by recasting nonadiabatic driving errors (a quantum computing problem) in the language of entropy production from statistical mechanics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The entropy-production framework provides a new theoretical tool for characterizing and minimizing errors in qubit control protocols, with direct relevance to optimizing adiabatic quantum computing and gate-based quantum algorithms.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The analysis connects qubit thermodynamics to neutrino flavor evolution and cosmological particle production, exposing a structural parallel across seemingly unrelated domains of fundamental physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this framework to multi-qubit and open quantum systems, building a fully unified thermodynamic cost function for quantum error budgets; the paper is available at [arXiv:2506.16570](https://arxiv.org/abs/2506.16570).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects quantum information theory, quantum thermodynamics, and quantum control by recasting nonadiabatic driving errors (a quantum computing problem) in the language of entropy production from statistical mechanics.
+
+- **Impact on Artificial Intelligence:** The entropy-production framework provides a new theoretical tool for characterizing and minimizing errors in qubit control protocols, with direct relevance to optimizing adiabatic quantum computing and gate-based quantum algorithms.
+
+- **Impact on Fundamental Interactions:** The analysis connects qubit thermodynamics to neutrino flavor evolution and cosmological particle production, exposing a structural parallel across seemingly unrelated domains of fundamental physics.
+
+- **Outlook and References:** Future work could extend this framework to multi-qubit and open quantum systems, building a fully unified thermodynamic cost function for quantum error budgets; the paper is available at [arXiv:2506.16570](https://arxiv.org/abs/2506.16570).

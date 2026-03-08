@@ -60,7 +60,7 @@ The Universe looks the same everywhere and in every direction — a property phy
 
 That mathematical constraint is called **E(3)-equivariance**: a network whose outputs transform in lockstep with any rotation, reflection, or translation applied to the input. E(3) refers to all the ways you can move or mirror an object in three-dimensional space without distorting it. Rotate your galaxy catalog 90 degrees, and the network's outputs rotate correspondingly — no wasted capacity memorizing redundant orientations.
 
-![Figure 1](/iaifi-research-blog/figures/2410_20516/figure_1.png)
+![Figure 1](figure:1)
 
 The benchmark dataset comes from the **Quijote suite**, a collection of N-body simulations — where "N" refers to millions of individually tracked particles — modeling how dark matter and the galaxies it hosts evolve under gravity over cosmic time. The team curated point clouds of roughly 10,000 galaxy positions each, significantly larger than the O(100–1,000) point clouds used in prior GNN cosmology studies. Each galaxy carries its 3D position plus physical properties like velocity, making the data rich and multidimensional.
 
@@ -74,19 +74,22 @@ The downstream task is **cosmological parameter inference**: given a snapshot of
 
 The results tell a clear story with an important asterisk. Equivariant networks beat their non-equivariant counterparts, and do so more efficiently, requiring fewer simulations to reach the same performance. That efficiency matters enormously in cosmology, where a single N-body simulation can take thousands of CPU-hours. If a symmetry-aware network needs ten times fewer training examples for the same accuracy, that's not a convenience: it's the difference between a practical method and an impractical one.
 
-![Figure 2](/iaifi-research-blog/figures/2410_20516/figure_2.png)
+![Figure 2](figure:2)
 
 The domain-specific baselines (particularly those that explicitly compute long-range statistics like the power spectrum) still hold an edge when capturing correlations that stretch across the full simulation volume. Modern GNNs, even equivariant ones, aggregate information through local message-passing steps. Each layer propagates information one hop further through the galaxy graph, meaning very distant galaxies can't effectively "talk" to each other without many expensive layers in between. Cosmological data, shaped by physics that operated across the entire observable Universe in its first moments, demands global awareness that current architectures struggle to deliver.
 
-![Figure 3](/iaifi-research-blog/figures/2410_20516/figure_3.png)
+![Figure 3](figure:3)
 
 That gap is also the paper's most useful finding — it points directly at what to build next. Architectures that handle long-range correlations through global attention mechanisms, hierarchical pooling, or physics-inspired positional encodings could push performance significantly higher on cosmological inference. Similar multiscale problems arise in climate modeling, molecular dynamics, and particle physics, so solutions developed here would have reach well beyond galaxy surveys.
 
 > **Bottom Line:** Symmetry-preserving graph neural networks are a genuine leap forward for analyzing cosmic large-scale structure, outperforming standard networks in both accuracy and data efficiency — but closing the remaining gap with classical methods will require new architectures designed to see across cosmic distances.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects geometric deep learning and observational cosmology, using the Universe's fundamental symmetries as a design principle for neural networks while advancing our ability to extract physics from next-generation galaxy surveys.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a large-scale, physically structured point cloud benchmark and the `eqnn-jax` library — giving the machine learning community a rigorous testbed for equivariant architectures on O(10⁴)-point datasets, far beyond typical graph learning benchmarks.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">E(3)-equivariant networks match or exceed classical cosmological statistics on simulation efficiency. That opens the door to automated, ML-driven analysis of petabyte-scale galaxy surveys like DESI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work on long-range information extraction — through transformers, hierarchical GNNs, or physics-inspired global statistics — could close the remaining performance gap and fully automate cosmological parameter inference. Full paper: [arXiv:2410.20516](https://arxiv.org/abs/2410.20516)</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects geometric deep learning and observational cosmology, using the Universe's fundamental symmetries as a design principle for neural networks while advancing our ability to extract physics from next-generation galaxy surveys.
+
+- **Impact on Artificial Intelligence:** The paper introduces a large-scale, physically structured point cloud benchmark and the `eqnn-jax` library — giving the machine learning community a rigorous testbed for equivariant architectures on O(10⁴)-point datasets, far beyond typical graph learning benchmarks.
+
+- **Impact on Fundamental Interactions:** E(3)-equivariant networks match or exceed classical cosmological statistics on simulation efficiency. That opens the door to automated, ML-driven analysis of petabyte-scale galaxy surveys like DESI.
+
+- **Outlook and References:** Future work on long-range information extraction — through transformers, hierarchical GNNs, or physics-inspired global statistics — could close the remaining performance gap and fully automate cosmological parameter inference. Full paper: [arXiv:2410.20516](https://arxiv.org/abs/2410.20516)

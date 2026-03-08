@@ -61,7 +61,7 @@ A team of Harvard physicists has now developed the first **self-supervised learn
 
 The team built **NEPTUNE** (Neutrino Efficient Point Transformer for Ultrarelativistic Neutrino Events). It treats a neutrino event not as an image or a time series, but as a **point cloud**: a collection of light sensors that fired, each tagged with its 3D position and detection time. This is a natural fit for a sparse 3D detector where only a fraction of sensors register a signal in any given event.
 
-![Figure 1](/iaifi-research-blog/figures/2510_01733/figure_1.png)
+![Figure 1](figure:1)
 
 NEPTUNE has three main components:
 
@@ -73,7 +73,7 @@ NEPTUNE has three main components:
 
 The real novelty is in the pre-training. The team borrowed from **masked autoencoders**, a technique from computer vision where a model learns by having portions of its input randomly hidden, then tries to reconstruct what's missing. NEPTUNE's version conceals between 75% and 100% of sensor positions and timestamps during pre-training, forcing the model to fill them back in. No labels needed. The model picks up the internal structure of neutrino events purely from real detector data.
 
-![Figure 2](/iaifi-research-blog/figures/2510_01733/figure_1.png)
+![Figure 2](figure:2)
 
 After pre-training on unlabeled real data, the model is fine-tuned with a small amount of labeled simulation. The team used **block expansion**, inserting new processing layers (initialized to simply pass information through unchanged) on top of the frozen pre-trained layers. These fresh layers learn the downstream task without overwriting what the model already knows about actual detector signals.
 
@@ -83,7 +83,7 @@ To test whether this actually helps, the team designed a controlled experiment. 
 
 The results were clear. Conventionally supervised models, trained entirely on simulation, held up when noise rates were slightly wrong but consistent across both datasets. When the noise effect was completely absent from the simulation, performance degraded sharply. NEPTUNE, pre-trained on the "real" data, maintained strong performance in both cases.
 
-![Figure 3](/iaifi-research-blog/figures/2510_01733/figure_2.png)
+![Figure 3](figure:3)
 
 This has implications well beyond IceCube. Neutrino physics is entering a new era, with next-generation telescopes like IceCube-Gen2, KM3NeT, and Baikal-GVD coming online or under development. These instruments will collect vastly more data and face equally complex, imperfectly understood detector environments. The simulation-dependence problem only gets worse at scale.
 
@@ -91,9 +91,12 @@ The broader point is that self-supervised learning can serve not as a replacemen
 
 > **Bottom Line:** Training on real, unlabeled detector data can sharply reduce vulnerability to unmodeled detector effects. That becomes increasingly valuable as next-generation experiments push their sensitivity limits.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects transformer-based AI architectures from computer vision with the experimental challenges of large-scale neutrino physics, showing that self-supervised pre-training strategies carry over powerfully into fundamental particle detection.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces the first masked autoencoder pre-training pipeline tailored to 3D point cloud data from particle physics detectors, showing that high masking ratios (75–100%) force models to learn physically meaningful representations without any supervision.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By reducing systematic uncertainties from simulation mismodeling, this approach could sharpen neutrino direction reconstruction and flavor classification at IceCube and future gigaton-scale observatories, improving measurements of high-energy astrophysical neutrino sources.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The NEPTUNE codebase is publicly available on GitHub; future work will apply this pipeline at full IceCube scale. See [arXiv:2510.01733](https://arxiv.org/abs/2510.01733) for the full paper.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects transformer-based AI architectures from computer vision with the experimental challenges of large-scale neutrino physics, showing that self-supervised pre-training strategies carry over powerfully into fundamental particle detection.
+
+- **Impact on Artificial Intelligence:** The paper introduces the first masked autoencoder pre-training pipeline tailored to 3D point cloud data from particle physics detectors, showing that high masking ratios (75–100%) force models to learn physically meaningful representations without any supervision.
+
+- **Impact on Fundamental Interactions:** By reducing systematic uncertainties from simulation mismodeling, this approach could sharpen neutrino direction reconstruction and flavor classification at IceCube and future gigaton-scale observatories, improving measurements of high-energy astrophysical neutrino sources.
+
+- **Outlook and References:** The NEPTUNE codebase is publicly available on GitHub; future work will apply this pipeline at full IceCube scale. See [arXiv:2510.01733](https://arxiv.org/abs/2510.01733) for the full paper.

@@ -46,51 +46,52 @@ wordCount: 967
 
 ## The Big Picture
 
-Imagine trying to describe a sunset using only mathematics. You could measure wavelengths, calculate scattering angles, model atmospheric optics — and end up with a precise, beautiful equation. Now imagine the reverse: you have a neural network that has somehow "learned" the sunset, and you want to extract that equation back out of it. That, in essence, is the central challenge of AI-driven science discovery.
+Imagine trying to describe a sunset using only mathematics. You could measure wavelengths, calculate scattering angles, model atmospheric optics, and end up with a precise, beautiful equation. Now imagine the reverse: you have a neural network that has somehow "learned" the sunset, and you want to extract that equation back out of it. That is the central challenge of AI-driven science discovery.
 
-Modern AI is built on a simple but powerful idea: intelligence can emerge from vast webs of numbers, all tuned by exposure to data. Science, meanwhile, runs on something different — clean equations, conservation laws, and mathematical structures that hold true everywhere in the universe. These two approaches are fundamentally mismatched.
+Modern AI is built on a simple but powerful idea: intelligence can emerge from vast webs of numbers, all tuned by exposure to data. Science runs on something different: clean equations, conservation laws, and mathematical structures that hold true everywhere in the universe. These two approaches are mismatched at a basic level. A deep neural network can predict the trajectory of a particle with high accuracy, yet the physics it has learned stays locked inside billions of opaque parameters, invisible to the physicist who needs to understand *why* it works.
 
-A deep neural network can predict the trajectory of a particle with stunning accuracy, yet the physics it has learned stays locked inside billions of opaque parameters, invisible to the physicist who needs to understand *why* it works.
+A team at MIT and Caltech, led by Ziming Liu and Max Tegmark, wants to close that gap. In KAN 2.0, they extend Kolmogorov-Arnold Networks with new tools that let AI systems absorb prior scientific knowledge and actively reveal the symbolic laws hidden in their own learned representations.
 
-A team at MIT and Caltech led by Ziming Liu and Max Tegmark is working to close that gap. In KAN 2.0, they extend Kolmogorov-Arnold Networks with new tools that let AI systems not only absorb prior scientific knowledge, but actively reveal the symbolic laws hidden in their own learned representations.
-
-> **Key Insight:** KAN 2.0 creates a two-way bridge between AI and science — researchers can embed physical knowledge *into* a network, then extract symbolic laws *from* it, all within a single interpretable framework.
+> **Key Insight:** KAN 2.0 creates a two-way bridge between AI and science. Researchers can embed physical knowledge *into* a network, then extract symbolic laws *from* it, all within a single interpretable architecture.
 
 ## How It Works
 
-The foundation is the **Kolmogorov-Arnold Network (KAN)**, a neural architecture that differs from standard deep learning in one critical way. Where ordinary networks place fixed mathematical rules — called activation functions — at each node, KANs place *learnable* versions of those rules on the *connections* between nodes. The network learns one-dimensional transformations along each link, which can later be matched to known mathematical functions like sine, exponential, or power laws.
+At the core is the **Kolmogorov-Arnold Network (KAN)**, a neural architecture that differs from standard deep learning in one important way. Ordinary networks place fixed mathematical rules (activation functions) at each node. KANs place *learnable* versions of those rules on the *connections* between nodes. The network learns one-dimensional transformations along each link, which can later be matched to known mathematical functions like sine, exponential, or power laws.
 
-![Figure 1](/iaifi-research-blog/figures/2408_10205/figure_1.png)
+![Figure 1](figure:1)
 
-KAN 2.0's first major addition is **MultKAN** — an upgraded architecture that explicitly includes multiplication nodes alongside standard summation nodes. The mathematical theorem underlying KANs technically only requires addition and single-input functions, but that encoding is both inefficient and hard to read. Native multiplication nodes make the network far more concise when the underlying physics involves products — like kinetic energy (`½mv²`) or gravitational force (`GMm/r²`).
+KAN 2.0's first major addition is **MultKAN**, an upgraded architecture that explicitly includes multiplication nodes alongside standard summation nodes. The mathematical theorem underlying KANs technically only requires addition and single-input functions, but that encoding is inefficient and hard to read. Native multiplication nodes make the network far more concise when the underlying physics involves products, like kinetic energy (`½mv²`) or gravitational force (`GMm/r²`).
 
-![Figure 2](/iaifi-research-blog/figures/2408_10205/figure_2.png)
+![Figure 2](figure:2)
 
 The team built three interoperating tools around this architecture:
 
-- **kanpiler**: A compiler that translates a symbolic formula directly into a KAN, letting scientists inject known physics — say, Newton's law of gravity — as a structural prior rather than a soft penalty.
-- **tree converter**: Converts any trained KAN (or any neural network) into a tree-structured graph, exposing the compositional structure of a learned function in a way that flat weight matrices never could.
+- **kanpiler**: A compiler that translates a symbolic formula directly into a KAN, letting scientists inject known physics (say, Newton's law of gravity) as a structural prior rather than a soft penalty.
+- **tree converter**: Converts any trained KAN, or any neural network, into a tree-structured graph, exposing the compositional structure of a learned function in a way that flat weight matrices never could.
 - **Symbolic regression pipeline**: After training, individual activation functions on edges are matched to a library of known functions, progressively "freezing" the network into a readable mathematical formula.
 
-The framework operates at three levels of explanation, from coarse to fine: identifying *which inputs matter*, revealing *how those inputs combine*, and extracting *precise symbolic formulas*. Not every problem demands the deepest level — in chemistry or biology, knowing that two variables interact additively can already be a significant discovery.
+The system operates at three levels of explanation, from coarse to fine: identifying *which inputs matter*, revealing *how those inputs combine*, and extracting *precise symbolic formulas*. Not every problem demands the deepest level. In chemistry or biology, knowing that two variables interact additively can already be a real discovery.
 
 ## Why It Matters
 
-The practical demonstrations are striking. KAN 2.0 successfully rediscovers **conserved quantities** (like energy and momentum) from trajectory data, identifies **Lagrangians** — the elegant functions from which classical mechanics derives equations of motion — and uncovers **symmetries** in physical systems, a task that sits at the very heart of theoretical physics. It also discovers **constitutive laws**, the empirical relationships (like Hooke's Law or Ohm's Law) that characterize how materials respond to forces.
+The results speak for themselves. KAN 2.0 successfully rediscovers **conserved quantities** (like energy and momentum) from trajectory data, identifies **Lagrangians** (the elegant functions from which classical mechanics derives equations of motion), and uncovers **symmetries** in physical systems. It also discovers **constitutive laws**, the empirical relationships like Hooke's Law or Ohm's Law that characterize how materials respond to forces.
 
-![Figure 3](/iaifi-research-blog/figures/2408_10205/figure_3.png)
+![Figure 3](figure:3)
 
-The broader implication runs deeper than any single application. Science has always alternated between two modes: the grinding work of collecting data and fitting curves, and the sudden leap of recognizing that those curves encode something universal. KAN 2.0 is an attempt to accelerate the second mode.
+The deeper point goes beyond any single application. Science has always alternated between two modes: the grinding work of collecting data and fitting curves, and the sudden leap of recognizing that those curves encode something universal. KAN 2.0 is an attempt to accelerate the second mode.
 
-If a network trained on protein dynamics could be tree-converted, symbolically regressed, and handed back to a biochemist as a set of interpretable equations, the gap between AlphaFold-style prediction and genuine physical understanding narrows dramatically. The authors invoke AlphaFold explicitly as a system that must have internalized important unknown physics — physics that currently remains completely hidden.
+If a network trained on protein dynamics could be tree-converted, symbolically regressed, and handed back to a biochemist as a set of interpretable equations, the gap between AlphaFold-style prediction and genuine physical understanding could shrink considerably. The authors invoke AlphaFold explicitly as a system that must have internalized important unknown physics, physics that currently remains hidden.
 
 Open questions remain. Symbolic regression still relies on a predefined library of candidate functions; discovering truly novel mathematical structures requires either an enormous library or a different approach entirely. Scaling KANs to the parameter counts of frontier models is an active challenge. And the tree-conversion tool, while powerful, imposes a compositional structure that may not always reflect the true causal architecture of a phenomenon.
 
-> **Bottom Line:** KAN 2.0 turns neural networks into two-way instruments for science — not just black-box predictors, but interactive tools that can absorb prior knowledge and return interpretable physical laws, bringing curiosity-driven discovery one step closer to AI acceleration.
+> **Bottom Line:** KAN 2.0 turns neural networks into two-way instruments for science. They are not just black-box predictors but interactive tools that can absorb prior knowledge and return interpretable physical laws.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly addresses the fundamental tension between AI's connectionist foundations and science's symbolic language, proposing a unified framework that moves fluidly between data-driven learning and human-readable equations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The MultKAN architecture, kanpiler compiler, and tree converter constitute a new toolkit for interpretable machine learning, enabling any neural network to be analyzed for its underlying compositional and symbolic structure.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">KAN 2.0 demonstrates automated rediscovery of conserved quantities, Lagrangians, and symmetries — the core mathematical structures of fundamental physics — directly from observational data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on scaling KANs to larger scientific datasets and extending symbolic discovery to chemistry and biology; the paper is available on arXiv (arXiv:2408.10205) and the open-source `pykan` package can be installed via `pip install pykan`.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work targets the fundamental tension between AI's connectionist foundations and science's symbolic language, proposing a unified approach that moves fluidly between data-driven learning and human-readable equations.
+
+- **Impact on Artificial Intelligence:** The MultKAN architecture, kanpiler compiler, and tree converter form a new toolkit for interpretable machine learning, enabling any neural network to be analyzed for its underlying compositional and symbolic structure.
+
+- **Impact on Fundamental Interactions:** KAN 2.0 automates the rediscovery of conserved quantities, Lagrangians, and symmetries, the core mathematical structures of fundamental physics, directly from observational data.
+
+- **Outlook and References:** Future work will focus on scaling KANs to larger scientific datasets and extending symbolic discovery to chemistry and biology; the paper is available at [arXiv:2408.10205](https://arxiv.org/abs/2408.10205) and the open-source `pykan` package can be installed via `pip install pykan`.

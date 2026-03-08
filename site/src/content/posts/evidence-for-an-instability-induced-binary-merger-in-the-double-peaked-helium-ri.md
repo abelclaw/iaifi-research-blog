@@ -113,7 +113,7 @@ The discovery story began before anyone knew there was anything to discover. Arc
 
 This **precursor emission** (a long-lived glow at the explosion site before the blast) reached an absolute magnitude of about −15, making it extraordinarily luminous for pre-explosion activity and comparable to the faintest supernovae. In its final year, the source brightened further, accelerating toward collapse.
 
-![Figure 1](/iaifi-research-blog/figures/2502_19469/figure_1.png)
+![Figure 1](figure:1)
 
 After explosion, the light curve held another surprise. Rather than fading smoothly after a single peak, SN 2023zkd brightened to a first maximum around magnitude −18.7, faded, then climbed again to nearly −18.4. The two peaks sat 240 days apart. Shock-driven models fitted to the multi-band photometry indicate the explosion interacted with roughly **5–6 solar masses of circumstellar material (CSM)**, gas expelled by the progenitor before it died, with 2–3 solar masses powering each peak separately.
 
@@ -121,7 +121,7 @@ The spectroscopy told an equally strange story. Emission lines of hydrogen and h
 
 This geometry, a **bipolar-plus-toroidal CSM structure** (two jets firing from the top and bottom of the star, surrounded by a thick equatorial ring), requires the star to have shed mass in at least two distinct episodes. The first occurred roughly 3–4 years before explosion, the second about 1–2 years before, each through geometrically different mechanisms.
 
-![Figure 2](/iaifi-research-blog/figures/2502_19469/figure_1.png)
+![Figure 2](figure:2)
 
 The team ruled out explanations one by one:
 
@@ -132,7 +132,7 @@ The team ruled out explanations one by one:
 
 What fits best is a massive helium star, born with at least 30 solar masses, in a close binary orbit with a black hole. As it evolved and swelled, it began transferring mass onto the black hole, triggering runaway accretion. An instability eventually caused the two objects to spiral together in a **common-envelope merger**, where the black hole plunges so deep into the companion that both share the same outer layers. The merger ejected material in two successive episodes along different geometries before triggering core collapse.
 
-![Figure 3](/iaifi-research-blog/figures/2502_19469/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -144,13 +144,13 @@ That raises a set of concrete questions: how common are merger-driven explosions
 
 The tools to answer them (machine learning classifiers, automated alert brokers, simulation-based inference frameworks) are already in active development, many at IAIFI and affiliated institutions. SN 2023zkd is both a scientific result and a proof of concept for that pipeline.
 
-![Figure 4](/iaifi-research-blog/figures/2502_19469/figure_2.png)
+![Figure 4](figure:4)
 
 > **Bottom Line:** SN 2023zkd reveals a new pathway to stellar death — a massive helium star merging with a black hole companion, producing years of pre-explosion flaring and a unique double-peaked explosion — and sets the stage for a statistical census of such events with next-generation surveys.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines wide-field time-domain astronomy, spectroscopic modeling, and shock-interaction physics to decode an extraordinary transient, showing how multi-wavelength datasets can constrain exotic binary progenitor scenarios.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The detection and characterization of SN 2023zkd relied on automated survey pipelines and photometric classification tools increasingly powered by machine learning, highlighting AI's expanding role in identifying rare astrophysical events in real time.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By identifying an instability-induced black hole–helium star merger as the likely progenitor, this study provides a new observational handle on the end states of massive binary stellar evolution and the formation channels of compact object remnants.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future observations with Rubin Observatory and next-generation spectroscopic surveys will determine how common merger-driven supernovae are; the full study is available at [arXiv:2502.19469](https://arxiv.org/abs/2502.19469).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work combines wide-field time-domain astronomy, spectroscopic modeling, and shock-interaction physics to decode an extraordinary transient, showing how multi-wavelength datasets can constrain exotic binary progenitor scenarios.
+- **Impact on Artificial Intelligence:** The detection and characterization of SN 2023zkd relied on automated survey pipelines and photometric classification tools increasingly powered by machine learning, highlighting AI's expanding role in identifying rare astrophysical events in real time.
+- **Impact on Fundamental Interactions:** By identifying an instability-induced black hole–helium star merger as the likely progenitor, this study provides a new observational handle on the end states of massive binary stellar evolution and the formation channels of compact object remnants.
+- **Outlook and References:** Future observations with Rubin Observatory and next-generation spectroscopic surveys will determine how common merger-driven supernovae are; the full study is available at [arXiv:2502.19469](https://arxiv.org/abs/2502.19469).

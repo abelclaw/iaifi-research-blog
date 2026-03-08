@@ -62,7 +62,7 @@ The activations are *periodic*. They repeat in cycles. Decompose a number's repr
 
 Combine linear growth with multiple periodic oscillations, and you get a **helix** — a corkscrew path through high-dimensional space. The team formally characterized these as *generalized helices*: curves with both a linear component and sinusoidal components at multiple frequencies.
 
-![Figure 2](/iaifi-research-blog/figures/2502_00873/figure_2.png)
+![Figure 2](figure:2)
 
 This structure isn't a statistical curiosity. **Causal interventions** — experiments where the researchers surgically altered activations to point toward a different number's helix — confirmed that redirecting the helix directly changes the model's output. Numbers are helices. Now, how does the model add them?
 
@@ -73,13 +73,13 @@ The answer is the **Clock algorithm**, previously proposed for tiny one-layer tr
 3. Through **attention heads** (circuits that relate different parts of the input) and **MLP layers** (feed-forward networks that transform those patterns), the helices are combined — rotated and composed — to produce the **helix for a+b** on the final token.
 4. That answer helix is read out to select the correct output.
 
-![Figure 1](/iaifi-research-blog/figures/2502_00873/figure_1.png)
+![Figure 1](figure:1)
 
 Think of adding angles on a clock face: advance 4 hours from 3 o'clock and you reach 7. The model does something structurally similar, but in higher-dimensional space and simultaneously across multiple frequencies.
 
 Individual attention heads, MLP layers, and specific neurons each play a defined role — either constructing the a+b helix or extracting the answer from it. The researchers matched the activity of individual neurons against these helix patterns and verified each step causally. The results held across all three architectures. Llama3.1-8B achieved 98.0% accuracy on test problems. The mechanism also extends beyond addition: the helix is causally implicated in subtraction, and relevant to integer division, multiplication, and modular arithmetic.
 
-![Figure 3](/iaifi-research-blog/figures/2502_00873/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -93,9 +93,9 @@ The helix finding also raises an open question: is this structure universal? The
 
 > **Bottom Line:** Language models encode numbers as geometric helices and add them by rotating those helices — a clean, interpretable algorithm hiding inside billions of parameters. This is the clearest window yet into how AI systems actually do math.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies tools from signal processing (Fourier analysis) and differential geometry (helix parameterization) to reverse-engineer mathematical reasoning in neural networks — the kind of physics-inspired approach to AI that defines IAIFI's research agenda.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper delivers the first representation-level explanation of how a large language model performs arithmetic, giving mechanistic interpretability researchers a concrete foothold for understanding mathematical reasoning in billion-parameter models.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">LLMs spontaneously develop structured geometric encodings of number-theoretic concepts — including periodic bases and modular symmetries — pointing toward deep connections between information processing and the emergence of mathematical structure.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this framework to multi-digit numbers, more complex operations, and other structured domains like logic or spatial reasoning. The paper is by Kantamneni and Tegmark at MIT: [arXiv:2502.00873](https://arxiv.org/abs/2502.00873)</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies tools from signal processing (Fourier analysis) and differential geometry (helix parameterization) to reverse-engineer mathematical reasoning in neural networks — the kind of physics-inspired approach to AI that defines IAIFI's research agenda.
+- **Impact on Artificial Intelligence:** The paper delivers the first representation-level explanation of how a large language model performs arithmetic, giving mechanistic interpretability researchers a concrete foothold for understanding mathematical reasoning in billion-parameter models.
+- **Impact on Fundamental Interactions:** LLMs spontaneously develop structured geometric encodings of number-theoretic concepts — including periodic bases and modular symmetries — pointing toward deep connections between information processing and the emergence of mathematical structure.
+- **Outlook and References:** Future work could extend this framework to multi-digit numbers, more complex operations, and other structured domains like logic or spatial reasoning. The paper is by Kantamneni and Tegmark at MIT: [arXiv:2502.00873](https://arxiv.org/abs/2502.00873)

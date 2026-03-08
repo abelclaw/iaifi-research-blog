@@ -62,7 +62,7 @@ Researchers at MIT's IAIFI have now built a machine learning system that navigat
 
 The central insight behind OptPDE is simple: instead of searching for conserved quantities in a fixed equation, flip the problem around. Treat the equation's coefficients as adjustable knobs, and turn those knobs until the number of conserved quantities is as large as possible.
 
-![Figure 1](/iaifi-research-blog/figures/2405_04484/figure_1.png)
+![Figure 1](figure:1)
 
 This requires two interlocking pieces. The first is **CQFinder**, a routine that takes any PDE and a library of candidate basis functions, then computes how many conserved quantities that PDE actually has. It translates the conservation condition into a linear system, then uses **singular value decomposition (SVD)** to enumerate all solutions. In effect, CQFinder counts how many directions in function space remain perfectly frozen as the equation evolves.
 
@@ -78,11 +78,11 @@ The team ran this optimization 5,000 times from random starting points, each tim
 
 Four families emerged. One was immediately familiar: the **Korteweg–De Vries (KdV) equation**, one of the most celebrated integrable PDEs in mathematical physics. It describes shallow water waves and self-reinforcing wave packets called **solitons**. Finding it confirmed the method works.
 
-![Figure 2](/iaifi-research-blog/figures/2405_04484/figure_1.png)
+![Figure 2](figure:2)
 
 The other three families were new. The most striking was *u_t = (u_x + a²u_xxx)³*. Its special case *a = 0* gives *u_t = u_x³*, which looks deceptively simple but hides rich behavior. It supports wave-like solutions and develops breaking similar to Burgers' equation. Before breaking, it possesses infinitely many conserved quantities; afterward, the solution's magnitude decays following a power law, converging to a triangular wave shape.
 
-![Figure 3](/iaifi-research-blog/figures/2405_04484/figure_2.png)
+![Figure 3](figure:3)
 
 The machine generates a clean symbolic expression, not a black-box network, and human mathematicians step in to verify properties, prove theorems, and understand the physics. That closed loop is the whole point.
 
@@ -98,9 +98,12 @@ The method has clear limitations. The current search space is restricted to poly
 
 > **Bottom Line:** OptPDE discovered three previously unknown families of integrable PDEs by teaching a machine to hunt for conservation laws, showing that AI and human scientists working together can push the boundaries of mathematical physics in ways neither could alone.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">OptPDE combines machine learning with mathematical physics, using differentiable optimization and SVD to solve an open problem in PDE theory that resisted purely analytical approaches for decades.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work introduces a fully differentiable pipeline for symbolic scientific discovery, showing that gradient-based optimization can handle discrete-valued objectives like conserved-quantity counts through careful continuous relaxation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Three novel families of integrable PDEs were discovered, including *u_t = (u_x + a²u_xxx)³*, which exhibits wave breaking, infinitely many conserved quantities, and power-law decay.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending OptPDE to higher-dimensional PDEs and physically realistic systems like tokamak plasma dynamics; the work is available at [arXiv:2405.04484](https://arxiv.org/abs/2405.04484).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** OptPDE combines machine learning with mathematical physics, using differentiable optimization and SVD to solve an open problem in PDE theory that resisted purely analytical approaches for decades.
+
+- **Impact on Artificial Intelligence:** The work introduces a fully differentiable pipeline for symbolic scientific discovery, showing that gradient-based optimization can handle discrete-valued objectives like conserved-quantity counts through careful continuous relaxation.
+
+- **Impact on Fundamental Interactions:** Three novel families of integrable PDEs were discovered, including *u_t = (u_x + a²u_xxx)³*, which exhibits wave breaking, infinitely many conserved quantities, and power-law decay.
+
+- **Outlook and References:** Future directions include extending OptPDE to higher-dimensional PDEs and physically realistic systems like tokamak plasma dynamics; the work is available at [arXiv:2405.04484](https://arxiv.org/abs/2405.04484).

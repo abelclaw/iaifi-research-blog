@@ -56,7 +56,7 @@ Discrete diffusion uses **Continuous-Time Markov Chains (CTMCs)** — think of a
 
 It doesn't. The paper's core theorem makes this concrete: unless α equals exactly 1 (simple conditional generation, no amplification), the guided process samples from a distribution that only approximates the target, with errors that grow as α moves away from 1.
 
-![Figure 1](/iaifi-research-blog/figures/2502_06079/figure_1.png)
+![Figure 1](figure:1)
 
 The orange circles above represent the true target distribution across six discrete states. Red circles (standard guidance) misplace probability mass, over-weighting some states and under-weighting others. The problem worsens with higher α.
 
@@ -71,13 +71,13 @@ The result (shown in green in Figure 1) closely matches the target distribution 
 
 The team validated their method across three domains. On low-dimensional toy distributions, SMC matched the theoretical target while standard guidance failed visibly. On image generation, the approach matched or exceeded classifier guidance at high α values without the image degradation that plagues standard methods, measured along the optimal tradeoff curve between sample quality and conditioning strength.
 
-![Figure 2](/iaifi-research-blog/figures/2502_06079/figure_2.png)
+![Figure 2](figure:2)
 
 Text generation is where the stakes are highest. Language models operate over vocabularies of tens of thousands of individual text units (**tokens**), and steering coherent text toward a specific property — sentiment, topic, toxicity — is notoriously hard. The team tested sentiment-controlled generation, measuring **perplexity** (fluency) against sentiment accuracy.
 
 Standard guidance at high α produced accurate sentiment but shredded fluency — perplexity skyrocketed as the model generated unnatural, repetitive text. SMC maintained strong sentiment control while keeping perplexity near the unconditional baseline, and compared favorably against finetuning-based approaches that require additional training.
 
-![Figure 3](/iaifi-research-blog/figures/2502_06079/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -89,15 +89,15 @@ Open questions remain around computational cost — running many particles is mo
 
 > **Bottom Line:** Guidance for discrete diffusion is broken by design — and this paper fixes it. Wrapping any pre-trained discrete diffusion model in a Sequential Monte Carlo correction produces conditioned samples that provably target the intended distribution, with dramatic improvements in text fluency at high guidance strengths.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects statistical physics-inspired inference methods — Sequential Monte Carlo and Markov chain theory — to modern discrete generative AI, which is central to IAIFI's mission of bringing physics thinking to AI foundations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper delivers the first provably unbiased guided sampling algorithm for discrete diffusion models, with demonstrated improvements in text sentiment control, image generation, and discrete molecular domains — without any additional model training.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The CTMC framework has direct parallels in statistical mechanics and lattice field theory; the corrected sampling methods could enable more reliable generative models for scientific data in discrete spaces such as protein sequences or lattice configurations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on scaling SMC particle counts efficiently for large language models and extending the framework to conditional generation in scientific discovery tasks; the preprint is available at [arXiv:2502.06079](https://arxiv.org/abs/2502.06079).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Debiasing Guidance for Discrete Diffusion with Sequential Monte Carlo</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2502.06079</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Cheuk Kit Lee", "Paul Jeha", "Jes Frellsen", "Pietro Lio", "Michael Samuel Albergo", "Francisco Vargas"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Discrete diffusion models are a class of generative models that produce samples from an approximated data distribution within a discrete state space. Often, there is a need to target specific regions of the data distribution. Current guidance methods aim to sample from a distribution with mass proportional to $p_0(x_0) p(ζ|x_0)^α$ but fail to achieve this in practice. We introduce a Sequential Monte Carlo algorithm that generates unbiasedly from this target distribution, utilising the learnt unconditional and guided process. We validate our approach on low-dimensional distributions, controlled images and text generations. For text generation, our method provides strong control while maintaining low perplexity compared to guidance-based approaches.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects statistical physics-inspired inference methods — Sequential Monte Carlo and Markov chain theory — to modern discrete generative AI, which is central to IAIFI's mission of bringing physics thinking to AI foundations.
+- **Impact on Artificial Intelligence:** The paper delivers the first provably unbiased guided sampling algorithm for discrete diffusion models, with demonstrated improvements in text sentiment control, image generation, and discrete molecular domains — without any additional model training.
+- **Impact on Fundamental Interactions:** The CTMC framework has direct parallels in statistical mechanics and lattice field theory; the corrected sampling methods could enable more reliable generative models for scientific data in discrete spaces such as protein sequences or lattice configurations.
+- **Outlook and References:** Future work will focus on scaling SMC particle counts efficiently for large language models and extending the framework to conditional generation in scientific discovery tasks; the preprint is available at [arXiv:2502.06079](https://arxiv.org/abs/2502.06079).
+
+## Original Paper Details
+- **Title:** Debiasing Guidance for Discrete Diffusion with Sequential Monte Carlo
+- **arXiv ID:** 2502.06079
+- **Authors:** ["Cheuk Kit Lee", "Paul Jeha", "Jes Frellsen", "Pietro Lio", "Michael Samuel Albergo", "Francisco Vargas"]
+- **Abstract:** Discrete diffusion models are a class of generative models that produce samples from an approximated data distribution within a discrete state space. Often, there is a need to target specific regions of the data distribution. Current guidance methods aim to sample from a distribution with mass proportional to $p_0(x_0) p(ζ|x_0)^α$ but fail to achieve this in practice. We introduce a Sequential Monte Carlo algorithm that generates unbiasedly from this target distribution, utilising the learnt unconditional and guided process. We validate our approach on low-dimensional distributions, controlled images and text generations. For text generation, our method provides strong control while maintaining low perplexity compared to guidance-based approaches.

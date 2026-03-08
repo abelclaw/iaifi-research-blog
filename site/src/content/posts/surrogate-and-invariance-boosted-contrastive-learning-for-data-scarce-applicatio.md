@@ -63,7 +63,7 @@ A team at MIT has developed **SIB-CL** (Surrogate- and Invariance-Boosted Contra
 
 The core idea is that even when precise labels are scarce, science problems are rarely information-starved. They come packaged with rich structural knowledge that conventional supervised learning ignores entirely. SIB-CL consumes all of it.
 
-![Figure 1](/iaifi-research-blog/figures/2110_08406/figure_1.png)
+![Figure 1](figure:1)
 
 The framework draws on three auxiliary information sources:
 
@@ -75,7 +75,7 @@ SIB-CL fuses these sources through a two-stage training pipeline. In the first s
 
 The model sees two differently-transformed versions of the same input and learns to place them close together in a shared representational space, while pushing representations of different inputs far apart. The transformations aren't arbitrary. They're chosen to reflect the actual physical symmetries of the problem. A rotation that leaves a crystal's properties invariant becomes a principled training signal. The physics does the work.
 
-![Figure 2](/iaifi-research-blog/figures/2110_08406/figure_1.png)
+![Figure 2](figure:2)
 
 Interleaved with this contrastive step is **surrogate transfer learning**: the model pre-trains on the cheaper approximate dataset before fine-tuning on the small, precious set of high-fidelity labels. This gives the network's **encoder**, the component that transforms raw inputs into a compact internal representation, a meaningful head start. It arrives at fine-tuning already understanding the structure of the problem, even if the surrogate's answers aren't exact.
 
@@ -85,7 +85,7 @@ The team validated SIB-CL on two demanding test cases. The first: predicting the
 
 The second: solving the **3D time-independent Schrödinger equation** for quantum systems, a central problem in quantum chemistry and materials design. In both cases, SIB-CL matched the accuracy of standard supervised learning while using orders of magnitude fewer labeled examples.
 
-![Figure 3](/iaifi-research-blog/figures/2110_08406/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -99,9 +99,12 @@ Open questions remain. The current demonstrations focus on well-defined problems
 
 > **Bottom Line:** The rich structural knowledge embedded in physics problems (symmetries, approximate models, unlabeled structure) can be systematically harvested to reduce labeled-data requirements by orders of magnitude, making deep learning viable for some of science's most expensive computational problems.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the AI-physics interface, translating principles from contrastive self-supervised learning into a framework that explicitly encodes physical symmetries and exploits the hierarchical structure of approximate versus exact scientific calculations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">SIB-CL advances the self-supervised learning toolkit by showing that domain-specific invariances can substitute for generic image augmentations, yielding dramatically more data-efficient pre-training when those invariances are physically grounded.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By making accurate property prediction tractable with far fewer labeled simulations, the framework speeds up research in photonics and quantum mechanics, domains where simulation cost has long constrained what questions researchers can ask computationally.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will likely extend SIB-CL to experimental datasets and to problems where invariances must be discovered rather than specified. The full paper is available at [arXiv:2110.08406](https://arxiv.org/abs/2110.08406).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits at the AI-physics interface, translating principles from contrastive self-supervised learning into a framework that explicitly encodes physical symmetries and exploits the hierarchical structure of approximate versus exact scientific calculations.
+
+- **Impact on Artificial Intelligence:** SIB-CL advances the self-supervised learning toolkit by showing that domain-specific invariances can substitute for generic image augmentations, yielding dramatically more data-efficient pre-training when those invariances are physically grounded.
+
+- **Impact on Fundamental Interactions:** By making accurate property prediction tractable with far fewer labeled simulations, the framework speeds up research in photonics and quantum mechanics, domains where simulation cost has long constrained what questions researchers can ask computationally.
+
+- **Outlook and References:** Future work will likely extend SIB-CL to experimental datasets and to problems where invariances must be discovered rather than specified. The full paper is available at [arXiv:2110.08406](https://arxiv.org/abs/2110.08406).

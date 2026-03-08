@@ -48,23 +48,23 @@ wordCount: 1067
 
 ## The Big Picture
 
-Imagine hiring a chess grandmaster to improve your game — but instead of explaining strategy, they just silently win every match. Their results are undeniable. You've learned nothing you can use yourself.
+Imagine hiring a chess grandmaster to improve your game, but instead of explaining strategy, they just silently win every match. Their results are undeniable. You've learned nothing you can use yourself.
 
 This is the situation physicists face when deploying deep neural networks to analyze particle collision data. The machine wins. The physicists scratch their heads.
 
-At the Large Hadron Collider, neural networks classify **jets** — sprays of particles produced when fundamental matter slams together at nearly the speed of light — with stunning accuracy. But stunning accuracy comes with a frustrating asterisk: nobody knows exactly *how* the machine does it. The network ingests thousands of detector readings and produces a classification through layers of opaque mathematics. Physicists need to validate that the machine is using real physical information, not artifacts of the training data. They need to estimate systematic uncertainties. They need to understand the physics.
+At the Large Hadron Collider, neural networks classify **jets** (sprays of particles produced when fundamental matter collides at nearly the speed of light) with impressive accuracy. But that accuracy comes with a frustrating asterisk: nobody knows exactly *how* the machine does it. The network ingests thousands of detector readings and produces a classification through layers of opaque mathematics. Physicists need to validate that the machine is using real physical information, not artifacts of the training data. They need to estimate systematic uncertainties. They need to understand the physics.
 
-Researchers Taylor Faucett, Jesse Thaler, and Daniel Whiteson have built a systematic method to crack open that black box — not by peering inside, but by finding simple, human-readable quantities that make the same decisions as the neural network.
+Taylor Faucett, Jesse Thaler, and Daniel Whiteson built a systematic method to crack open that black box, not by peering inside, but by finding simple, human-readable quantities that make the same decisions as the neural network.
 
-> **Key Insight:** Rather than interpreting the neural network directly, the researchers use it as a guide to discover which human-understandable physical quantities capture the same information — closing the performance gap while revealing overlooked physics.
+> **Key Insight:** Rather than interpreting the neural network directly, the researchers use it as a guide to discover which human-understandable physical quantities capture the same information, closing the performance gap while revealing overlooked physics.
 
 ## How It Works
 
 The core challenge is defining what "makes the same decisions" means mathematically. The team introduces a metric called **Average Decision Ordering (ADO)**, inspired by classical rank-correlation statistics. Instead of asking whether two classifiers assign the same numerical score to each event, ADO asks a subtler question: for any pair of events, do the two classifiers agree on which one is *more* signal-like? This pairwise comparison measures agreement in ranking order, independent of absolute scores.
 
-![Figure 1](/iaifi-research-blog/figures/2010_11998/figure_1.png)
+![Figure 1](figure:1)
 
-With ADO as their compass, the researchers build a **black-box guided search strategy** — an iterative algorithm:
+With ADO as their compass, the researchers build an iterative search algorithm:
 
 1. Start with a large library of candidate high-level physics observables
 2. Find the single observable with the highest ADO relative to the neural network
@@ -72,35 +72,38 @@ With ADO as their compass, the researchers build a **black-box guided search str
 4. Identify the event pairs the current set still *misorients* compared to the neural network
 5. Repeat, focusing only on those remaining misoriented pairs
 
-This focus on "hard cases" is what makes the search efficient. The algorithm doesn't waste iterations on pairs already handled correctly — it drives directly toward the gaps.
+This focus on "hard cases" is what makes the search efficient. The algorithm doesn't waste iterations on pairs already handled correctly; it drives directly toward the gaps.
 
-The case study is **boosted W boson classification**: distinguishing jets from W bosons — particles carrying the weak nuclear force, which decay into two visible particle streams — versus jets from ordinary quarks and gluons that produce just one stream. The black box is a convolutional neural network trained on 37×37 pixel calorimeter images. The human-readable candidates are **Energy Flow Polynomials (EFPs)**, a mathematically complete set of collider observables that remain physically well-defined even when soft or nearly collinear particles are present.
+The case study is **boosted W boson classification**: distinguishing jets from W bosons (particles carrying the weak nuclear force, which decay into two visible particle streams) versus jets from ordinary quarks and gluons that produce just one stream. The black box is a convolutional neural network trained on 37×37 pixel calorimeter images. The human-readable candidates are **Energy Flow Polynomials (EFPs)**, a mathematically complete set of collider observables that remain physically well-defined even when soft or nearly collinear particles are present.
 
-The team applies their method in two modes. In *supplementation mode*, the algorithm starts from six well-known jet substructure observables and searches for what's missing. It quickly identifies a seventh — a specific EFP with a "triangle" graph topology — that the jet substructure community had not previously considered for this task. Adding it nearly closes the performance gap between the human-engineered approach and the CNN. Physically, this EFP encodes a three-particle angular correlation matching the geometry expected from a W boson's two-pronged decay.
+The team applies their method in two modes. In *supplementation mode*, the algorithm starts from six well-known jet substructure observables and searches for what's missing. It quickly identifies a seventh, a specific EFP with a "triangle" graph topology that the jet substructure community had not previously considered for this task. Adding it nearly closes the performance gap between the human-engineered approach and the CNN. Physically, this EFP encodes a three-particle angular correlation matching the geometry expected from a W boson's two-pronged decay.
 
-![Figure 2](/iaifi-research-blog/figures/2010_11998/figure_2.png)
+![Figure 2](figure:2)
 
 In *from-scratch mode*, starting only from raw jet image inputs, the algorithm iteratively assembles a set of EFPs that matches CNN performance within statistical uncertainty. The selected EFPs tell a coherent physical story about what distinguishes W jets from QCD jets.
 
-![Figure 3](/iaifi-research-blog/figures/2010_11998/figure_3.png)
+![Figure 3](figure:3)
 
-Critically, the black-box guided search dramatically outperforms both brute-force search and "truth-label guiding" — using the known particle labels as the guide instead of the neural network. The black box is a *better* teacher than the ground truth itself, because it encodes decision boundaries tuned to the actual structure of the data, not just the labels.
+The black-box guided search also far outperforms both brute-force search and "truth-label guiding," where the known particle labels serve as the guide instead of the neural network. The black box turns out to be a *better* teacher than the ground truth itself, because it encodes decision boundaries tuned to the actual structure of the data, not just the labels.
 
 ## Why It Matters
 
-This work addresses one of the most pressing tensions in modern particle physics: the tradeoff between performance and interpretability. Neural networks win the performance contest — but physics requires more than winning.
+Neural networks and interpretability are in tension throughout particle physics. The networks win the performance contest, but physics requires more than winning.
 
 Results must be validated against physical models. Systematic uncertainties must be estimated and reported. Theoretical predictions must be tested. None of that is straightforward when your classifier is 40 layers of convolutions.
 
-The method Faucett, Thaler, and Whiteson introduce offers a path forward that doesn't require choosing between performance and interpretability. Train the powerful network first — let it find the optimal decision boundary. Then use it as a guide to find the simplest human-readable approximation of that boundary. The result is a compact set of physically interpretable observables that can be individually calibrated, theoretically predicted, and experimentally validated, while capturing essentially all the discriminating power of the original machine.
+Faucett, Thaler, and Whiteson's method sidesteps the tradeoff. Train the powerful network first and let it find the optimal decision boundary. Then use it as a guide to find the simplest human-readable approximation of that boundary. You end up with a compact set of physically interpretable observables that can be individually calibrated, theoretically predicted, and experimentally validated, while capturing essentially all the discriminating power of the original machine.
 
-Beyond jet physics, the technique applies anywhere a black-box ML system operates on high-dimensional data but a human-readable summary would be valuable. Medical imaging, climate modeling, materials discovery — any domain where "why" matters as much as "what" could benefit from this approach to building interpretability from the ground up.
+The technique generalizes beyond jet physics to anywhere a black-box ML system operates on high-dimensional data but a human-readable summary would be more useful. Medical imaging, climate modeling, materials discovery: if understanding the *reason* behind a prediction matters, not just the prediction itself, the same iterative search could apply.
 
-> **Bottom Line:** By treating a neural network as a guide rather than an oracle, this work translates black-box machine intelligence into discoverable physics — and in doing so, uncovers a jet substructure observable that human physicists had overlooked for years.
+> **Bottom Line:** By treating a neural network as a guide rather than an oracle, this work translates black-box classification into discoverable physics, and in doing so, uncovers a jet substructure observable that physicists had overlooked for years.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges machine learning and experimental particle physics by developing Average Decision Ordering — a rigorous mathematical framework that translates opaque neural network decisions into physically interpretable observables grounded in collider phenomenology.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The black-box guided search strategy offers a general interpretability technique applicable beyond physics, providing a principled way to approximate any high-dimensional classifier with a compact, human-readable model without sacrificing performance.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Applied to jet substructure at colliders, the method recovered all discriminating power of a CNN while identifying a previously overlooked three-particle angular correlation observable, opening new directions in the theoretical understanding of jet formation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this framework to more complex tasks such as full event reconstruction or flavor tagging, and to larger EFP libraries; the full paper is available at arXiv:2010.11998.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects machine learning and experimental particle physics by developing Average Decision Ordering, a mathematical framework that translates opaque neural network decisions into physically interpretable observables grounded in collider phenomenology.
+
+- **Impact on Artificial Intelligence:** The black-box guided search strategy is a general interpretability technique applicable beyond physics, providing a principled way to approximate any high-dimensional classifier with a compact, human-readable model without sacrificing performance.
+
+- **Impact on Fundamental Interactions:** Applied to jet substructure at colliders, the method recovered all discriminating power of a CNN while identifying a previously overlooked three-particle angular correlation observable, opening new directions in the theoretical understanding of jet formation.
+
+- **Outlook and References:** Future work could extend this framework to more complex tasks such as full event reconstruction or flavor tagging, and to larger EFP libraries; the full paper is available at [arXiv:2010.11998](https://arxiv.org/abs/2010.11998).

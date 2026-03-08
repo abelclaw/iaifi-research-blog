@@ -64,11 +64,11 @@ They pursue this with two complementary strategies:
 
 To verify equivalence, the team compares **hyperbolic knot volumes** — a powerful invariant that acts like a unique barcode for most knots. If a freshly generated braid word shares the same hyperbolic volume as the input, it's almost certainly the same knot. Both methods succeed.
 
-![Figure 1](/iaifi-research-blog/figures/2504_12390/figure_1.png)
+![Figure 1](figure:1)
 
 With the networks trained, Halverson and Ruehle ask a deeper question: *what did they actually learn?* A student-teacher experiment probes this. Large "teacher" networks produce compact numerical representations of braid words. Simpler "student" networks then try to reproduce those representations — but using only known mathematical invariants as input: the Alexander polynomial, HOMFLY polynomial, signature, and the **Goeritz matrix** (which encodes how strands link and wrap around each other).
 
-![Figure 2](/iaifi-research-blog/figures/2504_12390/figure_2.png)
+![Figure 2](figure:2)
 
 The verdict is consistent across every architecture and training method: the student finds the strongest correlation with the Goeritz matrix. Given no hints, the neural networks converged on the same object that experienced knot theorists regard as fundamental. This is automated mathematical discovery, and it raises an immediate question: could a more expressive student network point toward invariants not yet named?
 
@@ -78,7 +78,7 @@ Could there exist a genuinely knotted loop whose Jones polynomial is identical t
 
 The team trains a Transformer to map Jones polynomials to braid words, then searches the network's learned space near the region where unknots cluster. This generates thousands of candidate braid words with simple Jones polynomials, which are then checked against other invariants to separate genuine unknots from imposters.
 
-![Figure 3](/iaifi-research-blog/figures/2504_12390/figure_3.png)
+![Figure 3](figure:3)
 
 No counterexample was found — but the framework itself is new: a principled, generative method for exploring a conjecture that pure mathematics has not yet cracked.
 
@@ -92,9 +92,9 @@ The generative approach to the Jones Unknot Conjecture is equally promising. Rat
 
 > **Bottom Line:** Neural networks can learn that two knots are equivalent without being told what a topological invariant is — and when you ask what they learned, they point straight at the Goeritz matrix, while opening a new computational front on the Jones Unknot Conjecture.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges pure mathematics and machine learning by training neural networks to autonomously discover topological equivalence, showing that deep learning can recover classical mathematical insights without explicit guidance.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The contrastive and generative learning framework, combined with the student-teacher interpretability setup, offers a broadly applicable template for using AI to discover abstract equivalence relations in any domain where invariants are unknown.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Topology is central to modern physics, from gauge theories to string compactifications; automating its recognition opens new computational routes through these structures.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending these methods to higher-dimensional spaces and linking topological structures to physical observables; the paper is available at [arXiv:2504.12390](https://arxiv.org/abs/2504.12390).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work bridges pure mathematics and machine learning by training neural networks to autonomously discover topological equivalence, showing that deep learning can recover classical mathematical insights without explicit guidance.
+- **Impact on Artificial Intelligence:** The contrastive and generative learning framework, combined with the student-teacher interpretability setup, offers a broadly applicable template for using AI to discover abstract equivalence relations in any domain where invariants are unknown.
+- **Impact on Fundamental Interactions:** Topology is central to modern physics, from gauge theories to string compactifications; automating its recognition opens new computational routes through these structures.
+- **Outlook and References:** Future directions include extending these methods to higher-dimensional spaces and linking topological structures to physical observables; the paper is available at [arXiv:2504.12390](https://arxiv.org/abs/2504.12390).

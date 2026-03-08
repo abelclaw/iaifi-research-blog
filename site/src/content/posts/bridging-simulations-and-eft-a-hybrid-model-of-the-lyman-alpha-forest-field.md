@@ -71,19 +71,19 @@ The fix: steal the hard part from simulations. The team's **Hybrid EFT (HEFT)** 
 
 Once each particle has its weight, the model "paints" the Ly-α field onto a grid by depositing these weights at the particles' final positions. The bias parameters are then fit by minimizing the difference between the modeled field and the actual simulated field.
 
-![Figure 1](/iaifi-research-blog/figures/2512_13681/figure_1.png)
+![Figure 1](figure:1)
 
 A critical technical advantage here is **cosmic variance cancellation**. Because the model and reference simulation share the same initial conditions, fluctuations common to both cancel out. The comparison becomes sensitive to genuine modeling errors rather than random cosmic scatter.
 
-![Figure 2](/iaifi-research-blog/figures/2512_13681/figure_1.png)
+![Figure 2](figure:2)
 
 The payoff is clear in the residuals. The difference between the HEFT model and the true simulated field has a nearly white power spectrum, roughly constant across all scales and directions out to k ~ 1 h/Mpc. A purely perturbative EFT approach, by contrast, produces residuals that grow rapidly at small scales and develop strong anisotropy. It misses coherent small-scale flows that the N-body simulation captures correctly.
 
-![Figure 3](/iaifi-research-blog/figures/2512_13681/figure_2.png)
+![Figure 3](figure:3)
 
 Why does a white residual matter so much? Because it can be modeled with just one or two free parameters instead of a complicated scale- and angle-dependent function. It's the difference between fitting a flat line and fitting a wiggly curve to noisy data.
 
-![Figure 4](/iaifi-research-blog/figures/2512_13681/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -93,19 +93,22 @@ The EFT framework corrects this bias, but its reach has been limited by messy st
 
 Looking forward, this framework opens a concrete path to fast emulators: surrogate models that predict Ly-α forest clustering statistics across a grid of cosmological parameters at a fraction of the cost of running full simulations. The team plans to extend their approach to cross-correlations between the Ly-α forest and other tracers like high-redshift galaxies and quasars. These multi-tracer analyses can break degeneracies between cosmological parameters. With WEAVE-QSO, the Prime Focus Spectrograph, and 4MOST all coming online this decade, these tools are needed soon.
 
-![Figure 5](/iaifi-research-blog/figures/2512_13681/figure_3.png)
+![Figure 5](figure:5)
 
 There's also a broader point here. HEFT was originally developed for galaxy clustering; this paper extends it to a fundamentally different tracer, one defined by gas absorption rather than discrete objects. The same techniques may prove useful for modeling any diffuse tracer of large-scale structure where discrete-object biasing breaks down.
 
-![Figure 6](/iaifi-research-blog/figures/2512_13681/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** By marrying N-body simulation dynamics with perturbative EFT bias modeling, this hybrid approach achieves 5% accuracy in the Ly-α forest power spectrum down to k ≤ 1 h/Mpc, with a nearly white residual that simplifies the road to precision cosmology with DESI.
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines N-body machinery from numerical cosmology with the theoretical rigor of EFT, a synthesis that neither field achieves alone and a natural fit for IAIFI's cross-disciplinary mission.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">HEFT provides the foundation for fast ML surrogate emulators that can replace expensive simulations in cosmological inference pipelines, making parameter estimation over large datasets computationally tractable.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By controlling Ly-α forest stochasticity at the field level, this approach enables unbiased BAO and broadband power spectrum measurements from DESI, directly tightening constraints on the universe's expansion history and neutrino masses.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The team plans to develop full-shape Ly-α forest emulators targeting DESI and DESI-II, with extensions to multi-tracer cross-correlations; full results appear at [arXiv:2512.13681](https://arxiv.org/abs/2512.13681).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work combines N-body machinery from numerical cosmology with the theoretical rigor of EFT, a synthesis that neither field achieves alone and a natural fit for IAIFI's cross-disciplinary mission.
+
+- **Impact on Artificial Intelligence:** HEFT provides the foundation for fast ML surrogate emulators that can replace expensive simulations in cosmological inference pipelines, making parameter estimation over large datasets computationally tractable.
+
+- **Impact on Fundamental Interactions:** By controlling Ly-α forest stochasticity at the field level, this approach enables unbiased BAO and broadband power spectrum measurements from DESI, directly tightening constraints on the universe's expansion history and neutrino masses.
+
+- **Outlook and References:** The team plans to develop full-shape Ly-α forest emulators targeting DESI and DESI-II, with extensions to multi-tracer cross-correlations; full results appear at [arXiv:2512.13681](https://arxiv.org/abs/2512.13681).

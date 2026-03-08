@@ -65,7 +65,7 @@ LIGO's squeezed light comes from an **optical parametric oscillator (OPO)**, a s
 
 Over O3, the Livingston detector averaged only 2.23 dB of squeezing, nearly 1 dB below peak, with a standard deviation of 0.36 dB. For next-generation detectors targeting 10 dB of squeezing, those fluctuations would be catastrophic.
 
-![Figure 1](/iaifi-research-blog/figures/2305_13780/figure_1.png)
+![Figure 1](figure:1)
 
 The researchers framed this as a prediction problem. They trained neural networks on O3 data, using **auxiliary channels** (sensor streams that monitor the detector's physical environment) as inputs to predict squeezing level. Input selection wasn't done by hand. Instead, they used a **genetic algorithm**, a search strategy modeled on natural selection where candidate input combinations compete and only the most informative survive, to identify which channels carry the most signal about squeezing performance.
 
@@ -77,13 +77,13 @@ The workflow breaks into three connected stages:
 
 The models weren't black boxes. The team performed **sensitivity analysis**, systematically varying each input to measure its effect on the output, to understand which factors drove predictions most strongly. This turned the model from a predictor into a diagnostic tool: an AI that can tell engineers what's degrading squeezing right now and by how much.
 
-![Figure 2](/iaifi-research-blog/figures/2305_13780/figure_1.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 
 Future detectors like Einstein Telescope and Cosmic Explorer are designed to reach up to 10 dB of squeezing. The light-loss fluctuations behind O3's variability, extrapolated to a 10 dB source, would drag performance well below target. That's not a minor inconvenience; it's a barrier to the science these detectors exist to do.
 
-![Figure 3](/iaifi-research-blog/figures/2305_13780/figure_2.png)
+![Figure 3](figure:3)
 
 The natural next step is a self-correcting AI control system for quantum instruments. This paper handles the sensing side: predicting squeezing from auxiliary data. What remains is actuation, having the model not just watch but intervene, adjusting squeezer parameters to push performance back toward optimum.
 
@@ -91,9 +91,12 @@ That's a harder problem, real-time control with physical consequences, but the p
 
 > **Bottom Line:** By training neural networks to predict LIGO's quantum squeezing performance from environmental sensors, this team built a diagnostic AI that pinpoints the sources of noise degradation, a necessary foundation for the AI-controlled quantum instruments that next-generation detectors will require.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses quantum optics engineering with modern machine learning, applying neural networks and genetic algorithms to optimize one of the most sensitive quantum instruments ever built.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The combination of neural network prediction with genetic algorithm-based feature selection and post-hoc sensitivity analysis shows how interpretable ML can function as a scientific diagnostic tool, not just a black-box predictor, in high-stakes experimental settings.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By identifying and quantifying the dominant sources of squeezing degradation in LIGO's O3 data, this research directly informs the design and operation of next-generation gravitational-wave observatories targeting squeezing levels up to 10 dB.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors frame this as the sensing half of a future closed-loop control system, with actuation on the squeezer subsystem as the next step; the full paper is available at [arXiv:2305.13780](https://arxiv.org/abs/2305.13780).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work fuses quantum optics engineering with modern machine learning, applying neural networks and genetic algorithms to optimize one of the most sensitive quantum instruments ever built.
+
+- **Impact on Artificial Intelligence:** The combination of neural network prediction with genetic algorithm-based feature selection and post-hoc sensitivity analysis shows how interpretable ML can function as a scientific diagnostic tool, not just a black-box predictor, in high-stakes experimental settings.
+
+- **Impact on Fundamental Interactions:** By identifying and quantifying the dominant sources of squeezing degradation in LIGO's O3 data, this research directly informs the design and operation of next-generation gravitational-wave observatories targeting squeezing levels up to 10 dB.
+
+- **Outlook and References:** The authors frame this as the sensing half of a future closed-loop control system, with actuation on the squeezer subsystem as the next step; the full paper is available at [arXiv:2305.13780](https://arxiv.org/abs/2305.13780).

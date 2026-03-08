@@ -64,23 +64,23 @@ Getting from one to the other requires inverting a mathematical transform that i
 
 2. **Identify the right tensor structures.** Different glueballs are distinguished by their **tensor structure**, the geometric shape of how gluon fields combine at the interaction point. For the scalar glueball ($J^{PC} = 0^{++}$, zero spin and symmetric under certain reflections), the natural arrangement of the four-gluon vertex suffices. For the pseudo-scalar ($J^{PC} = 0^{-+}$, which flips sign under those same reflections), the team employs a structure involving the antisymmetric tensor $\varepsilon_{\mu\nu\rho\sigma}$, chosen so the two channels stay orthogonal. Keeping them from bleeding into each other is essential; mixing channels would make spectral reconstruction exponentially harder.
 
-![Figure 1](/iaifi-research-blog/figures/2212_01113/figure_1.png)
+![Figure 1](figure:1)
 
 3. **Reconstruct the spectral function with Gaussian process regression (GPR).** Here is where machine learning enters. GPR is a Bayesian technique that treats the unknown **spectral function** (a mathematical object encoding all the frequencies at which a quantum field can vibrate, with peaks corresponding to real particles) as a random field with a prior encoding smoothness assumptions. Given the Euclidean data, GPR updates that prior to a posterior, yielding both a best estimate and rigorous uncertainty bands. It handles the ill-posed inversion gracefully: it doesn't claim to know more than the data support.
 
-![Figure 2](/iaifi-research-blog/figures/2212_01113/figure_1.png)
+![Figure 2](figure:2)
 
 Where the spectral function peaks, a resonance lives, and a resonance is a particle. The scalar glueball appears as a clean peak in the scalar channel; the pseudo-scalar appears in the pseudo-scalar channel.
 
-![Figure 3](/iaifi-research-blog/figures/2212_01113/figure_2.png)
+![Figure 3](figure:3)
 
 What makes this approach satisfying is its self-consistency. Rather than solving a separate bound-state equation (the usual **Bethe-Salpeter approach**, which models two particles attracting each other into a composite state), the team extracts glueball masses directly from the same four-gluon correlation functions used throughout the fRG calculation. The glueballs are already hiding inside the vertex; you just need the right tool to see them.
 
-![Figure 4](/iaifi-research-blog/figures/2212_01113/figure_2.png)
+![Figure 4](figure:4)
 
 The final results: $m_{sc} = 1870 \pm 75$ MeV for the scalar glueball and $m_{ps} = 2700 \pm 120$ MeV for the pseudo-scalar. Both agree well with independent lattice QCD calculations and with functional bound-state methods, a nontrivial consistency check across very different computational approaches.
 
-![Figure 5](/iaifi-research-blog/figures/2212_01113/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -92,9 +92,12 @@ Beyond the specific physics, the work puts Gaussian process regression on the ma
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Gaussian process regression, a tool from Bayesian statistics, solves a long-standing bottleneck in quantum field theory here, connecting machine learning methodology and non-perturbative particle physics in a single calculation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Gaussian process regression proves to be an uncertainty-aware method well suited to ill-conditioned linear inverse problems in physics, broadening the spectral reconstruction toolkit beyond conventional maximum entropy and neural network approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The calculation yields precise masses for the two lightest Yang-Mills glueballs, $m_{sc} = 1870(75)$ MeV and $m_{ps} = 2700(120)$ MeV, providing sharp theoretical benchmarks for ongoing experimental searches at GlueX and BESIII.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions to full QCD, where quark mixing complicates glueball identification, are a natural next step; this work is affiliated with MIT's IAIFI (NSF AI Institute for Artificial Intelligence and Fundamental Interactions). [arXiv:2212.01113](https://arxiv.org/abs/2212.01113)</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** Gaussian process regression, a tool from Bayesian statistics, solves a long-standing bottleneck in quantum field theory here, connecting machine learning methodology and non-perturbative particle physics in a single calculation.
+
+- **Impact on Artificial Intelligence:** Gaussian process regression proves to be an uncertainty-aware method well suited to ill-conditioned linear inverse problems in physics, broadening the spectral reconstruction toolkit beyond conventional maximum entropy and neural network approaches.
+
+- **Impact on Fundamental Interactions:** The calculation yields precise masses for the two lightest Yang-Mills glueballs, $m_{sc} = 1870(75)$ MeV and $m_{ps} = 2700(120)$ MeV, providing sharp theoretical benchmarks for ongoing experimental searches at GlueX and BESIII.
+
+- **Outlook and References:** Future extensions to full QCD, where quark mixing complicates glueball identification, are a natural next step; this work is affiliated with MIT's IAIFI (NSF AI Institute for Artificial Intelligence and Fundamental Interactions). [arXiv:2212.01113](https://arxiv.org/abs/2212.01113)

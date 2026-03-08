@@ -66,7 +66,7 @@ Topological structure is the crux of the problem. Quantum field configurations s
 
 The result is **topological freezing**: HMC samples only a few sectors, producing estimates of observables like the chiral condensate ⟨ψψ⟩ (a measure of how strongly chiral symmetry is broken in the vacuum) that appear statistically stable but are deeply biased.
 
-![Figure 1](/iaifi-research-blog/figures/2202_11712/figure_1.png)
+![Figure 1](figure:1)
 
 The figure tells the story bluntly. Six independent HMC runs on a 16×16 lattice at critical parameters (β = 2.0, κ = 0.276) all converge to the *wrong* answer. Their uncertainties shrink with more samples, creating false confidence. Only when a rare tunneling event occurs does a run jump toward the true value. The flow-based sampler, by contrast, converges cleanly to the correct value with uncertainties that scale as 1/√N, exactly as expected for independent samples.
 
@@ -81,7 +81,7 @@ The architecture is built from several components:
 
 After training, the flow produces candidate configurations that are accepted or rejected via independence Metropolis sampling. This step guarantees exact samples from the target distribution, correcting for any mismatch between the learned and true distributions.
 
-![Figure 2](/iaifi-research-blog/figures/2202_11712/figure_1.png)
+![Figure 2](figure:2)
 
 The topological charge distribution reveals the mechanism directly. The flow-based sampler populates all sectors with frequencies matching theoretical predictions. HMC samples cluster in a narrow range, entirely missing the tails.
 
@@ -97,9 +97,12 @@ There is also a machine learning angle. The training process optimizes the flow 
 
 > **Bottom Line:** Flow-based sampling with gauge-equivariant neural networks successfully navigates topological freezing in a fermionic gauge theory at criticality, a regime where the standard algorithm produces confidently wrong results. This opens a concrete path toward more reliable lattice QCD calculations.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies normalizing flows and gauge-equivariant neural networks to a core problem in lattice gauge theory, showing that machine learning can overcome sampling barriers that have limited quantum field theory calculations for decades.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The research advances gauge-equivariant flow architectures, a class of physics-informed generative models that build symmetry constraints directly into the network structure, yielding samplers that are both expressive and physically consistent.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By solving topological freezing in the Schwinger model at criticality, this work establishes a framework that could enable more reliable calculations of QCD observables in the continuum limit, with direct implications for precision tests of the Standard Model.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The immediate next steps involve scaling these methods to larger lattices and eventually to four-dimensional SU(3) gauge theory; the paper is available at [arXiv:2202.11712](https://arxiv.org/abs/2202.11712).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies normalizing flows and gauge-equivariant neural networks to a core problem in lattice gauge theory, showing that machine learning can overcome sampling barriers that have limited quantum field theory calculations for decades.
+
+- **Impact on Artificial Intelligence:** The research advances gauge-equivariant flow architectures, a class of physics-informed generative models that build symmetry constraints directly into the network structure, yielding samplers that are both expressive and physically consistent.
+
+- **Impact on Fundamental Interactions:** By solving topological freezing in the Schwinger model at criticality, this work establishes a framework that could enable more reliable calculations of QCD observables in the continuum limit, with direct implications for precision tests of the Standard Model.
+
+- **Outlook and References:** The immediate next steps involve scaling these methods to larger lattices and eventually to four-dimensional SU(3) gauge theory; the paper is available at [arXiv:2202.11712](https://arxiv.org/abs/2202.11712).

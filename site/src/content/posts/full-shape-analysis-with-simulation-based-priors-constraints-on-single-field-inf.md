@@ -74,7 +74,7 @@ EFT requires **galaxy bias parameters**, numbers like *b*₁, *b*₂, and *bG*�
 
 Traditionally, analysts treat these as free parameters and marginalize over them using broad, uninformative priors, averaging over all plausible values. The result: significant dilution of the cosmological signals you're trying to measure. You're leaving the scale vibrating when you don't have to.
 
-![Figure 1](/iaifi-research-blog/figures/2402_13310/figure_1.png)
+![Figure 1](figure:1)
 
 The team's solution unfolds in two steps:
 
@@ -82,7 +82,7 @@ The team's solution unfolds in two steps:
 
 2. **Learn the distribution with normalizing flows.** The 10,500 samples span a 14-dimensional parameter space (HOD parameters plus EFT bias parameters). Rather than fitting simple Gaussian approximations, the team used **normalizing flows**, a type of neural network that learns complex probability distributions by gradually transforming a simple shape (like a bell curve) into whatever shape the data requires.
 
-![Figure 3](/iaifi-research-blog/figures/2402_13310/figure_2.png)
+![Figure 3](figure:3)
 
 The learned marginal distribution over EFT parameters then serves as a prior in the actual data analysis. It isn't a vague Gaussian guess. It knows, from thousands of simulations, which combinations of bias parameters are physically plausible for BOSS-like galaxies and rules out the vast swaths of parameter space that are physically unreasonable.
 
@@ -92,7 +92,7 @@ The immediate application is **primordial non-Gaussianity (PNG)**, subtle statis
 
 Using HOD-based priors on BOSS **power spectra and bispectra** (statistical summaries of how strongly galaxies cluster at different scales and in different geometric configurations), the team finds *f*_NL^equil = 320 ± 300 and *f*_NL^ortho = 100 ± 130 (68% confidence), with uncertainties roughly 40% smaller than conventional analyses. The **posterior volume** for galaxy bias parameters in each BOSS chunk shrank by an order of magnitude. That's not a marginal improvement; it's a qualitative leap in constraining inflation physics from galaxy surveys.
 
-![Figure 5](/iaifi-research-blog/figures/2402_13310/figure_3.png)
+![Figure 5](figure:5)
 
 This matters for the future. Surveys like DESI, Euclid, and the Roman Space Telescope will map hundreds of millions of galaxies over the coming decade. The galaxy bias problem won't disappear. It will grow more acute as statistical power improves. The simulation-based prior approach transfers directly to these next-generation surveys.
 
@@ -102,9 +102,12 @@ There's a broader point worth making. Machine learning didn't replace physical m
 
 > **Bottom Line:** By combining 10,500 galaxy simulations with neural density estimators, this work turned galaxy bias from a constraint-killing nuisance into a well-characterized prior, delivering a 40% improvement in inflation constraints equivalent to doubling the BOSS survey volume, and setting a template for next-generation large-scale structure cosmology.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of AI and cosmology, using normalizing flows to encode physically motivated knowledge from galaxy simulations into a Bayesian prior that enables sharper tests of inflationary physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Neural density estimators can extract and compress high-dimensional physical distributions from simulation ensembles at a scale (10,500 samples, 14-dimensional parameter space) that would be impractical without deep learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The improved constraints on equilateral and orthogonal primordial non-Gaussianity push closer to the theoretical thresholds that distinguish standard single-field inflation from models with exotic inflaton self-interactions or modified propagation speeds.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future application to DESI, Euclid, and Roman data, combined with improved HOD and hydrodynamical simulation models, could sharpen these constraints significantly. See [arXiv:2402.13310](https://arxiv.org/abs/2402.13310) for full details.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of AI and cosmology, using normalizing flows to encode physically motivated knowledge from galaxy simulations into a Bayesian prior that enables sharper tests of inflationary physics.
+
+- **Impact on Artificial Intelligence:** Neural density estimators can extract and compress high-dimensional physical distributions from simulation ensembles at a scale (10,500 samples, 14-dimensional parameter space) that would be impractical without deep learning.
+
+- **Impact on Fundamental Interactions:** The improved constraints on equilateral and orthogonal primordial non-Gaussianity push closer to the theoretical thresholds that distinguish standard single-field inflation from models with exotic inflaton self-interactions or modified propagation speeds.
+
+- **Outlook and References:** Future application to DESI, Euclid, and Roman data, combined with improved HOD and hydrodynamical simulation models, could sharpen these constraints significantly. See [arXiv:2402.13310](https://arxiv.org/abs/2402.13310) for full details.

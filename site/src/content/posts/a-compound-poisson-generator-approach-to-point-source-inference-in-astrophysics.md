@@ -53,21 +53,21 @@ wordCount: 1121
 
 ## The Big Picture
 
-Imagine trying to count fireflies on a foggy night through a smudged lens. Some are bright and easy to spot. Most are dim, blurring into background haze, and some clusters are so crowded you can't tell if you're seeing one firefly or five. Now imagine doing this with X-ray telescopes peering at billions of faint neutron stars and black holes — and needing statistically rigorous answers about how many sources exist and how bright they are.
+Imagine trying to count fireflies on a foggy night through a smudged lens. Some are bright and easy to spot. Most are dim, blurring into background haze, and some clusters are so crowded you can't tell if you're seeing one firefly or five. Now scale that up to X-ray telescopes peering at faint neutron stars and black holes, where you need statistically rigorous answers about how many sources exist and how bright they are.
 
-This is the challenge of **point-source inference** — figuring out, from blurry and noisy images, how many distinct objects are out there and what their brightnesses are. When sources are faint and fields are crowded, you can't just look and count. You need sophisticated statistical machinery to extract answers about an entire *population* of sources from messy, incomplete data.
+This is **point-source inference**: figuring out, from blurry and noisy images, how many distinct objects are out there and what their brightnesses are. When sources are faint and fields are crowded, you can't just look and count. You need statistical machinery that can extract answers about an entire *population* of sources from messy, incomplete data.
 
-The reigning method — **Non-Poissonian Template Fitting (NPTF)** — has served the field well. But researchers have grown increasingly concerned that it harbors hidden biases that silently corrupt results.
+The reigning method, **Non-Poissonian Template Fitting (NPTF)**, has served the field well. But researchers have grown increasingly concerned that it harbors hidden biases which silently corrupt results.
 
-A team from MIT and UC Berkeley has built a new statistical framework from the ground up: the **Compound Poisson Generator (CPG)** likelihood. It traces the physics of detection step by step and demonstrably outperforms NPTF in the regimes where astronomy needs it most.
+A team from MIT and UC Berkeley has built a new statistical framework from scratch: the **Compound Poisson Generator (CPG)** likelihood. It traces the physics of detection step by step and outperforms NPTF in the regimes where astronomy needs it most.
 
-> **Key Insight:** NPTF assumes that telescope blurring, photon collection efficiency, and source positions can each be treated independently — an approximation that breaks down in real X-ray observations. The CPG approach derives the likelihood from first principles, modeling how all these effects interact without approximation.
+> **Key Insight:** NPTF assumes that telescope blurring, photon collection efficiency, and source positions can each be treated independently, an approximation that breaks down in real X-ray observations. The CPG approach derives the likelihood from first principles, modeling how all these effects interact without approximation.
 
 ## How It Works
 
-NPTF models a source population statistically — asking not "where is each source?" but "how many sources of each brightness exist?" It expresses this through a **differential source-count function**, the astronomer's tally of how many sources exist at each brightness level. The likelihood is then computed pixel by pixel across the sky map.
+NPTF models a source population statistically. Rather than asking "where is each source?", it asks "how many sources of each brightness exist?" It expresses this through a **differential source-count function** (the astronomer's tally of how many sources exist at each brightness level) and computes the likelihood pixel by pixel across the sky map.
 
-The critical flaw: NPTF assumes you can *factorize* — treat as completely independent — three separate instrumental effects:
+Here's where it goes wrong. NPTF assumes you can *factorize* three separate instrumental effects, treating them as completely independent:
 
 - The **point-spread function (PSF)**: how a telescope smears each point of light into a fuzzy blob
 - The **effective area**: how efficiently the telescope collects photons across different parts of the sky
@@ -75,40 +75,43 @@ The critical flaw: NPTF assumes you can *factorize* — treat as completely inde
 
 In gamma-ray astronomy, where instruments are relatively uniform, this independence approximation holds. In X-ray astronomy, it doesn't. The PSF varies across the detector. The effective area changes on scales smaller than a single resolution element. Sources aren't uniformly distributed.
 
-![Figure 1](/iaifi-research-blog/figures/2104_04529/figure_1.png)
+![Figure 1](figure:1)
 
-The CPG approach abandons factorization entirely. Instead, it builds the likelihood by following what physically happens when photons from a source population hit a real detector:
+The CPG approach abandons factorization entirely. It builds the likelihood by following what physically happens when photons from a source population hit a real detector:
 
 1. Draw a random number of sources from the population model
 2. For each source, draw its brightness from the source-count function
 3. Propagate each photon through the PSF and effective area *together*, pixel by pixel
 4. Compute the probability of the observed photon counts given all of the above
 
-This construction uses **Compound Poisson Generator functionals** — mathematical objects built to handle nested randomness: a random number of sources, each emitting a random number of photons. The result is a likelihood that folds in instrumental effects from first principles, without ever assuming they factor apart.
+The mathematical machinery behind this uses **Compound Poisson Generator functionals**, objects designed to handle nested randomness: a random number of sources, each emitting a random number of photons. The result is a likelihood that folds in instrumental effects from first principles, never assuming they factor apart.
 
-The team validated CPG against three NPTF failure modes: a spatially varying source distribution, an asymmetric PSF, and sub-pixel effective-area fluctuations. In each case, NPTF recovered biased source counts — sometimes off by factors of several. CPG correctly identified the true population every time.
+The team validated CPG against three NPTF failure modes: a spatially varying source distribution, an asymmetric PSF, and sub-pixel effective-area fluctuations. In each case, NPTF recovered biased source counts, sometimes off by factors of several. CPG got the true population right every time.
 
 ## Why It Matters
 
-Beyond the likelihood itself, the paper uncovers a subtler but equally dangerous issue: **prior bias** in Bayesian analyses. In Bayesian statistics, a "prior" encodes your initial assumptions before seeing any data. When modeling the sky as a mix of point sources and diffuse emission (a smooth background glow), standard parameterizations exhibit a pathological behavior in the **diffuse-flux limit** — the regime where sources are so dim that data can't distinguish a point-source population from a uniform glow.
+The paper also uncovers a subtler but equally dangerous issue: **prior bias** in Bayesian analyses. In Bayesian statistics, a "prior" encodes your assumptions before seeing any data. When you model the sky as a mix of point sources and diffuse emission (a smooth background glow), standard parameterizations behave pathologically in the **diffuse-flux limit**, the regime where sources are so dim that data can't distinguish a point-source population from a uniform glow.
 
-In this limit, nearly any "uninformative" prior causes the posterior to pile up at one extreme. The model confidently assigns essentially all observed flux to either point sources or diffuse emission, even when the data are completely silent on the question.
+In this limit, nearly any "uninformative" prior causes the posterior to pile up at one extreme. The model confidently assigns all observed flux to either point sources or diffuse emission, even when the data have nothing to say about the question.
 
-![Figure 2](/iaifi-research-blog/figures/2104_04529/figure_2.png)
+![Figure 2](figure:2)
 
-The fix is a reparameterization. Instead of working directly with the normalization of the source-count function, the authors define a **natural coordinate system** that separates total flux from its fractional assignment between populations. In this parameterization, CPG correctly identifies that when the data can't constrain the split, the posterior stays broad and honest — rather than collapsing to spurious certainty.
+The fix is a reparameterization. Instead of working directly with the normalization of the source-count function, the authors define a coordinate system that separates total flux from its fractional assignment between populations. With this parameterization, CPG correctly identifies that when the data can't constrain the split, the posterior stays broad and honest rather than collapsing to spurious certainty.
 
-This is a significant methodological contribution independent of CPG itself: even a perfect likelihood can produce misleading results if the prior space is poorly chosen.
+The point generalizes: even a perfect likelihood can produce misleading results if the prior space is poorly chosen.
 
-The most immediate application is X-ray astronomy, where instruments like NASA's NuSTAR observe populations of neutron stars, X-ray binaries, and active galactic nuclei. These populations encode fundamental physics — the equation of state of dense matter, the history of black hole growth, the distribution of dark matter annihilation products. Getting source counts right is not a technical footnote; it's the difference between a discovery and a systematic artifact.
+The most immediate application is X-ray astronomy, where instruments like NASA's NuSTAR observe populations of neutron stars, X-ray binaries, and active galactic nuclei. These populations encode real physics: the equation of state of dense matter, the history of black hole growth, the distribution of dark matter annihilation products. Getting source counts right is not a technical footnote; it's the difference between a discovery and a systematic artifact.
 
-The stakes extend further. NPTF was developed for gamma-ray searches, including contested analyses of the **Galactic Center excess** — a mysterious surplus of gamma rays from the Milky Way's center that might signal dark matter annihilation, or might trace a population of unresolved millisecond pulsars. CPG's corrections to the factorization assumption and prior parameterization could shift the interpretation of those results. The authors have made their implementation publicly available, giving the community a tool to reexamine these open questions.
+The stakes go further still. NPTF was developed for gamma-ray searches, including contested analyses of the **Galactic Center excess**, a mysterious surplus of gamma rays from the Milky Way's center that might signal dark matter annihilation or might trace a population of unresolved millisecond pulsars. CPG's corrections could shift the interpretation of those results. The authors have made their implementation [publicly available](https://arxiv.org/abs/2104.04529), giving the community a tool to reexamine these open questions.
 
-> **Bottom Line:** The Compound Poisson Generator gives X-ray and gamma-ray astronomers a statistically rigorous, bias-free tool for counting faint sources — correcting systematic errors in the dominant existing method and exposing a hidden prior pathology that has likely affected results across the field.
+> **Bottom Line:** The Compound Poisson Generator gives X-ray and gamma-ray astronomers a statistically rigorous tool for counting faint sources, correcting systematic errors in the dominant existing method and exposing a hidden prior pathology that has likely affected results across the field.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies advanced probabilistic modeling and Bayesian statistical methods to a fundamental problem in observational astronomy, demonstrating that principled likelihood construction from first principles outperforms field-standard approximations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The CPG framework introduces a general approach to hierarchical probabilistic inference with nested randomness, applicable to any domain where aggregated counts are observed from an underlying population through an imperfect instrument.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By correcting biases in point-source inference, CPG sharpens statistical tools for detecting dark matter signals and measuring compact object populations, directly improving our ability to probe fundamental physics through astrophysical observations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The CPG implementation is publicly available, and future applications to gamma-ray Galactic Center analyses could revisit the contested dark matter interpretation of that signal; see arXiv:2104.04529 for the full paper.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work brings advanced probabilistic modeling and Bayesian statistical methods to bear on a fundamental problem in observational astronomy. Principled likelihood construction from first principles outperforms the field-standard approximation.
+
+- **Impact on Artificial Intelligence:** The CPG framework offers a general approach to hierarchical probabilistic inference with nested randomness, applicable to any domain where aggregated counts are observed from an underlying population through an imperfect instrument.
+
+- **Impact on Fundamental Interactions:** By correcting biases in point-source inference, CPG sharpens the statistical tools used to detect dark matter signals and measure compact object populations, improving constraints on fundamental physics from astrophysical observations.
+
+- **Outlook and References:** The CPG implementation is publicly available, and future applications to gamma-ray Galactic Center analyses could revisit the contested dark matter interpretation; see [arXiv:2104.04529](https://arxiv.org/abs/2104.04529) for the full paper.

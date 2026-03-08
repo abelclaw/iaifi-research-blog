@@ -66,17 +66,17 @@ Here's the concrete construction:
 3. This group acts on the **weight space** of the network, transforming the filters themselves rather than the input data directly.
 4. The result is a set of filters that are geometrically related to each other by the learned transformation.
 
-![Figure 1](/iaifi-research-blog/figures/2305_18552/figure_1.png)
+![Figure 1](figure:1)
 
 Applying the group transformation to learned filters rather than to raw input images is a deliberate design choice. Keeping the transformations in this moderate-dimensional space makes the network both interpretable and computationally efficient.
 
-![Figure 2](/iaifi-research-blog/figures/2305_18552/figure_1.png)
+![Figure 2](figure:2)
 
 The authors use **unfolded networks**, architectures built by unrolling an iterative problem-solving algorithm into a fixed sequence of layers. These networks reconstruct an approximation of the input at every layer, which keeps the filters tethered to the data space where human inspection is possible.
 
 Training is entirely self-supervised with respect to the group. The network simultaneously learns the weights and the group generator, with no labels indicating what symmetries are present. The only signal comes from the downstream task itself.
 
-![Figure 3](/iaifi-research-blog/figures/2305_18552/figure_2.png)
+![Figure 3](figure:3)
 
 So what does the network actually discover? On natural image datasets, the learned group actions cluster into recognizable categories:
 
@@ -86,11 +86,11 @@ So what does the network actually discover? On natural image datasets, the learn
 
 Ablation studies show that certain filter sets have group actions with high correlation to compositions of rotations and **median filtering**, the latter closely related to the pooling operations ubiquitous in modern deep learning.
 
-![Figure 4](/iaifi-research-blog/figures/2305_18552/figure_2.png)
+![Figure 4](figure:4)
 
 One of the paper's sharpest findings: the learned group structure depends on *both* the data distribution *and* the task. Training the same architecture on the same images for different objectives (reconstruction versus classification) produces different groups. Symmetry is not a fixed property of a dataset. It's a joint property of the data and what you're trying to do with it.
 
-![Figure 5](/iaifi-research-blog/figures/2305_18552/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -102,13 +102,16 @@ Because the learned groups are finite matrices, you can inspect them. You can co
 
 The authors frame this explicitly: their goal isn't just to build a better architecture, but to use LGNs as a *probe* for understanding what symmetries matter in real-world data. Open questions remain (how to scale to very high-dimensional weight spaces, how to handle continuous rather than discrete groups, whether discovered symmetries transfer across datasets), but the groundwork is in place.
 
-![Figure 6](/iaifi-research-blog/figures/2305_18552/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** Linear Group Networks show that neural networks can discover their own symmetries from scratch, and those symmetries are interpretable, mapping onto operations researchers already know and use. This reframes symmetry not as a design choice baked into architecture, but as something a sufficiently flexible model can learn to need.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects mathematical group theory with practical deep learning, showing that abstract algebraic structures (cyclic subgroups of GL_d) can be learned end-to-end and mapped onto physically interpretable operations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">LGNs remove a key bottleneck in equivariant deep learning by enabling unsupervised discovery of symmetry groups, opening equivariant architectures to domains where symmetries are unknown in advance.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework gives researchers a principled tool for probing hidden symmetries in scientific datasets, with direct applications to physics problems where the symmetry group of the data is itself an open question.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend LGNs to continuous groups and higher-dimensional weight spaces, enabling symmetry discovery in large-scale physics simulations. The paper by Theodosis, Helwani, and Ba is available at [arXiv:2305.18552](https://arxiv.org/abs/2305.18552).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects mathematical group theory with practical deep learning, showing that abstract algebraic structures (cyclic subgroups of GL_d) can be learned end-to-end and mapped onto physically interpretable operations.
+
+- **Impact on Artificial Intelligence:** LGNs remove a key bottleneck in equivariant deep learning by enabling unsupervised discovery of symmetry groups, opening equivariant architectures to domains where symmetries are unknown in advance.
+
+- **Impact on Fundamental Interactions:** The framework gives researchers a principled tool for probing hidden symmetries in scientific datasets, with direct applications to physics problems where the symmetry group of the data is itself an open question.
+
+- **Outlook and References:** Future work may extend LGNs to continuous groups and higher-dimensional weight spaces, enabling symmetry discovery in large-scale physics simulations. The paper by Theodosis, Helwani, and Ba is available at [arXiv:2305.18552](https://arxiv.org/abs/2305.18552).

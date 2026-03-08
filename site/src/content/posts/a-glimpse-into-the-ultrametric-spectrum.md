@@ -63,7 +63,7 @@ The first answer is no. When Huang and Jepsen associated quantum harmonic oscill
 
 So the simple tree approach fails. But the Neumann case hinted at something: even though the overall scaling is wrong, the spectrum has exponentially spaced levels with exponentially growing degeneracies. Could these two effects balance?
 
-![Figure 1](/iaifi-research-blog/figures/2601_03738/figure_1.png)
+![Figure 1](figure:1)
 
 The real breakthrough came when the authors shifted focus from tree-graphs to the ***p*-adic circle**, written U*p*. This is the set of *p*-adic numbers with unit norm, the hierarchical world's equivalent of the ordinary unit circle that underlies standard string quantization. The relevant operator is the **Vladimirov derivative**, the *p*-adic analog of ordinary differentiation: a mathematically rigorous way to measure how quickly functions change in an ultrametric space. Computing its eigenvalues on U*p* yields concrete spectra for small primes:
 
@@ -72,13 +72,13 @@ The real breakthrough came when the authors shifted focus from tree-graphs to th
 
 The pattern jumps out. Energies grow roughly like *p*^*n*, while degeneracies grow like (*p*−1)·*p*^(*n*−1). The ratio stays controlled in just the right way.
 
-![Figure 2](/iaifi-research-blog/figures/2601_03738/figure_2.png)
+![Figure 2](figure:2)
 
 To extract the thermodynamics, the researchers computed the **partition function**, the fundamental accounting tool of statistical mechanics that tallies all possible states weighted by their thermal probability. Getting the high-temperature asymptotics right required care: both energies and degeneracies grow exponentially, so standard approximation schemes break down. The authors developed a systematic expansion showing that entropy scales as the square root of energy, exactly as in the ordinary non-relativistic string.
 
 But the entropy doesn't simply scale like √*E*. It oscillates. The leading behavior is Hardy-Ramanujan-like, modulated by log-periodic fluctuations that repeat every time the energy increases by a fixed multiplicative factor. This is a hallmark of **discrete scale invariance**: the ultrametric world is hierarchical by construction, and that hierarchy leaves its mark on the thermodynamics.
 
-![Figure 3](/iaifi-research-blog/figures/2601_03738/figure_3.png)
+![Figure 3](figure:3)
 
 The same spectrum also arises as the eigenspectrum of the **Neumann-to-Dirichlet operator** on U*p*, a boundary-value operator that maps how steeply a function slopes at an edge to the function's value there. This connection gives an independent derivation of the ultrametric string spectrum, confirming its mathematical naturality.
 
@@ -92,15 +92,18 @@ There is also an experimental angle. Within the past five years, researchers hav
 
 > **Bottom Line:** By computing the *p*-adic analog of the string's vibrational spectrum, Huang and Jepsen show that ultrametric string theory can reproduce the hallmark thermodynamic scaling of ordinary strings, opening a new path toward a hierarchical reformulation of string theory with a rich state tower.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects number theory (*p*-adic analysis, the Vladimirov derivative) with theoretical physics (string thermodynamics, the Hardy-Ramanujan formula), showing that tools from pure mathematics can reveal deep structure in candidate quantum gravity theories.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The log-periodic fluctuations and discrete scale invariance uncovered here are mathematically related to patterns that appear in hierarchical machine learning models and in the analysis of neural network loss landscapes on tree-structured data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper provides the first concrete example of an ultrametric string spectrum with a non-trivial tower of states that reproduces Hardy-Ramanujan entropy scaling, advancing the long-standing goal of constructing a *p*-adic string theory with genuine string-like physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore Lorentz-covariant generalizations and the role of log-periodic oscillations in full quantum ultrametric string theory; the paper is available at [arXiv:2601.03738](https://arxiv.org/abs/2601.03738).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A glimpse into the Ultrametric spectrum</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2601.03738</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["An Huang", "Christian B. Jepsen"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">The non-relativistic string spectrum is built from integer-spaced energy quanta in such a way that the high-temperature asymptotics, via the Hardy-Ramanujan formula for integer partitions, reduces to standard two-dimensional thermodynamics. Here we explore deformed realizations of this behavior motivated by $p$-adic string theory and Lorentzian versions thereof with a non-trivial spectrum. We study the microstate scaling that results on associating quantum harmonic oscillators to the normal modes of tree-graphs rather than string graphs and observe that Hardy-Ramanujan scaling is not realized. But by computing the eigenvalues of the derivative operator on the $p$-adic circle and by determining the eigenspectrum of the Neumann-to-Dirichlet operator, we uncover a spectrum of exponentially growing energies but with exponentially growing degeneracies balanced in such a way that Hardy-Ramanujan scaling is realized, but modulated with log-periodic fluctuations.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects number theory (*p*-adic analysis, the Vladimirov derivative) with theoretical physics (string thermodynamics, the Hardy-Ramanujan formula), showing that tools from pure mathematics can reveal deep structure in candidate quantum gravity theories.
+
+- **Impact on Artificial Intelligence:** The log-periodic fluctuations and discrete scale invariance uncovered here are mathematically related to patterns that appear in hierarchical machine learning models and in the analysis of neural network loss landscapes on tree-structured data.
+
+- **Impact on Fundamental Interactions:** The paper provides the first concrete example of an ultrametric string spectrum with a non-trivial tower of states that reproduces Hardy-Ramanujan entropy scaling, advancing the long-standing goal of constructing a *p*-adic string theory with genuine string-like physics.
+
+- **Outlook and References:** Future work will explore Lorentz-covariant generalizations and the role of log-periodic oscillations in full quantum ultrametric string theory; the paper is available at [arXiv:2601.03738](https://arxiv.org/abs/2601.03738).
+
+## Original Paper Details
+- **Title:** A glimpse into the Ultrametric spectrum
+- **arXiv ID:** 2601.03738
+- **Authors:** ["An Huang", "Christian B. Jepsen"]
+- **Abstract:** The non-relativistic string spectrum is built from integer-spaced energy quanta in such a way that the high-temperature asymptotics, via the Hardy-Ramanujan formula for integer partitions, reduces to standard two-dimensional thermodynamics. Here we explore deformed realizations of this behavior motivated by $p$-adic string theory and Lorentzian versions thereof with a non-trivial spectrum. We study the microstate scaling that results on associating quantum harmonic oscillators to the normal modes of tree-graphs rather than string graphs and observe that Hardy-Ramanujan scaling is not realized. But by computing the eigenvalues of the derivative operator on the $p$-adic circle and by determining the eigenspectrum of the Neumann-to-Dirichlet operator, we uncover a spectrum of exponentially growing energies but with exponentially growing degeneracies balanced in such a way that Hardy-Ramanujan scaling is realized, but modulated with log-periodic fluctuations.

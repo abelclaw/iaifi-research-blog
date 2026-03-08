@@ -72,7 +72,7 @@ A team from the AstroAI group at the Harvard & Smithsonian Center for Astrophysi
 
 The team's starting point was the **Ariel Data Challenge 2023**, a machine learning competition built around simulated exoplanet data. The dataset was generated using TauREx3, a physics-based **forward model** that takes atmospheric conditions as input and computes the resulting spectrum, running the science forward from cause to effect. For each of 41,423 simulated planets, the challenge provided the spectrum plus supporting measurements: stellar mass, radius, temperature, and distance, along with the planet's mass, orbital period, and surface gravity.
 
-![Figure 1](/iaifi-research-blog/figures/2309_09337/figure_1.png)
+![Figure 1](figure:1)
 
 The goal wasn't simply to predict the best-fit atmospheric properties. It was to predict the full **posterior probability distribution**: the complete picture of which combinations of planet radius, temperature, and five molecular abundances (H₂O, CO₂, CO, CH₄, and NH₃) are consistent with the data. A single best-guess answer ignores uncertainty; a posterior captures it honestly.
 
@@ -88,7 +88,7 @@ The team built and compared three model variants:
 
 The winning model topped the leaderboard, but the paper makes an intriguing confession. The NS-trained model, despite ranking lower, may be the more scientifically valuable approach. The competition weighted 80% of its score on a **Kolmogorov-Smirnov test**, a measure of how similar two distributions look in shape. That metric rewards matching Nested Sampling posteriors closely, including their quirks and biases. The NS-trained model targets those posteriors directly, making it potentially better aligned with ground truth even if it scores worse on an imperfect metric.
 
-![Figure 2](/iaifi-research-blog/figures/2309_09337/figure_1.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 
@@ -102,9 +102,12 @@ The team also trained entirely on synthetic spectra from a physics simulator, wi
 
 > **Bottom Line:** The AstroAI team won a global machine learning challenge by using Normalizing Flows to replace slow Bayesian atmospheric retrievals with fast, uncertainty-aware neural inference, a critical capability as Ariel prepares to survey 1,000 exoplanet atmospheres starting in 2029.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses deep generative modeling with radiative transfer physics and Bayesian inference to solve a core problem in observational astrophysics, combining AI and fundamental science in a way that strengthens both.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows that normalizing flows can accurately approximate complex, high-dimensional posteriors from physical simulations, and it critically examines how benchmark metrics shape model development in simulation-based inference.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Faster, scalable atmospheric retrieval enables systematic characterization of exoplanet chemistry at population scale, with implications for our understanding of planetary formation, habitability, and the diversity of worlds beyond our solar system.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will apply these models to real Ariel observations and improve generalization to realistic noise conditions; the full study is available at [arXiv:2309.09337](https://arxiv.org/abs/2309.09337) from the AstroAI group at the Harvard & Smithsonian Center for Astrophysics.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work fuses deep generative modeling with radiative transfer physics and Bayesian inference to solve a core problem in observational astrophysics, combining AI and fundamental science in a way that strengthens both.
+
+- **Impact on Artificial Intelligence:** The paper shows that normalizing flows can accurately approximate complex, high-dimensional posteriors from physical simulations, and it critically examines how benchmark metrics shape model development in simulation-based inference.
+
+- **Impact on Fundamental Interactions:** Faster, scalable atmospheric retrieval enables systematic characterization of exoplanet chemistry at population scale, with implications for our understanding of planetary formation, habitability, and the diversity of worlds beyond our solar system.
+
+- **Outlook and References:** Future work will apply these models to real Ariel observations and improve generalization to realistic noise conditions; the full study is available at [arXiv:2309.09337](https://arxiv.org/abs/2309.09337) from the AstroAI group at the Harvard & Smithsonian Center for Astrophysics.

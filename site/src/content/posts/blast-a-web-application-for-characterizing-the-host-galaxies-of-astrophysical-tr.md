@@ -66,50 +66,53 @@ wordCount: 989
 
 ## The Big Picture
 
-Imagine a detective who can only study crime scenes years after the fact, with no witnesses, no surveillance footage — just the neighborhood. That's essentially the challenge astronomers face when a star explodes somewhere in the universe. The explosion itself, called a **transient**, may last days or weeks before fading forever. But the galaxy that hosted it? That remains. And it holds clues.
+Imagine a detective who can only study crime scenes years after the fact, with no witnesses, no surveillance footage, just the neighborhood. That's the challenge astronomers face when a star explodes somewhere in the universe. The explosion itself, called a **transient**, may last days or weeks before fading forever. But the galaxy that hosted it remains, and it holds clues.
 
-The properties of a host galaxy — its age, mass, how quickly it's forming new stars, and its chemical composition — act like a fingerprint for the kinds of stars it breeds and the kinds of deaths those stars die. A supernova in an old, red, heavy-element-rich elliptical galaxy tells a very different story than one in a young, blue, star-forming spiral.
+A host galaxy's age, mass, star formation rate, and chemical composition act like a fingerprint for the kinds of stars it breeds and the kinds of deaths those stars die. A supernova in an old, red, heavy-element-rich elliptical galaxy tells a very different story than one in a young, blue, star-forming spiral.
 
-Astronomers have known this for decades. But measuring those properties at scale has been a logistical nightmare. Modern sky surveys now discover over 20,000 transients per year — a number set to explode further when the Vera C. Rubin Observatory, a powerful new survey telescope in Chile, comes fully online. The field desperately needed automation.
+Astronomers have known this for decades. But measuring those properties at scale has been a logistical nightmare. Modern sky surveys now discover over 20,000 transients per year, a number set to explode further when the Vera C. Rubin Observatory comes fully online. The field needed automation badly.
 
-Enter **Blast**: a publicly accessible web application that automatically ingests transient alerts, identifies the host galaxy, measures its light across multiple wavelengths, and infers its physical properties — all without human intervention.
+**Blast** is a publicly accessible web application that automatically ingests transient alerts, identifies the host galaxy, measures its light across multiple wavelengths, and infers its physical properties, all without human intervention.
 
-> **Key Insight:** Blast automates the full pipeline from transient detection to host galaxy characterization, combining archival multi-wavelength imaging with Bayesian inference accelerated by machine learning to process thousands of events in near real time.
+> Blast automates the full pipeline from transient detection to host galaxy characterization, combining archival multi-wavelength imaging with Bayesian inference accelerated by machine learning to process thousands of events in near real time.
 
 ## How It Works
 
-The pipeline begins the moment a new transient is reported. Blast monitors the **Transient Name Server (TNS)**, a central clearinghouse where astronomers worldwide log new detections. When a new event appears, Blast executes a four-stage automated process:
+The pipeline starts the moment a new transient is reported. Blast monitors the **Transient Name Server (TNS)**, a central clearinghouse where astronomers worldwide log new detections. When a new event appears, Blast runs a four-stage automated process:
 
 1. **Host matching** — Blast identifies which galaxy most plausibly hosted the transient using a probabilistic framework that accounts for angular separation and galaxy brightness.
 2. **Photometry** — The system queries archival imaging databases spanning ultraviolet (GALEX), optical (Pan-STARRS, SDSS, DESI Legacy Surveys), and infrared (2MASS, WISE) wavelengths, measuring the galaxy's brightness in each band.
-3. **SED fitting** — Those measurements define the galaxy's **spectral energy distribution (SED)** — a fingerprint of its light across wavelengths — which Blast feeds into a physical model to infer stellar mass, star formation rate, and metallicity (chemical content).
-4. **Local photometry** — Uniquely, Blast also measures properties *within 2 kiloparsecs (roughly 6,500 light-years) of the transient's exact location*, not just the galaxy as a whole. That local neighborhood often matters more for understanding what kind of star exploded.
+3. **SED fitting** — Those measurements define the galaxy's **spectral energy distribution (SED)**, a fingerprint of its light across wavelengths, which Blast feeds into a physical model to infer stellar mass, star formation rate, and metallicity.
+4. **Local photometry** — Blast also measures properties *within 2 kiloparsecs (roughly 6,500 light-years) of the transient's exact location*, not just the galaxy as a whole. That local neighborhood often matters more for understanding what kind of star exploded.
 
-![Figure 1](/iaifi-research-blog/figures/2410_17322/figure_1.png)
+![Figure 1](figure:1)
 
-The SED fitting step is where AI earns its place. Blast uses **Prospector**, a Bayesian inference framework — a method that systematically estimates the most probable physical explanation for observed data, along with uncertainty ranges — to model galaxy properties. But standard Prospector runs can take hours per galaxy, far too slow for thousands of transients.
+The SED fitting step is where AI earns its place. Blast uses **Prospector**, a Bayesian inference framework that estimates the most probable physical explanation for observed data along with uncertainty ranges. But standard Prospector runs can take hours per galaxy. Far too slow for thousands of transients.
 
-To fix this, the team incorporated **simulation-based inference (SBI)**, a machine learning technique that trains a neural network on a library of simulated galaxy SEDs and their corresponding physical parameters. Instead of running a costly sampler from scratch each time, the trained network estimates full probability distributions in seconds. The accuracy holds up; the speed gain is transformative.
+To fix this, the team incorporated **simulation-based inference (SBI)**. A neural network is trained on a library of simulated galaxy SEDs and their corresponding physical parameters. Instead of running a costly sampler from scratch each time, the trained network estimates full probability distributions in seconds. The accuracy holds up. The speed gain changes everything.
 
-![Figure 2](/iaifi-research-blog/figures/2410_17322/figure_2.png)
+![Figure 2](figure:2)
 
-The entire system is built for scale. Blast uses an **asynchronous worker queue** — a task management architecture where jobs are distributed across multiple compute nodes and processed independently — so the system absorbs sudden spikes in transient alerts without grinding to a halt. Users access results through a web browser or a programmatic **API**, making it straightforward to integrate Blast's outputs into classification pipelines, cosmological analyses, or follow-up scheduling tools.
+The system is built for scale. Blast uses an **asynchronous worker queue**, a task management architecture where jobs are distributed across multiple compute nodes and processed independently, so it absorbs sudden spikes in transient alerts without grinding to a halt. Users access results through a web browser or a programmatic **API**, making it easy to plug Blast's outputs into classification pipelines, cosmological analyses, or follow-up scheduling tools.
 
-![Figure 3](/iaifi-research-blog/figures/2410_17322/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
-The implications ripple across multiple subfields. **Type Ia supernovae** — stellar explosions that release a nearly consistent amount of energy, making them the cosmic "standard candles" that anchored the discovery of dark energy — are systematically affected by their host environments. Supernovae in more massive, chemically enriched galaxies appear slightly brighter after standard corrections, skewing cosmological inferences. Blast provides a scalable way to apply host-based corrections across samples of thousands, rather than the hundreds that previous dedicated efforts managed.
+Host galaxy properties touch several subfields at once. **Type Ia supernovae** are stellar explosions that release a nearly consistent amount of energy, making them the cosmic "standard candles" that anchored the discovery of dark energy. But they are systematically affected by their host environments. Supernovae in more massive, chemically enriched galaxies appear slightly brighter after standard corrections, skewing cosmological inferences. Blast provides a scalable way to apply host-based corrections across samples of thousands, rather than the hundreds that previous dedicated efforts managed.
 
-For **core-collapse supernovae** — the violent deaths of the most massive stars — the link between host environment and explosion mechanism is still being worked out. Different types of stellar deaths, from stripped-envelope supernovae to gamma-ray bursts, preferentially occur in different galactic environments. Mapping those preferences requires population-level statistics that only a tool like Blast can deliver at scale.
+For **core-collapse supernovae**, the violent deaths of the most massive stars, the link between host environment and explosion mechanism is still being worked out. Different types of stellar deaths, from stripped-envelope supernovae to gamma-ray bursts, preferentially occur in different galactic environments. Mapping those preferences requires population-level statistics, and doing that by hand doesn't scale.
 
-With Blast cataloging host properties for essentially every newly reported transient, statistical analyses that once required years of targeted campaigns become feasible within months. And as classifiers increasingly fold host properties into their probability estimates, real-time decisions about which transients deserve telescope time for detailed spectral analysis become sharper and better informed.
+With Blast cataloging host properties for every newly reported transient, statistical analyses that once required years of targeted campaigns become feasible within months. And as classifiers increasingly fold host properties into their probability estimates, real-time decisions about which transients deserve precious telescope time get sharper.
 
-> **Bottom Line:** Blast transforms host galaxy characterization from a labor-intensive afterthought into automated, scalable infrastructure — delivering physical galaxy properties for 6,000+ transients already, and positioned to handle the coming flood from next-generation surveys.
+> Blast transforms host galaxy characterization from a labor-intensive afterthought into automated infrastructure, delivering physical galaxy properties for 6,000+ transients already and positioned to handle the coming flood from next-generation surveys.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Blast directly bridges machine learning and observational astrophysics by embedding simulation-based inference into an automated pipeline operating on live data streams from real sky surveys.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The application of simulation-based inference to accelerate Bayesian SED fitting demonstrates how neural posterior estimators can replace computationally expensive samplers in scientific workflows without sacrificing inference quality.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling systematic, unbiased host galaxy characterization at scale, Blast strengthens the statistical foundation for Type Ia supernova cosmology — directly supporting precision measurements of dark energy and the Hubble constant.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With the Vera Rubin Observatory's LSST expected to deliver millions of transient alerts per year, Blast's scalable architecture positions it as critical infrastructure for the next decade of time-domain astronomy; the paper is available on arXiv (arXiv:2410.17326).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** Blast directly connects machine learning and observational astrophysics by embedding simulation-based inference into an automated pipeline operating on live data streams from real sky surveys.
+
+- **Impact on Artificial Intelligence:** The application of simulation-based inference to accelerate Bayesian SED fitting shows how neural posterior estimators can replace computationally expensive samplers in scientific workflows without sacrificing inference quality.
+
+- **Impact on Fundamental Interactions:** By enabling systematic, unbiased host galaxy characterization at scale, Blast strengthens the statistical foundation for Type Ia supernova cosmology, supporting precision measurements of dark energy and the Hubble constant.
+
+- **Outlook and References:** With the Vera Rubin Observatory's LSST expected to deliver millions of transient alerts per year, Blast's architecture positions it as essential infrastructure for the next decade of time-domain astronomy; the paper is available at [arXiv:2410.17322](https://arxiv.org/abs/2410.17322).

@@ -64,7 +64,7 @@ The central objects of study are **twisted quasimaps**: maps from the projective
 
 Counting these objects, weighted by topological class and cohomological degree, produces a **generating function** Υ^ref(z, τ). This single expression encodes infinitely many counting numbers at once, acting as a fingerprint for the geometry of X.
 
-![Figure 1](/iaifi-research-blog/figures/2004_04508/figure_1.png)
+![Figure 1](figure:1)
 
 Direct computation of this generating function is forbiddingly hard. The authors take a roundabout route, through symplectic duality, that transforms the problem into something tractable. Their strategy has three steps:
 
@@ -74,7 +74,7 @@ Direct computation of this generating function is forbiddingly hard. The authors
 
 3. **Read off the answer via Koszul duality.** The authors establish a **Koszul duality**, a fundamental algebraic correspondence exchanging two different module categories, between category O for LX̃ and PX^!. This is the first extension of such a duality to the loop setting for symplectically dual spaces. Through this correspondence, the Ext groups from step one translate directly into weight spaces of an indecomposable **tilting module** T^!_ν(α+)^∞ on the quantized periodic Coulomb branch.
 
-![Figure 2](/iaifi-research-blog/figures/2004_04508/figure_1.png)
+![Figure 2](figure:2)
 
 The payoff is Theorem 1.1: Υ^ref(z, τ) equals a graded trace of this tilting module. From that algebraic expression, the authors extract Theorem 1.2, an explicit closed formula indexed by torus fixed points of X^! and combinatorial data attached to them. For X arising as the abelianization of the N-step flag quiver, every ingredient becomes concrete and computable.
 
@@ -90,9 +90,12 @@ The natural next target is extending these results beyond the hypertoric (abelia
 
 > **Bottom Line:** By extending symplectic duality to loop spaces and constructing a periodic Coulomb branch, McBreen, Sheshmani, and Yau turn a hard geometric counting problem into an explicit algebraic formula, showing that duality works not just as a guiding principle but as a hands-on computational tool.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work forges a precise mathematical link between the enumerative geometry of supersymmetric gauge theories and representation theory, showing how physical intuition about mirror symmetry can drive rigorous mathematical advances.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The algebraic structures developed here, including periodic analogues of Coulomb branches and extended Koszul duality, expand the geometric and algebraic toolkit with potential applications to AI methods for scientific discovery.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By computing refined Donaldson-Thomas invariants for hypertoric spaces via symplectic duality, this paper advances the mathematical understanding of three-dimensional supersymmetric gauge theories and their Higgs/Coulomb branch structure.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The periodic Coulomb branch construction points toward analogous results for non-abelian gauge theories, with connections to compactified Jacobians and loop group geometry; the paper is available at [arXiv:2004.04508](https://arxiv.org/abs/2004.04508).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work forges a precise mathematical link between the enumerative geometry of supersymmetric gauge theories and representation theory, showing how physical intuition about mirror symmetry can drive rigorous mathematical advances.
+
+- **Impact on Artificial Intelligence:** The algebraic structures developed here, including periodic analogues of Coulomb branches and extended Koszul duality, expand the geometric and algebraic toolkit with potential applications to AI methods for scientific discovery.
+
+- **Impact on Fundamental Interactions:** By computing refined Donaldson-Thomas invariants for hypertoric spaces via symplectic duality, this paper advances the mathematical understanding of three-dimensional supersymmetric gauge theories and their Higgs/Coulomb branch structure.
+
+- **Outlook and References:** The periodic Coulomb branch construction points toward analogous results for non-abelian gauge theories, with connections to compactified Jacobians and loop group geometry; the paper is available at [arXiv:2004.04508](https://arxiv.org/abs/2004.04508).

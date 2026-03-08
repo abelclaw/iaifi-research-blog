@@ -71,13 +71,13 @@ The problem: this neural network needs to train on the full dataset to be maxima
 3. **Aggregate** those local ratios by computing their weighted average across all batches
 4. Run the final statistical test on this aggregated, shared hypothesis
 
-![Figure 1](/iaifi-research-blog/figures/2407_01249/figure_1.png)
+![Figure 1](figure:1)
 
 Why not just run *N* independent tests and sum their **p-values**? That treats each batch as a completely separate experiment. Aggregation does something smarter: it recognizes that all batches sample from the same underlying physics. The averaged density ratio acts as a shared hypothesis across batches, introducing regularization that prevents any single model from over-fitting to the noise in its particular data slice.
 
 The framework offers three operational modes: full aggregation combining all batch models, streaming mode for quasi-online analysis as data arrives continuously, and resource-limited mode that maximizes sensitivity under constrained compute.
 
-![Figure 2](/iaifi-research-blog/figures/2407_01249/figure_1.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 
@@ -85,29 +85,32 @@ Grosso tested this framework on three progressively harder problems: a one-dimen
 
 For the 5-dimensional dimuon problem, aggregation didn't just match the sensitivity of running NPLM on the full undivided dataset. It *outperformed* it. That seeming paradox makes sense once you understand the regularization effect: averaging over multiple batch estimates smooths out statistical fluctuations that can confuse a single neural network trained on one large, noisy sample.
 
-![Figure 3](/iaifi-research-blog/figures/2407_01249/figure_2.png)
+![Figure 3](figure:3)
 
 For the 24-dimensional CMS trigger dataset, the split-aggregation approach demonstrated clear discovery potential, successfully identifying injected anomalous signals at various rates while keeping false positive rates under control.
 
-![Figure 4](/iaifi-research-blog/figures/2407_01249/figure_2.png)
+![Figure 4](figure:4)
 
 The practical upside is immediate. Physicists can now apply NPLM to datasets they previously couldn't touch. The LHC generates petabytes of data per year, and even the fraction passing trigger filters represents a computational challenge for methods requiring joint training on the full sample. Batch parallelization opens up more inclusive, less filtered data samples, exactly where subtle new physics might hide.
 
 But the streaming capability may matter even more in the long run. NPLM could eventually operate *during* data collection, not just after. An anomaly-aware summary statistic that updates as new data arrives could flag unusual conditions in real time, whether new physics, detector malfunctions, or unexpected beam conditions. That would connect offline analysis and online data quality monitoring, two tasks currently handled by entirely different toolchains.
 
-![Figure 5](/iaifi-research-blog/figures/2407_01249/figure_3.png)
+![Figure 5](figure:5)
 
 There's also a broader point here about how particle physics is evolving. Rather than designing searches for specific hypothetical particles, signal-agnostic methods like NPLM let the data itself point to anomalies. As LHC datasets grow through Run 3 and toward the High-Luminosity LHC upgrade, the ability to search those datasets efficiently and thoroughly only becomes more valuable.
 
-![Figure 6](/iaifi-research-blog/figures/2407_01249/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** The batch-aggregation extension of NPLM makes large-scale anomaly detection at particle colliders computationally tractable without sacrificing (and sometimes actually improving) statistical sensitivity, opening the door to real-time physics discovery in streaming data environments.
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects machine learning methodology with experimental particle physics, adapting distributed computing concepts to a rigorous statistical hypothesis testing framework and making anomaly detection at the LHC scalable to realistic data volumes.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Aggregating locally-trained density ratio estimators produces better generalization than single large-scale training, a concrete example of how ensemble-style neural network combination can outperform monolithic approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By scaling NPLM to millions of events across dozens of dimensions, including CMS Level-1 trigger data, this approach expands the parameter space physicists can search for Standard Model deviations without assuming any specific new-physics hypothesis.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include fully online deployment for real-time anomaly monitoring during LHC data-taking and extension to higher-dimensional trigger-level datasets; the work is available at [arXiv:2407.01249](https://arxiv.org/abs/2407.01249).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects machine learning methodology with experimental particle physics, adapting distributed computing concepts to a rigorous statistical hypothesis testing framework and making anomaly detection at the LHC scalable to realistic data volumes.
+
+- **Impact on Artificial Intelligence:** Aggregating locally-trained density ratio estimators produces better generalization than single large-scale training, a concrete example of how ensemble-style neural network combination can outperform monolithic approaches.
+
+- **Impact on Fundamental Interactions:** By scaling NPLM to millions of events across dozens of dimensions, including CMS Level-1 trigger data, this approach expands the parameter space physicists can search for Standard Model deviations without assuming any specific new-physics hypothesis.
+
+- **Outlook and References:** Future directions include fully online deployment for real-time anomaly monitoring during LHC data-taking and extension to higher-dimensional trigger-level datasets; the work is available at [arXiv:2407.01249](https://arxiv.org/abs/2407.01249).

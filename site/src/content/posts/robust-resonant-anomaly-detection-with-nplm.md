@@ -64,7 +64,7 @@ The reigning approach for resonant anomaly detection is **CWoLa (Classification 
 
 But CWoLa-BDT has a known vulnerability: performance swings wildly depending on four key knobs — number of trees, tree depth, learning rate, and regularization strength. These are **hyperparameters**, the design choices governing how a machine learning algorithm behaves, separate from what it actually learns from data. Choosing them poorly can mean the difference between discovering new physics and missing it entirely. In practice, physicists rarely know the right settings in advance.
 
-![Figure 1](/iaifi-research-blog/figures/2501_01778/figure_1.png)
+![Figure 1](figure:1)
 
 NPLM takes a different approach. Rather than training a classifier on held-out data and applying it separately, NPLM uses **in-sample evaluation**, training and evaluating on the *same* dataset simultaneously. It directly estimates the **log-density ratio**: a score measuring how much more likely a given event is to come from real signal than from background noise. That score is, provably, the most statistically powerful possible test for whether a signal exists, per the Neyman-Pearson lemma.
 
@@ -75,7 +75,7 @@ The researchers explored two distinct scenarios:
 1. **End-to-end NPLM** — When an accurate background model is available, skip the signal-selection step entirely and let NPLM handle both anomaly detection and hypothesis testing in one shot.
 2. **NPLM as a classifier with hyper-testing** — When background modeling is imperfect, use NPLM's classifier for signal enrichment, then run a **hyper-test**: scan across multiple values of the selection threshold and combine results, capturing signal sensitivity across a range of possible signal strengths.
 
-![Figure 2](/iaifi-research-blog/figures/2501_01778/figure_1.png)
+![Figure 2](figure:2)
 
 The hyper-test approach is particularly clever. Instead of committing to a single threshold, a choice that could include too much background noise or cut genuine signal, the method aggregates evidence across many thresholds. It's like casting a wide net and asking: "At what mesh size do we catch the most fish with the least seaweed?"
 
@@ -85,7 +85,7 @@ The numbers back this up. Across low signal injection scenarios, where signal ev
 
 A detector at ATLAS or CMS can't re-run an experiment just to tune a machine learning model; the data come once. Methods that hold up across hyperparameter choices aren't just convenient. They're essential for trustworthy results.
 
-![Figure 3](/iaifi-research-blog/figures/2501_01778/figure_2.png)
+![Figure 3](figure:3)
 
 The same bump-hunt strategy appears across fields, from gravitational wave detection to spectroscopy to drug trial analysis. Any domain where you're searching for a rare, unpredictable signal embedded in well-characterized noise could benefit from NPLM's approach. Folding anomaly detection and hypothesis testing into a single framework is a concrete step toward the automated, assumption-free searches next-generation experiments will need.
 
@@ -93,9 +93,12 @@ Open questions remain. NPLM's end-to-end mode requires a high-quality background
 
 > **Bottom Line:** NPLM-based resonant anomaly detection outperforms standard BDT methods where it counts most, at low signal strengths, while slashing sensitivity to arbitrary hyperparameter choices. It offers a more statistically principled path to discovering new physics at the LHC.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies end-to-end density-ratio estimation directly to one of the central challenges in experimental high-energy physics: model-agnostic new particle searches at the LHC, squarely within IAIFI's mission at the intersection of AI and fundamental physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The NPLM framework shows that in-sample classifier evaluation produces more statistically principled anomaly detection with lower variance than standard out-of-sample approaches, a principle applicable well beyond particle physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By improving sensitivity to rare signals and reducing dependence on hyperparameter tuning, NPLM-based methods sharpen the LHC's ability to detect signatures of physics beyond the Standard Model in resonant searches at ATLAS and CMS.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend NPLM to realistic background modeling pipelines and higher-dimensional feature spaces. The full study is available at [arXiv:2501.01778](https://arxiv.org/abs/2501.01778).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies end-to-end density-ratio estimation directly to one of the central challenges in experimental high-energy physics: model-agnostic new particle searches at the LHC, squarely within IAIFI's mission at the intersection of AI and fundamental physics.
+
+- **Impact on Artificial Intelligence:** The NPLM framework shows that in-sample classifier evaluation produces more statistically principled anomaly detection with lower variance than standard out-of-sample approaches, a principle applicable well beyond particle physics.
+
+- **Impact on Fundamental Interactions:** By improving sensitivity to rare signals and reducing dependence on hyperparameter tuning, NPLM-based methods sharpen the LHC's ability to detect signatures of physics beyond the Standard Model in resonant searches at ATLAS and CMS.
+
+- **Outlook and References:** Future work will extend NPLM to realistic background modeling pipelines and higher-dimensional feature spaces. The full study is available at [arXiv:2501.01778](https://arxiv.org/abs/2501.01778).

@@ -60,7 +60,7 @@ Using machine learning-based anomaly detection on publicly available CMS Open Da
 
 The analysis begins with a clever choice of battlefield. The team pulled data from CMS's 2016 run at 13 TeV, collision energy enough to produce heavy particles like the Upsilon many thousands of times over, focusing on events where two muons were recorded. Rather than requiring the muons to be cleanly separated from surrounding activity, they flipped the script entirely: imposing an **anti-isolation criterion** that forced muon pairs to be *embedded* in surrounding particle activity, with non-muon momentum exceeding 55% of the muon momentum within a cone of radius ΔR = 0.4.
 
-![Figure 1](/iaifi-research-blog/figures/2502_14036/figure_1.png)
+![Figure 1](figure:1)
 
 This cut dramatically suppresses the signal. Without any cuts, Upsilons shine out at 28σ. With anti-isolation imposed, the **dimuon mass spectrum** (a plot of how many muon pairs appear at each combined mass, where a real particle shows up as a bump at its known mass) yields a barely perceptible 1.6σ bump. Two dominant backgrounds conspire to bury the Upsilon's characteristic peaks near 9–10 GeV: uncorrelated hadron decays and **Drell-Yan production**, a process in which a virtual photon briefly materializes and decays into a muon pair, producing a smoothly falling background.
 
@@ -72,13 +72,13 @@ To fight back, the researchers deployed **CATHODE** (Classifying Anomalies THrou
 4. **Build an anomaly score** comparing actual data to the predicted background, so events that don't look like background light up as anomalous
 5. **Reweight and scan** the mass spectrum, looking for a resonant bump that anomaly detection makes visible
 
-![Figure 2](/iaifi-research-blog/figures/2502_14036/figure_1.png)
+![Figure 2](figure:2)
 
 The three auxiliary features were chosen carefully. Dimuon transverse momentum and impact parameters carry information about how the Upsilon was produced: fragmentation-produced Upsilons behave differently from background muon pairs. The team verified these features don't sculpt artificial peaks in the mass spectrum, a known pitfall where the anomaly score itself creates false bumps by preferentially selecting events at certain masses.
 
 After applying the learned anomaly score, the Upsilon signal jumps from 1.6σ to 6.4σ. The team also compared two ways of using the anomaly score: a simple **cut-and-count** approach (keeping only events above a chosen threshold) versus **likelihood-ratio reweighting**, which uses the full continuous distribution of anomaly scores rather than drawing a hard cutoff. Reweighting consistently outperformed cuts, a finding worth keeping in mind for future searches.
 
-![Figure 3](/iaifi-research-blog/figures/2502_14036/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -90,9 +90,12 @@ This paper is different. It finds a real signal in real data in a region of **ph
 
 > **Bottom Line:** By pulling a 6.4σ Upsilon signal out of anti-isolated backgrounds that buried it at 1.6σ, this study shows that ML anomaly detection works on real collider data, not just in theory. It's a working tool for finding new physics.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Machine learning anomaly detection, a technique developed in the AI community, here solves an open problem in experimental particle physics. The result shows that AI tools can extract real signals from regions of phase space where traditional analysis fails.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study validates CATHODE-style density estimation on real, messy experimental data. Likelihood-ratio reweighting outperforms cut-based anomaly score usage, offering practical guidance for future algorithm design.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">This is the first observation of anti-isolated Υ → μ⁺μ⁻ decays at the LHC, opening a new channel to study QCD bottomonium fragmentation inside jets and to probe the nonperturbative regime of the strong force.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could apply these methods to search for genuinely unknown resonances in anti-isolated channels. The published CMS Open Data benchmark will support community-wide development of anomaly detection tools. The paper is available at [arXiv:2502.14036](https://arxiv.org/abs/2502.14036).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** Machine learning anomaly detection, a technique developed in the AI community, here solves an open problem in experimental particle physics. The result shows that AI tools can extract real signals from regions of phase space where traditional analysis fails.
+
+- **Impact on Artificial Intelligence:** The study validates CATHODE-style density estimation on real, messy experimental data. Likelihood-ratio reweighting outperforms cut-based anomaly score usage, offering practical guidance for future algorithm design.
+
+- **Impact on Fundamental Interactions:** This is the first observation of anti-isolated Υ → μ⁺μ⁻ decays at the LHC, opening a new channel to study QCD bottomonium fragmentation inside jets and to probe the nonperturbative regime of the strong force.
+
+- **Outlook and References:** Future work could apply these methods to search for genuinely unknown resonances in anti-isolated channels. The published CMS Open Data benchmark will support community-wide development of anomaly detection tools. The paper is available at [arXiv:2502.14036](https://arxiv.org/abs/2502.14036).

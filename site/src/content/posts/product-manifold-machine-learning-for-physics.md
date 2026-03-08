@@ -74,7 +74,7 @@ The central concept is the **product manifold (PM) space**: a combination of sev
 
 The researchers formalize this using **Gromov-δ hyperbolicity**, a mathematical measure of how tree-like a data structure actually is. Small δ means highly tree-like; large δ means more tangled and complex.
 
-![Figure 1](/iaifi-research-blog/figures/2412_07033/figure_1.png)
+![Figure 1](figure:1)
 
 The team built two architectures that operate natively in curved spaces:
 
@@ -83,7 +83,7 @@ The team built two architectures that operate natively in curved spaces:
 
 Both were benchmarked on **JetClass**, a large-scale dataset of simulated jets spanning ten classes: top quarks, Higgs bosons decaying to quark pairs, simple quark/gluon jets, and more. The experiments systematically varied PM combinations, from pure Euclidean to pure hyperbolic to mixed, to find which geometry worked best for which jet type.
 
-![Figure 2](/iaifi-research-blog/figures/2412_07033/figure_1.png)
+![Figure 2](figure:2)
 
 PM representations matched or outperformed Euclidean models of similar parameter count, with the largest gains appearing for the most hierarchical jet types and for small models. Under computational constraints, curved space does more work with fewer parameters.
 
@@ -91,19 +91,22 @@ PM representations matched or outperformed Euclidean models of similar parameter
 
 The real payoff isn't that PM spaces help on average. It's *when* they help. The researchers measured the Gromov-δ hyperbolicity of individual jets and found a statistically significant correlation: jets with lower δ (more tree-like, more hierarchical) are classified more accurately by the PM-Transformer than by its Euclidean counterpart. The geometry of the model and the geometry of the data are genuinely aligned.
 
-![Figure 3](/iaifi-research-blog/figures/2412_07033/figure_2.png)
+![Figure 3](figure:3)
 
 This opens a provocative door. If the benefit of non-Euclidean geometry tracks the actual hierarchical structure of individual data points, future models might adapt their geometry *on the fly*, choosing or weighting different manifold components based on how tree-like each jet is. That would be a fundamentally new kind of inductive bias: not architecture or training data, but *the shape of the mathematical space itself* as a tunable parameter per input.
 
 The idea generalizes far beyond particle physics. Biological data (protein interaction networks, evolutionary trees, neural connectomes) is hierarchical too. Social networks. Language structures. Any domain where data branches and stratifies could benefit from this geometric matching approach. Jets just happen to be a particularly clean test case.
 
-![Figure 4](/iaifi-research-blog/figures/2412_07033/figure_2.png)
+![Figure 4](figure:4)
 
 > **Bottom Line:** Matching the geometry of a machine learning model to the hierarchical geometry of physical data isn't just mathematically elegant. It measurably improves performance, and the improvement is largest exactly where it matters most: deeply branching jets and tight computational budgets.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects differential geometry and Riemannian manifold theory to deep learning for experimental particle physics, turning abstract mathematical structure into concrete performance gains on one of collider physics' central classification challenges.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The PM-Transformer shows that transformer architectures can be rigorously extended to non-Euclidean product manifolds without losing generality, providing a framework applicable to any hierarchical dataset, from particle jets to biological networks.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Better jet classification directly improves sensitivity in searches for new physics at the LHC, including Higgs boson measurements and dark matter production signals, by more accurately distinguishing signal jets from QCD background.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The per-sample correlation between classification accuracy and Gromov-δ hyperbolicity motivates future adaptive-geometry models that tune their manifold representation per input. The full paper is available at [arXiv:2412.07033](https://arxiv.org/abs/2412.07033).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects differential geometry and Riemannian manifold theory to deep learning for experimental particle physics, turning abstract mathematical structure into concrete performance gains on one of collider physics' central classification challenges.
+
+- **Impact on Artificial Intelligence:** The PM-Transformer shows that transformer architectures can be rigorously extended to non-Euclidean product manifolds without losing generality, providing a framework applicable to any hierarchical dataset, from particle jets to biological networks.
+
+- **Impact on Fundamental Interactions:** Better jet classification directly improves sensitivity in searches for new physics at the LHC, including Higgs boson measurements and dark matter production signals, by more accurately distinguishing signal jets from QCD background.
+
+- **Outlook and References:** The per-sample correlation between classification accuracy and Gromov-δ hyperbolicity motivates future adaptive-geometry models that tune their manifold representation per input. The full paper is available at [arXiv:2412.07033](https://arxiv.org/abs/2412.07033).

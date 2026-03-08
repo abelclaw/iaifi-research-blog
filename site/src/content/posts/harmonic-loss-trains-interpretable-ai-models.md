@@ -59,7 +59,7 @@ A team from MIT (David Baek, Ziming Liu, Riya Tyagi, and Max Tegmark) has propos
 
 The standard recipe for neural network classification: take the model's final hidden representation, multiply it by a weight matrix to get "logits" (raw scores for each class), then squeeze those scores through **SoftMax** to produce probabilities. The problem? SoftMax is not **scale-invariant**: the actual size of the numbers matters, not just their relative proportions. As a result, model weights grow without bound during training, chasing an infinitely distant "perfect" answer. They keep getting bigger and never settle.
 
-![Figure 1](/iaifi-research-blog/figures/2502_01628/figure_1.png)
+![Figure 1](figure:1)
 
 Harmonic loss makes two surgical changes:
 
@@ -75,7 +75,7 @@ Toy examples make this concrete. In a simple two-class problem, harmonic loss dr
 
 The researchers tested harmonic loss across a range of tasks (algorithmic datasets like modular arithmetic, MNIST digit classification, and a full GPT-2 language model) and found consistent advantages. Grokking shrank dramatically. Models needed fewer training examples to generalize well.
 
-![Figure 2](/iaifi-research-blog/figures/2502_01628/figure_2.png)
+![Figure 2](figure:2)
 
 The biggest gain is interpretability. Because each weight vector converges to a class center in the model's internal representational space, you can look at the weights and understand what they represent, without needing dedicated interpretability probes. The structure is built in, not reverse-engineered.
 
@@ -87,9 +87,12 @@ Open questions remain. How does harmonic loss behave beyond GPT-2 scale? Does th
 
 > By swapping a 30-year-old default for a geometry-aware alternative, harmonic loss gives neural networks cleaner internal representations, faster generalization, and less grokking, suggesting that the choice of loss function is far more consequential than the field has assumed.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work draws on geometric intuitions from physics (Euclidean distance, scale invariance, convergence to stable fixed points) to redesign a core component of modern machine learning, consistent with IAIFI's approach of applying physics thinking to AI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Harmonic loss is a practical, drop-in improvement over cross-entropy that simultaneously enhances interpretability, data efficiency, and training stability across algorithmic, vision, and language tasks.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The interpretable geometric structure induced by harmonic loss could accelerate scientific discovery in domains where understanding the model's internal reasoning (not just its predictions) is essential.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore harmonic loss at larger scales and in data-scarce scientific domains; the paper is available at [arXiv:2502.01628](https://arxiv.org/abs/2502.01628).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work draws on geometric intuitions from physics (Euclidean distance, scale invariance, convergence to stable fixed points) to redesign a core component of modern machine learning, consistent with IAIFI's approach of applying physics thinking to AI.
+
+- **Impact on Artificial Intelligence:** Harmonic loss is a practical, drop-in improvement over cross-entropy that simultaneously enhances interpretability, data efficiency, and training stability across algorithmic, vision, and language tasks.
+
+- **Impact on Fundamental Interactions:** The interpretable geometric structure induced by harmonic loss could accelerate scientific discovery in domains where understanding the model's internal reasoning (not just its predictions) is essential.
+
+- **Outlook and References:** Future work will explore harmonic loss at larger scales and in data-scarce scientific domains; the paper is available at [arXiv:2502.01628](https://arxiv.org/abs/2502.01628).

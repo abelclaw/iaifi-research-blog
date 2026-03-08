@@ -75,17 +75,17 @@ This distance penalty creates pressure for neurons to cluster near their collabo
 
 The result: neurons that fire together don't just wire together. They *move* together.
 
-![Figure 1](/iaifi-research-blog/figures/2310_07711/figure_1.png)
+![Figure 1](figure:1)
 
 After training, the hidden layer develops spatial structure that resembles a simplified brain map. Neurons specializing in the same subtask cluster into distinct spatial patches, connected densely within each patch and sparsely across patches.
 
-![Figure 2](/iaifi-research-blog/figures/2310_07711/figure_1.png)
+![Figure 2](figure:2)
 
 The paper quantifies this with two metrics: a **modularity score** measuring how well neurons cluster by function, and a **locality score** measuring how spatially concentrated each cluster is. BIMT consistently achieves high scores on both. Standard L1 achieves functional modularity but nearly zero anatomical modularity.
 
 The performance-sparsity tradeoff is where BIMT really shines. It sits on a better **Pareto frontier** (the boundary of best achievable tradeoffs) than either L1 or no regularization. For the same sparsity level, BIMT networks make fewer errors. For the same error rate, they use fewer active neurons and shorter total wiring.
 
-![Figure 3](/iaifi-research-blog/figures/2310_07711/figure_2.png)
+![Figure 3](figure:3)
 
 The spatial pressure appears to force the network toward representations that are both compact and reusable, exactly the kind of structure that generalizes well to new combinations of familiar subtasks. The researchers confirmed these findings on a second benchmark, `Mod-Cog-tasks`, with qualitatively similar results.
 
@@ -101,9 +101,12 @@ Open questions remain. The current experiments use relatively small networks on 
 
 > **Bottom Line:** Brain-inspired modular training produces RNNs that are simultaneously more brain-like, more interpretable, and more efficient. The spatial organization of biological brains isn't a biological accident; it reflects a deep computational principle.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly bridges computational neuroscience and machine learning, using a neuroscience-inspired training algorithm to reproduce a fundamental organizational feature of biological brains in artificial networks.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">BIMT achieves a better performance-sparsity tradeoff than standard regularization while producing anatomically organized networks that are more interpretable and better suited for neuromorphic hardware.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The work provides a minimal computational model showing that spatial wiring costs alone can drive the emergence of anatomical modularity, offering a mechanistic account of brain organization without requiring complex biological detail.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will test whether BIMT scales to larger architectures and enables continual learning through stable anatomical modules; the paper is available at [arXiv:2310.07711](https://arxiv.org/abs/2310.07711).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work directly bridges computational neuroscience and machine learning, using a neuroscience-inspired training algorithm to reproduce a fundamental organizational feature of biological brains in artificial networks.
+
+- **Impact on Artificial Intelligence:** BIMT achieves a better performance-sparsity tradeoff than standard regularization while producing anatomically organized networks that are more interpretable and better suited for neuromorphic hardware.
+
+- **Impact on Fundamental Interactions:** The work provides a minimal computational model showing that spatial wiring costs alone can drive the emergence of anatomical modularity, offering a mechanistic account of brain organization without requiring complex biological detail.
+
+- **Outlook and References:** Future work will test whether BIMT scales to larger architectures and enables continual learning through stable anatomical modules; the paper is available at [arXiv:2310.07711](https://arxiv.org/abs/2310.07711).

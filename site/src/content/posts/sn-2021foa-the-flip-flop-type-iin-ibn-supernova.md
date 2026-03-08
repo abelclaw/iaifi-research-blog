@@ -92,7 +92,7 @@ SN 2021foa did exactly that, oscillating from IIn to Ibn to IIn again within jus
 
 The research team assembled an extensive dataset: brightness measurements over time and dozens of spectra spanning ultraviolet to near-infrared, collected through the Las Cumbres Observatory, the Swift satellite, and several other facilities. This multi-wavelength, time-resolved portrait let them watch the supernova's face change in real time.
 
-![Figure 1](/iaifi-research-blog/figures/2409_01359/figure_2.png)
+![Figure 1](figure:1)
 
 The flip-flop's explanation lies in what the exploding star ran into. The team proposes that SN 2021foa had **helium-rich ejecta** that plowed into a surrounding shell of **hydrogen-rich CSM** shortly after detonation.
 
@@ -100,7 +100,7 @@ This collision produced the initial IIn signature. Fast ejecta compressed and he
 
 The **photosphere**, the surface from which light appears to escape, matters here too. Around 60 days past peak brightness, it retreated inward through the dense ejecta-CSM interaction zone. This blocked the receding (red-shifted) half of the emitting gas from view, leaving only the approaching (blue-shifted) material visible. The result was a dramatic apparent **blue-shift of ~3,000 km/s** in the spectral lines, a telltale sign of rapidly evolving explosion geometry.
 
-![Figure 2](/iaifi-research-blog/figures/2409_01359/figure_2.png)
+![Figure 2](figure:2)
 
 To quantify what they were seeing, the team modeled the light curve using a steady **wind mass-loss** scenario, in which the progenitor continuously shed material into space before exploding. Their best fit returned:
 
@@ -110,11 +110,11 @@ To quantify what they were seeing, the team modeled the light curve using a stea
 
 That last number is staggering. Normal Type II supernova progenitors lose mass at roughly one-thousandth of a solar mass per year. SN 2021foa's progenitor was shedding material at a rate three orders of magnitude higher, equivalent to dumping two entire suns' worth of gas into space annually. The timing suggests this violent episode lasted less than six months and occurred roughly 15 years before the star finally exploded.
 
-![Figure 3](/iaifi-research-blog/figures/2409_01359/figure_3.png)
+![Figure 3](figure:3)
 
 This picture fits with a class of volatile massive stars known as **SN 2009ip-like objects**, stars caught in repeated outbursts before their terminal explosion. SN 2021foa showed precursor emission before its main event, hinting that its progenitor was already shedding shells of material that would become the complex, multi-layered CSM the supernova eventually collided with.
 
-![Figure 4](/iaifi-research-blog/figures/2409_01359/figure_3.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -126,9 +126,12 @@ SN 2021foa adds another well-characterized data point to a growing population of
 
 > **Bottom Line:** SN 2021foa's unprecedented hydrogen-helium-hydrogen identity crisis reveals a star that spent its final years violently shedding its outer layers, creating the multi-shell circumstellar architecture that made this explosion unlike any supernova seen before.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This study combines multi-wavelength photometric and spectroscopic data to construct a detailed physical model of circumstellar interaction, showing how careful data synthesis across observational astrophysics and stellar physics can decode the hidden geometry of stellar deaths.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work contributes to a growing library of labeled supernovae with well-characterized spectral evolution, directly supporting the development of AI classifiers that upcoming time-domain surveys will need to categorize millions of transient events automatically.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2021foa provides the first observational evidence of a supernova repeatedly switching between IIn and Ibn spectral classes, challenging existing taxonomies and revealing a previously undocumented mode of ejecta-CSM interaction driven by stratified, multi-shell pre-explosion mass loss.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future all-sky surveys will catch more events like SN 2021foa in their early stages, enabling real-time monitoring of the flip-flop transition; the full analysis is available at [arXiv:2409.01359](https://arxiv.org/abs/2409.01359).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This study combines multi-wavelength photometric and spectroscopic data to construct a detailed physical model of circumstellar interaction, showing how careful data synthesis across observational astrophysics and stellar physics can decode the hidden geometry of stellar deaths.
+
+- **Impact on Artificial Intelligence:** The work contributes to a growing library of labeled supernovae with well-characterized spectral evolution, directly supporting the development of AI classifiers that upcoming time-domain surveys will need to categorize millions of transient events automatically.
+
+- **Impact on Fundamental Interactions:** SN 2021foa provides the first observational evidence of a supernova repeatedly switching between IIn and Ibn spectral classes, challenging existing taxonomies and revealing a previously undocumented mode of ejecta-CSM interaction driven by stratified, multi-shell pre-explosion mass loss.
+
+- **Outlook and References:** Future all-sky surveys will catch more events like SN 2021foa in their early stages, enabling real-time monitoring of the flip-flop transition; the full analysis is available at [arXiv:2409.01359](https://arxiv.org/abs/2409.01359).

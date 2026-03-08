@@ -57,7 +57,7 @@ Researchers at MIT's Improbable AI Lab and Google Research have developed a new 
 
 Finding a stable resting orientation is really a two-step process: identify the **contact plane** (the flat face that should sit on the table), then compute the rotation needed to align it with gravity. This reformulation sidesteps the notorious difficulties of directly predicting rotations.
 
-![Figure 1](/iaifi-research-blog/figures/2208_08962/figure_1.png)
+![Figure 1](figure:1)
 
 The system operates in four stages:
 
@@ -66,13 +66,13 @@ The system operates in four stages:
 3. **Plane fitting with RANSAC.** **RANSAC** (Random Sample Consensus) is a technique for finding the best-fitting geometric shape in noisy data while automatically ignoring outliers. Here it fits a plane to the highest-density cluster of predicted contact points.
 4. **Rotation computation.** Rodrigues' rotation formula converts the fitted plane's **normal vector** (the perpendicular direction pointing straight up from the face) into an exact 3D rotation aligned with gravity.
 
-![Figure 2](/iaifi-research-blog/figures/2208_08962/figure_1.png)
+![Figure 2](figure:2)
 
 This per-point classification approach generalizes well because contact point probabilities depend mainly on *local geometry*. Flat regions near the base of an object look geometrically similar regardless of whether you've seen that exact object before. Traditional approaches rely on tools like quaternions or Euler angles, compact mathematical encodings of rotation that become ambiguous or ill-conditioned at certain orientations. The network avoids those issues entirely: it votes on which surface points are in contact, not on what rotation to apply.
 
 Objects can have multiple valid contact surfaces. A cube can rest stably on any of six faces. This is the **multimodality problem**: similar inputs can have very different correct outputs. The system handles it with a **CVAE** (Conditional Variational Autoencoder), a generative model that samples plausible hypotheses rather than averaging over all of them. Even when predicted probabilities spread across several valid contact regions, RANSAC selects the dominant cluster and ignores the rest.
 
-![Figure 3](/iaifi-research-blog/figures/2208_08962/figure_2.png)
+![Figure 3](figure:3)
 
 On a simulated block-stacking benchmark requiring high rotational precision, the method substantially outperforms previous state-of-the-art approaches. It also transfers directly from simulation to the real world **zero-shot**, with no real-world training data at all, successfully reorienting a diverse set of never-before-seen objects using only noisy point clouds from commodity RealSense depth cameras.
 
@@ -86,9 +86,12 @@ The deeper contribution is methodological. Decomposing a hard rotation-predictio
 
 > **Bottom Line:** By teaching a robot to ask "which face goes down?" instead of "what rotation is needed?", this system achieves accurate, generalizable object reorientation from real-world depth cameras, transferring from simulation to physical robots without any real-world training data.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects geometric deep learning and robotic manipulation, using physical reasoning about contact and gravity to structure a machine learning problem, reflecting IAIFI's AI-physics integration approach.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The contact plane reformulation offers a principled solution to the multimodality problem in SO(3) rotation prediction, combining conditional generative modeling with geometric estimation for stable, generalizable inference.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By grounding the learning problem in physical constraints (stable equilibria, contact mechanics, gravitational alignment), the method shows how physics priors can be embedded directly into neural architectures to improve generalization across object geometries.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions may address non-planar contact surfaces and dynamic manipulation; the sim-to-real framework also provides a template for training robotic systems without costly real-world data collection. Full paper by Li, Esteves, Makadia, and Agrawal: [arXiv:2208.08962](https://arxiv.org/abs/2208.08962).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects geometric deep learning and robotic manipulation, using physical reasoning about contact and gravity to structure a machine learning problem, reflecting IAIFI's AI-physics integration approach.
+
+- **Impact on Artificial Intelligence:** The contact plane reformulation offers a principled solution to the multimodality problem in SO(3) rotation prediction, combining conditional generative modeling with geometric estimation for stable, generalizable inference.
+
+- **Impact on Fundamental Interactions:** By grounding the learning problem in physical constraints (stable equilibria, contact mechanics, gravitational alignment), the method shows how physics priors can be embedded directly into neural architectures to improve generalization across object geometries.
+
+- **Outlook and References:** Future extensions may address non-planar contact surfaces and dynamic manipulation; the sim-to-real framework also provides a template for training robotic systems without costly real-world data collection. Full paper by Li, Esteves, Makadia, and Agrawal: [arXiv:2208.08962](https://arxiv.org/abs/2208.08962).

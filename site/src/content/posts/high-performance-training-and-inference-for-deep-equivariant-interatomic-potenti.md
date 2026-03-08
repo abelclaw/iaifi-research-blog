@@ -76,7 +76,7 @@ Three interlocking innovations each target a different bottleneck:
 
 The team's solution was to trace the *entire* model — the forward prediction pass and the derivative computation together — into a single **computational graph** using PyTorch's `torch.fx` library. Because this combined graph contains only primitive operations, TorchInductor can compile it as a unified whole, enabling aggressive **kernel fusion** (combining multiple GPU operations into one to avoid costly memory transfers) across energy and force computations simultaneously.
 
-![Figure 1](/iaifi-research-blog/figures/2504_16068/figure_1.png)
+![Figure 1](figure:1)
 
 **Distributed training.** Modern MLIP datasets like SPICE 2 are enormous, demanding work spread across multiple GPUs. The team added **Distributed Data Parallel (DDP)** training via PyTorch Lightning — but with a critical twist. Standard DDP implementations multitask: while the model computes its **backward pass** (calculating how wrong its predictions were and how much to adjust each parameter), it simultaneously ships those adjustments (**gradients**) to other GPUs. That multitasking forces TorchInductor to compile the backward pass in fragments, blocking deeper optimization.
 
@@ -84,13 +84,13 @@ The team's custom DDP approach instead waits until the entire backward pass comp
 
 **Custom tensor product kernel.** Allegro's most expensive operation is the **tensor product** — pooling information from neighboring atoms while preserving their symmetry properties. Standard PyTorch has no optimized implementation for this. The team wrote a purpose-built GPU kernel for this operation alone, achieving performance no general-purpose compiler could reach.
 
-![Figure 2](/iaifi-research-blog/figures/2504_16068/figure_2.png)
+![Figure 2](figure:2)
 
 For **inference** — running the trained model on new atomic configurations — the team introduces the first end-to-end use of **Ahead-of-Time Inductor (AOTI)** compilation for MLIPs. AOTI compiles models into standalone packages that load directly into C++ simulation codes like LAMMPS, eliminating Python interpreter overhead and replacing the previous TorchScript approach. The compiled model handles dynamic input sizes gracefully, which matters for molecular dynamics, where the number of interacting atom pairs changes every timestep.
 
 Benchmarking on practically relevant system sizes, the new framework achieves up to an **18× speedup** in molecular dynamics calculations compared to the previous NequIP release.
 
-![Figure 3](/iaifi-research-blog/figures/2504_16068/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -100,9 +100,9 @@ The compiler-first approach also closes a longstanding gap. Models developed in 
 
 > **Bottom Line:** An 18× speedup in molecular dynamics isn't incremental progress. It's the difference between hours and days of compute time, between feasible and infeasible experiments. By taming the compiler and scaling training to modern datasets, this work makes equivariant interatomic potentials ready for the next generation of materials and molecular science.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects advances in deep learning compiler technology to a core challenge in computational physics — simulating atomic interactions fast enough and accurately enough to be scientifically useful at scale.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The team solved a fundamental barrier to applying TorchInductor to physics-informed neural networks by tracing automatic differentiation into a compiler-friendly computational graph, a technique applicable well beyond MLIPs.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Faster, more scalable equivariant potentials accelerate atomistic simulation across materials science and chemistry, enabling studies of ionic conductivity, phonon properties, and defect behavior that require long simulation timescales.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend gradient bucketing strategies to larger architectures and bring AOTI compilation to other MLIP frameworks. The paper is available at [arXiv:2504.16068](https://arxiv.org/abs/2504.16068).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects advances in deep learning compiler technology to a core challenge in computational physics — simulating atomic interactions fast enough and accurately enough to be scientifically useful at scale.
+- **Impact on Artificial Intelligence:** The team solved a fundamental barrier to applying TorchInductor to physics-informed neural networks by tracing automatic differentiation into a compiler-friendly computational graph, a technique applicable well beyond MLIPs.
+- **Impact on Fundamental Interactions:** Faster, more scalable equivariant potentials accelerate atomistic simulation across materials science and chemistry, enabling studies of ionic conductivity, phonon properties, and defect behavior that require long simulation timescales.
+- **Outlook and References:** Future work may extend gradient bucketing strategies to larger architectures and bring AOTI compilation to other MLIP frameworks. The paper is available at [arXiv:2504.16068](https://arxiv.org/abs/2504.16068).

@@ -65,7 +65,7 @@ Start with why the naive approach fails. The **Wilson action**, the workhorse of
 
 HFK's fix was to analytically continue the **character expansion** of the kinetic term, rewriting the action as a sum over fundamental symmetry modes of the gauge group, like decomposing a chord into individual notes. This produces a unitary transfer matrix. But there's a catch: the HFK action is an infinite series that diverges. For many field configurations the sum never converges to a finite number, making Monte Carlo sampling impossible. Kanwar and Wagman show this divergence is a generic feature of any local real-time lattice action with a unitary transfer matrix, not a quirk of HFK's particular construction.
 
-![Figure 1](/iaifi-research-blog/figures/2103_02602/figure_1.png)
+![Figure 1](figure:1)
 
 Their solution: **path integral contour deformation**. Borrowed from work on the sign problem in quantum mechanics and finite-density systems, the idea is to deform the integration contour in complexified field space. By Cauchy's theorem, certain deformations leave the total integral unchanged while taming the divergence. For the **U(1) HFK action** (U(1) being the simplest gauge theory, describing a single circular symmetry) Kanwar and Wagman construct an explicit deformation by:
 
@@ -76,13 +76,13 @@ Their solution: **path integral contour deformation**. Borrowed from work on the
 
 The result is an absolutely convergent representation of the U(1) HFK path integral, the first ever constructed.
 
-![Figure 2](/iaifi-research-blog/figures/2103_02602/figure_1.png)
+![Figure 2](figure:2)
 
 For **non-abelian** gauge theories like QCD, where symmetry operations don't commute, the HFK contour deformation becomes technically daunting. This motivated the paper's second major contribution: a new class of actions based on the **heat-kernel action** of Menotti and Onofri. Its advantage is that unitarity holds exactly at all lattice spacings, not just in the continuum limit, and the divergent sum takes a far simpler form.
 
 A contour deformation tailored to this simpler structure gives absolutely convergent representations for both U(1) and **SU(N)**, the family of gauge theories that includes SU(3), the gauge group of QCD.
 
-![Figure 4](/iaifi-research-blog/figures/2103_02602/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -92,19 +92,22 @@ SU(3) is the gauge group of QCD. Convergent real-time Monte Carlo sampling for S
 
 The contour deformation framework is also naturally algorithmic, a structured mathematical transformation that could be learned and optimized by machine learning. Normalizing flow methods, which have already been applied to Euclidean lattice calculations, are a natural fit.
 
-![Figure 5](/iaifi-research-blog/figures/2103_02602/figure_3.png)
+![Figure 5](figure:5)
 
 > **Bottom Line:** By combining a new unitary real-time lattice action with explicit path integral contour deformations, Kanwar and Wagman deliver the first convergent Monte Carlo calculations of real-time SU(3) gauge theory, opening a door to computing the dynamics of strongly coupled quantum fields.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of mathematical physics (path integral methods, group representation theory) and numerical computation (Monte Carlo sampling, contour deformations), applying algorithmic thinking directly to a fundamental physics problem.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The path integral contour deformation framework is a structured, learnable transformation and a natural target for machine learning optimization, which could improve sampling efficiency in future real-time lattice calculations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper resolves a long-standing obstacle to computing real-time observables in QCD, providing unitary, convergent actions for both U(1) and SU(3) gauge theories with proof-of-principle Monte Carlo verification.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these contour deformations to (3+1)D and higher-dimensional gauge groups, and explore machine-learned deformations for improved sign-problem mitigation; see [arXiv:2103.02602](https://arxiv.org/abs/2103.02602) for the full paper.
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Real-time lattice gauge theory actions: unitarity, convergence, and path integral contour deformations</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2103.02602</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Gurtej Kanwar", "Michael L. Wagman"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">The Wilson action for Euclidean lattice gauge theory defines a positive-definite transfer matrix that corresponds to a unitary lattice gauge theory time-evolution operator if analytically continued to real time. Hoshina, Fujii, and Kikukawa (HFK) recently pointed out that applying the Wilson action discretization to continuum real-time gauge theory does not lead to this, or any other, unitary theory and proposed an alternate real-time lattice gauge theory action that does result in a unitary real-time transfer matrix. The character expansion defining the HFK action is divergent, and in this work we apply a path integral contour deformation to obtain a convergent representation for U(1) HFK path integrals suitable for numerical Monte Carlo calculations. We also introduce a class of real-time lattice gauge theory actions based on analytic continuation of the Euclidean heat-kernel action. Similar divergent sums are involved in defining these actions, but for one action in this class this divergence takes a particularly simple form, allowing construction of a path integral contour deformation that provides absolutely convergent representations for U(1) and SU(N) real-time lattice gauge theory path integrals. We perform proof-of-principle Monte Carlo calculations of real-time U(1) and SU(3) lattice gauge theory and verify that exact results for unitary time evolution of static quark-antiquark pairs in (1 + 1)D are reproduced.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work sits at the intersection of mathematical physics (path integral methods, group representation theory) and numerical computation (Monte Carlo sampling, contour deformations), applying algorithmic thinking directly to a fundamental physics problem.
+
+- **Impact on Artificial Intelligence:** The path integral contour deformation framework is a structured, learnable transformation and a natural target for machine learning optimization, which could improve sampling efficiency in future real-time lattice calculations.
+
+- **Impact on Fundamental Interactions:** The paper resolves a long-standing obstacle to computing real-time observables in QCD, providing unitary, convergent actions for both U(1) and SU(3) gauge theories with proof-of-principle Monte Carlo verification.
+
+- **Outlook and References:** Future work will extend these contour deformations to (3+1)D and higher-dimensional gauge groups, and explore machine-learned deformations for improved sign-problem mitigation; see [arXiv:2103.02602](https://arxiv.org/abs/2103.02602) for the full paper.
+
+## Original Paper Details
+- **Title:** Real-time lattice gauge theory actions: unitarity, convergence, and path integral contour deformations
+- **arXiv ID:** 2103.02602
+- **Authors:** ["Gurtej Kanwar", "Michael L. Wagman"]
+- **Abstract:** The Wilson action for Euclidean lattice gauge theory defines a positive-definite transfer matrix that corresponds to a unitary lattice gauge theory time-evolution operator if analytically continued to real time. Hoshina, Fujii, and Kikukawa (HFK) recently pointed out that applying the Wilson action discretization to continuum real-time gauge theory does not lead to this, or any other, unitary theory and proposed an alternate real-time lattice gauge theory action that does result in a unitary real-time transfer matrix. The character expansion defining the HFK action is divergent, and in this work we apply a path integral contour deformation to obtain a convergent representation for U(1) HFK path integrals suitable for numerical Monte Carlo calculations. We also introduce a class of real-time lattice gauge theory actions based on analytic continuation of the Euclidean heat-kernel action. Similar divergent sums are involved in defining these actions, but for one action in this class this divergence takes a particularly simple form, allowing construction of a path integral contour deformation that provides absolutely convergent representations for U(1) and SU(N) real-time lattice gauge theory path integrals. We perform proof-of-principle Monte Carlo calculations of real-time U(1) and SU(3) lattice gauge theory and verify that exact results for unitary time evolution of static quark-antiquark pairs in (1 + 1)D are reproduced.

@@ -60,11 +60,11 @@ The driving observation behind MoB is **under-specification**: many different lo
 
 Two robots walking at the same speed with completely different gaits both "succeed" during training. But on ice, one slips while the other holds firm. On stairs, one stumbles while the other clears each step cleanly.
 
-![Figure 1](/iaifi-research-blog/figures/2212_03238/figure_1.png)
+![Figure 1](figure:1)
 
 MoB exploits this deliberately. Instead of training a policy that locks onto one solution, the researchers train a policy that takes as additional inputs a small set of **behavior parameters**: variables specifying aspects of the gait like foot clearance height, body posture, gait frequency, and foot contact timing. At training time, these parameters are randomized across a wide range of combinations, forcing the policy to learn not one walk but a whole *family* of walks. At deployment time, a human operator or higher-level controller can dial these parameters in real time. No retraining, no reward engineering.
 
-![Figure 2](/iaifi-research-blog/figures/2212_03238/figure_1.png)
+![Figure 2](figure:2)
 
 The technical implementation pairs **reinforcement learning** (a training method where the robot improves by trial and error, guided by rewards for good behavior) with a timing-based gait parameterization that encodes precisely when each foot should be on the ground and when it should swing. The policy receives behavior parameters alongside standard sensory observations like joint angles, velocities, and orientation estimates. It then learns to produce the joint forces that realize the requested movement. With the right timing parameters, the controller executes classical structured gaits: trotting, bounding, pacing, and pronking (a springy leap where all four feet leave the ground simultaneously).
 
@@ -88,9 +88,12 @@ The *Walk These Ways* controller also works well as a practical building block. 
 
 > **Bottom Line:** *Walk These Ways* proves that a single robot policy, trained only on flat ground, can handle stairs, ice, shoves, and dance moves. The trick isn't better simulation. It's encoding a structured family of behaviors tunable in real time. Behavioral diversity turns out to be a powerful tool for generalization.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects reinforcement learning theory, specifically the concept of under-specification in policy learning, with hands-on robotics engineering. The takeaway is that theoretical insights about solution multiplicity have direct, practical consequences for real-world deployment.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">MoB introduces a principled framework for encoding behavioral diversity into a single learned policy, offering a fresh angle on out-of-distribution generalization that complements domain randomization and meta-learning approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By reducing dependence on accurate physics simulation for out-of-distribution scenarios, this work moves closer to deploying AI-controlled physical systems in environments where ground-truth dynamics are unknown or hard to model.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could explore automated parameter selection, having a learned system choose behaviors on the fly, and extend MoB to manipulator arms or other physical systems. The paper is available at [arXiv:2212.03238](https://arxiv.org/abs/2212.03238) and the open-source controller at https://gmargo11.github.io/walk-these-ways/.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects reinforcement learning theory, specifically the concept of under-specification in policy learning, with hands-on robotics engineering. The takeaway is that theoretical insights about solution multiplicity have direct, practical consequences for real-world deployment.
+
+- **Impact on Artificial Intelligence:** MoB introduces a principled framework for encoding behavioral diversity into a single learned policy, offering a fresh angle on out-of-distribution generalization that complements domain randomization and meta-learning approaches.
+
+- **Impact on Fundamental Interactions:** By reducing dependence on accurate physics simulation for out-of-distribution scenarios, this work moves closer to deploying AI-controlled physical systems in environments where ground-truth dynamics are unknown or hard to model.
+
+- **Outlook and References:** Future work could explore automated parameter selection, having a learned system choose behaviors on the fly, and extend MoB to manipulator arms or other physical systems. The paper is available at [arXiv:2212.03238](https://arxiv.org/abs/2212.03238) and the open-source controller at https://gmargo11.github.io/walk-these-ways/.

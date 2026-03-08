@@ -66,7 +66,7 @@ EFPs rest on an elegant idea: represent each observable as a graph. Each node co
 - **1-collinear expansion**: Keeps one energetic **collinear** emission (a particle flying nearly parallel to the jet axis) with full angular information, expanding around that configuration.
 - **2-collinear expansion**: Extends to two energetic collinear emissions, capturing next-to-leading logarithmic physics at a finer level of precision.
 
-![Figure 1](/iaifi-research-blog/figures/2205_06818/figure_1.png)
+![Figure 1](figure:1)
 
 Within each scheme, power counting reveals linear relationships between EFPs. Two graphically distinct EFPs may be numerically equivalent, to the precision of the approximation, once you account for how jets actually form. The authors derive these relations analytically, then test them on millions of simulated jets from **Pythia**, a widely used program that simulates particle production and scattering after high-energy collisions.
 
@@ -74,7 +74,7 @@ The numbers speak for themselves. For the strongly-ordered basis, the degree-six
 
 The predicted linear relations hold up in Pythia with excellent numerical agreement.
 
-![Figure 3](/iaifi-research-blog/figures/2205_06818/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -88,13 +88,13 @@ On the computational side, there's a bonus in the 1-collinear case. Naively, com
 
 The approach raises natural follow-up questions. Can power counting extend to multi-prong jets from top quarks or W bosons? Can the basis reductions inform better neural network architectures for jet physics? The authors focus on single-prong quark and gluon jets here and flag multi-prong extension as explicit future work.
 
-![Figure 5](/iaifi-research-blog/figures/2205_06818/figure_3.png)
+![Figure 5](figure:5)
 
 > **Bottom Line:** Power counting transforms the EFP basis from an unwieldy 314-element list into a compact, physically motivated toolkit of 22 to 37 elements, enabling faster computation, cleaner interpretability, and undiminished machine learning performance on jet classification tasks.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects effective field theory techniques from high-energy physics with modern machine learning approaches to jet substructure, showing that physics-informed basis reduction outperforms brute-force completeness.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Principled physical reasoning compresses high-dimensional feature spaces by over 6x without performance loss, offering a reusable template for physics-guided feature selection in scientific machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Power counting reveals previously hidden linear dependencies among jet observables, providing new analytic insight into the structure of infrared-and-collinear safe observables at the LHC, with direct relevance to precision QCD calculations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions to multi-prong jets (top quarks, W/Z bosons) could expand the scope of this framework considerably; the full paper is available at [arXiv:2205.06818](https://arxiv.org/abs/2205.06818).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects effective field theory techniques from high-energy physics with modern machine learning approaches to jet substructure, showing that physics-informed basis reduction outperforms brute-force completeness.
+- **Impact on Artificial Intelligence:** Principled physical reasoning compresses high-dimensional feature spaces by over 6x without performance loss, offering a reusable template for physics-guided feature selection in scientific machine learning.
+- **Impact on Fundamental Interactions:** Power counting reveals previously hidden linear dependencies among jet observables, providing new analytic insight into the structure of infrared-and-collinear safe observables at the LHC, with direct relevance to precision QCD calculations.
+- **Outlook and References:** Future extensions to multi-prong jets (top quarks, W/Z bosons) could expand the scope of this framework considerably; the full paper is available at [arXiv:2205.06818](https://arxiv.org/abs/2205.06818).

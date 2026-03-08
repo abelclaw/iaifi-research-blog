@@ -70,7 +70,7 @@ A team led by Francisco Mercado has used the FIREbox cosmological simulation to 
 
 The researchers turned to **FIREbox**, a cosmological simulation from the Feedback In Realistic Environments (FIRE) project that tracks galaxy formation across a cube of space roughly 22 megaparsecs on a side. Unlike zoom-in simulations that study single galaxies in extreme detail, FIREbox captures a statistical sample of about 1,200 low-mass galaxies: 886 "central" galaxies sitting at the heart of their own dark matter halos and 332 "satellites" orbiting inside larger host halos. All have stellar masses between one million and one billion times the mass of our Sun.
 
-![Figure 1](/iaifi-research-blog/figures/2501_04084/figure_1.png)
+![Figure 1](figure:1)
 
 To measure each galaxy's gravitational stress from its surroundings, the team introduced the **Perturbation Index (PI)**, a single number capturing the cumulative tidal force a galaxy feels from all its neighbors, weighted by their mass and proximity. Tidal force is the stretching force that arises when gravity pulls harder on one side of an object than the other. It's the same effect that drives Earth's ocean tides, here operating at cosmic scales. A galaxy with PI > 1 is significantly tugged by its environment; PI < 1 means it's relatively undisturbed. This metric lets researchers slice their sample into disturbed and undisturbed groups and compare properties at fixed stellar mass.
 
@@ -78,7 +78,7 @@ The results were clear. At the same stellar mass, high-PI galaxies are systemati
 
 To disentangle causation, the team trained a **Random Forest regression model** to predict each galaxy's relative size and dark matter content. Random Forest is an ensemble technique that builds hundreds of decision trees, each a flowchart of yes/no questions about the data, and averages their predictions. Inputs included the Perturbation Index, total halo mass, and stellar mass. By examining which variables the model relied on most heavily (its **feature importance** scores), the researchers could rank the drivers of galaxy structure.
 
-![Figure 2](/iaifi-research-blog/figures/2501_04084/figure_1.png)
+![Figure 2](figure:2)
 
 Both environment (PI) and halo mass emerged as significant predictors. But halo mass is itself strongly shaped by environment: galaxies in high-tidal-force regions tend to have their dark matter halos stripped, reducing total halo mass. So environment operates on two tracks simultaneously. There's a direct track that physically distorts and inflates a galaxy, and an indirect track that erodes the dark matter halo governing everything else.
 
@@ -87,7 +87,7 @@ The team examined three key scaling relations:
 - **Inner dark matter mass-stellar mass relation** (dark matter within the half-mass radius vs. stellar mass): High-PI galaxies are dark-matter-poor relative to low-PI counterparts.
 - **Halo mass-stellar mass relation**: High-PI galaxies occupy systematically lower-mass halos, consistent with tidal stripping of the outer dark matter envelope.
 
-![Figure 4](/iaifi-research-blog/figures/2501_04084/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -99,9 +99,12 @@ The machine learning component here does real scientific work. Random Forest fea
 
 > **Bottom Line:** Where a galaxy lives in the cosmic web isn't background scenery. It's an active sculptor that stretches galaxies larger and strips them of dark matter, through both direct tidal forces and the slow erosion of the dark matter halos that galaxies depend on for their very structure.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects cosmological simulation science with interpretable machine learning, using a Random Forest model to disentangle the competing roles of environment and halo mass in shaping dwarf galaxy structure, a question that purely statistical or analytical approaches struggle to resolve.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Applying Random Forest feature importance to high-dimensional astrophysical simulation data shows how ensemble ML methods can function as causal inference tools, ranking physical drivers in complex systems where controlled experiments are impossible.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By quantifying how tidal forces reshape the size and dark matter content of low-mass galaxies, this study sharpens our picture of how large-scale cosmic structure governs the smallest, most common galaxies within it.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As Rubin Observatory and the Roman Space Telescope begin delivering vast samples of observed dwarf galaxies, this simulation-based framework will be key for interpreting the full diversity of low-mass galaxy populations; the full study is available at [arXiv:2501.04084](https://arxiv.org/abs/2501.04084).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects cosmological simulation science with interpretable machine learning, using a Random Forest model to disentangle the competing roles of environment and halo mass in shaping dwarf galaxy structure, a question that purely statistical or analytical approaches struggle to resolve.
+
+- **Impact on Artificial Intelligence:** Applying Random Forest feature importance to high-dimensional astrophysical simulation data shows how ensemble ML methods can function as causal inference tools, ranking physical drivers in complex systems where controlled experiments are impossible.
+
+- **Impact on Fundamental Interactions:** By quantifying how tidal forces reshape the size and dark matter content of low-mass galaxies, this study sharpens our picture of how large-scale cosmic structure governs the smallest, most common galaxies within it.
+
+- **Outlook and References:** As Rubin Observatory and the Roman Space Telescope begin delivering vast samples of observed dwarf galaxies, this simulation-based framework will be key for interpreting the full diversity of low-mass galaxy populations; the full study is available at [arXiv:2501.04084](https://arxiv.org/abs/2501.04084).

@@ -61,7 +61,7 @@ A team from Heidelberg University, MIT, IAIFI, and Qualcomm AI Research has buil
 
 The architecture rests on three interlocking ideas, each addressing a different gap in existing tools.
 
-![Figure 1](/iaifi-research-blog/figures/2405_14806/figure_1.png)
+![Figure 1](figure:1)
 
 First, **Lorentz equivariance**: the network's outputs transform predictably when you shift reference frames. In special relativity, all physical laws obey this rule. The mass of a particle doesn't change whether you measure from a stationary lab or a moving train. Most neural networks violate this implicitly, forcing the model to approximate it from data. L-GATr bakes it in mathematically, so the guarantee is exact by construction. The paper also handles **symmetry-breaking inputs** to accommodate real-world cases where detector geometry or beam direction disrupts perfect Lorentz symmetry.
 
@@ -74,7 +74,7 @@ Making this work required several new layers built from scratch:
 - A **Lorentz-equivariant attention mechanism** replacing standard dot-product attention
 - **Lorentz-equivariant layer normalization**, a subtle challenge since naive normalization breaks the symmetry
 
-![Figure 2](/iaifi-research-blog/figures/2405_14806/figure_1.png)
+![Figure 2](figure:2)
 
 The paper also introduces the first Lorentz-equivariant generative model. The authors build a **continuous normalizing flow** on top of L-GATr and train it with **Riemannian flow matching**, a method that respects the curved geometry of particle-physics phase space. This lets the model hard-code the sharp probability boundaries arising from detector cuts and kinematic constraints, rather than learning them laboriously from data.
 
@@ -86,15 +86,18 @@ L-GATr matches or outperforms specialized baselines across all three. That's the
 
 The broader point is one of architectural philosophy. Domain-specific models built for one task can't easily transfer. L-GATr is a single backbone that plugs into the entire analysis pipeline. As collider experiments grow more demanding (the High-Luminosity LHC upgrade will increase collision rates roughly fivefold), the need for data-efficient, versatile architectures will only intensify. Building Lorentz symmetry in from the start is not just elegant; it's a practical engineering advantage.
 
-![Figure 4](/iaifi-research-blog/figures/2405_14806/figure_2.png)
+![Figure 4](figure:4)
 
 Several extensions follow naturally. The current architecture handles the Lorentz group but not the full **Poincaré group**, which also includes spacetime translations. Long-lived particles that travel measurable distances before decaying would require tracking absolute positions, an extension that is straightforward in principle. The framework could also be adapted to other symmetry groups in particle physics: SU(3) color symmetry governs the strong force and remains largely untouched by equivariant ML.
 
 > **Bottom Line:** L-GATr shows that encoding special relativity's symmetry directly into a Transformer is both achievable and worth it, matching or beating specialized tools across regression, classification, and generative modeling while remaining a single flexible backbone for every stage of LHC analysis.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">L-GATr translates the mathematical structure of special relativity into a practical neural network backbone, connecting geometric deep learning with relativistic particle physics across multiple stages of LHC data analysis.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces new Lorentz-equivariant attention mechanisms, linear maps, and layer normalization techniques, along with the first equivariant generative model trained with Riemannian flow matching, expanding the toolkit of geometric deep learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By building Lorentz equivariance into a general-purpose architecture, L-GATr improves data efficiency across high-energy physics tasks from quantum amplitude regression to particle-level simulation, targeting key computational bottlenecks of LHC science.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the architecture to the full Poincaré group and gauge symmetries of the Standard Model; the paper is available at [arXiv:2405.14806](https://arxiv.org/abs/2405.14806).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** L-GATr translates the mathematical structure of special relativity into a practical neural network backbone, connecting geometric deep learning with relativistic particle physics across multiple stages of LHC data analysis.
+
+- **Impact on Artificial Intelligence:** The paper introduces new Lorentz-equivariant attention mechanisms, linear maps, and layer normalization techniques, along with the first equivariant generative model trained with Riemannian flow matching, expanding the toolkit of geometric deep learning.
+
+- **Impact on Fundamental Interactions:** By building Lorentz equivariance into a general-purpose architecture, L-GATr improves data efficiency across high-energy physics tasks from quantum amplitude regression to particle-level simulation, targeting key computational bottlenecks of LHC science.
+
+- **Outlook and References:** Future work could extend the architecture to the full Poincaré group and gauge symmetries of the Standard Model; the paper is available at [arXiv:2405.14806](https://arxiv.org/abs/2405.14806).

@@ -57,7 +57,7 @@ Researchers at MIT CSAIL and IAIFI tackled this directly by developing **Task In
 
 The team started with a simple experiment. They trained *Dreamer*, a leading **model-based RL** algorithm that builds an internal simulation of the world to plan ahead, on the classic *Cheetah Run* locomotion task. One version had a clean background. The other had complex natural video playing behind the running cheetah. They also varied model size: small (0.5×), medium (1×), and large (2×).
 
-![Figure 1](/iaifi-research-blog/figures/2106_15612/figure_1.png)
+![Figure 1](figure:1)
 
 With a clean background, even the smallest model performed well. With the complex background, performance collapsed across all model sizes, recovering only as capacity increased. Bigger models weren't learning *better*. They were buying extra capacity to absorb the irrelevant background and still have some room left for the actual task. Expensive and inelegant.
 
@@ -66,7 +66,7 @@ TIA introduces a formal structure called the **Task Informed MDP (TiMDP)**, whic
 - **s⁺ (task state):** Features correlated with reward, the stuff the agent actually needs to maximize performance.
 - **s⁻ (distractor state):** Everything else: background motion, irrelevant objects, visual noise.
 
-![Figure 2](/iaifi-research-blog/figures/2106_15612/figure_1.png)
+![Figure 2](figure:2)
 
 Two models work together in a cooperative-adversarial game. The **task model** learns s⁺ by predicting rewards and must capture whatever features matter for success. The **distractor model** learns s⁻ through a competing mechanism: it is *explicitly penalized* for learning anything correlated with rewards, forcing it to absorb only the irrelevant residual.
 
@@ -78,7 +78,7 @@ This threads a needle that previous methods missed. Pure reconstruction learning
 
 This problem shows up everywhere. Any domain where an agent must learn from high-dimensional observations littered with irrelevant variation (medical robotics, scientific instrument control, autonomous vehicles) faces the same challenge.
 
-![Figure 4](/iaifi-research-blog/figures/2106_15612/figure_2.png)
+![Figure 4](figure:4)
 
 TIA consistently outperforms state-of-the-art baselines across three distinct evaluation settings:
 
@@ -92,15 +92,18 @@ The deeper point is not a clever trick but a formalization of something humans d
 
 > **Bottom Line:** TIA teaches AI agents to see like experts, filtering out visual noise not by brute-force capacity but by explicitly learning what to ignore. It's a step toward RL agents that can handle the messy, distraction-filled real world.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">TIA applies information-theoretic principles (the physicist's instinct that a good model should capture only the minimal sufficient representation of a system) directly to deep reinforcement learning, connecting statistical mechanics intuition to practical AI agent design.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By formalizing the TiMDP and introducing cooperative-adversarial training to separate task-relevant features from distractors, TIA sets a new state of the art on visual control benchmarks with natural distractions, with significant performance gains over leading model-based RL methods.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The distractor-separation framework opens new directions for scientific AI agents that must extract meaningful signals from noisy experimental data, a challenge directly analogous to isolating physical signals from environmental interference in particle physics or gravitational wave detection.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend TiMDP to continuous, time-varying distractor distributions and real robotic deployment; the full paper is available via the ICML 2021 proceedings, with the arXiv preprint at [arXiv:2106.15612](https://arxiv.org/abs/2106.15612).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Learning Task Informed Abstractions</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2106.15612</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Xiang Fu", "Ge Yang", "Pulkit Agrawal", "Tommi Jaakkola"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Current model-based reinforcement learning methods struggle when operating from complex visual scenes due to their inability to prioritize task-relevant features. To mitigate this problem, we propose learning Task Informed Abstractions (TIA) that explicitly separates reward-correlated visual features from distractors. For learning TIA, we introduce the formalism of Task Informed MDP (TiMDP) that is realized by training two models that learn visual features via cooperative reconstruction, but one model is adversarially dissociated from the reward signal. Empirical evaluation shows that TIA leads to significant performance gains over state-of-the-art methods on many visual control tasks where natural and unconstrained visual distractions pose a formidable challenge.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** TIA applies information-theoretic principles (the physicist's instinct that a good model should capture only the minimal sufficient representation of a system) directly to deep reinforcement learning, connecting statistical mechanics intuition to practical AI agent design.
+
+- **Impact on Artificial Intelligence:** By formalizing the TiMDP and introducing cooperative-adversarial training to separate task-relevant features from distractors, TIA sets a new state of the art on visual control benchmarks with natural distractions, with significant performance gains over leading model-based RL methods.
+
+- **Impact on Fundamental Interactions:** The distractor-separation framework opens new directions for scientific AI agents that must extract meaningful signals from noisy experimental data, a challenge directly analogous to isolating physical signals from environmental interference in particle physics or gravitational wave detection.
+
+- **Outlook and References:** Future work may extend TiMDP to continuous, time-varying distractor distributions and real robotic deployment; the full paper is available via the ICML 2021 proceedings, with the arXiv preprint at [arXiv:2106.15612](https://arxiv.org/abs/2106.15612).
+
+## Original Paper Details
+- **Title:** Learning Task Informed Abstractions
+- **arXiv ID:** 2106.15612
+- **Authors:** ["Xiang Fu", "Ge Yang", "Pulkit Agrawal", "Tommi Jaakkola"]
+- **Abstract:** Current model-based reinforcement learning methods struggle when operating from complex visual scenes due to their inability to prioritize task-relevant features. To mitigate this problem, we propose learning Task Informed Abstractions (TIA) that explicitly separates reward-correlated visual features from distractors. For learning TIA, we introduce the formalism of Task Informed MDP (TiMDP) that is realized by training two models that learn visual features via cooperative reconstruction, but one model is adversarially dissociated from the reward signal. Empirical evaluation shows that TIA leads to significant performance gains over state-of-the-art methods on many visual control tasks where natural and unconstrained visual distractions pose a formidable challenge.

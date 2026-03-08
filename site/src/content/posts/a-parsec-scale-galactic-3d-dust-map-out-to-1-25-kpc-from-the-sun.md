@@ -73,7 +73,7 @@ The core challenge is the **"fingers-of-god" effect**, a smearing artifact where
 
 The solution is **Iterative Charted Refinement (ICR)**, a framework that applies a **Gaussian process** prior inside a spherical coordinate system. The GP acts as a statistical smoothing constraint: it penalizes jagged fluctuations and enforces spatial continuity. Its smoothing parameters were calibrated from earlier observational data, so the model encodes physically realistic assumptions without becoming computationally intractable.
 
-![Figure 1](/iaifi-research-blog/figures/2308_01295/figure_1.png)
+![Figure 1](figure:1)
 
 The map's scale is worth pausing on. Key grid parameters:
 
@@ -87,7 +87,7 @@ To explore this vast parameter space, the team used **MGVI (Metric Gaussian Vari
 
 The immediate payoff is scientific. This map resolves the internal structure of hundreds of molecular clouds in the solar neighborhood, the dense, cold regions where stars form.
 
-![Figure 2](/iaifi-research-blog/figures/2308_01295/figure_1.png)
+![Figure 2](figure:2)
 
 Star formation researchers can now trace filaments, voids, and dense cores at parsec scales across a wide area, detail that was simply unavailable at this volume before. The map also sharpens studies of young stellar populations and Galactic structure, since knowing where the dust is tells you where star formation has recently occurred.
 
@@ -95,15 +95,18 @@ The benefits reach well beyond the Milky Way. Interstellar dust contaminates a s
 
 The team has made the map publicly available in multiple coordinate systems and queryable through the widely used `dustmaps` Python package, so the broader community can plug it into existing workflows immediately.
 
-![Figure 4](/iaifi-research-blog/figures/2308_01295/figure_2.png)
+![Figure 4](figure:4)
 
 The methodological advance may prove equally lasting. Gaussian processes on spherical grids with variational inference at hundred-million-parameter scales offer a template for massive spatial reconstruction problems across astrophysics and in other fields.
 
 > **Bottom Line:** This 3D dust map is the most detailed picture yet of the interstellar medium in our cosmic backyard. It was built by combining Gaia's billion-star dataset with scalable Bayesian inference, and it's already freely available for any researcher who needs to see through the fog.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Large-scale Bayesian inference and Gaussian process machine learning directly enabled this Galactic astrophysics result, a clear case where AI methods and physics expertise had to work together to produce something neither community could have reached alone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The use of variational inference (MGVI) and iterative charted refinement to explore posteriors with over 661 million degrees of freedom sets a new bar for scalable probabilistic modeling of high-dimensional spatial fields.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The parsec-resolution map of the solar neighborhood will sharpen our understanding of star formation physics, Galactic structure, and dust-sensitive cosmological probes including CMB polarization foregrounds and Type Ia supernova distances.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will push toward larger distances, higher angular resolution, and integration with new spectroscopic surveys. The map and methodology are described in Edenhofer et al. (2024), [arXiv:2308.01295](https://arxiv.org/abs/2308.01295).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** Large-scale Bayesian inference and Gaussian process machine learning directly enabled this Galactic astrophysics result, a clear case where AI methods and physics expertise had to work together to produce something neither community could have reached alone.
+
+- **Impact on Artificial Intelligence:** The use of variational inference (MGVI) and iterative charted refinement to explore posteriors with over 661 million degrees of freedom sets a new bar for scalable probabilistic modeling of high-dimensional spatial fields.
+
+- **Impact on Fundamental Interactions:** The parsec-resolution map of the solar neighborhood will sharpen our understanding of star formation physics, Galactic structure, and dust-sensitive cosmological probes including CMB polarization foregrounds and Type Ia supernova distances.
+
+- **Outlook and References:** Future work will push toward larger distances, higher angular resolution, and integration with new spectroscopic surveys. The map and methodology are described in Edenhofer et al. (2024), [arXiv:2308.01295](https://arxiv.org/abs/2308.01295).

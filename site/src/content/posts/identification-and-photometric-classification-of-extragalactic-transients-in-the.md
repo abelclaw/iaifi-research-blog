@@ -103,51 +103,48 @@ wordCount: 999
 
 ## The Big Picture
 
-Imagine trying to spot a single flickering candle from across a crowded city — while the city itself is constantly changing, with thousands of lights turning on and off every second. That's roughly the challenge facing astronomers hunting for supernovae and other cosmic explosions. The night sky is dynamic, chaotic, and teeming with change. Finding the genuinely rare events — a star detonating in a galaxy millions of light-years away — requires not just a powerful telescope, but an intelligent pipeline capable of sorting signal from noise at industrial scale.
+Imagine trying to spot a single flickering candle from across a crowded city while thousands of other lights turn on and off every second. That's roughly what astronomers face when hunting for supernovae. The night sky is chaotic and full of change. Finding a star detonating in a galaxy millions of light-years away requires not just a powerful telescope, but a pipeline that can sort signal from noise at massive scale.
 
-Enter the Vera C. Rubin Observatory, perched in the Chilean Andes and poised to become the most powerful telescope ever built for tracking how the night sky changes over time. When its full survey — the **Legacy Survey of Space and Time (LSST)** — begins, it will generate up to **10 million alerts per night**, each flagging a change in the sky compared to a stored reference image. That's more than ten times what the current frontrunner, the Zwicky Transient Facility, produces.
+The Vera C. Rubin Observatory, perched in the Chilean Andes, is about to become the most powerful survey telescope ever built for tracking changes in the night sky. Its full survey, the **Legacy Survey of Space and Time (LSST)**, will generate up to 10 million alerts per night, each flagging a difference compared to a stored reference image. That's more than ten times what the current frontrunner, the Zwicky Transient Facility, produces.
 
-But before that firehose opens, astronomers needed to test the plumbing. A team led by James Freeburn at UNC Chapel Hill, including IAIFI affiliate V. Ashley Villar at Harvard, did exactly that. Using an early test dataset called **Data Preview 1 (DP1)** — collected with a prototype camera before the full telescope goes live — they showed that Rubin's detection and classification pipeline is ready for the flood.
+But before that firehose opens, astronomers needed to test the plumbing. A team led by James Freeburn at UNC Chapel Hill, including IAIFI affiliate V. Ashley Villar at Harvard, did exactly that. Using an early test dataset called **Data Preview 1 (DP1)**, collected with a prototype camera before the full telescope goes live, they showed that Rubin's detection and classification pipeline can handle the flood.
 
-> **Key Insight:** Searching just a fraction of Rubin's commissioning data, the team identified eight new likely supernovae from nearly 370,000 candidate events — validating both the telescope's detection pipeline and its AI-powered classifier ahead of the full survey launch.
+> **Key Insight:** Searching just a fraction of Rubin's commissioning data, the team identified eight new likely supernovae from nearly 370,000 candidate events, confirming that both the telescope's detection pipeline and its machine learning classifier are ready ahead of the full survey launch.
 
 ## How It Works
 
-The commissioning campaign used **LSSTComCam**, a smaller prototype camera, to observe seven sky fields between November and December 2024, each covering roughly 0.4 square degrees. The team focused on three fields for their supernova search.
+The commissioning campaign used **LSSTComCam**, a smaller prototype camera, to observe seven sky fields between November and December 2024. Each field covers roughly 0.4 square degrees. The team focused on three of these fields for their supernova search.
 
-The first step is **difference image analysis (DIA)** — subtract a stored "template" image from a new observation, and anything that has changed lights up as a residual. This produced a catalog of 369,644 candidate sources. The overwhelming majority were not supernovae: cosmic rays, instrument artifacts, poorly subtracted galaxy cores, and other false positives collectively known as **"bogus" detections**.
+First comes **difference image analysis (DIA)**: subtract a stored "template" image from a new observation, and anything that has changed shows up as a residual. This produced 369,644 candidate sources. The vast majority were not supernovae. Cosmic rays, instrument artifacts, poorly subtracted galaxy cores, and other false positives (collectively called **"bogus" detections**) dominated the catalog.
 
-To filter this haystack, the team applied a series of cuts, requiring each candidate to:
+To cut through the noise, the team required each candidate to have at least five detections, show an association with a galaxy beyond the Milky Way, and pass quality checks on its **light curve** (the graph of how brightness changes over time). Cross-matching against existing astronomical databases recovered three previously catalogued supernovae. Eight additional candidates passed all cuts as new, unreported events.
 
-- Have at least five detections (ruling out single-night noise)
-- Show an association with a distant galaxy beyond the Milky Way
-- Pass quality checks on its **light curve** — the graph of how a source's brightness changes over time
+![Figure 1](figure:1)
 
-This whittled the sample down dramatically. Cross-matching against existing astronomical databases recovered three previously catalogued supernovae. Eight additional candidates passed all cuts as new, unreported events.
+Classification relied on **Superphot+**, a machine learning tool trained on simulated supernova light curves that assigns probabilistic sub-type labels. The two main categories: **Type Ia** (thermonuclear explosions of white dwarf stars, used as cosmological distance markers) and **Type II** (core-collapse explosions of massive stars). The algorithm needs multi-band photometry and enough data points to pin down the light curve shape. Of the eleven supernovae in the sample, only two got confident classifications above 95% probability: one Type Ia and one Type II. The rest lacked sufficient observations, a limitation that LSST's continuous cadence should largely solve.
 
-![Figure 1](/iaifi-research-blog/figures/2507_22864/figure_1.png)
+![Figure 2](figure:2)
 
-Classification used **Superphot+**, a machine learning tool trained on simulated supernova light curves that assigns probabilistic sub-type labels — primarily **Type Ia** (thermonuclear explosions of white dwarf stars, used as cosmological distance indicators) or **Type II** (core-collapse explosions of massive stars). The algorithm requires multi-band photometry — brightness measurements through several different color filters — and enough data points to constrain the light curve shape. Of the eleven supernovae in the sample, only two received confident classifications at greater than 95% probability. The rest lacked sufficient observations — a limitation the full LSST will largely eliminate through its continuous cadence.
+The team also ran **simsurvey** simulations to predict how many supernovae the campaign should have detected given its depth, cadence, and sky coverage. The answer: 15 ± 4. Finding eleven falls within that range. The shortfall is probably explained by a known DP1 quirk: template images were sometimes taken during the same campaign, causing some supernovae to be subtracted away before analysis even began.
 
-![Figure 2](/iaifi-research-blog/figures/2507_22864/figure_2.png)
-
-The team also ran **simsurvey** simulations, modeling how many supernovae the campaign should detect given its depth, cadence, and sky coverage. The prediction: 15 ± 4. Finding eleven is consistent with this range; the shortfall is likely explained by a known DP1 quirk — template images sometimes taken during the same campaign, causing some supernovae to be subtracted away before analysis even begins.
-
-![Figure 3](/iaifi-research-blog/figures/2507_22864/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
-The stakes extend well beyond eleven faint smudges of light. Type Ia supernovae are the primary "standard candles" astronomers use to measure cosmic distances and map the expansion history of the universe. LSST is expected to detect hundreds of thousands over its ten-year run, enabling precision measurements of dark energy that will either confirm the standard cosmological model or crack it open. That scientific harvest only arrives if the pipeline works — at scale, reliably, in near-real time.
+The stakes extend well beyond eleven faint smudges of light. Type Ia supernovae are the primary "standard candles" astronomers use to measure cosmic distances and map the expansion history of the universe. LSST is expected to detect hundreds of thousands over its ten-year run, enabling precision measurements of dark energy that will either confirm the standard cosmological model or crack it open. None of that science arrives if the pipeline doesn't work at scale, reliably, in near-real time.
 
-This commissioning study is the critical proof-of-concept. It shows that Rubin's difference imaging produces clean, scientifically useful subtractions. It demonstrates that AI classifiers like Superphot+ can meaningfully categorize events even with limited photometric coverage. And it identifies the bottlenecks — template quality, observation cadence, spectroscopic follow-up capacity — so engineers can address them before the full survey begins.
+This commissioning study is the proof-of-concept. Rubin's difference imaging produces clean, scientifically useful subtractions. Classifiers like Superphot+ can meaningfully categorize events even with sparse photometric coverage. And the bottlenecks are now visible: template quality, observation cadence, spectroscopic follow-up capacity. Engineers can address all of these before the full survey begins.
 
 The next phase brings **LSSTCam**, the 3.2-gigapixel instrument, covering 9.6 square degrees per exposure and generating data at many times the commissioning rate. The pipeline tested here will face that torrent head-on. This paper is the fire drill.
 
-> **Bottom Line:** With eight new supernovae found in a sliver of commissioning data and results matching simulation predictions, Rubin's detection and classification system has passed its first real test — and the full LSST survey, poised to transform our understanding of dark energy and stellar death, is cleared for launch.
+> **Bottom Line:** Eight new supernovae found in a sliver of commissioning data, results matching simulation predictions, and a classification pipeline that works under real-world constraints. Rubin's system has passed its first real test, and the full LSST survey is cleared for launch.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges observational astrophysics and machine learning by deploying AI-powered photometric classification on real commissioning data from a next-generation telescope, establishing automated supernova typing as a core capability for LSST's science program.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study stress-tests probabilistic light curve classification under real-world constraints — sparse cadence, missing filter bands, template contamination — revealing where ML classifiers remain reliable and where they break down.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Accurate, automated supernova classification at LSST scale will produce the largest Type Ia sample in history, directly sharpening constraints on dark energy and the universe's expansion rate.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As LSSTCam begins full operations, future work will focus on improved template strategies and spectroscopic confirmation workflows. See Freeburn et al. (2025) for full details.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of observational astrophysics and machine learning, deploying AI-powered photometric classification on real commissioning data from a next-generation telescope and establishing automated supernova typing as a working capability for LSST.
+
+- **Impact on Artificial Intelligence:** The study stress-tests probabilistic light curve classification under real-world constraints: sparse cadence, missing filter bands, template contamination. It reveals where ML classifiers hold up and where they break down.
+
+- **Impact on Fundamental Interactions:** Accurate, automated supernova classification at LSST scale will produce the largest Type Ia sample in history, tightening constraints on dark energy and the universe's expansion rate.
+
+- **Outlook and References:** As LSSTCam begins full operations, future work will focus on improved template strategies and spectroscopic confirmation workflows. See [Freeburn et al. (2025)](https://arxiv.org/abs/2507.22864) for full details.

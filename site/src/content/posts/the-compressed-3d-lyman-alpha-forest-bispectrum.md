@@ -76,13 +76,13 @@ For the Lyman-alpha forest, the relevant quantity is the **transmitted flux frac
 2. Worked directly in **redshift space**, accounting for gas velocities that distort apparent positions along the line of sight, a phenomenon called **redshift-space distortions**.
 3. Identified all quadratic operators in the bispectrum expansion and measured cross-spectra between each and the original flux field, yielding **26 skew spectra**.
 
-![Figure 1](/iaifi-research-blog/figures/2510_23597/figure_1.png)
+![Figure 1](figure:1)
 
 The theory is validated against two mock datasets. The first uses synthetic 3D Lyman-alpha fields generated with second-order perturbation theory, a controlled test where the theory is known to apply. The second uses large-volume mocks built from **AbacusSummit**, a suite of N-body simulations that accurately models gravitational clustering across cosmic time.
 
 With idealized three-dimensional Gaussian smoothing at R = 10 Mpc/h, the team finds agreement at the 1–2 sigma level between theoretical predictions and measured skew spectra for both the monopole and quadrupole multipoles, up to k ≤ 0.17 h/Mpc.
 
-![Figure 3](/iaifi-research-blog/figures/2510_23597/figure_2.png)
+![Figure 3](figure:3)
 
 But real data introduces a complication. The Lyman-alpha forest is observed as individual one-dimensional spectra along lines of sight to quasars, not as a fully sampled three-dimensional volume. DESI will collect up to one million quasar spectra over its lifetime, but standard 3D smoothing can't be applied. So the team invented a new variant: **shifted skew spectra**.
 
@@ -90,13 +90,13 @@ But real data introduces a complication. The Lyman-alpha forest is observed as i
 
 Instead of squaring the field locally, shifted skew spectra displace one copy of the field in the radial (line-of-sight) direction before computing the product. A fixed displacement of 40 Mpc/h lets the statistic probe **non-squeezed bispectrum triangles** (where all three sides have comparable length) while requiring only line-of-sight smoothing at 10 Mpc/h.
 
-![Figure 5](/iaifi-research-blog/figures/2510_23597/figure_3.png)
+![Figure 5](figure:5)
 
 For the case of correlating the squared-and-displaced field with the original field, the team derives an **analytic window function treatment**, essential for applying any statistic to real survey data with irregular geometry and completeness masks. This forward modeling makes the shifted skew spectra directly applicable to DESI data without approximation.
 
 Even with conservative line-of-sight-only smoothing, the new statistic achieves agreement with theoretical predictions comparable to the idealized 3D case.
 
-![Figure 4](/iaifi-research-blog/figures/2510_23597/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -108,9 +108,12 @@ With DESI currently taking data and future surveys like WEAVE-QSO, the Prime Foc
 
 > **Bottom Line:** By deriving 26 skew spectra from the Lyman-alpha forest bispectrum and validating them against N-body simulations, this work opens a computationally affordable route to extracting non-Gaussian cosmological information from DESI and future surveys.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects theoretical cosmology and observational data science by building an analytic EFT framework, grounded in fundamental physics symmetries, that is directly deployable on the world's largest ongoing spectroscopic survey.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The skew spectrum compression strategy illustrates a broader data science principle: rather than computing expensive full statistics, find low-dimensional projections that preserve the most information. The same idea appears throughout scientific machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Extending higher-order statistics to the three-dimensional Lyman-alpha forest opens new ways to constrain neutrino masses, dark matter properties, and primordial non-Gaussianity at redshifts inaccessible to current galaxy surveys.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The analytic window function treatment makes shifted skew spectra immediately applicable to DESI data, with extensions to future Stage-V spectroscopic surveys planned. The full methodology is detailed in [arXiv:2510.23597](https://arxiv.org/abs/2510.23597).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects theoretical cosmology and observational data science by building an analytic EFT framework, grounded in fundamental physics symmetries, that is directly deployable on the world's largest ongoing spectroscopic survey.
+
+- **Impact on Artificial Intelligence:** The skew spectrum compression strategy illustrates a broader data science principle: rather than computing expensive full statistics, find low-dimensional projections that preserve the most information. The same idea appears throughout scientific machine learning.
+
+- **Impact on Fundamental Interactions:** Extending higher-order statistics to the three-dimensional Lyman-alpha forest opens new ways to constrain neutrino masses, dark matter properties, and primordial non-Gaussianity at redshifts inaccessible to current galaxy surveys.
+
+- **Outlook and References:** The analytic window function treatment makes shifted skew spectra immediately applicable to DESI data, with extensions to future Stage-V spectroscopic surveys planned. The full methodology is detailed in [arXiv:2510.23597](https://arxiv.org/abs/2510.23597).

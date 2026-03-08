@@ -58,7 +58,7 @@ Three particles can be entangled in two fundamentally *inequivalent* ways. The *
 
 No sequence of local quantum operations, manipulations applied separately to individual particles, can convert one into the other. They live in different entanglement classes. But what mathematical quantity witnesses this difference?
 
-![Figure 1](/iaifi-research-blog/figures/2512_19889/figure_1.png)
+![Figure 1](figure:1)
 
 Entanglement cohomology provides an answer. The framework constructs spaces of **entanglement k-forms**, structured collections of mathematical objects organized by how many parties they involve. One then defines an **exterior derivative** *d* that takes a k-form and produces a (k+1)-form. The key property is d² = 0, which is what makes cohomology work:
 
@@ -68,7 +68,7 @@ Entanglement cohomology provides an answer. The framework constructs spaces of *
 
 The dimensions of these groups, the **Betti numbers**, are invariants: they don't change under local quantum operations. Different entanglement patterns yield different Betti numbers.
 
-![Figure 2](/iaifi-research-blog/figures/2512_19889/figure_1.png)
+![Figure 2](figure:2)
 
 Ferko and Furuya prove exact formulas for all Betti numbers for generalized GHZ and W states across any number of parties *n* and any local Hilbert space dimension *d*. The proofs hinge on a **Simplicial Lemma**, a result about the combinatorial scaffolding organizing data across subsets of parties, which the authors establish from scratch. GHZ cohomology concentrates in specific degrees, reflecting its all-or-nothing character. W states yield a different profile, consistent with their distributed, resilient structure.
 
@@ -76,11 +76,11 @@ Can we do better than Betti numbers? The analogy with differential geometry runs
 
 The first is the **entanglement Laplacian**, Δ = d*δ* + *δ*d, built from the exterior derivative and its adjoint, a direct analogue of the Hodge Laplacian on smooth surfaces. Its **spectrum** (the eigenvalues describing how the operator acts on different inputs) encodes far more information than Betti numbers alone. Ferko and Furuya compute these spectra numerically for GHZ and W states, finding that eigenvalue distributions cleanly distinguish states with identical Betti numbers.
 
-![Figure 4](/iaifi-research-blog/figures/2512_19889/figure_2.png)
+![Figure 4](figure:4)
 
 The second tool is **intersection numbers**. When two cohomology classes meet, a wedge product combines them into a single number. These pairings, familiar in algebraic geometry and topology, yield numerical invariants probing how cohomology classes interact. Numerical experiments reveal signatures that vary between entanglement classes even when coarser measures agree.
 
-![Figure 5](/iaifi-research-blog/figures/2512_19889/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -92,9 +92,12 @@ Entanglement cohomology offers something qualitatively new: a *structural* appro
 
 > **Bottom Line:** By proving exact cohomological formulas for two cornerstone quantum states and introducing Laplacian spectra and intersection numbers as new invariants, Ferko and Furuya hand the quantum information community a sharper algebraic toolkit for classifying multipartite entanglement, one that may scale naturally to the complex many-body systems at the frontier of physics and quantum computing.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies tools from pure mathematics (cohomology, Hodge theory, and simplicial algebra) to characterize quantum entanglement, connecting abstract mathematics, fundamental physics, and information science in a way central to the IAIFI mission.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The new invariants, Laplacian spectra and intersection numbers, provide computable, structured signatures of quantum states that could inform machine learning approaches to quantum state tomography and entanglement classification.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By proving exact cohomological formulas for generalized GHZ and W states at arbitrary party number and local dimension, the authors resolve open conjectures and put the entanglement cohomology program on firm mathematical ground.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending these results to mixed states, connecting intersection numbers to operational entanglement measures, and applying Laplacian spectra to larger multipartite systems; the full paper is available at [arXiv:2512.19889](https://arxiv.org/abs/2512.19889).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies tools from pure mathematics (cohomology, Hodge theory, and simplicial algebra) to characterize quantum entanglement, connecting abstract mathematics, fundamental physics, and information science in a way central to the IAIFI mission.
+
+- **Impact on Artificial Intelligence:** The new invariants, Laplacian spectra and intersection numbers, provide computable, structured signatures of quantum states that could inform machine learning approaches to quantum state tomography and entanglement classification.
+
+- **Impact on Fundamental Interactions:** By proving exact cohomological formulas for generalized GHZ and W states at arbitrary party number and local dimension, the authors resolve open conjectures and put the entanglement cohomology program on firm mathematical ground.
+
+- **Outlook and References:** Future directions include extending these results to mixed states, connecting intersection numbers to operational entanglement measures, and applying Laplacian spectra to larger multipartite systems; the full paper is available at [arXiv:2512.19889](https://arxiv.org/abs/2512.19889).

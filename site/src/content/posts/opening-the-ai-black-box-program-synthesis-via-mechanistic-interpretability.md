@@ -64,7 +64,7 @@ Their answer is **MIPS** (**Mechanistic Interpretability-based Program Synthesis
 
 The MIPS pipeline turns a black-box neural network into human-readable code in four stages.
 
-![Figure 1](/iaifi-research-blog/figures/2402_05110/figure_1.png)
+![Figure 1](figure:1)
 
 **Stage 1: Train a neural network to learn the task.** MIPS uses a **recurrent neural network (RNN)**, a network that processes sequences by maintaining a running "memory" called a hidden state. The team also runs an **AutoML** search, an automated process that tries thousands of different network designs, to find the *simplest* RNN that achieves perfect accuracy. Simpler networks are easier to reverse-engineer. The search space spans over 75 million possible configurations.
 
@@ -76,7 +76,7 @@ The MIPS pipeline turns a black-box neural network into human-readable code in f
 
 The team tested MIPS against a benchmark of 62 algorithmic tasks: detecting balanced parentheses, computing modular arithmetic, tracking state through a sequence. They compared it to GPT-4, which tackles the same benchmark by generating code from verbal problem descriptions.
 
-![Figure 2](/iaifi-research-blog/figures/2402_05110/figure_1.png)
+![Figure 2](figure:2)
 
 - **GPT-4 solved 30 of 62 tasks**
 - **MIPS solved 32 of 62 tasks**
@@ -85,7 +85,7 @@ The team tested MIPS against a benchmark of 62 algorithmic tasks: detecting bala
 
 They're not just close in score; they're solving *different* problems. GPT-4 draws on vast human-written code to recognize familiar patterns. MIPS uses zero human training data, discovering algorithms from scratch by watching a network think. Together, the two approaches solve problems that neither could handle alone.
 
-![Figure 3](/iaifi-research-blog/figures/2402_05110/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -97,9 +97,12 @@ There's a physics angle too. The tools MIPS uses (symbolic regression, sparse re
 
 > **Bottom Line:** MIPS shows that neural networks can be reverse-engineered automatically, turned from opaque black boxes into readable code. It solves 13 problems GPT-4 cannot, suggesting that human-free algorithm discovery is a powerful complement to LLM-based coding.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">MIPS applies physics-inspired tools (symbolic regression, minimal representations, finite-state abstractions) to AI interpretability, treating neural networks as physical systems whose internal "laws" can be discovered from observation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Fully automated mechanistic interpretability solves 32 of 62 algorithmic benchmark tasks, opening a path toward auditable, trustworthy AI systems that require no human-written training data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The integer autoencoder technique provides a general framework for discovering discrete, structured representations inside continuous neural networks, with broad applications across scientific machine learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will push MIPS beyond small RNNs to larger transformer architectures. The paper is available at [arXiv:2402.05110](https://arxiv.org/abs/2402.05110) and represents a collaboration between MIT CSAIL and the IAIFI.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** MIPS applies physics-inspired tools (symbolic regression, minimal representations, finite-state abstractions) to AI interpretability, treating neural networks as physical systems whose internal "laws" can be discovered from observation.
+
+- **Impact on Artificial Intelligence:** Fully automated mechanistic interpretability solves 32 of 62 algorithmic benchmark tasks, opening a path toward auditable, trustworthy AI systems that require no human-written training data.
+
+- **Impact on Fundamental Interactions:** The integer autoencoder technique provides a general framework for discovering discrete, structured representations inside continuous neural networks, with broad applications across scientific machine learning.
+
+- **Outlook and References:** Future work will push MIPS beyond small RNNs to larger transformer architectures. The paper is available at [arXiv:2402.05110](https://arxiv.org/abs/2402.05110) and represents a collaboration between MIT CSAIL and the IAIFI.

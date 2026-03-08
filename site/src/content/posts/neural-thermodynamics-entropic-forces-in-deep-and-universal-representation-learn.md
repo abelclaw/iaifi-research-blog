@@ -65,7 +65,7 @@ $$\phi_\eta \approx \ell_\gamma + \frac{\eta}{4} \|\nabla \ell_\gamma\|^2 + O(\e
 
 That extra term penalizes regions of parameter space where gradients are large, pushing the optimizer toward flatter regions. But the story gets richer when you bring in symmetry.
 
-![Figure 1](/iaifi-research-blog/figures/2505_12387/figure_1.png)
+![Figure 1](figure:1)
 
 Neural networks are riddled with **parameter symmetries** — transformations of the internal weights that leave the network's outputs completely unchanged. Rescaling one layer's weights while inversely scaling the next produces an identical function. These symmetries create entire families of equivalent solutions.
 
@@ -81,11 +81,11 @@ One of the paper's most striking results is a formal proof of the **Platonic Rep
 
 The proof follows from the entropic equipartition structure. When entropic forces drive a network toward gradient balance, the resulting representations reflect the statistical geometry of the training data rather than any arbitrary initialization or architectural choice. Two networks trained on sufficiently rich data are both pushed toward the same statistical fixed point — a kind of thermodynamic equilibrium of representations.
 
-![Figure 2](/iaifi-research-blog/figures/2505_12387/figure_2.png)
+![Figure 2](figure:2)
 
 The same framework resolves a long-standing puzzle: the apparent contradiction between **progressive sharpening** (early in training, the loss landscape grows sharper as gradient descent amplifies certain directions) and **edge-of-stability flattening** (later, the landscape flattens as the optimizer seeks flatter minima). These aren't contradictory — they're sequential consequences of the same entropic dynamics playing out at different timescales.
 
-![Figure 3](/iaifi-research-blog/figures/2505_12387/figure_3.png)
+![Figure 3](figure:3)
 
 The theory extends beyond vanilla SGD. The entropic loss formalism applies to any algorithm with a **matrix learning rate** — a generalized step-size where different parameters can be scaled by different amounts — including Adam, natural gradient descent, and a wide class of biologically-plausible learning rules. The entropic force simply takes a different shape depending on the algorithm's effective geometry.
 
@@ -99,9 +99,12 @@ The result also opens new questions: Can we engineer specific symmetry-breaking 
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This paper builds a rigorous bridge between statistical physics and deep learning, showing that SGD dynamics are governed by entropic forces familiar from thermodynamics — providing a physics-native framework for understanding AI emergence.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work delivers the first formal proof of the Platonic Representation Hypothesis, explaining why diverse neural networks converge on universal representations, with direct implications for interpretability, generalization, and model alignment.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By casting neural network training as a symmetry-breaking thermodynamic process with equipartition laws, the research imports foundational physics concepts — effective energy landscapes, phase transitions, symmetry breaking — into the mathematical study of AI systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may leverage the entropic loss framework to engineer training algorithms with targeted symmetry-breaking properties; the paper appears as a NeurIPS 2025 contribution from MIT's Isaac Chuang and collaborators (full derivations and experimental validations available on arXiv).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This paper builds a rigorous bridge between statistical physics and deep learning, showing that SGD dynamics are governed by entropic forces familiar from thermodynamics — providing a physics-native framework for understanding AI emergence.
+
+- **Impact on Artificial Intelligence:** The work delivers the first formal proof of the Platonic Representation Hypothesis, explaining why diverse neural networks converge on universal representations, with direct implications for interpretability, generalization, and model alignment.
+
+- **Impact on Fundamental Interactions:** By casting neural network training as a symmetry-breaking thermodynamic process with equipartition laws, the research imports foundational physics concepts — effective energy landscapes, phase transitions, symmetry breaking — into the mathematical study of AI systems.
+
+- **Outlook and References:** Future work may leverage the entropic loss framework to engineer training algorithms with targeted symmetry-breaking properties; the paper appears as a NeurIPS 2025 contribution from MIT's Isaac Chuang and collaborators (full derivations and experimental validations available on arXiv).

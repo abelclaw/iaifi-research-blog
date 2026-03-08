@@ -131,11 +131,11 @@ The analysis pipeline:
 - **Power spectrum estimation:** A catalog-based **pseudo-Cℓ estimator**, a method that extracts the angular power spectra (how much structure exists at each angular scale) between the quasar density field and the lensing map
 - **Imaging systematics:** Linear imaging weights, validated on noiseless simulated catalogs, to remove residual correlations between quasar density and observational artifacts
 
-![Figure 1](/iaifi-research-blog/figures/2512_17865/figure_1.png)
+![Figure 1](figure:1)
 
 One particularly clever element is the optimal redshift weighting for f_NL. Rather than treating all quasars equally, the team derived weights that maximize sensitivity to scale-dependent bias, giving more statistical leverage to quasars at the redshifts and angular scales where the f_NL signature is strongest. This is the first time such weighting has been applied to lensing cross-correlations.
 
-![Figure 3](/iaifi-research-blog/figures/2512_17865/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -143,7 +143,7 @@ The measurement yields f_NL = 2 ⁺²⁸₋₃₄ (response parameter p = 1.6) a
 
 For context, the best CMB-only constraint (Planck bispectrum) sits at f_NL = −0.9 ± 5.1, and recent 3D large-scale structure results from DESI DR1 reach roughly σ_fNL ~ 9. This cross-correlation analysis isn't yet at those precision levels, but it measures something complementary and systematically cleaner. The DESI spectroscopic quasar sample shows no excess large-scale power in its auto-correlation, a validation that photometric samples simply cannot guarantee.
 
-![Figure 5](/iaifi-research-blog/figures/2512_17865/figure_3.png)
+![Figure 5](figure:5)
 
 The race to measure f_NL is one of the defining cosmological experiments of the next decade. Reaching σ_fNL ~ 1 would genuinely discriminate between broad classes of inflation models, ruling out multi-field scenarios if the result stays consistent with zero. DESI spectroscopic quasars paired with CMB lensing are now a viable, competitive path toward that goal.
 
@@ -151,9 +151,12 @@ The cross-correlation approach is systematically orthogonal to 3D power spectrum
 
 > **Bottom Line:** Using 1.2 million DESI quasars cross-correlated with Planck CMB lensing maps, this analysis achieves a 35% tighter constraint on primordial non-Gaussianity than previous cross-correlation methods, showing that spectroscopic surveys can probe inflation with a systematic cleanliness that auto-correlation analyses cannot match.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines cosmological survey science and CMB analysis, drawing on data from fundamentally different instruments through statistical methods (optimal redshift weighting, pseudo-Cℓ cross-correlation, and noiseless mock validation) to probe inflationary physics at scales inaccessible to either dataset alone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The imaging systematics pipeline relies on linear weighting schemes validated against noiseless simulated catalogs, illustrating how careful statistical modeling and synthetic data validation can enable reliable signal extraction at the threshold of observational noise, with natural extensions to machine-learning-based approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Constraining f_NL to within ±20–30 tests whether inflation was driven by a single quantum field or required multiple interacting fields, directly probing the particle physics of the universe's first moments.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future DESI data releases and next-generation CMB lensing from the Simons Observatory promise to push σ_fNL below 10, potentially reaching the decisive σ_fNL ~ 1 threshold; this work appears as [arXiv:2512.17865](https://arxiv.org/abs/2512.17865).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work combines cosmological survey science and CMB analysis, drawing on data from fundamentally different instruments through statistical methods (optimal redshift weighting, pseudo-Cℓ cross-correlation, and noiseless mock validation) to probe inflationary physics at scales inaccessible to either dataset alone.
+
+- **Impact on Artificial Intelligence:** The imaging systematics pipeline relies on linear weighting schemes validated against noiseless simulated catalogs, illustrating how careful statistical modeling and synthetic data validation can enable reliable signal extraction at the threshold of observational noise, with natural extensions to machine-learning-based approaches.
+
+- **Impact on Fundamental Interactions:** Constraining f_NL to within ±20–30 tests whether inflation was driven by a single quantum field or required multiple interacting fields, directly probing the particle physics of the universe's first moments.
+
+- **Outlook and References:** Future DESI data releases and next-generation CMB lensing from the Simons Observatory promise to push σ_fNL below 10, potentially reaching the decisive σ_fNL ~ 1 threshold; this work appears as [arXiv:2512.17865](https://arxiv.org/abs/2512.17865).

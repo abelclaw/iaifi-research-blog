@@ -58,7 +58,7 @@ A team from MIT (Ziming Liu, Di Luo, Yilun Xu, Tommi Jaakkola, and Max Tegmark) 
 
 ## How It Works
 
-![Figure 1](/iaifi-research-blog/figures/2304_02637/figure_1.png)
+![Figure 1](figure:1)
 
 The core machinery of GenPhys rests on a clean observation: generative models and physical processes are doing the same thing in reverse. A physical process takes a complicated state and gradually simplifies it. Heat diffuses until temperature is uniform. Charges redistribute until fields are smooth. A generative model runs this backward: start from simple noise, reverse the process, arrive at complex, structured data.
 
@@ -69,7 +69,7 @@ To formalize this, the team defines **s-generative PDEs** (the "s" is for smooth
 
 The second condition is the decisive one. It's what lets you run the process backward: if physics drives everything toward smoothness, then reversing it drives smoothness toward structure. You can test Condition C2 rigorously using **dispersion relations**, a standard tool physicists use to characterize how quickly fluctuations in a system decay. If fine-grained, rapid variations die out exponentially fast while broad, slow variations survive, the PDE earns its s-generative badge.
 
-![Figure 2](/iaifi-research-blog/figures/2304_02637/figure_1.png)
+![Figure 2](figure:2)
 
 With these criteria in hand, the team marches through classical physics. The diffusion equation? S-generative. That's the heat equation, exactly what diffusion models already exploit. The Poisson equation from electrostatics? S-generative. That's PFGM.
 
@@ -77,7 +77,7 @@ The **Yukawa equation**, describing a screened potential from the physics of wea
 
 The wave equation and the Schrödinger equation fail the test. A wave doesn't smooth; it propagates. A quantum wavefunction oscillates indefinitely. Neither is s-generative in its default form. But with certain modifications (adding dissipation to a wave equation, or tweaking the Schrödinger equation) even these can be brought into the GenPhys family.
 
-![Figure 3](/iaifi-research-blog/figures/2304_02637/figure_2.png)
+![Figure 3](figure:3)
 
 Building a GenPhys model involves four steps:
 
@@ -96,9 +96,9 @@ The framework also opens what the authors call "bidirectional inspiration." Phys
 
 > **Bottom Line:** GenPhys provides a systematic recipe for converting any smoothing physical equation into a generative AI model, unifying diffusion models and PFGM under one roof and delivering new architectures, including Yukawa Generative Models, straight from the physics of weak interactions.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">GenPhys builds a formal mathematical bridge between the PDEs of classical and quantum physics and the design of generative AI models, revealing a deep structural duality between the two fields.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The framework expands the generative model design space from two known instances (diffusion and Poisson flow) to a potentially vast family, providing a systematic method for constructing new architectures from physical principles.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By casting the Yukawa screened potential, a staple of weak interaction theory, as a generative model, the work reveals unexpected computational structure in the mathematics of fundamental interactions.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include exploring relativistic and quantum PDEs with modifications that restore s-generativity, and testing whether Yukawa and other novel models offer practical performance advantages; the paper is available at [arXiv:2304.02637](https://arxiv.org/abs/2304.02637).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** GenPhys builds a formal mathematical bridge between the PDEs of classical and quantum physics and the design of generative AI models, revealing a deep structural duality between the two fields.
+- **Impact on Artificial Intelligence:** The framework expands the generative model design space from two known instances (diffusion and Poisson flow) to a potentially vast family, providing a systematic method for constructing new architectures from physical principles.
+- **Impact on Fundamental Interactions:** By casting the Yukawa screened potential, a staple of weak interaction theory, as a generative model, the work reveals unexpected computational structure in the mathematics of fundamental interactions.
+- **Outlook and References:** Future directions include exploring relativistic and quantum PDEs with modifications that restore s-generativity, and testing whether Yukawa and other novel models offer practical performance advantages; the paper is available at [arXiv:2304.02637](https://arxiv.org/abs/2304.02637).

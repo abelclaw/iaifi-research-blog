@@ -67,7 +67,7 @@ Researchers Jan Pawlowski (Heidelberg) and Julian Urban (MIT/IAIFI) now propose 
 
 The idea here is to use flows not to approximate the full field theory measure, but to target a *modified* distribution that keeps the system pinned near a specific value of the observable causing the sign problem.
 
-![Figure 1](/iaifi-research-blog/figures/2203_01243/figure_1.png)
+![Figure 1](figure:1)
 
 Here's the procedure:
 
@@ -78,21 +78,21 @@ Here's the procedure:
 
 The training objective is the **Kullback-Leibler (KL) divergence** between the flow's distribution and the target. Minimizing it also yields a variational bound on the **partition function** log Z, a key quantity encoding all thermodynamic information about the system.
 
-![Figure 2](/iaifi-research-blog/figures/2203_01243/figure_1.png)
+![Figure 2](figure:2)
 
 The authors test their method across three settings of increasing complexity. In the zero-dimensional case, a single-site model solvable exactly, the flow-based density matches the analytical result closely. The method also locates the **Lee-Yang zeroes** of the partition function: special complex values where the partition function vanishes, which are fingerprints of phase transitions. Identifying these requires extending the partition function into the complex plane (**analytic continuation**), something the DoS approach handles gracefully once ρ(c) is in hand.
 
-![Figure 3](/iaifi-research-blog/figures/2203_01243/figure_2.png)
+![Figure 3](figure:3)
 
 Moving to one- and two-dimensional lattice models, the flow-based density is compared against results from conventional restricted **MCMC** (Markov Chain Monte Carlo) calculations. Agreement is good across the tested parameter ranges, confirming the method scales beyond toy models.
 
-![Figure 4](/iaifi-research-blog/figures/2203_01243/figure_2.png)
+![Figure 4](figure:4)
 
-![Figure 5](/iaifi-research-blog/figures/2203_01243/figure_3.png)
+![Figure 5](figure:5)
 
 The automatic normalization deserves attention. In conventional DoS calculations, the overall normalization of ρ(c) is a free parameter requiring additional constraints or separate measurement. Having it fall out of flow training removes one more source of systematic uncertainty.
 
-![Figure 6](/iaifi-research-blog/figures/2203_01243/figure_3.png)
+![Figure 6](figure:6)
 
 ## Why It Matters
 
@@ -102,9 +102,12 @@ The sign problem also appears in condensed matter physics (strongly correlated e
 
 > **Bottom Line:** Normalizing flows can compute the density of states for complex-action lattice field theories directly and without integration error, reproducing exact results in zero dimensions and conventional MCMC results in higher dimensions, and opening a machine learning avenue into some of the hardest problems in theoretical physics.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines normalizing flow models with the density-of-states technique from lattice field theory, showing that the explicit probability tracking of generative models solves a structural problem (accumulated integration error) that has long limited conventional approaches.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Normalizing flows can act as precise density estimators in high-dimensional physics applications, providing exact normalization constants and variational bounds on partition functions as built-in outputs of training.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling direct, error-free computation of the density of states for complex-action theories, this method expands the toolkit available to attack the sign problem, a decades-old barrier blocking lattice QCD calculations at finite density.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will target larger lattices, more realistic gauge theories, and more expressive flow architectures; the paper is available at [arXiv:2203.01243](https://arxiv.org/abs/2203.01243).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work combines normalizing flow models with the density-of-states technique from lattice field theory, showing that the explicit probability tracking of generative models solves a structural problem (accumulated integration error) that has long limited conventional approaches.
+
+- **Impact on Artificial Intelligence:** Normalizing flows can act as precise density estimators in high-dimensional physics applications, providing exact normalization constants and variational bounds on partition functions as built-in outputs of training.
+
+- **Impact on Fundamental Interactions:** By enabling direct, error-free computation of the density of states for complex-action theories, this method expands the toolkit available to attack the sign problem, a decades-old barrier blocking lattice QCD calculations at finite density.
+
+- **Outlook and References:** Future work will target larger lattices, more realistic gauge theories, and more expressive flow architectures; the paper is available at [arXiv:2203.01243](https://arxiv.org/abs/2203.01243).

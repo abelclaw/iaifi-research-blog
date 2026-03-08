@@ -68,7 +68,7 @@ Once you have a dictionary of such features (the researchers use publicly availa
 
 The classic example of geometric structure in word representations is the parallelogram: *man − woman ≈ king − queen*. The researchers find that SAE features form analogous parallelograms at the concept level, and many such parallelograms tile together into crystal-like structures. A grid of (country, capital, language, demonym) relationships is one example.
 
-![Figure 1](/iaifi-research-blog/figures/2410_19750/figure_1.png)
+![Figure 1](figure:1)
 
 These parallelograms become much cleaner when you remove "distractor" directions, global patterns like word length that contaminate the geometry. The team does this with **linear discriminant analysis (LDA)**, a statistical technique that filters out background noise to isolate the clean geometric signal. After this correction, both parallelogram quality and related "function vectors" (vectors encoding a consistent semantic operation) improve substantially.
 
@@ -78,7 +78,7 @@ At intermediate scales, the SAE feature space has spatial modularity resembling 
 
 The team quantifies this using multiple metrics, including nearest-neighbor locality tests and co-activation clustering. Concept clusters at coarse spatial scales turn out to be far more localized than you'd expect from random arrangement. Just as neuroscientists use fMRI to identify brain regions that "light up" together, co-occurring SAE features tend to sit near each other spatially. At fine scales the clustering is modest, but zoom out and the structure becomes hard to miss.
 
-![Figure 2](/iaifi-research-blog/figures/2410_19750/figure_2.png)
+![Figure 2](figure:2)
 
 **Scale 3: Large-Scale Anisotropy**
 
@@ -86,7 +86,7 @@ At the largest scale, the full cloud of feature vectors is anything but a unifor
 
 The slope is steepest in the middle layers of the model, suggesting that intermediate processing stages carry the richest geometric structure. **Clustering entropy**, a measure of how evenly features are distributed across concept clusters, also varies by layer in consistent patterns. This may reflect how the model builds increasingly abstract representations as information flows through its layers.
 
-![Figure 3](/iaifi-research-blog/figures/2410_19750/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -102,15 +102,18 @@ The open questions are just as interesting. Does this geometric structure hold a
 
 > Language model concepts aren't just vectors in a void. They form a structured geometric universe with crystal-like clusters, brain-like functional lobes, and galaxy-scale power laws, giving us a new map for navigating AI interpretability.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work synthesizes tools from statistics, condensed matter physics, and neuroscience to understand the internal structure of large language models, a cross-disciplinary contribution from MIT's IAIFI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By characterizing the geometric structure of sparse autoencoder feature spaces at multiple scales, this research provides new quantitative tools for mechanistic interpretability and for auditing AI systems for hidden or misaligned behaviors.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The discovery of power-law eigenvalue spectra and crystal-like geometric structures in neural concept spaces reveals connections between language model representations and the mathematics of physical systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will test whether this geometric structure generalizes across model families and scales, and whether it can inform AI safety applications. The full paper is available at [arXiv:2410.19750](https://arxiv.org/abs/2410.19750) and published in *Entropy* (2025).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">The Geometry of Concepts: Sparse Autoencoder Feature Structure</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2410.19750](https://arxiv.org/abs/2410.19750)</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Yuxiao Li", "Eric J. Michaud", "David D. Baek", "Joshua Engels", "Xiaoqing Sun", "Max Tegmark"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Sparse autoencoders have recently produced dictionaries of high-dimensional vectors corresponding to the universe of concepts represented by large language models. We find that this concept universe has interesting structure at three levels: 1) The "atomic" small-scale structure contains "crystals" whose faces are parallelograms or trapezoids, generalizing well-known examples such as (man-woman-king-queen). We find that the quality of such parallelograms and associated function vectors improves greatly when projecting out global distractor directions such as word length, which is efficiently done with linear discriminant analysis. 2) The "brain" intermediate-scale structure has significant spatial modularity; for example, math and code features form a "lobe" akin to functional lobes seen in neural fMRI images. We quantify the spatial locality of these lobes with multiple metrics and find that clusters of co-occurring features, at coarse enough scale, also cluster together spatially far more than one would expect if feature geometry were random. 3) The "galaxy" scale large-scale structure of the feature point cloud is not isotropic, but instead has a power law of eigenvalues with steepest slope in middle layers. We also quantify how the clustering entropy depends on the layer.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work synthesizes tools from statistics, condensed matter physics, and neuroscience to understand the internal structure of large language models, a cross-disciplinary contribution from MIT's IAIFI.
+
+- **Impact on Artificial Intelligence:** By characterizing the geometric structure of sparse autoencoder feature spaces at multiple scales, this research provides new quantitative tools for mechanistic interpretability and for auditing AI systems for hidden or misaligned behaviors.
+
+- **Impact on Fundamental Interactions:** The discovery of power-law eigenvalue spectra and crystal-like geometric structures in neural concept spaces reveals connections between language model representations and the mathematics of physical systems.
+
+- **Outlook and References:** Future work will test whether this geometric structure generalizes across model families and scales, and whether it can inform AI safety applications. The full paper is available at [arXiv:2410.19750](https://arxiv.org/abs/2410.19750) and published in *Entropy* (2025).
+
+## Original Paper Details
+- **Title:** The Geometry of Concepts: Sparse Autoencoder Feature Structure
+- **arXiv ID:** [2410.19750](https://arxiv.org/abs/2410.19750)
+- **Authors:** ["Yuxiao Li", "Eric J. Michaud", "David D. Baek", "Joshua Engels", "Xiaoqing Sun", "Max Tegmark"]
+- **Abstract:** Sparse autoencoders have recently produced dictionaries of high-dimensional vectors corresponding to the universe of concepts represented by large language models. We find that this concept universe has interesting structure at three levels: 1) The "atomic" small-scale structure contains "crystals" whose faces are parallelograms or trapezoids, generalizing well-known examples such as (man-woman-king-queen). We find that the quality of such parallelograms and associated function vectors improves greatly when projecting out global distractor directions such as word length, which is efficiently done with linear discriminant analysis. 2) The "brain" intermediate-scale structure has significant spatial modularity; for example, math and code features form a "lobe" akin to functional lobes seen in neural fMRI images. We quantify the spatial locality of these lobes with multiple metrics and find that clusters of co-occurring features, at coarse enough scale, also cluster together spatially far more than one would expect if feature geometry were random. 3) The "galaxy" scale large-scale structure of the feature point cloud is not isotropic, but instead has a power law of eigenvalues with steepest slope in middle layers. We also quantify how the clustering entropy depends on the layer.

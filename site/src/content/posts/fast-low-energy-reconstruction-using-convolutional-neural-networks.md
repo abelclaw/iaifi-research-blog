@@ -54,7 +54,7 @@ Deep in the Antarctic ice, that reconstruction is hard. IceCube's latest work de
 
 The IceCube detector buries 5,160 optical sensors in a cubic kilometer of Antarctic ice, arranged in vertical strings. When a neutrino collides with a water molecule, it produces a charged particle that emits **Cherenkov radiation**, a faint cone of blue light picked up by the sensors. The **DeepCore** sub-array occupies the densest, clearest region and pushes the detection threshold to just a few GeV, where atmospheric neutrino oscillations are most pronounced.
 
-![Figure 1](/iaifi-research-blog/figures/2505_16777/figure_1.png)
+![Figure 1](figure:1)
 
 Below 100 GeV, events produce only a handful of photons across a small number of sensors. Traditional reconstruction methods, which fit particle tracks and cascades analytically, become slow and unreliable at these low energies. The fix: reframe the problem as computer vision.
 
@@ -66,19 +66,19 @@ The architecture processes events through several layers of learned filters:
 2. **Convolutional layers** — Successive 3D convolutions detect local patterns (clusters of hits, timing gradients) and build up to detector-scale features.
 3. **Output heads** — Separate branches predict reconstructed energy; zenith angle (the neutrino's arrival direction measured from directly overhead); interaction vertex coordinates; a **particle identification (PID)** score distinguishing track-like events (muons leaving long trails) from cascade-like events (electron or tau neutrinos producing compact, spherical bursts); and a background classifier separating genuine neutrino interactions from atmospheric muons.
 
-![Figure 2](/iaifi-research-blog/figures/2505_16777/figure_1.png)
+![Figure 2](figure:2)
 
 Speed was a hard constraint. Oscillation analyses require processing millions of simulated and real events. Likelihood-based methods can take seconds per event; the CNN reconstructions run orders of magnitude faster.
 
-![Figure 3](/iaifi-research-blog/figures/2505_16777/figure_2.png)
+![Figure 3](figure:3)
 
 The networks were trained on detailed **Monte Carlo simulations** that mimic particle interactions and detector response, including photon propagation through inhomogeneous ice with depth-dependent scattering and absorption. Validation on real data confirmed that the networks generalize from simulation to observation, which is a notoriously difficult step in particle physics machine learning.
 
-![Figure 4](/iaifi-research-blog/figures/2505_16777/figure_2.png)
+![Figure 4](figure:4)
 
 The CNN energy estimator achieves better resolution than previous methods at low energies, and directional reconstruction similarly outperforms classical fits. The PID network cleanly separates muon neutrinos (track signatures) from electron and tau neutrinos (cascade signatures), a separation essential for measuring both the disappearance and appearance channels of neutrino oscillation.
 
-![Figure 5](/iaifi-research-blog/figures/2505_16777/figure_3.png)
+![Figure 5](figure:5)
 
 ## Why It Matters
 
@@ -88,15 +88,15 @@ IceCube-DeepCore sits in a sweet spot. It measures atmospheric neutrinos at ener
 
 This CNN framework isn't a minor upgrade. It is the backbone of IceCube's current-generation oscillation analysis. Fast, accurate reconstruction makes full likelihood analyses feasible, exploiting the complete reconstructed phase space rather than a handful of binned observables. As the proposed **IceCube Upgrade** adds densely-instrumented low-energy strings, this kind of reconstruction becomes even more necessary.
 
-![Figure 6](/iaifi-research-blog/figures/2505_16777/figure_3.png)
+![Figure 6](figure:6)
 
 The approach also offers a template for other sparse 3D Cherenkov detectors, from ORCA in the Mediterranean to future water-based neutrino telescopes. When detector geometry can be mapped to a structured grid, the full toolkit of computer vision becomes available for particle physics reconstruction.
 
 > **Bottom Line:** IceCube's CNN-based reconstruction turns sparse light patterns in Antarctic ice into precise neutrino properties at speeds that make large-scale oscillation analyses practical. The paper is available at [arXiv:2505.16777](https://arxiv.org/abs/2505.16777).
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies convolutional neural network architectures, originally developed for image recognition, directly to 3D particle detector data, enabling precision neutrino oscillation measurements that classical methods could not achieve at scale.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Mapping irregular hexagonal detector geometry to structured CNN-compatible inputs and training simultaneous multi-task networks for regression and classification shows how deep learning can be deployed in non-standard spatial domains.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The CNNs power IceCube-DeepCore's latest measurements of mixing parameters θ₂₃ and Δm²₃₂, tightening constraints on one of the most enigmatic sectors of the Standard Model.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these methods to the denser IceCube Upgrade geometry and deeper statistical analyses of the full reconstructed phase space; the paper ([arXiv:2505.16777](https://arxiv.org/abs/2505.16777)) is prepared for submission to JINST.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies convolutional neural network architectures, originally developed for image recognition, directly to 3D particle detector data, enabling precision neutrino oscillation measurements that classical methods could not achieve at scale.
+- **Impact on Artificial Intelligence:** Mapping irregular hexagonal detector geometry to structured CNN-compatible inputs and training simultaneous multi-task networks for regression and classification shows how deep learning can be deployed in non-standard spatial domains.
+- **Impact on Fundamental Interactions:** The CNNs power IceCube-DeepCore's latest measurements of mixing parameters θ₂₃ and Δm²₃₂, tightening constraints on one of the most enigmatic sectors of the Standard Model.
+- **Outlook and References:** Future work will extend these methods to the denser IceCube Upgrade geometry and deeper statistical analyses of the full reconstructed phase space; the paper ([arXiv:2505.16777](https://arxiv.org/abs/2505.16777)) is prepared for submission to JINST.

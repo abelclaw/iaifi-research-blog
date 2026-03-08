@@ -57,7 +57,7 @@ Researchers at Harvard and IAIFI have developed a new approach called **om2vec**
 
 The raw data from each optical module (OM) is a **photon arrival time distribution (PATD)**, a histogram showing when photons arrived at nanosecond resolution over microsecond-long events. These distributions are complex, variable in length, and wildly different from sensor to sensor depending on proximity to the particle interaction.
 
-![Figure 1](/iaifi-research-blog/figures/2410_13148/figure_1.png)
+![Figure 1](figure:1)
 
 Previous approaches tried two strategies. The first used **summary statistics**, boiling each PATD down to a few key numbers like total charge and mean arrival time. Fast and uniform, but information is lost forever. The second fit an **asymmetric Gaussian mixture model (AGMM)**, a mathematical curve, to each sensor's data. More faithful to the original signal, but slow, sensitive to hyperparameter choices, and prone to failure on difficult inputs.
 
@@ -68,13 +68,13 @@ om2vec takes a third path. It trains a **variational autoencoder (VAE)** enhance
 3. **Latent representation**: The encoder distills the sequence into a compact fixed-size vector (a mathematical fingerprint) by learning the most likely summary and how much uncertainty to allow around it.
 4. **Reconstruction**: A symmetric decoder expands the fingerprint back to the original timing distribution. The network learns during training to make this round-trip as faithful as possible.
 
-![Figure 2](/iaifi-research-blog/figures/2410_13148/figure_1.png)
+![Figure 2](figure:2)
 
 One subtle design choice matters here: the decoder uses a learned **memory embedding**, its own internal reference, rather than passing the encoder's output through directly. This keeps the decoder independent, so the latent vector truly acts as a self-contained summary rather than a compressed encoder state.
 
 The team trained om2vec on simulated IceCube data covering both **cascade-like events** (roughly spherical light distributions from neutrino interactions) and **track-like events** (elongated signatures from muons). A single model handles the full diversity of IceCube data without task-specific tuning.
 
-![Figure 3](/iaifi-research-blog/figures/2410_13148/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -82,27 +82,30 @@ The physics payoff is real. When tested on reconstruction tasks (recovering a pa
 
 This matters beyond IceCube. Several next-generation neutrino telescopes are under construction or planned: KM3NeT in the Mediterranean, Baikal-GVD in Russia, P-ONE in the Pacific, and IceCube-Gen2, which would expand the Antarctic detector tenfold. Each will generate more data at higher rates. A general-purpose representation learner that works at the earliest stage of data collection could become infrastructure, deployed at the detector level, quietly enabling everything downstream.
 
-![Figure 4](/iaifi-research-blog/figures/2410_13148/figure_2.png)
+![Figure 4](figure:4)
 
 There is also a machine learning angle here. Transformers have revolutionized language and vision, but applying them to irregular, variable-length physics data requires architectural care. The hybrid encoder design (attention across features, feedforward networks across sequence length) is a specific engineering choice that the paper validates empirically, showing transformers outperform fully connected baselines on this task.
 
-![Figure 5](/iaifi-research-blog/figures/2410_13148/figure_3.png)
+![Figure 5](figure:5)
 
 The VAE's continuous, structured latent space also creates possibilities that previous approaches didn't offer. Nearby points in latent space correspond to similar physical events, which means the representations can support anomaly detection, generative modeling, and semi-supervised learning, all active frontiers in particle physics data analysis.
 
-![Figure 6](/iaifi-research-blog/figures/2410_13148/figure_3.png)
+![Figure 6](figure:6)
 
 > **Bottom Line:** om2vec converts messy, variable neutrino detector data into compact, physics-rich representations that are faster to process and more flexible than existing methods, a potential building block for next-generation neutrino telescope analysis.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings transformer-based deep learning, a tool honed on language and vision, to bear on the specific data challenges of high-energy neutrino physics, producing a method validated on IceCube simulation data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The hybrid transformer-VAE architecture shows how to encode irregular, variable-length sequential data into structured latent spaces, an approach transferable to other scientific domains with similarly messy data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">om2vec enables more efficient and accurate reconstruction of neutrino event properties (energy, direction, and type), which is foundational to IceCube's search for high-energy cosmic neutrino sources and tests of the Standard Model.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors release source code, datasets, and pre-trained checkpoints publicly, positioning om2vec for adoption by the broader neutrino telescope community as detectors like IceCube-Gen2 scale up; see [arXiv:2410.13148](https://arxiv.org/abs/2410.13148).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Learning Efficient Representations of Neutrino Telescope Events</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2410.13148](https://arxiv.org/abs/2410.13148)</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Felix J. Yu, Nicholas Kamp, Carlos A. Argüelles</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Neutrino telescopes detect rare interactions of particles produced in some of the most extreme environments in the Universe. This is accomplished by instrumenting a cubic-kilometer scale volume of naturally occurring transparent medium with light sensors. Given their substantial size and the high frequency of background interactions, these telescopes amass an enormous quantity of large variance, high-dimensional data. These attributes create substantial challenges for analyzing and reconstructing interactions, particularly when utilizing machine learning (ML) techniques. In this paper, we present a novel approach, called om2vec, that employs transformer-based variational autoencoders to efficiently represent the detected photon arrival time distributions of neutrino telescope events by learning compact and descriptive latent representations. We demonstrate that these latent representations offer enhanced flexibility and improved computational efficiency, thereby facilitating downstream tasks in data analysis.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work brings transformer-based deep learning, a tool honed on language and vision, to bear on the specific data challenges of high-energy neutrino physics, producing a method validated on IceCube simulation data.
+
+- **Impact on Artificial Intelligence:** The hybrid transformer-VAE architecture shows how to encode irregular, variable-length sequential data into structured latent spaces, an approach transferable to other scientific domains with similarly messy data.
+
+- **Impact on Fundamental Interactions:** om2vec enables more efficient and accurate reconstruction of neutrino event properties (energy, direction, and type), which is foundational to IceCube's search for high-energy cosmic neutrino sources and tests of the Standard Model.
+
+- **Outlook and References:** The authors release source code, datasets, and pre-trained checkpoints publicly, positioning om2vec for adoption by the broader neutrino telescope community as detectors like IceCube-Gen2 scale up; see [arXiv:2410.13148](https://arxiv.org/abs/2410.13148).
+
+## Original Paper Details
+- **Title:** Learning Efficient Representations of Neutrino Telescope Events
+- **arXiv ID:** [2410.13148](https://arxiv.org/abs/2410.13148)
+- **Authors:** Felix J. Yu, Nicholas Kamp, Carlos A. Argüelles
+- **Abstract:** Neutrino telescopes detect rare interactions of particles produced in some of the most extreme environments in the Universe. This is accomplished by instrumenting a cubic-kilometer scale volume of naturally occurring transparent medium with light sensors. Given their substantial size and the high frequency of background interactions, these telescopes amass an enormous quantity of large variance, high-dimensional data. These attributes create substantial challenges for analyzing and reconstructing interactions, particularly when utilizing machine learning (ML) techniques. In this paper, we present a novel approach, called om2vec, that employs transformer-based variational autoencoders to efficiently represent the detected photon arrival time distributions of neutrino telescope events by learning compact and descriptive latent representations. We demonstrate that these latent representations offer enhanced flexibility and improved computational efficiency, thereby facilitating downstream tasks in data analysis.

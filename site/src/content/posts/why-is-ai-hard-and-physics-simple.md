@@ -49,7 +49,7 @@ The resolution is **structure**. Random labelings of random images are mathemati
 
 Physics discovered this long ago. **Effective field theory**, one of the physicist's most powerful tools, is sparsity in action: you don't need to know every detail of a system to make accurate predictions. You identify the few relevant degrees of freedom and build your theory around them.
 
-![Figure 1](/iaifi-research-blog/figures/2104_00008/figure_1.png)
+![Figure 1](figure:1)
 
 The Standard Model describes all known fundamental particles with roughly 20 parameters. Thermodynamics reduces the behavior of 10²³ molecules to temperature and pressure. Physics works because nature is sparse.
 
@@ -73,9 +73,12 @@ The connection to physics isn't merely metaphorical. Techniques from statistical
 
 > **Bottom Line:** AI lacks the hard-won insight that made physics tractable: the world is sparse. Roberts' prescription, to bring physicists into AI to work as physicists rather than just as mathematicians, could be the missing piece in building a genuine science of intelligence.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This essay argues that physics and machine learning share deep common structure through the principle of sparsity, framing AI theory as a natural extension of the physicist's centuries-old program of finding simple rules for complex phenomena.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Roberts provides a conceptual framework for why deep learning succeeds despite the no-free-lunch theorem, pointing toward a physics-inspired theoretical foundation that could make AI systems more principled and interpretable.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that tools like effective field theory and statistical mechanics apply directly to understanding neural networks, this work expands the domain of theoretical physics into the science of artificial intelligence.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The essay previews a forthcoming book developing first-principles deep learning theory using physicist methodology; the paper is available at [arXiv:2104.00008](https://arxiv.org/abs/2104.00008).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This essay argues that physics and machine learning share deep common structure through the principle of sparsity, framing AI theory as a natural extension of the physicist's centuries-old program of finding simple rules for complex phenomena.
+
+- **Impact on Artificial Intelligence:** Roberts provides a conceptual framework for why deep learning succeeds despite the no-free-lunch theorem, pointing toward a physics-inspired theoretical foundation that could make AI systems more principled and interpretable.
+
+- **Impact on Fundamental Interactions:** By showing that tools like effective field theory and statistical mechanics apply directly to understanding neural networks, this work expands the domain of theoretical physics into the science of artificial intelligence.
+
+- **Outlook and References:** The essay previews a forthcoming book developing first-principles deep learning theory using physicist methodology; the paper is available at [arXiv:2104.00008](https://arxiv.org/abs/2104.00008).

@@ -60,11 +60,11 @@ The theoretical backbone comes from **neural tangent kernel (NTK) theory**, a fr
 
 For value functions, this is trouble. Value functions tend to be complex and jagged because of the recursive structure of **Bellman equations**, the mathematical rules that govern how an agent's value estimates feed into one another.
 
-![Figure 1](/iaifi-research-blog/figures/2206_04672/figure_1.png)
+![Figure 1](figure:1)
 
 Toy experiments make this concrete. A standard 4-layer **multi-layer perceptron (MLP)** trained with **fitted Q-iteration** produces a smoothed-out, blurry approximation of the true value function. Making the network three times deeper or training five times longer doesn't help. The architecture is constitutionally biased against the sharp value landscapes agents actually need.
 
-![Figure 2](/iaifi-research-blog/figures/2206_04672/figure_1.png)
+![Figure 2](figure:2)
 
 The solution borrows from computer graphics, where researchers hit an identical wall when neural networks tried to represent fine 3D scene details. The fix, there and here, is to first transform raw inputs through **random Fourier features**: sinusoidal functions at randomly sampled frequencies that lift low-dimensional inputs into a higher-dimensional space rich with oscillatory structure. Mathematically, this reshapes the network's learning profile from a broad low-pass filter into a **composite kernel** tunable across a wide frequency range.
 
@@ -81,7 +81,7 @@ The embedding is fixed and doesn't train, so there's no added computational cost
 
 The performance gains speak for themselves. On continuous control benchmarks (physics-simulated locomotion and manipulation tasks that stress-test modern RL algorithms) FFN achieves state-of-the-art results with a fraction of the compute. Faster convergence means the agent reaches the same performance level in fewer environment interactions, directly reducing training time and sample requirements.
 
-![Figure 3](/iaifi-research-blog/figures/2206_04672/figure_2.png)
+![Figure 3](figure:3)
 
 The most surprising finding is what becomes possible once learning stabilizes: the **target network** can be removed. Target networks, a second slowly-updated copy of the value network used to generate stable training targets, have been a standard fixture in deep RL since the original DQN paper in 2013. They exist because neural network training tends to spiral into catastrophic divergence without them. With FFN's improved stability, the authors show successful training without this crutch on several tasks. Dropping the target network also eliminates a source of estimation bias (a systematic distortion the target network inevitably introduces) which further improves accuracy.
 
@@ -91,9 +91,12 @@ Open questions remain. How should one choose the frequency distribution for the 
 
 > **Bottom Line:** A single-line fix, replacing the input layer of a value network with random Fourier features, overcomes a fundamental bias that has quietly hampered deep reinforcement learning for years. It delivers state-of-the-art performance at reduced compute while opening up training regimes that were previously too unstable to attempt.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work pulls theoretical tools from machine learning theory (neural tangent kernels) and practical techniques from computer graphics (Fourier feature embeddings) into reinforcement learning, exactly the kind of cross-domain synthesis that IAIFI exists to support.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Fourier Feature Networks match or beat state-of-the-art on continuous control benchmarks with less compute, and enable stable training without the long-standard target network, advancing both efficiency and our theoretical understanding of neural value approximation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">A more principled framework for neural function approximation strengthens the toolkit for physics-motivated AI applications, including those used to model complex dynamical systems in fundamental physics research.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore adaptive frequency selection and broader applications across RL domains. The paper appeared at ICLR 2022 ([arXiv:2206.04672](https://arxiv.org/abs/2206.04672)) and code is available at geyang.github.io/ffn. The theoretical analysis lays groundwork for ongoing research into neural kernel methods in sequential decision-making.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work pulls theoretical tools from machine learning theory (neural tangent kernels) and practical techniques from computer graphics (Fourier feature embeddings) into reinforcement learning, exactly the kind of cross-domain synthesis that IAIFI exists to support.
+
+- **Impact on Artificial Intelligence:** Fourier Feature Networks match or beat state-of-the-art on continuous control benchmarks with less compute, and enable stable training without the long-standard target network, advancing both efficiency and our theoretical understanding of neural value approximation.
+
+- **Impact on Fundamental Interactions:** A more principled framework for neural function approximation strengthens the toolkit for physics-motivated AI applications, including those used to model complex dynamical systems in fundamental physics research.
+
+- **Outlook and References:** Future work will explore adaptive frequency selection and broader applications across RL domains. The paper appeared at ICLR 2022 ([arXiv:2206.04672](https://arxiv.org/abs/2206.04672)) and code is available at geyang.github.io/ffn. The theoretical analysis lays groundwork for ongoing research into neural kernel methods in sequential decision-making.

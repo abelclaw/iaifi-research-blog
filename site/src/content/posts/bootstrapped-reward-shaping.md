@@ -70,25 +70,28 @@ The convergence proof for the **tabular setting** (where the state space is smal
 
 The experimental results validate the theory across multiple difficulty levels. In tabular grid-worlds with sparse rewards, BSRS agents converge significantly faster than vanilla Q-learning, particularly in larger state spaces where reward signals are hardest to stumble upon.
 
-![Figure 1](/iaifi-research-blog/figures/2501_00989/figure_1.png)
+![Figure 1](figure:1)
 
 BSRS also improves training speed in the **Atari Learning Environment**, a benchmark suite of 57 classic video games that has challenged RL researchers for over a decade. These games involve high-dimensional image inputs, long horizons, and delayed sparse rewards. Gains here, from a method requiring no task-specific knowledge and a one-line code change, are meaningful.
 
-![Figure 2](/iaifi-research-blog/figures/2501_00989/figure_2.png)
+![Figure 2](figure:2)
 
 The broader significance runs deeper than benchmark numbers. **Reward engineering** (designing reward functions that guide agents toward the right behavior without accidentally teaching them to exploit loopholes) is one of the central unsolved problems in applied RL. Systems that "reward hack" or develop unintended behaviors due to subtly mis-specified rewards are a genuine concern as RL gets deployed in higher-stakes settings.
 
 BSRS doesn't solve reward engineering, but it sidesteps a major source of manual intervention: the need to encode prior knowledge as a potential function. That reduction in human-specified structure is especially valuable in scientific discovery, robotics, and physical simulation, where task-relevant prior knowledge is hard to formalize.
 
-![Figure 3](/iaifi-research-blog/figures/2501_00989/figure_3.png)
+![Figure 3](figure:3)
 
 Future directions include extending BSRS to continuous action spaces, integrating it with model-based approaches where a learned world model could sharpen the value estimates, and exploring whether bootstrapping can improve exploration rather than just exploitation.
 
 > **Bottom Line:** BSRS makes reinforcement learning more self-sufficient — an agent that shapes its own rewards using only what it's already learned, with guaranteed convergence and measurable speedups across AI's most challenging benchmarks.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work provides convergence guarantees for a method where the reward signal itself changes during training. Proving convergence when the shaping function evolves at every step required analysis beyond standard PBRS theory, connecting mathematical rigor to a core challenge in modern AI — reflecting IAIFI's approach of grounding machine learning research in formal foundations.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">BSRS delivers faster training in sparse-reward environments without task-specific engineering, a drop-in upgrade compatible with any value-based RL algorithm.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By reducing the sample complexity of reinforcement learning, BSRS lowers the computational barrier to applying RL in physics simulations and scientific discovery tasks where environment interactions are expensive.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets continuous action spaces, model-based integration, and applications in physics-driven environments. The paper is available at [arXiv:2501.00989](https://arxiv.org/abs/2501.00989) and code at [github.com/JacobHA/ShapedRL](https://github.com/JacobHA/ShapedRL).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work provides convergence guarantees for a method where the reward signal itself changes during training. Proving convergence when the shaping function evolves at every step required analysis beyond standard PBRS theory, connecting mathematical rigor to a core challenge in modern AI — reflecting IAIFI's approach of grounding machine learning research in formal foundations.
+
+- **Impact on Artificial Intelligence:** BSRS delivers faster training in sparse-reward environments without task-specific engineering, a drop-in upgrade compatible with any value-based RL algorithm.
+
+- **Impact on Fundamental Interactions:** By reducing the sample complexity of reinforcement learning, BSRS lowers the computational barrier to applying RL in physics simulations and scientific discovery tasks where environment interactions are expensive.
+
+- **Outlook and References:** Future work targets continuous action spaces, model-based integration, and applications in physics-driven environments. The paper is available at [arXiv:2501.00989](https://arxiv.org/abs/2501.00989) and code at [github.com/JacobHA/ShapedRL](https://github.com/JacobHA/ShapedRL).

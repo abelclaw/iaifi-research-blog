@@ -62,7 +62,7 @@ Physicists Anna Golubeva and Roger Melko put this question to the test. Whether 
 
 The researchers trained RBMs on data from the **one-dimensional transverse-field Ising model (TFIM)**, one of the most studied models in quantum physics. It describes a chain of interacting qubits subject to a tunable magnetic field, with two distinct phases: a ferromagnetic phase, where quantum spins align like compass needles pulled by a magnet, and a paramagnetic phase, where quantum randomness prevents any stable alignment. Between them lies a **quantum critical point**, a dramatic transition driven purely by quantum mechanics.
 
-![Figure 1](/iaifi-research-blog/figures/2110_03676/figure_1.png)
+![Figure 1](figure:1)
 
 The team used **DMRG** (Density Matrix Renormalization Group), a standard computational method for finding the lowest-energy state of a quantum system, to generate realistic measurement samples. They trained RBMs using the QuCumber software package. After training, they applied iterative magnitude-based pruning: find the weight with the smallest absolute value, zero it out, let the remaining weights readjust, repeat. It's the same strategy that has proven powerful for compressing deep learning models onto smartphones and edge devices.
 
@@ -73,19 +73,19 @@ How much pruning can an RBM tolerate before reconstruction falls apart? The rese
 - **Energy**: the system's average energy, computed from the Hamiltonian (the mathematical rulebook defining how the system evolves)
 - **Two-point correlation function**: how spins are correlated across the chain
 
-![Figure 2](/iaifi-research-blog/figures/2110_03676/figure_1.png)
+![Figure 2](figure:2)
 
 In the ferromagnetic phase, pruning more than half the weights left all four observables essentially intact. The RBM had learned a redundant representation; the extra connections were genuinely superfluous.
 
 At the quantum critical point, the story is different. Quantum correlations become long-ranged here, stretching across the entire system with no preferred scale. Capturing this behavior requires full connectivity. Even removing a small fraction of weights caused measurable degradation in the reconstructed state's physical properties.
 
-![Figure 3](/iaifi-research-blog/figures/2110_03676/figure_2.png)
+![Figure 3](figure:3)
 
 Different observables also failed at different pruning thresholds. The energy might look fine while correlation functions had already degraded significantly. This is a real trap: a single metric can give false confidence. Tracking the full set of relevant physical observables matters, not just training loss.
 
 The team also tested a provocative alternative. Instead of training a large RBM and pruning it down, why not start sparse and train directly? It works, but only if the sparsity pattern is chosen carefully. A random sparse network fails. A pattern informed by the known locality of interactions in the TFIM succeeds. This skips the expensive detour of building a full model first.
 
-![Figure 4](/iaifi-research-blog/figures/2110_03676/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -97,9 +97,9 @@ The discovery that pruning sensitivity tracks quantum phase structure points to 
 
 > **Bottom Line:** Pruning half an RBM's weights is safe in ordinary quantum phases, but quantum critical points demand full connectivity. This has direct implications for scaling up quantum state reconstruction and for the fundamental theory of neural network compression.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects classical machine learning compression to the physical structure of quantum phases, showing that neural network compressibility mirrors the entanglement complexity of the underlying quantum state.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Standard pruning metrics can be misleading for generative models: different physical observables fail at different sparsity thresholds. This motivates more physically-informed pruning criteria for quantum ML.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By mapping how RBM pruning sensitivity varies across the quantum phase diagram of the transverse-field Ising model, the work exposes a concrete signature of quantum criticality in neural network structure.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include developing sparsity patterns informed by physical symmetries and extending these results to two-dimensional systems and experimental quantum devices; the full paper is available at [arXiv:2110.03676](https://arxiv.org/abs/2110.03676).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work connects classical machine learning compression to the physical structure of quantum phases, showing that neural network compressibility mirrors the entanglement complexity of the underlying quantum state.
+- **Impact on Artificial Intelligence:** Standard pruning metrics can be misleading for generative models: different physical observables fail at different sparsity thresholds. This motivates more physically-informed pruning criteria for quantum ML.
+- **Impact on Fundamental Interactions:** By mapping how RBM pruning sensitivity varies across the quantum phase diagram of the transverse-field Ising model, the work exposes a concrete signature of quantum criticality in neural network structure.
+- **Outlook and References:** Future directions include developing sparsity patterns informed by physical symmetries and extending these results to two-dimensional systems and experimental quantum devices; the full paper is available at [arXiv:2110.03676](https://arxiv.org/abs/2110.03676).

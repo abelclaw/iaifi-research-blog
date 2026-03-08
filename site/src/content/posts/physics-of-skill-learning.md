@@ -61,7 +61,7 @@ Researchers Ziming Liu, Yizhou Liu, Eric Michaud, Jeff Gore, and Max Tegmark set
 
 The team's approach is deliberately old-fashioned. Physicists have a long tradition of making absurdly simplified models (the "spherical cow in a vacuum") that strip away messy reality to reveal underlying structure. The researchers asked: can we do the same for skill learning?
 
-![Figure 1](/iaifi-research-blog/figures/2501_12391/figure_1.png)
+![Figure 1](figure:1)
 
 Start with an observation. Train a two-layer neural network on two independent **sparse parity tasks** (yes/no pattern-recognition puzzles presented at different frequencies, *p*₁ = 1 and *p*₂ = 0.1). Task 1 completes learning, and then Task 2 takes off almost immediately.
 
@@ -73,7 +73,7 @@ To explain it, the team constructs three models at different levels of abstracti
 - **The Resource Model**: Coarser, but analytically tractable. Treats the network's "capacity" as a shared resource that skills compete to capture. When one skill monopolizes it, others stagnate; when it finishes, resources flood to the next. This maps the problem onto thermodynamics: skills as phases, training as a **phase transition** (a sudden, dramatic shift, like water freezing into ice).
 - **The Domino Model**: The simplest. Assumes a strict hierarchy where you cannot learn Task B until Task A is complete. Pure sequential learning, ideal for analyzing modularity.
 
-![Figure 2](/iaifi-research-blog/figures/2501_12391/figure_2.png)
+![Figure 2](figure:2)
 
 Each model sacrifices something for clarity. The Domino model can't capture partial simultaneous learning, but enables clean analytical results. The Geometry model reproduces actual training curves but resists simple analysis. The Resource model sits in the middle, elegant enough for mathematics, realistic enough to match experiments on compositional tasks.
 
@@ -85,7 +85,7 @@ The Resource model makes precise predictions about **compositional tasks**, prob
 
 The practical payoff is as important as the theory. Inspired by the Resource model's picture of skills competing for attention, the team developed simple algorithmic modifications (changes to how training examples are weighted and how learning signals are scaled) that measurably speed up learning on benchmark tasks. Theory didn't just explain what's happening; it told engineers where to push.
 
-![Figure 3](/iaifi-research-blog/figures/2501_12391/figure_3.png)
+![Figure 3](figure:3)
 
 More broadly, this work represents a bet that the right tools for understanding AI are the ones physicists have used for a century: stripping complex systems to their essential structure, building toy models that ignore the noise to expose the signal, and having the courage to make things absurdly simple. The Geometry model's connection to Chinchilla laws suggests that scaling laws might have a deeper mechanistic explanation, rooted in how skills compete in parameter space rather than empirical curve-fitting. That's a profound shift in how we think about what scaling laws *are*.
 
@@ -95,9 +95,12 @@ Open questions remain: Can these models extend to transformers trained on langua
 
 ---
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies classical physics methodology (coarse-graining, effective theories, and toy models) to explain emergent learning dynamics in neural networks, building a bridge between statistical physics and deep learning theory.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The three-model framework explains the Domino effect from first principles, connects to Chinchilla scaling laws, and produces practical training algorithms that accelerate learning on compositional tasks.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By framing neural network training as a resource competition problem with phase-transition-like dynamics, the work reveals structural analogies between learning systems and physical systems governed by constrained resource allocation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will test whether Domino-effect dynamics appear in large-scale language models and whether the algorithmic improvements generalize to frontier architectures. The full paper is available at [arXiv:2501.12391](https://arxiv.org/abs/2501.12391) and code at [github.com/KindXiaoming/physics_of_skill_learning](https://github.com/KindXiaoming/physics_of_skill_learning).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies classical physics methodology (coarse-graining, effective theories, and toy models) to explain emergent learning dynamics in neural networks, building a bridge between statistical physics and deep learning theory.
+
+- **Impact on Artificial Intelligence:** The three-model framework explains the Domino effect from first principles, connects to Chinchilla scaling laws, and produces practical training algorithms that accelerate learning on compositional tasks.
+
+- **Impact on Fundamental Interactions:** By framing neural network training as a resource competition problem with phase-transition-like dynamics, the work reveals structural analogies between learning systems and physical systems governed by constrained resource allocation.
+
+- **Outlook and References:** Future work will test whether Domino-effect dynamics appear in large-scale language models and whether the algorithmic improvements generalize to frontier architectures. The full paper is available at [arXiv:2501.12391](https://arxiv.org/abs/2501.12391) and code at [github.com/KindXiaoming/physics_of_skill_learning](https://github.com/KindXiaoming/physics_of_skill_learning).

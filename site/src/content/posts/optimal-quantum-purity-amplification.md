@@ -61,7 +61,7 @@ A team of MIT researchers led by Zhaoyi Li and Isaac Chuang has now solved a 20-
 
 The core idea is intuitive. Think of overlaying several blurry photographs of the same scene: the true features reinforce each other while random blur averages out. QPA does the same with quantum states. It takes *n* noisy copies and applies a quantum operation that produces a single output with higher purity.
 
-![Figure 1](/iaifi-research-blog/figures/2409_18167/figure_1.png)
+![Figure 1](figure:1)
 
 The fundamental challenge is finding the *optimal* distillation protocol. Previous work cracked the problem only for special cases (single qubits or specialized optical quantum states), leaving multi-qubit systems without a principled solution. The MIT team's key mathematical move was recasting the optimization as a **semidefinite program (SDP)**, a class of mathematical optimization with efficient, well-understood solution methods. This required drawing on recent advances in combinatorics, the branch of mathematics dealing with counting, arrangements, and symmetry structures, to impose the right constraints on a problem that had stymied researchers for two decades.
 
@@ -73,17 +73,17 @@ The optimal protocol has a clean three-step structure:
 
 No protocol using the same number of copies can do better. Under strong **depolarizing noise**, the harshest and most uniform form of quantum noise, this protocol requires exponentially fewer copies than previous best-known methods to achieve the same output fidelity.
 
-![Figure 2](/iaifi-research-blog/figures/2409_18167/figure_1.png)
+![Figure 2](figure:2)
 
 The team also proved the protocol works optimally for *generic* mixed states, amplifying purity toward the least-disturbed, most probable version of whatever quantum state you started with. This matters because real devices encounter a complex mix of gate errors, decoherence, and crosstalk, not purely depolarizing noise.
 
 For practical deployment, the team implemented the protocol using **generalized quantum phase estimation**, an efficient circuit design for performing Schur sampling on real hardware. For near-term experiments where circuit depth and connectivity are severely limited, they introduce **SWAPNET**: a sparse, shallow circuit architecture that achieves QPA with a minimal gate count through SWAP-like operations compatible with today's superconducting processors.
 
-![Figure 3](/iaifi-research-blog/figures/2409_18167/figure_2.png)
+![Figure 3](figure:3)
 
 They validated the approach on superconducting quantum processors, testing both digital (gate-based) and analog simulation settings. QPA improved output fidelity in practice, not just in theory.
 
-![Figure 4](/iaifi-research-blog/figures/2409_18167/figure_2.png)
+![Figure 4](figure:4)
 
 ## Why It Matters
 
@@ -95,9 +95,12 @@ Open questions remain. How does QPA interact with structured noise specific to p
 
 > **Bottom Line:** By solving a 20-year-old optimization problem and building practical circuits for today's quantum hardware, this MIT team has given NISQ-era quantum computing a powerful new tool for fighting noise, one that achieves exponential gains precisely where the need is greatest.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses quantum information theory, combinatorics, and experimental quantum physics. An abstract mathematical optimization becomes circuits running on real superconducting processors, exemplifying the kind of cross-disciplinary integration IAIFI was built for.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The exponential reduction in copies required is especially relevant for quantum machine learning, where preparing high-fidelity resource states has been a persistent bottleneck.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">This is the first provably optimal purity amplification protocol for general quantum systems. It sharpens our ability to prepare clean quantum states in noisy experimental environments, precisely the conditions encountered in quantum simulation of fundamental physical systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore SWAPNET's performance on connectivity-constrained hardware and its integration with quantum error mitigation pipelines. Full results appear in [arXiv:2409.18167](https://arxiv.org/abs/2409.18167).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work fuses quantum information theory, combinatorics, and experimental quantum physics. An abstract mathematical optimization becomes circuits running on real superconducting processors, exemplifying the kind of cross-disciplinary integration IAIFI was built for.
+
+- **Impact on Artificial Intelligence:** The exponential reduction in copies required is especially relevant for quantum machine learning, where preparing high-fidelity resource states has been a persistent bottleneck.
+
+- **Impact on Fundamental Interactions:** This is the first provably optimal purity amplification protocol for general quantum systems. It sharpens our ability to prepare clean quantum states in noisy experimental environments, precisely the conditions encountered in quantum simulation of fundamental physical systems.
+
+- **Outlook and References:** Future work will explore SWAPNET's performance on connectivity-constrained hardware and its integration with quantum error mitigation pipelines. Full results appear in [arXiv:2409.18167](https://arxiv.org/abs/2409.18167).

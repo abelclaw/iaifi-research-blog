@@ -63,7 +63,7 @@ They surveyed five architecture classes spanning a wide range of complexity:
 
 All models received only raw kinematic information (particle momenta and angles) and were trained on two tasks: quark/gluon discrimination and boosted top-quark tagging.
 
-![Figure 1](/iaifi-research-blog/figures/2509_19431/figure_1.png)
+![Figure 1](figure:1)
 
 The Pareto frontier plot tells the story at a glance. In the AUC-versus-resilience plane, the frontier curves like a physical law. The Particle Transformer achieves the highest raw AUC but pays with substantially reduced resilience. EFNs and simple expert features sit in the opposite corner: lower peak performance, but far more stable across simulators. Models in the "Pareto-excluded" region are simply inferior, beaten on *both* metrics simultaneously by another architecture.
 
@@ -71,7 +71,7 @@ The Pareto frontier plot tells the story at a glance. In the AUC-versus-resilien
 
 Could clever training tricks break through the frontier? The team tested **knowledge distillation**, a technique where a smaller "student" model learns to copy a larger, more powerful "teacher," hoping to inherit the teacher's accuracy while retaining the student's stability.
 
-![Figure 2](/iaifi-research-blog/figures/2509_19431/figure_1.png)
+![Figure 2](figure:2)
 
 Students did improve beyond naive linear interpolation between teacher and baseline, meaning distillation provided genuine gains. But no distilled student pushed past the existing Pareto frontier. Whatever sets that boundary seems to reflect something fundamental about the trade-off between model expressivity and cross-simulator generalization.
 
@@ -79,7 +79,7 @@ Students did improve beyond naive linear interpolation between teacher and basel
 
 The team ran a concrete case study: estimating the flavor mixture fraction κ (the proportion of quark jets versus gluon jets in a mixed sample) using two PFNs at different points on the Pareto frontier.
 
-![Figure 3](/iaifi-research-blog/figures/2509_19431/figure_2.png)
+![Figure 3](figure:3)
 
 The large, high-AUC PFN (latent dimension 128, 250 nodes per hidden layer) produces biased estimates of κ when test data comes from a different simulator than training data. The small, resilient PFN (latent dimension 8, 50 nodes per hidden layer) yields less precise estimates under ideal conditions but far more accurate ones when simulator mismatch is present. By conventional metrics, the "better" classifier can actively mislead a downstream physics analysis.
 
@@ -93,9 +93,9 @@ Open questions remain. Does the Pareto frontier itself shift as training dataset
 
 > **Bottom Line:** Chasing AUC alone builds jet taggers that are fast but fragile. The Pareto frontier shows there's no free lunch: physicists should treat resilience as a first-class benchmark alongside accuracy, or risk biasing the very measurements they're trying to make.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports the Pareto frontier concept from economics into particle physics classifier design, showing how a cross-disciplinary framework can expose trade-offs invisible from within either field.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Knowledge distillation provides genuine gains but cannot overcome fundamental performance-robustness trade-offs, a cautionary result for practitioners who rely on distillation to compress brittle models.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">High-AUC jet taggers can systematically bias measurements like quark/gluon fraction estimation. This finding challenges standard practices at the LHC and argues for resilience-aware classifier design in precision analyses.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes extending the Pareto framework to detector effects, pile-up, and future collider conditions, and exploring whether physics-informed architectures can shift the frontier; the paper is available at [arXiv:2509.19431](https://arxiv.org/abs/2509.19431).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work imports the Pareto frontier concept from economics into particle physics classifier design, showing how a cross-disciplinary framework can expose trade-offs invisible from within either field.
+- **Impact on Artificial Intelligence:** Knowledge distillation provides genuine gains but cannot overcome fundamental performance-robustness trade-offs, a cautionary result for practitioners who rely on distillation to compress brittle models.
+- **Impact on Fundamental Interactions:** High-AUC jet taggers can systematically bias measurements like quark/gluon fraction estimation. This finding challenges standard practices at the LHC and argues for resilience-aware classifier design in precision analyses.
+- **Outlook and References:** Future work includes extending the Pareto framework to detector effects, pile-up, and future collider conditions, and exploring whether physics-informed architectures can shift the frontier; the paper is available at [arXiv:2509.19431](https://arxiv.org/abs/2509.19431).

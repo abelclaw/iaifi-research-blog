@@ -62,7 +62,7 @@ The first breakthrough isn't the model. It's the observation that motivated it. 
 
 The MIT team plotted the **empirical cumulative distribution function (eCDF)** of band gaps across thousands of materials, a graph showing what fraction of materials fall at or below each possible value. What they found was striking.
 
-![Figure 1](/iaifi-research-blog/figures/2501_02932/figure_1.png)
+![Figure 1](figure:1)
 
 The distribution has a sharp jump at exactly 0 eV (electron volts, the standard energy unit for atomic-scale physics). A large fraction of crystalline materials are metals, meaning their band gap is *exactly* zero. The rest (semiconductors and insulators) have band gaps spread continuously from small positive values up to around 10 eV or more.
 
@@ -76,7 +76,7 @@ The model the team designed respects this structure:
 
 That final step, the **ReLU** (Rectified Linear Unit) borrowed from neural network architecture, encodes the mixed-variable nature of the band gap directly. A negative weighted average predicts zero: a metal. A positive weighted average predicts that value: a semiconductor or insulator. The hard floor at zero isn't a trick; it flows directly from the statistical analysis.
 
-![Figure 2](/iaifi-research-blog/figures/2501_02932/figure_2.png)
+![Figure 2](figure:2)
 
 The model's interpretability is genuine, not retrofitted. Elements with high parameter values (fluorine, oxygen) tend to appear in ionic compounds with large band gaps. Elements with low or negative values (iron, platinum) tend to appear in metallic compounds. The learned parameters match known chemical intuition about which elements drive insulating versus metallic behavior.
 
@@ -84,7 +84,7 @@ The model's interpretability is genuine, not retrofitted. Elements with high par
 
 The immediate practical advantage is accessibility. Quantum simulation methods such as **density functional theory (DFT)** and graph neural networks both require knowing a material's crystal structure (the coordinates of every atom in the repeating structural unit), and that information isn't always available when screening hypothetical or poorly characterized materials. A model that works from chemical formulas alone can operate earlier in the discovery pipeline, flagging promising candidates before expensive structural calculations begin.
 
-![Figure 3](/iaifi-research-blog/figures/2501_02932/figure_3.png)
+![Figure 3](figure:3)
 
 There's also a deeper point about modeling philosophy. The materials science community has accumulated decades of chemical intuition: which elements promote ionic versus metallic bonding, how **electronegativity** (how strongly each element attracts electrons) relates to band gaps, which structural families tend to produce semiconductors. This model sits within that tradition. Simple enough to be fully understood, expressive enough to be useful, and structured so its parameters translate directly into chemical insight.
 
@@ -92,9 +92,9 @@ Black-box neural networks dominate the field, so this represents a deliberate tr
 
 > **Bottom Line:** By recognizing that the band gap is statistically mixed (not purely continuous), this team built a one-parameter-per-element model that is transparent, fast, and formula-accessible, offering a principled alternative to black-box ML for materials screening.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies statistical analysis and machine learning design principles to a core problem in condensed matter physics, producing a model whose architecture is directly motivated by the quantum mechanical reality of metallic versus insulating materials.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Careful statistical characterization of a target variable (recognizing it as a mixed random variable rather than a continuous one) can improve model design more than adding complexity. That's a lesson that extends well beyond materials science.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By assigning a single learned parameter to each chemical element, the model recovers and quantifies known chemical heuristics about which elements promote or suppress the electronic band gap, giving a data-driven handle on elemental chemistry.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this element-parameter framework to other material properties with atypical statistics, and explore how compositional models complement structural models in high-throughput discovery pipelines. Full paper: [arXiv:2501.02932](https://arxiv.org/abs/2501.02932)</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies statistical analysis and machine learning design principles to a core problem in condensed matter physics, producing a model whose architecture is directly motivated by the quantum mechanical reality of metallic versus insulating materials.
+- **Impact on Artificial Intelligence:** Careful statistical characterization of a target variable (recognizing it as a mixed random variable rather than a continuous one) can improve model design more than adding complexity. That's a lesson that extends well beyond materials science.
+- **Impact on Fundamental Interactions:** By assigning a single learned parameter to each chemical element, the model recovers and quantifies known chemical heuristics about which elements promote or suppress the electronic band gap, giving a data-driven handle on elemental chemistry.
+- **Outlook and References:** Future work could extend this element-parameter framework to other material properties with atypical statistics, and explore how compositional models complement structural models in high-throughput discovery pipelines. Full paper: [arXiv:2501.02932](https://arxiv.org/abs/2501.02932)

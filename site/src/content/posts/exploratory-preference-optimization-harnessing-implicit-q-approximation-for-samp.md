@@ -69,7 +69,7 @@ A team from Microsoft Research and MIT has proposed a simple fix. Their algorith
 
 Start with **Direct Preference Optimization (DPO)**, the current workhorse of RLHF. DPO trains a model by showing it pairs of responses (one preferred, one not) and adjusting behavior accordingly. It's elegant, computationally cheap, and widely used. But it's passive: it only learns from responses the model was already likely to generate, never deliberately probing the unknown.
 
-![Figure 1](/iaifi-research-blog/figures/2405_21046/figure_1.png)
+![Figure 1](figure:1)
 
 The researchers spotted a theoretical connection that unlocks everything. When you work through the DPO math carefully, the algorithm is secretly performing **Bellman error minimization**, a classical reinforcement learning technique for estimating how good each action is while accounting for all its future consequences. DPO is already thinking in RL terms; it just doesn't know it. This connection, formalized through **KL-regularized Markov decision processes** (a framework for modeling sequences of decisions while keeping the AI tethered to its original behavior), ties language modeling and RL theory together in a way that hadn't been done before.
 
@@ -81,7 +81,7 @@ So the team asked: if DPO is already building this kind of value estimate, can w
 
 This isn't an ad hoc workaround. The exploration bonus drops out directly from first principles in RL theory, and it turns out to be computable in closed form for language models. What would be prohibitively expensive in general RL settings becomes tractable here.
 
-![Figure 2](/iaifi-research-blog/figures/2405_21046/figure_2.png)
+![Figure 2](figure:2)
 
 ## Why It Matters
 

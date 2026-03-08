@@ -57,7 +57,7 @@ The standard workhorse of modern deep RL is **Soft Actor-Critic (SAC)**, an algo
 
 The challenge is that average-reward RL operates differently at a mathematical level. In discounted RL, value functions satisfy a clean recursive structure called the **Bellman equation**, which contracts toward a unique solution, a property that makes optimization stable. Remove discounting and this contraction disappears. The math gets messier, and most existing deep RL tools simply don't apply.
 
-![Figure 1](/iaifi-research-blog/figures/2501_09080/figure_1.png)
+![Figure 1](figure:1)
 
 The authors resolve this by reformulating SAC's core quantities for the average-reward setting. Instead of a standard Q-function estimating discounted future rewards, AR-SAC tracks the **differential Q-function**, measuring how much better or worse a state-action pair performs relative to the agent's average reward rate ρ. The Bellman update subtracts this running reward rate at every step, keeping value estimates bounded without discounting. Entropy regularization is folded into this modified objective consistently, producing what the authors call the **Entropy-Regularized Average-Reward (ERAR) MDP** (Markov Decision Process, the standard mathematical model for sequential decisions) framework.
 
@@ -74,7 +74,7 @@ Implementing AR-SAC requires only modest changes to an existing SAC codebase: re
 
 The immediate practical payoff is freedom from discount factor tuning. Standard SAC on the Swimmer-v5 MuJoCo environment (a widely used physics simulator for robot locomotion) fails completely at its default γ = 0.99, and only careful manual tuning unlocks good performance. AR-SAC sidesteps this entirely. Benchmarks across standard continuous-control tasks show AR-SAC achieving superior performance on the average-reward criterion compared to existing average-reward algorithms, including policy-gradient-based methods (which improve behavior by estimating how small changes in strategy affect total reward) that previously represented the state of the art.
 
-![Figure 2](/iaifi-research-blog/figures/2501_09080/figure_2.png)
+![Figure 2](figure:2)
 
 The deeper significance lies in what this opens up for physics-informed AI. Many real-world physical systems (thermal machines, biological motor control, particle accelerators in steady-state operation) are inherently continuing tasks where long-run average performance is the meaningful objective. The entropy regularization also has a natural interpretation in statistical physics: maximizing entropy corresponds to finding the least-biased probability distribution consistent with observed constraints, a concept central to thermodynamics and information theory. Combining these ideas in a working deep RL algorithm creates tools better matched to problems at the intersection of AI and physics than standard discounted methods.
 
@@ -82,9 +82,12 @@ Open questions remain. Theoretical convergence guarantees for average-reward dee
 
 > **Bottom Line:** AR-SAC delivers a principled, practical deep RL algorithm for long-horizon continuous control that beats the competition without requiring discount factor tuning, and the stability benefits of entropy regularization come built in.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges statistical physics and reinforcement learning by formalizing entropy-regularized average-reward optimization, a framework where maximum-entropy principles from thermodynamics directly shape how AI agents learn optimal long-run behavior.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">AR-SAC is the first deep RL algorithm combining entropy regularization with the average-reward objective, achieving state-of-the-art performance on continuous control benchmarks while eliminating the need to tune the discount factor hyperparameter.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Average-reward RL is naturally suited to physical systems in steady-state or ergodic regimes; AR-SAC provides a practical tool for applying modern deep RL to problems in physics where long-run average performance (not discounted returns) is the correct objective.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes extending AR-SAC to offline learning and multi-agent settings. The paper is by Jacob Adamczyk, Volodymyr Makarenko, Stas Tiomkin, and Rahul V. Kulkarni, published in *Reinforcement Learning Journal* (2025). [[arXiv:2501.09080](https://arxiv.org/abs/2501.09080)]</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work bridges statistical physics and reinforcement learning by formalizing entropy-regularized average-reward optimization, a framework where maximum-entropy principles from thermodynamics directly shape how AI agents learn optimal long-run behavior.
+
+- **Impact on Artificial Intelligence:** AR-SAC is the first deep RL algorithm combining entropy regularization with the average-reward objective, achieving state-of-the-art performance on continuous control benchmarks while eliminating the need to tune the discount factor hyperparameter.
+
+- **Impact on Fundamental Interactions:** Average-reward RL is naturally suited to physical systems in steady-state or ergodic regimes; AR-SAC provides a practical tool for applying modern deep RL to problems in physics where long-run average performance (not discounted returns) is the correct objective.
+
+- **Outlook and References:** Future work includes extending AR-SAC to offline learning and multi-agent settings. The paper is by Jacob Adamczyk, Volodymyr Makarenko, Stas Tiomkin, and Rahul V. Kulkarni, published in *Reinforcement Learning Journal* (2025). [[arXiv:2501.09080](https://arxiv.org/abs/2501.09080)]

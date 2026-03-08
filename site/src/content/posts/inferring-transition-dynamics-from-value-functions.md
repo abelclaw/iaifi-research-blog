@@ -57,7 +57,7 @@ The foundation of nearly all RL algorithms is the **Bellman equation**, a recurs
 
 Adamczyk's key move is algebraic but profound: flip the equation around. If you know *V(s)*, *r(s,a)*, and *γ*, and want to find *s'* (the next state), you're looking for the state whose value satisfies *V(s') = [V(s) - r(s,a)] / γ*. The next state is whichever state the value function maps to that specific target number. The dynamics model falls out of a simple inversion.
 
-![Figure 1](/iaifi-research-blog/figures/2501_09081/figure_1.png)
+![Figure 1](figure:1)
 
 This leads to a clean inference procedure:
 
@@ -70,11 +70,11 @@ The hard part is step 3, where the paper gets mathematically careful. Inverting 
 
 Adamczyk formalizes this through **reverse Lipschitz continuity**, requiring the value function to have steep enough gradients that nearby states always produce distinguishably different values. A larger reverse Lipschitz constant means sharper discrimination and more accurate dynamics recovery.
 
-![Figure 2](/iaifi-research-blog/figures/2501_09081/figure_2.png)
+![Figure 2](figure:2)
 
 The paper also derives error bounds: if your value function has approximation error (as all practical neural network approximations do), how far off will your inferred dynamics be? The answer depends on the reverse Lipschitz constant. Steeper value functions tolerate more approximation error before the inferred dynamics degrade.
 
-![Figure 3](/iaifi-research-blog/figures/2501_09081/figure_3.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -88,9 +88,12 @@ Open questions remain. The current framework assumes deterministic dynamics: a s
 
 > **Bottom Line:** A trained value function secretly holds a map of the world that created it. This paper shows how to read that map, opening a new path toward more adaptable, sample-efficient AI agents that don't need to learn the rules from scratch every time the game changes.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings the physicist's instinct for elegant reformulation (rearranging equations to reveal hidden structure) directly to bear on a core AI problem, treating the Bellman equation as a source of dynamical information rather than just a training target.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides a theoretical bridge between model-free and model-based reinforcement learning, showing that value functions implicitly encode environment dynamics and offering a rigorous method for extracting them.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By establishing formal identifiability conditions and error bounds for dynamics inference, this work contributes mathematical tools, particularly reverse Lipschitz analysis, that could inform how AI systems model physical processes in scientific domains.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work must tackle stochastic environments and the density-modeling challenge they pose. The paper is available at [arXiv:2501.09081](https://arxiv.org/abs/2501.09081), by Jacob Adamczyk (IAIFI/UMass Boston).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work brings the physicist's instinct for elegant reformulation (rearranging equations to reveal hidden structure) directly to bear on a core AI problem, treating the Bellman equation as a source of dynamical information rather than just a training target.
+
+- **Impact on Artificial Intelligence:** The paper provides a theoretical bridge between model-free and model-based reinforcement learning, showing that value functions implicitly encode environment dynamics and offering a rigorous method for extracting them.
+
+- **Impact on Fundamental Interactions:** By establishing formal identifiability conditions and error bounds for dynamics inference, this work contributes mathematical tools, particularly reverse Lipschitz analysis, that could inform how AI systems model physical processes in scientific domains.
+
+- **Outlook and References:** Future work must tackle stochastic environments and the density-modeling challenge they pose. The paper is available at [arXiv:2501.09081](https://arxiv.org/abs/2501.09081), by Jacob Adamczyk (IAIFI/UMass Boston).

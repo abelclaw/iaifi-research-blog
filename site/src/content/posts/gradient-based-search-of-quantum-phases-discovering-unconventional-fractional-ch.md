@@ -69,7 +69,7 @@ Every quantum phase leaves a characteristic fingerprint in a system's energy spe
 
 The **target-phase loss function** works as follows. Given a Hamiltonian parameterized by a vector of numbers (hopping amplitudes, interaction strengths, lattice geometry), the algorithm partitions the low-energy spectrum into a "target manifold" (states you want as ground states) and a "complement manifold" (everything else). The loss measures the energy gap between the highest target state and the lowest complement state. Negative gap means you've found the phase. Positive gap means gradient descent can point you in the right direction.
 
-![Figure 1](/iaifi-research-blog/figures/2509_10438/figure_1.png)
+![Figure 1](figure:1)
 
 The workflow has three steps:
 
@@ -81,15 +81,15 @@ The loss function is differentiable with respect to Hamiltonian parameters, whic
 
 The researchers tested their framework on spinless fermions on the **kagome lattice**, a tiling of corner-sharing triangles found experimentally in materials like herbertsmithite. They searched for **fractional Chern insulators (FCIs)**, exotic topological phases where electrons organize into collective states carrying fractional charges. FCIs are lattice analogues of the fractional quantum Hall effect, potentially accessible without enormous magnetic fields.
 
-![Figure 2](/iaifi-research-blog/figures/2509_10438/figure_1.png)
+![Figure 2](figure:2)
 
 First target: an Abelian FCI at filling fraction ν = 1/3. Most known FCIs live near the "ideal" regime, where band geometry closely mimics the lowest Landau level. The optimizer found a non-ideal FCI whose band geometry lies far outside any ideal description, directly contradicting a widespread assumption in the field.
 
-![Figure 3](/iaifi-research-blog/figures/2509_10438/figure_2.png)
+![Figure 3](figure:3)
 
 The second target was more ambitious: a **non-Abelian FCI** at filling ν = 1/2. Non-Abelian phases are the holy grail of topological quantum computing. Their exotic excitations, non-Abelian anyons, store quantum information in ways intrinsically protected from errors. Previously known examples required either three-body interactions or unrealistically long interaction ranges. The search turned up a **Moore–Read state**, the prototypical non-Abelian FCI first proposed in the 1990s, stabilized purely by finite-range, two-body interactions. This is the first explicit realization of such a phase.
 
-![Figure 4](/iaifi-research-blog/figures/2509_10438/figure_2.png)
+![Figure 4](figure:4)
 
 Both discoveries were confirmed through exact diagonalization, spectral flow analysis under flux insertion, and phase diagram mapping.
 
@@ -97,7 +97,7 @@ Both discoveries were confirmed through exact diagonalization, spectral flow ana
 
 What matters most here isn't any single discovery but the methodology itself. The gradient-based framework applies broadly: any phase with identifiable spectral fingerprints and continuous Hamiltonian parameters is a candidate. Charge density waves, quantum spin liquids, various topological orders. All fair game. Researchers encode domain knowledge about what a phase should look like; the optimizer finds where it lives.
 
-![Figure 5](/iaifi-research-blog/figures/2509_10438/figure_3.png)
+![Figure 5](figure:5)
 
 The non-Abelian FCI discovery raises immediate theoretical questions. Why does this phase appear with finite-range interactions? What framework describes fractionalization in bands this far from the ideal limit? Concrete examples like this tend to accelerate theoretical understanding much the way experimental discoveries do.
 
@@ -105,9 +105,9 @@ The method could extend to finite-temperature phases, disordered systems, or ope
 
 > **Bottom Line:** By treating quantum phase discovery as a machine learning optimization problem, this team found two fractional Chern insulators that shouldn't exist according to conventional wisdom and built a framework that could systematically map the exotic quantum phases hiding throughout condensed matter physics.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly imports gradient-based optimization, the engine of modern deep learning, into many-body quantum physics, enabling systematic phase discovery that neither field could achieve alone.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows that differentiable programming and gradient descent apply to quantum eigenvalue problems, extending AI-assisted scientific discovery from pattern recognition to active hypothesis generation and search.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The discovery of a non-Abelian fractional Chern insulator stabilized by finite-range two-body interactions provides the first explicit realization of this phase, challenging existing theoretical frameworks and opening new territory in topological quantum matter.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work can extend this framework to realistic material parameters and finite-temperature phases; the full results are available at [arXiv:2509.10438](https://arxiv.org/abs/2509.10438).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work directly imports gradient-based optimization, the engine of modern deep learning, into many-body quantum physics, enabling systematic phase discovery that neither field could achieve alone.
+- **Impact on Artificial Intelligence:** The paper shows that differentiable programming and gradient descent apply to quantum eigenvalue problems, extending AI-assisted scientific discovery from pattern recognition to active hypothesis generation and search.
+- **Impact on Fundamental Interactions:** The discovery of a non-Abelian fractional Chern insulator stabilized by finite-range two-body interactions provides the first explicit realization of this phase, challenging existing theoretical frameworks and opening new territory in topological quantum matter.
+- **Outlook and References:** Future work can extend this framework to realistic material parameters and finite-temperature phases; the full results are available at [arXiv:2509.10438](https://arxiv.org/abs/2509.10438).

@@ -75,7 +75,7 @@ The core problem: nearly every dataset used to train and evaluate these systems 
 
 The authors identify what they call a **Goodhart's law dynamic** in mathematical AI evaluation. Goodhart's law, from economics, says that when a measure becomes a target, it ceases to be a good measure. In practice: once AI developers know their model will be judged by scores on standardized test suites like MATH or GSM8K, they optimize directly for those scores, through **dataset contamination** (when test examples leak into training data), clever answer-extraction tricks, or **fine-tuning** (adapting a model directly on similar problems). The benchmark stops measuring what it was supposed to measure.
 
-![Figure 1](/iaifi-research-blog/figures/2412_15184/figure_1.png)
+![Figure 1](figure:1)
 
 But benchmark degradation is just the symptom. The authors trace the disease to how mathematical datasets are constructed in the first place.
 
@@ -88,7 +88,7 @@ The paper draws a sharp distinction between two things we might want AI to do:
 
 Professional mathematicians don't experience mathematics as a lookup table. They explore, backtrack, draw analogies, make mistakes, and revise. None of this appears in existing training data.
 
-![Figure 2](/iaifi-research-blog/figures/2412_15184/figure_2.png)
+![Figure 2](figure:2)
 
 The proposed solution centers on an old idea largely ignored by machine learning: the **"motivated proof,"** introduced by problem-solving theorist G. Pólya in 1949. A motivated proof doesn't just present steps in logical order; it explains *why* each step is taken, what the mathematician was trying to achieve, and what alternatives were considered. The authors argue this concept should guide a new generation of datasets that train AI on the *process* of mathematical discovery, not just its products.
 
@@ -104,9 +104,12 @@ As AI scores on MATH-style evaluations approach saturation, the field risks mist
 
 > **Bottom Line:** The next leap in AI for mathematics won't come from better architectures alone. It will come from better data. Datasets that capture *how* proofs are discovered, not just what they look like when finished, are the missing ingredient for genuine mathematical reasoning in AI systems.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work, with co-author Fabian Ruehle at Northeastern University (a core IAIFI institution), directly addresses the data infrastructure needed for AI tools to accelerate mathematical discovery in theoretical physics, from algebraic geometry to quantum field theory.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides a systematic critique and course-correction framework for mathematical AI evaluation, advocating for process-aware benchmarks grounded in Pólya's "motivated proof" concept that could fundamentally improve how LLMs are trained on mathematical reasoning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Better mathematical copilots could accelerate research in string theory, lattice QCD, and quantum gravity, where progress often bottlenecks on complex derivations requiring exactly the kind of exploratory, step-by-step reasoning these new datasets would teach.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors call on the community to develop benchmark datasets that supervise the proof discovery process itself; the full paper is available at [arXiv:2412.15184](https://arxiv.org/abs/2412.15184).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work, with co-author Fabian Ruehle at Northeastern University (a core IAIFI institution), directly addresses the data infrastructure needed for AI tools to accelerate mathematical discovery in theoretical physics, from algebraic geometry to quantum field theory.
+
+- **Impact on Artificial Intelligence:** The paper provides a systematic critique and course-correction framework for mathematical AI evaluation, advocating for process-aware benchmarks grounded in Pólya's "motivated proof" concept that could fundamentally improve how LLMs are trained on mathematical reasoning.
+
+- **Impact on Fundamental Interactions:** Better mathematical copilots could accelerate research in string theory, lattice QCD, and quantum gravity, where progress often bottlenecks on complex derivations requiring exactly the kind of exploratory, step-by-step reasoning these new datasets would teach.
+
+- **Outlook and References:** The authors call on the community to develop benchmark datasets that supervise the proof discovery process itself; the full paper is available at [arXiv:2412.15184](https://arxiv.org/abs/2412.15184).

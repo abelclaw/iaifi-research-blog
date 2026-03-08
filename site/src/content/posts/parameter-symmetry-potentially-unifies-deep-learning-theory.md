@@ -64,7 +64,7 @@ A **symmetry** exists when you can transform a model's parameters (rearranging, 
 
 The researchers define two key states: a **symmetric state**, where parameters sit in a configuration fully described by a symmetry (like a coin balanced perfectly on its edge), and a **symmetry-broken state**, where they don't. The central hypothesis: transitions between these states produce the hierarchical, stepped behavior we observe during training.
 
-![Figure 1](/iaifi-research-blog/figures/2502_05300/figure_1.png)
+![Figure 1](figure:1)
 
 The paper organizes its argument around three distinct hierarchies this framework can explain:
 
@@ -74,7 +74,7 @@ The paper organizes its argument around three distinct hierarchies this framewor
 
 What makes this more than speculation: each claim is backed by citations to prior empirical and theoretical work. The authors aren't introducing a new theorem; they're weaving together existing results and showing that symmetry is the common warp thread running through all of them.
 
-![Figure 2](/iaifi-research-blog/figures/2502_05300/figure_2.png)
+![Figure 2](figure:2)
 
 The framework also has a practical edge. Recent work has made it possible to *deliberately engineer* parameter symmetries into models at design time. If the hypothesis holds, researchers could tune a model's hierarchical learning dynamics by specifying its symmetry structure upfront, the way physicists design materials with target properties by choosing crystal symmetry groups.
 
@@ -88,9 +88,9 @@ The paper is refreshingly honest: the evidence, while suggestive, is not yet def
 
 > **Bottom Line:** Parameter symmetry may be to deep learning what thermodynamic laws are to heat: a unifying framework that transforms a zoo of disconnected phenomena into a single principled story. This position paper lays out the case; proving it will be one of the most important tasks in AI theory.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly imports the language of symmetry groups and phase transitions from theoretical physics into deep learning theory, treating neural network training as a physical system governed by symmetry-breaking dynamics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By proposing parameter symmetry as a unifying principle, the paper offers a path toward a coherent theory of deep learning that explains learning dynamics, model complexity, and representation formation within a single framework.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The work elevates symmetry (the organizing principle behind gauge theories and the Standard Model) to a potential fundamental principle of artificial intelligence, deepening the conceptual bridge between physics and computation.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will need to formally validate the symmetry-breaking hypotheses across diverse architectures and tasks; the paper is available at [arXiv:2502.05300](https://arxiv.org/abs/2502.05300).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work directly imports the language of symmetry groups and phase transitions from theoretical physics into deep learning theory, treating neural network training as a physical system governed by symmetry-breaking dynamics.
+- **Impact on Artificial Intelligence:** By proposing parameter symmetry as a unifying principle, the paper offers a path toward a coherent theory of deep learning that explains learning dynamics, model complexity, and representation formation within a single framework.
+- **Impact on Fundamental Interactions:** The work elevates symmetry (the organizing principle behind gauge theories and the Standard Model) to a potential fundamental principle of artificial intelligence, deepening the conceptual bridge between physics and computation.
+- **Outlook and References:** Future work will need to formally validate the symmetry-breaking hypotheses across diverse architectures and tasks; the paper is available at [arXiv:2502.05300](https://arxiv.org/abs/2502.05300).

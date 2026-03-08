@@ -66,7 +66,7 @@ A team from MIT's IAIFI and Research Laboratory of Electronics has now built the
 
 The platform chains together three AI-powered stages, each handling one phase of what a human experimentalist would normally do.
 
-![Figure 1](/iaifi-research-blog/figures/2505_17985/figure_1.png)
+![Figure 1](figure:1)
 
 **Stage 1: Design via fine-tuned LLMs.** A researcher types what they want, anything from "Give me a Mach-Zehnder interferometer" to "a Michelson interferometer with the beam entering at 30 degrees and the beamsplitter near coordinate (20 cm, 3 cm)." An **Optics Agent**, an AI assistant trained to interpret natural-language descriptions and translate them into physical layouts, takes that request and generates a list of optical components with their x-y positions and orientations.
 
@@ -81,7 +81,7 @@ The Optics Agent is a LLaMA3.1-8B-Instruct model (Meta's open-source language mo
 
 **Stage 3: Automated measurements.** Once assembled and aligned, the platform runs a full suite of optical measurements without further human input. The team demonstrated beam characterization, polarization mapping, transmission spectroscopy, and real-space optimization. Across repeated trials, the automated platform's measurements showed *less* variation than those from trained human operators performing the same tasks.
 
-![Figure 2](/iaifi-research-blog/figures/2505_17985/figure_1.png)
+![Figure 2](figure:2)
 
 The engineering difficulty here is real. Experiments where laser light travels through open air (rather than through fiber-optic cables) are notoriously unforgiving: an angular misalignment of a fraction of a degree can walk a beam entirely off a detector. The robot-deployable fine-alignment tool solves this by letting the robotic arm handle coarse pick-and-place steps, then handing off to a specialized instrument that works at the precision the physics demands.
 
@@ -97,9 +97,12 @@ The fine-tuned LLM here isn't just retrieving information. It reasons about spat
 
 > **Bottom Line:** The first flexible, AI-driven robotic platform for free-space optics can design, assemble, align, and measure with consistency that outperforms human operators, opening a direct path to cloud labs and high-throughput optical discovery.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This project sits squarely at IAIFI's intersection of AI and physics, combining LLM fine-tuning, computer vision, and generative design with the precision demands of experimental optics to create a fully automated scientific instrument.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a practical pipeline for deploying fine-tuned LLMs as physical-world design agents, where outputs must satisfy hard geometric and physical constraints, a challenging and underexplored regime for generative AI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Automating optical experiments removes a major bottleneck in quantum information, nanophotonics, and precision measurement, fields where optical setups are essential instruments for probing fundamental physics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the platform to more complex configurations and toward fully remote cloud-lab operation; the paper is available at [arXiv:2505.17985](https://arxiv.org/abs/2505.17985) and was authored by researchers from MIT Physics, EECS, and the NSF IAIFI.</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This project sits squarely at IAIFI's intersection of AI and physics, combining LLM fine-tuning, computer vision, and generative design with the precision demands of experimental optics to create a fully automated scientific instrument.
+
+- **Impact on Artificial Intelligence:** The paper introduces a practical pipeline for deploying fine-tuned LLMs as physical-world design agents, where outputs must satisfy hard geometric and physical constraints, a challenging and underexplored regime for generative AI.
+
+- **Impact on Fundamental Interactions:** Automating optical experiments removes a major bottleneck in quantum information, nanophotonics, and precision measurement, fields where optical setups are essential instruments for probing fundamental physics.
+
+- **Outlook and References:** Future work could extend the platform to more complex configurations and toward fully remote cloud-lab operation; the paper is available at [arXiv:2505.17985](https://arxiv.org/abs/2505.17985) and was authored by researchers from MIT Physics, EECS, and the NSF IAIFI.

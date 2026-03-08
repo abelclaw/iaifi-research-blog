@@ -104,7 +104,7 @@ A team led by Ana Sofía Uzsoy and Andrew Saydjari at the Center for Astrophysic
 
 The core idea is **Bayesian spectral component separation**. Instead of removing sky contamination first and then finding the galaxy, the pipeline asks what combination of (1) an LAE signal, (2) sky residuals, and (3) a smooth background continuum best explains the observed spectrum.
 
-![Figure 1](/iaifi-research-blog/figures/2504_06870/figure_1.png)
+![Figure 1](figure:1)
 
 This requires a data-driven prior, a statistical description of what typical LAE spectra look like, constructed from real examples rather than assumptions. It's the same philosophy used to separate the cosmic microwave background (the faint afterglow of the Big Bang) from foreground emissions in all-sky maps, now applied at the scale of individual galaxy spectra.
 
@@ -117,11 +117,11 @@ For each candidate spectrum, the inference proceeds:
 3. Compute **Δχ²** (delta chi-squared), the improvement in fit quality when including the LAE component versus excluding it
 4. The redshift with the highest Δχ² wins
 
-![Figure 2](/iaifi-research-blog/figures/2504_06870/figure_1.png)
+![Figure 2](figure:2)
 
 Δχ² does double duty. It identifies the best-fit redshift *and* it tells you how confident you should be in the result. High Δχ² means a clean detection; low Δχ² flags spectra where sky contamination may be masquerading as a galaxy. The pipeline ranks its own confidence without requiring ad-hoc quality cuts.
 
-![Figure 3](/iaifi-research-blog/figures/2504_06870/figure_2.png)
+![Figure 3](figure:3)
 
 ## Why It Matters
 
@@ -129,11 +129,11 @@ Applied to 910 DESI LAE candidates spanning redshifts z = 2–4 (galaxies whose 
 
 The team also showed how the Δχ² metric can guide future survey design. Medium-band photometric filters offer a compromise between survey efficiency and targeting precision: broader than traditional narrow-band filters but narrower than wide-field imaging. Redder filters capture more objects at higher redshift but admit more contaminants. The pipeline's confidence metric provides a principled way to navigate these tradeoffs, yielding concrete recommendations for DESI-II and next-generation facilities.
 
-![Figure 4](/iaifi-research-blog/figures/2504_06870/figure_2.png)
+![Figure 4](figure:4)
 
-![Figure 5](/iaifi-research-blog/figures/2504_06870/figure_3.png)
+![Figure 5](figure:5)
 
-![Figure 6](/iaifi-research-blog/figures/2504_06870/figure_3.png)
+![Figure 6](figure:6)
 
 What makes this approach work is that it doesn't try to outsmart the sky. It builds a better model of it. By treating sky residuals as structured signal with its own PCA basis rather than featureless noise, the pipeline avoids the systematic errors that plague simpler subtraction methods. The same philosophy applies to other spectroscopic surveys and other emission-line galaxy populations.
 
@@ -141,9 +141,9 @@ Upcoming surveys (DESI's extended campaigns, the Subaru Prime Focus Spectrograph
 
 > **Bottom Line:** A Harvard-led team has built a Bayesian pipeline that automatically determines redshifts for distant Lyman Alpha Emitter galaxies observed by DESI with >90% accuracy, by modeling sky contamination as a component to fit rather than noise to remove, directly enabling the scalable LAE surveys needed to probe the universe's first billion years.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines Bayesian inference, principal component analysis, and observational spectroscopy to solve a core data analysis challenge in cosmology. It shows how statistical methods drawn from machine learning can directly unlock fundamental astrophysics.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The pipeline shows that data-driven priors built from expert-labeled examples enable accurate automated classification even when signal and contaminant are spectrally similar, a lesson that transfers to scientific machine learning more broadly.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling scalable, accurate redshift determination for LAEs at z = 2–4, the method opens the door to population-level constraints on reionization history and the large-scale structure of the early universe from DESI data.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The pipeline's survey design recommendations position it as a planning tool for DESI-II and next-generation spectroscopic facilities; the full analysis is available at [arXiv:2504.06870](https://arxiv.org/abs/2504.06870).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work combines Bayesian inference, principal component analysis, and observational spectroscopy to solve a core data analysis challenge in cosmology. It shows how statistical methods drawn from machine learning can directly unlock fundamental astrophysics.
+- **Impact on Artificial Intelligence:** The pipeline shows that data-driven priors built from expert-labeled examples enable accurate automated classification even when signal and contaminant are spectrally similar, a lesson that transfers to scientific machine learning more broadly.
+- **Impact on Fundamental Interactions:** By enabling scalable, accurate redshift determination for LAEs at z = 2–4, the method opens the door to population-level constraints on reionization history and the large-scale structure of the early universe from DESI data.
+- **Outlook and References:** The pipeline's survey design recommendations position it as a planning tool for DESI-II and next-generation spectroscopic facilities; the full analysis is available at [arXiv:2504.06870](https://arxiv.org/abs/2504.06870).

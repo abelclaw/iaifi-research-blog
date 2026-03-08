@@ -63,11 +63,11 @@ BIMT recreates this pressure artificially with three ingredients:
 2. **Locality regularization** — The training loss gains a new term: the sum of each connection's length multiplied by the absolute value of its weight. Short, strong connections are cheap; long, strong connections are expensive. This generalizes standard L1 regularization, which produces sparse networks, by adding the geometric pressure that makes BIMT novel.
 3. **Neuron swapping** — Gradient descent can get stuck. A neuron might be in the wrong position, making all its connections expensive, but no weight update will move it. BIMT periodically swaps pairs of neurons within a layer when doing so reduces the locality cost. Since swapping doesn't change what the network computes, only where it computes it, this step is purely about layout.
 
-![Figure 1](/iaifi-research-blog/figures/2305_08746/figure_1.png)
+![Figure 1](figure:1)
 
 Where a vanilla network trained on the same task produces a dense tangle, a BIMT-trained network snaps into compact clusters you can literally see by drawing the connectivity graph. The swap step turns out to matter a lot: without it, neurons get stuck in bad positions and locality regularization alone can't rescue them.
 
-![Figure 2](/iaifi-research-blog/figures/2305_08746/figure_1.png)
+![Figure 2](figure:2)
 
 BIMT was tested across a range of tasks. For **symbolic regression** (finding a mathematical formula that fits a dataset), BIMT discovered independence, with two input variables handled by entirely separate pathways. It revealed compositionality, where a formula like *f(g(x), h(y))* splits into identifiable sub-networks. And it exposed feature sharing, with multiple outputs reusing the same intermediate computation.
 
@@ -85,9 +85,12 @@ Open questions remain. Can BIMT handle truly large-scale models? What's the righ
 
 > **Bottom Line:** BIMT makes neural networks self-organize into visible modules by penalizing long connections, a simple, physics-inspired trick that turns interpretability from a painstaking reverse-engineering problem into something you can see with your own eyes.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies biological and physical intuitions (the metabolic cost of long axons, the principle of locality) directly to the engineering of interpretable AI, putting physics thinking to work inside deep learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">BIMT provides a practical training-time method for producing modular neural networks without requiring prior knowledge of problem structure, complementing existing post-hoc interpretability tools like probes and activation patching.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By revealing compositional and group-theoretic structures in networks trained on algorithmic tasks, BIMT offers a new lens for discovering mathematical structure in learned representations, with direct applications to scientific AI.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will test BIMT at the scale of large language models and deepen its connections to formal theories of neural modularity; the paper is available at [arXiv:2305.08746](https://arxiv.org/abs/2305.08746).</span></div></div>
-</div>
+## IAIFI Research Highlights
+
+- **Interdisciplinary Research Achievement:** This work applies biological and physical intuitions (the metabolic cost of long axons, the principle of locality) directly to the engineering of interpretable AI, putting physics thinking to work inside deep learning.
+
+- **Impact on Artificial Intelligence:** BIMT provides a practical training-time method for producing modular neural networks without requiring prior knowledge of problem structure, complementing existing post-hoc interpretability tools like probes and activation patching.
+
+- **Impact on Fundamental Interactions:** By revealing compositional and group-theoretic structures in networks trained on algorithmic tasks, BIMT offers a new lens for discovering mathematical structure in learned representations, with direct applications to scientific AI.
+
+- **Outlook and References:** Future work will test BIMT at the scale of large language models and deepen its connections to formal theories of neural modularity; the paper is available at [arXiv:2305.08746](https://arxiv.org/abs/2305.08746).

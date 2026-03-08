@@ -64,7 +64,7 @@ Researchers at MIT, Google Research, and the University of Toronto built exactly
 
 Instead of teaching a robot "grab this specific mug at these specific pixel coordinates," NDFs teach it something closer to: "grab the object at the location that *feels like* the rim of a mug." The system learns a continuous function that takes any 3D coordinate and maps it to a **spatial descriptor**, a compact geometric signature encoding how that location relates to the object's meaningful features.
 
-![Figure 1](/iaifi-research-blog/figures/2112_05124/figure_1.png)
+![Figure 1](figure:1)
 
 Think of it like smell. Every part of a freshly baked loaf has a scent, but the scent at the crust *means something different* from the scent at the soft interior. Two loaves from the same recipe will have matching scents at matching locations. NDFs do this for geometry: locations with the same structural role on different mugs get the same descriptor, regardless of size or orientation.
 
@@ -78,7 +78,7 @@ At test time, the system works in three steps:
 2. **Build a pose descriptor**: That gripper pose is encoded as a set of feature descriptors evaluated at a cluster of query points around the gripper.
 3. **Optimize on new instances**: Given a new mug in an arbitrary orientation, the system uses gradient-based optimization to find the transformation that makes the new object's descriptors best match those from the demonstration.
 
-![Figure 2](/iaifi-research-blog/figures/2112_05124/figure_1.png)
+![Figure 2](figure:2)
 
 The trick is treating the gripper pose itself as something to be matched in descriptor space, not in raw coordinate space. Small errors in localizing individual keypoints can compound into large errors for the overall transformation. This approach sidesteps that failure mode entirely.
 
@@ -86,7 +86,7 @@ The trick is treating the gripper pose itself as something to be matched in desc
 
 With just five to ten demonstrations, NDFs successfully generalize pick-and-place and rack-hanging tasks to entirely new mug designs across arbitrary 6-DoF configurations (every possible combination of position and rotation in 3D space), including orientations completely absent from training. The system runs in both simulation and on a real robot, and it significantly outperforms a 2D descriptor baseline that works from flat images rather than 3D geometry. That baseline struggles because 2D representations can't handle the full complexity of 3D object pose variation.
 
-![Figure 4](/iaifi-research-blog/figures/2112_05124/figure_2.png)
+![Figure 4](figure:4)
 
 Beyond manipulation, NDFs offer a blueprint for representations that are simultaneously task-relevant and transformation-invariant, unaffected by how an object is rotated or positioned. Self-supervised training eliminates expensive annotation pipelines. The equivariance guarantee eliminates the need to collect examples at every possible rotation. Principled geometric structure plus data efficiency is looking like the recipe for embodied AI systems that can actually operate in the real world.
 
@@ -94,15 +94,18 @@ Open questions remain. Can NDFs handle articulated objects like scissors or bott
 
 > **Bottom Line:** By encoding object geometry in a mathematically rotation-proof way and learning entirely without labeled keypoints, Neural Descriptor Fields let robots generalize manipulation skills from a handful of demonstrations to any object in any 3D orientation. That's a real step toward robots that adapt to the world rather than demanding the world adapt to them.
 
-<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects geometric deep learning and robotic manipulation by applying SE(3)-equivariant neural architectures, rooted in physics symmetry principles, to the practical challenge of generalizable robotic grasping.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">NDFs show that mathematical symmetry guarantees, rather than brute-force data augmentation, can unlock generalization from just 5–10 demonstrations, a significant advance in data-efficient robot learning.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SE(3)-equivariance directly encodes the rotational and translational symmetry group of 3D space into the neural representation, showing how symmetry principles from physics can be operationalized as inductive biases in learning systems.</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend NDFs to articulated and deformable objects and longer-horizon task sequences; the paper is available at [arXiv:2112.05124](https://arxiv.org/abs/2112.05124).
+## IAIFI Research Highlights
 
-## Original Paper Details</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Neural Descriptor Fields: SE(3)-Equivariant Object Representations for Manipulation</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2112.05124</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Anthony Simeonov", "Yilun Du", "Andrea Tagliasacchi", "Joshua B. Tenenbaum", "Alberto Rodriguez", "Pulkit Agrawal", "Vincent Sitzmann"]</span></div></div>
-<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present Neural Descriptor Fields (NDFs), an object representation that encodes both points and relative poses between an object and a target (such as a robot gripper or a rack used for hanging) via category-level descriptors. We employ this representation for object manipulation, where given a task demonstration, we want to repeat the same task on a new object instance from the same category. We propose to achieve this objective by searching (via optimization) for the pose whose descriptor matches that observed in the demonstration. NDFs are conveniently trained in a self-supervised fashion via a 3D auto-encoding task that does not rely on expert-labeled keypoints. Further, NDFs are SE(3)-equivariant, guaranteeing performance that generalizes across all possible 3D object translations and rotations. We demonstrate learning of manipulation tasks from few (5-10) demonstrations both in simulation and on a real robot. Our performance generalizes across both object instances and 6-DoF object poses, and significantly outperforms a recent baseline that relies on 2D descriptors. Project website: https://yilundu.github.io/ndf/.</span></div></div>
-</div>
+- **Interdisciplinary Research Achievement:** This work connects geometric deep learning and robotic manipulation by applying SE(3)-equivariant neural architectures, rooted in physics symmetry principles, to the practical challenge of generalizable robotic grasping.
+
+- **Impact on Artificial Intelligence:** NDFs show that mathematical symmetry guarantees, rather than brute-force data augmentation, can unlock generalization from just 5–10 demonstrations, a significant advance in data-efficient robot learning.
+
+- **Impact on Fundamental Interactions:** SE(3)-equivariance directly encodes the rotational and translational symmetry group of 3D space into the neural representation, showing how symmetry principles from physics can be operationalized as inductive biases in learning systems.
+
+- **Outlook and References:** Future work may extend NDFs to articulated and deformable objects and longer-horizon task sequences; the paper is available at [arXiv:2112.05124](https://arxiv.org/abs/2112.05124).
+
+## Original Paper Details
+- **Title:** Neural Descriptor Fields: SE(3)-Equivariant Object Representations for Manipulation
+- **arXiv ID:** 2112.05124
+- **Authors:** ["Anthony Simeonov", "Yilun Du", "Andrea Tagliasacchi", "Joshua B. Tenenbaum", "Alberto Rodriguez", "Pulkit Agrawal", "Vincent Sitzmann"]
+- **Abstract:** We present Neural Descriptor Fields (NDFs), an object representation that encodes both points and relative poses between an object and a target (such as a robot gripper or a rack used for hanging) via category-level descriptors. We employ this representation for object manipulation, where given a task demonstration, we want to repeat the same task on a new object instance from the same category. We propose to achieve this objective by searching (via optimization) for the pose whose descriptor matches that observed in the demonstration. NDFs are conveniently trained in a self-supervised fashion via a 3D auto-encoding task that does not rely on expert-labeled keypoints. Further, NDFs are SE(3)-equivariant, guaranteeing performance that generalizes across all possible 3D object translations and rotations. We demonstrate learning of manipulation tasks from few (5-10) demonstrations both in simulation and on a real robot. Our performance generalizes across both object instances and 6-DoF object poses, and significantly outperforms a recent baseline that relies on 2D descriptors. Project website: https://yilundu.github.io/ndf/.
