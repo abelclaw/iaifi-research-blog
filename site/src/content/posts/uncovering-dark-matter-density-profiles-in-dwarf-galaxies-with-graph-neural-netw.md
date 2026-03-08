@@ -35,7 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2208_12825/figure_1.png
 - /iaifi-research-blog/figures/2208_12825/figure_2.png
-- /iaifi-research-blog/figures/2208_12825/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.12825v1
 published: '2022-08-26T18:00:04+00:00'
 theme: Astrophysics
@@ -82,7 +81,6 @@ On test simulations, the GNN-based method consistently outperforms Jeans modelin
 
 The core-cusp discrepancy has nagged at cosmologists for decades. If halos are genuinely cored, it could mean dark matter self-interacts, or that baryonic feedback from supernovae and stellar winds reshapes halos in ways current simulations don't capture. Getting a definitive answer requires measurements precise enough to distinguish profiles that differ mainly in their innermost regions, where data is sparse.
 
-![Figure 3](/iaifi-research-blog/figures/2208_12825/figure_3.png)
 
 The machine learning approach here delivers that extra precision. The GNN uses the full spatial and kinematic picture of the stars, not just velocity dispersions, picking up information that Jeans modeling leaves on the table. As observational datasets grow (future surveys like the Vera Rubin Observatory will discover hundreds of new Milky Way satellites), methods like this become essential tools.
 

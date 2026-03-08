@@ -29,9 +29,6 @@ concepts:
 - hamiltonian systems
 - monte carlo methods
 figures:
-- /iaifi-research-blog/figures/2303_03799/figure_1.png
-- /iaifi-research-blog/figures/2303_03799/figure_1.png
-- /iaifi-research-blog/figures/2303_03799/figure_2.png
 - /iaifi-research-blog/figures/2303_03799/figure_2.png
 - /iaifi-research-blog/figures/2303_03799/figure_3.png
 - /iaifi-research-blog/figures/2303_03799/figure_3.png
@@ -61,7 +58,7 @@ The researchers work with the **two-flavor Schwinger model**: quantum electrodyn
 
 The critical parameter is the **topological theta-term**, which controls the degree of matter-antimatter asymmetry. At θ = π, one fermion flavor has positive mass and the other negative. The mass of the neutral pion, the lightest quark-antiquark bound state, is proportional to the sum of these masses. When that sum goes negative, the pion mass becomes imaginary, signaling condensation: the pion acquires a nonzero average value throughout space and breaks CP symmetry. Think of a pencil balanced on its tip. Past the critical point, it tips over into a broken-symmetry state.
 
-![Figure 1](/iaifi-research-blog/figures/2303_03799/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2303_03799/figure_2.png)
 
 To study this transition, the team used **matrix product states (MPS)**, a tensor network that represents quantum states as chains of interconnected tensors (multidimensional data arrays linked in sequence). Unlike Monte Carlo sampling, MPS directly encode the quantum wavefunction. The sign problem never arises because there is no sampling step.
 
@@ -71,7 +68,7 @@ Their numerical workflow:
 - **Running DMRG** (density matrix renormalization group), the standard algorithm for optimizing MPS, to find the ground state across parameter space
 - **Measuring observables**: average electric field, the pion condensate, and bipartite entanglement entropy, a measure of quantum correlations across a cut through the system
 
-![Figure 2](/iaifi-research-blog/figures/2303_03799/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2303_03799/figure_3.png)
 
 As the fermion mass ratio crosses the critical point, both the electric field and the pion condensate show abrupt jumps. That's the hallmark of a phase transition, and it lands precisely where Dashen's prediction locates it.
 
@@ -81,7 +78,6 @@ Finding the transition is one thing; determining its *type* is another, and far 
 
 The team probed this by studying how bipartite entanglement entropy scales with system size. In a first-order transition, entanglement entropy grows proportionally to system volume. In a second-order (continuous) transition, it grows logarithmically, with a coefficient tied to the central charge of the underlying conformal field theory. The data shows clear logarithmic scaling, inconsistent with a first-order transition. This is strong evidence that the Dashen phase transition is continuous.
 
-![Figure 4](/iaifi-research-blog/figures/2303_03799/figure_2.png)
 
 The implications reach beyond the Schwinger model. The Dashen transition appears in several beyond-the-Standard-Model scenarios, and its order shapes how CP violation might manifest in early-universe phase transitions. The fact that tensor networks can access this sign-problem-afflicted regime also opens a path toward studying analogous physics in higher-dimensional theories, including full QCD with a topological theta-term. Future quantum computers may eventually make such simulations routine; for now, tensor networks are showing what classical computation can still pull off.
 

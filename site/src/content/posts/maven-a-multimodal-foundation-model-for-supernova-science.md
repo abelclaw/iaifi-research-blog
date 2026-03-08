@@ -41,11 +41,8 @@ concepts:
 - semi-supervised learning
 figures:
 - /iaifi-research-blog/figures/2408_16829/figure_1.png
-- /iaifi-research-blog/figures/2408_16829/figure_1.png
 - /iaifi-research-blog/figures/2408_16829/figure_2.png
 - /iaifi-research-blog/figures/2408_16829/figure_2.png
-- /iaifi-research-blog/figures/2408_16829/figure_3.png
-- /iaifi-research-blog/figures/2408_16829/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.16829v1
 published: '2024-08-29T18:00:05+00:00'
 theme: Astrophysics
@@ -78,7 +75,7 @@ Training runs in two stages:
 1. **Synthetic pre-training:** Maven first learns from 500,000 simulated light curve-spectrum pairs generated from simplified physical models. Real paired observations are rare; synthetic ones are cheap to produce.
 2. **Fine-tuning on real data:** The pre-trained model is then refined on 4,702 observed supernovae from the **Zwicky Transient Facility (ZTF)**, a wide-field survey that captures both photometry and spectroscopy for a subset of its detections.
 
-![Figure 2](/iaifi-research-blog/figures/2408_16829/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2408_16829/figure_2.png)
 
 The researchers also trained **Maven-lite**, which skips synthetic pre-training and trains only on real ZTF data. This **ablation study** (a controlled experiment where one component is deliberately removed to measure its contribution) quantifies exactly how much value the synthetic stage adds. Maven consistently outperforms Maven-lite, showing that even imperfect simulations teach the model something real about the physics.
 

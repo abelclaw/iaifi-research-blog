@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2502_10360/figure_1.png
 - /iaifi-research-blog/figures/2502_10360/figure_1.png
 - /iaifi-research-blog/figures/2502_10360/figure_2.png
-- /iaifi-research-blog/figures/2502_10360/figure_2.png
-- /iaifi-research-blog/figures/2502_10360/figure_3.png
-- /iaifi-research-blog/figures/2502_10360/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.10360v1
 published: '2025-02-14T18:42:06+00:00'
 theme: Theoretical Physics
@@ -91,7 +88,6 @@ The team found murmuration-like signatures across all five sub-datasets, suggest
 
 The researchers also tested **transfer learning**: training a model on one sub-dataset and applying it to another. This probes whether the learned representations capture something universal about L-functions or something specific to one mathematical family. Transfer learning worked to a meaningful degree, hinting that the networks pick up on genuine analytic structure shared across all rational L-functions.
 
-![Figure 4](/iaifi-research-blog/figures/2502_10360/figure_2.png)
 
 ## Why It Matters
 
@@ -101,7 +97,6 @@ The information needed to determine vanishing order (essentially, the rank) is a
 
 The murmuration phenomenon itself was first spotted by researchers who noticed a pattern in averages before anyone had a theoretical explanation. By scaling up to a quarter million L-functions spanning multiple degrees and origins, this team has shown that machine learning generalizes across mathematical families in ways that may guide future theoretical work. The patterns these networks learn could suggest new conjectures about which arithmetic invariants control vanishing order.
 
-![Figure 5](/iaifi-research-blog/figures/2502_10360/figure_3.png)
 
 > **Bottom Line:** Machine learning doesn't just classify L-functions. It reveals that the rank of an arithmetic object is already encoded as detectable geometric structure in the first few hundred terms of its associated L-function. This is empirical evidence for one of number theory's deepest conjectures, delivered by a neural network.
 

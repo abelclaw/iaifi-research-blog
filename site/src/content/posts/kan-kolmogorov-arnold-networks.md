@@ -38,9 +38,6 @@ concepts:
 - sparse models
 figures:
 - /iaifi-research-blog/figures/2404_19756/figure_1.png
-- /iaifi-research-blog/figures/2404_19756/figure_1.png
-- /iaifi-research-blog/figures/2404_19756/figure_2.png
-- /iaifi-research-blog/figures/2404_19756/figure_2.png
 - /iaifi-research-blog/figures/2404_19756/figure_3.png
 - /iaifi-research-blog/figures/2404_19756/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.19756v5
@@ -85,7 +82,7 @@ The authors demonstrate this on a benchmark function, a high-dimensional sum of 
 
 The accuracy gains alone would justify interest in KANs, but the interpretability story matters more. After training, a KAN's learned edge functions can be visualized directly. Each connection is a curve you can inspect, prune, or symbolically identify. The authors pair this with simplification techniques: pruning unimportant connections, matching learned functions to known mathematical operations, and collapsing redundant structure.
 
-![Figure 2](/iaifi-research-blog/figures/2404_19756/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_19756/figure_3.png)
 
 This turns KANs into scientific collaborators. In two case studies, the researchers fed experimental data to a KAN and asked it to find structure. In knot theory, a KAN recovered a known mathematical relationship between topological invariants, a result that took human mathematicians years to establish. In condensed matter physics, a KAN identified the functional form governing **Anderson localization** (the quantum phenomenon where electrons become trapped in disordered materials), reproducing the known scaling law from scratch. These aren't curve-fits. They're structured mathematical hypotheses the network generates and humans can verify.
 

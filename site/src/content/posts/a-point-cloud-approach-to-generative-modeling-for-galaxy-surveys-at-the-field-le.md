@@ -30,10 +30,6 @@ concepts:
 - simulation-based inference
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2311_17141/figure_1.png
-- /iaifi-research-blog/figures/2311_17141/figure_1.png
-- /iaifi-research-blog/figures/2311_17141/figure_2.png
-- /iaifi-research-blog/figures/2311_17141/figure_2.png
 - /iaifi-research-blog/figures/2311_17141/figure_3.png
 - /iaifi-research-blog/figures/2311_17141/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2311.17141v2
@@ -60,7 +56,7 @@ Carolina Cuesta-Lazaro and Siddharth Mishra-Sharma at MIT and Harvard have built
 
 At the core is a **diffusion model**, the same class of algorithm behind modern AI image generators like DALL-E and Stable Diffusion. Diffusion models learn to reverse a noise-addition process: during training, you gradually corrupt data with Gaussian noise until it becomes pure static, then teach a neural network to run that process backward. At inference time, you start from noise and iteratively denoise your way to a realistic sample.
 
-![Figure 1](/iaifi-research-blog/figures/2311_17141/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2311_17141/figure_3.png)
 
 The twist is that the "data" isn't an image. It's a set of 3D coordinates (and optionally velocities and masses) for thousands of **dark matter halos**, the gravitationally bound clumps of dark matter that host galaxies. Standard diffusion architectures assume a fixed grid. This one doesn't.
 
@@ -73,7 +69,7 @@ Both architectures respect two important symmetries. The output shouldn't change
 
 Training data comes from the **Quijote simulation suite**, a large library of N-body cosmological simulations (computer models that track gravitational interactions among millions of particles to simulate how cosmic structure forms) spanning a range of cosmological parameters like matter density (Ω_m) and the amplitude of primordial fluctuations (σ_8).
 
-![Figure 2](/iaifi-research-blog/figures/2311_17141/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2311_17141/figure_3.png)
 
 Once trained, the model does two things. **Emulation:** sample new halo catalogs consistent with a given cosmology, acting as a fast surrogate for expensive N-body simulations. **Inference:** compute the conditional likelihood p(x|θ), the probability that a specific observed galaxy field arose from a given set of cosmological parameters. This is exactly the quantity needed for Bayesian parameter estimation, the statistical framework for determining which physical parameters best explain observed data.
 
@@ -83,7 +79,6 @@ The standard toolkit for extracting cosmological information from galaxy surveys
 
 Recent work has shown that alternative summaries can more than double the extractable information from existing surveys. Still, any compression discards something.
 
-![Figure 3](/iaifi-research-blog/figures/2311_17141/figure_2.png)
 
 Field-level inference, working directly with the full galaxy catalog rather than any compressed version, is the holy grail. It promises access to *all* available information. The obstacle has been both fundamental and computational: computing p(x|θ) requires integrating over an enormous space of possible cosmic histories.
 

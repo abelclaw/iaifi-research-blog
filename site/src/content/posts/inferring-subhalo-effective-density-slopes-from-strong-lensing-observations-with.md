@@ -34,7 +34,6 @@ concepts:
 - cosmological simulation
 figures:
 - /iaifi-research-blog/figures/2208_13796/figure_1.png
-- /iaifi-research-blog/figures/2208_13796/figure_2.png
 - /iaifi-research-blog/figures/2208_13796/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.13796v2
 published: '2022-08-29T18:00:01+00:00'
@@ -67,7 +66,7 @@ The forward model works like this:
 3. **Train a neural network**: The network learns to estimate the **likelihood ratio** between two hypotheses: that an image came from a population with slope θ₁ versus slope θ₂.
 4. **Deploy across many images**: After training, the network processes new lensing images rapidly, combining evidence from each without multiplying computational cost.
 
-![Figure 2](/iaifi-research-blog/figures/2208_13796/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2208_13796/figure_3.png)
 
 A lensing image contains enormous variation in individual subhalo details: exact masses, positions, individual slopes. None of that directly reveals the population-level pattern. The network's key trick is that it bypasses measuring any of those individual properties. It learns to extract only the signal that distinguishes one dark matter population from another. This is **simulation-based inference** at its most powerful: train on realistic simulations, then deploy the trained network on new observations.
 
@@ -75,7 +74,6 @@ A lensing image contains enormous variation in individual subhalo details: exact
 
 The timing here is no coincidence. Upcoming sky surveys from the Euclid space telescope and the Rubin Observatory's Legacy Survey of Space and Time are expected to increase known strong lensing systems from the current few hundred to potentially hundreds of thousands. Each system contains information about dark matter substructure. Without a computationally efficient analysis method, that information just sits there.
 
-![Figure 3](/iaifi-research-blog/figures/2208_13796/figure_3.png)
 
 Traditional Markov chain Monte Carlo sampling works by randomly exploring all possible explanations until it homes in on the ones that best fit the data. It scales badly with both the number of subhalos per image and the number of images per dataset. The neural likelihood-ratio approach pays a one-time training cost, then processes each new image in a fraction of a second. That's the difference between a method that handles a handful of systems and one that operates at survey scale.
 

@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2506_02269/figure_1.png
 - /iaifi-research-blog/figures/2506_02269/figure_2.png
-- /iaifi-research-blog/figures/2506_02269/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.02269v2
 published: '2025-06-02T21:15:36+00:00'
 theme: Foundational AI
@@ -84,7 +83,6 @@ To test these predictions, the authors ran a **teacher-student experiment**: a "
 
 The most striking result is *where* the relaxed model ends up. Its weights don't correspond to the original equivariant subspace. Instead, they correspond to a **different choice of group representation** in the hidden layers: a mathematically equivalent way to enforce the same equivariance with different internal wiring. Freed from the original constraint, the unconstrained model jumps to a symmetrically related subspace that the original formulation had made invisible.
 
-![Figure 3](/iaifi-research-blog/figures/2506_02269/figure_3.png)
 
 The theoretical machinery involves analyzing **fixed-point subspaces** of the parameter symmetry group. These are regions of weight space locked in place by the combined symmetries of the constraint and the model. When these interact, certain regions become attractors that aren't the right answer. The paper provides explicit characterizations of when these dangerous subspaces arise, giving practitioners a concrete checklist for diagnosing problematic architectures before training begins.
 

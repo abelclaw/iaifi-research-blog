@@ -30,9 +30,6 @@ concepts:
 - kernel methods
 figures:
 - /iaifi-research-blog/figures/2210_13447/figure_1.png
-- /iaifi-research-blog/figures/2210_13447/figure_1.png
-- /iaifi-research-blog/figures/2210_13447/figure_2.png
-- /iaifi-research-blog/figures/2210_13447/figure_2.png
 - /iaifi-research-blog/figures/2210_13447/figure_3.png
 - /iaifi-research-blog/figures/2210_13447/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.13447v1
@@ -66,19 +63,18 @@ To compare architectures fairly, they tracked how error shrinks as parameters in
 - **Chebyshev polynomials and Fourier series** achieve high precision but only for smooth, low-dimensional functions
 - **Neural networks with standard activations** (ReLU, tanh) scale better in higher dimensions by exploiting **computational modularity**, the property that a function is built from composable sub-parts like `sin(x + y²)`, so networks can learn each piece separately
 
-![Figure 2](/iaifi-research-blog/figures/2210_13447/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2210_13447/figure_3.png)
 
 This modularity insight is central. Feynman equations are hierarchically structured with nested additions, multiplications, and simple nonlinearities. Neural networks spontaneously discover these building blocks and represent them efficiently, outperforming classical methods on 5- or 10-dimensional functions even at equal parameter counts.
 
 But here's the catch. In *low-dimensional* cases, classical methods beat neural networks. Not because of architecture limits, but because of optimization failure. The error landscapes in the high-precision regime are littered with flat regions, saddle points, and narrow valleys that standard gradient descent cannot navigate. The optimizer stalls before reaching the global minimum, even when that minimum theoretically exists.
 
-![Figure 3](/iaifi-research-blog/figures/2210_13447/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2210_13447/figure_3.png)
 
 To fix this, the team developed targeted training techniques: aggressive learning rate scheduling (starting large and gradually shrinking), second-order optimization (using curvature information to navigate more intelligently than plain gradient descent), and precision-tuned weight initialization. Cycling between optimizers at different training stages, a kind of optimizer annealing, also helped escape local traps.
 
 With these methods, they trained networks to relative RMSE losses of 10^(−14) and below, approaching the 10^(−16) floor imposed by 64-bit floating-point arithmetic. That's the hard limit of how precisely modern computers store numbers.
 
-![Figure 4](/iaifi-research-blog/figures/2210_13447/figure_2.png)
 
 ## Why It Matters
 
@@ -86,11 +82,9 @@ The payoff goes beyond benchmarking. **Symbolic regression** (discovering exact 
 
 This work also exposes a gap in how the ML community thinks about optimization. Decades of research have been driven by tasks where error of 0.1 is acceptable and 0.01 is excellent. Adam, SGD with momentum, cosine schedules: these tools were never built for the high-precision game. The finding that standard training fails not due to architecture limits but due to *optimizer limits* should prompt the field to develop optimization methods designed for precision from the ground up, especially as ML moves deeper into scientific applications.
 
-![Figure 5](/iaifi-research-blog/figures/2210_13447/figure_3.png)
 
 There's also an open question worth watching: if neural networks are auto-discovering modular structure in high dimensions, can we *read out* that structure? Precision training might become a tool for scientific interpretability, not just fitting functions but revealing their compositional anatomy.
 
-![Figure 6](/iaifi-research-blog/figures/2210_13447/figure_3.png)
 
 > **Bottom Line:** By pushing neural networks to the limits of floating-point precision, this work shows that the bottleneck in scientific ML is often the optimizer, not the architecture. Fixing it unlocks a path toward discovering exact scientific laws from data.
 

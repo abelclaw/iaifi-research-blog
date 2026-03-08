@@ -42,11 +42,8 @@ concepts:
 - loss function design
 - collider physics
 figures:
-- /iaifi-research-blog/figures/2401_09949/figure_1.png
-- /iaifi-research-blog/figures/2401_09949/figure_1.png
 - /iaifi-research-blog/figures/2401_09949/figure_2.png
 - /iaifi-research-blog/figures/2401_09949/figure_2.png
-- /iaifi-research-blog/figures/2401_09949/figure_3.png
 - /iaifi-research-blog/figures/2401_09949/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2401.09949v3
 published: '2024-01-18T12:51:38+00:00'
@@ -71,7 +68,7 @@ SymbolNet is a neural network framework that closes this gap. It performs symbol
 
 The traditional approach to symbolic regression is **genetic programming** (GP), an evolutionary algorithm that breeds and mutates mathematical formulas across generations, selecting the fittest survivors. It works for small problems but becomes intractably slow as input dimensionality grows. SymbolNet replaces the evolutionary search with a neural network whose architecture produces human-readable symbolic expressions by construction.
 
-![Figure 1](/iaifi-research-blog/figures/2401_09949/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2401_09949/figure_2.png)
 
 Each neuron applies one function from a library of **activation functions**: addition, multiplication, square, sine, absolute value, and so on. The network learns which operators to keep and which to simplify. A complex sine function might collapse to a linear term if the data doesn't require it, reducing complexity without human intervention. This is called **operator pruning**.
 
@@ -83,7 +80,7 @@ SymbolNet prunes three things at once during a single training pass:
 
 Each prunable element carries a **trainable threshold**, a learned cutoff that determines what survives. A weight survives if its magnitude exceeds its threshold; otherwise it's masked to zero. The network continuously renegotiates what to keep based on its impact on accuracy.
 
-![Figure 2](/iaifi-research-blog/figures/2401_09949/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2401_09949/figure_2.png)
 
 To prevent the network from ignoring sparsity, SymbolNet adds a **self-adaptive regularization** term for each pruning type. This regularization adjusts its own strength during training: if the expression is still too complex, the penalty increases; if sparsity is already at target, it relaxes. The user specifies a desired sparsity ratio (say, keep only 10% of weights) and training converges there automatically, without manual coefficient tuning.
 
@@ -91,11 +88,9 @@ To prevent the network from ignoring sparsity, SymbolNet adds a **self-adaptive 
 
 SymbolNet was tested on three datasets spanning vastly different scales. For LHC jet tagging (16 inputs), it matched or outperformed baseline neural symbolic regression methods while producing significantly sparser expressions. On MNIST (784 pixel inputs) and binary SVHN (3,072 inputs, street house numbers from photographs), SymbolNet produced compact symbolic expressions for image-scale inputs, something no prior symbolic regression tool had managed.
 
-![Figure 4](/iaifi-research-blog/figures/2401_09949/figure_2.png)
 
 The payoff for compactness is speed. When the extracted expressions were synthesized onto an **FPGA** (a reconfigurable hardware chip used in LHC trigger systems), inference ran in nanoseconds with a fraction of the resource usage of a conventional neural network. For jet tagging, the FPGA implementation achieved latency comparable to hls4ml-compressed networks (a tool for converting neural networks into hardware firmware) but with a far simpler, auditable expression underneath.
 
-![Figure 5](/iaifi-research-blog/figures/2401_09949/figure_3.png)
 
 At the LHC, the first-level hardware trigger must process 40 million collisions per second and reduce that stream to a manageable size in microseconds. Every nanosecond counts, and every FPGA lookup table is a scarce resource shared across an entire detector.
 

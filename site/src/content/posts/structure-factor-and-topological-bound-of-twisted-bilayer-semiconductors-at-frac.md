@@ -30,10 +30,6 @@ concepts:
 - effective field theory
 - quantum computing
 figures:
-- /iaifi-research-blog/figures/2411_03496/figure_1.png
-- /iaifi-research-blog/figures/2411_03496/figure_1.png
-- /iaifi-research-blog/figures/2411_03496/figure_2.png
-- /iaifi-research-blog/figures/2411_03496/figure_2.png
 - /iaifi-research-blog/figures/2411_03496/figure_3.png
 - /iaifi-research-blog/figures/2411_03496/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.03496v2
@@ -62,7 +58,7 @@ The central quantity here is **quantum weight** K, the coefficient describing ho
 
 A recently proven theorem establishes a universal lower bound: K ≥ |C|, where C is the **many-body Chern number**, the integer-valued topological invariant classifying quantum Hall-like states. This bound is saturated in idealized quantum Hall states under strong magnetic fields. The open question was whether it holds for the more complex, field-free FCIs found in moiré materials.
 
-![Figure 1](/iaifi-research-blog/figures/2411_03496/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2411_03496/figure_3.png)
 
 To answer this, the team used **band-projected exact diagonalization (ED)**, solving the full quantum many-body problem exactly within the low-energy bands relevant to the physics. They modeled tMoTe₂ at filling fractions ν = 1/3 and 2/3, systematically varying the displacement field D, an electric field perpendicular to the layers that controls the material's topology. At low fields, the relevant bands carry Chern number C = 1, placing electrons in a topological phase. At large fields, the bands become trivial (C = 0).
 
@@ -72,23 +68,19 @@ Their workflow followed three steps:
 2. Diagonalize the full interacting Hamiltonian (including Coulomb repulsion) for small finite-size systems at fixed filling
 3. Compute S(**q**) across all momenta and extract quantum weight K from the small-**q** behavior
 
-![Figure 2](/iaifi-research-blog/figures/2411_03496/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2411_03496/figure_3.png)
 
 At ν = 1/3 and low displacement fields, S(**q**) shows no Bragg peaks, the hallmark of an FCI liquid. Quantum weight stays firmly above the topological bound. As the displacement field increases past a critical value, the picture changes abruptly.
 
-![Figure 3](/iaifi-research-blog/figures/2411_03496/figure_2.png)
 
 Bragg peaks suddenly appear at charge-density-wave vectors, momenta corresponding to a crystalline charge pattern that signals electrons settling into a periodic arrangement to minimize mutual repulsion. This is the GWC forming. At the same time, S(**q**) at small **q** drops sharply, falling *below* the topological bound K ≥ |C|. The drop is self-consistent: the GWC has C = 0, so the bound no longer applies. But the discontinuity marks the topological phase transition clearly and quantitatively.
 
-![Figure 4](/iaifi-research-blog/figures/2411_03496/figure_2.png)
 
 At ν = 2/3, the FCI-to-GWC transition is even sharper. The team also identified a specific twist angle where the FCI's quantum weight nearly saturates the topological bound, meaning the material is as geometrically tight as possible. At larger twist angles, the bound still holds but K significantly exceeds |C|. This echoes the well-known magic angles in twisted bilayer graphene, where flat bands and strong correlations coincide.
 
-![Figure 5](/iaifi-research-blog/figures/2411_03496/figure_3.png)
 
 The bound held across every computed FCI state, at both 1/3 and 2/3 filling, across all tested twist angles and displacement fields. This provides the first numerical confirmation of the universal inequality for strongly interacting fractional quantum Hall-like systems.
 
-![Figure 6](/iaifi-research-blog/figures/2411_03496/figure_3.png)
 
 ## Why It Matters
 

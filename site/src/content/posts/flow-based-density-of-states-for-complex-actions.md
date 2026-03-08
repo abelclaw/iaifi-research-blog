@@ -35,10 +35,7 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2203_01243/figure_1.png
-- /iaifi-research-blog/figures/2203_01243/figure_1.png
 - /iaifi-research-blog/figures/2203_01243/figure_2.png
-- /iaifi-research-blog/figures/2203_01243/figure_2.png
-- /iaifi-research-blog/figures/2203_01243/figure_3.png
 - /iaifi-research-blog/figures/2203_01243/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2203.01243v2
 published: '2022-03-02T17:05:50+00:00'
@@ -78,21 +75,18 @@ Here's the procedure:
 
 The training objective is the **Kullback-Leibler (KL) divergence** between the flow's distribution and the target. Minimizing it also yields a variational bound on the **partition function** log Z, a key quantity encoding all thermodynamic information about the system.
 
-![Figure 2](/iaifi-research-blog/figures/2203_01243/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2203_01243/figure_2.png)
 
 The authors test their method across three settings of increasing complexity. In the zero-dimensional case, a single-site model solvable exactly, the flow-based density matches the analytical result closely. The method also locates the **Lee-Yang zeroes** of the partition function: special complex values where the partition function vanishes, which are fingerprints of phase transitions. Identifying these requires extending the partition function into the complex plane (**analytic continuation**), something the DoS approach handles gracefully once ρ(c) is in hand.
 
-![Figure 3](/iaifi-research-blog/figures/2203_01243/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2203_01243/figure_3.png)
 
 Moving to one- and two-dimensional lattice models, the flow-based density is compared against results from conventional restricted **MCMC** (Markov Chain Monte Carlo) calculations. Agreement is good across the tested parameter ranges, confirming the method scales beyond toy models.
 
-![Figure 4](/iaifi-research-blog/figures/2203_01243/figure_2.png)
 
-![Figure 5](/iaifi-research-blog/figures/2203_01243/figure_3.png)
 
 The automatic normalization deserves attention. In conventional DoS calculations, the overall normalization of ρ(c) is a free parameter requiring additional constraints or separate measurement. Having it fall out of flow training removes one more source of systematic uncertainty.
 
-![Figure 6](/iaifi-research-blog/figures/2203_01243/figure_3.png)
 
 ## Why It Matters
 

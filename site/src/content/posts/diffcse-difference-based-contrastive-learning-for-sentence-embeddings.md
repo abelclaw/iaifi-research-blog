@@ -36,9 +36,6 @@ concepts:
 - fine-tuning
 - transfer learning
 figures:
-- /iaifi-research-blog/figures/2204_10298/figure_1.png
-- /iaifi-research-blog/figures/2204_10298/figure_1.png
-- /iaifi-research-blog/figures/2204_10298/figure_2.png
 - /iaifi-research-blog/figures/2204_10298/figure_2.png
 - /iaifi-research-blog/figures/2204_10298/figure_3.png
 - /iaifi-research-blog/figures/2204_10298/figure_3.png
@@ -65,7 +62,7 @@ So researchers learned to avoid meaning-altering transformations altogether. A t
 
 DiffCSE borrows a concept from physics: **equivariance**. A function is equivariant to a transformation if applying that transformation to the input produces a predictable, structured change in the output. Not necessarily *no* change (that would be invariance), but a *trackable* one. Previous contrastive learning methods aimed purely for invariance: train the model so that small, safe perturbations don't change the embedding. DiffCSE asks a more nuanced question. What if some transformations *should* change the embedding, and we can learn from that?
 
-![Figure 1](/iaifi-research-blog/figures/2204_10298/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2204_10298/figure_2.png)
 
 The framework runs in two parallel streams. On one side sits a standard **SimCSE**-style contrastive learner, the previous leading approach for unsupervised sentence embeddings. Take a sentence, run it through an encoder network twice with slightly different random noise applied (a technique called **dropout**), and train the model to recognize those two noisy versions as more similar to each other than any other sentence in the batch. Dropout is the "insensitive" transformation: it introduces noise without changing meaning, so the model learns invariance to it.
 
@@ -86,7 +83,7 @@ During inference, the discriminator is thrown away. Only the sentence embedding 
 
 The gains here are large given how small the architectural change looks. On seven standard **Semantic Textual Similarity (STS)** benchmarks, which measure how well embeddings capture human judgments of sentence similarity, DiffCSE outperforms unsupervised SimCSE by 2.3 absolute percentage points. On STS-B, one of the most widely used benchmarks, DiffCSE achieves a Spearman correlation of 86.4 compared to SimCSE's 84.2.
 
-![Figure 2](/iaifi-research-blog/figures/2204_10298/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2204_10298/figure_3.png)
 
 In a field where progress is often measured in decimal points, 2.3 points is a real jump. The improvement holds across both BERT-base and RoBERTa-base backbone models, which suggests the technique is model-agnostic rather than a lucky fit with one particular architecture.
 

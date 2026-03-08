@@ -52,11 +52,8 @@ concepts:
 - anomaly detection
 figures:
 - /iaifi-research-blog/figures/2305_11168/figure_1.png
-- /iaifi-research-blog/figures/2305_11168/figure_1.png
 - /iaifi-research-blog/figures/2305_11168/figure_2.png
 - /iaifi-research-blog/figures/2305_11168/figure_2.png
-- /iaifi-research-blog/figures/2305_11168/figure_3.png
-- /iaifi-research-blog/figures/2305_11168/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.11168v2
 published: '2023-05-18T17:57:47+00:00'
 theme: Astrophysics
@@ -94,7 +91,6 @@ The spectra tell the deeper story. SN 2021qqp is classified as a **Type IIn supe
 
 The slowing velocities aren't random. They're a diagnostic: faster ejecta hitting denser gas slow down more. By modeling how both luminosity *and* velocity evolved together, the team reconstructed what the star was doing in its final years.
 
-![Figure 5](/iaifi-research-blog/figures/2305_11168/figure_3.png)
 
 Their model reveals **two distinct mass-loss episodes**: one about 2 years before explosion, shedding roughly 5 solar masses per year, and a more intense burst about 0.8 years before explosion reaching ~10 solar masses per year. For comparison, our Sun loses about one ten-trillionth of its mass annually through the solar wind. This star was shedding mass tens of trillions of times faster, briefly, catastrophically, and repeatedly.
 

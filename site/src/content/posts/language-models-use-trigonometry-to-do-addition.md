@@ -32,7 +32,6 @@ concepts:
 - spectral methods
 - sparse models
 figures:
-- /iaifi-research-blog/figures/2502_00873/figure_1.png
 - /iaifi-research-blog/figures/2502_00873/figure_2.png
 - /iaifi-research-blog/figures/2502_00873/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.00873v1
@@ -62,7 +61,7 @@ The activations are *periodic*. They repeat in cycles. Decompose a number's repr
 
 Combine linear growth with multiple periodic oscillations, and you get a **helix** — a corkscrew path through high-dimensional space. The team formally characterized these as *generalized helices*: curves with both a linear component and sinusoidal components at multiple frequencies.
 
-![Figure 2](/iaifi-research-blog/figures/2502_00873/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2502_00873/figure_3.png)
 
 This structure isn't a statistical curiosity. **Causal interventions** — experiments where the researchers surgically altered activations to point toward a different number's helix — confirmed that redirecting the helix directly changes the model's output. Numbers are helices. Now, how does the model add them?
 
@@ -73,13 +72,12 @@ The answer is the **Clock algorithm**, previously proposed for tiny one-layer tr
 3. Through **attention heads** (circuits that relate different parts of the input) and **MLP layers** (feed-forward networks that transform those patterns), the helices are combined — rotated and composed — to produce the **helix for a+b** on the final token.
 4. That answer helix is read out to select the correct output.
 
-![Figure 1](/iaifi-research-blog/figures/2502_00873/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_00873/figure_2.png)
 
 Think of adding angles on a clock face: advance 4 hours from 3 o'clock and you reach 7. The model does something structurally similar, but in higher-dimensional space and simultaneously across multiple frequencies.
 
 Individual attention heads, MLP layers, and specific neurons each play a defined role — either constructing the a+b helix or extracting the answer from it. The researchers matched the activity of individual neurons against these helix patterns and verified each step causally. The results held across all three architectures. Llama3.1-8B achieved 98.0% accuracy on test problems. The mechanism also extends beyond addition: the helix is causally implicated in subtraction, and relevant to integer division, multiplication, and modular arithmetic.
 
-![Figure 3](/iaifi-research-blog/figures/2502_00873/figure_3.png)
 
 ## Why It Matters
 

@@ -28,8 +28,6 @@ concepts:
 - conformal field theory
 - effective field theory
 figures:
-- /iaifi-research-blog/figures/2311_02168/figure_1.png
-- /iaifi-research-blog/figures/2311_02168/figure_2.png
 - /iaifi-research-blog/figures/2311_02168/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2311.02168v1
 published: '2023-11-03T18:00:04+00:00'
@@ -54,7 +52,7 @@ The setting is **six-dimensional Heterotic Little String Theories**, arising fro
 
 Geometrically, T-duality corresponds to something elegant. Two T-dual theories are literally the same **Calabi-Yau threefold** (a six-real-dimensional curved space used to compactify string theory) viewed through two different **elliptic fibration** structures: different choices of which torus-shaped fibers count as "the" elliptic fibers. The challenge is identifying which physical quantities survive this change of perspective.
 
-![Figure 1](/iaifi-research-blog/figures/2311_02168/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2311_02168/figure_3.png)
 
 The main technical hurdle the authors overcome is properly accounting for **Abelian flavor symmetries**, the U(1) factors that the simplest continuous symmetries take (like rotations in a single plane). These are routinely overlooked in flavor algebra analyses. The U(1)s arise from three distinct sources:
 
@@ -68,7 +66,6 @@ The second major contribution involves **non-simply laced flavor algebras**. In 
 
 The authors trace their appearance to **discrete 3-form fluxes** in M-theory, background fields threading compact dimensions like magnetic flux through a loop, but taking only discrete allowed values. These "freezing fluxes" require, in F-theory language, **non-Kähler favorable K3 fibers**: compact geometric surfaces whose structure falls outside the standard toric computational toolkit most commonly used to handle these spaces.
 
-![Figure 2](/iaifi-research-blog/figures/2311_02168/figure_2.png)
 
 The construction has three routes:
 
@@ -78,7 +75,6 @@ The construction has three routes:
 
 Each route produces consistent LSTs, and the authors verify that T-duality maps these exotic theories to each other while preserving the flavor rank throughout.
 
-![Figure 3](/iaifi-research-blog/figures/2311_02168/figure_3.png)
 
 ## Why It Matters
 

@@ -55,13 +55,7 @@ concepts:
 - simulation-based inference
 - posterior estimation
 - scalability
-figures:
-- /iaifi-research-blog/figures/2409_02980/figure_1.png
-- /iaifi-research-blog/figures/2409_02980/figure_1.png
-- /iaifi-research-blog/figures/2409_02980/figure_2.png
-- /iaifi-research-blog/figures/2409_02980/figure_2.png
-- /iaifi-research-blog/figures/2409_02980/figure_3.png
-- /iaifi-research-blog/figures/2409_02980/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2409.02980v1
 published: '2024-09-04T18:00:00+00:00'
 theme: Astrophysics
@@ -86,7 +80,6 @@ The traditional workhorse for placing galaxies in simulations is the **Halo Occu
 
 NeHOD sits between these extremes. It learns the mapping from dark matter halo properties to galaxy populations by training on 1,024 high-resolution **zoom-in simulations** from the **DREAMS project** (the TNG-Warm DM suite). Zoom-in simulations concentrate computing power on a single halo, and in this case they all model Milky Way-mass halos while varying two key parameters: warm dark matter particle mass and astrophysical feedback strength.
 
-![Figure 1](/iaifi-research-blog/figures/2409_02980/figure_1.png)
 
 The architecture has two interlocking pieces:
 
@@ -95,13 +88,11 @@ The architecture has two interlocking pieces:
 
 Treating galaxies as a **point cloud** (individual points in space rather than values on a fixed grid) lets NeHOD avoid the resolution limits that constrain grid-based approaches. It resolves spatial scales down to the simulation's native resolution, which is critical for studying small satellite galaxies orbiting close to their host.
 
-![Figure 3](/iaifi-research-blog/figures/2409_02980/figure_2.png)
 
 NeHOD correctly reproduces the key statistics of satellite galaxy populations: the **subhalo mass function**, the **stellar-to-halo mass relation**, the **concentration-mass relation**, and **spatial clustering statistics**, all as a function of the simulation parameters. When warm dark matter is lighter and suppresses small-scale structure, NeHOD generates fewer low-mass satellites. When feedback parameters change, it adjusts stellar masses accordingly.
 
 The model also captures correlations between properties that simpler models miss. In a real galaxy system, a satellite's position, velocity, mass, and concentration all co-evolved under the same gravitational and baryonic forces. The diffusion model learns these joint distributions implicitly, with no need for the researcher to specify them by hand.
 
-![Figure 5](/iaifi-research-blog/figures/2409_02980/figure_3.png)
 
 The computational payoff is large: populating a halo with NeHOD takes seconds on a GPU. The equivalent hydrodynamic simulation takes months on a supercomputer cluster.
 

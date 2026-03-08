@@ -50,9 +50,6 @@ figures:
 - /iaifi-research-blog/figures/2503_02657/figure_1.png
 - /iaifi-research-blog/figures/2503_02657/figure_1.png
 - /iaifi-research-blog/figures/2503_02657/figure_2.png
-- /iaifi-research-blog/figures/2503_02657/figure_2.png
-- /iaifi-research-blog/figures/2503_02657/figure_3.png
-- /iaifi-research-blog/figures/2503_02657/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.02657v2
 published: '2025-03-04T14:17:09+00:00'
 theme: Astrophysics
@@ -100,7 +97,6 @@ A star can look faint because it's dim, far away, or heavily extincted. Brutus u
 
 With stellar distances and extinctions in hand, the team tallies dust encountered along each line of sight and reconstructs a three-dimensional density map. The result covers galactic longitudes 239° to 6° (the entire southern Galactic plane) at 1 arcminute resolution. For comparison, the widely used **Bayestar19** map of the northern sky achieves 7–14 arcminute resolution. This new map is roughly ten times sharper.
 
-![Figure 4](/iaifi-research-blog/figures/2503_02657/figure_2.png)
 
 It reaches reliably to ~10 kiloparsecs from the Sun and detects extinction up to AV ≈ 12 magnitudes, tracing dust through some of the galaxy's most obscured regions. The team also identifies dust concentrations at distances consistent with two major spiral arms, the **Sagittarius-Carina arm** and the **Scutum-Centaurus arm**, visible as dense clumps in the 3D density field.
 
@@ -108,7 +104,6 @@ It reaches reliably to ~10 kiloparsecs from the Sun and detects extinction up to
 
 The practical impact is immediate. Every astronomical observation through the Galactic plane must correct for dust extinction. Get it wrong and you distort distance estimates, luminosities, and color measurements. Surveys hunting for supernovae, variable stars, exoplanets, stellar clusters, and gravitational wave counterparts all depend on accurate extinction corrections.
 
-![Figure 5](/iaifi-research-blog/figures/2503_02657/figure_3.png)
 
 Before this work, the southern Galactic plane was a blind spot. Bayestar19 covered the north, but the south lacked a comparable 3D resource. The team has released both the stellar catalog and the dust map through the Python **dustmaps** package, so anyone can now query extinction anywhere in the southern disk with unprecedented precision.
 
@@ -116,7 +111,6 @@ There's a deeper payoff, too. Mapping dust in 3D is really mapping the galaxy's 
 
 It also points the way forward for the next generation of wide-field surveys. The **Vera Rubin Observatory** (LSST) and **Nancy Grace Roman Space Telescope** will push even deeper, imaging billions of stars in regimes where Gaia's parallaxes run out. The multi-band inference framework, spatial reconstruction pipeline, and public query tools developed here lay the groundwork for maps that will be orders of magnitude more complete.
 
-![Figure 6](/iaifi-research-blog/figures/2503_02657/figure_3.png)
 
 > **Bottom Line:** Zucker, Saydjari, Speagle, and collaborators have delivered the definitive 3D dust map of the southern Milky Way (700 million stars, 1 arcminute resolution, 10 kiloparsec depth), completing the full-sky 3D picture of Galactic dust and opening a new window on the structure of our galaxy's interstellar medium.
 

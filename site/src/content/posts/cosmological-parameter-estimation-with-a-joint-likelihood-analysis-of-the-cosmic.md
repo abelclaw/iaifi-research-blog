@@ -32,9 +32,6 @@ figures:
 - /iaifi-research-blog/figures/2408_14531/figure_1.png
 - /iaifi-research-blog/figures/2408_14531/figure_1.png
 - /iaifi-research-blog/figures/2408_14531/figure_2.png
-- /iaifi-research-blog/figures/2408_14531/figure_2.png
-- /iaifi-research-blog/figures/2408_14531/figure_3.png
-- /iaifi-research-blog/figures/2408_14531/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.14531v2
 published: '2024-08-26T18:00:00+00:00'
 theme: Astrophysics
@@ -83,7 +80,6 @@ The **ΛCDM model**, our standard cosmological framework built on cold dark matt
 
 This framework fixes that problem. Future extensions could incorporate next-generation CMB experiments like the Simons Observatory or CMB-S4, additional light element observations, or new physics scenarios such as sterile neutrinos and early dark energy. LINX is modular enough that swapping in alternative reaction networks or cosmological models is practical rather than painful. For physicists hunting cracks in ΛCDM, the inference toolset just got more honest.
 
-![Figure 5](/iaifi-research-blog/figures/2408_14531/figure_3.png)
 
 > **Bottom Line:** This is the first analysis that truly unifies the two earliest probes of the cosmos into a single coherent inference, confirming the Standard Model while building the statistical machinery to test what lies beyond it.
 

@@ -27,10 +27,7 @@ concepts:
 - symmetry breaking
 - automated discovery
 - surrogate modeling
-figures:
-- /iaifi-research-blog/figures/2403_07065/figure_1.png
-- /iaifi-research-blog/figures/2403_07065/figure_2.png
-- /iaifi-research-blog/figures/2403_07065/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2403.07065v2
 published: '2024-03-11T18:00:16+00:00'
 theme: Theoretical Physics
@@ -66,15 +63,12 @@ Any proposed solution must satisfy five distinct classicality requirements simul
 
 The team used a two-step numerical search: first scanning over continuous supergravity parameters to find de Sitter solutions, then imposing discrete quantization constraints. Several candidate solutions emerged, but when classicality was checked carefully, the results were ambiguous. Coupling constants and radii sat in a middle ground where neither "classical" nor "uncontrolled" could be confidently declared.
 
-![Figure 1](/iaifi-research-blog/figures/2403_07065/figure_1.png)
 
 Here the analytic scaling becomes the key tool. Working through the equations systematically, the authors discovered that multiplying certain flux parameters by a large number γ causes four of the six compactification radii to grow proportionally to γ. The overall volume of the extra dimensions scales accordingly, becoming arbitrarily large. In principle, *l_s/r* can be made as small as desired. That's **parametric control**: the ability to dial a quantity to whatever value you need, rather than accepting whatever the equations happen to give.
 
-![Figure 2](/iaifi-research-blog/figures/2403_07065/figure_2.png)
 
 The subtlety (and the paper is admirably honest about this) is that two of the six radii and the string coupling don't obviously benefit from the same scaling. Whether the full set of classicality conditions can be satisfied simultaneously remains an open question. The paper carefully maps exactly which constraints are controlled by the scaling and which are not, providing a precise roadmap for what needs to be checked next.
 
-![Figure 3](/iaifi-research-blog/figures/2403_07065/figure_3.png)
 
 The analysis proceeds from both a 10d perspective (working directly with the ten-dimensional equations) and a 4d perspective (working with the effective four-dimensional scalar potential after compactification). Both approaches give consistent results, cross-validating the scaling behavior and ruling out the possibility that it's a mathematical artifact.
 

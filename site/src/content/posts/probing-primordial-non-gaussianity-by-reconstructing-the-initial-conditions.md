@@ -31,10 +31,7 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2412_00968/figure_1.png
-- /iaifi-research-blog/figures/2412_00968/figure_1.png
 - /iaifi-research-blog/figures/2412_00968/figure_2.png
-- /iaifi-research-blog/figures/2412_00968/figure_2.png
-- /iaifi-research-blog/figures/2412_00968/figure_3.png
 - /iaifi-research-blog/figures/2412_00968/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2412.00968v2
 published: '2024-12-01T21:21:26+00:00'
@@ -72,7 +69,7 @@ The reconstruction algorithm operates in two regimes:
 
 The hybrid algorithm reconstructs Φ² out to spatial scales of k = 0.2 h/Mpc, well into the highly nonlinear regime, with 99.8% accuracy.
 
-![Figure 3](/iaifi-research-blog/figures/2412_00968/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2412_00968/figure_3.png)
 
 To confirm that ⟨Φ²δ⟩ truly captures all PNG information, the team runs an **optimality test**: they simulate fields with and without PNG, compute both the full bispectrum and their compressed estimator, and show that the **Fisher information** (how tightly a statistic constrains f_NL) is statistically identical between the two. The estimator doesn't discard information; it packages it more efficiently.
 
@@ -84,7 +81,6 @@ The bispectrum offers more constraining power in principle, but computational co
 
 This reconstruction-based approach sidesteps many of those complications. Working in a regime where the reconstructed fields are closer to Gaussian, the modeling is cleaner, the estimator is simpler, and ⟨Φ²δ⟩ is cheap to compute. The authors are candid that the current proof-of-concept omits galaxy bias, shot noise, and imperfect reconstruction, all of which will reduce the gains in practice. But even a factor-of-two improvement in real survey data would be transformative for reaching σ(f_NL) < 1 with DESI, Euclid, SPHEREx, and the Rubin Observatory.
 
-![Figure 5](/iaifi-research-blog/figures/2412_00968/figure_3.png)
 
 There's a broader lesson here too. Reconstruction techniques were originally developed to sharpen the **baryon acoustic oscillation** peak, the characteristic ripple in galaxy clustering used as a cosmic distance ruler. They're now proving versatile across cosmological inference. Applying them to PNG opens a new front: rather than measuring the universe as it is today, reconstruct what it was, then ask the deeper questions. The strategy could extend to other PNG shapes and to cosmological signals buried under gravitational nonlinearities.
 

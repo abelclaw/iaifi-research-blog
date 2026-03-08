@@ -73,11 +73,7 @@ concepts:
 - experimental design
 figures:
 - /iaifi-research-blog/figures/2504_06870/figure_1.png
-- /iaifi-research-blog/figures/2504_06870/figure_1.png
 - /iaifi-research-blog/figures/2504_06870/figure_2.png
-- /iaifi-research-blog/figures/2504_06870/figure_2.png
-- /iaifi-research-blog/figures/2504_06870/figure_3.png
-- /iaifi-research-blog/figures/2504_06870/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.06870v1
 published: '2025-04-09T13:21:20+00:00'
 theme: Astrophysics
@@ -117,11 +113,10 @@ For each candidate spectrum, the inference proceeds:
 3. Compute **Δχ²** (delta chi-squared), the improvement in fit quality when including the LAE component versus excluding it
 4. The redshift with the highest Δχ² wins
 
-![Figure 2](/iaifi-research-blog/figures/2504_06870/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2504_06870/figure_2.png)
 
 Δχ² does double duty. It identifies the best-fit redshift *and* it tells you how confident you should be in the result. High Δχ² means a clean detection; low Δχ² flags spectra where sky contamination may be masquerading as a galaxy. The pipeline ranks its own confidence without requiring ad-hoc quality cuts.
 
-![Figure 3](/iaifi-research-blog/figures/2504_06870/figure_2.png)
 
 ## Why It Matters
 
@@ -129,11 +124,8 @@ Applied to 910 DESI LAE candidates spanning redshifts z = 2–4 (galaxies whose 
 
 The team also showed how the Δχ² metric can guide future survey design. Medium-band photometric filters offer a compromise between survey efficiency and targeting precision: broader than traditional narrow-band filters but narrower than wide-field imaging. Redder filters capture more objects at higher redshift but admit more contaminants. The pipeline's confidence metric provides a principled way to navigate these tradeoffs, yielding concrete recommendations for DESI-II and next-generation facilities.
 
-![Figure 4](/iaifi-research-blog/figures/2504_06870/figure_2.png)
 
-![Figure 5](/iaifi-research-blog/figures/2504_06870/figure_3.png)
 
-![Figure 6](/iaifi-research-blog/figures/2504_06870/figure_3.png)
 
 What makes this approach work is that it doesn't try to outsmart the sky. It builds a better model of it. By treating sky residuals as structured signal with its own PCA basis rather than featureless noise, the pipeline avoids the systematic errors that plague simpler subtraction methods. The same philosophy applies to other spectroscopic surveys and other emission-line galaxy populations.
 

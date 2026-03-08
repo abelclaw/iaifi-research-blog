@@ -46,8 +46,6 @@ concepts:
 - new physics searches
 figures:
 - /iaifi-research-blog/figures/2510_21935/figure_1.png
-- /iaifi-research-blog/figures/2510_21935/figure_2.png
-- /iaifi-research-blog/figures/2510_21935/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.21935v2
 published: '2025-10-24T18:07:50+00:00'
 theme: Foundational AI
@@ -95,11 +93,9 @@ The pipeline's key steps:
 
 The team validated AutoSciDACT on benchmarks spanning astronomical, physical, biological, image, and synthetic datasets, all using the same pipeline architecture without domain-specific tuning beyond the augmentation strategy.
 
-![Figure 2](/iaifi-research-blog/figures/2510_21935/figure_2.png)
 
 AutoSciDACT consistently detects small injections of anomalous data (sometimes just a fraction of a percent of the dataset) while maintaining tight control over false positives. The real advantage over prior methods isn't raw sensitivity but *calibration*: the test statistics behave as expected under the null hypothesis, so the p-values are trustworthy, not merely suggestive.
 
-![Figure 3](/iaifi-research-blog/figures/2510_21935/figure_3.png)
 
 Contrastive embeddings outperform simpler approaches for a concrete reason. Standard techniques like **PCA** (which finds the most variable directions in data) or **autoencoders** (neural networks trained to compress and reconstruct data) lose physically meaningful structure in the compression step. Contrastive embeddings preserve it. Because the network was trained to cluster physically similar things together, NPLM can find deviations that would be invisible in any naive low-dimensional representation.
 

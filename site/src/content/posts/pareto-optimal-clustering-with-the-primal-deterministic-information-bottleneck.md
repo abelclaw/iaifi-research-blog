@@ -38,11 +38,6 @@ concepts:
 - scalability
 figures:
 - /iaifi-research-blog/figures/2204_02489/figure_1.png
-- /iaifi-research-blog/figures/2204_02489/figure_1.png
-- /iaifi-research-blog/figures/2204_02489/figure_2.png
-- /iaifi-research-blog/figures/2204_02489/figure_2.png
-- /iaifi-research-blog/figures/2204_02489/figure_3.png
-- /iaifi-research-blog/figures/2204_02489/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2204.02489v2
 published: '2022-04-05T21:08:45+00:00'
 theme: Foundational AI
@@ -82,7 +77,6 @@ So the authors tackle the **primal DIB problem** head-on: instead of combining o
 
 The ε parameter controls exploration. High ε chases leads far from the current frontier, useful when sampling noise is significant. Low ε keeps the search tight. The result is an approximate Pareto frontier discovered in polynomial time, despite a super-exponential search space.
 
-![Figure 2](/iaifi-research-blog/figures/2204_02489/figure_1.png)
 
 ## Why It Matters
 

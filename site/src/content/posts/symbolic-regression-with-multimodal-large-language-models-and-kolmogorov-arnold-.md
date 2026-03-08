@@ -31,7 +31,6 @@ concepts:
 - reinforcement learning
 figures:
 - /iaifi-research-blog/figures/2505_07956/figure_1.png
-- /iaifi-research-blog/figures/2505_07956/figure_2.png
 - /iaifi-research-blog/figures/2505_07956/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.07956v1
 published: '2025-05-12T18:00:41+00:00'
@@ -79,13 +78,12 @@ Unlike most symbolic regression methods, this approach requires no predefined li
 
 Real physics problems are rarely univariate. A formula describing particle interactions might depend on dozens of variables simultaneously. The researchers extended their method using the **Kolmogorov–Arnold representation theorem**, which guarantees that any continuous multivariate function can be decomposed into sums and compositions of univariate functions.
 
-![Figure 2](/iaifi-research-blog/figures/2505_07956/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2505_07956/figure_3.png)
 
 Their combined system, **KAN-LEx**, trains a **Kolmogorov–Arnold Network (KAN)** on the dataset. A trained KAN represents its function as a graph where each edge carries a learned univariate transformation. The image-based symbolic regression method then identifies each edge separately, and a final LLM pass assembles and simplifies the full expression.
 
 "Univariate is all you need" captures the philosophy. Reduce a hard multivariate problem to a collection of easy univariate problems, then solve each with the same image-based approach.
 
-![Figure 3](/iaifi-research-blog/figures/2505_07956/figure_3.png)
 
 Benchmarking against methods like `gplearn` showed KAN-LEx is competitive, and sometimes better, particularly for functions with structure that resists purely syntactic search. The entire initial implementation fit in roughly 100 lines of Python.
 

@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2305_19525/figure_1.png
 - /iaifi-research-blog/figures/2305_19525/figure_1.png
 - /iaifi-research-blog/figures/2305_19525/figure_2.png
-- /iaifi-research-blog/figures/2305_19525/figure_2.png
-- /iaifi-research-blog/figures/2305_19525/figure_3.png
-- /iaifi-research-blog/figures/2305_19525/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.19525v3
 published: '2023-05-31T03:26:18+00:00'
 theme: Foundational AI
@@ -86,19 +83,16 @@ The two new ones weren't exotic. In hindsight, experts called them "somewhat exp
 
 The atmospheric chemistry case is even more revealing. Applied to a simplified chemical network modeling atmospheric reactions, SID found 3 conserved quantities where experts knew of 2. The third was unintended by the model designers: an accidental algebraic structure in how the equations were written, a hidden constraint nobody had searched for because nobody thought to look.
 
-![Figure 4](/iaifi-research-blog/figures/2305_19525/figure_2.png)
 
 This has practical consequences. If you're simulating a system numerically and don't know it has an extra conserved quantity, your simulation may drift in ways you can't explain. SID catches these hidden structures automatically.
 
 The approach deliberately restricts itself to linear methods, plus one sparsification step, because that limitation makes its outputs trustworthy. Every result is a formula. Every formula can be checked by hand.
 
-![Figure 5](/iaifi-research-blog/figures/2305_19525/figure_3.png)
 
 Scientists still bring domain knowledge: choosing basis functions, formulating the hypothesis space, interpreting results. SID handles the exhaustive symbolic search, which is exactly the kind of tedious, systematic work where computers outperform humans.
 
 SID currently works in what the authors call the "theorist" setup, where the governing equations are already known. Extending it toward a data-only setting, where you have observations but no equations, remains open. Hybrid approaches that use neural networks to learn equations first, then feed them to SID, are a natural next step. There's also the deeper question of Noether's theorem, which links every conservation law to an underlying symmetry of nature. Could SID's discoveries reverse-engineer hidden symmetries in physical systems?
 
-![Figure 6](/iaifi-research-blog/figures/2305_19525/figure_3.png)
 
 > **Bottom Line:** SID is a simple, linear-algebraic algorithm that discovers conservation laws guaranteed to be complete, independent, and interpretable. It already found new conserved quantities in fluid mechanics and atmospheric chemistry that experts had missed.
 

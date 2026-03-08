@@ -44,13 +44,7 @@ concepts:
 - inverse problems
 - geometric deep learning
 - density estimation
-figures:
-- /iaifi-research-blog/figures/2503_03812/figure_1.png
-- /iaifi-research-blog/figures/2503_03812/figure_1.png
-- /iaifi-research-blog/figures/2503_03812/figure_2.png
-- /iaifi-research-blog/figures/2503_03812/figure_2.png
-- /iaifi-research-blog/figures/2503_03812/figure_3.png
-- /iaifi-research-blog/figures/2503_03812/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2503.03812v2
 published: '2025-03-05T19:00:00+00:00'
 theme: Astrophysics
@@ -80,11 +74,9 @@ GraphNPE sidesteps this problem entirely. Instead of fitting a pre-specified mod
 - A **graph neural network** treats each observed star as a node, passing information between neighbors to extract collective kinematic patterns without assuming any particular geometry
 - A **normalizing flow** converts those patterns into a full posterior distribution over dark matter density profiles consistent with the observations
 
-![Figure 1](/iaifi-research-blog/figures/2503_03812/figure_1.png)
 
 Training data comes from idealized mock observations where the ground-truth dark matter profile is known. The real test, though, uses satellite dwarf galaxies from the **FIRE-2 Latte simulations**: high-resolution cosmological models of a full Milky Way-sized galaxy and its satellites. These are messy systems experiencing tidal stripping (stars pulled away by the Milky Way's gravity), supernova feedback, and environmental interactions. Some have cusps, some have cores, and some have been structurally scrambled by close passages near the Milky Way.
 
-![Figure 3](/iaifi-research-blog/figures/2503_03812/figure_2.png)
 
 The results speak for themselves. GraphNPE recovers the dark matter density profile within its 95% confidence interval for the vast majority of systems, including heavily tidally disrupted ones. For peak circular velocity $V_\text{max}$, accuracy reaches 10–20%. For peak virial mass $M_{200m}^\text{peak}$, accuracy ranges from 0.1 to 0.4 dex (roughly a factor of 1.25 to 2.5). Over 92% of all systems fall within their 95% confidence intervals, meaning the uncertainty estimates are well-calibrated rather than just optimistically tight.
 
@@ -96,7 +88,6 @@ Answering that question requires a measurement tool that recovers density profil
 
 GraphNPE offers a way around this. Because it trains on simulations that include realistic baryonic physics (the complex interplay of gas, stars, and supernovae), the method implicitly learns to handle deviations from idealized assumptions. This paper is the first rigorous benchmark of simulation-based inference for mass modeling against FIRE-2 simulations, tested across both cold and self-interacting dark matter scenarios. That it works well even for tidally disrupted systems, where classical methods often break down, matters a great deal: many of the most interesting Milky Way satellites live in exactly this regime.
 
-![Figure 5](/iaifi-research-blog/figures/2503_03812/figure_3.png)
 
 With next-generation surveys like the Rubin Observatory's LSST set to discover thousands of new dwarf galaxies and measure tens of thousands of stellar velocities, tools like GraphNPE will be needed to convert that flood of data into dark matter constraints.
 

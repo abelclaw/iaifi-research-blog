@@ -42,9 +42,6 @@ concepts:
 - data augmentation
 figures:
 - /iaifi-research-blog/figures/2211_11744/figure_1.png
-- /iaifi-research-blog/figures/2211_11744/figure_1.png
-- /iaifi-research-blog/figures/2211_11744/figure_2.png
-- /iaifi-research-blog/figures/2211_11744/figure_2.png
 - /iaifi-research-blog/figures/2211_11744/figure_3.png
 - /iaifi-research-blog/figures/2211_11744/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.11744v3
@@ -83,7 +80,7 @@ This cuts training time by about 5×, turning an impractical timeline into a wor
 
 Then there's the hand configuration. The robot grasps objects from above, fingers pointing down, meaning gravity constantly tries to pull the object free. Most prior work used upward-facing hands, where gravity pins the object helpfully into the palm. The downward configuration is dramatically harder but far more practical. A robot arm reaching across a table to grab a hammer doesn't get to choose its hand orientation.
 
-![Figure 2](/iaifi-research-blog/figures/2211_11744/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2211_11744/figure_3.png)
 
 ## Why It Matters
 
@@ -91,13 +88,12 @@ The benchmark results tell a story of real progress alongside honest remaining g
 
 On familiar objects, the system performs well, with a median reorientation time close to seven seconds. The hardest test was a duck-shaped object with irregular geometry the network had never seen during training. The robot dropped it 56% of the time. But when it held on, it hit the target orientation within 23 degrees in 75% of attempts. Imperfect, but a controller generalizing to a shape it has never touched is something new.
 
-![Figure 3](/iaifi-research-blog/figures/2211_11744/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2211_11744/figure_3.png)
 
 The bigger deal is the collapse of the "lab-only" barrier. Each constraint that prior systems required (specialized tactile sensors, multiple cameras, upward-facing hands, extremely slow motion, known object geometry) was a reason the technology couldn't leave controlled environments. This system runs on open-source hardware under $5,000, uses a single commodity depth sensor, and handles objects it has never seen. Not plug-and-play for deployment yet, but the path from lab to world looks navigable for the first time.
 
 Where does it go from here? Can the drop rate on novel objects come down? Can the approach scale to multi-step tool-use tasks, like picking up a screwdriver, reorienting it, and driving the screw? How does performance hold when the environment itself changes, not just the object shape? Each question points toward a generation of follow-on work.
 
-![Figure 4](/iaifi-research-blog/figures/2211_11744/figure_2.png)
 
 > **Bottom Line:** A single depth camera, the right neural architecture, and a cleverly staged simulation pipeline can unlock general-purpose in-hand reorientation, bringing dexterous robotic manipulation closer to real-world deployment.
 

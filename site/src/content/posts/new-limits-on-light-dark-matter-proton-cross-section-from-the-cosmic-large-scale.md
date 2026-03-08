@@ -29,7 +29,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2111_10386/figure_1.png
 - /iaifi-research-blog/figures/2111_10386/figure_2.png
-- /iaifi-research-blog/figures/2111_10386/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2111.10386v2
 published: '2021-11-19T19:00:02+00:00'
 theme: Astrophysics
@@ -79,7 +78,6 @@ From a particle physics perspective, these bounds rule out large regions of para
 
 For cosmology, the work shows what high-fidelity simulation emulators can do when paired with small-scale observational data. The sub-Mpc scales used here had never been tapped for dark matter constraints in this way. As next-generation quasar surveys come online and simulators improve, the same framework can extend to velocity-dependent cross sections, exotic IGM heating scenarios, and combinations with CMB damping tail measurements.
 
-![Figure 3](/iaifi-research-blog/figures/2111_10386/figure_3.png)
 
 > **Bottom Line:** Using the cosmic fossil record of intergalactic hydrogen as a dark matter detector, Rogers, Dvorkin, and Peiris set the world's strongest limits on light dark matter, improving previous cosmological bounds by up to 25× across eight decades of mass. The universe itself turns out to be our best dark matter experiment.
 

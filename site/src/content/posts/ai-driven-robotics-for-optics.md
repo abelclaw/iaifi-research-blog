@@ -41,9 +41,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2505_17985/figure_1.png
 - /iaifi-research-blog/figures/2505_17985/figure_1.png
-- /iaifi-research-blog/figures/2505_17985/figure_2.png
-- /iaifi-research-blog/figures/2505_17985/figure_2.png
-- /iaifi-research-blog/figures/2505_17985/figure_3.png
 - /iaifi-research-blog/figures/2505_17985/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.17985v2
 published: '2025-05-07T14:17:59+00:00'

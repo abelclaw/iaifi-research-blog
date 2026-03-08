@@ -34,11 +34,8 @@ concepts:
 - model validation
 - classification
 figures:
-- /iaifi-research-blog/figures/2207_09408/figure_1.png
-- /iaifi-research-blog/figures/2207_09408/figure_1.png
 - /iaifi-research-blog/figures/2207_09408/figure_2.png
 - /iaifi-research-blog/figures/2207_09408/figure_2.png
-- /iaifi-research-blog/figures/2207_09408/figure_3.png
 - /iaifi-research-blog/figures/2207_09408/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2207.09408v1
 published: '2022-07-19T17:05:02+00:00'
@@ -73,7 +70,7 @@ Computing MI for real neural networks is notoriously hard. The researchers sides
 
 Both yield a conditional Gaussian predictive distribution, making MI estimation clean and parameter-free. Using an "InfoNCE" variational leave-one-out upper bound applied to these Gaussian distributions, the researchers compute an upper bound on MI entirely from training data, which feeds into the ICB to produce a bound on generalization error.
 
-![Figure 1](/iaifi-research-blog/figures/2207_09408/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2207_09408/figure_2.png)
 
 They tested this across five binary classification datasets, drawing random combinations of architecture and training hyperparameters:
 
@@ -81,15 +78,14 @@ They tested this across five binary classification datasets, drawing random comb
 - **Non-vacuous bounds:** On fewer than 2,000 training samples, the ICB produced bounds below 50%, the trivial threshold for binary classification, making it practically useful.
 - **Ranking accuracy:** The bound tracked model rankings reasonably well, though less reliably when many hyperparameters varied simultaneously.
 
-![Figure 2](/iaifi-research-blog/figures/2207_09408/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2207_09408/figure_2.png)
 
 Two other results are worth highlighting. First, the ICB detects **label randomization**: when models are trained on shuffled labels (a classic diagnostic for memorization), MI spikes and so does the ICB. The bound can flag memorizing models without ever checking test accuracy.
 
-![Figure 3](/iaifi-research-blog/figures/2207_09408/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2207_09408/figure_3.png)
 
 Second, models with lower ICB are more **robust to test-time perturbations**, small corruptions of input data that fool brittle models. This connection to robustness holds without assuming access to a differentiable model, which is both surprising and practically useful.
 
-![Figure 4](/iaifi-research-blog/figures/2207_09408/figure_2.png)
 
 ## Why It Matters
 

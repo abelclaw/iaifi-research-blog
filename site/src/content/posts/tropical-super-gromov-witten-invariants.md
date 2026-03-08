@@ -28,7 +28,6 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2510_17400/figure_1.png
-- /iaifi-research-blog/figures/2510_17400/figure_2.png
 - /iaifi-research-blog/figures/2510_17400/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.17400v1
 published: '2025-10-20T10:40:06+00:00'
@@ -61,11 +60,10 @@ The paper proceeds in two stages:
 
 2. **Convex toric targets.** For a general convex toric variety X (such as projective space P^n, built from a combinatorial blueprint called a fan Σ_X), the authors use the **extended cone complex** TSM_{0,n}(Σ_X, β), a tropical moduli space encoding how curves map into X. Assuming local tropicalizability, they show that N_{n,β} is a genuine vector bundle, not merely a sheaf. This lets them define a **tropical inverse equivariant Euler class**: a map that takes a tropical cycle α and outputs a twisted version encoding how the SUSY bundle deforms the geometry. The output is expressed as alternating sums of tropical Chern classes weighted by an equivariant parameter κ.
 
-![Figure 2](/iaifi-research-blog/figures/2510_17400/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2510_17400/figure_3.png)
 
 The upshot is a complete procedure: tropicalize the moduli space, compute the tropical Euler class of the SUSY normal bundle, and read off the super Gromov-Witten invariant. The authors verify this on a concrete example (a super GW invariant of P^1) and confirm that when X is a point, the general construction collapses exactly to the weighted-graph formula of stage one.
 
-![Figure 3](/iaifi-research-blog/figures/2510_17400/figure_3.png)
 
 ## Why It Matters
 

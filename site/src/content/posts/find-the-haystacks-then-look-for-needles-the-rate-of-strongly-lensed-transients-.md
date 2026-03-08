@@ -40,11 +40,8 @@ concepts:
 - bayesian inference
 - stochastic processes
 figures:
-- /iaifi-research-blog/figures/2407_04080/figure_1.png
-- /iaifi-research-blog/figures/2407_04080/figure_1.png
 - /iaifi-research-blog/figures/2407_04080/figure_2.png
 - /iaifi-research-blog/figures/2407_04080/figure_2.png
-- /iaifi-research-blog/figures/2407_04080/figure_3.png
 - /iaifi-research-blog/figures/2407_04080/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2407.04080v1
 published: '2024-07-04T17:41:49+00:00'
@@ -70,7 +67,7 @@ A new study by Ana Sainz de Murieta and collaborators offers a smarter strategy:
 
 The team built a simulation pipeline to model the full population of discoverable **gravitationally lensed supernovae (glSNe)**. It incorporates realistic supernova rates, galaxy distributions, lens mass profiles, and the detection characteristics of both the **Vera C. Rubin Observatory's LSST** (Legacy Survey of Space and Time) and the **Euclid** space telescope.
 
-![Figure 1](/iaifi-research-blog/figures/2407_04080/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2407_04080/figure_2.png)
 
 The core question: when LSST spots a lensed supernova, will that system already be catalogued as a known galaxy-galaxy lens? Answering this required modeling two populations independently, glSNe that LSST can detect and lens systems that Euclid can identify, then measuring their overlap.
 
@@ -80,13 +77,12 @@ The key steps:
 2. **Model the lensed host visibility**: Determine whether the host galaxy appears as a multiply-imaged arc, a distorted smear of light bent around the lens, which is critical for reconstructing lens geometry and measuring H₀ (the Hubble constant).
 3. **Cross-match with Euclid lens catalogs**: Apply Euclid's detection criteria to identify which lens systems would already be catalogued before a supernova appears.
 
-![Figure 2](/iaifi-research-blog/figures/2407_04080/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2407_04080/figure_2.png)
 
 The numbers are worth paying attention to. LSST should discover roughly 88 glSNe per year, with ~30% uncertainty driven mostly by assumptions about unlensed supernova rates. Of those, 54% will have a multiply-imaged host galaxy, the kind that helps astronomers reconstruct lens geometry and pin down H₀. That fraction stays stable across different modeling assumptions.
 
 About 20 glSNe per year will occur in systems Euclid could plausibly have already catalogued as galaxy-galaxy lenses. These systems carry a built-in advantage: they tend to have longer time delays, making the delay measurements more precise.
 
-![Figure 4](/iaifi-research-blog/figures/2407_04080/figure_2.png)
 
 The team then defined a **golden sample**, events best suited for cosmology: Type Ia supernovae with time delays longer than 10 days, image separations larger than 0.8 arcseconds (roughly 1/4500 of a degree), and a multiply-imaged host. For this golden sample, 91% occur in systems already discoverable by Euclid as galaxy-galaxy lenses.
 
@@ -96,7 +92,6 @@ This result reframes how astronomers should approach the next decade of lensed-s
 
 The cosmological payoff is real. Each precisely measured time delay provides an independent H₀ measurement. With LSST operating for a decade, accumulating enough golden-sample events for percent-level precision on H₀ becomes plausible, potentially enough to determine whether the Hubble tension reflects systematic errors or genuinely new physics. Pre-identified lens catalogs make that accumulation tractable.
 
-![Figure 5](/iaifi-research-blog/figures/2407_04080/figure_3.png)
 
 Significant uncertainties remain. The ~30% rate uncertainty reflects genuine gaps in knowledge: how supernova rates evolve with **redshift** (a proxy for distance and look-back time, indicating how much the universe has expanded since the light was emitted), how lens galaxy populations change over cosmic time, and how well Euclid's actual performance matches simulations. As Euclid delivers its first lens catalogs and LSST comes online, these predictions will be tested in real time.
 

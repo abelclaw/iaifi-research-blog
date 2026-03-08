@@ -46,7 +46,6 @@ concepts:
 - feature extraction
 figures:
 - /iaifi-research-blog/figures/2305_04099/figure_1.png
-- /iaifi-research-blog/figures/2305_04099/figure_2.png
 - /iaifi-research-blog/figures/2305_04099/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.04099v2
 published: '2023-05-06T17:04:02+00:00'
@@ -87,7 +86,7 @@ The team trained five independent SR expressions, one per jet class. To deploy t
 
 LUT-based approximations for sine and tangent show tiny deviations from exact values, but the resource savings are substantial.
 
-![Figure 2](/iaifi-research-blog/figures/2305_04099/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2305_04099/figure_3.png)
 
 The performance-resource comparison tells the full story. SR models sit near the neural network's accuracy level while consuming dramatically fewer FPGA resources. The most aggressive SR expression achieves 13× lower latency, down to 5 ns, while retaining over 90% accuracy. Even at higher complexity settings, SR expressions consistently outperform the neural network on the latency-vs-accuracy curve.
 
@@ -95,7 +94,6 @@ The performance-resource comparison tells the full story. SR models sit near the
 
 This work matters beyond the LHC. The same constraint (ultra-fast inference on resource-limited hardware) appears in medical imaging devices, autonomous vehicles, and satellite instruments. Neural networks are increasingly the default, but they carry irreducible computational overhead. Symbolic regression offers models that are simultaneously fast, interpretable, and hardware-efficient.
 
-![Figure 3](/iaifi-research-blog/figures/2305_04099/figure_3.png)
 
 Within particle physics, the implications are immediate. The LHC's High-Luminosity upgrade will increase collision rates further, tightening the latency budget even more. Showing that SR can match neural network performance at 5 ns opens a new design space for trigger algorithms.
 

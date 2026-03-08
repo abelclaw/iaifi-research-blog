@@ -30,7 +30,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2409_13150/figure_1.png
 - /iaifi-research-blog/figures/2409_13150/figure_2.png
-- /iaifi-research-blog/figures/2409_13150/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.13150v2
 published: '2024-09-20T01:29:20+00:00'
 theme: Theoretical Physics
@@ -67,7 +66,6 @@ The results show real, practical differences. Choosing the right metric and refe
 
 The paper also examines how different choices respond to **hadronization**, the process by which quarks and gluons bind together into the actual particles reaching the detector. Low hadronization sensitivity matters because it means the observable is measuring the underlying high-energy collision physics rather than hard-to-calculate binding effects.
 
-![Figure 3](/iaifi-research-blog/figures/2409_13150/figure_3.png)
 
 ## Why It Matters
 

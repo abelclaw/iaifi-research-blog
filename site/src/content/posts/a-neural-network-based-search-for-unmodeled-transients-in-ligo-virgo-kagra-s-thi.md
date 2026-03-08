@@ -46,9 +46,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2412_19883/figure_1.png
 - /iaifi-research-blog/figures/2412_19883/figure_1.png
-- /iaifi-research-blog/figures/2412_19883/figure_2.png
-- /iaifi-research-blog/figures/2412_19883/figure_2.png
-- /iaifi-research-blog/figures/2412_19883/figure_3.png
 - /iaifi-research-blog/figures/2412_19883/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2412.19883v1
 published: '2024-12-27T19:00:01+00:00'
@@ -92,15 +89,13 @@ One methodological choice worth noting: rather than training on simulated Gaussi
 
 The search successfully recovered three compact binary coalescence events already identified by conventional pipelines, confirming that the method works as expected. GWAK also flagged a substantial number of known detector glitches, which makes sense: the embedding space cleanly separates glitch-like features from astrophysical signal features.
 
-![Figure 3](/iaifi-research-blog/figures/2412_19883/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2412_19883/figure_3.png)
 
 After excluding the three CBC candidates and vetoing known glitch categories, the team found **no statistically significant new detections** of unmodeled gravitational-wave bursts in O3. This is a genuinely meaningful null result. It places new constraints on the rate and strength of burst sources in the local universe, and it establishes GWAK as a credible, operational search pipeline ready for future observing runs.
 
-![Figure 4](/iaifi-research-blog/figures/2412_19883/figure_2.png)
 
 No new detections isn't a failure. It's the baseline. A neural network-based pipeline now has proven O3 performance and is ready for O4 and O5 data, where detectors will probe deeper into the universe than ever before.
 
-![Figure 5](/iaifi-research-blog/figures/2412_19883/figure_3.png)
 
 ## Why It Matters
 
@@ -108,7 +103,6 @@ Gravitational-wave astronomy is entering a new era. The fourth and fifth observi
 
 The implications reach well beyond gravitational waves. The semi-supervised autoencoder framework is a general strategy for anomaly detection in high-dimensional time-series data from physics experiments, adaptable to particle physics searches at the LHC, pulsar timing arrays searching for nanohertz gravitational waves, or neutrino detectors watching for supernova bursts. Machine learning here isn't just a faster way to do what we were already doing. It's a new kind of scientific sensor.
 
-![Figure 6](/iaifi-research-blog/figures/2412_19883/figure_3.png)
 
 > **Bottom Line:** GWAK's first full observing run search finds no new gravitational-wave burst sources beyond known CBCs, but in doing so, it proves that neural network-based anomaly detection is ready for real deployment in gravitational-wave astronomy, setting the stage for discoveries in more sensitive future runs.
 

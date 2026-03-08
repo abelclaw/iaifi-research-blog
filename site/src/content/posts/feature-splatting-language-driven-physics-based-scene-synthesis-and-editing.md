@@ -34,11 +34,7 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2404_01223/figure_1.png
-- /iaifi-research-blog/figures/2404_01223/figure_1.png
 - /iaifi-research-blog/figures/2404_01223/figure_2.png
-- /iaifi-research-blog/figures/2404_01223/figure_2.png
-- /iaifi-research-blog/figures/2404_01223/figure_3.png
-- /iaifi-research-blog/figures/2404_01223/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.01223v1
 published: '2024-04-01T16:31:04+00:00'
 theme: Foundational AI
@@ -66,7 +62,7 @@ The team augments each Gaussian with a high-dimensional **feature vector**, a lo
 
 The fix is simple and effective. The team first runs **SAM (Segment Anything Model)** to produce part-level masks, coherent regions like "petal," "stem," or "vase body," and then pools features within those masks before distillation. This produces much cleaner, semantically meaningful feature fields baked into the 3D structure.
 
-![Figure 2](/iaifi-research-blog/figures/2404_01223/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_01223/figure_2.png)
 
 With features embedded, scene decomposition becomes a text query. A user types "a vase with flowers," and the system finds the Gaussians whose feature vectors are mathematically closest in meaning to that description. This is **open-vocabulary segmentation**: the system doesn't need to have been trained on "vase" or "flowers" as labeled categories. It inherits that knowledge from CLIP's massive pretraining.
 

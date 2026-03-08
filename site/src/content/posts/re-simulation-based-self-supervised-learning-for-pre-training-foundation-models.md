@@ -36,13 +36,7 @@ concepts:
 - uncertainty quantification
 - simulation-based inference
 - transformers
-figures:
-- /iaifi-research-blog/figures/2403_07066/figure_1.png
-- /iaifi-research-blog/figures/2403_07066/figure_1.png
-- /iaifi-research-blog/figures/2403_07066/figure_2.png
-- /iaifi-research-blog/figures/2403_07066/figure_2.png
-- /iaifi-research-blog/figures/2403_07066/figure_3.png
-- /iaifi-research-blog/figures/2403_07066/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2403.07066v2
 published: '2024-03-11T18:00:47+00:00'
 theme: Experimental Physics
@@ -75,7 +69,6 @@ RS3L exploits this randomness deliberately:
 3. Each re-run produces a **statistically valid but visually distinct** realization of the same underlying physics event.
 4. Feed these pairs to a **contrastive learning** algorithm (specifically SimCLR), which maps both versions of the same event to similar representations while pushing representations of different events apart.
 
-![Figure 1](/iaifi-research-blog/figures/2403_07066/figure_1.png)
 
 The intervention point defines what counts as signal versus noise. Everything upstream of the cut, the hard-scatter physics, is what the model learns to encode. Everything downstream (shower fluctuations, detector smearing) becomes augmentation to integrate out. The researchers call this **domain-complete augmentation**: the full set of physically plausible variations the simulator can produce.
 
@@ -83,11 +76,9 @@ Even better: by deliberately altering simulator settings during re-simulation, s
 
 ## Why It Matters
 
-![Figure 2](/iaifi-research-blog/figures/2403_07066/figure_1.png)
 
 RS3L pre-training consistently outperforms or matches supervised baselines across multiple jet-tagging benchmarks, while being far more data-efficient. Pre-trained representations transfer cleanly to tasks the model was never explicitly trained for, which is the whole point of a foundation model. The team tested discrimination of jets from Higgs bosons, top quarks, W/Z bosons, and ordinary **QCD** (quantum chromodynamics, the theory governing how quarks and gluons interact) backgrounds. Fine-tuning the RS3L-pretrained model reliably beats training from scratch, especially when labeled data is scarce.
 
-![Figure 3](/iaifi-research-blog/figures/2403_07066/figure_2.png)
 
 The RS3L strategy applies well beyond particle physics. It works anywhere a stochastic simulator exists and researchers want to learn robust representations: climate modeling, molecular dynamics, cosmological simulations. When the physics is understood well enough to simulate but labeled experimental data is expensive or limited, re-simulation offers a natural route to pre-training.
 

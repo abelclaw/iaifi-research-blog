@@ -27,12 +27,8 @@ concepts:
 - physics-informed neural networks
 - surrogate modeling
 figures:
-- /iaifi-research-blog/figures/2107_10879/figure_1.png
-- /iaifi-research-blog/figures/2107_10879/figure_1.png
 - /iaifi-research-blog/figures/2107_10879/figure_2.png
 - /iaifi-research-blog/figures/2107_10879/figure_2.png
-- /iaifi-research-blog/figures/2107_10879/figure_3.png
-- /iaifi-research-blog/figures/2107_10879/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2107.10879v2
 published: '2021-07-22T18:23:23+00:00'
 theme: Foundational AI
@@ -56,7 +52,7 @@ A team of MIT physicists has built a machine learning framework that does both a
 
 The architecture has two components. First, an **encoder**: a neural network that takes a sequence of visible measurements and infers the values of unobserved variables. Second, a **sparse symbolic model** that represents governing equations as a weighted sum of candidate mathematical terms (polynomials, spatial derivatives, trigonometric functions, whatever is physically plausible).
 
-![Figure 1](/iaifi-research-blog/figures/2107_10879/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2107_10879/figure_2.png)
 
 How do you train these components together when you can only compare predictions against *partial* observations? The answer involves **higher-order time derivatives**: not just rates of change, but rates of change *of* rates of change, the way acceleration describes how velocity is shifting rather than position itself. The training loop works like this:
 
@@ -70,11 +66,10 @@ This neatly sidesteps a chicken-and-egg problem. You don't need to know the hidd
 
 The sparsity piece matters too. Real physical laws tend to be parsimonious; Newton's second law has three terms, not three hundred. The framework imposes a **sparsity prior** on the symbolic model's coefficients, pushing the network toward compact, interpretable equations. The result isn't a black-box prediction. It's an actual equation you can write down and reason about.
 
-![Figure 2](/iaifi-research-blog/figures/2107_10879/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2107_10879/figure_2.png)
 
 The team tested their framework across multiple systems. For ordinary differential equations, they recovered coupled nonlinear oscillators with hidden coordinates. For partial differential equations, they tackled the **nonlinear Schrödinger equation**, a workhorse of fiber optics and quantum mechanics, reconstructing the phase of the field from intensity-only measurements (a classic problem called **phase retrieval**) while simultaneously discovering the governing equation. The method correctly identified the symbolic dynamics in each case.
 
-![Figure 3](/iaifi-research-blog/figures/2107_10879/figure_2.png)
 
 ## Why It Matters
 

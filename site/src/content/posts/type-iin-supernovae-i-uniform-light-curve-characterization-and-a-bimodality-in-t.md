@@ -44,9 +44,6 @@ figures:
 - /iaifi-research-blog/figures/2411_07287/figure_1.png
 - /iaifi-research-blog/figures/2411_07287/figure_1.png
 - /iaifi-research-blog/figures/2411_07287/figure_2.png
-- /iaifi-research-blog/figures/2411_07287/figure_2.png
-- /iaifi-research-blog/figures/2411_07287/figure_3.png
-- /iaifi-research-blog/figures/2411_07287/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.07287v1
 published: '2024-11-11T19:00:01+00:00'
 theme: Astrophysics

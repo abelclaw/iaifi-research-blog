@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2506_00121/figure_1.png
 - /iaifi-research-blog/figures/2506_00121/figure_2.png
-- /iaifi-research-blog/figures/2506_00121/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.00121v1
 published: '2025-05-30T18:00:18+00:00'
 theme: Astrophysics
@@ -88,7 +87,6 @@ SPLASH's value goes beyond speed, though. Because it infers physical host proper
 
 This opens the door to population-level studies of how stellar death rates vary with galactic environment, a window into the life cycles of stars across cosmic time. As LSST's dataset grows over its ten-year run, tools like SPLASH will be essential for carving massive catalogs into scientifically meaningful subpopulations.
 
-![Figure 3](/iaifi-research-blog/figures/2506_00121/figure_3.png)
 
 > **Bottom Line:** SPLASH classifies 500 supernovae per second using only host galaxy photometry, achieving 76% accuracy at the moment of detection. It's an ideal first-response tool for the data tsunami that LSST is about to unleash.
 

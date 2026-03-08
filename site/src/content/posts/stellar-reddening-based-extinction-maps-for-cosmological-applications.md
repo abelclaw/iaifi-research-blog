@@ -35,7 +35,6 @@ concepts:
 - kernel methods
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2212_04514/figure_1.png
 - /iaifi-research-blog/figures/2212_04514/figure_2.png
 - /iaifi-research-blog/figures/2212_04514/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2212.04514v1
@@ -74,15 +73,14 @@ The team's core strategy was strict, multi-pronged filtering:
 
 With the cleaned stellar sample in hand, photometry from Pan-STARRS1 (a wide-field optical sky survey spanning five wavelength bands from 490–964 nm) and 2MASS (the Two Micron All Sky Survey, covering three near-infrared bands), plus Gaia parallaxes, were fed into the **Bayestar** stellar inference framework. Bayestar models each star's distance and reddening simultaneously, producing a per-star estimate of the probable range of reddening and distance values. Integrating these along each line of sight produces a 2D extinction map.
 
-![Figure 1](/iaifi-research-blog/figures/2212_04514/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2212_04514/figure_2.png)
 
 The result: two maps with angular resolutions of 6.1 arcminutes and 15 arcminutes full-width half-maximum. (For scale, the full Moon spans about 30 arcminutes, so 6.1 arcminutes is quite fine.) The maps cover the high galactic latitudes where cosmological surveys operate. The finer map matches the SFD (Schlegel-Finkbeiner-Davis 1998) map in resolution, but with substantially less contamination from the background universe.
 
-![Figure 2](/iaifi-research-blog/figures/2212_04514/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2212_04514/figure_3.png)
 
 To measure success, the team computed angular cross-correlations between their extinction maps and tracers of cosmic structure, specifically quasar samples that probe the universe's web of galaxies. The question is simple: do the bright spots on the dust map tend to line up with the bright spots on the galaxy map? A well-behaved dust map should show zero such alignment. The new maps outperform most existing stellar-reddening and emission-based maps on this metric, showing significantly reduced spurious correlations across a range of angular scales.
 
-![Figure 3](/iaifi-research-blog/figures/2212_04514/figure_3.png)
 
 ## Why It Matters
 

@@ -34,8 +34,6 @@ concepts:
 - phase transitions
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2502_10843/figure_1.png
-- /iaifi-research-blog/figures/2502_10843/figure_2.png
 - /iaifi-research-blog/figures/2502_10843/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.10843v2
 published: '2025-02-15T16:16:45+00:00'
@@ -60,7 +58,7 @@ A team from MIT and Harvard has proposed a method called LEAPS that learns a tra
 
 Instead of running a Markov chain until it equilibrates, LEAPS constructs a time-dependent path: a continuous interpolation between a simple distribution at time *t* = 0 and the hard-to-sample target at time *t* = 1. A **continuous-time Markov chain (CTMC)**, a process where the system jumps between configurations at random moments rather than at fixed discrete steps, is trained to follow this path.
 
-![Figure 1](/iaifi-research-blog/figures/2502_10843/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_10843/figure_3.png)
 
 The transport is driven by a **rate matrix** *Q_t(y, x)*, which encodes at each moment how likely the chain is to jump from state *x* to state *y*. When the rate matrix satisfies the **Kolmogorov forward equation** (a classical result describing how a distribution must evolve over time), walkers initialized from the simple distribution automatically arrive at the target at *t* = 1.
 
@@ -78,7 +76,6 @@ The researchers construct locally equivariant versions of:
 
 They also prove that composing locally equivariant layers preserves the property. This means you can stack deep networks that capture complex dependencies without blowing up computation.
 
-![Figure 2](/iaifi-research-blog/figures/2502_10843/figure_2.png)
 
 ## Why It Matters
 

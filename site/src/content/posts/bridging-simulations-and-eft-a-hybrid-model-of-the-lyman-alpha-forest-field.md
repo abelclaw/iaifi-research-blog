@@ -35,13 +35,7 @@ concepts:
 - dark energy
 - bayesian inference
 - dark matter
-figures:
-- /iaifi-research-blog/figures/2512_13681/figure_1.png
-- /iaifi-research-blog/figures/2512_13681/figure_1.png
-- /iaifi-research-blog/figures/2512_13681/figure_2.png
-- /iaifi-research-blog/figures/2512_13681/figure_2.png
-- /iaifi-research-blog/figures/2512_13681/figure_3.png
-- /iaifi-research-blog/figures/2512_13681/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2512.13681v1
 published: '2025-12-15T18:59:04+00:00'
 theme: Theoretical Physics
@@ -71,19 +65,15 @@ The fix: steal the hard part from simulations. The team's **Hybrid EFT (HEFT)** 
 
 Once each particle has its weight, the model "paints" the Ly-α field onto a grid by depositing these weights at the particles' final positions. The bias parameters are then fit by minimizing the difference between the modeled field and the actual simulated field.
 
-![Figure 1](/iaifi-research-blog/figures/2512_13681/figure_1.png)
 
 A critical technical advantage here is **cosmic variance cancellation**. Because the model and reference simulation share the same initial conditions, fluctuations common to both cancel out. The comparison becomes sensitive to genuine modeling errors rather than random cosmic scatter.
 
-![Figure 2](/iaifi-research-blog/figures/2512_13681/figure_1.png)
 
 The payoff is clear in the residuals. The difference between the HEFT model and the true simulated field has a nearly white power spectrum, roughly constant across all scales and directions out to k ~ 1 h/Mpc. A purely perturbative EFT approach, by contrast, produces residuals that grow rapidly at small scales and develop strong anisotropy. It misses coherent small-scale flows that the N-body simulation captures correctly.
 
-![Figure 3](/iaifi-research-blog/figures/2512_13681/figure_2.png)
 
 Why does a white residual matter so much? Because it can be modeled with just one or two free parameters instead of a complicated scale- and angle-dependent function. It's the difference between fitting a flat line and fitting a wiggly curve to noisy data.
 
-![Figure 4](/iaifi-research-blog/figures/2512_13681/figure_2.png)
 
 ## Why It Matters
 
@@ -93,11 +83,9 @@ The EFT framework corrects this bias, but its reach has been limited by messy st
 
 Looking forward, this framework opens a concrete path to fast emulators: surrogate models that predict Ly-α forest clustering statistics across a grid of cosmological parameters at a fraction of the cost of running full simulations. The team plans to extend their approach to cross-correlations between the Ly-α forest and other tracers like high-redshift galaxies and quasars. These multi-tracer analyses can break degeneracies between cosmological parameters. With WEAVE-QSO, the Prime Focus Spectrograph, and 4MOST all coming online this decade, these tools are needed soon.
 
-![Figure 5](/iaifi-research-blog/figures/2512_13681/figure_3.png)
 
 There's also a broader point here. HEFT was originally developed for galaxy clustering; this paper extends it to a fundamentally different tracer, one defined by gas absorption rather than discrete objects. The same techniques may prove useful for modeling any diffuse tracer of large-scale structure where discrete-object biasing breaks down.
 
-![Figure 6](/iaifi-research-blog/figures/2512_13681/figure_3.png)
 
 > **Bottom Line:** By marrying N-body simulation dynamics with perturbative EFT bias modeling, this hybrid approach achieves 5% accuracy in the Ly-α forest power spectrum down to k ≤ 1 h/Mpc, with a nearly white residual that simplifies the road to precision cosmology with DESI.
 

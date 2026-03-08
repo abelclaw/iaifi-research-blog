@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2305_03751/figure_1.png
 - /iaifi-research-blog/figures/2305_03751/figure_2.png
-- /iaifi-research-blog/figures/2305_03751/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.03751v2
 published: '2023-05-05T18:00:01+00:00'
 theme: Theoretical Physics
@@ -86,7 +85,6 @@ The authors computed Spectral EMD distributions between quark jets and gluon jet
 
 They also found that non-perturbative hadronization effects, the messy process by which quarks and gluons bind into observable hadrons, are smaller than naive estimates would suggest. A metric less sensitive to poorly-understood non-perturbative physics is one that experimentalists can actually trust at the LHC.
 
-![Figure 3](/iaifi-research-blog/figures/2305_03751/figure_3.png)
 
 The most speculative application sits at the end of the paper: can the spectral approach define a metric not just on events, but on the space of **quantum field theories** themselves? The authors sketch how spectral functions associated with energy-energy correlators could quantify distances between entire theoretical frameworks, covering different QFTs, coupling regimes, and UV completions. It's a long-range vision, pointing toward using collider geometry to map out fundamental physics at a structural level.
 

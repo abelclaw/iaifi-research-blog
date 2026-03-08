@@ -41,9 +41,6 @@ figures:
 - /iaifi-research-blog/figures/2205_04459/figure_1.png
 - /iaifi-research-blog/figures/2205_04459/figure_1.png
 - /iaifi-research-blog/figures/2205_04459/figure_2.png
-- /iaifi-research-blog/figures/2205_04459/figure_2.png
-- /iaifi-research-blog/figures/2205_04459/figure_3.png
-- /iaifi-research-blog/figures/2205_04459/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.04459v2
 published: '2022-05-09T17:59:59+00:00'
 theme: Theoretical Physics
@@ -95,7 +92,6 @@ One finding offers a clean validation: **Casimir scaling of intrinsic dimensiona
 
 The extracted intrinsic dimensionality from the unfolded quark and gluon samples follows exactly this ratio. A deep QCD prediction, confirmed with machine learning on publicly available data. No proprietary datasets, no special experimental access.
 
-![Figure 5](/iaifi-research-blog/figures/2205_04459/figure_3.png)
 
 For particle physics, the takeaway is that jet topic modeling works on real experimental data. Open LHC data can serve as a testbed for QCD measurements that previously seemed to require direct quark/gluon labels. For machine learning in science, methods like OmniFold and ROC-curve-based inference can handle messy real-world data, not just clean simulations.
 

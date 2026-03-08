@@ -28,11 +28,7 @@ concepts:
 - quantum field theory
 figures:
 - /iaifi-research-blog/figures/2512_19889/figure_1.png
-- /iaifi-research-blog/figures/2512_19889/figure_1.png
 - /iaifi-research-blog/figures/2512_19889/figure_2.png
-- /iaifi-research-blog/figures/2512_19889/figure_2.png
-- /iaifi-research-blog/figures/2512_19889/figure_3.png
-- /iaifi-research-blog/figures/2512_19889/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.19889v1
 published: '2025-12-22T21:27:59+00:00'
 theme: Theoretical Physics
@@ -68,7 +64,7 @@ Entanglement cohomology provides an answer. The framework constructs spaces of *
 
 The dimensions of these groups, the **Betti numbers**, are invariants: they don't change under local quantum operations. Different entanglement patterns yield different Betti numbers.
 
-![Figure 2](/iaifi-research-blog/figures/2512_19889/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2512_19889/figure_2.png)
 
 Ferko and Furuya prove exact formulas for all Betti numbers for generalized GHZ and W states across any number of parties *n* and any local Hilbert space dimension *d*. The proofs hinge on a **Simplicial Lemma**, a result about the combinatorial scaffolding organizing data across subsets of parties, which the authors establish from scratch. GHZ cohomology concentrates in specific degrees, reflecting its all-or-nothing character. W states yield a different profile, consistent with their distributed, resilient structure.
 
@@ -76,11 +72,9 @@ Can we do better than Betti numbers? The analogy with differential geometry runs
 
 The first is the **entanglement Laplacian**, Δ = d*δ* + *δ*d, built from the exterior derivative and its adjoint, a direct analogue of the Hodge Laplacian on smooth surfaces. Its **spectrum** (the eigenvalues describing how the operator acts on different inputs) encodes far more information than Betti numbers alone. Ferko and Furuya compute these spectra numerically for GHZ and W states, finding that eigenvalue distributions cleanly distinguish states with identical Betti numbers.
 
-![Figure 4](/iaifi-research-blog/figures/2512_19889/figure_2.png)
 
 The second tool is **intersection numbers**. When two cohomology classes meet, a wedge product combines them into a single number. These pairings, familiar in algebraic geometry and topology, yield numerical invariants probing how cohomology classes interact. Numerical experiments reveal signatures that vary between entanglement classes even when coarser measures agree.
 
-![Figure 5](/iaifi-research-blog/figures/2512_19889/figure_3.png)
 
 ## Why It Matters
 

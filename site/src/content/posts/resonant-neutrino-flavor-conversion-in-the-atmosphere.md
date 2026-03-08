@@ -33,10 +33,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2405_12140/figure_1.png
 - /iaifi-research-blog/figures/2405_12140/figure_1.png
-- /iaifi-research-blog/figures/2405_12140/figure_2.png
-- /iaifi-research-blog/figures/2405_12140/figure_2.png
-- /iaifi-research-blog/figures/2405_12140/figure_3.png
-- /iaifi-research-blog/figures/2405_12140/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.12140v1
 published: '2024-05-20T16:02:55+00:00'
 theme: Experimental Physics
@@ -74,7 +70,6 @@ The real payoff comes when you introduce **quasi-sterile neutrinos**, hypothetic
 
 So would this resonance actually survive the journey? The atmosphere isn't uniform; it's warm and dense at low altitudes, thin and cold higher up. For a resonance to fully develop, it must remain narrow enough not to wash out, and neutrinos must be produced at high enough altitudes to traverse the resonance region. Both conditions hold, but only for neutrinos arriving from near the **horizon**, not from directly overhead or below.
 
-![Figure 3](/iaifi-research-blog/figures/2405_12140/figure_2.png)
 
 ## Why It Matters
 
@@ -84,7 +79,6 @@ There's also a direct connection to long-standing anomalies in particle physics.
 
 IceCube, the world's largest neutrino detector buried in a cubic kilometer of Antarctic ice, can test these models independently. The signature: a 10% deficit in the muon neutrino flux along the horizon. That's a smoking-gun signal with a distinctive angular pattern that would be very hard to fake with conventional physics.
 
-![Figure 4](/iaifi-research-blog/figures/2405_12140/figure_2.png)
 
 This search would complement, not duplicate, existing sterile neutrino searches at IceCube. Those look for neutrinos coming up through the Earth, where the planet's core provides the dense matter needed for resonance. This new search looks sideways, along the horizon, where the atmosphere provides the resonance. Different geometry, different energy scale, different new-physics sensitivity.
 

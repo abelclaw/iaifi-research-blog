@@ -30,7 +30,6 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2407_03524/figure_1.png
-- /iaifi-research-blog/figures/2407_03524/figure_2.png
 - /iaifi-research-blog/figures/2407_03524/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2407.03524v1
 published: '2024-07-03T22:00:35+00:00'
@@ -62,7 +61,7 @@ The team built a two-track pipeline:
 
 After merging these two streams, the team added two handcrafted features: **particle density** (how tightly packed the jet's particles are) and **average intensity** (the mean energy deposition). These push different jet categories further apart in the feature space before classification even begins.
 
-![Figure 2](/iaifi-research-blog/figures/2407_03524/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2407_03524/figure_3.png)
 
 The payoff shows up in 3D plots of the embedded data. Before feature extraction, all five jet classes pile up in an undifferentiated mass. After embedding, the classes fan out into distinct clusters. Once the data looks like that, a straightforward deep neural network (DNN) can draw clean boundaries between classes. No massive transformer, no graph network needed.
 
@@ -72,7 +71,6 @@ The team tested their framework on the JetNet benchmark dataset: 250,000 jets ac
 
 Removing one member of that similar pair and reducing to four classes pushed accuracy to **84.00%**, with top quarks hitting 88.91%. These numbers are comparable to the Particle Flow Network (PFN), a well-established and considerably more complex benchmark, but achieved with a simpler, more interpretable architecture.
 
-![Figure 3](/iaifi-research-blog/figures/2407_03524/figure_3.png)
 
 Better jet tagging directly improves the LHC's ability to identify rare processes, including potential signatures of new particles beyond the Standard Model. Every percentage point of classification accuracy translates into sharper physics reach. At the HL-LHC, where data rates become almost incomprehensible, computational efficiency stops being a nice-to-have and becomes a hard requirement.
 

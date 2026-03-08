@@ -51,7 +51,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2511_14858/figure_1.png
 - /iaifi-research-blog/figures/2511_14858/figure_2.png
-- /iaifi-research-blog/figures/2511_14858/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2511.14858v1
 published: '2025-11-18T19:13:43+00:00'
 theme: Astrophysics
@@ -93,7 +92,6 @@ None of this requires training data. No labeled examples of "here is a Circular,
 
 Results were benchmarked against the manually curated Neil Gehrels Swift Observatory gamma-ray burst (GRB) table, a gold-standard reference built by human experts over years. The LLM pipeline correctly identified redshift values in 97.2% of Circulars that contained them, and the neural RAG retrieval correctly flagged 96.8% of redshift-containing documents from the broader archive.
 
-![Figure 3](/iaifi-research-blog/figures/2511_14858/figure_3.png)
 
 ## Why It Matters
 

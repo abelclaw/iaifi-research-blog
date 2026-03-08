@@ -53,7 +53,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2105_01683/figure_1.png
 - /iaifi-research-blog/figures/2105_01683/figure_2.png
-- /iaifi-research-blog/figures/2105_01683/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2105.01683v1
 published: '2021-05-04T18:06:23+00:00'
 theme: Experimental Physics
@@ -92,7 +91,6 @@ Getting a neural network onto a chip this small and power-constrained demanded a
 
 The resulting chip is compact: 3.6 mm² total area, 95 mW of power consumption, and just **2.4 nanojoules per inference**. One complete compression of an HGCAL trigger data packet uses roughly the same energy as lifting a grain of sand by a millimeter. The chip has to do this 40 million times per second.
 
-![Figure 3](/iaifi-research-blog/figures/2105_01683/figure_3.png)
 
 ## Why It Matters
 

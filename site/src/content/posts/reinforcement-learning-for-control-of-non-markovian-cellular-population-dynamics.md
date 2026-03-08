@@ -33,7 +33,6 @@ concepts:
 - hamiltonian systems
 figures:
 - /iaifi-research-blog/figures/2410_08439/figure_1.png
-- /iaifi-research-blog/figures/2410_08439/figure_2.png
 - /iaifi-research-blog/figures/2410_08439/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.08439v3
 published: '2024-10-11T01:02:30+00:00'
@@ -76,11 +75,10 @@ Framestacking is what makes memory tractable. The agent infers the system's hist
 
 Across Markovian models where exact solutions are known, the RL agent recovers them independently. That's a clean validation that the approach is sound.
 
-![Figure 2](/iaifi-research-blog/figures/2410_08439/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2410_08439/figure_3.png)
 
 The real test is the non-Markovian regime, where no exact solution exists. Here, framestacked RL still finds strong control policies as memory strength varies and even when observations are corrupted by realistic measurement noise. The agent learns a single policy that doesn't need retraining for different memory parameters, which is clinically essential since you rarely know a tumor's exact molecular memory profile.
 
-![Figure 3](/iaifi-research-blog/figures/2410_08439/figure_3.png)
 
 This work sits at a productive intersection of physics and machine learning. The authors bring tools from **optimal control theory**, including bang-bang constraints and Pontryagin's maximum principle, to guide what would otherwise be a pure black-box learning problem. The result is an agent that doesn't just stumble onto a good policy; it finds policies that respect the underlying physics.
 

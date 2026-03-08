@@ -38,10 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2210_04783/figure_1.png
 - /iaifi-research-blog/figures/2210_04783/figure_1.png
-- /iaifi-research-blog/figures/2210_04783/figure_2.png
-- /iaifi-research-blog/figures/2210_04783/figure_2.png
-- /iaifi-research-blog/figures/2210_04783/figure_3.png
-- /iaifi-research-blog/figures/2210_04783/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.04783v1
 published: '2022-10-10T15:41:44+00:00'
 theme: Theoretical Physics
@@ -84,7 +80,6 @@ On CIFAR-10 with only 40 labeled examples, BayFixMatch achieves up to 15.9% high
 
 The team puts their approach to a harder test: a real-world **photonics** problem, designing nanoscale structures for manipulating light, where labeled examples are scarce because simulations are expensive. The class distribution is severely imbalanced, which notoriously breaks SSL methods that assume all categories are equally common. The Bayesian methods handle this gracefully, maintaining calibration even when some classes have only a handful of examples.
 
-![Figure 3](/iaifi-research-blog/figures/2210_04783/figure_2.png)
 
 There's a broader principle here. Whenever a learning system relies on its own predictions as training signal (and that increasingly describes much of modern AI), calibration isn't a secondary concern. It's load-bearing. A model that doesn't know what it doesn't know can't improve reliably.
 

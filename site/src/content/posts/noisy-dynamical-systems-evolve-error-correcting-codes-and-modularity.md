@@ -30,11 +30,8 @@ concepts:
 - quantum computing
 - phase transitions
 figures:
-- /iaifi-research-blog/figures/2303_14448/figure_1.png
-- /iaifi-research-blog/figures/2303_14448/figure_1.png
 - /iaifi-research-blog/figures/2303_14448/figure_2.png
 - /iaifi-research-blog/figures/2303_14448/figure_2.png
-- /iaifi-research-blog/figures/2303_14448/figure_3.png
 - /iaifi-research-blog/figures/2303_14448/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2303.14448v2
 published: '2023-03-25T11:54:18+00:00'
@@ -59,7 +56,7 @@ A new study from MIT researchers Trevor McCourt, Ila Fiete, and Isaac Chuang off
 
 The team's experimental platform is the **Boolean network**, a model originally developed to study how genes switch each other on and off. Picture a grid of nodes, each either "on" or "off," updating according to a logical rule that takes neighboring nodes as inputs. Simple rules, chained across thousands of nodes, can perform surprisingly complex computations. These networks are simple enough to simulate millions of generations rapidly while still capturing the essential dynamics of real biological regulatory systems.
 
-![Figure 1](/iaifi-research-blog/figures/2303_14448/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2303_14448/figure_2.png)
 
 The researchers evolved Boolean networks to perform primitive computational tasks (the biological equivalent of simple reflexes or cell-state decisions) under evolutionary pressure in the presence of noise. Networks that performed accurately despite noise were more likely to survive; errors brought fitness penalties. Mutations were applied each generation, tweaking logical rules or connections.
 
@@ -69,7 +66,7 @@ The results held up across a wide range of initial conditions and task specifica
 - This happened not occasionally but *almost universally*, suggesting error correction is an attractor of noisy evolution rather than a lucky accident
 - When tasks were composite, networks spontaneously developed modular architectures, physically separating the sub-networks responsible for each sub-task
 
-![Figure 2](/iaifi-research-blog/figures/2303_14448/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2303_14448/figure_2.png)
 
 The mechanism is a feedback loop the authors call **error correction-enhanced evolvability**. A network with error correction tolerates genetic mutations better: many mutations that would be lethal in a non-error-correcting system get quietly absorbed by the redundant coding, becoming neutral mutations that don't affect fitness. This expanded neutral zone lets the network explore more of the genetic configuration space. Some of that exploration finds paths to *better* error-correcting codes. Error correction begets more error correction.
 
@@ -79,13 +76,12 @@ For evolutionary biology, this work proposes a mechanistic answer to a longstand
 
 The result lines up with observations across biology. In genetics, knockout experiments show most genes are dispensable, a signature of neutral redundancy. In neuroscience, grid cells appear to implement a topological error-correcting code for spatial navigation.
 
-![Figure 3](/iaifi-research-blog/figures/2303_14448/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2303_14448/figure_3.png)
 
 For AI and computing, the payoff is practical. Modern machine learning systems are increasingly large, distributed, and deployed in noisy real-world environments. Understanding how biological systems evolved robust computation through selection pressure, not engineering, could point toward new architectures for fault-tolerant AI.
 
 There's also a connection to quantum computing, where error correction is existential. The challenge of building self-correcting systems from noisy components mirrors the evolutionary challenge studied here. The principle that modularity and error correction co-emerge under noise could inform the design of future neuromorphic and quantum systems.
 
-![Figure 4](/iaifi-research-blog/figures/2303_14448/figure_2.png)
 
 Open questions remain. The Boolean network model is a simplified proxy for real genetics. How well does error correction-enhanced evolvability hold in continuous, high-dimensional systems? Does it apply to the evolution of learning itself, explaining why biological brains generalize from noisy data so much better than current artificial networks?
 

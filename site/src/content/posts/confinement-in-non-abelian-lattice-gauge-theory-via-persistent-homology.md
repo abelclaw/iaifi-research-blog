@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2208_03955/figure_1.png
 - /iaifi-research-blog/figures/2208_03955/figure_1.png
 - /iaifi-research-blog/figures/2208_03955/figure_2.png
-- /iaifi-research-blog/figures/2208_03955/figure_2.png
-- /iaifi-research-blog/figures/2208_03955/figure_3.png
-- /iaifi-research-blog/figures/2208_03955/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.03955v2
 published: '2022-08-08T07:49:58+00:00'
 theme: Theoretical Physics
@@ -82,13 +79,11 @@ These are semi-classical objects, sitting at the boundary between quantum and cl
 
 The holonomy field filtration adds another layer. It encodes signatures of well-separated dyons at random positions, and their abundance declines with rising temperature in a way that matches theoretical predictions. As the system crosses from confined to deconfined, the persistent homology signal changes qualitatively. No fitting, no modeling, just a clean signature of the phase transition.
 
-![Figure 4](/iaifi-research-blog/figures/2208_03955/figure_2.png)
 
 The electric and magnetic field filtrations produce what may be the most satisfying result. In a deconfined plasma, **Debye screening** operates asymmetrically: electric fields decay exponentially with distance while magnetic fields do not. This asymmetry is a hallmark of deconfinement.
 
 Above the critical temperature, the persistent homology of the two field types diverges sharply. Electric fields show markedly different topological structure than magnetic fields, an effect especially pronounced at large gauge coupling.
 
-![Figure 5](/iaifi-research-blog/figures/2208_03955/figure_3.png)
 
 ## Why It Matters
 
@@ -96,7 +91,6 @@ Persistent homology detects signatures of instanton-dyons, objects previously ac
 
 The implications go beyond lattice gauge theory. Persistent homology sits at the crossroads of pure mathematics, data science, and computational physics. Here, topological data analysis tools developed largely in machine learning contexts turn out to be precision instruments for quantum field theory. Future directions include larger lattice geometries, different gauge groups, and the inclusion of dynamical fermions. As quantum computing matures, quantum algorithms for persistent homology could push these analyses to scales currently out of reach.
 
-![Figure 6](/iaifi-research-blog/figures/2208_03955/figure_3.png)
 
 > **Bottom Line:** By applying persistent homology to SU(2) lattice gauge theory, this work reveals the topological fingerprints of instanton-dyons and Debye screening without any gauge-fixing or smoothing, establishing topological data analysis as an underexplored but potent tool for quantum field theory.
 

@@ -30,7 +30,6 @@ concepts:
 - cosmic microwave background
 figures:
 - /iaifi-research-blog/figures/2211_12444/figure_1.png
-- /iaifi-research-blog/figures/2211_12444/figure_2.png
 - /iaifi-research-blog/figures/2211_12444/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.12444v1
 published: '2022-11-22T17:54:47+00:00'
@@ -66,7 +65,7 @@ The real question: do the generated fields actually *look* like the real ones, s
 - **Pixel intensity histograms**: whether the distribution of density values matches the real data
 - **Minkowski functionals**: topological descriptors sensitive to non-Gaussian structure, capturing the connectivity and curvature of dense regions that simpler statistics miss
 
-![Figure 2](/iaifi-research-blog/figures/2211_12444/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2211_12444/figure_3.png)
 
 ## Why It Matters
 

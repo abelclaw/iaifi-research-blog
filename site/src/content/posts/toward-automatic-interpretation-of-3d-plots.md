@@ -28,10 +28,7 @@ concepts:
 - superresolution
 figures:
 - /iaifi-research-blog/figures/2106_07627/figure_1.png
-- /iaifi-research-blog/figures/2106_07627/figure_1.png
 - /iaifi-research-blog/figures/2106_07627/figure_2.png
-- /iaifi-research-blog/figures/2106_07627/figure_2.png
-- /iaifi-research-blog/figures/2106_07627/figure_3.png
 - /iaifi-research-blog/figures/2106_07627/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2106.07627v1
 published: '2021-06-14T17:32:53+00:00'
@@ -54,7 +51,7 @@ Their approach: build a dataset from scratch, train a deep neural network on it,
 
 The core task is **shape recovery from grid-marked surfaces**. Given an image of a 3D surface plot with no axis labels, no color scales, and no shading, can a neural network reconstruct what the underlying surface actually looks like?
 
-![Figure 2](/iaifi-research-blog/figures/2106_07627/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2106_07627/figure_2.png)
 
 No large dataset of 3D surface plots paired with ground-truth shape information existed, so the team built one. **SurfaceGrid** contains 98,600 images of 3D grid-marked surfaces rendered alongside their corresponding **depth maps**, pixel-by-pixel records of how far each point on the surface sits from the camera. Depth maps encode 3D shape as a 2D image, making them a natural training target.
 

@@ -28,13 +28,7 @@ concepts:
 - sparse models
 - feature extraction
 - graph neural networks
-figures:
-- /iaifi-research-blog/figures/2205_06818/figure_1.png
-- /iaifi-research-blog/figures/2205_06818/figure_1.png
-- /iaifi-research-blog/figures/2205_06818/figure_2.png
-- /iaifi-research-blog/figures/2205_06818/figure_2.png
-- /iaifi-research-blog/figures/2205_06818/figure_3.png
-- /iaifi-research-blog/figures/2205_06818/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2205.06818v2
 published: '2022-05-13T18:00:00+00:00'
 theme: Theoretical Physics
@@ -66,7 +60,6 @@ EFPs rest on an elegant idea: represent each observable as a graph. Each node co
 - **1-collinear expansion**: Keeps one energetic **collinear** emission (a particle flying nearly parallel to the jet axis) with full angular information, expanding around that configuration.
 - **2-collinear expansion**: Extends to two energetic collinear emissions, capturing next-to-leading logarithmic physics at a finer level of precision.
 
-![Figure 1](/iaifi-research-blog/figures/2205_06818/figure_1.png)
 
 Within each scheme, power counting reveals linear relationships between EFPs. Two graphically distinct EFPs may be numerically equivalent, to the precision of the approximation, once you account for how jets actually form. The authors derive these relations analytically, then test them on millions of simulated jets from **Pythia**, a widely used program that simulates particle production and scattering after high-energy collisions.
 
@@ -74,7 +67,6 @@ The numbers speak for themselves. For the strongly-ordered basis, the degree-six
 
 The predicted linear relations hold up in Pythia with excellent numerical agreement.
 
-![Figure 3](/iaifi-research-blog/figures/2205_06818/figure_2.png)
 
 ## Why It Matters
 
@@ -88,7 +80,6 @@ On the computational side, there's a bonus in the 1-collinear case. Naively, com
 
 The approach raises natural follow-up questions. Can power counting extend to multi-prong jets from top quarks or W bosons? Can the basis reductions inform better neural network architectures for jet physics? The authors focus on single-prong quark and gluon jets here and flag multi-prong extension as explicit future work.
 
-![Figure 5](/iaifi-research-blog/figures/2205_06818/figure_3.png)
 
 > **Bottom Line:** Power counting transforms the EFP basis from an unwieldy 314-element list into a compact, physically motivated toolkit of 22 to 37 elements, enabling faster computation, cleaner interpretability, and undiminished machine learning performance on jet classification tasks.
 

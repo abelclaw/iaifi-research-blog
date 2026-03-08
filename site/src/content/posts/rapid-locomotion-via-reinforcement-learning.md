@@ -30,9 +30,6 @@ figures:
 - /iaifi-research-blog/figures/2205_02824/figure_1.png
 - /iaifi-research-blog/figures/2205_02824/figure_1.png
 - /iaifi-research-blog/figures/2205_02824/figure_2.png
-- /iaifi-research-blog/figures/2205_02824/figure_2.png
-- /iaifi-research-blog/figures/2205_02824/figure_3.png
-- /iaifi-research-blog/figures/2205_02824/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.02824v1
 published: '2022-05-05T17:55:11+00:00'
 theme: Foundational AI

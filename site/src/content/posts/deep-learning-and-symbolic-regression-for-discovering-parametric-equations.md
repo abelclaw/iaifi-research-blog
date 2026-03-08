@@ -33,11 +33,8 @@ concepts:
 - physics-informed neural networks
 - scientific workflows
 figures:
-- /iaifi-research-blog/figures/2207_00529/figure_1.png
-- /iaifi-research-blog/figures/2207_00529/figure_1.png
 - /iaifi-research-blog/figures/2207_00529/figure_2.png
 - /iaifi-research-blog/figures/2207_00529/figure_2.png
-- /iaifi-research-blog/figures/2207_00529/figure_3.png
 - /iaifi-research-blog/figures/2207_00529/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2207.00529v2
 published: '2022-07-01T16:25:59+00:00'
@@ -60,24 +57,23 @@ Researchers at MIT have proposed a neural network framework that extends symboli
 
 The foundation is the **Equation Learner (EQL) network**, developed in prior work. Ordinary neural networks use opaque internal functions like ReLU activations. The EQL swaps those out for recognizable mathematical operations: sin, cos, multiplication, division, addition. The network's learned weights become the actual coefficients in a symbolic expression. When training converges, you don't have a black box. You read the equation directly from the network structure.
 
-![Figure 1](/iaifi-research-blog/figures/2207_00529/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2207_00529/figure_2.png)
 
 The standard EQL handles only fixed equations. To tackle parametric systems, the team introduces two new variants:
 
 - **SEQL (Stacked EQL):** Two EQL networks run in parallel. One processes input variables; the other processes the varying parameters. Their outputs are combined so the coefficient-predicting network can modulate the equation-learning network in real time.
 - **HEQL (Hyper EQL):** Borrowing from **hypernetworks**, where a small meta-network generates the weights of a larger one, a compact network learns to *produce the weights* of the main EQL as a function of the varying parameters. It doesn't learn fixed weights; it learns how weights should change.
 
-![Figure 2](/iaifi-research-blog/figures/2207_00529/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2207_00529/figure_2.png)
 
 Both architectures are differentiable end-to-end, so the entire system trains via standard gradient-based learning and can plug into other neural network components. The team shows this by attaching a **convolutional encoder** to the front of the HEQL, using it to analyze 1D images of oscillating spring systems. The image network extracts physical state from raw pixels; the HEQL then discovers the underlying equation. The full pipeline trains jointly, with no manual feature engineering.
 
 Training uses **L1 regularization** to encourage sparsity, pushing small, irrelevant weights to exactly zero. Think of it as a built-in Occam's Razor. A progressive masking strategy prunes weights below a threshold mid-training, gradually sculpting the network toward a clean symbolic expression.
 
-![Figure 3](/iaifi-research-blog/figures/2207_00529/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2207_00529/figure_3.png)
 
 On analytic benchmark expressions and partial differential equations with spatially or temporally varying coefficients, both SEQL and HEQL recover the correct equation structure. This includes nonlinear systems. The models also extrapolate well outside of the training domain, something black-box networks are notoriously bad at. A model that has truly learned a governing law, rather than memorizing statistical patterns, should generalize beyond its training data. These architectures do.
 
-![Figure 4](/iaifi-research-blog/figures/2207_00529/figure_2.png)
 
 ## Why It Matters
 

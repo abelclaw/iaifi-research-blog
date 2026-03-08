@@ -27,8 +27,6 @@ concepts:
 - inverse problems
 figures:
 - /iaifi-research-blog/figures/2506_15427/figure_1.png
-- /iaifi-research-blog/figures/2506_15427/figure_2.png
-- /iaifi-research-blog/figures/2506_15427/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.15427v2
 published: '2025-06-18T13:02:22+00:00'
 theme: Foundational AI
@@ -64,7 +62,6 @@ He and Sheshmani ask a sharper question: what happens to the Landau-Ginzburg mod
 
 The authors first prove these correspondences for **toric varieties**, a class of shapes where all the geometry reduces to combinatorial data: arrays of numbers and geometric grids. Here everything is explicit. You can track exactly how the **Newton polytope** (a geometric shape whose vertices encode the terms of the superpotential) changes under contraction, making the correspondence checkable by hand.
 
-![Figure 2](/iaifi-research-blog/figures/2506_15427/figure_2.png)
 
 For general smooth Fano surfaces and threefolds, the proof requires more machinery. The strategy is a local-to-global construction: establish the mirror correspondence locally near each contracted curve or fiber, then patch these local pictures together across the full moduli space of central models. He and Sheshmani prove the correspondence for all smooth toric varieties and all smooth Fano varieties in dimensions 2 and 3.
 
@@ -72,7 +69,6 @@ For general smooth Fano surfaces and threefolds, the proof requires more machine
 
 The immediate payoff is a complete computation of the **elementary syzygies** for all smooth Fano threefolds, organized by **Picard number** (roughly, the number of independent curve classes). For Picard numbers 1 through 4, He and Sheshmani enumerate every elementary relation between **Sarkisov links**, the fundamental atomic transformations from which all birational maps between Fano varieties are built. All 105 smooth Fano threefolds have been classified, so computing their syzygies fully characterizes the relational structure of their birational automorphism groups.
 
-![Figure 3](/iaifi-research-blog/figures/2506_15427/figure_3.png)
 
 The deeper significance is conceptual. Prior work showed that the full syzygy hierarchy lives in a contractible CW complex built from central models. This paper adds a physical interpretation: the cells of that complex correspond to Landau-Ginzburg models, and the attaching maps correspond to degenerations under the MMP. Mirror symmetry, it turns out, encodes not just individual variety-theory pairs but the entire hierarchical structure of birational geometry.
 

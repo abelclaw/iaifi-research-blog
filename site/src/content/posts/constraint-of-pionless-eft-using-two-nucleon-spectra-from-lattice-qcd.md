@@ -31,8 +31,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2305_06313/figure_1.png
-- /iaifi-research-blog/figures/2305_06313/figure_2.png
-- /iaifi-research-blog/figures/2305_06313/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.06313v1
 published: '2023-05-10T17:01:10+00:00'
 theme: Theoretical Physics
@@ -66,7 +64,6 @@ The EFT includes interactions up to **next-to-leading order (NLO)**, going beyon
 
 At the heart of the method is a variational approach powered by differential programming. You make an educated guess at the shape of a quantum wave function (the mathematical object describing how likely the particles are to be found in any configuration) and then systematically improve that guess until you reach the lowest possible energy. The team builds trial wave functions from **correlated Gaussians**, flexible multi-parameter functions that capture complex spatial correlations between the two nucleons. Rather than tuning these by hand, they use automatic differentiation, the same algorithmic backbone as deep learning, to minimize the energy and find optimal wave function parameters for each set of LECs.
 
-![Figure 2](/iaifi-research-blog/figures/2305_06313/figure_2.png)
 
 The full workflow:
 
@@ -78,7 +75,6 @@ The full workflow:
 
 Fitting simultaneously to ground states, excited states, and multiple symmetry sectors lets the team disentangle effects that would look identical with fewer data points. The excited-state spectrum is particularly valuable here: different NLO operators shift different energy levels in distinct ways, so each LEC can be separately constrained.
 
-![Figure 3](/iaifi-research-blog/figures/2305_06313/figure_3.png)
 
 ## Why It Matters
 

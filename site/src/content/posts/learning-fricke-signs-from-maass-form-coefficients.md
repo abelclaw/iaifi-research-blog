@@ -38,10 +38,7 @@ concepts:
 - dimensionality reduction
 figures:
 - /iaifi-research-blog/figures/2501_02105/figure_1.png
-- /iaifi-research-blog/figures/2501_02105/figure_1.png
 - /iaifi-research-blog/figures/2501_02105/figure_2.png
-- /iaifi-research-blog/figures/2501_02105/figure_2.png
-- /iaifi-research-blog/figures/2501_02105/figure_3.png
 - /iaifi-research-blog/figures/2501_02105/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.02105v2
 published: '2025-01-03T21:22:29+00:00'
@@ -77,13 +74,13 @@ With that insight, the team applied **Linear Discriminant Analysis (LDA)**, a cl
 3. **Training:** LDA fitted on the labeled subset
 4. **Result:** 96% accuracy for even-parity forms, 94% for odd-parity forms
 
-![Figure 2](/iaifi-research-blog/figures/2501_02105/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_02105/figure_2.png)
 
 Could the model be exploiting a shortcut? On **squarefree levels**, where the defining parameter $N$ has no repeated prime factors, the coefficient $a_N$ directly encodes the Fricke sign. A lazy classifier could just memorize this. The team explicitly ruled it out, showing that LDA extracts genuinely richer information from the coefficient data.
 
 They also trained **neural networks** on the same data and achieved comparable accuracy. Agreement between a linear statistical method and a nonlinear deep model strengthens the conclusion: the signal is real.
 
-![Figure 3](/iaifi-research-blog/figures/2501_02105/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2501_02105/figure_3.png)
 
 The researchers then predicted Fricke signs for all 15,423 unlabeled forms. Comparison against **Hejhal's algorithm**, a numerical method that heuristically estimates Fricke signs without rigorous guarantees, yielded a ~95% match rate. Both methods appear to be tracking the same underlying mathematical structure.
 

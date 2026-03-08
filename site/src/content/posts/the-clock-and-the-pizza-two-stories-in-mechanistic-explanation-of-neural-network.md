@@ -33,11 +33,8 @@ concepts:
 - group theory
 - dimensionality reduction
 figures:
-- /iaifi-research-blog/figures/2306_17844/figure_1.png
-- /iaifi-research-blog/figures/2306_17844/figure_1.png
 - /iaifi-research-blog/figures/2306_17844/figure_2.png
 - /iaifi-research-blog/figures/2306_17844/figure_2.png
-- /iaifi-research-blog/figures/2306_17844/figure_3.png
 - /iaifi-research-blog/figures/2306_17844/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2306.17844v2
 published: '2023-06-30T17:59:13+00:00'
@@ -69,7 +66,7 @@ The previously known **Clock algorithm** works like this:
 
 The Clock algorithm requires multiplication, and the transformer's attention mechanism provides it. Model B, with standard trainable attention, implements this cleanly.
 
-![Figure 1](/iaifi-research-blog/figures/2306_17844/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2306_17844/figure_2.png)
 
 Model A is a different story. Without learnable attention, it can't multiply the same way. Two signs revealed this. First, the output scores (logits) for each possible answer showed perfect **gradient symmetry**: the network treated inputs *a* and *b* as completely interchangeable. The Clock algorithm breaks this symmetry, so whatever Model A was doing, it wasn't the Clock. Second, while both models learned circular embeddings, the intermediate computations diverged sharply.
 
@@ -82,11 +79,10 @@ What Model A discovered is the **Pizza algorithm**, named because it treats the 
 
 The math works because the mean of two unit-circle vectors points in the direction of their angle average, and its magnitude encodes the angle difference. No multiplication required, just the absolute value step.
 
-![Figure 2](/iaifi-research-blog/figures/2306_17844/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2306_17844/figure_2.png)
 
 The sharpest result involves **phase transitions**. By systematically varying model width and attention strength, the researchers found sharp boundaries where models flipped from Clock to Pizza. They also uncovered messier **non-circular algorithms** using line-like or Lissajous-curve embeddings (patterns traced by two overlapping oscillations, like a spirograph), and some models ran multiple imperfect Pizza copies in parallel, voting on the answer. The space of solutions has real structure, but it's far richer than anyone expected.
 
-![Figure 4](/iaifi-research-blog/figures/2306_17844/figure_2.png)
 
 ## Why It Matters
 

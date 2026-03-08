@@ -30,9 +30,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2210_01117/figure_1.png
 - /iaifi-research-blog/figures/2210_01117/figure_1.png
-- /iaifi-research-blog/figures/2210_01117/figure_2.png
-- /iaifi-research-blog/figures/2210_01117/figure_2.png
-- /iaifi-research-blog/figures/2210_01117/figure_3.png
 - /iaifi-research-blog/figures/2210_01117/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.01117v2
 published: '2022-10-03T17:58:04+00:00'
@@ -79,7 +76,7 @@ To test this, the team used a **teacher-student setup**, a controlled experiment
 
 With the LU mechanism in hand, the team induced grokking where nobody had seen it before. They deliberately inflated initialization weight norms and triggered grokking on MNIST image classification, IMDb sentiment analysis, and QM9 molecular property prediction. Real-world datasets, real-world architectures, full grokking, on demand.
 
-![Figure 3](/iaifi-research-blog/figures/2210_01117/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2210_01117/figure_3.png)
 
 They also ran the movie backward: for algorithmic datasets where grokking is normally dramatic, constraining the weight norm during training almost entirely eliminated the delay. Grokking isn't inevitable. It's a consequence of specific geometric conditions that can be engineered away.
 

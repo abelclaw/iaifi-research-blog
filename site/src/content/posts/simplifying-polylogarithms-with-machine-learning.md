@@ -30,10 +30,6 @@ concepts:
 - automated discovery
 - attention mechanisms
 figures:
-- /iaifi-research-blog/figures/2206_04115/figure_1.png
-- /iaifi-research-blog/figures/2206_04115/figure_1.png
-- /iaifi-research-blog/figures/2206_04115/figure_2.png
-- /iaifi-research-blog/figures/2206_04115/figure_2.png
 - /iaifi-research-blog/figures/2206_04115/figure_3.png
 - /iaifi-research-blog/figures/2206_04115/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2206.04115v1
@@ -60,17 +56,16 @@ The researchers framed the simplification problem in two very different ways and
 - **Reinforcement learning (RL):** A trial-and-error strategy where each algebraic identity (reflection, duplication, inversion, and others) becomes a legal "move." The agent learns to play the game of simplification by trying sequences of moves and receiving a reward when the expression shrinks. Like a chess engine learning sacrifices that pay off three moves later, the RL agent must tolerate short-term complexity to reach long-term simplicity.
 - **Sequence-to-sequence translation:** A **transformer network**, the same architecture used in large language models, treats simplification as a translation task. The input is a messy polylogarithmic expression written as a sequence of tokens; the output is the simplified form. The model never explicitly reasons about which identities to apply. It learns, from millions of training examples, what simplified expressions look like and how to get there.
 
-![Figure 1](/iaifi-research-blog/figures/2206_04115/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2206_04115/figure_3.png)
 
 To generate training data, the team ran the simplification process in reverse: they started from simple, canonical expressions and applied identities *forward* to produce complex ones, creating (complex → simple) pairs without needing to solve the hard direction first. Generating hard instances from easy ones is always tractable, a clever inversion that sidesteps the core difficulty.
 
 One important tool in both approaches is the **symbol**, an algebraic object that encodes the "skeleton" of a polylogarithmic function. For the dilogarithm (written Li₂(x)), the symbol is (1−x) ⊗ x, a compact expression that strips away lower-order terms and exposes the function's core structure. The symbol satisfies a simple product rule, making it easier to manipulate than the full function. Both the RL agent and the transformer can work on the full polylogarithmic expression or its symbol, and the paper tests all combinations.
 
-![Figure 2](/iaifi-research-blog/figures/2206_04115/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2206_04115/figure_3.png)
 
 The results clearly favor the transformer. Operating on symbolic expressions, it achieves high simplification rates across a range of complexity levels, including cases requiring many nested identity applications. The RL approach works, but it struggles as expressions grow larger and the search space explodes. The transformer generalizes; the RL agent grinds.
 
-![Figure 4](/iaifi-research-blog/figures/2206_04115/figure_2.png)
 
 There is also an elegant secondary finding: the transformer trained on symbols can often reconstruct the full polylogarithmic form from the symbol alone, essentially solving an inverse problem with no known algorithmic solution. Given the "French" (the symbol), the model recovers the "English" (the polylogarithm).
 

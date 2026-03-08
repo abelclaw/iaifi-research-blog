@@ -31,11 +31,8 @@ concepts:
 - lattice qcd
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2101_08176/figure_1.png
-- /iaifi-research-blog/figures/2101_08176/figure_1.png
 - /iaifi-research-blog/figures/2101_08176/figure_2.png
 - /iaifi-research-blog/figures/2101_08176/figure_2.png
-- /iaifi-research-blog/figures/2101_08176/figure_3.png
 - /iaifi-research-blog/figures/2101_08176/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2101.08176v3
 published: '2021-01-20T15:16:28+00:00'
@@ -64,7 +61,7 @@ Rather than stumbling through configuration space step by step, a normalizing fl
 
 Think of a rubber sheet. Start flat and featureless (your simple starting distribution). A normalizing flow stretches, compresses, and folds it until it matches the complicated shape of your target. Because the transformation is invertible and differentiable, you can track exactly how much any region gets stretched. That's the **Jacobian factor**, the mathematical measure of how volumes change under a transformation, and it lets you compute the exact probability density of any sample you draw.
 
-![Figure 1](/iaifi-research-blog/figures/2101_08176/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2101_08176/figure_2.png)
 
 The practical challenge is building flows that are both expressive and computationally cheap. The answer here is **coupling layers**, a modular approach to constructing the flow in stages.
 
@@ -79,13 +76,13 @@ For scalar field theory on a 2D lattice, training proceeds in four steps:
 
 After training, the flow generates independent, nearly correct samples in a single forward pass. Any residual errors get corrected by using the flow samples as proposals in a standard MCMC step, guaranteeing exact statistics even if the learned approximation isn't perfect.
 
-![Figure 2](/iaifi-research-blog/figures/2101_08176/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2101_08176/figure_2.png)
 
 The gauge theory case raises a harder problem. For **U(1) gauge theory**, the simplest example of a theory with point-to-point symmetry, the field lives not on real numbers but on the circle (angles from 0 to 2π), and the physics must be invariant under local gauge transformations. A naive flow would ignore this structure entirely, wasting model capacity on configurations that are physically identical.
 
 The solution is architectural. The paper introduces **gauge-equivariant coupling layers** that, by construction, always produce outputs respecting gauge symmetry regardless of their inputs. These layers build their transformations from **plaquettes**, the smallest closed loops on the lattice grid and the fundamental building blocks of gauge-invariant physics, so the learned distribution automatically respects gauge invariance. The model never needs to learn what gauge symmetry is; it comes for free.
 
-![Figure 3](/iaifi-research-blog/figures/2101_08176/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2101_08176/figure_3.png)
 
 ## Why It Matters
 
@@ -95,7 +92,6 @@ If normalizing flows can replace or accelerate the sampling step, the payoff is 
 
 The tutorial format matters too. By releasing a working Jupyter notebook alongside the mathematical exposition, the authors lower the barrier for physicists to experiment with these methods, and for machine learning researchers to engage with the specific challenges of physical symmetry and gauge invariance. The explicit treatment of U(1) gauge theory lays groundwork for tackling SU(2) and SU(3), the more complex symmetry groups governing the strong force.
 
-![Figure 4](/iaifi-research-blog/figures/2101_08176/figure_2.png)
 
 Open questions remain. Current implementations work on small lattices; scaling to the large volumes needed for precision QCD is an unsolved engineering challenge. Training costs are high, and it's not yet clear how they compare to the gains at production scale. But the framework is in place, and the community now has a hands-on guide to building on it.
 

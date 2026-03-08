@@ -32,7 +32,6 @@ concepts:
 - loss function design
 figures:
 - /iaifi-research-blog/figures/2205_05084/figure_1.png
-- /iaifi-research-blog/figures/2205_05084/figure_2.png
 - /iaifi-research-blog/figures/2205_05084/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.05084v2
 published: '2022-05-10T18:00:00+00:00'
@@ -71,13 +70,12 @@ For simulation-based calibration, the standard approach trains a neural network 
 
 This isn't subtle. The paper shows with explicit Gaussian examples that a calibration derived from jets peaking at 100 GeV (gigaelectronvolts, the standard energy unit in particle physics) gives wrong answers on jets peaking at 200 GeV, even when the detector behaves identically at both energies.
 
-![Figure 2](/iaifi-research-blog/figures/2205_05084/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2205_05084/figure_3.png)
 
 The authors then ask whether their **Gaussian Ansatz** approach fares better. Rather than learning a single average, this method models the full *shape* of the detector response, fitting it to a bell curve and extracting parameters directly. Because it captures the response shape rather than a sample-averaged statistic, it achieves **prior independence**: the calibration works regardless of what true-energy distribution you feed it. The answer is yes, with important caveats.
 
 The situation for data-based calibration is grimmer. Here the goal is to learn **reweighting functions**, adjustments that upweight or downweight simulated events until the simulation matches real data. Recent ML proposals learn these weights from a specific event sample, but the weights break down on events drawn from different underlying distributions. The paper traces this to the same root cause. No prior-independent data-based calibration method exists yet.
 
-![Figure 3](/iaifi-research-blog/figures/2205_05084/figure_3.png)
 
 The authors ground these findings in a concrete jet energy study using simulated LHC data: train on one energy distribution, test on another. The biases are real and quantifiable. The Gaussian Ansatz substantially outperforms naive MSE-based calibration in the simulation-based case; data-based approaches show persistent prior-induced bias regardless of the ML method used.
 

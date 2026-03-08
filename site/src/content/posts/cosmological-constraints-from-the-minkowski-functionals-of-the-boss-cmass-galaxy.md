@@ -44,9 +44,6 @@ concepts:
 - dark matter
 - dark energy
 figures:
-- /iaifi-research-blog/figures/2501_01698/figure_1.png
-- /iaifi-research-blog/figures/2501_01698/figure_1.png
-- /iaifi-research-blog/figures/2501_01698/figure_2.png
 - /iaifi-research-blog/figures/2501_01698/figure_2.png
 - /iaifi-research-blog/figures/2501_01698/figure_3.png
 - /iaifi-research-blog/figures/2501_01698/figure_3.png
@@ -72,7 +69,7 @@ A new study from Wei Liu and collaborators cracks open that hidden information. 
 
 The four **Minkowski functionals** each measure a distinct geometric property of the galaxy density field, a 3D map of where matter concentrates and where it thins out. They capture: (1) the volume of overdense regions above a density threshold, (2) the surface area bounding those regions, (3) the integrated mean curvature of that surface, and (4) the **Euler characteristic**, a single number encoding overall connectivity that distinguishes isolated blobs from tunnels from enclosed voids. Sweep across density thresholds and you trace how the cosmic web's topology shifts from dense filaments to empty voids.
 
-![Figure 1](/iaifi-research-blog/figures/2501_01698/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_01698/figure_2.png)
 
 Earlier MF analyses smoothed heavily, deliberately washing out irregular features to avoid modeling them. This team took a different route: full simulation-based inference, built in four steps.
 
@@ -81,7 +78,7 @@ Earlier MF analyses smoothed heavily, deliberately washing out irregular feature
 3. **Add realism:** Full observational effects are injected. Redshift-space distortions, survey geometry and veto masks, angular and radial selection effects, and the Alcock-Paczynski distortion (a geometric smearing that arises when you assume the wrong cosmology to convert observed positions into a 3D map).
 4. **Emulate:** A neural network trained on all these mocks predicts MFs (and separately, the 2PCF) for any combination of cosmological and HOD parameters, fast enough to run Markov chain Monte Carlo inference across millions of parameter combinations.
 
-![Figure 2](/iaifi-research-blog/figures/2501_01698/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_01698/figure_3.png)
 
 The emulator covers six cosmological parameters plus six HOD parameters simultaneously. Before touching real data, the team ran extensive validation: feed mock catalogs through the pipeline and check whether inferred parameters match the known truth. They also tested on mocks from a completely different galaxy formation model, the **Uchuu simulation** with an independent HOD prescription, to probe model dependence. The pipeline passed.
 
@@ -94,11 +91,10 @@ Applied to the BOSS DR12 CMASS sample (roughly 600,000 galaxies at redshifts 0.4
 - **n_s = 0.966** (spectral index of primordial fluctuations): 1.6× tighter
 - **fσ_8 = 0.453 ± 0.016** (growth rate of cosmic structure): 1.9× tighter
 
-![Figure 3](/iaifi-research-blog/figures/2501_01698/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2501_01698/figure_3.png)
 
 These results agree well with Planck 2018 predictions and with other analyses of the same dataset. That consistency matters as much as the precision. It means the non-Gaussian information is being extracted cleanly, not corrupted by modeling assumptions.
 
-![Figure 4](/iaifi-research-blog/figures/2501_01698/figure_2.png)
 
 We are entering an era of galaxy surveys (DESI, Euclid, the Roman Space Telescope) so vast and precise that squeezing every bit of statistical power from the data becomes essential. The two-point function leaves a significant fraction of that power on the table. Minkowski functionals are one of the most promising ways to recover it.
 

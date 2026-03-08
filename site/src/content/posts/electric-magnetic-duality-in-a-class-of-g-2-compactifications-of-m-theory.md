@@ -28,11 +28,7 @@ concepts:
 - symmetry breaking
 - effective field theory
 - quantum field theory
-figures:
-- /iaifi-research-blog/figures/2210_08628/figure_1.png
-- /iaifi-research-blog/figures/2210_08628/figure_1.png
-- /iaifi-research-blog/figures/2210_08628/figure_2.png
-- /iaifi-research-blog/figures/2210_08628/figure_2.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2210.08628v2
 published: '2022-10-16T20:07:56+00:00'
 theme: Theoretical Physics
@@ -58,7 +54,6 @@ F-theory is populated by extended objects: **D3-branes** (sheet-like membranes c
 
 The argument is built on a chain of dualities. The authors work with a special class of G2 manifolds called **twisted connected sum (TCS) manifolds**, constructed by gluing two asymptotic cylindrical pieces along a common boundary. Each piece is shaped like a tube stretching off toward infinity. One piece, Z−, is fixed across all models studied and contains twelve **reducible K3 fibers**: surfaces embedded in the geometry that can split into two distinct components.
 
-![Figure 1](/iaifi-research-blog/figures/2210_08628/figure_1.png)
 
 The duality chain goes like this: M-theory on a TCS G2 manifold X is dual to F-theory on a Calabi-Yau fourfold Y. F-theory, in turn, is type IIB string theory with a dynamical coupling, populated by D3-branes and 7-branes. Electric-magnetic duality lives in the physics of a D3-brane probing a stack of En 7-branes, where En denotes one of the exceptional Lie groups E6, E7, or E8.
 
@@ -68,15 +63,12 @@ In an appropriate geometric limit called the **Kovalev limit**, where the TCS ma
 - This contraction produces **dyons**: light particles carrying both electric and magnetic charges simultaneously.
 - The authors argue this realizes the **Minahan-Nemeschansky theory** with En flavor symmetry, a famously exotic superconformal field theory that is notoriously difficult to construct in other settings.
 
-![Figure 2](/iaifi-research-blog/figures/2210_08628/figure_1.png)
 
 The monodromy part of the story stands out. When a D3-brane encircles an En 7-brane stack, it picks up a transformation called **SL(2,ℤ) monodromy**: the particle content gets reshuffled according to a discrete symmetry. On the M-theory side, this monodromy corresponds to a **Fourier-Mukai transform**, a sophisticated algebraic geometry operation acting on sheaves on the dual geometry. This gives a concrete, computable dictionary between brane physics and geometry.
 
-![Figure 3](/iaifi-research-blog/figures/2210_08628/figure_2.png)
 
 Moving away from the ideal limit, a finite **Kovalevton** (a parameter measuring how far the geometry deviates from the limiting case) breaks supersymmetry from N=2 down to N=1 via a **D-term** mechanism, a specific type of energy contribution that reduces the system's symmetry. This connects the abstract geometry directly to four-dimensional physics. The authors extend their analysis to multiple coincident D3-branes, where gauge symmetry enhances and the story grows richer.
 
-![Figure 4](/iaifi-research-blog/figures/2210_08628/figure_2.png)
 
 ## Why It Matters
 

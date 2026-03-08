@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2510_18621/figure_1.png
 - /iaifi-research-blog/figures/2510_18621/figure_1.png
 - /iaifi-research-blog/figures/2510_18621/figure_2.png
-- /iaifi-research-blog/figures/2510_18621/figure_2.png
-- /iaifi-research-blog/figures/2510_18621/figure_3.png
-- /iaifi-research-blog/figures/2510_18621/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.18621v1
 published: '2025-10-21T13:20:31+00:00'
 theme: Theoretical Physics
@@ -86,15 +83,12 @@ Third: a quantum antiferromagnet in a honeycomb moiré potential, directly relev
 
 A bonus finding: even for systems where spin updates aren't strictly required for accuracy, including them dramatically speeds convergence to antiferromagnetic ground states. The sampler discovers the correct spin ordering faster when it can explore spin configurations directly.
 
-![Figure 4](/iaifi-research-blog/figures/2510_18621/figure_2.png)
 
 The materials most likely to harbor next-generation superconductors, quantum computers, and topological devices are precisely those where spin and spatial correlations are inseparable: moiré systems, magnetic topological insulators, frustrated magnets, heavy fermion materials. A reliable first-principles tool for these systems removes a major bottleneck between theoretical proposal and experimental validation.
 
-![Figure 5](/iaifi-research-blog/figures/2510_18621/figure_3.png)
 
 Transformers aren't just for language and images. Here they provide a provably expressive framework for quantum states with mixed continuous and discrete inputs. The ideas extend to any quantum system with internal degrees of freedom: nuclear spins, orbital quantum numbers, valley pseudospin in 2D materials, or color charge in quark systems.
 
-![Figure 6](/iaifi-research-blog/figures/2510_18621/figure_3.png)
 
 Current runs handle tens of electrons in 2D geometries. Extending to three dimensions and larger particle numbers, where the most technologically relevant materials live, will require further algorithmic and computational advances. But the framework is in place.
 

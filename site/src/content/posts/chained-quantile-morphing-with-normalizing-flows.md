@@ -36,7 +36,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2309_15912/figure_1.png
 - /iaifi-research-blog/figures/2309_15912/figure_2.png
-- /iaifi-research-blog/figures/2309_15912/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2309.15912v1
 published: '2023-09-27T18:00:03+00:00'
 theme: Experimental Physics
@@ -89,7 +88,6 @@ CQM with normalizing flows has real advantages over existing reweighting methods
 
 The authors show that CQM is robust to small levels of signal contamination, can be trained in a control region, and accurately interpolates into a blinded signal region. These are all essential properties for deployment in real LHC analyses. Against neural network reweighting, CQM shows competitive performance overall and does best precisely in the regimes where reweighting struggles most.
 
-![Figure 3](/iaifi-research-blog/figures/2309_15912/figure_3.png)
 
 > **Bottom Line:** Chained quantile morphing with normalizing flows offers a principled, powerful way to correct Monte Carlo simulations for particle physics analysis. A new contrastive learning extension opens the door to correcting the high-dimensional particle-level data that modern ML models need.
 

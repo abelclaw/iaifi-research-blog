@@ -38,9 +38,6 @@ figures:
 - /iaifi-research-blog/figures/2310_07765/figure_1.png
 - /iaifi-research-blog/figures/2310_07765/figure_1.png
 - /iaifi-research-blog/figures/2310_07765/figure_2.png
-- /iaifi-research-blog/figures/2310_07765/figure_2.png
-- /iaifi-research-blog/figures/2310_07765/figure_3.png
-- /iaifi-research-blog/figures/2310_07765/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.07765v2
 published: '2023-10-11T18:00:02+00:00'
 theme: Foundational AI
@@ -88,7 +85,6 @@ The practical payoff shows up in classification experiments. The team trained fu
 
 In shallow networks (*L/n << 1*), Gaussian and orthogonal initializations perform comparably. Push into the deep regime (*L/n ~ 1*), and orthogonal networks pull ahead: better generalization, faster training. NTK fluctuations stay suppressed throughout the training run, confirming that initial stability translates into stable learning dynamics.
 
-![Figure 4](/iaifi-research-blog/figures/2310_07765/figure_2.png)
 
 What makes this work distinctive is where the tools come from. Perturbative expansions in 1/n, universality classes borrowed from statistical field theory, the geometry of matrix ensembles: these are the bread and butter of theoretical physics, repurposed here to say something precise about neural networks. The authors identify which activation functions belong to the right universality class (tanh yes, ReLU no), and that classification determines whether orthogonal initialization delivers its depth-independence benefits. This is structural insight from analytical theory, not empirical trial and error.
 

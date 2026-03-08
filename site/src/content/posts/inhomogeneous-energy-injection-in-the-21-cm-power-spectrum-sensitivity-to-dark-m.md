@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2312_11608/figure_1.png
 - /iaifi-research-blog/figures/2312_11608/figure_1.png
 - /iaifi-research-blog/figures/2312_11608/figure_2.png
-- /iaifi-research-blog/figures/2312_11608/figure_2.png
-- /iaifi-research-blog/figures/2312_11608/figure_3.png
-- /iaifi-research-blog/figures/2312_11608/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.11608v1
 published: '2023-12-18T19:00:00+00:00'
 theme: Astrophysics
@@ -89,7 +86,6 @@ For decays to photons, projected HERA constraints surpass CMB bounds across a wi
 
 The spatial treatment matters quantitatively, not just visually. Different regions respond differently to dark matter energy injection, so the power spectrum carries additional information that the homogeneous approximation throws away. The full inhomogeneous calculation captures correlations between dark matter density, gas density, and ionization state, sharpening the predicted signal shape and breaking degeneracies with uncertain astrophysical parameters like the X-ray luminosity of early galaxies.
 
-![Figure 4](/iaifi-research-blog/figures/2312_11608/figure_2.png)
 
 What this really means is that 21-cm cosmology is growing into a precision dark matter probe. The CMB has long been the gold standard for early-universe constraints on exotic physics. These projections show that HERA, and eventually the **Square Kilometre Array (SKA)**, could become the dominant tool for probing dark matter in the sub-GeV mass range, where collider experiments lose sensitivity and direct detection faces fundamental background challenges.
 

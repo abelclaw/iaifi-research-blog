@@ -34,11 +34,8 @@ concepts:
 - monte carlo methods
 - quantum field theory
 figures:
-- /iaifi-research-blog/figures/2404_12039/figure_1.png
-- /iaifi-research-blog/figures/2404_12039/figure_1.png
 - /iaifi-research-blog/figures/2404_12039/figure_2.png
 - /iaifi-research-blog/figures/2404_12039/figure_2.png
-- /iaifi-research-blog/figures/2404_12039/figure_3.png
 - /iaifi-research-blog/figures/2404_12039/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.12039v2
 published: '2024-04-18T09:46:44+00:00'
@@ -61,7 +58,7 @@ A team from MIT, Fermilab, and the University of Barcelona has now confronted on
 
 Lattice QCD discretizes spacetime into a grid and numerically computes how quarks and gluons behave. To study two-nucleon systems, physicists extract **energy eigenvalues**, the discrete energy levels a proton-neutron or neutron-neutron pair can occupy when confined in a finite computational box. From those levels, they infer scattering properties using the **Lüscher method**, a mathematical bridge between the finite-volume spectrum and the infinite-volume physics we actually care about.
 
-![Figure 1](/iaifi-research-blog/figures/2404_12039/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2404_12039/figure_2.png)
 
 The catch is that energy levels cannot be measured directly. Physicists instead construct **interpolating operators**, mathematical objects designed to "look like" the two-nucleon state of interest, and then measure how signals built from these operators decay over a computational analog of time. The rate of decay encodes the energy.
 
@@ -74,7 +71,7 @@ The researchers tested several distinct operator families:
 
 The calculation used a lattice with spatial side-length *L* ≈ 3.4 fm and an artificially heavy pion mass of *m*π ≈ 806 MeV, about six times the physical value. Heavier quarks reduce computational cost and sharpen the signal, making this a controlled testbed for method development.
 
-![Figure 2](/iaifi-research-blog/figures/2404_12039/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_12039/figure_2.png)
 
 Both the **isosinglet channel** (*I* = 0, proton-neutron with spin 1, analogous to the deuteron) and the **isotriplet channel** (*I* = 1, two identical nucleons, analogous to the dineutron) were studied. These quantum labels classify how the two nucleons' identity numbers combine. For each channel, the team tested many operator subsets, including bases with as many as 46 operators at once.
 
@@ -82,21 +79,18 @@ Both the **isosinglet channel** (*I* = 0, proton-neutron with spin 1, analogous 
 
 The central result is clean. Operator bases dominated by **hexaquark-only** operators, or built exclusively from **negative-parity nucleon operators**, produced variational bounds that were noticeably *weaker*. Those sets failed to capture the low-energy physics efficiently.
 
-![Figure 3](/iaifi-research-blog/figures/2404_12039/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2404_12039/figure_3.png)
 
 All other combinations (plane-wave dibaryon operators, quasi-local operators, and mixtures) produced bounds that agreed within statistical uncertainties. That consistency points toward convergence on a stable description of the spectrum, rather than artifacts from a poor operator choice.
 
-![Figure 4](/iaifi-research-blog/figures/2404_12039/figure_2.png)
 
 Do bound two-nucleon states exist at this heavy quark mass? The variational method can only deliver upper bounds, and the results show no evidence for a bound state in either channel. They cannot rule one out, either. But what the study accomplishes may matter more in the long run: it sorts out which operator strategies are trustworthy and which introduce misleading artifacts.
 
-![Figure 5](/iaifi-research-blog/figures/2404_12039/figure_3.png)
 
 Getting the two-body problem right is a prerequisite for everything else. The long-term goal of computing precise nuclear matrix elements from QCD, needed to interpret dark matter searches and neutrino oscillation experiments, starts here.
 
 The paper also delivers a clear warning. Not all operator bases are created equal. The fact that hexaquark-only results are weaker is not a curiosity; it signals that operator sets with poor overlap onto the physical states of interest can lead you astray. Future LQCD calculations of two-nucleon systems should include diverse, physically motivated operator families and verify consistency across choices. That discipline, more than any single number, is the most lasting contribution of this work.
 
-![Figure 6](/iaifi-research-blog/figures/2404_12039/figure_3.png)
 
 Open questions remain. The calculation used an unphysical quark mass, and extrapolating to the physical value *m*π ≈ 140 MeV is computationally daunting but necessary. Whether bound dineutron and deuteron states appear at large quark masses, and what that would imply about how nuclear binding varies with quark mass, is still unresolved. The role of negative-parity operators in larger variational bases also deserves further study.
 

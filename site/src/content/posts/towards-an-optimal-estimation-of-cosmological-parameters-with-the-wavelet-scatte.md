@@ -35,7 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2108_07821/figure_1.png
 - /iaifi-research-blog/figures/2108_07821/figure_2.png
-- /iaifi-research-blog/figures/2108_07821/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2108.07821v2
 published: '2021-08-17T18:00:04+00:00'
 theme: Astrophysics
@@ -81,7 +80,6 @@ Across all six parameters, WST delivers 1.2 to 4× tighter constraints than the 
 
 For neutrino masses specifically, WST beats the marked power spectrum (a recent competitor that up-weights underdense regions to amplify neutrino signatures) by 50%. That's not a marginal improvement. For a single-dataset analysis, that kind of gain changes what questions you can answer.
 
-![Figure 3](/iaifi-research-blog/figures/2108_07821/figure_3.png)
 
 ## Why It Matters
 

@@ -40,9 +40,6 @@ concepts:
 - monte carlo methods
 - inverse problems
 figures:
-- /iaifi-research-blog/figures/2501_14868/figure_1.png
-- /iaifi-research-blog/figures/2501_14868/figure_1.png
-- /iaifi-research-blog/figures/2501_14868/figure_2.png
 - /iaifi-research-blog/figures/2501_14868/figure_2.png
 - /iaifi-research-blog/figures/2501_14868/figure_3.png
 - /iaifi-research-blog/figures/2501_14868/figure_3.png
@@ -77,7 +74,7 @@ When stars form in a galactic center, what happens to the dark matter? Two compe
 
 The team analyzed six Milky Way-mass galaxies drawn from four simulation suites: Auriga, VINTERGATAN-GM, TNG50, and FIRE-2. Each implements these physical processes differently. Three suites (Auriga, VINTERGATAN-GM, TNG50) produce dark matter profiles that closely match the adiabatic contraction prescription of Gnedin et al. 2004. Stellar feedback in those models isn't strong enough to disrupt the contraction. FIRE-2 is the outlier: its stronger feedback drives the inner dark matter distribution outward, puffing up the halo.
 
-![Figure 1](/iaifi-research-blog/figures/2501_14868/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_14868/figure_2.png)
 
 The ratio shown above tells the story. In FIRE-2, dark matter mass in the inner regions consistently falls below the AC prediction; feedback has won. In the other three suites, the ratio stays near 1.0, meaning AC dominates. These two regimes define the bookends of the team's theoretical range.
 
@@ -85,7 +82,7 @@ With these simulation-calibrated models in hand, the researchers plugged in the 
 
 The team also characterized the *shape* of the halo. Adiabatically contracted halos are nearly spherical, with axis ratios q (where 1.0 is perfectly round) in the range [0.75–0.9] at 5° from the galactic center. FIRE-2-like halos are oblate, squashed along the disk axis, with q in [0.5–0.7]. This morphological difference matters for indirect detection searches, which routinely assume spherical symmetry.
 
-![Figure 2](/iaifi-research-blog/figures/2501_14868/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_14868/figure_3.png)
 
 ## Why It Matters
 

@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2212_06835/figure_1.png
 - /iaifi-research-blog/figures/2212_06835/figure_1.png
 - /iaifi-research-blog/figures/2212_06835/figure_2.png
-- /iaifi-research-blog/figures/2212_06835/figure_2.png
-- /iaifi-research-blog/figures/2212_06835/figure_3.png
-- /iaifi-research-blog/figures/2212_06835/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2212.06835v1
 published: '2022-12-14T18:59:07+00:00'
 theme: Theoretical Physics
@@ -87,13 +84,11 @@ With Gauge-Fermion FlowNet, the team probed several non-trivial regimes of 2+1D 
 
 **String breaking and confinement** is among the most dramatic phenomena in gauge theories. At weak matter coupling, opposite charges connect via a tube of electric flux, a "string" whose energy grows with separation, confining the charges. Add enough dynamical fermions and the string breaks: popping a fermion-antifermion pair from the vacuum becomes energetically cheaper than stretching the string further. The team maps this transition as a function of fermion density and hopping amplitude, finding clear signatures in the electric field profile between static test charges.
 
-![Figure 4](/iaifi-research-blog/figures/2212_06835/figure_2.png)
 
 At zero fermion density, they track a **phase transition from a charge crystal phase to a vacuum phase**. In the crystal phase, fermions spontaneously arrange into a regular pattern, breaking translational symmetry. As coupling strength changes, this order melts. The neural network correctly captures both phases and the transition, a nontrivial test of the method's accuracy.
 
 At finite density, a subtler effect shows up: **net charge penetration blocking**. Magnetic interactions between the gauge field and fermions create a traffic jam, preventing additional charge from entering certain lattice regions. This phase separation would be invisible to methods that can't handle the sign problem.
 
-![Figure 6](/iaifi-research-blog/figures/2212_06835/figure_3.png)
 
 The team also studies a **magnetic phase transition** driven by competition between fermionic kinetic energy and magnetic field energy. This is a genuine quantum phase transition, and the team finds that its order may differ between the continuous U(1) theory and truncated versions. That's a concrete warning for the broader community relying on truncated simulations.
 

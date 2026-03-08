@@ -32,9 +32,6 @@ concepts:
 - geometric deep learning
 figures:
 - /iaifi-research-blog/figures/2211_03198/figure_1.png
-- /iaifi-research-blog/figures/2211_03198/figure_1.png
-- /iaifi-research-blog/figures/2211_03198/figure_2.png
-- /iaifi-research-blog/figures/2211_03198/figure_2.png
 - /iaifi-research-blog/figures/2211_03198/figure_3.png
 - /iaifi-research-blog/figures/2211_03198/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.03198v1
@@ -71,7 +68,7 @@ The core architectural challenge was building a neural network that transforms *
 - **Gauge invariant blocks** pool the equivariant features into scalar quantities unchanged under any gauge transformation.
 - The full architecture stacks these blocks like a standard CNN, with every operation designed to respect the underlying symmetry group.
 
-![Figure 2](/iaifi-research-blog/figures/2211_03198/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2211_03198/figure_3.png)
 
 This is a *continuous-variable* architecture, and that distinction matters. Previous neural network approaches to lattice gauge theory handled discrete gauge groups (like Z_N, the integers modulo N). The U(1) group is continuous: the angular variable can take any value in [0, 2π). That demands a fundamentally different treatment using complex-valued representations and Fourier-mode decompositions, a technique for breaking continuous signals into their component frequencies.
 
@@ -81,7 +78,7 @@ The wave function is optimized using **variational Monte Carlo (VMC)**: network 
 
 The benchmarks speak for themselves. In the **strong coupling regime** (large coupling constant g), where quantum fluctuations dominate and the field is wildly disordered, the gauge equivariant neural network outperforms the previous best approach (complex Gaussian wave functions) by a meaningful margin. In the **weak coupling regime**, where the field tends toward smooth configurations, performance is comparable. This asymmetry makes physical sense: the strong coupling regime demands the most expressive wave function, and the neural network's nonlinear depth delivers exactly there.
 
-![Figure 3](/iaifi-research-blog/figures/2211_03198/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2211_03198/figure_3.png)
 
 U(1) gauge theory in 2+1D is a stepping stone. The same architectural principles, equivariant features, gauge-respecting convolutions, invariant readout, should generalize to **non-abelian** gauge groups like SU(2) and SU(3). These are groups where the order of transformations matters (unlike simple rotations on a circle), and they govern the weak and strong nuclear forces respectively.
 
@@ -89,7 +86,6 @@ Quantum hardware is another frontier. As quantum computers mature, they'll need 
 
 There's also a pure machine learning angle. The techniques developed here, building equivariant architectures for continuous symmetry groups acting on structured graph data, feed into the growing field of **geometric deep learning**, where symmetry principles guide network design rather than being treated as an afterthought.
 
-![Figure 4](/iaifi-research-blog/figures/2211_03198/figure_2.png)
 
 > **Bottom Line:** By embedding gauge symmetry directly into a neural network architecture, this work achieves more accurate ground state simulations of a foundational quantum field theory model and opens the door to tackling the continuous gauge groups that govern the actual forces of nature.
 

@@ -61,7 +61,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2512_03132/figure_1.png
 - /iaifi-research-blog/figures/2512_03132/figure_2.png
-- /iaifi-research-blog/figures/2512_03132/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.03132v1
 published: '2025-12-02T19:00:00+00:00'
 theme: Astrophysics
@@ -106,7 +105,6 @@ Then there's the shape of the inner density profile. A long-standing debate asks
 
 Some simulations with explosive, episodic "bursty" stellar feedback do create cores by repeatedly shaking the gravitational potential, causing rapid fluctuations that scour out the center. The DREAMS halos tell a different story: regardless of feedback variation, all 1,024 simulations are consistent with **adiabatic contraction**, a process where dark matter responds smoothly to the slow accumulation of baryons at the center. This makes the inner profile *denser* rather than hollow. IllustrisTNG's smooth feedback model simply doesn't generate the violent potential fluctuations needed to carve out a core.
 
-![Figure 3](/iaifi-research-blog/figures/2512_03132/figure_3.png)
 
 ## Why It Matters
 

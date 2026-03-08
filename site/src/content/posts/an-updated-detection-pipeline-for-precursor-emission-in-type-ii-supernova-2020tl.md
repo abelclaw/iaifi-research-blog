@@ -65,9 +65,6 @@ concepts:
 - supernova classification
 figures:
 - /iaifi-research-blog/figures/2501_08475/figure_1.png
-- /iaifi-research-blog/figures/2501_08475/figure_1.png
-- /iaifi-research-blog/figures/2501_08475/figure_2.png
-- /iaifi-research-blog/figures/2501_08475/figure_2.png
 - /iaifi-research-blog/figures/2501_08475/figure_3.png
 - /iaifi-research-blog/figures/2501_08475/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.08475v1
@@ -109,13 +106,13 @@ The numbers tell the story. The 2022 paper reported 2, 11, and 6 detections in t
 
 The team is also explicit that the blackbody spectral energy distribution fits (which used colors and brightness to estimate the pre-explosion source's temperature and physical size) and the derived temperature and radius parameters from 2022 should not be used going forward. The photometric basis for those fits was less reliable than understood at the time.
 
-![Figure 2](/iaifi-research-blog/figures/2501_08475/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_08475/figure_3.png)
 
 What survives stricter scrutiny? The core physical result. Binned photometry across all bands consistently shows a progenitor luminosity of roughly 10⁴⁰ erg/s before explosion, about 2.5 million times the Sun's luminosity. That's bright even for a red supergiant in its death throes. Pre-explosion absolute magnitudes settle around M ≈ −11.5 to −12 in the riz bands.
 
 The team also measured **forced photometry** (extracting a brightness measurement at a fixed sky location even when no obvious source is visible) at the supernova site using pre-explosion Pan-STARRS 3π survey imaging from 2011 to 2014, over three thousand days before first light. This quantifies how much underlying progenitor flux was subtracted out during **image differencing**, where a "before" image is subtracted from an "after" image to isolate new sources of light. That kind of careful bookkeeping separates a mature analysis from a preliminary one.
 
-![Figure 3](/iaifi-research-blog/figures/2501_08475/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2501_08475/figure_3.png)
 
 ## Why It Matters
 

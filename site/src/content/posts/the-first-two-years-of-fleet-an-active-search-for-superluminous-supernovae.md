@@ -43,7 +43,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2210_10811/figure_1.png
 - /iaifi-research-blog/figures/2210_10811/figure_2.png
-- /iaifi-research-blog/figures/2210_10811/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.10811v1
 published: '2022-10-19T18:01:43+00:00'
 theme: Astrophysics
@@ -85,7 +84,6 @@ FLEET 2.0 was retrained on 4,780 labeled transients, nearly three times the vers
 
 The team also checked whether FLEET introduces subtle bias into the scientific record. If the system preferentially recovers only the brightest SLSNe, or only those in certain host galaxies, studies built on FLEET-selected samples could reach skewed conclusions. Their analysis found FLEET-selected SLSNe are largely indistinguishable from the general population across physical and observational parameters, a reassuring sign that the algorithm isn't unknowingly sculpting the science.
 
-![Figure 3](/iaifi-research-blog/figures/2210_10811/figure_3.png)
 
 ## Why It Matters
 

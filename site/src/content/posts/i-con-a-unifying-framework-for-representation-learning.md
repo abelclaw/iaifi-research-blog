@@ -36,9 +36,7 @@ concepts:
 - kernel methods
 - multi-task learning
 figures:
-- /iaifi-research-blog/figures/2504_16929/figure_1.png
 - /iaifi-research-blog/figures/2504_16929/figure_2.png
-- /iaifi-research-blog/figures/2504_16929/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.16929v1
 published: '2025-04-23T17:59:01+00:00'
 theme: Foundational AI
@@ -70,7 +68,6 @@ The central mathematical object in I-Con is deceptively simple. Given a data poi
 
 That's it. One equation.
 
-![Figure 2](/iaifi-research-blog/figures/2504_16929/figure_2.png)
 
 The flexibility is in how those distributions are defined. A Gaussian neighborhood — a smooth bell-curve of similarity scores — gives you SNE. A heavy-tailed Student-T distribution, which spreads scores more broadly to better separate distant points, gives you t-SNE. Uniform distributions over augmentation pairs give you SimCLR. Uniform distributions over class prototypes give you cross-entropy loss. Clustering-based distributions give you k-Means or spectral clustering.
 
@@ -78,7 +75,7 @@ Each choice of distribution snaps a different well-known algorithm into place li
 
 The authors describe the result as a "periodic table" of representation learning — a grid where rows correspond to different learned distributions and columns to different supervisory signals. Every cell is a real, named algorithm. Some cells were previously unnamed, suggesting undiscovered methods live in the gaps.
 
-![Figure 1](/iaifi-research-blog/figures/2504_16929/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2504_16929/figure_2.png)
 
 The team proved 15 formal theorems connecting specific algorithms to I-Con, spanning from Pearson's PCA (1901) to CLIP (2021). Then they used the framework to design something new. By treating image clusters as the learned distribution and contrastive pairs as the supervisory signal — a combination the table exposes as natural but previously unexplored — they built a novel unsupervised classification pipeline.
 

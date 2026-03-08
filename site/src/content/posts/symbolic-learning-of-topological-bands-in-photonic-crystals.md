@@ -43,9 +43,6 @@ figures:
 - /iaifi-research-blog/figures/2505_10485/figure_1.png
 - /iaifi-research-blog/figures/2505_10485/figure_1.png
 - /iaifi-research-blog/figures/2505_10485/figure_2.png
-- /iaifi-research-blog/figures/2505_10485/figure_2.png
-- /iaifi-research-blog/figures/2505_10485/figure_3.png
-- /iaifi-research-blog/figures/2505_10485/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.10485v2
 published: '2025-05-15T16:38:19+00:00'
 theme: Experimental Physics
@@ -99,7 +96,6 @@ The combination of KANs with topological band theory creates a template that rea
 
 That the formulas generalize beyond the training domain is the part worth paying attention to. The model didn't memorize; it found the underlying physics.
 
-![Figure 4](/iaifi-research-blog/figures/2505_10485/figure_2.png)
 
 > **Bottom Line:** KANs don't just predict which photonic crystals are topological — they hand you the formula to design them, achieving deterministic inverse design of experimentally realizable structures with over 99% accuracy and interpretable algebraic rules.
 

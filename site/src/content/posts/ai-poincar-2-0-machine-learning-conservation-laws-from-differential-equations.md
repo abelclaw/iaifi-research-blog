@@ -25,11 +25,8 @@ concepts:
 - loss function design
 - interpretability
 figures:
-- /iaifi-research-blog/figures/2203_12610/figure_1.png
-- /iaifi-research-blog/figures/2203_12610/figure_1.png
 - /iaifi-research-blog/figures/2203_12610/figure_2.png
 - /iaifi-research-blog/figures/2203_12610/figure_2.png
-- /iaifi-research-blog/figures/2203_12610/figure_3.png
 - /iaifi-research-blog/figures/2203_12610/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2203.12610v2
 published: '2022-03-23T17:57:01+00:00'
@@ -54,7 +51,7 @@ A team at MIT and IIT Kharagpur set out to change that. Their algorithm, **AI Po
 
 The algorithm operates in three stages.
 
-![Figure 1](/iaifi-research-blog/figures/2203_12610/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2203_12610/figure_2.png)
 
 **Stage 1: Train neural networks to be conserved quantities.** For any dynamical system, a conserved quantity H must satisfy one condition: its value doesn't change as the system evolves. Mathematically, if **f**(**z**) describes how the system moves, a conservation law H must obey ∇H · **f** = 0. Its gradient must always be perpendicular to the direction of motion. The team represents H as a neural network and trains it to minimize a **conservation loss**, penalizing the network whenever its gradient isn't perpendicular to the flow.
 
@@ -75,11 +72,11 @@ The method was tested on a demanding suite of classical problems:
 - **KdV wave equation**: 2–4 conservation laws recovered ✓
 - **Nonlinear Schrödinger equation**: 1–3 conservation laws recovered ✓
 
-![Figure 2](/iaifi-research-blog/figures/2203_12610/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2203_12610/figure_2.png)
 
 The KdV result stands out. The Korteweg–De Vries equation describes solitons, wave packets that travel without dispersing. Because solitons move in one direction, they violate the **ergodicity** assumption that earlier methods required: the idea that a system will eventually visit every possible state. AI Poincaré 1.0 would have stumbled here. Version 2.0 works directly from the equations rather than observed trajectories, so ergodicity is irrelevant.
 
-![Figure 3](/iaifi-research-blog/figures/2203_12610/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2203_12610/figure_3.png)
 
 For the three-body problem, notorious for its chaotic complexity, the algorithm extracted known conserved quantities including total energy and momentum components as interpretable symbolic formulas, not opaque network weights.
 
@@ -91,7 +88,6 @@ The work has implications for AI as well. The functional independence framework 
 
 The natural next step is applying this to systems where conservation laws are *unknown*: turbulence, biological networks, novel materials. These are systems where human physicists haven't yet written down the invariants. AI Poincaré 2.0 is a step toward letting the machine do that discovery autonomously.
 
-![Figure 4](/iaifi-research-blog/figures/2203_12610/figure_2.png)
 
 > **Bottom Line:** AI Poincaré 2.0 shows that machine learning can systematically uncover the hidden invariants of dynamical systems, including famously hard cases like the three-body problem and nonlinear wave equations, by combining neural network training with a nonlinear independence test that works where classical linear algebra falls short.
 

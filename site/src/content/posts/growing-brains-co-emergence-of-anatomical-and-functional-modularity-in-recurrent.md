@@ -35,11 +35,8 @@ concepts:
 - representation learning
 - neuromorphic computing
 figures:
-- /iaifi-research-blog/figures/2310_07711/figure_1.png
-- /iaifi-research-blog/figures/2310_07711/figure_1.png
 - /iaifi-research-blog/figures/2310_07711/figure_2.png
 - /iaifi-research-blog/figures/2310_07711/figure_2.png
-- /iaifi-research-blog/figures/2310_07711/figure_3.png
 - /iaifi-research-blog/figures/2310_07711/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.07711v1
 published: '2023-10-11T17:58:25+00:00'
@@ -75,17 +72,17 @@ This distance penalty creates pressure for neurons to cluster near their collabo
 
 The result: neurons that fire together don't just wire together. They *move* together.
 
-![Figure 1](/iaifi-research-blog/figures/2310_07711/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2310_07711/figure_2.png)
 
 After training, the hidden layer develops spatial structure that resembles a simplified brain map. Neurons specializing in the same subtask cluster into distinct spatial patches, connected densely within each patch and sparsely across patches.
 
-![Figure 2](/iaifi-research-blog/figures/2310_07711/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2310_07711/figure_2.png)
 
 The paper quantifies this with two metrics: a **modularity score** measuring how well neurons cluster by function, and a **locality score** measuring how spatially concentrated each cluster is. BIMT consistently achieves high scores on both. Standard L1 achieves functional modularity but nearly zero anatomical modularity.
 
 The performance-sparsity tradeoff is where BIMT really shines. It sits on a better **Pareto frontier** (the boundary of best achievable tradeoffs) than either L1 or no regularization. For the same sparsity level, BIMT networks make fewer errors. For the same error rate, they use fewer active neurons and shorter total wiring.
 
-![Figure 3](/iaifi-research-blog/figures/2310_07711/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2310_07711/figure_3.png)
 
 The spatial pressure appears to force the network toward representations that are both compact and reusable, exactly the kind of structure that generalizes well to new combinations of familiar subtasks. The researchers confirmed these findings on a second benchmark, `Mod-Cog-tasks`, with qualitatively similar results.
 

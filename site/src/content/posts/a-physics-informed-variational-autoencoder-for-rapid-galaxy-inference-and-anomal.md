@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2312_16687/figure_1.png
 - /iaifi-research-blog/figures/2312_16687/figure_1.png
 - /iaifi-research-blog/figures/2312_16687/figure_2.png
-- /iaifi-research-blog/figures/2312_16687/figure_2.png
-- /iaifi-research-blog/figures/2312_16687/figure_3.png
-- /iaifi-research-blog/figures/2312_16687/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.16687v1
 published: '2023-12-27T18:59:59+00:00'
 theme: Astrophysics

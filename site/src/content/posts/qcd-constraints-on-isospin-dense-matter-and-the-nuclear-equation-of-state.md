@@ -37,7 +37,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2406_09273/figure_1.png
-- /iaifi-research-blog/figures/2406_09273/figure_2.png
 - /iaifi-research-blog/figures/2406_09273/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2406.09273v3
 published: '2024-06-13T16:11:10+00:00'
@@ -75,13 +74,12 @@ Here's how the calculation was carried out:
 - At **small μI**, results were compared to **chiral perturbation theory (χPT)** (a low-energy approximation describing composite quark-based particles at modest densities) and found to agree, confirming the lattice calculations capture the correct low-density physics.
 - At **large μI**, matching against **perturbative QCD (pQCD)** (valid when matter is so dense that quarks interact only weakly) yielded a determination of the **color-superconducting gap**: the energy gap associated with **Cooper pairs** of quarks (analogous to the electron pairs that enable superconductivity) forming in the high-density phase. The extracted gap agrees with leading-order perturbative predictions, with better precision.
 
-![Figure 2](/iaifi-research-blog/figures/2406_09273/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2406_09273/figure_3.png)
 
 One result stands out: the **speed of sound**. Theory predicts that in a gas of non-interacting massless particles, the speed of sound can't exceed c²s/c² = 1/3 (the **conformal limit**). The calculations show this limit is significantly exceeded across a wide range of isospin chemical potentials, confirming that strongly interacting dense matter is far from a simple gas. This point has been a persistent source of debate in neutron star physics.
 
 To build a complete equation of state valid at all densities, the team applied **Bayesian model mixing**, a statistical framework that weights multiple theories by how well each fits the data in its domain. It combines χPT at low densities, lattice QCD in the middle range, and pQCD at asymptotically high densities. The resulting EoS is continuous, smooth, and grounded in theory across all scales.
 
-![Figure 3](/iaifi-research-blog/figures/2406_09273/figure_3.png)
 
 ## Why It Matters
 

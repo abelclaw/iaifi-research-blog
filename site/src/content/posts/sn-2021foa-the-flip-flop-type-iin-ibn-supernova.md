@@ -68,7 +68,6 @@ figures:
 - /iaifi-research-blog/figures/2409_01359/figure_2.png
 - /iaifi-research-blog/figures/2409_01359/figure_2.png
 - /iaifi-research-blog/figures/2409_01359/figure_3.png
-- /iaifi-research-blog/figures/2409_01359/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.01359v2
 published: '2024-09-02T16:24:22+00:00'
 theme: Experimental Physics
@@ -114,7 +113,6 @@ That last number is staggering. Normal Type II supernova progenitors lose mass a
 
 This picture fits with a class of volatile massive stars known as **SN 2009ip-like objects**, stars caught in repeated outbursts before their terminal explosion. SN 2021foa showed precursor emission before its main event, hinting that its progenitor was already shedding shells of material that would become the complex, multi-layered CSM the supernova eventually collided with.
 
-![Figure 4](/iaifi-research-blog/figures/2409_01359/figure_3.png)
 
 ## Why It Matters
 

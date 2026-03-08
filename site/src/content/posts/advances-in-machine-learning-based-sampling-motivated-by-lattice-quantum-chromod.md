@@ -42,7 +42,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2309_01156/figure_1.png
 - /iaifi-research-blog/figures/2309_01156/figure_2.png
-- /iaifi-research-blog/figures/2309_01156/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2309.01156v1
 published: '2023-09-03T12:25:59+00:00'
 theme: Theoretical Physics
@@ -82,7 +81,6 @@ What makes this hard, and interesting, is the structure of the QCD distribution.
 
 The result is a new class of ML architectures that look nothing like what's used in image or text generation. They're purpose-built for the geometry and symmetry of quantum field theory.
 
-![Figure 3](/iaifi-research-blog/figures/2309_01156/figure_3.png)
 
 ## Why It Matters
 

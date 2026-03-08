@@ -37,11 +37,8 @@ concepts:
 - convolutional networks
 - out-of-distribution detection
 figures:
-- /iaifi-research-blog/figures/2403_10648/figure_1.png
-- /iaifi-research-blog/figures/2403_10648/figure_1.png
 - /iaifi-research-blog/figures/2403_10648/figure_2.png
 - /iaifi-research-blog/figures/2403_10648/figure_2.png
-- /iaifi-research-blog/figures/2403_10648/figure_3.png
 - /iaifi-research-blog/figures/2403_10648/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.10648v1
 published: '2024-03-15T19:31:40+00:00'
@@ -73,7 +70,7 @@ The training setup uses paired 2D maps drawn from three galaxy formation framewo
 - **Scale:** Simulation boxes 25 h⁻¹ Mpc (~115 million light-years) per side
 - **Simulation suites:** ASTRID, IllustrisTNG, and SIMBA, each making fundamentally different physical assumptions about how galaxies form
 
-![Figure 1](/iaifi-research-blog/figures/2403_10648/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2403_10648/figure_2.png)
 
 What sets this approach apart is the probabilistic posterior. Instead of producing a single best-guess dark matter map, the model generates an ensemble of plausible maps, each consistent with the input galaxy field. Given the same galaxy distribution, multiple dark matter configurations are statistically valid. The model represents all of them, capturing genuine physical uncertainty rather than papering over it.
 
@@ -81,11 +78,10 @@ What sets this approach apart is the probabilistic posterior. Instead of produci
 
 The generalization results here are unusual. The model was trained on small simulation boxes, then applied to IllustrisTNG-300, a simulation roughly 500 times larger in volume. The reconstructed dark matter fields remained statistically accurate, recovering correct power spectra and probability density functions (the statistical fingerprints of how matter clusters at different scales) even on data well outside the training range. That kind of extrapolation is rare. It suggests the model has learned genuine physical relationships, not just shortcuts that work on training data.
 
-![Figure 2](/iaifi-research-blog/figures/2403_10648/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2403_10648/figure_2.png)
 
 The model also transfers across galaxy formation models. A diffusion model trained only on IllustrisTNG can reconstruct dark matter fields from SIMBA or ASTRID galaxy distributions with reasonable accuracy, despite different feedback physics and noticeably different galaxy populations. This cross-suite robustness matters for real observational data, where we don't know which simulation most accurately describes the universe.
 
-![Figure 4](/iaifi-research-blog/figures/2403_10648/figure_2.png)
 
 The approach feeds into two high-priority goals in observational cosmology. First, reconstructed dark matter fields enable **field-level cosmological inference**: extracting information from the full density field, including cosmic voids and filaments, rather than just clustering statistics. Second, by identifying regions with unusually low stellar-to-dark-matter mass ratios, the reconstruction can guide searches for direct dark matter detection signatures.
 

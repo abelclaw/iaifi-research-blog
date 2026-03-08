@@ -42,10 +42,7 @@ concepts:
 - inverse problems
 figures:
 - /iaifi-research-blog/figures/2508_17399/figure_1.png
-- /iaifi-research-blog/figures/2508_17399/figure_1.png
 - /iaifi-research-blog/figures/2508_17399/figure_2.png
-- /iaifi-research-blog/figures/2508_17399/figure_2.png
-- /iaifi-research-blog/figures/2508_17399/figure_3.png
 - /iaifi-research-blog/figures/2508_17399/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2508.17399v2
 published: '2025-08-24T15:18:45+00:00'
@@ -79,11 +76,10 @@ The backbone of the system is **YOLO (You Only Look Once)**, a deep neural netwo
 
 GW-YOLO doesn't just draw a box around what it finds. It produces **pixel-level segmentation masks**, precise outlines of each detected object in time-frequency space. Knowing exactly which pixels belong to a glitch versus a real signal is the first step toward automated noise subtraction, the kind of operation that took days of expert labor during GW170817.
 
-![Figure 2](/iaifi-research-blog/figures/2508_17399/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2508_17399/figure_2.png)
 
 Training required constructing a realistic synthetic dataset. The team injected simulated BBH and BNS **waveforms** (the predicted time-frequency shapes of gravitational wave signals) into real LIGO noise across a range of **signal-to-noise ratios (SNR)**, then overlaid those injections with real glitches drawn from LIGO's own archives. The model learned not just what signals look like in isolation, but what they look like tangled together with noise. That's the scenario that actually matters.
 
-![Figure 4](/iaifi-research-blog/figures/2508_17399/figure_2.png)
 
 The performance benchmarks are honest about the difficulty. For binary black hole signals overlapping with glitches, GW-YOLO achieves 50% detection efficiency at SNR 15, reliably spotting relatively loud events. For binary neutron star signals, which sweep through more frequencies over longer durations, the 50% threshold rises to SNR 30. BNS signals are inherently harder to disentangle from an overlapping glitch, and the numbers reflect that physical reality.
 
@@ -95,7 +91,6 @@ The current approach, expert humans with specialized software working case by ca
 
 GW-YOLO points toward a different kind of pipeline: one that ingests raw LIGO data, produces Q-scans, runs them through the neural network in under a second, and outputs labeled masks telling downstream tools exactly what's signal and what's noise. Those pixel masks can feed directly into noise-subtraction algorithms, enabling automated glitch removal that today still requires human oversight. The precise time-frequency coordinates could also help pin down the physical properties of merging objects, since a signal's shape encodes information about masses, spins, and distances.
 
-![Figure 5](/iaifi-research-blog/figures/2508_17399/figure_3.png)
 
 Open questions remain. The current system handles two glitch classes and two signal types; real LIGO data contains dozens of distinct glitch morphologies. Extending GW-YOLO's vocabulary will require more training data and careful validation. Very low-SNR signals, exactly the regime where third-generation detectors will push us, also remain challenging. But as a proof of concept and a first quantitative baseline, the groundwork is laid.
 

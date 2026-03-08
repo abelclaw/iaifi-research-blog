@@ -33,8 +33,6 @@ concepts:
 - swampland program
 figures:
 - /iaifi-research-blog/figures/2404_02191/figure_1.png
-- /iaifi-research-blog/figures/2404_02191/figure_2.png
-- /iaifi-research-blog/figures/2404_02191/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.02191v1
 published: '2024-04-02T18:00:00+00:00'
 theme: Theoretical Physics
@@ -70,7 +68,6 @@ The researchers attacked this problem through a three-step program:
 
 3. **Fuse local theories into global ones.** Individual instanton theories describe local physics near a singularity. To build complete six-dimensional supergravity theories, the researchers fused multiple local building blocks together. They show this fusion process commutes with turning off vector structure, meaning the two operations can be performed in either order and give the same answer.
 
-![Figure 2](/iaifi-research-blog/figures/2404_02191/figure_2.png)
 
 One sharp consistency check comes from **neutral hypermultiplets**, massless particles that carry no gauge charge. Two related heterotic theories that differ only by whether vector structure is activated must have identical neutral hypermultiplet counts. This is non-trivial: it means freezing has a precise, verifiable signature. The team completed the An singularity cases fully and made substantial progress on the Dn and Em cases, producing a near-complete classification of this duality in six dimensions.
 
@@ -82,7 +79,6 @@ The paper also opens a window onto **higher-form symmetries** in the frozen phas
 
 The duality also provides a strongly coupled description of orbifold phases of **Type I string theory** (another of the five original superstring theories) without vector structure. These theories were previously inaccessible through direct perturbative methods.
 
-![Figure 3](/iaifi-research-blog/figures/2404_02191/figure_3.png)
 
 > **Bottom Line:** By systematically mapping the frozen corner of heterotic–F-theory duality in six dimensions, this paper expands the known string landscape, delivers new consistency constraints via hypermultiplet counting, and raises new questions about discrete symmetries in quantum gravity.
 

@@ -39,7 +39,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2509_20683/figure_1.png
 - /iaifi-research-blog/figures/2509_20683/figure_2.png
-- /iaifi-research-blog/figures/2509_20683/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2509.20683v1
 published: '2025-09-25T02:31:56+00:00'
 theme: Foundational AI
@@ -86,7 +85,6 @@ The machine learning community has invested heavily in **equivariant neural netw
 
 This paper's message is more pragmatic: if your training data is already statistically symmetric, your model will learn the symmetry implicitly. You don't always need the extra machinery.
 
-![Figure 3](/iaifi-research-blog/figures/2509_20683/figure_3.png)
 
 The practical payoff is real. Turbulence super-resolution is increasingly used in climate modeling, aerodynamics, and plasma physics. In all of these, high-resolution simulation is essential but expensive. Knowing *when* you need a symmetry-aware architecture (strongly anisotropic boundary flows) versus when a standard CNN suffices (isotropic bulk turbulence) lets practitioners make smarter design choices.
 

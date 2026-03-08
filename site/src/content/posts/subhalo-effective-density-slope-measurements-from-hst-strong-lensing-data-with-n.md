@@ -40,10 +40,6 @@ concepts:
 - calibration
 figures:
 - /iaifi-research-blog/figures/2308_09739/figure_1.png
-- /iaifi-research-blog/figures/2308_09739/figure_1.png
-- /iaifi-research-blog/figures/2308_09739/figure_2.png
-- /iaifi-research-blog/figures/2308_09739/figure_2.png
-- /iaifi-research-blog/figures/2308_09739/figure_3.png
 - /iaifi-research-blog/figures/2308_09739/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.09739v2
 published: '2023-08-18T18:00:01+00:00'
@@ -81,7 +77,6 @@ Here's the pipeline, step by step:
 
 4. **Combining observations.** The trained model is applied to a set of real HST lensing images. Because the NLRE produces likelihood ratios, individual measurements can be combined by multiplying them, a statistically rigorous way to pool evidence across multiple lens systems.
 
-![Figure 3](/iaifi-research-blog/figures/2308_09739/figure_2.png)
 
 The team also invested in careful **model evaluation**, testing the network on simulated images with known ground-truth slope values before ever touching real data. This calibration step, often skipped in earlier ML lensing work, is what makes the real-data results credible.
 
@@ -91,7 +86,6 @@ Applied to the HST observations, the trained model measured a subhalo density sl
 
 The team is careful about interpretation. Steeper subhalos are easier to detect in lensing images, so selection effects could bias the sample toward unusually concentrated objects. But the consistency across methods is hard to dismiss.
 
-![Figure 5](/iaifi-research-blog/figures/2308_09739/figure_3.png)
 
 What matters most here is the machinery itself. Euclid, the Vera C. Rubin Observatory, and the Nancy Grace Roman Space Telescope will discover thousands of strong lens systems where today we have dozens. Traditional subhalo modeling cannot scale to that volume. Neural likelihood-ratio estimation can. The paper shows the approach works not just on idealized simulations but on the messy reality of actual telescope data, closing the gap between proof-of-concept and operational science tool.
 

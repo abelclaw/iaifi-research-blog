@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2410_23346/figure_1.png
 - /iaifi-research-blog/figures/2410_23346/figure_1.png
 - /iaifi-research-blog/figures/2410_23346/figure_2.png
-- /iaifi-research-blog/figures/2410_23346/figure_2.png
-- /iaifi-research-blog/figures/2410_23346/figure_3.png
-- /iaifi-research-blog/figures/2410_23346/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.23346v2
 published: '2024-10-30T18:00:02+00:00'
 theme: Astrophysics
@@ -87,7 +84,6 @@ The surrogate plugs directly into the **ASURA-FDPS** simulation code, a **smooth
 
 The validation bears this out. Comparing surrogate-accelerated simulations against fully resolved direct simulations of the same dwarf galaxy (identical initial conditions, same physics, different supernova solvers) the star formation histories match closely. So do the outflow rates, the measure of how much material supernovae blast out of the galaxy over time. These are precisely the quantities most sensitive to getting supernova feedback right.
 
-![Figure 4](/iaifi-research-blog/figures/2410_23346/figure_2.png)
 
 The 75% cost reduction reflects the specific bottleneck being eliminated. In direct simulations, supernova time-step constraints dominate total wall-clock time. Replacing those constraints with fast surrogate evaluations removes the tax that individual explosions impose on the entire simulation.
 

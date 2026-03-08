@@ -29,10 +29,6 @@ concepts:
 - neutrino detection
 - dark matter
 figures:
-- /iaifi-research-blog/figures/2408_14538/figure_1.png
-- /iaifi-research-blog/figures/2408_14538/figure_1.png
-- /iaifi-research-blog/figures/2408_14538/figure_2.png
-- /iaifi-research-blog/figures/2408_14538/figure_2.png
 - /iaifi-research-blog/figures/2408_14538/figure_3.png
 - /iaifi-research-blog/figures/2408_14538/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.14538v2
@@ -58,7 +54,7 @@ A team led by researchers at NYU, Princeton, MIT, and IAIFI has built a new BBN 
 
 The core innovation in LINX is its foundation in **JAX**, Google's numerical computing library. JAX compiles Python to fast machine instructions and can automatically compute derivatives of any function. This isn't just a software engineering detail; it changes what cosmologists can actually do with a BBN code.
 
-![Figure 1](/iaifi-research-blog/figures/2408_14538/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2408_14538/figure_3.png)
 
 Traditional BBN codes solve a coupled system of nuclear reaction network equations: differential equations tracking how abundances of hydrogen, deuterium, helium-3, helium-4, lithium-7, and other light isotopes evolve as the universe cools. LINX implements the same physics, but keeps every step differentiable end-to-end:
 
@@ -71,7 +67,6 @@ Differentiability means users can compute *gradients*, precise measures of how f
 
 This is what makes **Hamiltonian Monte Carlo (HMC)** and **variational inference** possible. These gradient-based statistical methods navigate parameter space by following mathematical slopes rather than wandering randomly, and they are exponentially more efficient than the random-walk samplers BBN codes have historically been stuck with.
 
-![Figure 3](/iaifi-research-blog/figures/2408_14538/figure_2.png)
 
 In validation tests, LINX matches the established code PRIMAT to better than 0.1% for helium-4 abundance and within a few percent for deuterium and lithium-7, well within current observational uncertainties. A single evaluation takes milliseconds on a standard laptop. After JIT compilation, full parameter scans run orders of magnitude faster than comparable legacy codes.
 
@@ -79,7 +74,6 @@ In validation tests, LINX matches the established code PRIMAT to better than 0.1
 
 Cosmology is entering an era of extraordinary precision. Experiments like the Simons Observatory and CMB-S4 will deliver exquisite measurements of the cosmic microwave background that demand equally precise theoretical predictions. The angular pattern of temperature fluctuations in the CMB depends on the primordial helium abundance, which a BBN code must compute before a CMB simulation code can even begin. BBN sits at a chokepoint in the analysis pipelines for these next-generation experiments.
 
-![Figure 5](/iaifi-research-blog/figures/2408_14538/figure_3.png)
 
 LINX removes that chokepoint. By combining LINX with differentiable CMB emulators like CosmoPower, the team built a fully-differentiable joint CMB+BBN pipeline that constrains the baryon density and effective number of neutrino species simultaneously, all on personal hardware. No supercomputer required. This makes richer searches for new physics practical: light dark matter species, non-standard neutrino interactions, exotic particle decays during BBN. Analyses that previously required weeks of cluster time become afternoon projects.
 

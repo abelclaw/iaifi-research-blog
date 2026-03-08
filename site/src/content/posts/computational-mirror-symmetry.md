@@ -24,13 +24,7 @@ concepts:
 - inverse problems
 - surrogate modeling
 - monte carlo methods
-figures:
-- /iaifi-research-blog/figures/2303_00757/figure_1.png
-- /iaifi-research-blog/figures/2303_00757/figure_1.png
-- /iaifi-research-blog/figures/2303_00757/figure_2.png
-- /iaifi-research-blog/figures/2303_00757/figure_2.png
-- /iaifi-research-blog/figures/2303_00757/figure_3.png
-- /iaifi-research-blog/figures/2303_00757/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2303.00757v2
 published: '2023-03-01T19:00:00+00:00'
 theme: Theoretical Physics
@@ -58,7 +52,6 @@ The core goal is to compute the **prepotential**, a single mathematical function
 
 Mirror symmetry converts this quantum problem into a classical one. On the mirror Calabi-Yau, the prepotential can be read off from **periods**, integrals of a special geometric quantity over a set of three-dimensional surfaces within the space. These are classical geometric quantities, governed by differential equations called the **Picard-Fuchs system**. The strategy: solve those equations, extract the periods, apply the mirror map (the translation between the two geometries), and decode the GV invariants from the resulting expansion.
 
-![Figure 1](/iaifi-research-blog/figures/2303_00757/figure_1.png)
 
 Three obstacles have historically blocked this approach for large Calabi-Yau spaces:
 
@@ -66,7 +59,6 @@ Three obstacles have historically blocked this approach for large Calabi-Yau spa
 2. **Non-simplicial Mori cones**: the standard HKTY method, a classical algorithm for connecting a Calabi-Yau to its mirror, requires the Mori cone (the space of effective curve classes) to be *simplicial*, meaning it has as many generating directions as its dimension. This condition almost never holds when the number of moduli is large. The authors solve this by generalizing the HKTY construction to arbitrary Mori cones.
 3. **Exponential lattice sums**: extracting GV invariants requires scanning lattice points in the Mori cone, and the number of such points grows exponentially with the number of moduli. The authors develop a consistent truncation strategy, proving that contributions from curve classes above a certain degree threshold can be safely ignored. This makes the sum finite and manageable.
 
-![Figure 3](/iaifi-research-blog/figures/2303_00757/figure_2.png)
 
 The truncation idea is especially clean. Rather than summing infinitely many contributions, the authors show that GV invariants for curves that are "too big" cannot contribute to the prepotential at any given order in the expansion. This lets them prune the search space systematically and dramatically.
 
@@ -76,7 +68,6 @@ For Calabi-Yau geometries with non-simplicial Mori cones, the team introduces an
 
 The string landscape, the vast space of possible extra-dimensional geometries, contains an astronomically large number of Calabi-Yau threefolds, most of them with large numbers of moduli. Computing GV invariants in these spaces isn't just a mathematical exercise. These invariants feed into our understanding of how quantum corrections shape the effective physical theories derived from string compactifications, including potential connections to particle physics and cosmology. Without tools like this, the landscape remains largely opaque.
 
-![Figure 5](/iaifi-research-blog/figures/2303_00757/figure_3.png)
 
 Mirror symmetry also sits at a crossroads of physics, mathematics, and computation. The GV invariants computed here are objects of pure mathematics (enumerative invariants studied by algebraic geometers), but they are most efficiently computed using physics-inspired methods. This work extends those methods into previously inaccessible territory, opening a new computational frontier in enumerative geometry.
 

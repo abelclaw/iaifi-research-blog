@@ -33,7 +33,6 @@ concepts:
 - self-supervised learning
 figures:
 - /iaifi-research-blog/figures/2509_04734/figure_1.png
-- /iaifi-research-blog/figures/2509_04734/figure_2.png
 pdfUrl: https://arxiv.org/pdf/2509.04734v2
 published: '2025-09-05T01:23:59+00:00'
 theme: Foundational AI
@@ -77,7 +76,6 @@ For unsupervised clustering (grouping images by similarity without any labels), 
 
 For supervised contrastive learning (training a model to pull similar examples together and push different ones apart), they trained on CIFAR-10 and found that JSD improved linear probe accuracy over the KL baseline consistently across multiple runs. Small numbers on a mature benchmark, but meaningful ones.
 
-![Figure 2](/iaifi-research-blog/figures/2509_04734/figure_2.png)
 
 The gradient dynamics tell a similar story. With KL-based losses, training signals show violent spikes early in optimization, a sign of an unstable loss landscape. The bounded divergences train smoothly. The choice of loss function shapes the entire training trajectory.
 

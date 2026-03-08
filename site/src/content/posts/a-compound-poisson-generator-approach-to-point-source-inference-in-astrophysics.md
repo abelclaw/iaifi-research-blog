@@ -42,7 +42,6 @@ concepts:
 - neutrino detection
 figures:
 - /iaifi-research-blog/figures/2104_04529/figure_1.png
-- /iaifi-research-blog/figures/2104_04529/figure_2.png
 - /iaifi-research-blog/figures/2104_04529/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2104.04529v2
 published: '2021-04-09T18:00:00+00:00'
@@ -94,7 +93,7 @@ The paper also uncovers a subtler but equally dangerous issue: **prior bias** in
 
 In this limit, nearly any "uninformative" prior causes the posterior to pile up at one extreme. The model confidently assigns all observed flux to either point sources or diffuse emission, even when the data have nothing to say about the question.
 
-![Figure 2](/iaifi-research-blog/figures/2104_04529/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2104_04529/figure_3.png)
 
 The fix is a reparameterization. Instead of working directly with the normalization of the source-count function, the authors define a coordinate system that separates total flux from its fractional assignment between populations. With this parameterization, CPG correctly identifies that when the data can't constrain the split, the posterior stays broad and honest rather than collapsing to spurious certainty.
 

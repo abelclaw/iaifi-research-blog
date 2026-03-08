@@ -31,8 +31,6 @@ concepts:
 - transfer learning
 figures:
 - /iaifi-research-blog/figures/2404_11674/figure_1.png
-- /iaifi-research-blog/figures/2404_11674/figure_2.png
-- /iaifi-research-blog/figures/2404_11674/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.11674v1
 published: '2024-04-17T18:17:14+00:00'
 theme: Theoretical Physics
@@ -66,11 +64,9 @@ The paper demonstrates two distinct strategies, both built around **replica exch
 
 - **Defect Repair:** A deliberately unphysical "defect" action lowers barriers between topological sectors, letting a separate replica mix freely across them. A flow then maps configurations from this defect theory back to the physical theory. These repaired configurations inject topological diversity into the physical replica that standard sampling couldn't achieve alone.
 
-![Figure 2](/iaifi-research-blog/figures/2404_11674/figure_2.png)
 
 Both strategies share one feature that matters: they don't require perfect flows. An approximate flow simply reduces acceptance rates without biasing results. Exact statistics are recovered via the Metropolis acceptance step. Imperfect flows become useful *components* in exact sampling machinery, rather than needing to replace it wholesale.
 
-![Figure 3](/iaifi-research-blog/figures/2404_11674/figure_3.png)
 
 Training uses **reverse KL self-training with path gradients**: the flow generates its own training samples, compares them to the target distribution, and uses gradients traced back through the sampling process to reduce noise. The base distributions are already gauge theories at positive coupling, which makes training harder but more relevant to real applications.
 

@@ -49,10 +49,7 @@ concepts:
 - anomaly detection
 figures:
 - /iaifi-research-blog/figures/2403_07975/figure_1.png
-- /iaifi-research-blog/figures/2403_07975/figure_1.png
 - /iaifi-research-blog/figures/2403_07975/figure_2.png
-- /iaifi-research-blog/figures/2403_07975/figure_2.png
-- /iaifi-research-blog/figures/2403_07975/figure_3.png
 - /iaifi-research-blog/figures/2403_07975/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.07975v1
 published: '2024-03-12T18:00:00+00:00'
@@ -89,7 +86,7 @@ The second stage is where machine learning takes over. Those best-fit parameters
 - **Type IIn**: explosions interacting with surrounding circumstellar material
 - **SLSN-I**: superluminous supernovae, the brightest explosions known
 
-![Figure 2](/iaifi-research-blog/figures/2403_07975/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2403_07975/figure_2.png)
 
 One important design choice was handling class imbalance. Type Ia supernovae dominate the training set; rarer types like SLSNe are scarce. The team synthetically generated extra training examples of underrepresented classes, a technique called **oversampling**, so the classifier doesn't just default to shouting "Type Ia!" at everything.
 
@@ -105,7 +102,6 @@ When compared to the independent ALeRCE classifier (another redshift-free system
 
 The bigger story is preparation for Rubin. LSST will observe in six photometric bands, more than ZTF's two, and the team built Superphot+ for straightforward adaptation to that richer dataset. In a world where millions of supernovae go unclassified each year, tools like this become the primary scientific record. The classifications Superphot+ assigns will shape which events get studied in detail, which cosmological samples get assembled, and what we learn about stellar life cycles and the expansion history of the universe.
 
-![Figure 5](/iaifi-research-blog/figures/2403_07975/figure_3.png)
 
 > **Bottom Line:** Machine learning on light curve shapes alone can classify supernovae with better than 80% accuracy, and Superphot+ is already doing it on live telescope data, ready to scale to the Rubin deluge.
 

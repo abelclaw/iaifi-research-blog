@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2504_05235/figure_1.png
 - /iaifi-research-blog/figures/2504_05235/figure_1.png
 - /iaifi-research-blog/figures/2504_05235/figure_2.png
-- /iaifi-research-blog/figures/2504_05235/figure_2.png
-- /iaifi-research-blog/figures/2504_05235/figure_3.png
-- /iaifi-research-blog/figures/2504_05235/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.05235v4
 published: '2025-04-07T16:19:50+00:00'
 theme: Astrophysics
@@ -90,7 +87,6 @@ The speed gain isn't just convenient. It opens up a new mode of scientific inqui
 
 With IAEmu, gradient-based sampling algorithms like Hamiltonian Monte Carlo can query the emulator directly. HMC navigates parameter space by following mathematical gradients, much like water finding the fastest route downhill, and the differentiable emulator makes this natural. The team shows this explicitly: IAEmu supports efficient parameter recovery via differentiable sampling, cutting the cost of pinning down model parameters by orders of magnitude.
 
-![Figure 5](/iaifi-research-blog/figures/2504_05235/figure_3.png)
 
 IAEmu also generalizes beyond the HOD sandbox it was trained on. The researchers tested it by fitting IA parameters to data from the IllustrisTNG300 hydrodynamical simulation, a physically richer model that includes gas, star formation, and feedback processes that HOD models don't capture. IAEmu adapted, showing that its learned representations transfer beyond its training distribution.
 

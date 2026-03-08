@@ -22,10 +22,7 @@ concepts:
 - kernel methods
 figures:
 - /iaifi-research-blog/figures/2202_07590/figure_1.png
-- /iaifi-research-blog/figures/2202_07590/figure_1.png
 - /iaifi-research-blog/figures/2202_07590/figure_2.png
-- /iaifi-research-blog/figures/2202_07590/figure_2.png
-- /iaifi-research-blog/figures/2202_07590/figure_3.png
 - /iaifi-research-blog/figures/2202_07590/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2202.07590v1
 published: '2022-02-15T17:26:13+00:00'
@@ -59,13 +56,13 @@ Two geometries are topologically equivalent if there exists an integer matrix Λ
 
 To test whether ML can make progress, the authors study a mathematically analogous but tractable problem: **unitary equivalence of complex matrices**. Two matrices A and B are unitarily equivalent if B = ΛAΛ† for some unitary Λ, a rotation-like transformation preserving lengths and angles. **Specht's theorem** gives a complete answer here: two matrices are equivalent if and only if all "word traces" Tr W(A, A†) agree, where W ranges over combinations built from A and its **adjoint** (the conjugate transpose, obtained by flipping across the diagonal and taking complex conjugates). For N×N matrices, only finitely many such combinations need checking.
 
-![Figure 2](/iaifi-research-blog/figures/2202_07590/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2202_07590/figure_2.png)
 
 The team trained neural networks to predict whether matrix pairs are unitarily equivalent. The real question was whether the networks would learn Specht invariants or find something else entirely.
 
 Networks distinguish equivalent from non-equivalent pairs with high accuracy. Probing what they actually compute reveals they are implicitly capturing the trace invariants that Specht's theorem prescribes. The ML system rediscovers the known mathematical structure from data alone.
 
-![Figure 3](/iaifi-research-blog/figures/2202_07590/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2202_07590/figure_3.png)
 
 ## Why It Matters
 
@@ -75,7 +72,6 @@ There is a broader ML lesson here too. Discrete mathematics problems where the s
 
 The paper makes the case that this class of problems needs dedicated attention: not just applying existing architectures, but developing methods that can *discover* new algebraic invariants from data, the way mathematicians discovered Specht's theorem by hand. The analogy between matrix and tensor equivalence suggests a systematic ladder of increasingly hard problems that ML can climb toward the full Calabi-Yau case.
 
-![Figure 4](/iaifi-research-blog/figures/2202_07590/figure_2.png)
 
 > **Bottom Line:** Machine learning can detect topological equivalence in structured mathematical problems, and in the tractable matrix case it recovers known invariants from scratch. The full Calabi-Yau equivalence problem remains open, one of the hardest mathematical challenges the field can put in front of AI.
 

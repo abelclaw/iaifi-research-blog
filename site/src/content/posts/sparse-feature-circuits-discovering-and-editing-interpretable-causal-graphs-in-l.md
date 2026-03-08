@@ -33,11 +33,8 @@ concepts:
 - clustering
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2403_19647/figure_1.png
-- /iaifi-research-blog/figures/2403_19647/figure_1.png
 - /iaifi-research-blog/figures/2403_19647/figure_2.png
 - /iaifi-research-blog/figures/2403_19647/figure_2.png
-- /iaifi-research-blog/figures/2403_19647/figure_3.png
 - /iaifi-research-blog/figures/2403_19647/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.19647v3
 published: '2024-03-28T17:56:07+00:00'
@@ -63,7 +60,7 @@ The method rests on two technical pillars.
 
 The first is **sparse autoencoders (SAEs)**, neural networks trained to decompose a model's internal representations into interpretable building blocks. When a language model processes text, each layer produces a stream of numbers encoding what the model "knows" at that point. SAEs re-express those numbers as a combination of features, each corresponding to a single recognizable concept: "the word 'doctor' in a medical context" or "a plural subject in a relative clause." The researchers trained SAEs for every sublayer of Pythia-70M and used the publicly available Gemma Scope SAEs for Gemma-2-2B.
 
-![Figure 1](/iaifi-research-blog/figures/2403_19647/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2403_19647/figure_2.png)
 
 The second pillar is **attribution patching**, a fast mathematical technique for estimating how much each feature causally contributes to a specific model output. Given a "clean" input ("The teacher...") and a "patch" input ("The teachers..."), attribution patching estimates how much each feature's difference shifts the model's probability of outputting "is" versus "are." Because the technique scores thousands of features in parallel, it scales.
 
@@ -76,7 +73,7 @@ Combining both pillars, the pipeline works like this:
 
 The result is a sparse feature circuit: a graph where nodes are interpretable features and edges represent causal influence.
 
-![Figure 2](/iaifi-research-blog/figures/2403_19647/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2403_19647/figure_2.png)
 
 One honest touch: the **SAE error term** (the gap between what the SAE captured and what the model actually computed) gets its own node in the circuit. Researchers can see exactly how much of the model's behavior is explained by interpretable features versus unexplained residuals.
 
@@ -86,7 +83,6 @@ The most direct application is **SHIFT** (Sparse Human-Interpretable Feature Tri
 
 Standard bias-removal methods require carefully curated examples where gender and profession are independent. SHIFT doesn't. A human examines the discovered circuit, identifies features clearly related to gender rather than profession, and removes them. The model's spurious gender sensitivity drops without any special data.
 
-![Figure 4](/iaifi-research-blog/figures/2403_19647/figure_2.png)
 
 Beyond debiasing, the team built a fully unsupervised pipeline that discovers thousands of narrow language model behaviors ("predicting 'to' as an infinitive object," "predicting commas in dates") using clustering, then automatically computes sparse feature circuits for all of them. Results are publicly browsable at feature-circuits.xyz. That scalability matters most here: interpretability no longer has to be a hand-crafted, one-behavior-at-a-time endeavor.
 

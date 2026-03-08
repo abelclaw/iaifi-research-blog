@@ -31,7 +31,6 @@ concepts:
 - disentangled representations
 - transfer learning
 figures:
-- /iaifi-research-blog/figures/2306_06099/figure_1.png
 - /iaifi-research-blog/figures/2306_06099/figure_2.png
 - /iaifi-research-blog/figures/2306_06099/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2306.06099v2
@@ -67,7 +66,7 @@ Here's how NuCLR is structured:
 2. **Shared backbone.** The proton and neutron embeddings are concatenated and passed through a stack of **residual blocks**, layers that pass information forward while also providing shorter "skip" connections to help deep networks train reliably.
 3. **Task-specific heads.** Separate output layers branch off from the shared representation to predict each nuclear observable: binding energy, separation energies, charge radius, and more.
 
-![Figure 2](/iaifi-research-blog/figures/2306_06099/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2306_06099/figure_3.png)
 
 NuCLR achieves state-of-the-art precision on binding energies, approaching the sub-100 keV threshold that nuclear astrophysicists need to model the *r*-process (the rapid neutron capture process responsible for forging heavy elements in neutron star mergers). For context: the best physics-based analytic formula, WS4, achieves roughly 300 keV precision. NuCLR beats it, and without using WS4's predictions as a crutch, unlike some previous ML approaches.
 
@@ -75,7 +74,7 @@ But the benchmark numbers aren't the real story.
 
 After training, the researchers applied **principal component analysis (PCA)**, a standard technique for finding the most important axes of variation in high-dimensional data, to the learned neutron embeddings.
 
-![Figure 1](/iaifi-research-blog/figures/2306_06099/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2306_06099/figure_2.png)
 
 What came out stopped them in their tracks. Even early in training, the first two principal components already encode two of the most fundamental features of nuclear physics:
 
@@ -84,7 +83,6 @@ What came out stopped them in their tracks. Even early in training, the first tw
 
 By late in training, the structure evolves further: the representations form three-dimensional spirals, with magic numbers appearing at local maxima and each nuclear shell corresponding to one revolution around an approximately conic surface.
 
-![Figure 3](/iaifi-research-blog/figures/2306_06099/figure_3.png)
 
 The researchers describe interpreting this spiral structure as ongoing work. It may be the most provocative sentence in the paper.
 

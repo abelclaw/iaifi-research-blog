@@ -77,10 +77,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2409_02174/figure_1.png
 - /iaifi-research-blog/figures/2409_02174/figure_1.png
-- /iaifi-research-blog/figures/2409_02174/figure_2.png
-- /iaifi-research-blog/figures/2409_02174/figure_2.png
-- /iaifi-research-blog/figures/2409_02174/figure_3.png
-- /iaifi-research-blog/figures/2409_02174/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.02174v1
 published: '2024-09-03T18:00:01+00:00'
 theme: Experimental Physics
@@ -117,7 +113,6 @@ The team ruled out every alternative explanation:
 
 What did match was a PPI model built around a star with a 72 solar-mass helium core. Hydrodynamic simulations developed by co-author Stan Woosley reproduced both the timing and luminosity ratio of the two peaks. The initial pulse ejects roughly 16 solar masses of material; when the terminal supernova follows, the collision lights up as the first, bluer, brighter peak.
 
-![Figure 3](/iaifi-research-blog/figures/2409_02174/figure_2.png)
 
 One wrinkle remains. The host environment carries a **metallicity** (enrichment in heavy elements like carbon, oxygen, and iron) of about 0.4 times solar. Standard models predict that stellar winds, the streams of gas continuously blown off a star's surface, in such environments would strip too much mass before pair instability could trigger. The team proposes two workarounds: a late-stage binary merger combining two massive stars shortly before death, or a locally metal-poor pocket in the star-forming region missed by standard measurements.
 
@@ -127,7 +122,6 @@ Pulsational pair instability has been a theoretical prediction for decades. Conf
 
 These massive stars were far more common in the early universe, when galaxies were metal-poor and stellar winds weaker. Understanding how they die tells us about the chemical enrichment of early galaxies and the mass distribution of black holes detectable by gravitational wave observatories like LIGO.
 
-![Figure 5](/iaifi-research-blog/figures/2409_02174/figure_3.png)
 
 The measured rate of SN 2020acct-like events, fewer than 3.3 × 10⁻⁸ per cubic megaparsec per year, or less than 0.1% of all core-collapse supernovae, is consistent with theoretical predictions. It also sets a benchmark for the Vera Rubin Observatory's Legacy Survey of Space and Time (LSST). That telescope will sweep the entire southern sky every few nights, capturing thousands of unusual transients per year. Machine learning classifiers trained on events like this one will be essential for identifying them in real time.
 

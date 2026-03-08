@@ -38,9 +38,7 @@ concepts:
 - representation learning
 - semi-supervised learning
 figures:
-- /iaifi-research-blog/figures/2110_06948/figure_1.png
 - /iaifi-research-blog/figures/2110_06948/figure_2.png
-- /iaifi-research-blog/figures/2110_06948/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.06948v1
 published: '2021-10-13T18:00:04+00:00'
 theme: Experimental Physics
@@ -68,7 +66,7 @@ Train a VAE on background-only data and it learns the structure of normal events
 
 The team tested this on jets, the sprays of particles produced when quarks and gluons scatter at high energy. Their background consisted of ordinary QCD jets, the routine particle showers dominating most LHC collisions. Their signals were top quark jets and W boson jets, both with distinctive multi-pronged substructure compared to the smooth QCD baseline. Jets were represented as images: two-dimensional maps of energy deposits in the detector.
 
-![Figure 1](/iaifi-research-blog/figures/2110_06948/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2110_06948/figure_2.png)
 
 Performance depends heavily on **hyperparameters**, tuning knobs set before training. These include the size of the **latent space** (the compressed internal representation, analogous to the small file in the photo analogy), the relative weight of the reconstruction loss versus the **KL divergence** (a penalty that keeps the compressed representation organized), and the distance metric used to measure reconstruction error. Systematic variation of these choices revealed:
 
@@ -80,13 +78,11 @@ For a tool that's supposed to be model-agnostic, this is a problem. If tuning fo
 
 While probing the VAE's internals, the researchers noticed something unexpected: distances between events in the latent space were strongly correlated with **Wasserstein distances** (also called **optimal transport distances**) between the original jet images. Wasserstein distance has a clean physical intuition. It measures how much "work" it takes to rearrange the energy deposits in one jet image to match another, treating energy as dirt that needs to be moved.
 
-![Figure 2](/iaifi-research-blog/figures/2110_06948/figure_2.png)
 
 This connection suggests the VAE is learning a compressed version of optimal transport geometry. That prompted a direct question: why use an autoencoder at all? The team developed an **event-to-ensemble distance** approach. Select a set of representative background events, then score each new event by its optimal transport distance to those representatives. No neural network training required, just a physically interpretable measure of deviation from typical background.
 
 The results matched the best VAE configurations in performance, and they illuminated the same fundamental tension: the set of representative events that best *describes* the background is not the set that best *separates* signal from background.
 
-![Figure 3](/iaifi-research-blog/figures/2110_06948/figure_3.png)
 
 This tracks with a deep statistical principle. The best density estimator concentrates resources on high-probability regions, the bulk of the background. But anomaly detection needs sensitivity at the edges, where rare signal events lurk. These goals pull in opposite directions.
 

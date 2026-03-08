@@ -31,8 +31,6 @@ concepts:
 - simulation-based inference
 - supernova classification
 figures:
-- /iaifi-research-blog/figures/2507_16817/figure_1.png
-- /iaifi-research-blog/figures/2507_16817/figure_2.png
 - /iaifi-research-blog/figures/2507_16817/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2507.16817v1
 published: '2025-07-22T17:59:59+00:00'
@@ -67,13 +65,12 @@ The encoding works like this:
 - **Photometry:** Each observation gets a time encoding (a mathematical tag for when it was taken), a filter-identity tag, and a projected magnitude. These three components sum into a single per-observation representation.
 - **Spectroscopy:** Wavelengths and flux values are embedded separately and summed. The phase (timing relative to peak brightness) is appended as a special token, letting the model route phase information through cross-attention rather than baking it into every element.
 
-![Figure 1](/iaifi-research-blog/figures/2507_16817/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2507_16817/figure_3.png)
 
 Then comes the **MMVAE**, a **mixture-of-expert variational autoencoder** that learns a compact internal space shared across data types and uses it to reconstruct or generate outputs. Standard VAEs compress data into a smooth latent space and reconstruct it. MMVAEs extend this to multiple modalities by modeling the shared space as a *mixture* of distributions, one from photometry, one from spectroscopy.
 
 During training, both data types are available. At inference, you feed in only a light curve and sample from a latent representation that predicts what the spectrum should look like.
 
-![Figure 2](/iaifi-research-blog/figures/2507_16817/figure_2.png)
 
 The model trains on **SEDONA** radiative transfer simulations, physically grounded models of supernova explosions that generate paired light curves and spectra. These let the model learn the correlations between how a supernova evolves photometrically and how its chemical composition changes over time.
 
@@ -83,7 +80,6 @@ The benchmark comparison is telling. The researchers pitted their MMVAE against 
 
 Contrastive embeddings are good for retrieval but not for generation: they can find the closest matching spectrum in a database, but can't *synthesize* a new one. The MMVAE outperforms this nearest-neighbor approach on cross-modality reconstruction, suggesting the generative model captures richer structure in the physics linking photometry to spectra.
 
-![Figure 3](/iaifi-research-blog/figures/2507_16817/figure_3.png)
 
 This matters beyond supernovae. Astronomy is increasingly multi-modal, spanning radio, optical, infrared, and X-ray observations of the same objects, yet only a subset of data types exists for most targets. The MMVAE framework, with its Perceiver backbone for handling irregular inputs, offers a template for multi-modal representation learning across heterogeneous astronomical datasets.
 

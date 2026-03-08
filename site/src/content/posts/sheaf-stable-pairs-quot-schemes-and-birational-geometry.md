@@ -17,10 +17,7 @@ concepts:
 - string theory
 - quantum field theory
 - geometric deep learning
-figures:
-- /iaifi-research-blog/figures/2406_00230/figure_1.png
-- /iaifi-research-blog/figures/2406_00230/figure_2.png
-- /iaifi-research-blog/figures/2406_00230/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2406.00230v2
 published: '2024-05-31T23:16:06+00:00'
 theme: Foundational AI
@@ -44,7 +41,6 @@ A **sheaf stable pair** (E, s) consists of a torsion-free coherent sheaf E on a 
 
 The researchers focus on the case where Z is a smooth projective curve, a one-dimensional algebraic variety like a Riemann surface. They study the moduli spaces M_Z(r, n): parameter spaces classifying equivalence classes of stable pairs where E has rank r and degree n, with n measuring the size of the cokernel.
 
-![Figure 1](/iaifi-research-blog/figures/2406_00230/figure_1.png)
 
 Here's the main geometric move. Given a stable pair [E, s] on a curve Z, one constructs a higher-dimensional space X = P(E), the **projectivization** of E, whose points correspond to lines through the origin in each fiber. This comes with divisors D₁, …, Dᵣ and a line bundle A, all mapping down to Z. The data nearly constitutes a **stable minimal model** (the "simplest possible" representative of a variety in the Minimal Model Program), but singularities or positivity conditions may fail over certain points. A birational procedure repairs the model, producing a genuine stable minimal model (X′, D₁′ + ⋯ + Dᵣ′) over Z. And M_Z(r, n) turns out to *be* the parameter space for this repair procedure.
 
@@ -58,9 +54,7 @@ The paper delivers explicit results through a series of theorems:
 
 - **Theorem 1.5:** Degree-three fibers range from P¹ × P¹ × P¹ (three distinct points) to a genuinely new object F₃: a Q-factorial Fano 3-fold of Picard number one, with canonical singularities along a copy of P¹, birational to P³. The paper gives an explicit construction of F₃ from P³, not just an existence statement but a concrete geometric recipe.
 
-![Figure 2](/iaifi-research-blog/figures/2406_00230/figure_2.png)
 
-![Figure 3](/iaifi-research-blog/figures/2406_00230/figure_3.png)
 
 The **Quot-scheme** framework, introduced by Grothendieck in the 1960s, provides the scaffolding throughout. Quot-schemes parameterize quotient sheaves with fixed Hilbert polynomials. The paper embeds M_Z(r, n) into this framework via Grassmannian embeddings, connecting to GIT quotients and ensuring the algebraic structure needed for precise computation.
 

@@ -33,13 +33,7 @@ concepts:
 - entanglement
 - physics-motivated optimization
 - scalability
-figures:
-- /iaifi-research-blog/figures/2409_18167/figure_1.png
-- /iaifi-research-blog/figures/2409_18167/figure_1.png
-- /iaifi-research-blog/figures/2409_18167/figure_2.png
-- /iaifi-research-blog/figures/2409_18167/figure_2.png
-- /iaifi-research-blog/figures/2409_18167/figure_3.png
-- /iaifi-research-blog/figures/2409_18167/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2409.18167v4
 published: '2024-09-26T17:46:00+00:00'
 theme: Experimental Physics
@@ -61,7 +55,6 @@ A team of MIT researchers led by Zhaoyi Li and Isaac Chuang has now solved a 20-
 
 The core idea is intuitive. Think of overlaying several blurry photographs of the same scene: the true features reinforce each other while random blur averages out. QPA does the same with quantum states. It takes *n* noisy copies and applies a quantum operation that produces a single output with higher purity.
 
-![Figure 1](/iaifi-research-blog/figures/2409_18167/figure_1.png)
 
 The fundamental challenge is finding the *optimal* distillation protocol. Previous work cracked the problem only for special cases (single qubits or specialized optical quantum states), leaving multi-qubit systems without a principled solution. The MIT team's key mathematical move was recasting the optimization as a **semidefinite program (SDP)**, a class of mathematical optimization with efficient, well-understood solution methods. This required drawing on recent advances in combinatorics, the branch of mathematics dealing with counting, arrangements, and symmetry structures, to impose the right constraints on a problem that had stymied researchers for two decades.
 
@@ -73,17 +66,14 @@ The optimal protocol has a clean three-step structure:
 
 No protocol using the same number of copies can do better. Under strong **depolarizing noise**, the harshest and most uniform form of quantum noise, this protocol requires exponentially fewer copies than previous best-known methods to achieve the same output fidelity.
 
-![Figure 2](/iaifi-research-blog/figures/2409_18167/figure_1.png)
 
 The team also proved the protocol works optimally for *generic* mixed states, amplifying purity toward the least-disturbed, most probable version of whatever quantum state you started with. This matters because real devices encounter a complex mix of gate errors, decoherence, and crosstalk, not purely depolarizing noise.
 
 For practical deployment, the team implemented the protocol using **generalized quantum phase estimation**, an efficient circuit design for performing Schur sampling on real hardware. For near-term experiments where circuit depth and connectivity are severely limited, they introduce **SWAPNET**: a sparse, shallow circuit architecture that achieves QPA with a minimal gate count through SWAP-like operations compatible with today's superconducting processors.
 
-![Figure 3](/iaifi-research-blog/figures/2409_18167/figure_2.png)
 
 They validated the approach on superconducting quantum processors, testing both digital (gate-based) and analog simulation settings. QPA improved output fidelity in practice, not just in theory.
 
-![Figure 4](/iaifi-research-blog/figures/2409_18167/figure_2.png)
 
 ## Why It Matters
 

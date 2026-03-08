@@ -40,9 +40,6 @@ figures:
 - /iaifi-research-blog/figures/2112_04503/figure_1.png
 - /iaifi-research-blog/figures/2112_04503/figure_1.png
 - /iaifi-research-blog/figures/2112_04503/figure_2.png
-- /iaifi-research-blog/figures/2112_04503/figure_2.png
-- /iaifi-research-blog/figures/2112_04503/figure_3.png
-- /iaifi-research-blog/figures/2112_04503/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.04503v2
 published: '2021-12-08T19:00:00+00:00'
 theme: Theoretical Physics
@@ -90,7 +87,6 @@ Assuming supersymmetry (a theoretical extension that pairs each known particle w
 
 The same geometric data that characterizes the PQ mechanism also determines the cosmological fate of axions. Light axions can contribute to dark matter via the **misalignment mechanism**: axions start displaced from their energy minimum in the early universe, then oscillate and settle, gradually accumulating as dark matter. They also couple to photons in ways detectable by experiments like ADMX. Applying standard cosmological and astrophysical constraints to their ensemble, the researchers found that for models with 26 ≤ N ≤ 433, at least half survive every constraint simultaneously.
 
-![Figure 4](/iaifi-research-blog/figures/2112_04503/figure_2.png)
 
 ## Why It Matters
 

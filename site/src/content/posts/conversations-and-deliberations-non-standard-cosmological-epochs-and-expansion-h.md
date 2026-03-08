@@ -46,9 +46,6 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2411_04780/figure_1.png
-- /iaifi-research-blog/figures/2411_04780/figure_1.png
-- /iaifi-research-blog/figures/2411_04780/figure_2.png
-- /iaifi-research-blog/figures/2411_04780/figure_2.png
 - /iaifi-research-blog/figures/2411_04780/figure_3.png
 - /iaifi-research-blog/figures/2411_04780/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.04780v1
@@ -87,13 +84,12 @@ A central topic was **Early Matter-Dominated Eras (EMDEs)**, periods when some h
 
 Discussions also grappled with **scalar fields**, fundamental quantum fields that can drive unusual expansion phases. Depending on how a scalar field rolls down its potential energy landscape, it can mimic matter, radiation, or something in between. Several questions kept coming up: How do you distinguish between different scalar field scenarios observationally? What theoretical constraints does string theory impose? Do top-down motivations from moduli fields (the parameters that set the shape of hidden extra dimensions in string theory) favor particular expansion histories?
 
-![Figure 3](/iaifi-research-blog/figures/2411_04780/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2411_04780/figure_3.png)
 
 One of the liveliest discussions centered on **cosmological stasis**, a recently proposed phenomenon where multiple particle species conspire to hold the universe in a fixed expansion rate for an extended period, even as individual species decay and replenish each other. The concept grew out of thinking about "tower states," a cascade of increasingly massive particles predicted by string theory. Whether stasis is a generic outcome of certain theoretical frameworks or a fine-tuned curiosity remained an open debate.
 
 **Primordial black holes (PBHs)** rounded out the discussion. Tiny black holes formed from density fluctuations in the very early universe, PBHs could have briefly dominated the universe's energy density before evaporating via **Hawking radiation**, the slow, steady leak of energy that causes black holes to gradually shrink and disappear. A PBH-dominated epoch would leave its own gravitational wave signature and could affect dark matter production in ways distinct from other non-standard scenarios.
 
-![Figure 5](/iaifi-research-blog/figures/2411_04780/figure_3.png)
 
 ## Why It Matters
 

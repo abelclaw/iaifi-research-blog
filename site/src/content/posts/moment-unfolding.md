@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2407_11284/figure_1.png
 - /iaifi-research-blog/figures/2407_11284/figure_1.png
 - /iaifi-research-blog/figures/2407_11284/figure_2.png
-- /iaifi-research-blog/figures/2407_11284/figure_2.png
-- /iaifi-research-blog/figures/2407_11284/figure_3.png
-- /iaifi-research-blog/figures/2407_11284/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2407.11284v2
 published: '2024-07-15T23:45:23+00:00'
 theme: Experimental Physics
@@ -72,7 +69,6 @@ This GAN-like architecture has a clear advantage over existing methods. Unlike O
 
 The team validated their method on **jet substructure** observables, properties of the collimated sprays of particles produced when quarks and gluons scatter at high energy. Specifically, they studied moments of the jet groomed momentum fraction ($z_g$), a measure of how unevenly a jet's energy splits between its two main branches after stripping away soft, wide-angle radiation, as a function of jet transverse momentum $p_T$. This is exactly the regime where moments carry precise theoretical predictions from DGLAP evolution equations (mathematical rules describing how quark and gluon distributions shift with collision energy) but full spectral unfolding is overkill.
 
-![Figure 4](/iaifi-research-blog/figures/2407_11284/figure_2.png)
 
 Moment Unfolding achieves lower statistical uncertainty than traditional bin-based approaches like Iterative Bayesian Unfolding (IBU), and matches or beats fully unbinned methods like OmniFold, while targeting only the moments you care about.
 
@@ -82,7 +78,6 @@ The precision of fundamental physics measurements depends on cleanly separating 
 
 The payoff goes well beyond QCD. Some of the most precise extractions of the strong coupling constant $\alpha_s$, which sets the overall strength of the strong nuclear force, come from comparing measured jet shape moments to theoretical predictions. Any improvement in extracting those moments translates directly into sharper tests of the Standard Model, and potentially into greater sensitivity to new physics hiding in subtle deviations. The technique generalizes naturally to deep-inelastic scattering, heavy-ion collisions, and anywhere moments matter more than full spectra.
 
-![Figure 5](/iaifi-research-blog/figures/2407_11284/figure_3.png)
 
 Open questions remain. The current implementation targets moments of a single observable at a time. Extending Moment Unfolding to handle multiple correlated observables simultaneously, or to recover full distributions rather than just their summaries, is a natural next step the authors flag for future work.
 

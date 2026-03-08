@@ -36,7 +36,6 @@ concepts:
 - out-of-distribution detection
 - embeddings
 figures:
-- /iaifi-research-blog/figures/2510_14202/figure_1.png
 - /iaifi-research-blog/figures/2510_14202/figure_2.png
 - /iaifi-research-blog/figures/2510_14202/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.14202v1
@@ -65,7 +64,7 @@ The framework has three tightly coupled pieces, all trained together on roughly 
 
 **1. A transformer-based light curve summarizer.** This neural network architecture, borrowed from language AI but adapted for irregular, multi-color brightness data, takes observations as time-magnitude pairs, uses positional markers to track when each measurement was taken, and distills everything into a compact 64-dimensional fingerprint of each event. This summary vector feeds everything downstream.
 
-![Figure 1](/iaifi-research-blog/figures/2510_14202/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2510_14202/figure_2.png)
 
 **2. A categorical classifier.** Three candidate power sources (radioactive nickel decay, **circumstellar material interaction** where the blast wave slams into gas the star shed before dying, and **magnetar spin-down**) can appear alone or in any combination, giving seven possible non-empty subsets. The classifier assigns probabilities to all seven simultaneously, achieving 90% accuracy across all model types.
 
@@ -79,13 +78,12 @@ The system does something traditional pipelines couldn't manage cleanly: it find
 
 When the researchers fed in **tidal disruption events** (TDEs, caused by stars being shredded by black holes, a completely different class of transient), the model had never seen them during training. Yet these events landed far from all supernova clusters in the learned space, flagged as outliers purely from their geometric isolation. A telescope doing blind surveys will encounter genuinely unknown phenomena, and this system catches them automatically.
 
-![Figure 2](/iaifi-research-blog/figures/2510_14202/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2510_14202/figure_3.png)
 
 This matters because of the coming data flood from Rubin. Spectroscopic follow-up, the gold standard for understanding a transient, is a limited and expensive resource. Astronomers need to prioritize which events get telescope time. A fast, automated system that correctly identifies power sources, produces calibrated uncertainty estimates, and highlights genuine anomalies changes how that prioritization works.
 
 The framework is also built for population studies: not just characterizing individual events, but mapping the distribution of physical parameters across entire classes of explosions. That tells you about the diversity of stellar deaths across cosmic time.
 
-![Figure 3](/iaifi-research-blog/figures/2510_14202/figure_3.png)
 
 Open questions remain. The model was trained on MOSFiT synthetic data, and real observations will bring noise, cadence gaps, and astrophysical messiness that simulations may not fully capture. Closing that gap and extending the framework to handle more exotic transient classes is the natural next step.
 

@@ -241,6 +241,12 @@ const hasPapers = papers.length > 0;
       ctx.fillStyle = "#1a1a2e";
       ctx.fillRect(0, 0, W, H);
 
+      const zoomRatio = camScale / initialScale;
+
+      // Fade out tile images when zone labels take over
+      // At zoomRatio >= 80, tiles are fully hidden (zone labels are crisp)
+      if (zoomRatio >= 80) return;
+
       const tiling = getBestTiling();
       const [vxMin, vyMin] = screenToWorld(0, 0);
       const [vxMax, vyMax] = screenToWorld(W, H);
@@ -250,7 +256,9 @@ const hasPapers = papers.length > 0;
       const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / tiling.th) + 1);
       const iyMax = Math.min(tiling.ny, Math.ceil((vyMax - world.ymin) / tiling.th));
 
-      ctx.globalAlpha = 0.35;
+      // Crossfade: tiles fade from 35% to 0% as zoom goes from 20x to 80x
+      const tileAlpha = zoomRatio < 20 ? 0.35 : 0.35 * Math.max(0, 1 - (zoomRatio - 20) / 60);
+      ctx.globalAlpha = tileAlpha;
 
       for (let ix = ixMin; ix <= ixMax; ix++) {
         for (let iy = iyMin; iy <= iyMax; iy++) {
@@ -308,6 +316,116 @@ const hasPapers = papers.length > 0;
         ctx.font = `${fontSize * 0.65}px system-ui, sans-serif`;
         ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
         ctx.fillText(f.code, sx, sy + fontSize * 0.9);
+      }
+    }
+
+    // ── Background paper circles (from Paperscape zone API) ──
+    interface ZoneLabel { x: number; y: number; r: number; lbl: string; }
+    const zoneCache = new Map<string, ZoneLabel[]>();
+    const zoneLoading = new Set<string>();
+    const ZONE_GRID = 8; // z=6 uses 8x8 grid
+    const ZONE_MIN_ZOOM = 8; // start showing zone papers at 8x zoom
+    const ZONE_TILE_SERVERS = [
+      "https://tile1.paperscape.org",
+      "https://tile2.paperscape.org",
+      "https://tile3.paperscape.org",
+      "https://tile4.paperscape.org",
+    ];
+    let zoneTileIdx = 0;
+
+    function fetchZone(ix: number, iy: number) {
+      const key = `6/${ix}/${iy}`;
+      if (zoneCache.has(key) || zoneLoading.has(key)) return;
+      zoneLoading.add(key);
+
+      const cbName = `lz_6_${ix}_${iy}`;
+      const server = ZONE_TILE_SERVERS[zoneTileIdx++ % 4];
+      const script = document.createElement("script");
+      (window as any)[cbName] = (data: any) => {
+        script.remove();
+        delete (window as any)[cbName];
+        zoneLoading.delete(key);
+        if (data?.lbls) {
+          zoneCache.set(key, data.lbls);
+          scheduleRender();
+        }
+      };
+      script.src = `${server}/world/zones/${key}.json`;
+      script.onerror = () => {
+        script.remove();
+        delete (window as any)[cbName];
+        zoneLoading.delete(key);
+        zoneCache.set(key, []);
+      };
+      document.head.appendChild(script);
+    }
+
+    function drawZoneLabels() {
+      const zoomRatio = camScale / initialScale;
+      if (zoomRatio < ZONE_MIN_ZOOM) return;
+
+      const zoneW = (world.xmax - world.xmin) / ZONE_GRID;
+      const zoneH = (world.ymax - world.ymin) / ZONE_GRID;
+
+      const [vxMin, vyMin] = screenToWorld(0, 0);
+      const [vxMax, vyMax] = screenToWorld(W, H);
+
+      const ixMin = Math.max(1, Math.floor((vxMin - world.xmin) / zoneW) + 1);
+      const ixMax = Math.min(ZONE_GRID, Math.ceil((vxMax - world.xmin) / zoneW));
+      const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / zoneH) + 1);
+      const iyMax = Math.min(ZONE_GRID, Math.ceil((vyMax - world.ymin) / zoneH));
+
+      // Opacity ramps up: 0 at 8x, full at 20x
+      const zoneAlpha = Math.min(1, (zoomRatio - ZONE_MIN_ZOOM) / 12);
+
+      for (let ix = ixMin; ix <= ixMax; ix++) {
+        for (let iy = iyMin; iy <= iyMax; iy++) {
+          const key = `6/${ix}/${iy}`;
+          const labels = zoneCache.get(key);
+          if (!labels) {
+            fetchZone(ix, iy);
+            continue;
+          }
+
+          for (const lbl of labels) {
+            const screenR = lbl.r * camScale;
+            if (screenR < 1.5) continue; // too small
+
+            const [sx, sy] = worldToScreen(lbl.x, lbl.y);
+            if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) continue;
+
+            const drawR = Math.max(1.5, screenR);
+
+            // Draw filled circle — white/blue like the Paperscape tiles
+            ctx.beginPath();
+            ctx.arc(sx, sy, drawR, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(160, 170, 210, ${0.5 * zoneAlpha})`;
+            ctx.fill();
+
+            // Brighter border for larger papers
+            if (drawR > 3) {
+              ctx.strokeStyle = `rgba(190, 200, 240, ${0.6 * zoneAlpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+
+            // Labels when circles are large enough to read
+            if (screenR > 12) {
+              const parts = lbl.lbl.split(",");
+              // lbl format: "keywords,topic,Author,et al."
+              const label = parts.length >= 3
+                ? `${parts[2].trim()}${parts[3] ? " " + parts[3].trim() : ""}`
+                : parts[0].trim();
+              const displayLabel = label.length > 35 ? label.slice(0, 35) + "..." : label;
+              const fontSize = Math.max(9, Math.min(14, screenR * 0.5));
+              ctx.font = `${fontSize}px system-ui, sans-serif`;
+              ctx.textAlign = "center";
+              ctx.textBaseline = "top";
+              ctx.fillStyle = `rgba(220, 225, 245, ${0.8 * zoneAlpha})`;
+              ctx.fillText(displayLabel, sx, sy + drawR + 3);
+            }
+          }
+        }
       }
     }
 
@@ -514,56 +632,28 @@ const hasPapers = papers.length > 0;
     function fetchPapescapePaper(wx: number, wy: number) {
       showApiStatus("Looking up paper...");
 
-      // The Paperscape API only returns a hit if the click falls inside
-      // a paper's circle. To improve usability, try the exact point first,
-      // then spiral outward in a grid to find nearby papers.
-      const searchRadius = Math.max(20, Math.round(50 / camScale));
-      const step = Math.max(10, Math.round(25 / camScale));
-      const offsets: [number, number][] = [[0, 0]];
-      for (let d = step; d <= searchRadius; d += step) {
-        for (const [dx, dy] of [
-          [d, 0], [-d, 0], [0, d], [0, -d],
-          [d, d], [-d, d], [d, -d], [-d, -d],
-        ] as [number, number][]) {
-          offsets.push([dx, dy]);
-        }
-      }
+      const rx = Math.round(wx);
+      const ry = Math.round(wy);
+      const cbName = "__ps_cb";
+      const url = `https://paperscape.org/wombat?ml2p%5B%5D=${rx}&ml2p%5B%5D=${ry}&tbl=&callback=${cbName}`;
 
-      let attempt = 0;
-      function tryNext() {
-        if (attempt >= offsets.length) {
-          showApiStatus("No paper found near this location. Try clicking directly on a dot.");
+      (window as any)[cbName] = null;
+      const script = document.createElement("script");
+      (window as any)[cbName] = (data: any) => {
+        script.remove();
+        if (!data?.r?.id) {
+          showApiStatus("No paper found at this location. Zoom in more to see individual papers.");
           return;
         }
-        const [dx, dy] = offsets[attempt];
-        const rx = Math.round(wx + dx);
-        const ry = Math.round(wy + dy);
-        attempt++;
-
-        const cbName = `__ps_cb_${attempt}`;
-        const url = `https://paperscape.org/wombat?ml2p%5B%5D=${rx}&ml2p%5B%5D=${ry}&tbl=&callback=${cbName}`;
-
-        const script = document.createElement("script");
-        (window as any)[cbName] = (data: any) => {
-          script.remove();
-          delete (window as any)[cbName];
-          if (!data?.r?.id) {
-            tryNext();
-            return;
-          }
-          showApiStatus("Loading paper details...");
-          fetchPapescapeMeta(data.r.id);
-        };
-        script.src = url;
-        script.onerror = () => {
-          script.remove();
-          delete (window as any)[cbName];
-          showApiStatus("Could not reach Paperscape API.");
-        };
-        document.head.appendChild(script);
-      }
-
-      tryNext();
+        showApiStatus("Loading paper details...");
+        fetchPapescapeMeta(data.r.id);
+      };
+      script.src = url;
+      script.onerror = () => {
+        script.remove();
+        showApiStatus("Could not reach Paperscape API.");
+      };
+      document.head.appendChild(script);
     }
 
     function fetchPapescapeMeta(paperId: number) {
@@ -661,6 +751,7 @@ const hasPapers = papers.length > 0;
       ctx.clearRect(0, 0, W, H);
       drawTiles();
       drawFieldLabels();
+      drawZoneLabels();
       drawPapers();
 
       // Update zoom indicator
@@ -727,11 +818,24 @@ const hasPapers = papers.length > 0;
       const hit = hitTest(e.offsetX, e.offsetY);
       if (hit !== hoveredPaper) {
         hoveredPaper = hit;
-        canvas.style.cursor = hit ? "pointer" : "grab";
         if (hit) {
+          canvas.style.cursor = "pointer";
           showTooltip(hit, e.clientX, e.clientY);
         } else {
-          hideTooltip();
+          // Check zone labels for pointer cursor
+          const zoneHit = hitTestZone(e.offsetX, e.offsetY);
+          canvas.style.cursor = zoneHit ? "pointer" : "grab";
+          if (zoneHit) {
+            // Show zone label as tooltip
+            const parts = zoneHit.lbl.split(",");
+            const tipText = parts.slice(0, 2).join(" — ") + (parts[2] ? ` (${parts[2].trim()})` : "");
+            tooltip.textContent = tipText;
+            tooltip.style.left = `${e.clientX + 14}px`;
+            tooltip.style.top = `${e.clientY - 10}px`;
+            tooltip.style.display = "block";
+          } else {
+            hideTooltip();
+          }
         }
         scheduleRender();
         restartAnimation();
@@ -756,35 +860,75 @@ const hasPapers = papers.length > 0;
       scheduleRender();
     });
 
+    // Hit test zone labels (background papers)
+    function hitTestZone(mx: number, my: number): ZoneLabel | null {
+      const zoomRatio = camScale / initialScale;
+      if (zoomRatio < ZONE_MIN_ZOOM) return null;
+
+      const [wx, wy] = screenToWorld(mx, my);
+      let bestDist = Infinity;
+      let bestLabel: ZoneLabel | null = null;
+
+      for (const labels of zoneCache.values()) {
+        for (const lbl of labels) {
+          const screenR = lbl.r * camScale;
+          if (screenR < 3) continue;
+          const [sx, sy] = worldToScreen(lbl.x, lbl.y);
+          const dx = mx - sx;
+          const dy = my - sy;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const hitR = Math.max(screenR, 8) + 4; // generous click target
+          if (dist <= hitR && dist < bestDist) {
+            bestDist = dist;
+            bestLabel = lbl;
+          }
+        }
+      }
+      return bestLabel;
+    }
+
     // Click opens side panel — IAIFI paper or query Paperscape for any paper
     canvas.addEventListener("click", (e) => {
-      const dragDx = Math.abs(e.offsetX - dragStartX);
-      const dragDy = Math.abs(e.offsetY - dragStartY);
-      console.log("[PS click] offsetX=%d offsetY=%d dragDx=%d dragDy=%d", e.offsetX, e.offsetY, dragDx, dragDy);
-      if (dragDx > 5 || dragDy > 5) { console.log("[PS click] rejected as drag"); return; }
+      if (Math.abs(e.offsetX - dragStartX) > 5 || Math.abs(e.offsetY - dragStartY) > 5) return;
       const hit = hitTest(e.offsetX, e.offsetY);
       if (hit) {
-        console.log("[PS click] IAIFI hit:", hit.arxiv_id);
         openPaperPanel(hit);
         hideTooltip();
-      } else {
-        // Query Paperscape API for the paper at this world location
-        const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
-        console.log("[PS click] no IAIFI hit, querying Paperscape at world (%d, %d)", Math.round(wx), Math.round(wy));
-        fetchPapescapePaper(wx, wy);
+        return;
       }
+
+      // Try zone labels (background papers visible when zoomed in)
+      const zoneHit = hitTestZone(e.offsetX, e.offsetY);
+      if (zoneHit) {
+        // Use Paperscape API to get full metadata via ml2p at the label's exact position
+        showApiStatus("Loading paper details...");
+        fetchPapescapePaper(zoneHit.x, zoneHit.y);
+        return;
+      }
+
+      // Fall back to API query at click location
+      const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
+      fetchPapescapePaper(wx, wy);
     });
 
-    // Zoom with scroll wheel
+    // Zoom with scroll wheel — centers on selected paper if panel is open
     canvas.addEventListener("wheel", (e) => {
       e.preventDefault();
       const zoomFactor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
       const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * zoomFactor));
 
-      const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
-      camScale = newScale;
-      camX = wx - (e.offsetX - W / 2) / camScale;
-      camY = wy - (e.offsetY - H / 2) / camScale;
+      if (selectedPaper) {
+        // Zoom centered on the selected paper
+        camScale = newScale;
+        camX = selectedPaper.x;
+        camY = selectedPaper.y;
+      } else {
+        // Zoom toward mouse cursor
+        const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
+        camScale = newScale;
+        camX = wx - (e.offsetX - W / 2) / camScale;
+        camY = wy - (e.offsetY - H / 2) / camScale;
+      }
 
       scheduleRender();
       restartAnimation();
@@ -827,13 +971,18 @@ const hasPapers = papers.length > 0;
 
         if (lastTouchDist > 0) {
           const zoomFactor = dist / lastTouchDist;
-          const canvasRect = canvas.getBoundingClientRect();
-          const mx = mid.x - canvasRect.left;
-          const my = mid.y - canvasRect.top;
-          const [wx, wy] = screenToWorld(mx, my);
           camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * zoomFactor));
-          camX = wx - (mx - W / 2) / camScale;
-          camY = wy - (my - H / 2) / camScale;
+          if (selectedPaper) {
+            camX = selectedPaper.x;
+            camY = selectedPaper.y;
+          } else {
+            const canvasRect = canvas.getBoundingClientRect();
+            const mx = mid.x - canvasRect.left;
+            const my = mid.y - canvasRect.top;
+            const [wx, wy] = screenToWorld(mx, my);
+            camX = wx - (mx - W / 2) / camScale;
+            camY = wy - (my - H / 2) / camScale;
+          }
         }
 
         lastTouchDist = dist;
@@ -970,6 +1119,10 @@ const hasPapers = papers.length > 0;
     function zoomByFactor(factor: number) {
       const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * factor));
       camScale = newScale;
+      if (selectedPaper) {
+        camX = selectedPaper.x;
+        camY = selectedPaper.y;
+      }
       scheduleRender();
       restartAnimation();
     }

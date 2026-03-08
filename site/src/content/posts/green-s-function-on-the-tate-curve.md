@@ -27,9 +27,7 @@ concepts:
 - quantum field theory
 - spectral methods
 - scattering amplitudes
-figures:
-- /iaifi-research-blog/figures/2512_24935/figure_1.png
-- /iaifi-research-blog/figures/2512_24935/figure_1.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2512.24935v2
 published: '2025-12-31T15:48:39+00:00'
 theme: Theoretical Physics
@@ -55,7 +53,6 @@ The starting point is the **Tate curve**, the p-adic version of a torus, written
 
 The central mathematical object is the **Green's function**, a field theory's equivalent of an impulse response. It solves $DG = \delta - 1/V$, where $D$ is the Laplacian, $\delta$ is a perfectly localized disturbance, and $V$ is the volume of the fundamental domain. If the Laplacian describes how a field propagates across the torus, the Green's function captures the field's response to a point source. In string theory, this is precisely the two-point correlation function of the worldsheet conformal field theory, the most basic quantity encoding how two points on the string interact.
 
-![Figure 1](/iaifi-research-blog/figures/2512_24935/figure_1.png)
 
 The authors define the p-adic Laplacian on the Tate curve via a careful integral operator:
 
@@ -69,7 +66,6 @@ To solve the resulting equation, the authors deploy a filtration strategy:
 - This filtration corresponds geometrically to truncating the **Bruhat-Tits tree** $T_p/\Gamma$, a combinatorial tree encoding p-adic geometry, at radius $k$
 - Taking the limit $k \to \infty$ recovers the full Green's function
 
-![Figure 2](/iaifi-research-blog/figures/2512_24935/figure_1.png)
 
 The result is an explicit closed-form formula. On an ordinary torus, the Green's function involves logarithms and Jacobi theta functions. Here, it involves p-adic norms and sums over the tree $T_p/\Gamma$: the same architecture, translated into p-adic language.
 

@@ -46,7 +46,6 @@ concepts:
 - new physics searches
 figures:
 - /iaifi-research-blog/figures/2511_03095/figure_1.png
-- /iaifi-research-blog/figures/2511_03095/figure_2.png
 - /iaifi-research-blog/figures/2511_03095/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2511.03095v1
 published: '2025-11-05T00:55:56+00:00'
@@ -90,7 +89,7 @@ The end product: a model that identifies statistically significant anomalous reg
 
 In particle physics, SparKer picks up rare signal events embedded in simulated collider datasets, the kind of model-independent search that might catch new physics no one thought to look for. In computer vision, it validates generative image models by detecting subtle distributional mismatches between real and generated data. In network security, it flags intrusion events in high-dimensional traffic logs.
 
-![Figure 2](/iaifi-research-blog/figures/2511_03095/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2511_03095/figure_3.png)
 
 The same underlying challenge connects these domains: anomalies that are both rare *and* closely resemble normal data, buried in datasets with thousands of dimensions. One framework handling all three without domain-specific tuning says something about the soundness of the design.
 

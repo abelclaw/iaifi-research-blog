@@ -51,7 +51,6 @@ concepts:
 - bayesian inference
 figures:
 - /iaifi-research-blog/figures/2112_05763/figure_1.png
-- /iaifi-research-blog/figures/2112_05763/figure_2.png
 - /iaifi-research-blog/figures/2112_05763/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.05763v2
 published: '2021-12-10T19:00:00+00:00'
@@ -90,13 +89,12 @@ The rate variations are staggering. Across 560 models, predicted merger rates sp
 
 Different merger types respond differently to different uncertainties. BHBH rates are primarily driven by S(Z,z), because black hole masses are exquisitely sensitive to how much mass stars shed, which depends heavily on metallicity. NSNS rates are dominated by stellar evolution physics, particularly supernova kicks that can disrupt fragile neutron star binaries. BHNS mergers feel both effects roughly equally.
 
-![Figure 2](/iaifi-research-blog/figures/2112_05763/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2112_05763/figure_3.png)
 
 ## Why It Matters
 
 The real prize isn't just cataloging the uncertainty but identifying what remains predictable despite it. Scanning across all 560 models, the team found several persistent features in the mass distributions that hold regardless of physical assumptions. More than 95% of detected BHBH mergers should contain at least one black hole heavier than 8 solar masses, and their mass ratios should be less than 4:1. These aren't model-dependent predictions. They're constraints that survive every combination of assumptions the team explored.
 
-![Figure 3](/iaifi-research-blog/figures/2112_05763/figure_3.png)
 
 This has immediate practical value. As LIGO, Virgo, and KAGRA continue adding events to their catalogs, comparisons between observed distributions and theoretical predictions can progressively rule out corners of this vast model space. The team's 560 models are publicly available, giving the community a ready-made toolkit for exactly this kind of inference.
 

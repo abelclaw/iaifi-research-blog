@@ -32,9 +32,6 @@ figures:
 - /iaifi-research-blog/figures/2205_01001/figure_1.png
 - /iaifi-research-blog/figures/2205_01001/figure_1.png
 - /iaifi-research-blog/figures/2205_01001/figure_2.png
-- /iaifi-research-blog/figures/2205_01001/figure_2.png
-- /iaifi-research-blog/figures/2205_01001/figure_3.png
-- /iaifi-research-blog/figures/2205_01001/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.01001v1
 published: '2022-05-02T15:58:47+00:00'
 theme: Theoretical Physics
@@ -80,7 +77,6 @@ The authors first study a zero-dimensional toy model, stripping away spacetime e
 
 In numerical tests, sequential reweighting correctly recovers exact answers where the standard HS estimator fails completely. What makes the failure especially treacherous is that the standard estimator's sample variance can *appear* well-behaved, hiding the underlying divergence.
 
-![Figure 4](/iaifi-research-blog/figures/2205_01001/figure_2.png)
 
 ## Why It Matters
 
@@ -88,11 +84,9 @@ This isn't abstract. Lattice QCD, the framework governing the strong nuclear for
 
 The root cause is structural. Whenever you use a continuous HS transformation to handle fermionic interactions, you potentially introduce infinite-variance estimators. This spans condensed matter physics (the Hubbard model, central to theories of high-temperature superconductivity) and particle physics alike. Sequential reweighting is general enough to apply well beyond the Gross-Neveu model, offering a practical path forward where discrete HS transformations become computationally infeasible.
 
-![Figure 5](/iaifi-research-blog/figures/2205_01001/figure_3.png)
 
 Open questions remain. The discrete HS approach needs a way to scale to larger volumes, perhaps through importance sampling within the discrete space. Both methods also need testing in full 4D lattice QCD, where the computational stakes are highest.
 
-![Figure 6](/iaifi-research-blog/figures/2205_01001/figure_3.png)
 
 > **Bottom Line:** Yunus and Detmold have identified a fundamental statistical failure mode in Monte Carlo simulations of lattice field theories and offered two workable remedies. Their sequential reweighting method opens a path toward reliable first-principles calculations of fermion observables that were previously out of reach.
 

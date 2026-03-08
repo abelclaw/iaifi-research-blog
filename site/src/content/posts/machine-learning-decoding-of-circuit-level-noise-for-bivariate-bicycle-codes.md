@@ -38,10 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2504_13043/figure_1.png
 - /iaifi-research-blog/figures/2504_13043/figure_1.png
-- /iaifi-research-blog/figures/2504_13043/figure_2.png
-- /iaifi-research-blog/figures/2504_13043/figure_2.png
-- /iaifi-research-blog/figures/2504_13043/figure_3.png
-- /iaifi-research-blog/figures/2504_13043/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.13043v1
 published: '2025-04-17T15:57:16+00:00'
 theme: Theoretical Physics
@@ -81,7 +77,6 @@ The MIT team's approach combines three ideas:
 
 The decoder was trained and tested on two BB codes: the [[72,12,6]] code (72 physical qubits encoding 12 logical qubits with distance 6) and the larger [[144,12,12]] code. Training used **circuit-level noise**, the most realistic and challenging noise model. It includes faulty measurements, gate errors, and error propagation between qubits during syndrome extraction.
 
-![Figure 4](/iaifi-research-blog/figures/2504_13043/figure_2.png)
 
 At a physical error rate of $p = 0.1\%$ on the [[72,12,6]] code, the ML decoder achieved a logical error rate nearly **5 times lower** than BP-OSD. The speed story is just as important. BP-OSD's runtime has heavy tails, with occasional slow cases that could bottleneck a real quantum processor. The ML decoder runs in consistent, predictable time and is **an order of magnitude faster** than BP-OSD's worst-case runtimes.
 

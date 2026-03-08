@@ -35,11 +35,8 @@ concepts:
 - uncertainty quantification
 - goodness-of-fit testing
 figures:
-- /iaifi-research-blog/figures/2501_01778/figure_1.png
-- /iaifi-research-blog/figures/2501_01778/figure_1.png
 - /iaifi-research-blog/figures/2501_01778/figure_2.png
 - /iaifi-research-blog/figures/2501_01778/figure_2.png
-- /iaifi-research-blog/figures/2501_01778/figure_3.png
 - /iaifi-research-blog/figures/2501_01778/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.01778v1
 published: '2025-01-03T12:20:09+00:00'
@@ -64,7 +61,7 @@ The reigning approach for resonant anomaly detection is **CWoLa (Classification 
 
 But CWoLa-BDT has a known vulnerability: performance swings wildly depending on four key knobs — number of trees, tree depth, learning rate, and regularization strength. These are **hyperparameters**, the design choices governing how a machine learning algorithm behaves, separate from what it actually learns from data. Choosing them poorly can mean the difference between discovering new physics and missing it entirely. In practice, physicists rarely know the right settings in advance.
 
-![Figure 1](/iaifi-research-blog/figures/2501_01778/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_01778/figure_2.png)
 
 NPLM takes a different approach. Rather than training a classifier on held-out data and applying it separately, NPLM uses **in-sample evaluation**, training and evaluating on the *same* dataset simultaneously. It directly estimates the **log-density ratio**: a score measuring how much more likely a given event is to come from real signal than from background noise. That score is, provably, the most statistically powerful possible test for whether a signal exists, per the Neyman-Pearson lemma.
 
@@ -75,7 +72,7 @@ The researchers explored two distinct scenarios:
 1. **End-to-end NPLM** — When an accurate background model is available, skip the signal-selection step entirely and let NPLM handle both anomaly detection and hypothesis testing in one shot.
 2. **NPLM as a classifier with hyper-testing** — When background modeling is imperfect, use NPLM's classifier for signal enrichment, then run a **hyper-test**: scan across multiple values of the selection threshold and combine results, capturing signal sensitivity across a range of possible signal strengths.
 
-![Figure 2](/iaifi-research-blog/figures/2501_01778/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_01778/figure_2.png)
 
 The hyper-test approach is particularly clever. Instead of committing to a single threshold, a choice that could include too much background noise or cut genuine signal, the method aggregates evidence across many thresholds. It's like casting a wide net and asking: "At what mesh size do we catch the most fish with the least seaweed?"
 
@@ -85,7 +82,7 @@ The numbers back this up. Across low signal injection scenarios, where signal ev
 
 A detector at ATLAS or CMS can't re-run an experiment just to tune a machine learning model; the data come once. Methods that hold up across hyperparameter choices aren't just convenient. They're essential for trustworthy results.
 
-![Figure 3](/iaifi-research-blog/figures/2501_01778/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2501_01778/figure_3.png)
 
 The same bump-hunt strategy appears across fields, from gravitational wave detection to spectroscopy to drug trial analysis. Any domain where you're searching for a rare, unpredictable signal embedded in well-characterized noise could benefit from NPLM's approach. Folding anomaly detection and hypothesis testing into a single framework is a concrete step toward the automated, assumption-free searches next-generation experiments will need.
 

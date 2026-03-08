@@ -38,9 +38,7 @@ concepts:
 - surrogate modeling
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2204_09809/figure_1.png
 - /iaifi-research-blog/figures/2204_09809/figure_2.png
-- /iaifi-research-blog/figures/2204_09809/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2204.09809v2
 published: '2022-04-20T23:22:52+00:00'
 theme: Astrophysics
@@ -74,7 +72,7 @@ Between the two algorithms, 67 events were flagged as superluminous supernova ca
 
 After filtering, the refined sample underwent the centerpiece analysis: fitting each event's multi-band light curve with a magnetar spin-down model. This model treats the supernova as powered by a rapidly spinning, intensely magnetized neutron star (a **magnetar**) whose rotational energy gets deposited into the shell of gas blasted outward in the explosion. Using the open-source MOSFiT code, the team extracted physical parameters including magnetar spin period, magnetic field strength, and ejecta mass.
 
-![Figure 1](/iaifi-research-blog/figures/2204_09809/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2204_09809/figure_2.png)
 
 ## Why It Matters
 
@@ -82,13 +80,11 @@ The core question: does photometric classification tell you the same physics sto
 
 Yes. With an illuminating twist.
 
-![Figure 2](/iaifi-research-blog/figures/2204_09809/figure_2.png)
 
 When the team compared parameter distributions from the photometric PS1-MDS sample against both the spectroscopic PS1-MDS sample and a broader literature compilation, they found broad consistency. Magnetar spin periods, magnetic field strengths, and ejecta masses occupied largely the same ranges across all three samples. The ML classifiers are finding real superluminous supernovae, not impostors.
 
 But the photometric sample reached into territory the spectroscopic samples didn't: slower magnetar spins and lower ejecta masses, corresponding to intrinsically fainter events. The reason is straightforward. Spectroscopic follow-up is brightness-limited. Observers chase the most dramatic events. Photometric selection, free of that bias, naturally recovers the dimmer tail of the population.
 
-![Figure 3](/iaifi-research-blog/figures/2204_09809/figure_3.png)
 
 That's not a flaw. The photometric sample reveals a part of the superluminous supernova population that traditional campaigns systematically miss.
 

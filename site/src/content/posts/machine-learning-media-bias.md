@@ -28,11 +28,8 @@ concepts:
 - sparse models
 - scalability
 figures:
-- /iaifi-research-blog/figures/2109_00024/figure_1.png
-- /iaifi-research-blog/figures/2109_00024/figure_1.png
 - /iaifi-research-blog/figures/2109_00024/figure_2.png
 - /iaifi-research-blog/figures/2109_00024/figure_2.png
-- /iaifi-research-blog/figures/2109_00024/figure_3.png
 - /iaifi-research-blog/figures/2109_00024/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2109.00024v1
 published: '2021-08-31T18:06:32+00:00'
@@ -65,7 +62,7 @@ These **phrase frequency signatures**, numerical fingerprints of which words app
 
 The team frames the problem as a classification task: given an article's phrase counts, predict which of the ~100 newspapers published it. But they don't actually care about getting the classification right. What matters is the **conditional probability distribution**, the underlying statistical patterns the model builds to distinguish one newspaper from another. Those learned patterns are themselves the signal about bias.
 
-![Figure 1](/iaifi-research-blog/figures/2109_00024/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2109_00024/figure_2.png)
 
 Technically, the method centers on a **generalized Singular Value Decomposition (SVD)**, a mathematical technique that compresses thousands of phrase-count columns down to just two or three key dimensions. Standard SVD fails here for two reasons: it can produce nonsensical negative phrase counts, and it treats all observations equally even when some phrase counts are measured far more precisely than others.
 
@@ -79,7 +76,7 @@ Here's what's striking: this purely data-driven method recovers the same two-dim
 
 This result points toward real-time, scalable, transparent bias monitoring. Because the method is fully automated and relies only on publicly available text, it can be applied to new outlets, new topics, and new time periods without any additional human labeling. The team analyzes dozens of distinct news topics and finds that biases are correlated across them in consistent ways, which is precisely what allows the two-dimensional structure to emerge at all.
 
-![Figure 2](/iaifi-research-blog/figures/2109_00024/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2109_00024/figure_2.png)
 
 Natural extensions include other languages, tracking how newspaper bias shifts over time, and applying similar techniques to social media, political speeches, or corporate press releases.
 

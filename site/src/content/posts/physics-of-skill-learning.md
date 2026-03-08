@@ -38,8 +38,6 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2501_12391/figure_1.png
-- /iaifi-research-blog/figures/2501_12391/figure_2.png
-- /iaifi-research-blog/figures/2501_12391/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.12391v1
 published: '2025-01-21T18:59:49+00:00'
 theme: Foundational AI
@@ -73,7 +71,6 @@ To explain it, the team constructs three models at different levels of abstracti
 - **The Resource Model**: Coarser, but analytically tractable. Treats the network's "capacity" as a shared resource that skills compete to capture. When one skill monopolizes it, others stagnate; when it finishes, resources flood to the next. This maps the problem onto thermodynamics: skills as phases, training as a **phase transition** (a sudden, dramatic shift, like water freezing into ice).
 - **The Domino Model**: The simplest. Assumes a strict hierarchy where you cannot learn Task B until Task A is complete. Pure sequential learning, ideal for analyzing modularity.
 
-![Figure 2](/iaifi-research-blog/figures/2501_12391/figure_2.png)
 
 Each model sacrifices something for clarity. The Domino model can't capture partial simultaneous learning, but enables clean analytical results. The Geometry model reproduces actual training curves but resists simple analysis. The Resource model sits in the middle, elegant enough for mathematics, realistic enough to match experiments on compositional tasks.
 
@@ -85,7 +82,6 @@ The Resource model makes precise predictions about **compositional tasks**, prob
 
 The practical payoff is as important as the theory. Inspired by the Resource model's picture of skills competing for attention, the team developed simple algorithmic modifications (changes to how training examples are weighted and how learning signals are scaled) that measurably speed up learning on benchmark tasks. Theory didn't just explain what's happening; it told engineers where to push.
 
-![Figure 3](/iaifi-research-blog/figures/2501_12391/figure_3.png)
 
 More broadly, this work represents a bet that the right tools for understanding AI are the ones physicists have used for a century: stripping complex systems to their essential structure, building toy models that ignore the noise to expose the signal, and having the courage to make things absurdly simple. The Geometry model's connection to Chinchilla laws suggests that scaling laws might have a deeper mechanistic explanation, rooted in how skills compete in parameter space rather than empirical curve-fitting. That's a profound shift in how we think about what scaling laws *are*.
 

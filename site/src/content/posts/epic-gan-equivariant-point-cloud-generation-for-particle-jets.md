@@ -33,7 +33,6 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2301_08128/figure_1.png
-- /iaifi-research-blog/figures/2301_08128/figure_2.png
 - /iaifi-research-blog/figures/2301_08128/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2301.08128v3
 published: '2023-01-17T19:00:00+00:00'
@@ -71,11 +70,10 @@ The GAN stacks multiple EPiC layers in both a generator and a discriminator. The
 
 ## Why It Matters
 
-![Figure 2](/iaifi-research-blog/figures/2301_08128/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2301_08128/figure_3.png)
 
 The team benchmarked EPiC-GAN on the **JetNet dataset**, the standard evaluation suite for point-cloud jet generation. JetNet30 contains jets with up to 30 particles; JetNet150 scales that up fivefold. On both, EPiC-GAN matches or exceeds the fidelity of **MP-GAN** (message-passing GAN), which relies on full pairwise particle interactions. Momentum distributions, angular spread, jet mass, and Wasserstein distance (a measure of how closely two probability distributions match) all come out right.
 
-![Figure 3](/iaifi-research-blog/figures/2301_08128/figure_3.png)
 
 The real story is timing. At 150 particles per jet, EPiC-GAN generates samples roughly five times faster than MP-GAN. At larger jet sizes, the kind that will matter for future calorimeter simulations, the gap grows wider still. Quadratic scaling cripples graph networks as jets grow; linear scaling keeps EPiC-GAN fast.
 

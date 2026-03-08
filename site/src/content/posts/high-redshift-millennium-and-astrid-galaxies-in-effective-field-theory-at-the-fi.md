@@ -44,10 +44,6 @@ concepts:
 - dark matter
 - surrogate modeling
 figures:
-- /iaifi-research-blog/figures/2505_03626/figure_1.png
-- /iaifi-research-blog/figures/2505_03626/figure_1.png
-- /iaifi-research-blog/figures/2505_03626/figure_2.png
-- /iaifi-research-blog/figures/2505_03626/figure_2.png
 - /iaifi-research-blog/figures/2505_03626/figure_3.png
 - /iaifi-research-blog/figures/2505_03626/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.03626v1
@@ -77,25 +73,23 @@ The researchers focused on two galaxy populations that future surveys will obser
 - **Lyman-break galaxies (LBGs)**: Massive, luminous star-forming galaxies identified by a characteristic "dropout." They vanish in blue photometric bands because hydrogen absorbs light shortward of the Lyman-alpha line. The bright giants of the early universe.
 - **Lyman-alpha emitters (LAEs)**: Lower-mass galaxies that glow in a specific hydrogen emission line. Their physics is messier: observed properties depend on dust geometry, metallicity, and radiative transfer through the intergalactic medium.
 
-![Figure 1](/iaifi-research-blog/figures/2505_03626/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2505_03626/figure_3.png)
 
 To measure how these galaxies trace the underlying dark matter, the team analyzed two **hydrodynamical simulations**, physics-based models that track gas, star formation, and black hole feedback across billions of virtual light-years: MillenniumTNG (MTNG) and Astrid. Both reproduce observed clustering and number densities of real LAE and LBG populations.
 
 The technical heart of the paper is the **field-level EFT forward model**. Rather than comparing statistical summaries like **power spectra** (measurements of how strongly galaxies cluster at different scales), this approach compares actual three-dimensional density fields, mode by mode. The payoff is **cosmic variance cancellation**: by comparing the same patch of simulated universe rather than independent realizations, measurement precision increases dramatically. Bias parameters come out pinned down to percent-level accuracy from a single simulation volume.
 
-![Figure 2](/iaifi-research-blog/figures/2505_03626/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2505_03626/figure_3.png)
 
 EFT works by expanding the galaxy density field as a series of terms, each multiplied by a **bias parameter** encoding how a given galaxy population responds to its environment. The linear bias b₁ captures how much more clustered galaxies are than dark matter on large scales. Quadratic terms (b₂, b_𝒢₂) describe how galaxy formation responds to local curvature and tidal forces, the stretching and squeezing of the density distribution.
 
 The worry at high redshift was that estimates from the **peak-background split** model suggested bias parameters could grow large enough to make the series diverge. Instead, the measured quadratic parameters are broadly consistent with the **halo occupation distribution (HOD)** model, the standard framework describing how galaxies populate dark matter halos. No catastrophic enhancement. The theory's approximations remain self-consistent.
 
-![Figure 3](/iaifi-research-blog/figures/2505_03626/figure_2.png)
 
 One result stood out. **Fingers of God**, the elongated smearing of galaxy positions along the line of sight caused by random velocities within halos, are well-known to complicate galaxy surveys. For LBGs, these contributions are comparable to those of Luminous Red Galaxies, the workhorses of current low-redshift surveys. That's expected: LBGs live in massive halos with fast-moving satellites.
 
 LAEs tell a different story. Despite satellite fractions as high as ~30%, their Fingers of God signal is surprisingly small. The same processes (dust, gas geometry, Lyman-alpha radiative transfer) that make a galaxy visible as an LAE may preferentially select objects with lower internal velocity dispersions, suppressing the signal even when many satellites are present.
 
-![Figure 4](/iaifi-research-blog/figures/2505_03626/figure_2.png)
 
 ## Why It Matters
 

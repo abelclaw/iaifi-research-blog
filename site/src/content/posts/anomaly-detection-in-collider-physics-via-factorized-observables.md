@@ -37,7 +37,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2312_00119/figure_1.png
 - /iaifi-research-blog/figures/2312_00119/figure_2.png
-- /iaifi-research-blog/figures/2312_00119/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.00119v2
 published: '2023-11-30T19:00:00+00:00'
 theme: Theoretical Physics
@@ -88,7 +87,6 @@ FORCE reliably extracts signal fractions at the percent level, a needle in a 99%
 
 Even when factorization holds only approximately (as it always does in practice, due to subleading QCD corrections) FORCE still performs well. It also comes with a built-in sanity check: a model trained on pure background data should be uninformative. Deviations from that baseline are quantifiable signals of genuine anomaly, not artifacts of poor modeling.
 
-![Figure 3](/iaifi-research-blog/figures/2312_00119/figure_3.png)
 
 The broader field of anomaly detection at the LHC is crowded but fractured. Autoencoder-based methods define anomalies architecturally, making it hard to know what physics they're sensitive to. Resonance-hunting strategies like ANODE or CWoLa are powerful but require new physics to cluster in invariant mass. Simulation-dependent methods risk confusing detector artifacts for signals.
 

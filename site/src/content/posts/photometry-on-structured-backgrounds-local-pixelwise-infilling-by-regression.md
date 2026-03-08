@@ -35,7 +35,6 @@ concepts:
 - inverse problems
 - signal detection
 figures:
-- /iaifi-research-blog/figures/2201_07246/figure_1.png
 - /iaifi-research-blog/figures/2201_07246/figure_2.png
 - /iaifi-research-blog/figures/2201_07246/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2201.07246v1
@@ -59,7 +58,7 @@ Andrew Saydjari and Douglas Finkbeiner at Harvard developed a new technique call
 
 The core idea behind LPI comes from a branch of statistics called **Gaussian Process Regression (GPR)**, a method that predicts unknown values by exploiting the fact that nearby measurements tend to resemble each other. Pixels in astronomical images behave this way, especially in smoothly varying dust clouds: knowing the surrounding pixels lets you estimate what a hidden pixel's value should be.
 
-![Figure 1](/iaifi-research-blog/figures/2201_07246/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2201_07246/figure_2.png)
 
 Here's the LPI workflow in practice:
 
@@ -78,11 +77,10 @@ The scale of the application puts real weight behind the method. Saydjari and Fi
 
 On nebulous fields, LPI eliminated large numbers of statistically anomalous measurements flagged as greater than 3σ outliers (readings more than three standard deviations from expected values, a standard red flag for unreliable data). Uncertainty estimates improved by a factor of roughly 2 to 3. That's not marginal: error bars that were previously half the size they should have been now reflect reality.
 
-![Figure 2](/iaifi-research-blog/figures/2201_07246/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2201_07246/figure_3.png)
 
 What makes LPI most useful in practice is that it works as a post-processing step, applied after a standard light-measuring pipeline has already run. It doesn't require rebuilding complex data reduction infrastructure. It can retroactively improve archival survey data and slot into future surveys like the Legacy Survey of Space and Time (LSST) at the Vera C. Rubin Observatory, which will observe billions of Galactic-plane stars over its decade-long run.
 
-![Figure 3](/iaifi-research-blog/figures/2201_07246/figure_3.png)
 
 The method isn't limited to optical or infrared wavelengths. Any survey with pixelized images and spatially correlated backgrounds (radio, submillimeter, X-ray) could benefit from the same approach.
 

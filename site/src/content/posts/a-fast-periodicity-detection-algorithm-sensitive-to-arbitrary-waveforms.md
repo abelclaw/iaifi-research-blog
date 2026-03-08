@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2502_00243/figure_1.png
 - /iaifi-research-blog/figures/2502_00243/figure_1.png
 - /iaifi-research-blog/figures/2502_00243/figure_2.png
-- /iaifi-research-blog/figures/2502_00243/figure_2.png
-- /iaifi-research-blog/figures/2502_00243/figure_3.png
-- /iaifi-research-blog/figures/2502_00243/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.00243v1
 published: '2025-02-01T00:48:05+00:00'
 theme: Astrophysics
@@ -79,15 +76,12 @@ Eclipsing systems produce sharp dips with flat tops, nothing like a sinusoid. Ac
 
 ![Figure 3](/iaifi-research-blog/figures/2502_00243/figure_2.png)
 
-![Figure 4](/iaifi-research-blog/figures/2502_00243/figure_2.png)
 
 For each candidate period, FPW constructs a periodogram, plotting *S_FPW* values versus frequency. A real period stands out as a sharp peak above the noise floor. The team validated FPW on known ZTF variable stars, recovering periods cleanly across all these morphologies where Lomb-Scargle produces weak or aliased detections.
 
-![Figure 5](/iaifi-research-blog/figures/2502_00243/figure_3.png)
 
 FPW also handles irregularly sampled time series without difficulty. ZTF doesn't observe every source on a perfect schedule, and the algorithm takes uneven gaps in stride. The implementation runs efficiently on both CPUs and GPUs, with open code available for both.
 
-![Figure 6](/iaifi-research-blog/figures/2502_00243/figure_3.png)
 
 ## Why It Matters
 

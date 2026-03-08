@@ -29,11 +29,7 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2504_05462/figure_1.png
-- /iaifi-research-blog/figures/2504_05462/figure_1.png
 - /iaifi-research-blog/figures/2504_05462/figure_2.png
-- /iaifi-research-blog/figures/2504_05462/figure_2.png
-- /iaifi-research-blog/figures/2504_05462/figure_3.png
-- /iaifi-research-blog/figures/2504_05462/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.05462v1
 published: '2025-04-07T19:54:00+00:00'
 theme: Theoretical Physics
@@ -69,7 +65,7 @@ Correlation functions computed in imaginary time must also satisfy **reflection 
 
 Ferko and Halverson identify two mechanisms. A **parameter splitting** method divides the network's parameter space into two halves, one for positive times and one for negative, and constrains their relationship so that reflection positivity is forced into any architecture. A second, more elegant route: **Markov processes** (random walks where only the current state matters) are automatically reflection positive. This second route turns out to be especially productive.
 
-![Figure 2](/iaifi-research-blog/figures/2504_05462/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2504_05462/figure_2.png)
 
 ### Deep Neural Network Quantum Mechanics
 
@@ -83,11 +79,9 @@ The authors test this framework numerically using the **Ornstein-Uhlenbeck (OU) 
 - **Non-trivial commutators**: $[x, p] = i\hbar$ arises because paths are *nowhere differentiable*, too rough to have well-defined slopes. This roughness is the mechanism by which non-commutativity enters the theory.
 - **Energy spectrum**: reconstructed eigenvalues recover the correct harmonic oscillator spectrum
 
-![Figure 3](/iaifi-research-blog/figures/2504_05462/figure_2.png)
 
 Passing the OU process through increasingly complex architectures (deeper networks, different activation functions) produces genuinely different quantum systems. The machinery works.
 
-![Figure 4](/iaifi-research-blog/figures/2504_05462/figure_2.png)
 
 ## Why It Matters
 
@@ -97,9 +91,7 @@ The practical payoff runs in both directions. If every quantum system has a neur
 
 Open directions include extending the framework to quantum field theories in higher dimensions, mapping specific architectures to classes of quantum systems, and understanding how training dynamics modify quantum properties.
 
-![Figure 5](/iaifi-research-blog/figures/2504_05462/figure_3.png)
 
-![Figure 6](/iaifi-research-blog/figures/2504_05462/figure_3.png)
 
 For decades, physicists have used neural networks as tools to probe quantum systems. This paper argues the relationship is more intimate: quantum mechanics and neural networks are, in a precise mathematical sense, the same kind of object.
 

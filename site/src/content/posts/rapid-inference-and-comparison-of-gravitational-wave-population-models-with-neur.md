@@ -34,13 +34,7 @@ concepts:
 - likelihood estimation
 - scalability
 - simulation-based inference
-figures:
-- /iaifi-research-blog/figures/2504_07197/figure_1.png
-- /iaifi-research-blog/figures/2504_07197/figure_1.png
-- /iaifi-research-blog/figures/2504_07197/figure_2.png
-- /iaifi-research-blog/figures/2504_07197/figure_2.png
-- /iaifi-research-blog/figures/2504_07197/figure_3.png
-- /iaifi-research-blog/figures/2504_07197/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2504.07197v3
 published: '2025-04-09T18:25:49+00:00'
 theme: Astrophysics
@@ -74,21 +68,17 @@ The training loop:
 
 Once trained, the flow gives you an exact probability density. You can draw as many independent samples as you want, instantly. Traditional samplers produce correlated chains; this produces truly independent draws.
 
-![Figure 1](/iaifi-research-blog/figures/2504_07197/figure_1.png)
 
 What if the flow misses part of the posterior? The team deploys **Pareto smoothed importance sampling (PSIS)** as a safety net. After training, samples from the flow are reweighted by the ratio of the true posterior to the flow's approximation, correcting for any gaps in coverage.
 
 A fitted **Pareto shape parameter** *k̂* acts as a built-in diagnostic: *k̂* < 0.7 means the approximation is reliable, while higher values signal that the flow needs more training or flexibility. No need to run an independent sampler for comparison.
 
-![Figure 2](/iaifi-research-blog/figures/2504_07197/figure_1.png)
 
 PSIS also yields the **Bayesian evidence**, the integral quantifying how well a model fits the data overall. With evidence values in hand, researchers can compute **Bayes factors** to rigorously compare competing population models. Traditional variational methods struggle with evidence estimation, but the PSIS approach provides unbiased estimates when the flow covers the posterior support.
 
-![Figure 4](/iaifi-research-blog/figures/2504_07197/figure_2.png)
 
 The team validated their method against state-of-the-art nested sampling on real LVK black hole merger data. For the current catalog, the GPU-accelerated flow trains in seconds and recovers posteriors matching nested sampling with high fidelity. They also stress-tested on a mock catalog of 1,599 events, comparable to what future LVK observing runs will produce. Neural variational inference handled it in minutes. Nested sampling would have taken hours.
 
-![Figure 5](/iaifi-research-blog/figures/2504_07197/figure_3.png)
 
 ## Why It Matters
 

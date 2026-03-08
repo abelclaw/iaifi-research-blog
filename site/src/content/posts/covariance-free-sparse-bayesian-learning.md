@@ -37,9 +37,6 @@ figures:
 - /iaifi-research-blog/figures/2105_10439/figure_1.png
 - /iaifi-research-blog/figures/2105_10439/figure_1.png
 - /iaifi-research-blog/figures/2105_10439/figure_2.png
-- /iaifi-research-blog/figures/2105_10439/figure_2.png
-- /iaifi-research-blog/figures/2105_10439/figure_3.png
-- /iaifi-research-blog/figures/2105_10439/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2105.10439v2
 published: '2021-05-21T16:20:07+00:00'
 theme: Foundational AI
@@ -91,7 +88,6 @@ The paper tests this on two real applications. In **calcium imaging deconvolutio
 
 Both extensions (multi-task learning across MRI contrasts, non-negativity constraints for calcium signals) slot cleanly into the CoFEM framework, showing its flexibility beyond the baseline setting.
 
-![Figure 4](/iaifi-research-blog/figures/2105_10439/figure_2.png)
 
 There's a broader template here. Many Bayesian methods remain confined to low-dimensional settings because their inference costs scale catastrophically. CoFEM shows a path forward: identify what you *actually* need from an expensive intermediate object, then estimate it cheaply using randomized numerical linear algebra. The same approach could extend to other scientific domains where uncertainty quantification matters but computational cost has been prohibitive.
 

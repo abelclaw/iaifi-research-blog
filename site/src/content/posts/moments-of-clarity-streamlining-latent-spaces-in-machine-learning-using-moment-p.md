@@ -32,7 +32,6 @@ concepts:
 - effective latent dimension
 - symmetry preservation
 figures:
-- /iaifi-research-blog/figures/2403_08854/figure_1.png
 - /iaifi-research-blog/figures/2403_08854/figure_2.png
 - /iaifi-research-blog/figures/2403_08854/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.08854v2
@@ -59,7 +58,7 @@ The starting point is the **Energy Flow Network (EFN)**, an architecture built f
 
 The core innovation: why stop at the average? Statisticians routinely characterize distributions using not just their mean but also their variance, skewness, and kurtosis (the second, third, and fourth statistical moments, capturing a distribution's spread, lopsidedness, and tail weight). **Moment Pooling** applies exactly this logic. Instead of feeding *F* only the mean of Φ, a Moment EFN of order *k* feeds it all moments up to order *k*.
 
-![Figure 1](/iaifi-research-blog/figures/2403_08854/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2403_08854/figure_2.png)
 
 The payoff is a big jump in effective latent dimensionality, meaning how much information actually passes through the bottleneck. With a latent dimension of *L* = 1 and moments up to order *k* = 4, the model passes *k* numbers through the bottleneck, giving it the same effective information capacity as an ordinary EFN with *L* = 4. But the *learned* latent space is still one-dimensional, so it can be plotted as a simple curve.
 
@@ -73,13 +72,12 @@ On the standard task of distinguishing quark-initiated jets from gluon-initiated
 
 With *L* = 1, the researchers can simply *plot* what the network learned: the function Φ that maps each particle's detector position to a number. And when they did, something jumped out.
 
-![Figure 2](/iaifi-research-blog/figures/2403_08854/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2403_08854/figure_3.png)
 
 The learned Φ takes an almost perfectly simple mathematical form. After fitting it with analytic functions, the team found it corresponds closely to a **log angularity**, an observable that weights particles by their energy and by the logarithm of their angular distance from the jet center. Jet angularities are a family of observables physicists have studied theoretically for decades. The machine, trained only to maximize classification accuracy, had independently discovered a quantity that humans already knew was physically meaningful.
 
 They pushed further, constraining the *F* network to be linear at *L* = 1. The learned observable became even more interpretable: essentially a weighted sum of the moments of the log angularity, which are themselves established theoretical objects. The network wasn't just finding *a* good observable; it was organizing the physics into a form that humans had already found compelling.
 
-![Figure 3](/iaifi-research-blog/figures/2403_08854/figure_3.png)
 
 At *L* = 2, the picture remains tractable. The model learns a second latent function alongside the log angularity, and the two-dimensional latent space can be visualized as a scatter plot, still graspable by human eyes in a way that a 16-dimensional space never could be.
 

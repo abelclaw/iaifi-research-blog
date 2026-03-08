@@ -37,7 +37,6 @@ concepts:
 - bayesian inference
 figures:
 - /iaifi-research-blog/figures/2501_07446/figure_1.png
-- /iaifi-research-blog/figures/2501_07446/figure_2.png
 - /iaifi-research-blog/figures/2501_07446/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.07446v3
 published: '2025-01-13T16:16:53+00:00'
@@ -72,7 +71,7 @@ The paper tackles two linked problems:
 
 The core theoretical contribution is a fixed-point characterization of entropy-regularized barycenters. The researchers prove that a measure is a barycenter if and only if it is a fixed point of a weighted average of entropy-regularized **displacement maps**. Put differently, the barycenter is in equilibrium: let each reference optimally push mass toward it, take the weighted average of those pushes, and the barycenter doesn't move.
 
-![Figure 2](/iaifi-research-blog/figures/2501_07446/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2501_07446/figure_3.png)
 
 This characterization leads to a striking practical result: when the target measure is itself a barycenter of the references, recovering its coefficients reduces to a finite-dimensional, convex **quadratic program**, a problem with a guaranteed unique global solution. No gradient descent, no iterative black-box optimization. Just a clean convex problem solvable to global optimality.
 
@@ -84,7 +83,6 @@ Point clouds (collections of 3D coordinates representing object surfaces) are ub
 
 The Tufts researchers applied their barycentric coefficient framework to corrupted point cloud classification and found a clear result: using coefficients as simple features fed into a standard classifier, their method outperformed neural network baselines in small training data regimes. With only a handful of labeled examples, the geometric structure captured by optimal transport provides stronger inductive bias than a network can learn from scratch.
 
-![Figure 3](/iaifi-research-blog/figures/2501_07446/figure_3.png)
 
 The reach extends beyond point clouds. Any domain where data is naturally modeled as distributions has something to gain here: particle physics (energy depositions in detectors), cosmology (galaxy surveys as point processes), materials science (atomic configurations). The dimension-free rates mean the framework scales to high-dimensional probability measures without the **curse of dimensionality** degrading performance.
 

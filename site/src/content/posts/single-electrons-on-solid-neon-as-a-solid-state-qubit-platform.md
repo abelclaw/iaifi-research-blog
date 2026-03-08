@@ -43,10 +43,7 @@ concepts:
 - entanglement
 figures:
 - /iaifi-research-blog/figures/2106_10326/figure_1.png
-- /iaifi-research-blog/figures/2106_10326/figure_1.png
 - /iaifi-research-blog/figures/2106_10326/figure_2.png
-- /iaifi-research-blog/figures/2106_10326/figure_2.png
-- /iaifi-research-blog/figures/2106_10326/figure_3.png
 - /iaifi-research-blog/figures/2106_10326/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2106.10326v3
 published: '2021-06-18T19:35:16+00:00'
@@ -86,7 +83,7 @@ The team observed **vacuum Rabi splitting**, a spectroscopic signature proving t
 - **T₁ measurements** (energy relaxation time): the qubit retains its excited state for 15 μs
 - **T₂ measurements** (phase coherence time): quantum phase information survives for over 200 ns
 
-![Figure 2](/iaifi-research-blog/figures/2106_10326/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2106_10326/figure_2.png)
 
 These numbers put the electron-on-neon qubit at the state of the art for charge qubits, and the device hasn't been optimized yet.
 

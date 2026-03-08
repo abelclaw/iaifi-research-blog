@@ -27,11 +27,8 @@ concepts:
 - collider physics
 - uncertainty quantification
 figures:
-- /iaifi-research-blog/figures/2408_12296/figure_1.png
-- /iaifi-research-blog/figures/2408_12296/figure_1.png
 - /iaifi-research-blog/figures/2408_12296/figure_2.png
 - /iaifi-research-blog/figures/2408_12296/figure_2.png
-- /iaifi-research-blog/figures/2408_12296/figure_3.png
 - /iaifi-research-blog/figures/2408_12296/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.12296v1
 published: '2024-08-22T11:14:37+00:00'
@@ -60,7 +57,7 @@ To answer it, NPLM trains a model based on **kernel methods**, a technique that 
 
 If the Standard Model is correct, the likelihood ratio should be flat. If new physics is lurking, the model learns a nontrivial deformation, producing a large **test statistic** (a number summarizing how different the two datasets look) that translates into a small **p-value**: the probability of seeing a discrepancy this large purely by chance. A small enough p-value becomes a potential discovery claim.
 
-![Figure 1](/iaifi-research-blog/figures/2408_12296/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2408_12296/figure_2.png)
 
 The problem arises during **model selection**, when you choose the kernel's bandwidth (how broadly the model peers at each data point), regularization strength (a penalty against overfitting), and other settings. Different choices make the model sensitive to different signals. A narrow kernel catches sharp localized resonances but misses broad spectral distortions. A wide kernel does the opposite. In a real search, you don't know which setting is best, because you don't know what new physics looks like.
 
@@ -70,15 +67,14 @@ Grosso and Letizia's solution: don't pick. Run many versions of the test, each w
 - **Aggregating test statistics** by directly averaging or taking the maximum across all runs before computing a single p-value
 - **Correcting for the look-elsewhere effect** by calibrating the combined statistic against its null distribution, preventing multiple tests from inflating the false positive rate
 
-![Figure 2](/iaifi-research-blog/figures/2408_12296/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2408_12296/figure_2.png)
 
 That last correction matters most. Running 20 tests instead of 1 naively makes you 20 times more likely to flag noise as a discovery. The combined test statistic is compared against its distribution *under the null hypothesis*, assuming the Standard Model is exactly right, with thresholds computed empirically. The false positive rate stays properly controlled. You get the sensitivity benefits of multiple probes without sacrificing statistical rigor.
 
-![Figure 3](/iaifi-research-blog/figures/2408_12296/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2408_12296/figure_3.png)
 
 In numerical experiments, the authors tested their framework against a range of synthetic anomalies: sharp resonances, broad excesses, rate deviations. They compared the combined tests to individual ones. The combined approach reliably matches or approaches the performance of the *best* individual test for each signal type, while no single test dominates across all signal types. The combination is a generalist; each individual test is a specialist. And since you don't know which specialist to call, the generalist wins.
 
-![Figure 4](/iaifi-research-blog/figures/2408_12296/figure_2.png)
 
 ## Why It Matters
 
@@ -88,7 +84,6 @@ The multiple testing framework offers a statistically controlled way to soften t
 
 The combination methods explored here, particularly aggregating test statistics with proper null calibration, are simple enough to slot into existing analysis pipelines.
 
-![Figure 5](/iaifi-research-blog/figures/2408_12296/figure_3.png)
 
 Open questions remain. How should tests with different expected sensitivities be weighted? Would adaptive methods that focus on promising hyperparameter regions outperform uniform grids? How does the approach scale to the high-dimensional feature spaces of modern LHC analyses? The framework is already practical, though, and the authors provide code to reproduce their results.
 

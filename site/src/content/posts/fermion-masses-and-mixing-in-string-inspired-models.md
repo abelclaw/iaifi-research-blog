@@ -35,12 +35,8 @@ concepts:
 - new physics searches
 - renormalization
 figures:
-- /iaifi-research-blog/figures/2410_17704/figure_1.png
-- /iaifi-research-blog/figures/2410_17704/figure_1.png
 - /iaifi-research-blog/figures/2410_17704/figure_2.png
 - /iaifi-research-blog/figures/2410_17704/figure_2.png
-- /iaifi-research-blog/figures/2410_17704/figure_3.png
-- /iaifi-research-blog/figures/2410_17704/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.17704v2
 published: '2024-10-23T09:27:14+00:00'
 theme: Theoretical Physics
@@ -70,13 +66,12 @@ These string-derived models differ from textbook FN models in three ways:
 - **Two types of FN scalars**: "perturbative" singlets tied to the force-carrying structures in the extra dimensions, calculable via standard expansion methods, and "non-perturbative" singlets tied to the geometry itself, where strong quantum effects require different techniques
 - **GUT-organized charges**: the underlying SU(5) grand unified symmetry groups quarks and leptons into related families, so charges cluster by family, sharply reducing free parameters
 
-![Figure 1](/iaifi-research-blog/figures/2410_17704/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2410_17704/figure_2.png)
 
 With this structure fixed, the challenge is navigating the enormous space of possible charge assignments, millions of candidates across all partition types. The team turned to **genetic algorithms**, computational search methods inspired by biological evolution. Candidate charge assignments that better reproduce observed mass ratios get selected, mutated, and recombined across generations. Those that don't get culled.
 
 The fitness function measures agreement with observed quark mass ratios and **CKM mixing angles**, the matrix governing how quarks from different generations mix during interactions. Once the algorithm identified promising patterns, the team refined them by numerically optimizing the dimensionless coefficients in the Yukawa couplings (expected to be close to 1) to match experimental values.
 
-![Figure 3](/iaifi-research-blog/figures/2410_17704/figure_2.png)
 
 The result: specific models that correctly predict all quark and charged lepton masses, the Higgs field's vacuum value, and the full CKM matrix to high accuracy.
 
@@ -86,7 +81,6 @@ The broader significance cuts in two directions. From the string theory side, th
 
 Flavor physics isn't a free parameter in string model building. It's a filter.
 
-![Figure 5](/iaifi-research-blog/figures/2410_17704/figure_3.png)
 
 This complements "top-down" approaches, which start from a specific string compactification and derive what low-energy physics falls out. Here the researchers work bottom-up: they demand realistic particle masses and ask what string structures could produce them. The two approaches are converging.
 

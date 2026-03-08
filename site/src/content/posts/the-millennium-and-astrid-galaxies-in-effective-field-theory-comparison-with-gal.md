@@ -48,10 +48,6 @@ concepts:
 - baryonic feedback
 - surrogate modeling
 figures:
-- /iaifi-research-blog/figures/2412_01888/figure_1.png
-- /iaifi-research-blog/figures/2412_01888/figure_1.png
-- /iaifi-research-blog/figures/2412_01888/figure_2.png
-- /iaifi-research-blog/figures/2412_01888/figure_2.png
 - /iaifi-research-blog/figures/2412_01888/figure_3.png
 - /iaifi-research-blog/figures/2412_01888/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2412.01888v1
@@ -78,7 +74,7 @@ Using two powerful cosmological simulations, MillenniumTNG and Astrid, a team of
 
 The researchers worked with two simulations. **MillenniumTNG (MTNG)** combines the IllustrisTNG galaxy formation model with a gigantic simulation volume. **Astrid** uses a different galaxy formation model, in particular a different treatment of **AGN feedback** (the energetic jets and winds driven by supermassive black holes), providing a cross-check on how sensitive results are to uncertain physics.
 
-![Figure 1](/iaifi-research-blog/figures/2412_01888/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2412_01888/figure_3.png)
 
 From each simulation, the team selected galaxy samples mimicking real surveys: LRGs matching BOSS selection criteria and ELGs matching DESI targets. They then applied the EFT field-level forward model, a technique that operates directly on the full three-dimensional map of galaxy positions rather than compressing it into summary statistics like the **power spectrum** (a measure of how strongly galaxies cluster at different scales).
 
@@ -93,7 +89,7 @@ The EFT model parametrizes galaxy bias (how galaxies trace the underlying dark m
 
 These parameters were compared against predictions from the standard HOD model for LRGs and the **High Mass Quenched (HMQ) model** for ELGs. The HMQ model was designed specifically for blue, star-forming galaxies that tend to avoid the densest halo environments.
 
-![Figure 2](/iaifi-research-blog/figures/2412_01888/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2412_01888/figure_3.png)
 
 The comparison showed strong agreement, with some important caveats. LRG bias parameters match HOD predictions well. For ELGs, local bias parameters are systematically offset from what an LRG-like model would predict. The team traced this to a simple physical explanation: blue galaxies preferentially live at halo outskirts rather than centers, and that different spatial distribution naturally gives them different large-scale bias parameters. Not a numerical quirk, but real physics about where star-forming galaxies live.
 
@@ -103,7 +99,6 @@ The practical stakes are high. DESI is already collecting spectra of tens of mil
 
 This paper validates the HOD-based EFT priors now used in **full-shape analyses** of DESI data, where fits use the complete shape of the clustering signal across all scales simultaneously rather than just broad summary statistics. Wrong priors would bias inferences about the Universe's fundamental properties.
 
-![Figure 3](/iaifi-research-blog/figures/2412_01888/figure_2.png)
 
 There's also a useful result on **fingers-of-God**, the smearing of galaxy clustering along the line of sight caused by random motions inside halos. LRGs sit near dense halo centers and experience strong fingers-of-God effects that push the EFT perturbative framework to its limits. ELGs show weaker effects. That means a larger fraction of ELG data can be modeled perturbatively, potentially extending EFT analyses to smaller scales and yielding tighter cosmological constraints.
 

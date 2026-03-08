@@ -38,9 +38,6 @@ figures:
 - /iaifi-research-blog/figures/2303_01529/figure_1.png
 - /iaifi-research-blog/figures/2303_01529/figure_1.png
 - /iaifi-research-blog/figures/2303_01529/figure_2.png
-- /iaifi-research-blog/figures/2303_01529/figure_2.png
-- /iaifi-research-blog/figures/2303_01529/figure_3.png
-- /iaifi-research-blog/figures/2303_01529/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2303.01529v1
 published: '2023-03-02T19:00:08+00:00'
 theme: Astrophysics
@@ -82,7 +79,6 @@ The team also ran the algorithm on **Galaxia**, a synthetic Milky Way model cont
 
 The result, 102 stream candidates with roughly 90 expected to be genuine, vastly expands the known stellar stream census. Before Gaia, astronomers knew of only a handful of streams. With the right tools, it turns out we are swimming in them.
 
-![Figure 4](/iaifi-research-blog/figures/2303_01529/figure_2.png)
 
 Each new stream is a potential scientific goldmine. Dense, narrow streams like GD-1 are sensitive enough to detect dark matter substructure at the level of individual clumps, effectively turning stellar ribbons into cosmic seismometers for otherwise invisible mass. Ninety new streams greatly enlarges the sample available for dark matter searches and for mapping the Milky Way's gravitational potential.
 

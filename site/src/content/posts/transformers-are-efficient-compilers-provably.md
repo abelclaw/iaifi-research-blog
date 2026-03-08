@@ -39,10 +39,7 @@ concepts:
 - recurrent networks
 - scalability
 - interpretability
-figures:
-- /iaifi-research-blog/figures/2410_14706/figure_1.png
-- /iaifi-research-blog/figures/2410_14706/figure_2.png
-- /iaifi-research-blog/figures/2410_14706/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2410.14706v2
 published: '2024-10-07T20:31:13+00:00'
 theme: Foundational AI
@@ -74,7 +71,6 @@ They designed **Mini-Husky**, a C-like language with variables, functions, type 
 - **Symbol resolution**: verifying that every name refers to something real and flagging undefined references
 - **Type analysis**: inferring what data type each expression has and catching type mismatches
 
-![Figure 1](/iaifi-research-blog/figures/2410_14706/figure_1.png)
 
 The second innovation is the central theoretical result. The researchers show that if code satisfies the **clean code principle**, a standard software engineering guideline that functions stay short and nesting stays shallow, then both the **AST depth** (how many levels deep the tree of code structure goes) and the **type inference depth** (how many nested type calculations are required) remain bounded regardless of how long the code is.
 
@@ -82,7 +78,6 @@ That bounded depth is the key. Transformers can handle any of the three compilat
 
 The third and perhaps most creative piece is **Cybertron**, a domain-specific language invented specifically to write these proofs. The challenge was daunting: transformers process raw floating-point vectors layer by layer, knowing nothing about "variable names" or "type systems." Bridging that gap in a standard mathematical proof would be like writing assembly code by hand. Cybertron lets the authors write the proof as formally verified, type-correct code, encoding the transformer's behavior in a language where correctness can be checked automatically.
 
-![Figure 2](/iaifi-research-blog/figures/2410_14706/figure_2.png)
 
 ## Why It Matters
 
@@ -90,7 +85,6 @@ The exponential gap between transformers and RNNs is the headline result. The te
 
 Beyond compilers, the Cybertron DSL represents a methodology, using formal proof assistants and domain-specific languages to reason about neural networks, that could generalize to other structured tasks. Can these bounds be tightened? Do they extend to more complex type systems with generics or dependent types? Does the logarithmic bound hold for full-scale transformers, or only the idealized ones analyzed here? These are open questions, and each one points toward a more complete mathematical theory of what large language models are actually doing.
 
-![Figure 3](/iaifi-research-blog/figures/2410_14706/figure_3.png)
 
 > **Bottom Line:** Transformers aren't just empirically good at code. They're *provably* efficient compilers, with formal guarantees showing logarithmic parameter scaling while recurrent networks need exponentially more. This is the first rigorous theoretical step toward explaining why LLMs handle programming tasks so well.
 

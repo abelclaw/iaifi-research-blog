@@ -25,11 +25,8 @@ concepts:
 - regression
 - eigenvalue decomposition
 figures:
-- /iaifi-research-blog/figures/2503_12198/figure_1.png
-- /iaifi-research-blog/figures/2503_12198/figure_1.png
 - /iaifi-research-blog/figures/2503_12198/figure_2.png
 - /iaifi-research-blog/figures/2503_12198/figure_2.png
-- /iaifi-research-blog/figures/2503_12198/figure_3.png
 - /iaifi-research-blog/figures/2503_12198/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.12198v1
 published: '2025-03-15T16:35:44+00:00'
@@ -65,15 +62,14 @@ In practice, the calculation proceeds in three steps:
 
 3. **Fit to the HOPE formula.** The extracted matrix element is fit to the one-loop HOPE expression, which predicts its dependence on kinematic variables in terms of the Gegenbauer moments $\phi_{M,n}$.
 
-![Figure 1](/iaifi-research-blog/figures/2503_12198/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2503_12198/figure_2.png)
 
 The fitting procedure uses both the $t^-$-even and $t^-$-odd components of the hadronic matrix element, two independent observables providing complementary sensitivity to the distribution's moments. These Gegenbauer moments convert to **Mellin moments** $\langle\xi^n\rangle_M$, representing the average value of $\xi^n$ (where $\xi$ is the momentum fraction imbalance between quark and antiquark) weighted by the LCDA.
 
-![Figure 3](/iaifi-research-blog/figures/2503_12198/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2503_12198/figure_3.png)
 
 The team applied this procedure to both the pion and the kaon using lattice ensembles with physical or near-physical quark masses. The kaon is particularly interesting because it contains a strange quark paired with an up or down antiquark, creating a **flavor asymmetry**. Its LCDA is not symmetric around $\xi = 0$, so the odd Mellin moments are nonzero. This is a direct signature of SU(3) flavor-symmetry breaking with real phenomenological consequences.
 
-![Figure 5](/iaifi-research-blog/figures/2503_12198/figure_3.png)
 
 Systematic uncertainties are carefully tracked throughout, including higher-twist contamination (corrections from subleading OPE terms), renormalization scale dependence (sensitivity to the energy scale at which coupling constants are defined), and discretization artifacts from the finite lattice spacing.
 

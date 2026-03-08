@@ -41,11 +41,8 @@ concepts:
 - collider physics
 - equivariant neural networks
 figures:
-- /iaifi-research-blog/figures/2412_07033/figure_1.png
-- /iaifi-research-blog/figures/2412_07033/figure_1.png
 - /iaifi-research-blog/figures/2412_07033/figure_2.png
 - /iaifi-research-blog/figures/2412_07033/figure_2.png
-- /iaifi-research-blog/figures/2412_07033/figure_3.png
 - /iaifi-research-blog/figures/2412_07033/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2412.07033v1
 published: '2024-12-09T22:45:27+00:00'
@@ -74,7 +71,7 @@ The central concept is the **product manifold (PM) space**: a combination of sev
 
 The researchers formalize this using **Gromov-δ hyperbolicity**, a mathematical measure of how tree-like a data structure actually is. Small δ means highly tree-like; large δ means more tangled and complex.
 
-![Figure 1](/iaifi-research-blog/figures/2412_07033/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2412_07033/figure_2.png)
 
 The team built two architectures that operate natively in curved spaces:
 
@@ -83,7 +80,7 @@ The team built two architectures that operate natively in curved spaces:
 
 Both were benchmarked on **JetClass**, a large-scale dataset of simulated jets spanning ten classes: top quarks, Higgs bosons decaying to quark pairs, simple quark/gluon jets, and more. The experiments systematically varied PM combinations, from pure Euclidean to pure hyperbolic to mixed, to find which geometry worked best for which jet type.
 
-![Figure 2](/iaifi-research-blog/figures/2412_07033/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2412_07033/figure_2.png)
 
 PM representations matched or outperformed Euclidean models of similar parameter count, with the largest gains appearing for the most hierarchical jet types and for small models. Under computational constraints, curved space does more work with fewer parameters.
 
@@ -91,13 +88,12 @@ PM representations matched or outperformed Euclidean models of similar parameter
 
 The real payoff isn't that PM spaces help on average. It's *when* they help. The researchers measured the Gromov-δ hyperbolicity of individual jets and found a statistically significant correlation: jets with lower δ (more tree-like, more hierarchical) are classified more accurately by the PM-Transformer than by its Euclidean counterpart. The geometry of the model and the geometry of the data are genuinely aligned.
 
-![Figure 3](/iaifi-research-blog/figures/2412_07033/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2412_07033/figure_3.png)
 
 This opens a provocative door. If the benefit of non-Euclidean geometry tracks the actual hierarchical structure of individual data points, future models might adapt their geometry *on the fly*, choosing or weighting different manifold components based on how tree-like each jet is. That would be a fundamentally new kind of inductive bias: not architecture or training data, but *the shape of the mathematical space itself* as a tunable parameter per input.
 
 The idea generalizes far beyond particle physics. Biological data (protein interaction networks, evolutionary trees, neural connectomes) is hierarchical too. Social networks. Language structures. Any domain where data branches and stratifies could benefit from this geometric matching approach. Jets just happen to be a particularly clean test case.
 
-![Figure 4](/iaifi-research-blog/figures/2412_07033/figure_2.png)
 
 > **Bottom Line:** Matching the geometry of a machine learning model to the hierarchical geometry of physical data isn't just mathematically elegant. It measurably improves performance, and the improvement is largest exactly where it matters most: deeply branching jets and tight computational budgets.
 

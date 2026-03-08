@@ -41,7 +41,6 @@ concepts:
 - neutrino detection
 figures:
 - /iaifi-research-blog/figures/2201_03609/figure_1.png
-- /iaifi-research-blog/figures/2201_03609/figure_2.png
 - /iaifi-research-blog/figures/2201_03609/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2201.03609v1
 published: '2022-01-10T19:22:59+00:00'
@@ -79,7 +78,7 @@ That fourth method is particularly clever. The *Kepler* space telescope and the 
 
 The researchers tested all four approaches on two real supernovae: **SN 2019fcn** and **SN 2019ejj**. Both are Type II supernovae, produced when massive stars with hydrogen-rich outer layers explode. They went off within days of each other in the same galaxy, ESO 430-G 020, roughly 51 million light-years away. Both occurred during LIGO/Virgo Observing Run 3, a coordinated detection campaign run jointly by the LIGO detectors in the United States and the Virgo detector in Italy, making them genuine candidates for a joint gravitational wave and optical search. SN 2019fcn was caught just 21.7 hours after explosion by the Las Cumbres Observatory's global telescope network, serendipitously, because it exploded in a galaxy astronomers were already watching.
 
-![Figure 2](/iaifi-research-blog/figures/2201_03609/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2201_03609/figure_3.png)
 
 ## Why It Matters
 
@@ -89,7 +88,6 @@ There's a deeper physics payoff too. Gravitational waves from a collapsing stell
 
 The optical and gravitational wave signals are complementary, each revealing a different face of the same catastrophe. But you can only read those stories together if you know when to listen.
 
-![Figure 3](/iaifi-research-blog/figures/2201_03609/figure_3.png)
 
 With next-generation detectors like Einstein Telescope and Cosmic Explorer in development, and wide-field surveys like the Vera Rubin Observatory's LSST set to catch supernovae within minutes of explosion, these methods will grow more powerful. The pipeline from optical detection to gravitational wave search window is being built now, in anticipation of a universe that's about to become much louder.
 

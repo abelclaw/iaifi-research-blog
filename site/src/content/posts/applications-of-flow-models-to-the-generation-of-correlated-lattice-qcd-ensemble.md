@@ -37,9 +37,7 @@ concepts:
 - density estimation
 - renormalization
 figures:
-- /iaifi-research-blog/figures/2401_10874/figure_1.png
 - /iaifi-research-blog/figures/2401_10874/figure_2.png
-- /iaifi-research-blog/figures/2401_10874/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2401.10874v2
 published: '2024-01-19T18:33:52+00:00'
 theme: Theoretical Physics
@@ -61,7 +59,7 @@ A collaboration from MIT, Fermilab, Google DeepMind, and the University of Bern 
 
 A normalizing flow is a learned mapping between two probability distributions. Think of it as a coordinate transformation: configurations sampled from one physical setup (say, a coarse lattice) get pushed through a neural network that reshapes them into configurations consistent with a different setup (a finer lattice). The transformation is invertible and tracks exactly how probabilities change, so the output faithfully represents the target distribution.
 
-![Figure 1](/iaifi-research-blog/figures/2401_10874/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2401_10874/figure_2.png)
 
 The team introduces a **residual flow architecture**, where each network layer adds a small, structured correction to a configuration rather than transforming it wholesale. When the two distributions are nearby in parameter space, those corrections are naturally small and easy to learn. A good match for the task.
 
@@ -76,11 +74,9 @@ The variance reduction follows the rubber band logic: noise affecting both ensem
 
 The researchers validate this across three applications. For **continuum limits**, extrapolating results to zero lattice spacing requires comparing calculations at multiple grid resolutions; flows between coarse and fine ensembles cut uncertainties in gradient flow scales. For **mass dependence**, the approach outperforms both independent ensembles and naive reweighting when tracing how QCD observables shift with quark mass. For **hadronic matrix elements via Feynman-Hellmann**, which computes quantities like the gluon momentum fraction of the pion by differentiating the action with respect to an external field, flows work well precisely because the technique requires comparing ensembles at slightly different coupling values.
 
-![Figure 2](/iaifi-research-blog/figures/2401_10874/figure_2.png)
 
 In all three cases, flows beat simple **reweighting** (the naive alternative of rescaling the importance of existing configurations). The improvement is sharpest when parameter shifts are small enough that distributions overlap substantially but large enough that direct reweighting becomes inefficient.
 
-![Figure 3](/iaifi-research-blog/figures/2401_10874/figure_3.png)
 
 ## Why It Matters
 

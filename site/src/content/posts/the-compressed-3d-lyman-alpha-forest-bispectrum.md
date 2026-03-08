@@ -40,13 +40,7 @@ concepts:
 - bayesian inference
 - monte carlo methods
 - simulation-based inference
-figures:
-- /iaifi-research-blog/figures/2510_23597/figure_1.png
-- /iaifi-research-blog/figures/2510_23597/figure_1.png
-- /iaifi-research-blog/figures/2510_23597/figure_2.png
-- /iaifi-research-blog/figures/2510_23597/figure_2.png
-- /iaifi-research-blog/figures/2510_23597/figure_3.png
-- /iaifi-research-blog/figures/2510_23597/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2510.23597v1
 published: '2025-10-27T17:58:09+00:00'
 theme: Theoretical Physics
@@ -76,13 +70,11 @@ For the Lyman-alpha forest, the relevant quantity is the **transmitted flux frac
 2. Worked directly in **redshift space**, accounting for gas velocities that distort apparent positions along the line of sight, a phenomenon called **redshift-space distortions**.
 3. Identified all quadratic operators in the bispectrum expansion and measured cross-spectra between each and the original flux field, yielding **26 skew spectra**.
 
-![Figure 1](/iaifi-research-blog/figures/2510_23597/figure_1.png)
 
 The theory is validated against two mock datasets. The first uses synthetic 3D Lyman-alpha fields generated with second-order perturbation theory, a controlled test where the theory is known to apply. The second uses large-volume mocks built from **AbacusSummit**, a suite of N-body simulations that accurately models gravitational clustering across cosmic time.
 
 With idealized three-dimensional Gaussian smoothing at R = 10 Mpc/h, the team finds agreement at the 1–2 sigma level between theoretical predictions and measured skew spectra for both the monopole and quadrupole multipoles, up to k ≤ 0.17 h/Mpc.
 
-![Figure 3](/iaifi-research-blog/figures/2510_23597/figure_2.png)
 
 But real data introduces a complication. The Lyman-alpha forest is observed as individual one-dimensional spectra along lines of sight to quasars, not as a fully sampled three-dimensional volume. DESI will collect up to one million quasar spectra over its lifetime, but standard 3D smoothing can't be applied. So the team invented a new variant: **shifted skew spectra**.
 
@@ -90,13 +82,11 @@ But real data introduces a complication. The Lyman-alpha forest is observed as i
 
 Instead of squaring the field locally, shifted skew spectra displace one copy of the field in the radial (line-of-sight) direction before computing the product. A fixed displacement of 40 Mpc/h lets the statistic probe **non-squeezed bispectrum triangles** (where all three sides have comparable length) while requiring only line-of-sight smoothing at 10 Mpc/h.
 
-![Figure 5](/iaifi-research-blog/figures/2510_23597/figure_3.png)
 
 For the case of correlating the squared-and-displaced field with the original field, the team derives an **analytic window function treatment**, essential for applying any statistic to real survey data with irregular geometry and completeness masks. This forward modeling makes the shifted skew spectra directly applicable to DESI data without approximation.
 
 Even with conservative line-of-sight-only smoothing, the new statistic achieves agreement with theoretical predictions comparable to the idealized 3D case.
 
-![Figure 4](/iaifi-research-blog/figures/2510_23597/figure_2.png)
 
 ## Why It Matters
 

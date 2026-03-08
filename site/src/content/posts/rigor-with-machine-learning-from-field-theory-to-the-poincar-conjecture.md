@@ -33,7 +33,6 @@ concepts:
 - optimal transport
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2402_13321/figure_1.png
 - /iaifi-research-blog/figures/2402_13321/figure_2.png
 pdfUrl: https://arxiv.org/pdf/2402.13321v1
 published: '2024-02-20T19:00:59+00:00'
@@ -67,7 +66,7 @@ Human experts can then:
 
 This pipeline has already produced real theorems. In knot theory, ML-assisted conjecture generation turned up new connections between algebraic properties and geometric invariants that mathematicians hadn't previously suspected. Similar methods have uncovered structure in the string theory landscape and in algebraic geometry involving **mirror symmetry**, where two geometrically different spaces turn out to be physically equivalent, like two different maps of the same territory.
 
-![Figure 1](/iaifi-research-blog/figures/2402_13321/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2402_13321/figure_2.png)
 
 **Reinforcement learning as proof search.** Some mathematical problems can be recast as games. Design a game where winning requires demonstrating a mathematical fact, train an RL agent to play, and any winning strategy constitutes a rigorous proof, because the rules of the game *encode the logic of the problem*.
 
@@ -83,7 +82,6 @@ The **NN-FT correspondence** (Neural Network–Field Theory correspondence) esta
 
 The authors show that *ϕ*⁴ theory, a cornerstone of particle physics, can be explicitly realized as a neural network field theory, with the potential to provide a non-perturbative continuum definition of QFT. That's one of the field's long-standing open challenges.
 
-![Figure 2](/iaifi-research-blog/figures/2402_13321/figure_2.png)
 
 The second bridge involves **metric flows**, tools describing how a space's geometry changes continuously over time. Represent a Riemannian metric as a neural network and train it with gradient descent: the resulting dynamics define a flow on the space of metrics. Using **neural tangent kernel** theory, which describes how infinitely wide networks evolve during training, the authors derive a general theory of such flows.
 

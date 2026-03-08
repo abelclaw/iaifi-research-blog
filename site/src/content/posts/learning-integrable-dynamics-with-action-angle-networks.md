@@ -35,10 +35,7 @@ concepts:
 - inverse problems
 figures:
 - /iaifi-research-blog/figures/2211_15338/figure_1.png
-- /iaifi-research-blog/figures/2211_15338/figure_1.png
 - /iaifi-research-blog/figures/2211_15338/figure_2.png
-- /iaifi-research-blog/figures/2211_15338/figure_2.png
-- /iaifi-research-blog/figures/2211_15338/figure_3.png
 - /iaifi-research-blog/figures/2211_15338/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.15338v1
 published: '2022-11-24T17:37:20+00:00'
@@ -75,7 +72,7 @@ The catch? Finding these coordinates has historically required deep mathematical
 
 There's a nice engineering detail worth mentioning: the network doesn't map directly onto a **torus** (the donut-shaped surface that is the natural geometry for looping angle coordinates), which would create numerical breakdowns at the edges. Instead, it outputs Cartesian components converted to polar form. A small trick, but it makes training dramatically more stable.
 
-![Figure 2](/iaifi-research-blog/figures/2211_15338/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2211_15338/figure_2.png)
 
 The payoff is a simulator whose inference time doesn't depend on the time horizon at all. Want to predict a system's state one second in the future, or one million seconds? Same computation. Same cost. Traditional integrators work proportionally harder for larger time jumps. Action-Angle Networks don't.
 

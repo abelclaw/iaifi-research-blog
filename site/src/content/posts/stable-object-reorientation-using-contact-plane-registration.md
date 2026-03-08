@@ -29,10 +29,7 @@ concepts:
 - loss function design
 figures:
 - /iaifi-research-blog/figures/2208_08962/figure_1.png
-- /iaifi-research-blog/figures/2208_08962/figure_1.png
 - /iaifi-research-blog/figures/2208_08962/figure_2.png
-- /iaifi-research-blog/figures/2208_08962/figure_2.png
-- /iaifi-research-blog/figures/2208_08962/figure_3.png
 - /iaifi-research-blog/figures/2208_08962/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.08962v1
 published: '2022-08-18T17:10:28+00:00'
@@ -66,13 +63,13 @@ The system operates in four stages:
 3. **Plane fitting with RANSAC.** **RANSAC** (Random Sample Consensus) is a technique for finding the best-fitting geometric shape in noisy data while automatically ignoring outliers. Here it fits a plane to the highest-density cluster of predicted contact points.
 4. **Rotation computation.** Rodrigues' rotation formula converts the fitted plane's **normal vector** (the perpendicular direction pointing straight up from the face) into an exact 3D rotation aligned with gravity.
 
-![Figure 2](/iaifi-research-blog/figures/2208_08962/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2208_08962/figure_2.png)
 
 This per-point classification approach generalizes well because contact point probabilities depend mainly on *local geometry*. Flat regions near the base of an object look geometrically similar regardless of whether you've seen that exact object before. Traditional approaches rely on tools like quaternions or Euler angles, compact mathematical encodings of rotation that become ambiguous or ill-conditioned at certain orientations. The network avoids those issues entirely: it votes on which surface points are in contact, not on what rotation to apply.
 
 Objects can have multiple valid contact surfaces. A cube can rest stably on any of six faces. This is the **multimodality problem**: similar inputs can have very different correct outputs. The system handles it with a **CVAE** (Conditional Variational Autoencoder), a generative model that samples plausible hypotheses rather than averaging over all of them. Even when predicted probabilities spread across several valid contact regions, RANSAC selects the dominant cluster and ignores the rest.
 
-![Figure 3](/iaifi-research-blog/figures/2208_08962/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2208_08962/figure_3.png)
 
 On a simulated block-stacking benchmark requiring high rotational precision, the method substantially outperforms previous state-of-the-art approaches. It also transfers directly from simulation to the real world **zero-shot**, with no real-world training data at all, successfully reorienting a diverse set of never-before-seen objects using only noisy point clouds from commodity RealSense depth cameras.
 

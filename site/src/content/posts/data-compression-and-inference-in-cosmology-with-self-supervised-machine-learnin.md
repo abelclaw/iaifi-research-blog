@@ -33,9 +33,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2308_09751/figure_1.png
 - /iaifi-research-blog/figures/2308_09751/figure_1.png
-- /iaifi-research-blog/figures/2308_09751/figure_2.png
-- /iaifi-research-blog/figures/2308_09751/figure_2.png
-- /iaifi-research-blog/figures/2308_09751/figure_3.png
 - /iaifi-research-blog/figures/2308_09751/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.09751v2
 published: '2023-08-18T18:00:22+00:00'
@@ -76,7 +73,6 @@ The data comes from the **CAMELS cosmological simulation suite**, a library of t
 
 The compressed output is a low-dimensional vector (a handful of numbers) fed into a **simulation-based inference (SBI)** pipeline, a method for estimating parameter ranges without requiring an explicit mathematical formula for the data likelihood. The self-supervised summaries match or exceed a fully supervised neural network trained with explicit parameter labels, and they dramatically outperform traditional power spectrum statistics.
 
-![Figure 4](/iaifi-research-blog/figures/2308_09751/figure_2.png)
 
 What stands out most is how well the method handles systematics. By designing augmentations around baryonic variations, the team trained a version of the model that is nearly blind to astrophysical contamination. When supernova and AGN (active galactic nuclei, energetic winds driven by supermassive black holes at galaxy centers) feedback parameters were deliberately varied, the baryonic-invariant summaries barely flinched, still recovering cosmological parameters accurately. In effect, the model learned to see the skeleton of the universe through all the astrophysics layered on top.
 

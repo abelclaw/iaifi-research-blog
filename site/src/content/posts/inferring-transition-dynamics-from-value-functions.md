@@ -31,7 +31,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2501_09081/figure_1.png
 - /iaifi-research-blog/figures/2501_09081/figure_2.png
-- /iaifi-research-blog/figures/2501_09081/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.09081v1
 published: '2025-01-15T19:00:47+00:00'
 theme: Foundational AI
@@ -74,7 +73,6 @@ Adamczyk formalizes this through **reverse Lipschitz continuity**, requiring the
 
 The paper also derives error bounds: if your value function has approximation error (as all practical neural network approximations do), how far off will your inferred dynamics be? The answer depends on the reverse Lipschitz constant. Steeper value functions tolerate more approximation error before the inferred dynamics degrade.
 
-![Figure 3](/iaifi-research-blog/figures/2501_09081/figure_3.png)
 
 ## Why It Matters
 

@@ -34,7 +34,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/1909_04114/figure_1.png
 - /iaifi-research-blog/figures/1909_04114/figure_2.png
-- /iaifi-research-blog/figures/1909_04114/figure_3.png
 pdfUrl: https://arxiv.org/pdf/1909.04114v2
 published: '2019-09-09T19:24:17+00:00'
 theme: Experimental Physics
@@ -77,7 +76,6 @@ To separate signal from QCD background, they applied a jet substructure tagger c
 
 After selecting substructure-tagged candidates, the analysis looked for a narrow bump in the **invariant jet mass spectrum**, the distribution of masses reconstructed from all particles inside the fat jet. QCD background falls smoothly as a function of mass; a new resonance would appear as a localized excess on top. The search covered masses from 50 to 450 GeV, with the 2017 dataset extending earlier work into the previously unexplored 300–450 GeV range.
 
-![Figure 3](/iaifi-research-blog/figures/1909_04114/figure_3.png)
 
 No bump turned up. The collaboration used this absence to set **upper limits at 95% confidence level** on the coupling strength of such resonances to quarks, drawing a boundary on how strongly these hypothetical particles could interact and still have gone undetected. For masses between 50 and 300 GeV, these are the most sensitive constraints ever placed on leptophobic vector resonances. The 300–450 GeV window is completely new territory for jet substructure-based searches.
 

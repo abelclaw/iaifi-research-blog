@@ -37,12 +37,8 @@ concepts:
 - effective field theory
 - stochastic processes
 figures:
-- /iaifi-research-blog/figures/2408_00835/figure_1.png
-- /iaifi-research-blog/figures/2408_00835/figure_1.png
 - /iaifi-research-blog/figures/2408_00835/figure_2.png
 - /iaifi-research-blog/figures/2408_00835/figure_2.png
-- /iaifi-research-blog/figures/2408_00835/figure_3.png
-- /iaifi-research-blog/figures/2408_00835/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.00835v3
 published: '2024-08-01T18:00:03+00:00'
 theme: Astrophysics
@@ -70,7 +66,7 @@ The stasis system is governed by **Boltzmann equations**, coupled differential e
 
 Their first tool was a **differentiable Boltzmann solver**: a numerical simulation engine built in PyTorch that calculates exactly how changing any input parameter affects the output. This enabled **gradient ascent**, essentially asking: "Which direction should I nudge the parameters to maximize stasis *e*-folds?" An *e*-fold measures expansion by a factor of *e* ≈ 2.718; more *e*-folds means longer stasis.
 
-![Figure 1](/iaifi-research-blog/figures/2408_00835/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2408_00835/figure_2.png)
 
 The optimized configurations didn't look like power-law distributions. They looked exponential, with rates and abundances spaced geometrically across many orders of magnitude. This pointed to a new family: **log-uniform distributions**, where the logarithm of each parameter is drawn uniformly at random, equally likely to produce a value in the range 1–10 as in 10–100 or 100–1,000.
 
@@ -80,11 +76,9 @@ The team then ran three complementary analyses:
 2. **Bayesian inference with normalizing flows**: **Normalizing flows** are neural networks that warp simple probability distributions into complex ones, trained via **stochastic variational inference** (adjusting the network by sampling random batches of configurations). The team used them to map which corners of parameter space produce the longest-lived stasis. The posteriors consistently pointed toward exponential structure.
 3. **Direct analysis of the exponential model**: Armed with this ML-motivated insight, they proved the exponential model exactly solves the stasis equations, showed it is an **attractor** (nearby configurations evolve toward it), and demonstrated that stasis duration scales as *e*-folds ∝ N, linearly in the number of species.
 
-![Figure 3](/iaifi-research-blog/figures/2408_00835/figure_2.png)
 
 That last point matters most. Previous power-law models showed duration ∝ log(N): doubling the species count adds only marginally more stasis. The exponential model blows past this. Double the species, double the stasis duration. With a few hundred species, you can match the *e*-folding count of cosmic inflation.
 
-![Figure 5](/iaifi-research-blog/figures/2408_00835/figure_3.png)
 
 ## Why It Matters
 

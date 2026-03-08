@@ -33,7 +33,6 @@ concepts:
 - phase transitions
 figures:
 - /iaifi-research-blog/figures/2306_03905/figure_1.png
-- /iaifi-research-blog/figures/2306_03905/figure_2.png
 - /iaifi-research-blog/figures/2306_03905/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2306.03905v1
 published: '2023-06-06T17:59:08+00:00'
@@ -71,7 +70,7 @@ The **SWAP gate** is almost free. Without interaction (U = 0), atoms tunnel free
 
 The harder part is the **controlled-phase (CPHASE) gate**, which creates the entanglement that makes quantum computers powerful. Both hopping and Feshbach interactions are activated simultaneously. Atoms briefly hop to neighboring sites and return, and this rapid sequence of virtual moves leaves a permanent mark: a quantum phase shift whose value depends on the state of both qubits. Tuning the ratio U/J and the evolution time gives access to any desired phase angle φ.
 
-![Figure 2](/iaifi-research-blog/figures/2306_03905/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2306_03905/figure_3.png)
 
 The system also directly simulates a foundational physics model: the **2D quantum Ising model**, which describes quantum particles interacting like tiny magnets and captures phenomena from ordinary magnetism to abrupt quantum phase transitions. By varying the Feshbach interaction strength U(t) over time, the fermion-pair register naturally implements the Ising equations with tunable effective magnetic fields in two directions, without decomposing the simulation into individual gates. Since the optical lattice geometry can be freely reconfigured, the same hardware adapts to different physical scenarios.
 
@@ -81,7 +80,6 @@ The practical challenge for any quantum computing platform isn't just building h
 
 The MIT team addresses this with an improved **classical shadow process tomography** protocol that requires minimal experimental overhead. Random measurements combined with classical post-processing reconstruct gate behavior with provably efficient sample complexity. For experimentalists working with quantum gas microscopes, this is a practical win: reliable gate characterization without redesigning experiments from scratch.
 
-![Figure 3](/iaifi-research-blog/figures/2306_03905/figure_3.png)
 
 What makes this work significant is the convergence it represents. Quantum gas microscopes were originally built to study collective quantum behavior: exotic states of matter, particles freezing in place due to quantum effects, strange transport phenomena. This paper shows those same instruments, with existing capabilities, can be repurposed for universal quantum computation.
 

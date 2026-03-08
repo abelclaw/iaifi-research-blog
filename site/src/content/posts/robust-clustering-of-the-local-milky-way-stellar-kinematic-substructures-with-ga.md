@@ -41,7 +41,6 @@ concepts:
 - anomaly detection
 - dimensionality reduction
 figures:
-- /iaifi-research-blog/figures/2208_01056/figure_1.png
 - /iaifi-research-blog/figures/2208_01056/figure_2.png
 - /iaifi-research-blog/figures/2208_01056/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.01056v1
@@ -68,7 +67,7 @@ Xiaowei Ou, Lina Necib, and Anna Frebel at MIT applied a machine learning cluste
 
 The team used data from **Gaia**, the European Space Agency's stellar survey, combining early third data release (eDR3) positional and motion measurements with second data release (DR2) radial velocity measurements, i.e., each star's speed toward or away from Earth. The result: 5.5 million stars in the solar neighborhood, each with full 6D phase-space information (three position coordinates, three velocity components).
 
-![Figure 1](/iaifi-research-blog/figures/2208_01056/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2208_01056/figure_2.png)
 
 They applied **HDBSCAN** (Hierarchical Density-Based Spatial Clustering of Applications with Noise), an algorithm that finds clusters of arbitrary shape in high-dimensional data without requiring you to specify how many clusters exist in advance. Unlike simpler algorithms that force every data point into a group, HDBSCAN explicitly labels ambiguous points as "noise," which matters a lot when hunting for rare stellar streams amid millions of disk stars.
 
@@ -81,11 +80,10 @@ The most original contribution is the treatment of **error propagation**. Gaia's
 
 The stability test returned a clear-eyed result: **23 stable clusters in velocity space** (1,405 stars) and **6 stable clusters in action-angle space** (497 stars).
 
-![Figure 2](/iaifi-research-blog/figures/2208_01056/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2208_01056/figure_3.png)
 
 Several well-known structures emerged. The **Gaia Sausage-Enceladus (GSE)**, remnant of the Milky Way's most recent major merger, appeared prominently in both spaces, as did the **Helmi Stream**, ancient tidal debris from a disrupted dwarf galaxy. Globular cluster **NGC 3201** showed up in both spaces; **NGC 104** appeared only in velocity space; retrograde structure **Sequoia** only in action-angle space.
 
-![Figure 3](/iaifi-research-blog/figures/2208_01056/figure_3.png)
 
 The researchers claimed no new discoveries. That restraint is itself scientifically significant. Previous studies using similar data but without careful uncertainty propagation have occasionally reported structures that may reflect algorithmic artifacts rather than genuine mergers. By demanding consistency across resampled datasets, Ou, Necib, and Frebel effectively publish a vetted catalog of structures you can trust.
 

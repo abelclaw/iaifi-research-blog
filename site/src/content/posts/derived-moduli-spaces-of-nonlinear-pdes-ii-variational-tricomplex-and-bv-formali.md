@@ -23,8 +23,7 @@ concepts:
 - spectral methods
 - string theory
 - effective field theory
-figures:
-- /iaifi-research-blog/figures/2406_16825/figure_1.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2406.16825v1
 published: '2024-06-24T17:35:12+00:00'
 theme: Foundational AI
@@ -53,7 +52,6 @@ In **derived geometry**, a modern extension that carefully tracks *why* and *how
 
 The authors' central construction, the **derived variational tricomplex**, emerges by applying techniques from derived algebraic geometry to the moduli space of solutions of a nonlinear PDE. Specifically, they use the theory of **D-prestacks**: geometric objects bundling algebraic structures with a compatible action of differential operators. The key object is a differentially structured **cotangent complex** $\mathbb{L}_Y$, a homotopy-invariant replacement for the usual space of differential forms that encodes infinitesimal variations of a solution even when the solution space is singular.
 
-![Figure 1](/iaifi-research-blog/figures/2406_16825/figure_1.png)
 
 The construction proceeds in three main moves:
 

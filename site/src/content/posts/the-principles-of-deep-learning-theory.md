@@ -43,10 +43,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2106_10165/figure_1.png
 - /iaifi-research-blog/figures/2106_10165/figure_1.png
-- /iaifi-research-blog/figures/2106_10165/figure_2.png
-- /iaifi-research-blog/figures/2106_10165/figure_2.png
-- /iaifi-research-blog/figures/2106_10165/figure_3.png
-- /iaifi-research-blog/figures/2106_10165/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2106.10165v2
 published: '2021-06-18T15:00:00+00:00'
 theme: Foundational AI
@@ -92,7 +88,6 @@ The real contribution here isn't any single formula. It's a way of thinking. By 
 
 The depth-to-width ratio emerges as the central design parameter, a single dimensionless number that determines whether a network is "effectively shallow" (well-described by kernel methods) or "effectively deep" (capable of nontrivial representation learning). Using information-theoretic arguments, the authors estimate the *optimal* depth-to-width ratio for practical learning. They also show how residual connections, the skip connections in architectures like ResNets, can extend this optimal regime to arbitrarily deep networks.
 
-![Figure 3](/iaifi-research-blog/figures/2106_10165/figure_2.png)
 
 Plenty of open questions remain. The framework focuses on multilayer perceptrons with clean mathematical structure. Extending these ideas to transformers, convolutional networks, and attention mechanisms is an active frontier. The connection between the effective theory picture and training dynamics at scale, where networks are neither infinitely wide nor infinitely narrow, will likely drive theoretical work for years.
 

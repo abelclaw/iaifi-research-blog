@@ -31,9 +31,6 @@ figures:
 - /iaifi-research-blog/figures/2311_02143/figure_1.png
 - /iaifi-research-blog/figures/2311_02143/figure_1.png
 - /iaifi-research-blog/figures/2311_02143/figure_2.png
-- /iaifi-research-blog/figures/2311_02143/figure_2.png
-- /iaifi-research-blog/figures/2311_02143/figure_3.png
-- /iaifi-research-blog/figures/2311_02143/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2311.02143v2
 published: '2023-11-03T17:12:29+00:00'
 theme: Astrophysics
@@ -82,15 +79,12 @@ The electron-hole bilayer is a rich laboratory for quantum phases. Depending on 
 
 GemiNet delivers quantitatively accurate energies across the entire phase diagram. It outperforms Hartree-Fock-Bogoliubov calculations, especially in the intermediate-density regime where correlations matter most. The network correctly captures the **BEC-BCS crossover**, the smooth evolution from tightly bound excitons to loosely paired superconducting carriers, as well as the crystalline Wigner phase at large separations and low densities. Because the network doesn't presuppose a particular phase, it detects which one is energetically favored without methodological bias.
 
-![Figure 4](/iaifi-research-blog/figures/2311_02143/figure_2.png)
 
 Many of the most scientifically interesting materials fall into the same category of strongly correlated systems where conventional methods break down: high-temperature superconductors, frustrated magnets, topological insulators. Physically motivated neural network wavefunctions offer a route to simulating these materials from first principles, free of the biases baked into hand-crafted starting-point formulas.
 
-![Figure 5](/iaifi-research-blog/figures/2311_02143/figure_3.png)
 
 GemiNet's success on the electron-hole bilayer suggests the strategy can extend to twisted bilayer graphene, moiré materials, and systems relevant to quantum computing hardware. Open questions remain: scalability to larger systems, handling of spin-orbit coupling and magnetic fields, and incorporating longer-range correlations into the GNN architecture. Each is a productive frontier.
 
-![Figure 6](/iaifi-research-blog/figures/2311_02143/figure_3.png)
 
 > **Bottom Line:** GemiNet shows that fusing physics-motivated wavefunction structure with graph neural network flexibility enables accurate, scalable, and unbiased simulation of competing quantum phases, opening a new route to understanding strongly correlated quantum materials from first principles.
 

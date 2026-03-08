@@ -45,8 +45,6 @@ concepts:
 - galaxy classification
 figures:
 - /iaifi-research-blog/figures/2210_10810/figure_1.png
-- /iaifi-research-blog/figures/2210_10810/figure_2.png
-- /iaifi-research-blog/figures/2210_10810/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.10810v1
 published: '2022-10-19T18:01:41+00:00'
 theme: Astrophysics
@@ -82,7 +80,6 @@ The single most powerful discriminator is the **normalized host separation**, wh
 
 With just 20 days of photometry and a threshold of $P(\text{TDE}) > 0.5$, FLEET achieves roughly 40% completeness (finding 40% of true TDEs) at 30% purity (30% of flagged candidates are genuine). Extending to 40 days of photometry pushes purity to around 50% with comparable completeness. At a stricter threshold of $P(\text{TDE}) > 0.8$, purity reaches 80%, which matters when telescope time is too precious to waste on false positives.
 
-![Figure 2](/iaifi-research-blog/figures/2210_10810/figure_2.png)
 
 The team also ran FLEET across the full ZTF archive and identified 39 currently unclassified transients as strong TDE candidates, a ready-made target list for observers looking to expand the confirmed sample.
 
@@ -92,7 +89,6 @@ The timing here is no accident. The Rubin Observatory's Legacy Survey of Space a
 
 Simulations of Rubin's survey cadence show that FLEET can recover about 30% of TDEs at redshifts below $z < 0.5$ (the relatively nearby universe, within roughly 5 billion light-years), translating to around 3,000 TDE identifications per year from Rubin's data stream alone. The Nancy Grace Roman Space Telescope, operating at higher redshift, should add around 200 more per year.
 
-![Figure 3](/iaifi-research-blog/figures/2210_10810/figure_3.png)
 
 A larger TDE sample goes straight at the open questions in the field. How frequently do stars get disrupted? How do disruption rates vary with black hole mass and host galaxy type? What determines whether a TDE produces radio jets, X-ray flares, or only optical emission? Every confirmed TDE is a rare window into **accretion** physics, the process of gas and stellar debris spiraling into a black hole at the extreme. FLEET widens that window considerably. The algorithm is open source and available on GitHub, ready for deployment on any survey dataset.
 

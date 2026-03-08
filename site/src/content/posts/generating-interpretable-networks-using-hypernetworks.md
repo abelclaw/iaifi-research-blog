@@ -40,9 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2312_03051/figure_1.png
 - /iaifi-research-blog/figures/2312_03051/figure_1.png
-- /iaifi-research-blog/figures/2312_03051/figure_2.png
-- /iaifi-research-blog/figures/2312_03051/figure_2.png
-- /iaifi-research-blog/figures/2312_03051/figure_3.png
 - /iaifi-research-blog/figures/2312_03051/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.03051v1
 published: '2023-12-05T18:55:32+00:00'
@@ -85,7 +82,6 @@ Only the double-sided algorithm was anticipated before running the experiments. 
 
 The real significance here isn't that a hypernetwork found two new algorithms for computing absolute values. It's what this reveals about the *space* of interpretable algorithms. Neural networks, even tiny ones, don't necessarily rediscover human-familiar methods. They find their own paths, paths that are sometimes describable once you see them but that humans simply hadn't thought to explore.
 
-![Figure 6](/iaifi-research-blog/figures/2312_03051/figure_3.png)
 
 This has direct implications for mechanistic interpretability. Researchers currently hunt for structure in networks that weren't designed to be interpretable. The MIT team's work suggests an alternative: use hypernetworks to systematically generate and catalogue interpretable algorithms, building a library that could guide future decoding efforts.
 

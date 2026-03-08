@@ -55,9 +55,6 @@ figures:
 - /iaifi-research-blog/figures/2404_01413/figure_1.png
 - /iaifi-research-blog/figures/2404_01413/figure_1.png
 - /iaifi-research-blog/figures/2404_01413/figure_2.png
-- /iaifi-research-blog/figures/2404_01413/figure_2.png
-- /iaifi-research-blog/figures/2404_01413/figure_3.png
-- /iaifi-research-blog/figures/2404_01413/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.01413v2
 published: '2024-04-01T18:31:24+00:00'
 theme: Foundational AI
@@ -98,7 +95,6 @@ The researchers didn't just show this empirically. They proved it. Using a simpl
 
 The intuition is simple: the original real data never goes away. It anchors each successive model, preventing the compounding distortions that cause collapse. Synthetic data adds volume but can't drown out the signal when the signal is always present.
 
-![Figure 4](/iaifi-research-blog/figures/2404_01413/figure_2.png)
 
 ## Why It Matters
 

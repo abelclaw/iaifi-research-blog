@@ -39,9 +39,6 @@ figures:
 - /iaifi-research-blog/figures/2406_01507/figure_1.png
 - /iaifi-research-blog/figures/2406_01507/figure_1.png
 - /iaifi-research-blog/figures/2406_01507/figure_2.png
-- /iaifi-research-blog/figures/2406_01507/figure_2.png
-- /iaifi-research-blog/figures/2406_01507/figure_3.png
-- /iaifi-research-blog/figures/2406_01507/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2406.01507v3
 published: '2024-06-03T16:34:50+00:00'
 theme: Experimental Physics
@@ -95,13 +92,11 @@ It does so across key **kinematic observables**: transverse momentum (a particle
 
 This unfolder operates **object-wise**, reconstructing properties of individual particles rather than sorting data into binned histograms. That preserves correlations between kinematic quantities that traditional binned methods fundamentally cannot capture. An electron's transverse momentum and pseudorapidity are correlated; object-wise unfolding keeps those correlations intact, which matters for multi-dimensional measurements.
 
-![Figure 4](/iaifi-research-blog/figures/2406_01507/figure_2.png)
 
 The approach is also **non-iterative**. Unlike classical methods that run many convergence cycles, the cDDPM produces posterior samples in a single forward pass, a practical advantage when processing the billions of events a collider experiment accumulates.
 
 There's a bigger picture here, too. The High-Luminosity LHC will produce roughly ten times more collisions per year than the current run, and traditional unfolding methods are already strained. Right now, physicists design a new unfolding procedure for nearly every measurement, a painstaking, expert-intensive process that can take months. A model that generalizes across processes could lower that barrier considerably, freeing physicists to focus on physics rather than statistical plumbing. The method also reduces dependence on the specific Monte Carlo generator used to model the "true" distribution, shrinking a systematic uncertainty that haunts nearly every LHC measurement.
 
-![Figure 5](/iaifi-research-blog/figures/2406_01507/figure_3.png)
 
 Open questions remain. What's the right way to condition a generative model on distribution-level information when making event-by-event predictions? How do you ensure generalization to *truly* novel physics (a new particle, for instance) rather than interpolation between known processes? The authors acknowledge this as an open frontier; robustness to genuinely exotic signatures remains to be demonstrated.
 

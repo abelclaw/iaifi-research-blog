@@ -34,11 +34,7 @@ concepts:
 - quantum simulation
 figures:
 - /iaifi-research-blog/figures/2103_02602/figure_1.png
-- /iaifi-research-blog/figures/2103_02602/figure_1.png
 - /iaifi-research-blog/figures/2103_02602/figure_2.png
-- /iaifi-research-blog/figures/2103_02602/figure_2.png
-- /iaifi-research-blog/figures/2103_02602/figure_3.png
-- /iaifi-research-blog/figures/2103_02602/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2103.02602v3
 published: '2021-03-03T18:57:21+00:00'
 theme: Theoretical Physics
@@ -76,13 +72,12 @@ Their solution: **path integral contour deformation**. Borrowed from work on the
 
 The result is an absolutely convergent representation of the U(1) HFK path integral, the first ever constructed.
 
-![Figure 2](/iaifi-research-blog/figures/2103_02602/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2103_02602/figure_2.png)
 
 For **non-abelian** gauge theories like QCD, where symmetry operations don't commute, the HFK contour deformation becomes technically daunting. This motivated the paper's second major contribution: a new class of actions based on the **heat-kernel action** of Menotti and Onofri. Its advantage is that unitarity holds exactly at all lattice spacings, not just in the continuum limit, and the divergent sum takes a far simpler form.
 
 A contour deformation tailored to this simpler structure gives absolutely convergent representations for both U(1) and **SU(N)**, the family of gauge theories that includes SU(3), the gauge group of QCD.
 
-![Figure 4](/iaifi-research-blog/figures/2103_02602/figure_2.png)
 
 ## Why It Matters
 
@@ -92,7 +87,6 @@ SU(3) is the gauge group of QCD. Convergent real-time Monte Carlo sampling for S
 
 The contour deformation framework is also naturally algorithmic, a structured mathematical transformation that could be learned and optimized by machine learning. Normalizing flow methods, which have already been applied to Euclidean lattice calculations, are a natural fit.
 
-![Figure 5](/iaifi-research-blog/figures/2103_02602/figure_3.png)
 
 > **Bottom Line:** By combining a new unitary real-time lattice action with explicit path integral contour deformations, Kanwar and Wagman deliver the first convergent Monte Carlo calculations of real-time SU(3) gauge theory, opening a door to computing the dynamics of strongly coupled quantum fields.
 

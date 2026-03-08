@@ -50,9 +50,7 @@ concepts:
 - scalability
 - reinforcement learning
 - mixture of experts
-figures:
-- /iaifi-research-blog/figures/2412_15184/figure_1.png
-- /iaifi-research-blog/figures/2412_15184/figure_2.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2412.15184v2
 published: '2024-12-19T18:55:17+00:00'
 theme: Foundational AI
@@ -75,7 +73,6 @@ The core problem: nearly every dataset used to train and evaluate these systems 
 
 The authors identify what they call a **Goodhart's law dynamic** in mathematical AI evaluation. Goodhart's law, from economics, says that when a measure becomes a target, it ceases to be a good measure. In practice: once AI developers know their model will be judged by scores on standardized test suites like MATH or GSM8K, they optimize directly for those scores, through **dataset contamination** (when test examples leak into training data), clever answer-extraction tricks, or **fine-tuning** (adapting a model directly on similar problems). The benchmark stops measuring what it was supposed to measure.
 
-![Figure 1](/iaifi-research-blog/figures/2412_15184/figure_1.png)
 
 But benchmark degradation is just the symptom. The authors trace the disease to how mathematical datasets are constructed in the first place.
 
@@ -88,7 +85,6 @@ The paper draws a sharp distinction between two things we might want AI to do:
 
 Professional mathematicians don't experience mathematics as a lookup table. They explore, backtrack, draw analogies, make mistakes, and revise. None of this appears in existing training data.
 
-![Figure 2](/iaifi-research-blog/figures/2412_15184/figure_2.png)
 
 The proposed solution centers on an old idea largely ignored by machine learning: the **"motivated proof,"** introduced by problem-solving theorist G. Pólya in 1949. A motivated proof doesn't just present steps in logical order; it explains *why* each step is taken, what the mathematician was trying to achieve, and what alternatives were considered. The authors argue this concept should guide a new generation of datasets that train AI on the *process* of mathematical discovery, not just its products.
 

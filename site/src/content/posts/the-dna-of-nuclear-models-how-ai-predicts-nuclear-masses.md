@@ -37,7 +37,6 @@ concepts:
 - surrogate modeling
 - model validation
 figures:
-- /iaifi-research-blog/figures/2508_08370/figure_1.png
 - /iaifi-research-blog/figures/2508_08370/figure_2.png
 - /iaifi-research-blog/figures/2508_08370/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2508.08370v2
@@ -61,7 +60,7 @@ Researchers at MIT and CERN have now built an AI model that does both. It achiev
 
 The model takes only two inputs: the number of protons (*Z*) and neutrons (*N*) in a nucleus. No hand-engineered physics features, no pre-baked formulas. It learns purely from patterns in measured binding energy data.
 
-![Figure 1](/iaifi-research-blog/figures/2508_08370/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2508_08370/figure_2.png)
 
 The first surprise came when the researchers examined the AI's **internal representation**, the mathematical space the network uses to organize information about each nucleus before producing a prediction. The two most important dimensions of this space, when plotted together, trace out a **double helix**.
 
@@ -75,11 +74,10 @@ The second finding came from **factorization**: breaking the AI's prediction int
 
 That final leap, from the best human-crafted symbolic model to the AI, has a very specific origin. Almost all of the improvement traces back to a 1969 observation by physicist Jaffe: a structural property of nuclei in their lowest-energy configurations, noted but never fully exploited in mass formulas. The AI didn't know about Jaffe's work. It rediscovered the same physical insight from data alone.
 
-![Figure 2](/iaifi-research-blog/figures/2508_08370/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2508_08370/figure_3.png)
 
 For comparison, the best non-AI model (WS4) achieves an RMS error of about 0.28 MeV. This AI model cuts that in half, reaching 0.13 MeV, a mean relative precision of roughly one part in ten thousand. Unlike black-box AI models, every component of that prediction now has a physical interpretation.
 
-![Figure 3](/iaifi-research-blog/figures/2508_08370/figure_3.png)
 
 ## Why It Matters
 

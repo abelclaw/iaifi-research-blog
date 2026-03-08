@@ -26,9 +26,7 @@ concepts:
 - eigenvalue decomposition
 - group theory
 - quantum field theory
-figures:
-- /iaifi-research-blog/figures/2410_12529/figure_1.png
-- /iaifi-research-blog/figures/2410_12529/figure_1.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2410.12529v4
 published: '2024-10-16T13:09:56+00:00'
 theme: Theoretical Physics
@@ -54,7 +52,6 @@ The starting point is a framework from earlier work ([arXiv:1901.02011](https://
 
 The new paper focuses on the **commutant complex** (`Com`), built from operators that commute with the quantum state in a precisely structured way. On each rung of this ladder live **entanglement k-forms**: objects built from subsets of k parties in a system of n total particles, encoding how those parties are collectively entangled. The commutant complex turns out to have exactly the right structure to support Hodge theory.
 
-![Figure 1](/iaifi-research-blog/figures/2410_12529/figure_1.png)
 
 What does that actually mean? The team constructs four ingredients for entanglement k-forms, mirroring the classical geometric toolkit:
 
@@ -67,7 +64,6 @@ With these tools, the authors prove three theorems. The **Hodge isomorphism theo
 
 Chain these isomorphisms together and you get the headline result: the k-th and (n−k)-th cohomology groups always have the same dimension. In the language of **Poincaré polynomials**, generating functions that package all cohomology dimensions into a single object, the polynomial is always palindromic. Symmetric around its middle term. This symmetry had been observed numerically before but never explained. Now there's a proof.
 
-![Figure 2](/iaifi-research-blog/figures/2410_12529/figure_1.png)
 
 The authors ground everything in concrete two-qubit examples, explicitly computing Hodge stars, inner products, and harmonic forms for specific entangled states. These calculations confirm the theorems and give readers a foothold for building intuition.
 

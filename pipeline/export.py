@@ -198,10 +198,10 @@ def export_approved_posts(db_path: str, site_dir: str) -> int:
             )
             concepts = concept_cursor.fetchall()
 
-            # Query figures for this paper
+            # Query figures for this paper (only selected ones)
             figure_cursor = conn.execute(
                 "SELECT figure_path FROM figures "
-                "WHERE paper_arxiv_id = ? ORDER BY sort_order",
+                "WHERE paper_arxiv_id = ? AND selected = 1 ORDER BY sort_order",
                 (arxiv_id,),
             )
             figures = figure_cursor.fetchall()
@@ -260,6 +260,8 @@ def export_approved_posts(db_path: str, site_dir: str) -> int:
             content = re.sub(
                 r"!\[([^\]]*)\]\(figure:(\d+)\)", _resolve_figure_ref, content
             )
+            # Strip any remaining unresolved figure placeholders (out-of-range)
+            content = re.sub(r"!\[[^\]]*\]\(figure:\d+\)\n?", "", content)
 
             # Transform IAIFI Research Highlights into styled HTML cards
             content = _transform_highlights(content, base_path)

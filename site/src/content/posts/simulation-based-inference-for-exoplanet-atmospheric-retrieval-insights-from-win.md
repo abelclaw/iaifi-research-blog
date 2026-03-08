@@ -45,10 +45,7 @@ concepts:
 - goodness-of-fit testing
 figures:
 - /iaifi-research-blog/figures/2309_09337/figure_1.png
-- /iaifi-research-blog/figures/2309_09337/figure_1.png
 - /iaifi-research-blog/figures/2309_09337/figure_2.png
-- /iaifi-research-blog/figures/2309_09337/figure_2.png
-- /iaifi-research-blog/figures/2309_09337/figure_3.png
 - /iaifi-research-blog/figures/2309_09337/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2309.09337v1
 published: '2023-09-17T17:59:59+00:00'
@@ -88,7 +85,7 @@ The team built and compared three model variants:
 
 The winning model topped the leaderboard, but the paper makes an intriguing confession. The NS-trained model, despite ranking lower, may be the more scientifically valuable approach. The competition weighted 80% of its score on a **Kolmogorov-Smirnov test**, a measure of how similar two distributions look in shape. That metric rewards matching Nested Sampling posteriors closely, including their quirks and biases. The NS-trained model targets those posteriors directly, making it potentially better aligned with ground truth even if it scores worse on an imperfect metric.
 
-![Figure 2](/iaifi-research-blog/figures/2309_09337/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2309_09337/figure_2.png)
 
 ## Why It Matters
 

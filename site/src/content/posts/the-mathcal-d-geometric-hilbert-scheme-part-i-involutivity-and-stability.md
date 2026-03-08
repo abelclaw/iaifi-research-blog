@@ -26,8 +26,7 @@ concepts:
 - spectral methods
 - conservation laws
 - inverse problems
-figures:
-- /iaifi-research-blog/figures/2507_07937/figure_1.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2507.07937v1
 published: '2025-07-10T17:19:57+00:00'
 theme: Foundational AI
@@ -51,7 +50,6 @@ The starting point is a shift in perspective. Instead of studying a PDE by seeki
 
 The property they require is **involutivity**, a stringent compatibility condition that guarantees no hidden contradictions emerge when you differentiate repeatedly. An involutive system is maximally self-consistent: you can always extend it to higher orders without hitting new obstructions. This is the algebraic counterpart of the classical Cartan-Kähler theorem from differential geometry.
 
-![Figure 1](/iaifi-research-blog/figures/2507_07937/figure_1.png)
 
 To build a moduli space, you need two things: a notion of equivalence (which PDEs count as "the same"?) and a boundedness condition (ensuring only finitely many equivalence classes share a given invariant). For classical **vector bundles**, geometric objects that attach a vector space to every point of a manifold, the answer to the second question is slope stability. Kryczka and Sheshmani introduce the analogous concept for D-ideal sheaves:
 

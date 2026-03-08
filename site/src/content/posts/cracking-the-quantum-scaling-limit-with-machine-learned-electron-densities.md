@@ -29,11 +29,8 @@ concepts:
 - surrogate modeling
 - molecular dynamics
 figures:
-- /iaifi-research-blog/figures/2201_03726/figure_1.png
-- /iaifi-research-blog/figures/2201_03726/figure_1.png
 - /iaifi-research-blog/figures/2201_03726/figure_2.png
 - /iaifi-research-blog/figures/2201_03726/figure_2.png
-- /iaifi-research-blog/figures/2201_03726/figure_3.png
 - /iaifi-research-blog/figures/2201_03726/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2201.03726v2
 published: '2022-01-11T00:57:01+00:00'
@@ -62,7 +59,7 @@ The breakthrough rests on a 1996 insight from Nobel laureate Walter Kohn: the **
 
 If that's true, a model trained on small molecular clusters, capturing the local quantum environment, should generalize to arbitrarily large systems. The team built exactly that model, using water clusters as their test case.
 
-![Figure 1](/iaifi-research-blog/figures/2201_03726/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2201_03726/figure_2.png)
 
 The key technical choice was to predict the **electron density** itself, not derived properties like energy. The electron density is a three-dimensional map of where electrons are most likely to be found, the most fundamental quantum property of a system, from which everything else can in principle be derived. The researchers represent this map as a sum of bell-shaped mathematical functions centered on each atom, then train the network to predict how strongly each function contributes at each location.
 
@@ -70,13 +67,13 @@ Here is where most machine learning approaches fail. Those basis functions conta
 
 This property is called **equivariance**: the output transforms consistently with the input. Most neural networks are *invariant*, meaning outputs don't change with rotation. That sounds desirable, but for a quantity like electron density that has directionality baked in, invariance is actually a bug.
 
-![Figure 2](/iaifi-research-blog/figures/2201_03726/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2201_03726/figure_2.png)
 
 The team used their own framework, **e3nn (Euclidean Neural Networks)**, built to encode all symmetries of 3D Euclidean space, including rotational equivariance. When tested on rotated versions of a water molecule it had memorized perfectly, an invariant model's errors exploded with each rotation. The equivariant e3nn model? Zero error, identical output for identical geometry, regardless of orientation.
 
 Equivariance also improves data efficiency. The team trained five networks with increasing **spherical harmonic degree**, a measure of how much directional detail the model captures. Richer equivariant features required far less data to reach the same accuracy. Since high-level quantum chemistry calculations are expensive, this matters enormously.
 
-![Figure 3](/iaifi-research-blog/figures/2201_03726/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2201_03726/figure_3.png)
 
 The scaling experiment is where the real payoff shows up:
 
@@ -85,7 +82,6 @@ The scaling experiment is where the real payoff shows up:
 - Prediction accuracy does not degrade as systems grow larger
 - Above a certain training cluster size, accuracy plateaus
 
-![Figure 4](/iaifi-research-blog/figures/2201_03726/figure_2.png)
 
 That plateau is scientifically meaningful on its own. It implies a characteristic length scale beyond which quantum correlations vanish in liquid water, and the machine learning model finds that length scale empirically, without being told what it is.
 
@@ -93,13 +89,11 @@ That plateau is scientifically meaningful on its own. It implies a characteristi
 
 Drug discovery, materials science, and biochemistry are all bottlenecked by our inability to run quantum calculations on large molecules. A method that trains on small, tractable systems and accurately predicts large, intractable ones doesn't just speed things up. It opens entire categories of research that have been structurally impossible.
 
-![Figure 5](/iaifi-research-blog/figures/2201_03726/figure_3.png)
 
 There is also a deeper AI story here. The equivariant neural network approach behind e3nn is closely related to the architectures used in AlphaFold 2 and RoseTTAFold, the landmark protein structure predictors. Showing that equivariant networks can capture quantum mechanical properties, not just geometric structure, extends this class of models into the heart of physics.
 
 The result points to a broader principle: embed the right physical symmetries into a model and you cut the data needed to learn by orders of magnitude. Nature already knows the rules; good machine learning listens.
 
-![Figure 6](/iaifi-research-blog/figures/2201_03726/figure_3.png)
 
 Open questions remain. Water is a well-behaved test case; more complex molecules with stronger, longer-range correlations may require larger training sets or more expressive architectures. Extending the approach to predict energies and forces, not just densities, will be the next frontier. But the proof of concept is unambiguous: 1,000+ atoms, quantum accuracy, trained only on small clusters.
 

@@ -28,10 +28,6 @@ concepts:
 - cosmic-ray muon puzzle
 - effective field theory
 figures:
-- /iaifi-research-blog/figures/2501_08278/figure_1.png
-- /iaifi-research-blog/figures/2501_08278/figure_1.png
-- /iaifi-research-blog/figures/2501_08278/figure_2.png
-- /iaifi-research-blog/figures/2501_08278/figure_2.png
 - /iaifi-research-blog/figures/2501_08278/figure_3.png
 - /iaifi-research-blog/figures/2501_08278/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.08278v2
@@ -55,7 +51,7 @@ Researchers Nicholas Kamp, Carlos Argüelles, Albrecht Karle, Jennifer Thomas, a
 
 The geometry of the LHC campus is a gift. Neutrino beams from collider experiments are extraordinarily narrow, within about 10 meters of width even at distances of 10 kilometers. A modestly sized detector placed far away still intercepts most of the beam. The hard part is separating real neutrino interactions from cosmic-ray muons constantly raining down from above.
 
-![Figure 1](/iaifi-research-blog/figures/2501_08278/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_08278/figure_3.png)
 
 The SINE concept (the **Surface-based Integrated Neutrino Experiment**) solves this by flipping the geometry. Neutrinos from the CMS detector travel 18 kilometers through solid bedrock before exiting Earth's surface near the French-Swiss border. SINE would place scintillator panels on the ground and look *upward* for muons produced by neutrino interactions in the rock just below. Upward-going muons can't be faked by cosmic rays, which only travel downward. The bedrock becomes the interaction target; the panels serve as the detection layer.
 
@@ -68,7 +64,7 @@ Using **Monte Carlo simulations** (statistical modeling that runs millions of vi
 - Constraints on **charm quark production**, which feeds directly into predictions for high-energy astrophysical neutrino backgrounds
 - Probes of **strangeness enhancement**, one proposed explanation for why air shower simulations consistently under-predict ground-level muon counts (the so-called muon puzzle)
 
-![Figure 2](/iaifi-research-blog/figures/2501_08278/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_08278/figure_3.png)
 
 The key advantage of the medium baseline is background suppression. Short-baseline detectors near the LHC must contend with intense beams of high-energy muons produced alongside neutrinos. At 10+ kilometers, those muons have long since shed their energy. What's left is the neutrino signal and manageable levels of cosmic-ray background.
 

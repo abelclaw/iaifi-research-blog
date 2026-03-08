@@ -34,7 +34,6 @@ concepts:
 - phase transitions
 - embeddings
 figures:
-- /iaifi-research-blog/figures/2505_12387/figure_1.png
 - /iaifi-research-blog/figures/2505_12387/figure_2.png
 - /iaifi-research-blog/figures/2505_12387/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.12387v4
@@ -65,7 +64,7 @@ $$\phi_\eta \approx \ell_\gamma + \frac{\eta}{4} \|\nabla \ell_\gamma\|^2 + O(\e
 
 That extra term penalizes regions of parameter space where gradients are large, pushing the optimizer toward flatter regions. But the story gets richer when you bring in symmetry.
 
-![Figure 1](/iaifi-research-blog/figures/2505_12387/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2505_12387/figure_2.png)
 
 Neural networks are riddled with **parameter symmetries** — transformations of the internal weights that leave the network's outputs completely unchanged. Rescaling one layer's weights while inversely scaling the next produces an identical function. These symmetries create entire families of equivalent solutions.
 
@@ -81,11 +80,10 @@ One of the paper's most striking results is a formal proof of the **Platonic Rep
 
 The proof follows from the entropic equipartition structure. When entropic forces drive a network toward gradient balance, the resulting representations reflect the statistical geometry of the training data rather than any arbitrary initialization or architectural choice. Two networks trained on sufficiently rich data are both pushed toward the same statistical fixed point — a kind of thermodynamic equilibrium of representations.
 
-![Figure 2](/iaifi-research-blog/figures/2505_12387/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2505_12387/figure_3.png)
 
 The same framework resolves a long-standing puzzle: the apparent contradiction between **progressive sharpening** (early in training, the loss landscape grows sharper as gradient descent amplifies certain directions) and **edge-of-stability flattening** (later, the landscape flattens as the optimizer seeks flatter minima). These aren't contradictory — they're sequential consequences of the same entropic dynamics playing out at different timescales.
 
-![Figure 3](/iaifi-research-blog/figures/2505_12387/figure_3.png)
 
 The theory extends beyond vanilla SGD. The entropic loss formalism applies to any algorithm with a **matrix learning rate** — a generalized step-size where different parameters can be scaled by different amounts — including Adam, natural gradient descent, and a wide class of biologically-plausible learning rules. The entropic force simply takes a different shape depending on the algorithm's effective geometry.
 

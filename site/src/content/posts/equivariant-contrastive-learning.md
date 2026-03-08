@@ -41,10 +41,6 @@ concepts:
 - regression
 - scientific workflows
 figures:
-- /iaifi-research-blog/figures/2111_00899/figure_1.png
-- /iaifi-research-blog/figures/2111_00899/figure_1.png
-- /iaifi-research-blog/figures/2111_00899/figure_2.png
-- /iaifi-research-blog/figures/2111_00899/figure_2.png
 - /iaifi-research-blog/figures/2111_00899/figure_3.png
 - /iaifi-research-blog/figures/2111_00899/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2111.00899v2
@@ -70,7 +66,7 @@ The core idea rests on **equivariance**: when you transform an input, the repres
 
 The researchers started with a diagnostic experiment. They took SimCLR, a popular invariant SSL method, and tested what happened when they made it either invariant or sensitive to a second transformation on top of standard random cropping.
 
-![Figure 1](/iaifi-research-blog/figures/2111_00899/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2111_00899/figure_3.png)
 
 The results split cleanly. For **horizontal flips** and **grayscale**, invariance helped. But for **four-fold rotations**, **vertical flips**, **2×2 jigsaws**, **four-fold Gaussian blurs**, and **color inversions**, invariance actively hurt, while sensitivity to those same transformations improved performance. The pattern: if invariance to a transformation is harmful, equivariance to it tends to help.
 
@@ -81,7 +77,7 @@ E-SSL captures this with a two-part training objective:
 
 No architectural overhaul required. The prediction head is a simple classifier over discrete transformation classes, such as which of four rotation angles was applied. Minimal overhead; significant impact on what the encoder learns.
 
-![Figure 2](/iaifi-research-blog/figures/2111_00899/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2111_00899/figure_3.png)
 
 The team applied E-SSL to four popular SSL methods (SimCLR, BYOL, Barlow Twins, and VICReg) and found consistent gains. On **ImageNet**, a standard large-scale image classification benchmark, evaluated with a **linear probe** (a frozen representation tested with a single trainable layer on top), E-SSL pushed SimCLR to **72.5%** accuracy. In a field where gains come slowly, that's a meaningful improvement.
 
@@ -89,7 +85,6 @@ The team applied E-SSL to four popular SSL methods (SimCLR, BYOL, Barlow Twins, 
 
 The deeper claim here is that human knowledge about transformations shouldn't just specify what to ignore; it should actively shape the structure of learned representations. The symmetries and near-symmetries of a problem are often its most informative features. E-SSL turns that intuition into a training signal.
 
-![Figure 3](/iaifi-research-blog/figures/2111_00899/figure_2.png)
 
 The photonics application makes this concrete. The team applied E-SSL to regression tasks in photonics science, predicting physical properties of materials from simulation data. Domain knowledge tells you which transformations preserve or predictably alter the output. Encoding those as equivariance targets rather than invariances improved regression performance. The framework transfers to scientific domains where labeled data is scarce and structure is rich.
 

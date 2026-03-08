@@ -30,10 +30,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2410_03602/figure_1.png
 - /iaifi-research-blog/figures/2410_03602/figure_1.png
-- /iaifi-research-blog/figures/2410_03602/figure_2.png
-- /iaifi-research-blog/figures/2410_03602/figure_2.png
-- /iaifi-research-blog/figures/2410_03602/figure_3.png
-- /iaifi-research-blog/figures/2410_03602/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.03602v1
 published: '2024-10-04T17:01:41+00:00'
 theme: Theoretical Physics
@@ -85,7 +81,6 @@ Physicists have long known that gauge choice affects statistical noise in their 
 
 The timing is good. Recent work has shown that gauge-variant quantities can dramatically reduce statistical noise through **contour deformations** (a technique for improving the signal-to-noise ratio in Monte Carlo calculations). With this new framework, researchers can directly optimize their gauge scheme to minimize noise rather than relying on educated guesses.
 
-![Figure 3](/iaifi-research-blog/figures/2410_03602/figure_2.png)
 
 What makes this paper interesting beyond the specific application is the methodological bet it makes. Differentiable programming, gradient-based optimization, automatic differentiation: these are the standard tools of modern machine learning, and here they're being applied to the constrained, discrete problems at the heart of lattice field theory. The adjoint state method has been a workhorse in fluid dynamics and engineering optimization for years. Its appearance in lattice QCD connects two communities that rarely overlap.
 

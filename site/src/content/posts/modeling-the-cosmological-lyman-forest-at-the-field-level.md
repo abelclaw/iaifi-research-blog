@@ -36,7 +36,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2507_00284/figure_1.png
-- /iaifi-research-blog/figures/2507_00284/figure_2.png
 - /iaifi-research-blog/figures/2507_00284/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2507.00284v1
 published: '2025-06-30T21:53:00+00:00'
@@ -75,11 +74,10 @@ Beyond the linear model, the team adds three layers of higher-order corrections:
 
 Validation comes from the **Sherwood simulation**, a high-fidelity hydrodynamic simulation of the intergalactic medium that directly evolves gas, dark matter, gravity, and radiative processes together. The test is stringent: the model must not only reproduce statistical averages like the power spectrum, but match the actual spatial distribution of absorption, cell by cell, at the few-percent level down to scales of just a few megaparsecs.
 
-![Figure 2](/iaifi-research-blog/figures/2507_00284/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2507_00284/figure_3.png)
 
 The model passes. It reproduces the flux probability distribution function, the cross-correlation between the Lyman-α forest and dark matter halos, and **count-in-cell statistics** (a sensitive probe of how flux values vary across different regions of space) all at the percent level. It even captures the extreme tail of the flux distribution, where most of the signal from rare, heavily absorbed regions lives.
 
-![Figure 3](/iaifi-research-blog/figures/2507_00284/figure_3.png)
 
 ## Why It Matters
 

@@ -33,8 +33,6 @@ concepts:
 - neutrino detection
 figures:
 - /iaifi-research-blog/figures/2207_13097/figure_1.png
-- /iaifi-research-blog/figures/2207_13097/figure_2.png
-- /iaifi-research-blog/figures/2207_13097/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2207.13097v2
 published: '2022-07-26T18:00:00+00:00'
 theme: Astrophysics
@@ -75,7 +73,6 @@ For each configuration, they ran hundreds of simulated sky maps with injected po
 
 The analytic intuition is revealing. In the simplest approximation, the expected TS scales roughly as the number of photons per source squared, divided by the total photons per pixel. Brighter individual sources are dramatically easier to detect. Spreading the same total flux across more sources makes detection harder, almost regardless of how you tune the analysis.
 
-![Figure 2](/iaifi-research-blog/figures/2207_13097/figure_2.png)
 
 Full numerical simulations confirmed this picture, with important caveats from the complex, non-uniform Galactic diffuse background in the inner Galaxy.
 
@@ -83,7 +80,6 @@ Full numerical simulations confirmed this picture, with important caveats from t
 
 The headline result is a sobering one: **within the range of choices available with current Fermi-LAT data, there are no magic settings that dramatically improve NPTF's sensitivity.** Improving angular resolution costs exposure; gaining exposure worsens the PSF. These tradeoffs largely cancel out. Sensitivity comes down to the fundamental photon statistics of the dataset, a ceiling set by physics, not by analysis choices.
 
-![Figure 3](/iaifi-research-blog/figures/2207_13097/figure_3.png)
 
 This matters because previous studies of the Galactic Center Excess made different analysis choices and reached different conclusions. It has been hard to know whether those disagreements reflected real astrophysics or just methodological differences. Bariuan and Slatyer's systematic mapping of the sensitivity space puts those comparisons on firmer footing.
 

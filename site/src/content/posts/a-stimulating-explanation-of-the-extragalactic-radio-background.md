@@ -29,7 +29,6 @@ concepts:
 - cosmological simulation
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2206_07713/figure_1.png
 - /iaifi-research-blog/figures/2206_07713/figure_2.png
 - /iaifi-research-blog/figures/2206_07713/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2206.07713v1
@@ -55,7 +54,7 @@ Now, a team of theoretical physicists has proposed something new: the radio glow
 
 The proposed scenario rests on three interlocking ingredients:
 
-![Figure 1](/iaifi-research-blog/figures/2206_07713/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2206_07713/figure_2.png)
 
 1. **Dark matter decays slowly.** The model posits a long-lived dark matter particle *a*, stable for billions of years but not forever. It undergoes a two-body decay, producing a **dark photon** *A'*, a hypothetical particle like a regular photon but charged under a hidden "dark" electromagnetic force rather than the ordinary one. These dark photons carry energy but are invisible to our detectors.
 
@@ -63,13 +62,12 @@ The proposed scenario rests on three interlocking ingredients:
 
 3. **Dark photons convert to radio photons.** Dark photons and ordinary photons can mix through **kinetic mixing**, a subtle quantum effect allowing one particle type to spontaneously transform into the other, analogous to neutrino flavor oscillation. As dark photons propagate through the universe's plasma, there are specific moments in cosmic history, when the plasma frequency matches the dark photon mass, where resonant oscillation efficiently converts dark photons into real radio photons. This conversion happens at relatively low redshifts, which matters for the signal's spatial uniformity.
 
-![Figure 2](/iaifi-research-blog/figures/2206_07713/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2206_07713/figure_3.png)
 
 Put all three steps together and you get a radio excess scaling as *T*_exc ∝ *ω*^(−5/2). The ARCADE 2 spectral index of −2.6 sits close to the theoretical −2.5. The researchers fit a concrete example (dark matter of a specific mass range decaying into dark photons with a particular kinetic mixing parameter) and show it matches both the normalization and slope of the ARCADE 2 excess simultaneously. No previous proposal had managed that.
 
 The mechanism also explains why the radio background is so spatially smooth. Because conversion happens in the diffuse intergalactic medium at moderate redshifts rather than in today's lumpy dark matter halos, the emission spreads uniformly across the sky. Radio observations had found fluctuations at only the ~1% level, a puzzle for dark matter annihilation models. The stimulated dark photon scenario sidesteps this problem entirely.
 
-![Figure 3](/iaifi-research-blog/figures/2206_07713/figure_3.png)
 
 ## Why It Matters
 

@@ -37,10 +37,6 @@ concepts:
 - loss function design
 - scalability
 figures:
-- /iaifi-research-blog/figures/2205_10343/figure_1.png
-- /iaifi-research-blog/figures/2205_10343/figure_1.png
-- /iaifi-research-blog/figures/2205_10343/figure_2.png
-- /iaifi-research-blog/figures/2205_10343/figure_2.png
 - /iaifi-research-blog/figures/2205_10343/figure_3.png
 - /iaifi-research-blog/figures/2205_10343/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.10343v2
@@ -66,7 +62,7 @@ Their result is a surprisingly crisp story. Generalization isn't magic; it's geo
 
 The researchers built their analysis in two layers: a microscopic view using what physicists call an **effective theory**, and a macroscopic view using phase diagrams. Both converge on the same story.
 
-![Figure 1](/iaifi-research-blog/figures/2205_10343/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2205_10343/figure_3.png)
 
 Start with the microscopic picture. The team studied a toy model learning modular addition: given two numbers *a* and *b*, predict *a + b* mod *p*. Each number gets a learnable **embedding vector**, a point in some geometric space, and a small network called a *decoder* reads off the sum from those points.
 
@@ -74,7 +70,7 @@ What do those embeddings look like when a model generalizes versus when it memor
 
 If the embedding of 3 plus the embedding of 5 equals the embedding of 2 plus the embedding of 6 (since 3 + 5 = 2 + 6 = 8), the geometry enforces the arithmetic. For modular addition, the structure is even more specific: the embeddings arrange themselves on a circle.
 
-![Figure 2](/iaifi-research-blog/figures/2205_10343/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2205_10343/figure_3.png)
 
 The researchers formalized this with a **Representation Quality Index (RQI)** measuring how parallelogram-like the embeddings are. An RQI near zero signals memorization; near one signals generalization. They then derived an effective theory, a physicist's technique of replacing a complicated system with a simpler model that captures the same essential behavior, that accurately predicts how RQI evolves during training and how much data is needed to force the model into structured representations.
 

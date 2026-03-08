@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2409_10596/figure_1.png
 - /iaifi-research-blog/figures/2409_10596/figure_2.png
-- /iaifi-research-blog/figures/2409_10596/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.10596v1
 published: '2024-09-16T18:00:00+00:00'
 theme: Astrophysics
@@ -81,7 +80,6 @@ The analysis also turned up real correlations hiding in the noise. Higher CSM ma
 
 The mass-loss rates derived from the sample are extreme. The median sits around 10⁻² solar masses per year, ranging from 10⁻⁴ to a full solar mass per year. For comparison, our sun loses about 10⁻¹⁴ solar masses per year in its relatively gentle solar wind. These progenitors were shedding material at rates millions to trillions of times higher.
 
-![Figure 3](/iaifi-research-blog/figures/2409_10596/figure_3.png)
 
 That level of mass loss most closely matches the behavior of **luminous blue variables (LBVs)**, massive, unstable stars that undergo sudden, dramatic eruptions. The most famous example is Eta Carinae, which ejected several solar masses of material in a single event in the 1840s. The paper also finds that binary star interactions likely play a role in at least some Type IIn supernovae, consistent with direct progenitor detections in the literature.
 

@@ -43,7 +43,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2110_06931/figure_1.png
 - /iaifi-research-blog/figures/2110_06931/figure_2.png
-- /iaifi-research-blog/figures/2110_06931/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.06931v2
 published: '2021-10-13T18:00:00+00:00'
 theme: Astrophysics
@@ -90,7 +89,6 @@ Applied to real Fermi data, the neural SBI method consistently attributes a *sma
 
 Traditional approaches often push this fraction higher, sometimes toward a predominantly point-source interpretation.
 
-![Figure 3](/iaifi-research-blog/figures/2110_06931/figure_3.png)
 
 The stakes here are high. If the GCE is mostly unresolved pulsars, it tells us relatively little about dark matter. If a substantial smooth component remains after accounting for all astrophysical backgrounds, that's a genuine signal worth chasing. The new method suggests the smooth component may have been underestimated, though a point-source contribution cannot be ruled out. The debate isn't over; it's been sharpened.
 

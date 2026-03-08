@@ -36,7 +36,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2406_00132/figure_1.png
 - /iaifi-research-blog/figures/2406_00132/figure_2.png
-- /iaifi-research-blog/figures/2406_00132/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2406.00132v3
 published: '2024-05-31T18:47:30+00:00'
 theme: Theoretical Physics

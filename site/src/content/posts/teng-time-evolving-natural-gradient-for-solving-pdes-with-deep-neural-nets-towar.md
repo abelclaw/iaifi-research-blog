@@ -34,8 +34,6 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2404_10771/figure_1.png
-- /iaifi-research-blog/figures/2404_10771/figure_2.png
-- /iaifi-research-blog/figures/2404_10771/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.10771v2
 published: '2024-04-16T17:55:31+00:00'
 theme: Theoretical Physics
@@ -79,13 +77,11 @@ The team developed two concrete algorithms from this framework. **TENG-Euler** i
 
 Across three benchmark PDEs (the **heat equation**, the **Allen-Cahn equation**, and **Burgers' equation**), TENG achieves errors at or near the limits of floating-point arithmetic. Compared to OBTI and PINN with energy natural gradient, TENG reduces errors by orders of magnitude. This isn't a marginal improvement; it's a qualitative leap into a new accuracy regime.
 
-![Figure 2](/iaifi-research-blog/figures/2404_10771/figure_2.png)
 
 For physics, high-precision neural PDE solvers open the door to studying complex quantum systems, turbulent flows, and other phenomena where both accuracy and scalability matter. Traditional solvers often scale poorly to high dimensions. Neural networks handle that more gracefully.
 
 For AI, TENG shows that combining ideas from physics (variational principles, information geometry) with machine learning can produce capabilities that neither field achieves alone. The natural gradient connection, originally developed for statistical learning, turns out to be exactly the right mathematical tool for navigating the function-space geometry of time-evolving PDEs.
 
-![Figure 3](/iaifi-research-blog/figures/2404_10771/figure_3.png)
 
 Open questions remain. Can TENG scale to the high-dimensional PDEs that arise in quantum many-body physics or climate modeling? How does it handle PDEs with discontinuous solutions or sharp fronts, where accuracy is hardest to maintain? And can the sparse update strategies be pushed further, making TENG competitive on problems where even current neural solvers are computationally prohibitive?
 

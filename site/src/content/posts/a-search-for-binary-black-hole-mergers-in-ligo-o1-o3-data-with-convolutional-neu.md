@@ -33,7 +33,6 @@ concepts:
 - model validation
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2512_17204/figure_1.png
 - /iaifi-research-blog/figures/2512_17204/figure_2.png
 - /iaifi-research-blog/figures/2512_17204/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.17204v2
@@ -62,7 +61,7 @@ The pipeline starts with real data. The team pulled roughly 22 days of continuou
 
 Getting the mass distribution right was critical. Real binary black hole events span a wide range of masses, but sampling each independently from a uniform distribution yields very few systems where both holes are low-mass, even though those systems produce longer, harder-to-detect signals. The team solved this with intentional oversampling: they first drew a maximum mass from a triangular distribution peaked at 5 solar masses, then sampled individual masses uniformly below that ceiling. This ensured the training set included plenty of challenging low-mass events.
 
-![Figure 1](/iaifi-research-blog/figures/2512_17204/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2512_17204/figure_2.png)
 
 Waveforms were generated using the **SEOBNRv4** approximant, a state-of-the-art model for the time-domain gravitational wave signal from spinning, non-precessing black hole binaries, via the PyCBC library. Both signal and noise were then **whitened**: a preprocessing step that flattens the noise power spectrum so the network sees a statistically uniform background. Each 4-second template captures the inspiral (gradual approach), merger (collision), and ringdown (final settling) of the signal across both detectors simultaneously.
 
@@ -77,11 +76,10 @@ Both architectures learned to distinguish the characteristic chirp from noise tr
 
 The pipeline scanned all of LIGO's O1, O2, and O3 data, covering 75 binary black hole events with two-detector data available, and recovered 57 of those 75 events: a detection rate of 76%. That compares favorably to recent competing ML searches; AresGW found 40 of 65 O3 events, and AFrame found 38. The 57 false positives can largely be eliminated through quick parameter inference (fitting the signal to extract mass and spin) and human review, reducing the burden to a manageable vetting step.
 
-![Figure 2](/iaifi-research-blog/figures/2512_17204/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2512_17204/figure_3.png)
 
 To measure how often the network would flag non-existent signals, the team ran an extensive **time-shift test**. They offset the L1 and H1 data streams by amounts large enough to destroy any genuine coincident signal. A real gravitational wave arrives at both detectors within ~10 milliseconds; a 100-second shift eliminates all real coincidences. Detections in this shifted data measured the **false alarm rate (FAR)** as a function of detection threshold, which is the standard LIGO method for characterizing detection significance.
 
-![Figure 3](/iaifi-research-blog/figures/2512_17204/figure_3.png)
 
 Speed is the central motivation. LIGO O4 has cataloged over 200 events in its first 23 months, and next-generation detectors like Einstein Telescope and Cosmic Explorer promise event rates orders of magnitude higher. The field needs tools that triage candidates instantly. A neural network processing 4 seconds of data in milliseconds can send alerts to optical telescopes while a neutron star merger's kilonova is still brightening.
 

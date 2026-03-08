@@ -33,11 +33,8 @@ concepts:
 - simulation-based inference
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2112_05722/figure_1.png
-- /iaifi-research-blog/figures/2112_05722/figure_1.png
 - /iaifi-research-blog/figures/2112_05722/figure_2.png
 - /iaifi-research-blog/figures/2112_05722/figure_2.png
-- /iaifi-research-blog/figures/2112_05722/figure_3.png
 - /iaifi-research-blog/figures/2112_05722/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.05722v2
 published: '2021-12-10T18:25:53+00:00'
@@ -64,7 +61,7 @@ The first challenge is definitional. When you transform a single data point (say
 
 But when you have a *distribution* of data points, a whole cloud of measurements, the problem gets trickier. Transforming the coordinate system introduces **Jacobian factors**, mathematical correction terms that account for how much space gets stretched or compressed by the transformation. These factors change the apparent density of the data, so a transformation can *appear* to preserve your dataset simply by compressing or stretching space in clever ways. That's not a real symmetry. It's a coordinate trick.
 
-![Figure 1](/iaifi-research-blog/figures/2112_05722/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2112_05722/figure_2.png)
 
 To solve this, the researchers borrow a concept from physics: the **inertial frame**, a vantage point that isn't accelerating, where physical laws take their simplest form. They introduce an *inertial reference density*, a fixed reference distribution that anchors what counts as a genuine symmetry transformation versus a mere reparametrization. A transformation qualifies as a true symmetry only if it maps the target dataset to itself *and* maps the reference density to itself, ruling out Jacobian cheats.
 
@@ -84,13 +81,13 @@ The researchers first validated SymmetryGAN on controlled examples using **Gauss
 
 The team also derived analytic expressions for the loss landscape that the network navigates during training and showed that empirical behavior matches theoretical predictions. That kind of interpretability is rare in deep learning.
 
-![Figure 2](/iaifi-research-blog/figures/2112_05722/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2112_05722/figure_2.png)
 
 The real test came from particle physics. The researchers applied SymmetryGAN to simulated **dijet events** from the Large Hadron Collider, collisions that produce two back-to-back jets of particles, analyzed in a high-dimensional space of jet properties. SymmetryGAN searched for symmetries within a subspace parameterized by SO(2) × SO(2) transformations and identified the symmetry structure without being told what to look for.
 
 The paper also sketches a path toward **symmetry inference**: not just finding invariant transformations, but identifying which formal mathematical group they belong to. The authors are upfront that this remains an open problem, but they outline concrete first steps.
 
-![Figure 3](/iaifi-research-blog/figures/2112_05722/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2112_05722/figure_3.png)
 
 What does this buy you? On the physics side, automated symmetry discovery could accelerate the search for hidden structure in experimental data, whether from LHC collisions, condensed matter systems, or cosmological surveys. Symmetries that nobody thought to look for might surface directly from measurements.
 

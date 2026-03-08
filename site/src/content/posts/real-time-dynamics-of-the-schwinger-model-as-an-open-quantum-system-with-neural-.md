@@ -34,8 +34,6 @@ concepts:
 - tensor networks
 figures:
 - /iaifi-research-blog/figures/2402_06607/figure_1.png
-- /iaifi-research-blog/figures/2402_06607/figure_2.png
-- /iaifi-research-blog/figures/2402_06607/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.06607v2
 published: '2024-02-09T18:36:17+00:00'
 theme: Theoretical Physics
@@ -78,11 +76,9 @@ One practical challenge: you need a good starting point. The team developed boot
 
 In the Schwinger Model, quarks are connected by **flux tubes**, strings of electric field that confine them together. When these strings interact, they can break (the string snaps, producing new particle-antiparticle pairs) or recombine (two strings swap partners, like a square dance among quarks).
 
-![Figure 2](/iaifi-research-blog/figures/2402_06607/figure_2.png)
 
 On lattices up to 32 spatial sites with up to three interacting strings, the NDO simulations tracked these dynamics in real time. Results agree with exact calculations on small lattices, validating the approach, while pushing into regimes where exact methods fail entirely. The team also studied thermal equilibrium properties by variationally finding the Lindblad steady state, showing the framework can probe thermodynamics as well as dynamics.
 
-![Figure 3](/iaifi-research-blog/figures/2402_06607/figure_3.png)
 
 The scaling advantage is stark. The exact density matrix grows as $4^L$ for $L$ lattice sites; the neural network parametrization grows only polynomially, making 32-site simulations feasible where exact methods would need astronomical resources.
 

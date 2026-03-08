@@ -55,7 +55,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2509_12470/figure_1.png
 - /iaifi-research-blog/figures/2509_12470/figure_2.png
-- /iaifi-research-blog/figures/2509_12470/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2509.12470v1
 published: '2025-09-15T21:26:46+00:00'
 theme: Astrophysics
@@ -98,7 +97,6 @@ Both methods agreed where it mattered. They placed the hydrogen-rich envelope ma
 
 Supernova classification might seem like mere bookkeeping, but the categories directly encode our understanding of how massive stars live and die. The type of explosion a star produces reflects its entire evolutionary history: how much mass it shed through powerful stellar winds, whether it had a companion star siphoning off material, how violent its eruptions were in its final centuries. A truly continuous distribution of hydrogen envelope masses would mean the mass-loss processes shaping stellar evolution operate across a wide range of intensities, not switching between a few fixed channels.
 
-![Figure 3](/iaifi-research-blog/figures/2509_12470/figure_3.png)
 
 Comparing SN 2023wdd and SN 2022acrv to benchmarks across the full sequence (IIb events like SN 2016gkg and SN 2022hnt, short-plateau events like SN 2023ufx and SN 2006Y, and classic IIP events like SN 2023ixf) reveals a clear trend: more hydrogen envelope mass produces longer plateaus. The new observations fit cleanly into that trend. Future surveys with the Vera Rubin Observatory's Legacy Survey of Space and Time will capture thousands more supernovae, allowing astronomers to statistically map the envelope mass distribution and what it tells us about binary stars, stellar winds, and mass-transfer physics across cosmic time.
 

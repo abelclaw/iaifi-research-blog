@@ -30,8 +30,6 @@ concepts:
 - loss function design
 - regression
 figures:
-- /iaifi-research-blog/figures/2402_05164/figure_1.png
-- /iaifi-research-blog/figures/2402_05164/figure_1.png
 - /iaifi-research-blog/figures/2402_05164/figure_2.png
 - /iaifi-research-blog/figures/2402_05164/figure_2.png
 pdfUrl: https://arxiv.org/pdf/2402.05164v2
@@ -61,7 +59,7 @@ The team built their framework from the ground up, starting with the simplest po
 
 They trained a one-hidden-layer network to regress the function y = x², adding **sparsity regularization**, a penalty that pressures the network to use as few neurons as possible. A hyperparameter α controls the tradeoff: set it low, and the network manages with a handful of neurons; crank it up, and it drafts more of the hidden layer into service.
 
-![Figure 2](/iaifi-research-blog/figures/2402_05164/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 The result was clean. Count the allocated neurons (those with nonzero weights above a threshold of 10⁻³), plot them against task loss, and you get a power law with exponent −1. Double the neurons devoted to the task and the loss halves. This is **Resource Model Hypothesis 1**: for a single subtask, loss scales as ℓ ∼ N⁻¹.
 
@@ -74,7 +72,7 @@ They constructed composite tasks in two configurations:
 
 Then they tracked how neuron allocation shifted as the network grew.
 
-![Figure 1](/iaifi-research-blog/figures/2402_05164/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 The answer was the **homogeneous growth hypothesis**: network growth is uniform across subtasks. As total size increases, every subtask acquires more neurons, and the *ratios* stay constant. The salad station and the pasta station both grow at the same rate. No subtask monopolizes new capacity. If Task A had twice the neurons of Task B in a small model, it still has twice the neurons in a model ten times larger.
 
@@ -88,13 +86,11 @@ The derivation goes through a chain of physical assumptions. A neural network wi
 
 That's not a fit. That's a *derivation*, from first principles, matching Chinchilla's observed exponent of 0.34 within rounding.
 
-![Figure 3](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 Beyond scaling laws, the resource framework opens a new diagnostic lens. If you can measure how neurons are allocated across subtasks, you can ask whether a model is efficiently distributing capacity or whether certain skills are being starved while others hoard neurons. This connects to the growing field of **mechanistic interpretability**, where researchers map the circuits inside neural networks. The resource model gives that effort a quantitative backbone.
 
 Open questions remain. The homogeneous growth hypothesis was validated on toy problems; does it hold in full-scale transformers? Are there tasks where growth is *not* homogeneous, say when subtasks conflict? Can the resource framework predict which subtasks get prioritized when data is limited?
 
-![Figure 4](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 > **Bottom Line:** By treating neurons as finite resources that subtasks compete for, MIT and IAIFI researchers derived the famous Chinchilla scaling law from first principles, while providing a mechanistic picture of how AI models grow.
 

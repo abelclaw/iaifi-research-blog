@@ -53,9 +53,6 @@ concepts:
 - likelihood estimation
 figures:
 - /iaifi-research-blog/figures/2408_01482/figure_1.png
-- /iaifi-research-blog/figures/2408_01482/figure_1.png
-- /iaifi-research-blog/figures/2408_01482/figure_2.png
-- /iaifi-research-blog/figures/2408_01482/figure_2.png
 - /iaifi-research-blog/figures/2408_01482/figure_3.png
 - /iaifi-research-blog/figures/2408_01482/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.01482v1
@@ -94,7 +91,7 @@ The light curve tells its own story:
 - **Color:** a persistent blue g − r ≈ −0.4 throughout the event, consistent with TDEs and unlike supernovae
 - **Timescale:** unusually long rise and decline, hinting at a larger mass of stellar debris than typical
 
-![Figure 3](/iaifi-research-blog/figures/2408_01482/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2408_01482/figure_3.png)
 
 To extract physical parameters, the team modeled the light curve using **MOSFiT** (Modular Open-Source Fitter for Transients), which generates millions of model light curves and finds the combination of black hole and stellar properties that best matches observations. The host galaxy's spectral energy distribution, its brightness across many wavelengths from ultraviolet to infrared, was modeled with Prospector to measure the galaxy's total stellar mass: about 55 billion solar masses. That translates to a black hole mass of roughly 10 million solar masses.
 
@@ -106,7 +103,6 @@ AT2023vto matters beyond the record books. It sits at an intersection astronomer
 
 One speculation has been that ANTs might represent TDEs from massive stars, perhaps in galaxies with already-active black holes, but no clear link had emerged.
 
-![Figure 5](/iaifi-research-blog/figures/2408_01482/figure_3.png)
 
 AT2023vto changes that. Its luminosity and timescale overlap with the ANT population, but its spectrum, with that clear broad He II line, is unambiguously a classical TDE. It's happening around a dormant black hole, not one that's already actively feeding. The extreme luminosity doesn't require a pre-existing accretion disk (a swirling ring of gas already orbiting the black hole) or any other special environment.
 

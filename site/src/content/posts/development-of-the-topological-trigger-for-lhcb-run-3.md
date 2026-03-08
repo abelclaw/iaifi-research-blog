@@ -35,7 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2306_09873/figure_1.png
 - /iaifi-research-blog/figures/2306_09873/figure_2.png
-- /iaifi-research-blog/figures/2306_09873/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2306.09873v2
 published: '2023-06-16T14:36:39+00:00'
 theme: Experimental Physics
@@ -84,7 +83,6 @@ The physics payoff is concrete. If some exotic long-lived particle from beyond t
 
 LHCb's Run 3 trigger architecture marks a real shift in how particle physics experiments are built. Every major previous experiment used hardware pre-filters, dedicated electronics that discard most collisions before software ever sees them. LHCb's decision to go fully software-based, processing 30 MHz of collisions and reducing them to 100 kHz using only intelligent algorithms, is a serious bet on machine learning. The topological trigger, which produces the largest output bandwidth of any selection algorithm in **HLT2** (the second-stage software filter that makes the final keep-or-discard decision), sits at the heart of that bet.
 
-![Figure 3](/iaifi-research-blog/figures/2306_09873/figure_3.png)
 
 The Lipschitz monotonic architecture also shows what it looks like to build ML systems for physics that are *interpretable by construction*, not just after the fact. The Lipschitz bound and monotonicity are hard mathematical guarantees, not post-hoc explanations. The trigger's response to particles with unexpectedly long lifetimes has been carefully characterized, making BSM sensitivity a first-class feature of the design rather than an afterthought.
 

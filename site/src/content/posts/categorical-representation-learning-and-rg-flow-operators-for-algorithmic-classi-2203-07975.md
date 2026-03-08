@@ -25,11 +25,7 @@ authors:
 concepts: []
 figures:
 - /iaifi-research-blog/figures/2203_07975/figure_1.png
-- /iaifi-research-blog/figures/2203_07975/figure_1.png
 - /iaifi-research-blog/figures/2203_07975/figure_2.png
-- /iaifi-research-blog/figures/2203_07975/figure_2.png
-- /iaifi-research-blog/figures/2203_07975/figure_3.png
-- /iaifi-research-blog/figures/2203_07975/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2203.07975v1
 published: '2022-03-15T15:04:51+00:00'
 theme: Foundational AI
@@ -63,27 +59,23 @@ To make this invertible and trainable, the researchers combine three ingredients
 - **Flow-based generative models**: Bijective (reversible, one-to-one) transformations that let the network both classify data and generate new samples by running the same process forwards or backwards.
 - **Hyperbolic space embedding**: Hierarchical structure is encoded in the geometry itself, with features organized by relevance at each scale.
 
-![Figure 2](/iaifi-research-blog/figures/2203_07975/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2203_07975/figure_2.png)
 
 The algorithm separates **relevant fields** (features that dominate at large scales) from **irrelevant fields** (microscopic fluctuations that wash out under coarse-graining). An objective function maximizes the disentanglement between the two, mirroring the physical intuition of RG flows converging toward **fixed points**, stable configurations where scale-invariance holds.
 
-![Figure 3](/iaifi-research-blog/figures/2203_07975/figure_2.png)
 
 The experiments focused on flu virus genomics. Trained on hemagglutinin protein sequences (the surface proteins that determine strain identity and immune response), the model first learned the statistical distribution of amino acid residues at each position along the sequence. It then moved to full sequence distribution learning, capturing correlations across the entire chain. The most impressive result came from the **viral escape mutation** task: given sequences known to evade immune detection, the trained model generated new, statistically plausible sequences with similar escape properties, none of which appeared in the training data.
 
-![Figure 4](/iaifi-research-blog/figures/2203_07975/figure_2.png)
 
 ## Why It Matters
 
 The connection between RG theory and deep learning has floated around the theoretical ML community for years. Researchers have noted that convolutional networks seem to implement something like coarse-graining, and that network depth parallels a physical system's flow toward large-scale behavior. But these analogies had remained informal.
 
-![Figure 5](/iaifi-research-blog/figures/2203_07975/figure_3.png)
 
 This paper makes them precise, embedding the RG transformation directly into the architecture with rigorous grounding in differential geometry (specifically Ricci flow theory, the same mathematical framework behind Perelman's proof of the Poincaré conjecture) and holographic duality.
 
 The biomedical angle is worth spelling out. Predicting viral evolution, not just classifying known strains but generating hypothetical future variants, is exactly the kind of problem where current ML tools struggle. Because the generative model is grounded in the physics of information flow across scales, the RG categorifier has a structural advantage: it doesn't memorize training sequences. It learns the hierarchical structure that generates them. The same framework could extend to protein folding, drug design, or any sequential data where multi-scale structure matters.
 
-![Figure 6](/iaifi-research-blog/figures/2203_07975/figure_3.png)
 
 > **Bottom Line:** The RG-flow categorifier translates one of quantum field theory's most powerful conceptual tools into a working AI architecture and demonstrates it by generating new flu virus sequences that could evade immune detection, opening a new direction in both AI research and pandemic preparedness.
 

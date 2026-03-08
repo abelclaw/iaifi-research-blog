@@ -38,8 +38,6 @@ concepts:
 - anomaly detection
 figures:
 - /iaifi-research-blog/figures/2312_14265/figure_1.png
-- /iaifi-research-blog/figures/2312_14265/figure_2.png
-- /iaifi-research-blog/figures/2312_14265/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.14265v1
 published: '2023-12-21T19:29:00+00:00'
 theme: Experimental Physics
@@ -77,13 +75,11 @@ Enter **Lipschitz neural networks**. These impose a strict mathematical cap on h
 
 On top of the Lipschitz constraint, the team also enforces **monotonicity**. Certain physical quantities should, by straightforward physics reasoning, always push a classifier toward accepting an event. A longer decay distance or higher transverse momentum should always increase the likelihood that a candidate is a real b-hadron. Monotonicity bakes that domain knowledge directly into the model.
 
-![Figure 2](/iaifi-research-blog/figures/2312_14265/figure_2.png)
 
 This is especially useful for BSM (Beyond the Standard Model) searches. Exotic particles absent from training data may still carry the right kinematic fingerprint to pass the trigger, because the network is constrained to respond correctly to outliers it has never seen.
 
 The two-body and three-body topological triggers each use a curated set of input features: vertex displacement significance, track quality, transverse momentum, vertex fit quality. Explicit monotonicity requirements are assigned to the physically motivated ones. The networks are compact enough to run within HLT2's real-time compute budget, no small feat given the data volume flowing in from HLT1.
 
-![Figure 3](/iaifi-research-blog/figures/2312_14265/figure_3.png)
 
 ## Why It Matters
 

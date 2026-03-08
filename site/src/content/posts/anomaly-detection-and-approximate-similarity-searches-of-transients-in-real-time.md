@@ -69,12 +69,8 @@ concepts:
 - signal detection
 - active learning
 figures:
-- /iaifi-research-blog/figures/2404_01235/figure_1.png
-- /iaifi-research-blog/figures/2404_01235/figure_1.png
 - /iaifi-research-blog/figures/2404_01235/figure_2.png
 - /iaifi-research-blog/figures/2404_01235/figure_2.png
-- /iaifi-research-blog/figures/2404_01235/figure_3.png
-- /iaifi-research-blog/figures/2404_01235/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.01235v2
 published: '2024-04-01T16:53:04+00:00'
 theme: Astrophysics
@@ -99,7 +95,7 @@ A team of researchers built a system called **LAISS** (Lightcurve Anomaly Identi
 
 The pipeline runs two major engines in tandem. The first is an **anomaly detection model**, a random forest classifier (many decision trees that vote together) trained to flag transients that look unusual compared to the broad population of known objects. The second is an **approximate similarity search** that finds the closest known analogs to any flagged event, in milliseconds, across a database of thousands of light curves.
 
-![Figure 1](/iaifi-research-blog/figures/2404_01235/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2404_01235/figure_2.png)
 
 LAISS extracts two broad categories of features for each transient. **Statistical light-curve features** (a light curve is a graph of brightness over time) capture the shape of how a source brightens and fades: rise time, peak magnitude, color evolution, variability statistics. **Contextual host-galaxy features** describe the environment: stellar mass, star formation rate, galaxy morphology. Together, these paint a portrait of both the event and its neighborhood.
 
@@ -111,7 +107,7 @@ The classifier sorts anomalies into three types:
 
 Once LAISS flags a candidate, **approximate nearest-neighbor algorithms** (techniques that trade a small amount of exactness for enormous speed) return a ranked list of historical analog transients. Astronomers get an instant prior on what they're looking at before any spectrum is taken.
 
-![Figure 2](/iaifi-research-blog/figures/2404_01235/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_01235/figure_2.png)
 
 LAISS runs on the nightly ZTF Alert Stream through the **ANTARES broker**, an intermediary that receives ZTF's million-per-night alerts and applies filters before they reach scientists. By focusing on a curated stream of extragalactic transients, the system keeps the false positive rate low enough that only a manageable handful of candidates surface each night.
 
@@ -123,11 +119,9 @@ Astronomers estimate only about 1% will ever receive spectroscopic follow-up, th
 
 The retrospective results from the paper make this concrete. Running LAISS on historical ZTF data from 2018 to 2021, the team discovered **325 transients that had never appeared in any public catalog**, roughly 1% of all ZTF reports to the Transient Name Server over that period. They also recovered about 50 previously identified rare transients that standard pipelines had missed or misclassified: superluminous supernovae, tidal disruption events, and several exotic subtypes driven by ejecta–circumstellar matter collisions.
 
-![Figure 3](/iaifi-research-blog/figures/2404_01235/figure_2.png)
 
 The similarity search is particularly valuable for what comes next. When an entirely new type of transient appears, something that matches no known class, astronomers can still instantly retrieve the closest known objects and use them as a guide for follow-up strategy. It's a data-driven way to bootstrap knowledge about the unknown.
 
-![Figure 4](/iaifi-research-blog/figures/2404_01235/figure_2.png)
 
 > **Bottom Line:** LAISS found 325 previously uncatalogued transients and ~50 rare events that automated pipelines had missed, and it runs every night in real time, already positioned to tackle the coming flood of data from the Rubin Observatory.
 

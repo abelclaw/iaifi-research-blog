@@ -28,7 +28,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2506_22566/figure_1.png
 - /iaifi-research-blog/figures/2506_22566/figure_2.png
-- /iaifi-research-blog/figures/2506_22566/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.22566v3
 published: '2025-06-27T18:28:41+00:00'
 theme: Foundational AI
@@ -67,7 +66,6 @@ This is where physics enters. Once the action sequence is treated as draws from 
 
 Resampled policies produce heavy-tailed steady-state distributions over visited states, so the agent spreads broadly rather than clustering near its start. Ballistic and diffusive regimes aren't mutually exclusive; combining them offers a design knob for controlling the *geometry* of exploration before any training begins.
 
-![Figure 3](/iaifi-research-blog/figures/2506_22566/figure_3.png)
 
 ## Why It Matters
 

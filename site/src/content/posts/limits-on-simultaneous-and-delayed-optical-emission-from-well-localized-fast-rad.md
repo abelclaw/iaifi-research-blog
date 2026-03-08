@@ -44,7 +44,6 @@ concepts:
 - stellar evolution
 figures:
 - /iaifi-research-blog/figures/2211_03974/figure_1.png
-- /iaifi-research-blog/figures/2211_03974/figure_2.png
 - /iaifi-research-blog/figures/2211_03974/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.03974v2
 published: '2022-11-08T03:02:56+00:00'
@@ -84,13 +83,12 @@ These are the deepest such limits ever achieved for any extragalactic FRB.
 
 Non-detections get interesting when you test them against theory. The **synchrotron maser model**, currently the leading explanation, proposes that FRBs are powered by **magnetar flares**: catastrophic magnetic energy releases from ultra-dense, rapidly spinning neutron stars. Charged particles accelerated by the flare produce both the radio burst and a brief optical afterglow via **synchrotron emission**, the faint light shed when charged particles spiral through magnetic fields.
 
-![Figure 2](/iaifi-research-blog/figures/2211_03974/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2211_03974/figure_3.png)
 
 Translating all their optical limits into flare energy constraints, the researchers find that magnetar flares in their sample released no more than 10^43 to 10^49 ergs. The wide range reflects the different distances of each source. For the one Galactic FRB-like event, from magnetar SGR 1935+2154 in our own Milky Way, the constraint tightens to under 10^39 ergs. These limits are generally at least an order of magnitude (ten times or more) looser than what the radio bursts themselves imply, so the optical data alone don't yet rule the model out in most cases.
 
 FRB 20220912A is the exception. Here, the simultaneous observations are close enough to the theoretically predicted optical brightness to carve away parts of the allowed parameter space, specifically restricting combinations of high flare energy and dense surrounding plasma. This is the first time simultaneous multiwavelength observations (watching in multiple types of light at once) have genuinely cornered an FRB model.
 
-![Figure 3](/iaifi-research-blog/figures/2211_03974/figure_3.png)
 
 The analogy to **gamma-ray bursts (GRBs)** is intentional. GRBs were radio-wave mysteries for years until rapid optical follow-up cracked them open. FRBs are at a similar inflection point. The next generation of large optical telescopes, combined with real-time radio alert systems, could push sensitivity down by orders of magnitude, reaching the regimes where theoretical models actually live.
 

@@ -35,8 +35,6 @@ concepts:
 - self-supervised learning
 figures:
 - /iaifi-research-blog/figures/2502_10894/figure_1.png
-- /iaifi-research-blog/figures/2502_10894/figure_2.png
-- /iaifi-research-blog/figures/2502_10894/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.10894v1
 published: '2025-02-15T20:18:37+00:00'
 theme: Foundational AI
@@ -76,7 +74,6 @@ Previous approaches required torque sensors (devices that measure the twisting f
 
 The UAN runs as an RL agent inside the simulator, minimizing the mismatch between simulated and real transition dynamics. The result: a simulator that behaves like the actual hardware, without a single torque sensor.
 
-![Figure 2](/iaifi-research-blog/figures/2502_10894/figure_2.png)
 
 A better simulator is only half the battle. The team's second challenge: **guided exploration**. Pure task rewards give the robot enormous freedom but almost no direction. The solution is to use reference trajectories not as strict commands, but as *hints* that warm-start exploration.
 
@@ -87,7 +84,6 @@ Training unfolds in two sub-phases:
 
 The reference trajectory isn't a leash. It's a suggestion. The robot uses it to bootstrap, then discards or modifies whatever parts it finds suboptimal.
 
-![Figure 3](/iaifi-research-blog/figures/2502_10894/figure_3.png)
 
 The robot is a Unitree B2 quadruped (65 centimeters tall, 60 kilograms) carrying a modified Unitree Z1 Pro arm with 6 degrees of freedom (six independent ways the arm can rotate and extend). All 19 actuated joints must coordinate simultaneously during tasks like a dumbbell snatch, where the legs drive into the ground while the arm explosively lifts a weight overhead. That's a coordination problem that would challenge most robots running conventional controllers.
 

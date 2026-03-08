@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2207_08945/figure_1.png
 - /iaifi-research-blog/figures/2207_08945/figure_1.png
 - /iaifi-research-blog/figures/2207_08945/figure_2.png
-- /iaifi-research-blog/figures/2207_08945/figure_2.png
-- /iaifi-research-blog/figures/2207_08945/figure_3.png
-- /iaifi-research-blog/figures/2207_08945/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2207.08945v3
 published: '2022-07-18T21:13:34+00:00'
 theme: Theoretical Physics
@@ -87,7 +84,6 @@ The paper also incorporates two proven tricks from conventional lattice QCD. **E
 
 To validate the approach, the authors tested on two 2D theories: the **Schwinger model** (a U(1) gauge theory with fermions, analogous to 2D QED) and a 2D SU(3) gauge theory with two fermion flavors, sharing QCD's gauge group without its full complexity. Both are tractable enough to compare against exact results while complex enough to stress-test the architecture. The flow models reproduced correct distributions of physical observables, with accuracy improving as the number of pseudofermion samples per gauge configuration increased.
 
-![Figure 4](/iaifi-research-blog/figures/2207_08945/figure_2.png)
 
 ## Why It Matters
 

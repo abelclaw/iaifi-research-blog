@@ -36,11 +36,8 @@ concepts:
 - fine-tuning
 - data augmentation
 figures:
-- /iaifi-research-blog/figures/2112_08526/figure_1.png
-- /iaifi-research-blog/figures/2112_08526/figure_1.png
 - /iaifi-research-blog/figures/2112_08526/figure_2.png
 - /iaifi-research-blog/figures/2112_08526/figure_2.png
-- /iaifi-research-blog/figures/2112_08526/figure_3.png
 - /iaifi-research-blog/figures/2112_08526/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.08526v3
 published: '2021-12-15T23:26:12+00:00'
@@ -65,7 +62,7 @@ A team from TTIC, MIT CSAIL, and IAIFI offers a different answer: don't try to a
 
 When a trained neural network encounters images from a new visual domain (different lighting, a cluttered background, a shifted camera) its internal **latent features**, the compressed numerical summaries the network builds from each image, shift accordingly. The pixel values change, those summaries change, and the policy misfires. ILA's goal is to undo that shift in latent space, after training, without touching the policy itself.
 
-![Figure 2](/iaifi-research-blog/figures/2112_08526/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2112_08526/figure_2.png)
 
 Here's the process:
 
@@ -79,7 +76,7 @@ Here's the process:
 
 What separates this from pixel-level approaches like CycADA is *where* adaptation happens. Working in compact latent space is faster and, as the experiments confirm, more effective for control tasks.
 
-![Figure 1](/iaifi-research-blog/figures/2112_08526/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2112_08526/figure_2.png)
 
 ## Why It Matters
 
@@ -87,7 +84,7 @@ The team tested ILA on the **Distractor Control Suite**, a standard benchmark th
 
 ILA outperformed data augmentation baselines across all tested conditions. It succeeded where augmentation fails entirely, particularly with camera pose shifts. Augmentation can't fix those because the geometric relationship between pixels fundamentally changes. The method also transferred to a physical robot in a sim-to-real setup.
 
-![Figure 3](/iaifi-research-blog/figures/2112_08526/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2112_08526/figure_3.png)
 
 What stands out is that simple adversarial distribution matching in latent space proved sufficient to handle diverse, unpredictable visual perturbations that careful training-time engineering could not anticipate.
 

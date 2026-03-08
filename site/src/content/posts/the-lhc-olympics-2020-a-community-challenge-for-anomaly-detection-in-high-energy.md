@@ -79,7 +79,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2101_08320/figure_1.png
 - /iaifi-research-blog/figures/2101_08320/figure_2.png
-- /iaifi-research-blog/figures/2101_08320/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2101.08320v1
 published: '2021-01-20T21:03:06+00:00'
 theme: Experimental Physics
@@ -126,7 +125,6 @@ The real takeaway isn't which method won. No single algorithm dominated across a
 
 This suggests that **ensemble strategies**, combining multiple complementary algorithms, may be the most reliable path forward. The challenge also exposed a hard practical problem: **decorrelation**. If an anomaly score inadvertently sculpts artificial bumps in the mass spectrum (false positives from the algorithm's own biases, not real physics), the whole search is compromised. This remains an open problem across the field.
 
-![Figure 3](/iaifi-research-blog/figures/2101_08320/figure_3.png)
 
 The LHC Olympics model matters for what comes next. Run 3 of the LHC and the forthcoming **High-Luminosity LHC** will deliver vastly larger datasets where rare signals become statistically accessible. Follow-up challenges are already being planned with more diverse signal types, higher-dimensional inputs, and real detector effects. For future colliders like the FCC or a muon collider, model-agnostic searches may be even more important: we know even less about what to expect at those energy frontiers.
 

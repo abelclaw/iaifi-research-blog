@@ -29,10 +29,7 @@ concepts:
 - static quark power divergence
 - quantum field theory
 - standard model
-figures:
-- /iaifi-research-blog/figures/2404_16191/figure_1.png
-- /iaifi-research-blog/figures/2404_16191/figure_2.png
-- /iaifi-research-blog/figures/2404_16191/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2404.16191v1
 published: '2024-04-24T20:27:24+00:00'
 theme: Theoretical Physics
@@ -58,7 +55,6 @@ The workhorse here is the **X-space scheme**, a renormalization recipe that work
 
 X-space sidesteps all of this with a simple condition: the position-space correlation function (how strongly two quantum operators influence each other at fixed separation *x*) must match its free-field value at that separation. Set that ratio to one and you've defined your scheme. No gauge-fixing needed.
 
-![Figure 1](/iaifi-research-blog/figures/2404_16191/figure_1.png)
 
 For HQET specifically, the scheme gets even cleverer. The heavy quark propagator in the static limit naturally lives in position space as a Wilson line extending in the time direction. The power-divergent self-energy, which would otherwise require a precisely tuned subtraction, cancels automatically when you form appropriate ratios of three-point to two-point correlation functions. The divergence appears identically in numerator and denominator and drops out exactly, nonperturbatively, with no approximation.
 
@@ -67,13 +63,11 @@ The paper treats two distinct operator classes:
 - **ΔQ = 0 operators**: flavor-nonsinglet four-quark operators of the form *(Q̄Γq)(q̄Γ'Q)*, controlling the lifetimes of charm and bottom hadrons through the Heavy Quark Expansion
 - **ΔQ = 2 operators**: these drive **B–B̄ mixing**, the quantum oscillation between a B meson and its antimatter partner, sensitive to the CKM matrix element |V_td| and to potential new physics
 
-![Figure 2](/iaifi-research-blog/figures/2404_16191/figure_2.png)
 
 For each class, the authors calculate the O(αS) matching coefficients, the first-order quantum corrections that translate X-space renormalized matrix elements into the **MS̄ scheme** (the standard notation for comparing theory with experiment). This involves evaluating Feynman diagrams in dimensional regularization and tracking operator mixing structure, since some operators mix under renormalization and require matrix-valued matching. Results are checked against known simpler cases.
 
 The calculation builds up from simpler heavy-light bilinear and trilinear operators to the four-quark case. Ratios of decay constants, computable on the lattice, enter the renormalization conditions in a way that makes the scheme self-contained within HQET.
 
-![Figure 3](/iaifi-research-blog/figures/2404_16191/figure_3.png)
 
 ## Why It Matters
 

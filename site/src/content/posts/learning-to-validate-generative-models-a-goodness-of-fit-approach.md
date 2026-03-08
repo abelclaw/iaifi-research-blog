@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2511_09118/figure_1.png
 - /iaifi-research-blog/figures/2511_09118/figure_2.png
-- /iaifi-research-blog/figures/2511_09118/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2511.09118v2
 published: '2025-11-12T08:47:08+00:00'
 theme: Foundational AI
@@ -87,7 +86,6 @@ Generative AI is changing how scientists work in protein design, drug discovery,
 
 What's been missing is a statistically principled validation framework that scales to the complexity of real data. NPLM fills that role.
 
-![Figure 3](/iaifi-research-blog/figures/2511_09118/figure_3.png)
 
 There's also a satisfying methodological loop here. NPLM was originally developed to search for anomalies in LHC data that might signal physics beyond the **Standard Model** (the current best theory of fundamental particles and forces). The same algorithmic instinct, train a classifier to find what doesn't fit the known distribution, turns out to be exactly what you need to audit generative models. Physics inspired the AI method; now the AI method validates physics simulations. This is the kind of exchange IAIFI was built around.
 

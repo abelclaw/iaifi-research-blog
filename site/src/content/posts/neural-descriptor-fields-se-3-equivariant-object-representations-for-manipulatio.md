@@ -38,10 +38,7 @@ concepts:
 - transfer learning
 figures:
 - /iaifi-research-blog/figures/2112_05124/figure_1.png
-- /iaifi-research-blog/figures/2112_05124/figure_1.png
 - /iaifi-research-blog/figures/2112_05124/figure_2.png
-- /iaifi-research-blog/figures/2112_05124/figure_2.png
-- /iaifi-research-blog/figures/2112_05124/figure_3.png
 - /iaifi-research-blog/figures/2112_05124/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.05124v1
 published: '2021-12-09T18:57:15+00:00'
@@ -78,7 +75,7 @@ At test time, the system works in three steps:
 2. **Build a pose descriptor**: That gripper pose is encoded as a set of feature descriptors evaluated at a cluster of query points around the gripper.
 3. **Optimize on new instances**: Given a new mug in an arbitrary orientation, the system uses gradient-based optimization to find the transformation that makes the new object's descriptors best match those from the demonstration.
 
-![Figure 2](/iaifi-research-blog/figures/2112_05124/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2112_05124/figure_2.png)
 
 The trick is treating the gripper pose itself as something to be matched in descriptor space, not in raw coordinate space. Small errors in localizing individual keypoints can compound into large errors for the overall transformation. This approach sidesteps that failure mode entirely.
 
@@ -86,7 +83,6 @@ The trick is treating the gripper pose itself as something to be matched in desc
 
 With just five to ten demonstrations, NDFs successfully generalize pick-and-place and rack-hanging tasks to entirely new mug designs across arbitrary 6-DoF configurations (every possible combination of position and rotation in 3D space), including orientations completely absent from training. The system runs in both simulation and on a real robot, and it significantly outperforms a 2D descriptor baseline that works from flat images rather than 3D geometry. That baseline struggles because 2D representations can't handle the full complexity of 3D object pose variation.
 
-![Figure 4](/iaifi-research-blog/figures/2112_05124/figure_2.png)
 
 Beyond manipulation, NDFs offer a blueprint for representations that are simultaneously task-relevant and transformation-invariant, unaffected by how an object is rotated or positioned. Self-supervised training eliminates expensive annotation pipelines. The equivariance guarantee eliminates the need to collect examples at every possible rotation. Principled geometric structure plus data efficiency is looking like the recipe for embodied AI systems that can actually operate in the real world.
 

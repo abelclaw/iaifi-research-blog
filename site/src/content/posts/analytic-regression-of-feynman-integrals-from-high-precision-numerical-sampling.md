@@ -40,7 +40,6 @@ concepts:
 - effective field theory
 figures:
 - /iaifi-research-blog/figures/2507_17815/figure_1.png
-- /iaifi-research-blog/figures/2507_17815/figure_2.png
 - /iaifi-research-blog/figures/2507_17815/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2507.17815v1
 published: '2025-07-23T18:00:02+00:00'
@@ -77,11 +76,10 @@ Here's the workflow: evaluate the integral and all basis functions at *n* chosen
 
 The approach scales well. The team mapped out how much precision is required as a function of basis size, number of evaluation points, and coefficient magnitude. Precision requirements grow only linearly with the number of basis functions, so the method stays tractable even for complex multi-loop diagrams.
 
-![Figure 2](/iaifi-research-blog/figures/2507_17815/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2507_17815/figure_3.png)
 
 The paper works through four examples of increasing difficulty. The simplest is the one-loop triangle integral, whose exact answer involves dilogarithms with coefficients {2, −2, 1}, trivially recovered. The most demanding is the **two-loop outer-mass double box**, a particularly complex scattering diagram involving massive particles across two kinematic scales. Its exact form involves dozens of basis functions drawn from weight-4 polylogarithms, and the LLL pipeline handles it cleanly, recovering all coefficients exactly, including several that prior approaches had left incomplete.
 
-![Figure 3](/iaifi-research-blog/figures/2507_17815/figure_3.png)
 
 ## Why It Matters
 

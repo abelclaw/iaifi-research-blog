@@ -63,10 +63,6 @@ concepts:
 - density estimation
 - dark matter
 figures:
-- /iaifi-research-blog/figures/2405_02252/figure_1.png
-- /iaifi-research-blog/figures/2405_02252/figure_1.png
-- /iaifi-research-blog/figures/2405_02252/figure_2.png
-- /iaifi-research-blog/figures/2405_02252/figure_2.png
 - /iaifi-research-blog/figures/2405_02252/figure_3.png
 - /iaifi-research-blog/figures/2405_02252/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.02252v1
@@ -97,7 +93,7 @@ The challenge had a built-in safeguard: **parameter masking**. The true cosmolog
 
 The mock data came from high-precision **N-body simulations**, massive computer calculations that evolve millions of simulated dark matter particles under gravity to produce realistic galaxy distributions. Three flavors of mock catalogs were included: galaxies in "real space" (without observational distortions), "redshift space" (with the distortions real telescopes see), and on a "light cone" (the most realistic scenario, mimicking how surveys observe the sky across cosmic time).
 
-![Figure 1](/iaifi-research-blog/figures/2405_02252/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_02252/figure_3.png)
 
 Six distinct analysis methods competed, each targeting different aspects of the **non-Gaussian** information in galaxy clustering:
 
@@ -108,7 +104,7 @@ Six distinct analysis methods competed, each targeting different aspects of the 
 - **LEFTfield** performs **field-level inference**: rather than compressing observations into summary statistics, it analyzes the full three-dimensional galaxy density field directly using **Effective Field Theory (EFT)**, a framework borrowed from particle physics that describes matter clustering at large scales without requiring a model of every small-scale detail
 - **Joint power spectrum and bispectrum analyses** add the **bispectrum** (three-point correlations measuring triangular galaxy configurations) using both EFT and **simulation-based inference (SBI)**
 
-![Figure 2](/iaifi-research-blog/figures/2405_02252/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2405_02252/figure_3.png)
 
 SBI trains neural networks on thousands of simulations to learn the statistical relationship between observations and parameters, bypassing the need for an analytic likelihood function (which becomes intractable for complex statistics). Both field-level inference and SBI are among the most ambitious applications of modern machine learning to fundamental cosmology.
 
@@ -116,7 +112,6 @@ SBI trains neural networks on thousands of simulations to learn the statistical 
 
 The validation is significant precisely because it's hard. Each method involves a long chain of modeling choices: how to simulate galaxy formation, how to handle observational effects, how to build a statistical model, how to sample parameter space. Any link can introduce systematic bias. The fact that multiple independent methods, built on completely different mathematical frameworks, all recovered the true parameters consistently is strong evidence the field is on the right track.
 
-![Figure 3](/iaifi-research-blog/figures/2405_02252/figure_2.png)
 
 The challenge also exposed where work remains. Some methods struggled with light-cone geometry or scale cuts. Others showed tension between real-space and redshift-space results that needs further investigation. The collaboration treats this as a living challenge: the dataset is publicly available, and teams are invited to submit results from methods not yet tested.
 

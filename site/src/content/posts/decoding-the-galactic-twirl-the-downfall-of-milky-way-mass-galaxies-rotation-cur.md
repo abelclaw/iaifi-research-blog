@@ -45,9 +45,6 @@ figures:
 - /iaifi-research-blog/figures/2503_05877/figure_1.png
 - /iaifi-research-blog/figures/2503_05877/figure_1.png
 - /iaifi-research-blog/figures/2503_05877/figure_2.png
-- /iaifi-research-blog/figures/2503_05877/figure_2.png
-- /iaifi-research-blog/figures/2503_05877/figure_3.png
-- /iaifi-research-blog/figures/2503_05877/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.05877v1
 published: '2025-03-07T19:03:14+00:00'
 theme: Astrophysics
@@ -89,13 +86,11 @@ Across all three simulated galaxies, the measured rotation curves deviated from 
 
 Different galaxies were dominated by different failure modes. One galaxy's curve was mostly corrupted by asymmetric drift errors; another's by lingering gravitational disturbances from a recently absorbed smaller galaxy. There is no single culprit, and no one-size-fits-all correction.
 
-![Figure 4](/iaifi-research-blog/figures/2503_05877/figure_2.png)
 
 ## Why It Matters
 
 With a calibrated model of how badly the measurement can go wrong, the team re-ran the inference of the Milky Way's dark matter profile using the Ou et al. 2024 rotation curve data, this time folding in their simulation-derived systematic error budget. When you allow for 5–20% measurement uncertainty, the Milky Way's dark matter halo is no longer anomalously light. The best-fit dark matter density profile now matches the standard **NFW profile**, the shape predicted by cold dark matter simulations, with a virial mass of **7.32 × 10¹¹ solar masses** (roughly three-quarters of a trillion suns). That's consistent with estimates from globular clusters and stellar streams.
 
-![Figure 6](/iaifi-research-blog/figures/2503_05877/figure_3.png)
 
 This isn't just a fix for one measurement. It exposes a real vulnerability in how the field approaches galactic dynamics. The galaxy-to-galaxy variation in failure modes also warns against over-interpreting any single measurement: what looks like a dark matter anomaly might just be a galaxy that went through a recent merger.
 

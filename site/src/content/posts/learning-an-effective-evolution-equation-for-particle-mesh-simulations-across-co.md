@@ -33,11 +33,8 @@ concepts:
 - loss function design
 figures:
 - /iaifi-research-blog/figures/2311_18017/figure_1.png
-- /iaifi-research-blog/figures/2311_18017/figure_1.png
 - /iaifi-research-blog/figures/2311_18017/figure_2.png
 - /iaifi-research-blog/figures/2311_18017/figure_2.png
-- /iaifi-research-blog/figures/2311_18017/figure_3.png
-- /iaifi-research-blog/figures/2311_18017/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2311.18017v1
 published: '2023-11-29T19:03:37+00:00'
 theme: Astrophysics
@@ -79,7 +76,7 @@ The network is **isotropic**, treating all spatial directions equally and respec
 
 The loss function was simple: just the **L2 distance** between corrected PM particle positions and velocities versus the reference N-body simulation. No power spectrum matching. No fancy statistics. Just: make the particles end up in the right place, moving at the right speed.
 
-![Figure 2](/iaifi-research-blog/figures/2311_18017/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2311_18017/figure_2.png)
 
 ## Why It Matters
 
@@ -87,7 +84,6 @@ The payoff comes in two parts. First, the correction generalizes. Tested on cosm
 
 This is not obvious. Neural networks that learn corrections inside dynamical systems can easily overfit to specific training conditions. That this one doesn't suggests the network has learned something close to a true physical correction, not just a statistical patch.
 
-![Figure 4](/iaifi-research-blog/figures/2311_18017/figure_2.png)
 
 Second, the corrected simulations plug directly into **simulation-based inference (SBI)**, a modern approach to cosmological parameter estimation that bypasses writing down an explicit likelihood function. In practice, instead of compressing simulations into mathematical summaries, SBI uses the raw simulation outputs to ask which cosmological parameters best fit the data.
 

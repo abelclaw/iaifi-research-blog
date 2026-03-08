@@ -42,11 +42,6 @@ concepts:
 - scalability
 figures:
 - /iaifi-research-blog/figures/2501_01496/figure_1.png
-- /iaifi-research-blog/figures/2501_01496/figure_1.png
-- /iaifi-research-blog/figures/2501_01496/figure_2.png
-- /iaifi-research-blog/figures/2501_01496/figure_2.png
-- /iaifi-research-blog/figures/2501_01496/figure_3.png
-- /iaifi-research-blog/figures/2501_01496/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.01496v2
 published: '2025-01-02T19:00:05+00:00'
 theme: Astrophysics
@@ -77,7 +72,6 @@ At the top, everything is either a "transient" (something that changes and fades
 - After **64 days**: top-level precision exceeds 0.99
 - After **1024 days**: 0.83 precision across all 19 classes
 
-![Figure 2](/iaifi-research-blog/figures/2501_01496/figure_1.png)
 
 ORACLE also ingests host galaxy context: photometric redshift (distance), the transient's spatial offset from the galaxy's center, ellipticity, and brightness. These features combine with the light curve summary before the final prediction. A transient in the outskirts of a dim dwarf galaxy is probably not the same phenomenon as one sitting dead-center in a massive elliptical, and the model learns these associations from data rather than hand-coded rules.
 
@@ -89,7 +83,6 @@ Most existing classifiers treat classification as a single-shot problem: accumul
 
 Benchmarked against state-of-the-art competitors, ORACLE delivers comparable performance on the 19-way task while dramatically outperforming rivals at early times on the top-level triage decision.
 
-![Figure 3](/iaifi-research-blog/figures/2501_01496/figure_2.png)
 
 The payoff goes well beyond supernovae. Kilonovae evolve on timescales of hours to days; an early, confident "transient" flag could trigger spectroscopic resources before the optical emission fades. The same logic applies to tidal disruption events, fast blue optical transients, and any rare phenomenon whose secrets live in early-phase behavior.
 

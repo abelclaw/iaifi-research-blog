@@ -48,9 +48,6 @@ figures:
 - /iaifi-research-blog/figures/2410_21367/figure_1.png
 - /iaifi-research-blog/figures/2410_21367/figure_1.png
 - /iaifi-research-blog/figures/2410_21367/figure_2.png
-- /iaifi-research-blog/figures/2410_21367/figure_2.png
-- /iaifi-research-blog/figures/2410_21367/figure_3.png
-- /iaifi-research-blog/figures/2410_21367/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.21367v1
 published: '2024-10-28T18:00:00+00:00'
 theme: Astrophysics
@@ -105,7 +102,6 @@ When the team decomposed their best-fit GP into familiar template components, th
 
 The implications go beyond the GCE debate itself. Flexible ML models can be embedded directly into gamma-ray likelihood analyses at scale, opening a path toward template-free morphological inference in astrophysics more broadly. The authors point to a full spectral GP analysis as the natural next step: simultaneous fitting across energy bins could break remaining degeneracies between the GCE and background components.
 
-![Figure 4](/iaifi-research-blog/figures/2410_21367/figure_2.png)
 
 > **Bottom Line:** The first Gaussian process analysis of the Galactic Center Excess reveals unexpected structure and shows that the dark-matter-vs-pulsars debate depends on modeling choices more than anyone realized.
 

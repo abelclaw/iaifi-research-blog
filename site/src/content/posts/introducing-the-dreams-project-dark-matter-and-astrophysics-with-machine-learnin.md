@@ -68,11 +68,8 @@ concepts:
 - dark energy
 figures:
 - /iaifi-research-blog/figures/2405_00766/figure_1.png
-- /iaifi-research-blog/figures/2405_00766/figure_1.png
 - /iaifi-research-blog/figures/2405_00766/figure_2.png
 - /iaifi-research-blog/figures/2405_00766/figure_2.png
-- /iaifi-research-blog/figures/2405_00766/figure_3.png
-- /iaifi-research-blog/figures/2405_00766/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.00766v1
 published: '2024-05-01T18:00:00+00:00'
 theme: Astrophysics
@@ -116,7 +113,6 @@ The team then demonstrates two machine learning applications. First, they build 
 
 In both cases, the test is whether the ML models correctly attribute observed features to dark matter rather than stellar or black hole physics. The answer is yes, but only when training data spans the full uncertainty in both.
 
-![Figure 5](/iaifi-research-blog/figures/2405_00766/figure_3.png)
 
 ## Why It Matters
 

@@ -40,7 +40,6 @@ concepts:
 - density estimation
 - semi-analytic models
 figures:
-- /iaifi-research-blog/figures/2308_05145/figure_1.png
 - /iaifi-research-blog/figures/2308_05145/figure_2.png
 - /iaifi-research-blog/figures/2308_05145/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.05145v2
@@ -68,7 +67,7 @@ A **recurrent neural network (RNN)**, the kind of sequence-processing architectu
 
 A **normalizing flow** sits on top of the RNN. Normalizing flows are generative models that transform a simple probability distribution into a complex, structured one; here, the flow samples the full distribution of possible next steps. Together, the two components generate realistic, stochastic assembly histories one timestep at a time, conditioned on a halo's current mass and concentration.
 
-![Figure 1](/iaifi-research-blog/figures/2308_05145/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2308_05145/figure_2.png)
 
 Training data comes from two **N-body simulations**, computer models that track the gravitational interactions of millions of particles to simulate how matter clumps together over cosmic time. **GUREFT** covers ultra-high redshifts (up to z ≈ 20) with high mass resolution; **VSMDPL** provides a broad mass range at lower redshifts. The team trains separate FLORAH networks on each and stitches them together at overlapping redshifts, constructing **main progenitor branches (MPBs)**: the primary lineage of each halo, tracing its most massive ancestor at each moment in time.
 
@@ -84,11 +83,10 @@ The headline result isn't just accuracy. It's **assembly bias**. Halos of the sa
 
 EPS trees assume a simple Markov property: the future depends only on present mass, nothing else. FLORAH conditions on both mass *and* concentration, and the results show it reproduces the assembly bias signal where EPS methods produce none.
 
-![Figure 2](/iaifi-research-blog/figures/2308_05145/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2308_05145/figure_3.png)
 
 This matters for next-generation galaxy surveys. Instruments like the Roman Space Telescope and Euclid will map hundreds of millions of galaxies. Interpreting their clustering statistics, and disentangling galaxy physics from cosmology, requires accurate models of how halos cluster as a function of their full formation history. FLORAH can generate the enormous synthetic catalogs those analyses will need, at a fraction of the cost of a full N-body simulation.
 
-![Figure 3](/iaifi-research-blog/figures/2308_05145/figure_3.png)
 
 The current model generates only the *main progenitor branch*, the spine of a merger tree. Full merger trees, which include all the smaller halos that merged in along the way, are the next target. Extending FLORAH to generate full trees would provide a complete, machine-learning-native alternative to expensive N-body runs for semi-analytic galaxy formation modeling.
 

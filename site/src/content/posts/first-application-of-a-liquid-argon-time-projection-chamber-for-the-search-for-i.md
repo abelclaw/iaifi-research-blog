@@ -225,8 +225,6 @@ concepts:
 - anomaly detection
 figures:
 - /iaifi-research-blog/figures/2308_03924/figure_1.png
-- /iaifi-research-blog/figures/2308_03924/figure_2.png
-- /iaifi-research-blog/figures/2308_03924/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.03924v6
 published: '2023-08-07T22:00:02+00:00'
 theme: Experimental Physics
@@ -262,13 +260,11 @@ The team built a three-stage machine learning pipeline to separate signal from n
 2. **CNN-based selection (Convolutional Neural Network):** Surviving events are converted into 2D images of the wire readout and fed to a convolutional neural network. This step exploits the visual distinctiveness of the annihilation fireball, which radiates outward equally in all directions, unlike the elongated geometry of a cosmic muon track.
 3. **Topological final selection:** Geometric cuts verify that reconstructed tracks point away from a common vertex in a pattern consistent with a nuclear annihilation event.
 
-![Figure 2](/iaifi-research-blog/figures/2308_03924/figure_2.png)
 
 On simulated data, the pipeline achieves 70.22% signal efficiency, correctly identifying nearly three-quarters of all n→n̄ events, while reducing the cosmogenic background by a factor of 50,000. The background efficiency comes in at just 0.0020%. For every 50,000 background events, only one sneaks through.
 
 Applied to real MicroBooNE data representing an exposure of 3.32×10²⁶ neutron-years, the search saw no excess above background. This sets a lower bound on how long a neutron can survive within a ⁴⁰Ar nucleus before transitioning: τ_m ≳ 1.1×10²⁶ years at 90% confidence. For a free neutron in isolation, the equivalent limit is τ_{n→n̄} ≳ 2.6×10⁵ seconds.
 
-![Figure 3](/iaifi-research-blog/figures/2308_03924/figure_3.png)
 
 This is explicitly a proof-of-principle. Existing limits from Super-Kamiokande and ILL reach higher, and the dataset is small. But that's not the point. The machinery works, and it works on a detector technology that will define the next generation of neutrino physics.
 

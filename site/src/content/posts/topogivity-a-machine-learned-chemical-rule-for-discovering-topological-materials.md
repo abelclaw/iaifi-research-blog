@@ -37,7 +37,6 @@ concepts:
 - phase transitions
 figures:
 - /iaifi-research-blog/figures/2202_05255/figure_1.png
-- /iaifi-research-blog/figures/2202_05255/figure_2.png
 - /iaifi-research-blog/figures/2202_05255/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2202.05255v3
 published: '2022-02-10T18:57:17+00:00'

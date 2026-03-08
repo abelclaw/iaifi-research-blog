@@ -38,11 +38,8 @@ concepts:
 - loss function design
 figures:
 - /iaifi-research-blog/figures/2302_12266/figure_1.png
-- /iaifi-research-blog/figures/2302_12266/figure_1.png
 - /iaifi-research-blog/figures/2302_12266/figure_2.png
 - /iaifi-research-blog/figures/2302_12266/figure_2.png
-- /iaifi-research-blog/figures/2302_12266/figure_3.png
-- /iaifi-research-blog/figures/2302_12266/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2302.12266v4
 published: '2023-02-23T19:00:00+00:00'
 theme: Theoretical Physics
@@ -83,11 +80,9 @@ SHAPER handles **infrared-and-collinear (IRC) safety** automatically. IRC safety
 
 The framework unlocks observables nobody could measure before. **N-Ringiness** asks how well a jet decomposes into N concentric rings. **N-Diskiness** measures how disk-like the energy deposit is. **N-Ellipsiness** extracts eccentricity and orientation event-by-event. In benchmarks on top quark versus QCD jets, top jets show measurably higher 2-Ringiness than QCD jets. That makes sense: three-body decay creates ring-like energy deposits around the jet core.
 
-![Figure 4](/iaifi-research-blog/figures/2302_12266/figure_2.png)
 
 One nice application adds a "pileup" term to the shape model. Instead of subtracting soft background radiation from other collisions, SHAPER just absorbs it into the fit and mitigates it automatically.
 
-![Figure 6](/iaifi-research-blog/figures/2302_12266/figure_3.png)
 
 ## Why It Matters
 

@@ -35,8 +35,6 @@ concepts:
 - dark energy
 figures:
 - /iaifi-research-blog/figures/2410_20516/figure_1.png
-- /iaifi-research-blog/figures/2410_20516/figure_2.png
-- /iaifi-research-blog/figures/2410_20516/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.20516v1
 published: '2024-10-27T16:58:48+00:00'
 theme: Foundational AI
@@ -74,11 +72,9 @@ The downstream task is **cosmological parameter inference**: given a snapshot of
 
 The results tell a clear story with an important asterisk. Equivariant networks beat their non-equivariant counterparts, and do so more efficiently, requiring fewer simulations to reach the same performance. That efficiency matters enormously in cosmology, where a single N-body simulation can take thousands of CPU-hours. If a symmetry-aware network needs ten times fewer training examples for the same accuracy, that's not a convenience: it's the difference between a practical method and an impractical one.
 
-![Figure 2](/iaifi-research-blog/figures/2410_20516/figure_2.png)
 
 The domain-specific baselines (particularly those that explicitly compute long-range statistics like the power spectrum) still hold an edge when capturing correlations that stretch across the full simulation volume. Modern GNNs, even equivariant ones, aggregate information through local message-passing steps. Each layer propagates information one hop further through the galaxy graph, meaning very distant galaxies can't effectively "talk" to each other without many expensive layers in between. Cosmological data, shaped by physics that operated across the entire observable Universe in its first moments, demands global awareness that current architectures struggle to deliver.
 
-![Figure 3](/iaifi-research-blog/figures/2410_20516/figure_3.png)
 
 That gap is also the paper's most useful finding — it points directly at what to build next. Architectures that handle long-range correlations through global attention mechanisms, hierarchical pooling, or physics-inspired positional encodings could push performance significantly higher on cosmological inference. Similar multiscale problems arise in climate modeling, molecular dynamics, and particle physics, so solutions developed here would have reach well beyond galaxy surveys.
 

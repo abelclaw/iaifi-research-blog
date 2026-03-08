@@ -35,11 +35,8 @@ concepts:
 - classification
 - transfer learning
 figures:
-- /iaifi-research-blog/figures/2203_01343/figure_1.png
-- /iaifi-research-blog/figures/2203_01343/figure_1.png
 - /iaifi-research-blog/figures/2203_01343/figure_2.png
 - /iaifi-research-blog/figures/2203_01343/figure_2.png
-- /iaifi-research-blog/figures/2203_01343/figure_3.png
 - /iaifi-research-blog/figures/2203_01343/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2203.01343v2
 published: '2022-03-02T19:00:05+00:00'
@@ -64,7 +61,7 @@ The starting point is a **convolutional autoencoder (CAE)**, a neural network tr
 
 But which features of the jet make it weird? The autoencoder operates on raw pixel-level jet images, thousands of numbers per event, and never reveals whether it's reacting to the jet's mass, its angular spread, or some subtle three-pronged substructure.
 
-![Figure 1](/iaifi-research-blog/figures/2203_01343/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2203_01343/figure_2.png)
 
 To extract that hidden logic, the researchers adapted an interpretability technique originally designed for classifiers. Their approach uses **Energy Flow Polynomials (EFPs)** as a vocabulary: a mathematically complete set of measurements covering every physically meaningful way to characterize a jet's shape and energy distribution. Think of EFPs as a giant dictionary of jet properties. Some measure how "pronglike" a jet is; others capture its angular moments.
 
@@ -75,19 +72,18 @@ From this dictionary, the team built two competing mimicker networks:
 
 Both networks use an iterative selection procedure: start with one observable, find which EFP best improves agreement with the CAE, add it, repeat. Selection stops when additional observables provide diminishing returns.
 
-![Figure 2](/iaifi-research-blog/figures/2203_01343/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2203_01343/figure_2.png)
 
 The result is striking. Both strategies independently converged on the **same six observables**, even though they approached the problem from completely different mathematical angles. The matched set includes the jet mass, multiplicity-related quantities, and specific EFPs capturing two- and three-body angular correlations. Two fundamentally different formulations of "what does the autoencoder care about?" reached the same answer. Both mimickers agreed with the autoencoder's event ordering about 83% of the time on ordinary background jets.
 
 The real test: can mimickers trained only on ordinary jets detect exotic new physics they were never trained for?
 
-![Figure 3](/iaifi-research-blog/figures/2203_01343/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2203_01343/figure_3.png)
 
 The researchers tested eight signal types: W bosons of four different masses, top quarks at two masses, and Higgs bosons at two masses. These span exotic jet shapes with two, three, and four distinct prongs of energy deposition. Performance was measured using **signal significance improvement (SSI)**, which quantifies how much better than random chance the detector isolates signal from background.
 
 For seven out of eight signals, at least one mimicker matched or exceeded the autoencoder's performance. The lone exception was a very light W boson (59 GeV), where the jet substructure looks nearly identical to background, a hard case for every method. The interpretable networks also held their own against **Isolation Forests**, another popular anomaly detection approach.
 
-![Figure 5](/iaifi-research-blog/figures/2203_01343/figure_3.png)
 
 ## Why It Matters
 

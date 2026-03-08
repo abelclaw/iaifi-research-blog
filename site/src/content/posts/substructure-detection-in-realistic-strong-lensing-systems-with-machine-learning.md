@@ -36,7 +36,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2401_16624/figure_1.png
 - /iaifi-research-blog/figures/2401_16624/figure_2.png
-- /iaifi-research-blog/figures/2401_16624/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2401.16624v1
 published: '2024-01-29T23:42:14+00:00'
 theme: Astrophysics
@@ -73,7 +72,6 @@ The realism matters because earlier machine learning approaches trained on simpl
 
 The network was trained both to classify whether an image contains a subhalo and to localize it. At a **false positive rate** (FPR) of 10% (meaning one in ten subhalo-free systems would trigger a false alarm), the UNet achieved a **true positive rate** (TPR) of 71% for subhalos in the 10⁹ to 10⁹·⁵ solar mass range. Performance improved with higher image resolution and with higher subhalo concentration, which measures how centrally dense the subhalo's mass profile is.
 
-![Figure 3](/iaifi-research-blog/figures/2401_16624/figure_3.png)
 
 The concentration result carries a warning. Real-world subhalo detections have tended to favor high concentrations, which the algorithm handles well. But standard **ΛCDM (Lambda Cold Dark Matter)** simulations predict that most subhalos should have lower concentrations. The algorithm struggles with these, raising an open question: are real subhalos genuinely more concentrated than simulations predict, or are we only finding the easy cases?
 

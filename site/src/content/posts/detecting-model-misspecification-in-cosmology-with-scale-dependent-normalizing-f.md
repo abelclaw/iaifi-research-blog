@@ -36,7 +36,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2508_05744/figure_1.png
 - /iaifi-research-blog/figures/2508_05744/figure_2.png
-- /iaifi-research-blog/figures/2508_05744/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2508.05744v1
 published: '2025-08-07T18:00:09+00:00'
 theme: Astrophysics
@@ -84,7 +83,6 @@ The team tested their framework using the **CAMELS** (Cosmology and Astrophysics
 
 Treating one simulation suite as the baseline and another as "observed" data, the scale-dependent evidence curves told a clear story. At large spatial scales, where gravity dominates and **baryonic feedback** (the way exploding stars and growing black holes push and heat surrounding gas) is relatively weak, different suites looked statistically consistent. As the smoothing scale decreased and finer structure came into view, evidence dropped sharply. Small scales are where the model breaks down.
 
-![Figure 3](/iaifi-research-blog/figures/2508_05744/figure_3.png)
 
 Gas density fields, more sensitive to baryonic physics than matter density, showed this breakdown at larger scales, exactly as physical intuition predicts.
 

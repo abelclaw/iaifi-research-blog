@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2502_01627/figure_1.png
 - /iaifi-research-blog/figures/2502_01627/figure_1.png
 - /iaifi-research-blog/figures/2502_01627/figure_2.png
-- /iaifi-research-blog/figures/2502_01627/figure_2.png
-- /iaifi-research-blog/figures/2502_01627/figure_3.png
-- /iaifi-research-blog/figures/2502_01627/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.01627v2
 published: '2025-02-03T18:56:39+00:00'
 theme: Astrophysics
@@ -92,7 +89,6 @@ The framework is especially useful for rare or surprising objects, the serendipi
 
 For the machine learning side, PPAD shows how matching your statistical model to the data-generating process can dramatically improve learned representations. The Poisson likelihood isn't a physics-specific trick; it's the right tool whenever your data consists of event counts, whether that's click-stream analysis, neuroscience spike trains, or particle physics detections. The autodecoder architecture also offers a useful alternative to encoder-based approaches when the input data lacks fixed structure.
 
-![Figure 4](/iaifi-research-blog/figures/2502_01627/figure_2.png)
 
 Open questions remain. The current work focuses on the Chandra Source Catalog; extending PPAD to the larger eROSITA dataset, or to multi-telescope joint observations, is an obvious next step. Adding multi-wavelength data (optical, radio, infrared) could yield richer representations still. And as the next generation of X-ray facilities comes online, the need for exactly this kind of scalable, principled automated analysis will only grow.
 

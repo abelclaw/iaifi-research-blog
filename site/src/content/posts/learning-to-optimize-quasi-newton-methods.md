@@ -39,10 +39,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2210_06171/figure_1.png
 - /iaifi-research-blog/figures/2210_06171/figure_1.png
-- /iaifi-research-blog/figures/2210_06171/figure_2.png
-- /iaifi-research-blog/figures/2210_06171/figure_2.png
-- /iaifi-research-blog/figures/2210_06171/figure_3.png
-- /iaifi-research-blog/figures/2210_06171/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.06171v2
 published: '2022-10-11T03:47:14+00:00'
 theme: Theoretical Physics
@@ -84,7 +80,6 @@ The theory section delivers a solid guarantee. In noisy, stochastic settings (th
 
 LODO isn't just a new optimizer. It's a proof of concept that the *design* of optimization algorithms can itself be automated and adapted, that the rigid, human-engineered formulas of classical quasi-Newton methods can be replaced with flexible, learned representations without sacrificing theoretical guarantees.
 
-![Figure 4](/iaifi-research-blog/figures/2210_06171/figure_2.png)
 
 This has practical implications as AI models scale. Today's frontier models consume staggering compute budgets, and even modest improvements in optimizer efficiency translate to real savings in dollars and wall-clock time. LODO runs at competitive speeds against standard optimizers on a 95,000-parameter network while offering richer adaptivity. The approach looks especially promising for architectures with heavy parameter sharing, like convolutional networks, where inference cost during training dominates optimization overhead.
 

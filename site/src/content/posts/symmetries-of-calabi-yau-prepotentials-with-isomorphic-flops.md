@@ -29,9 +29,6 @@ concepts:
 - elliptic fibration
 figures:
 - /iaifi-research-blog/figures/2210_09369/figure_1.png
-- /iaifi-research-blog/figures/2210_09369/figure_1.png
-- /iaifi-research-blog/figures/2210_09369/figure_2.png
-- /iaifi-research-blog/figures/2210_09369/figure_2.png
 - /iaifi-research-blog/figures/2210_09369/figure_3.png
 - /iaifi-research-blog/figures/2210_09369/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2210.09369v2
@@ -71,13 +68,13 @@ The paper's central result breaks into three steps:
 
 3. **Constraining quantum corrections.** String theory on a Calabi-Yau receives **quantum corrections** from world-sheet instantons, strings wrapping curves inside the manifold. Each curve class $d$ contributes to the **prepotential** (the master function encoding the theory's physics) weighted by its **Gopakumar-Vafa (GV) invariant** $n_d$, an integer counting **BPS states**, stable quantum particles formed when strings wrap those curves. Curve classes identified by the Coxeter symmetry must carry identical GV invariants: $n_d = n_{gd}$ for all group elements $g$.
 
-![Figure 2](/iaifi-research-blog/figures/2210_09369/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2210_09369/figure_3.png)
 
 This GV invariant matching means the prepotential itself is Coxeter-invariant. The authors construct **Coxeter-invariant functions** $\psi_d^G(T)$ by summing over all images of a curve class under the group action. These are the natural building blocks for the instanton prepotential.
 
 For Calabi-Yau manifolds with an **elliptic fibration** structure (manifolds that fiber over a base with torus fibers) these invariant functions collapse into **Jacobi theta functions**, the same objects that appear throughout number theory and integrable systems. The torus fibers introduce a natural periodicity that theta functions are built to capture.
 
-![Figure 3](/iaifi-research-blog/figures/2210_09369/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2210_09369/figure_3.png)
 
 The paper works through explicit examples using **complete intersection Calabi-Yau manifolds (CICYs)**, defined by polynomial equations inside products of projective spaces. For Picard rank two, the authors exhibit concrete examples with infinitely many flops, constructing the invariant prepotentials and verifying both the Coxeter symmetry and the theta function expressions.
 
@@ -89,7 +86,6 @@ Hidden symmetries in the prepotential don't just make calculations cleaner. They
 
 On the mathematical side, Coxeter groups and theta functions connect string theory to some of the most powerful machinery in modern mathematics. The framework Lukas and Ruehle construct (invariant functions for Coxeter group representations acting on instanton sums) is new and opens several directions for future work: classify which Calabi-Yau manifolds admit isomorphic flops, identify the resulting Coxeter groups, and determine when the prepotential organizes into known special functions.
 
-![Figure 4](/iaifi-research-blog/figures/2210_09369/figure_2.png)
 
 > **Bottom Line:** Isomorphic flop transitions, rare geometry-preserving surgeries on Calabi-Yau manifolds, secretly organize into Coxeter reflection groups that constrain the quantum corrections governing string theory, sometimes producing elegant theta function structures tied to the manifold's elliptic fibration geometry.
 

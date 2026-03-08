@@ -42,7 +42,6 @@ concepts:
 - kernel methods
 figures:
 - /iaifi-research-blog/figures/2405_01672/figure_1.png
-- /iaifi-research-blog/figures/2405_01672/figure_2.png
 - /iaifi-research-blog/figures/2405_01672/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.01672v2
 published: '2024-05-02T18:55:45+00:00'
@@ -85,13 +84,12 @@ The result: 54 templates (one per subtype-band combination) spanning Swift's ult
 
 The templates immediately revealed something striking: SNe Ibn and Ic-bl rise faster and fade faster than their cousins. They are sprinters in a field of marathon runners. This speed difference has physical meaning; it constrains the mass of radioactive nickel-56 powering the explosion and the geometry of ejected material. The Ibn subtype, which shows signs of crashing into dense gas shed before the star's death, often displays two distinct brightness peaks, a feature the templates now characterize systematically for the first time.
 
-![Figure 2](/iaifi-research-blog/figures/2405_01672/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2405_01672/figure_3.png)
 
 The more urgent finding concerns the simulated datasets the machine learning community uses to train automated brightness classifiers. The team compared their observational templates against **PLAsTiCC** and **ELAsTiCC** (synthetic light curve datasets developed specifically to train and benchmark LSST classification algorithms). The simulated supernovae don't match the real ones: peak brightnesses differ, how colors shift over time diverges, and fast-evolving subtypes are underrepresented.
 
 A classifier trained on these simulations is learning a distorted picture of the real supernova population. As LSST approaches first observations, fixing these biases in the training data could meaningfully improve automated classification accuracy for millions of events.
 
-![Figure 3](/iaifi-research-blog/figures/2405_01672/figure_3.png)
 
 > **Bottom line:** These 54 templates give the astronomical community an honest, data-driven baseline for classifying stellar explosions from photometry alone, and expose systematic errors in the simulated training data that current AI classifiers depend on.
 

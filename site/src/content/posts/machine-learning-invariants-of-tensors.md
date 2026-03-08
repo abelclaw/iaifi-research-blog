@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2512_23750/figure_1.png
 - /iaifi-research-blog/figures/2512_23750/figure_1.png
 - /iaifi-research-blog/figures/2512_23750/figure_2.png
-- /iaifi-research-blog/figures/2512_23750/figure_2.png
-- /iaifi-research-blog/figures/2512_23750/figure_3.png
-- /iaifi-research-blog/figures/2512_23750/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.23750v1
 published: '2025-12-26T21:22:25+00:00'
 theme: Theoretical Physics
@@ -79,7 +76,6 @@ The core idea is elegant: compute two quantities for thousands of random inputs;
 
 After running the algorithm across all three families, the result was unambiguous: only five invariants are truly independent. All others can be expressed as explicit algebraic functions of these five, with exact formulas provided in the paper.
 
-![Figure 4](/iaifi-research-blog/figures/2512_23750/figure_2.png)
 
 This has immediate consequences. Any **Lagrangian** for a 3-form in six dimensions (the master function from which all equations of motion and physical predictions derive) is a function $L(x_1, x_2, x_3, x_4, x_5)$ of exactly five variables. No more, no less. Theories that look different on the surface may secretly be the same theory in disguise.
 

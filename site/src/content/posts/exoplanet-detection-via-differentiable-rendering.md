@@ -43,9 +43,6 @@ figures:
 - /iaifi-research-blog/figures/2501_01912/figure_1.png
 - /iaifi-research-blog/figures/2501_01912/figure_1.png
 - /iaifi-research-blog/figures/2501_01912/figure_2.png
-- /iaifi-research-blog/figures/2501_01912/figure_2.png
-- /iaifi-research-blog/figures/2501_01912/figure_3.png
-- /iaifi-research-blog/figures/2501_01912/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.01912v1
 published: '2025-01-03T17:30:44+00:00'
 theme: Astrophysics
@@ -87,7 +84,6 @@ One technical wrinkle: wavefront aberrations aren't static. They evolve on multi
 
 The significance here goes beyond a better algorithm for one telescope. Differentiable rendering is already reshaping fields from medical imaging to autonomous driving by enabling physics-aware optimization that purely data-driven models can't match. This work brings that toolkit to astronomy, and the timing matters. JWST is actively collecting coronagraphic data, the Roman Space Telescope is approaching launch, and the proposed Habitable Worlds Observatory targets exactly the problem this technique addresses: detecting Earth-like planets in habitable zones.
 
-![Figure 4](/iaifi-research-blog/figures/2501_01912/figure_2.png)
 
 The approach also recasts wavefront sensing data, already collected at every major observatory, as a scientific asset rather than an engineering byproduct. If wavefront telemetry that would otherwise be discarded can feed a differentiable post-processing pipeline, it represents an enormous untapped resource. Future work could extend the approach to ground-based adaptive optics systems, where wavefront sensing runs at kilohertz rates and produces a continuous stream of atmospheric information that current post-processing methods completely ignore.
 

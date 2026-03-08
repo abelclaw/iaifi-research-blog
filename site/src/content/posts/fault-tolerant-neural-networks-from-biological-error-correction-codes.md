@@ -33,10 +33,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2202_12887/figure_1.png
 - /iaifi-research-blog/figures/2202_12887/figure_1.png
-- /iaifi-research-blog/figures/2202_12887/figure_2.png
-- /iaifi-research-blog/figures/2202_12887/figure_2.png
-- /iaifi-research-blog/figures/2202_12887/figure_3.png
-- /iaifi-research-blog/figures/2202_12887/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2202.12887v3
 published: '2022-02-25T18:55:46+00:00'
 theme: Foundational AI
@@ -79,7 +75,6 @@ The formal result is what the authors call **Neural Network Fault-Tolerance**: a
 
 When the researchers estimated where real biological neurons fall on this map, noisy neurons in the brain land *below* the fault-tolerance threshold.
 
-![Figure 4](/iaifi-research-blog/figures/2202_12887/figure_2.png)
 
 Biology has, apparently, already solved this problem.
 

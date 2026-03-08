@@ -81,10 +81,6 @@ concepts:
 - bayesian inference
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2502_19469/figure_1.png
-- /iaifi-research-blog/figures/2502_19469/figure_1.png
-- /iaifi-research-blog/figures/2502_19469/figure_2.png
-- /iaifi-research-blog/figures/2502_19469/figure_2.png
 - /iaifi-research-blog/figures/2502_19469/figure_3.png
 - /iaifi-research-blog/figures/2502_19469/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.19469v1
@@ -113,7 +109,7 @@ The discovery story began before anyone knew there was anything to discover. Arc
 
 This **precursor emission** (a long-lived glow at the explosion site before the blast) reached an absolute magnitude of about −15, making it extraordinarily luminous for pre-explosion activity and comparable to the faintest supernovae. In its final year, the source brightened further, accelerating toward collapse.
 
-![Figure 1](/iaifi-research-blog/figures/2502_19469/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_19469/figure_3.png)
 
 After explosion, the light curve held another surprise. Rather than fading smoothly after a single peak, SN 2023zkd brightened to a first maximum around magnitude −18.7, faded, then climbed again to nearly −18.4. The two peaks sat 240 days apart. Shock-driven models fitted to the multi-band photometry indicate the explosion interacted with roughly **5–6 solar masses of circumstellar material (CSM)**, gas expelled by the progenitor before it died, with 2–3 solar masses powering each peak separately.
 
@@ -121,7 +117,7 @@ The spectroscopy told an equally strange story. Emission lines of hydrogen and h
 
 This geometry, a **bipolar-plus-toroidal CSM structure** (two jets firing from the top and bottom of the star, surrounded by a thick equatorial ring), requires the star to have shed mass in at least two distinct episodes. The first occurred roughly 3–4 years before explosion, the second about 1–2 years before, each through geometrically different mechanisms.
 
-![Figure 2](/iaifi-research-blog/figures/2502_19469/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_19469/figure_3.png)
 
 The team ruled out explanations one by one:
 
@@ -132,7 +128,6 @@ The team ruled out explanations one by one:
 
 What fits best is a massive helium star, born with at least 30 solar masses, in a close binary orbit with a black hole. As it evolved and swelled, it began transferring mass onto the black hole, triggering runaway accretion. An instability eventually caused the two objects to spiral together in a **common-envelope merger**, where the black hole plunges so deep into the companion that both share the same outer layers. The merger ejected material in two successive episodes along different geometries before triggering core collapse.
 
-![Figure 3](/iaifi-research-blog/figures/2502_19469/figure_2.png)
 
 ## Why It Matters
 
@@ -144,7 +139,6 @@ That raises a set of concrete questions: how common are merger-driven explosions
 
 The tools to answer them (machine learning classifiers, automated alert brokers, simulation-based inference frameworks) are already in active development, many at IAIFI and affiliated institutions. SN 2023zkd is both a scientific result and a proof of concept for that pipeline.
 
-![Figure 4](/iaifi-research-blog/figures/2502_19469/figure_2.png)
 
 > **Bottom Line:** SN 2023zkd reveals a new pathway to stellar death — a massive helium star merging with a black hole companion, producing years of pre-explosion flaring and a unique double-peaked explosion — and sets the stage for a statistical census of such events with next-generation surveys.
 

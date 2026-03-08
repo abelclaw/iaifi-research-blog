@@ -26,13 +26,7 @@ concepts:
 - inverse problems
 - dimensionality reduction
 - sparse models
-figures:
-- /iaifi-research-blog/figures/1905_11481/figure_1.png
-- /iaifi-research-blog/figures/1905_11481/figure_1.png
-- /iaifi-research-blog/figures/1905_11481/figure_2.png
-- /iaifi-research-blog/figures/1905_11481/figure_2.png
-- /iaifi-research-blog/figures/1905_11481/figure_3.png
-- /iaifi-research-blog/figures/1905_11481/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/1905.11481v2
 published: '2019-05-27T20:03:57+00:00'
 theme: Foundational AI
@@ -56,7 +50,6 @@ The trouble is that the space of possible mathematical expressions grows exponen
 
 The core observation driving AI Feynman is that the equations physicists care about aren't random. They have structure. They respect units. They decompose into simpler pieces. They exhibit symmetry. AI Feynman encodes six such properties into a recursive algorithm that chips away at complex equations by exploiting whichever simplifications apply.
 
-![Figure 1](/iaifi-research-blog/figures/1905_11481/figure_1.png)
 
 The algorithm works like this:
 
@@ -72,7 +65,6 @@ The algorithm works like this:
 
 6. **Brute-force symbolic search** is the last resort for small, simple sub-expressions: try all formulas up to some length using a library of elementary functions.
 
-![Figure 2](/iaifi-research-blog/figures/1905_11481/figure_1.png)
 
 Newton's gravitational law illustrates how these steps chain together. Starting with 9 variables, dimensional analysis reduces the problem to 6 unit-free combinations. The neural network then detects two translational symmetries (the force depends only on differences of coordinates, not absolute positions), dropping the count to 4 variables. Multiplicative separability splits the 4-variable problem into two smaller ones. Each gets solved independently, one by polynomial fitting after a simple inversion. The original 9-variable problem is cracked without ever searching through formulas with 9 arguments.
 

@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2510_21691/figure_1.png
 - /iaifi-research-blog/figures/2510_21691/figure_2.png
-- /iaifi-research-blog/figures/2510_21691/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.21691v4
 published: '2025-10-24T17:50:41+00:00'
 theme: Foundational AI
@@ -87,7 +86,6 @@ The experiments matched the predictions. When assumed symmetry lined up with the
 
 Larger symmetry groups amplified the effect in both directions: helpful when the symmetry was real, harmful when it wasn't. Aleatoric bleed worsened under mismatch too. Models genuinely struggled to tell apart "the data is noisy here" from "I haven't seen enough examples here."
 
-![Figure 3](/iaifi-research-blog/figures/2510_21691/figure_3.png)
 
 Two currents in scientific AI are converging here. Physics and chemistry researchers have bet heavily on equivariant architectures for molecular dynamics, protein structure, and particle physics. Those same fields increasingly need *reliable* predictions. A drug discovery pipeline that doesn't know when it's guessing is worse than none at all.
 

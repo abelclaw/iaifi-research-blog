@@ -33,10 +33,7 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2510_01733/figure_1.png
-- /iaifi-research-blog/figures/2510_01733/figure_1.png
 - /iaifi-research-blog/figures/2510_01733/figure_2.png
-- /iaifi-research-blog/figures/2510_01733/figure_2.png
-- /iaifi-research-blog/figures/2510_01733/figure_3.png
 - /iaifi-research-blog/figures/2510_01733/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.01733v2
 published: '2025-10-02T07:18:19+00:00'
@@ -73,7 +70,7 @@ NEPTUNE has three main components:
 
 The real novelty is in the pre-training. The team borrowed from **masked autoencoders**, a technique from computer vision where a model learns by having portions of its input randomly hidden, then tries to reconstruct what's missing. NEPTUNE's version conceals between 75% and 100% of sensor positions and timestamps during pre-training, forcing the model to fill them back in. No labels needed. The model picks up the internal structure of neutrino events purely from real detector data.
 
-![Figure 2](/iaifi-research-blog/figures/2510_01733/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2510_01733/figure_2.png)
 
 After pre-training on unlabeled real data, the model is fine-tuned with a small amount of labeled simulation. The team used **block expansion**, inserting new processing layers (initialized to simply pass information through unchanged) on top of the frozen pre-trained layers. These fresh layers learn the downstream task without overwriting what the model already knows about actual detector signals.
 
@@ -83,7 +80,7 @@ To test whether this actually helps, the team designed a controlled experiment. 
 
 The results were clear. Conventionally supervised models, trained entirely on simulation, held up when noise rates were slightly wrong but consistent across both datasets. When the noise effect was completely absent from the simulation, performance degraded sharply. NEPTUNE, pre-trained on the "real" data, maintained strong performance in both cases.
 
-![Figure 3](/iaifi-research-blog/figures/2510_01733/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2510_01733/figure_3.png)
 
 This has implications well beyond IceCube. Neutrino physics is entering a new era, with next-generation telescopes like IceCube-Gen2, KM3NeT, and Baikal-GVD coming online or under development. These instruments will collect vastly more data and face equally complex, imperfectly understood detector environments. The simulation-dependence problem only gets worse at scale.
 

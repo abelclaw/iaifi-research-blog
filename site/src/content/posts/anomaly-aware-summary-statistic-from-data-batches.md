@@ -38,9 +38,6 @@ figures:
 - /iaifi-research-blog/figures/2407_01249/figure_1.png
 - /iaifi-research-blog/figures/2407_01249/figure_1.png
 - /iaifi-research-blog/figures/2407_01249/figure_2.png
-- /iaifi-research-blog/figures/2407_01249/figure_2.png
-- /iaifi-research-blog/figures/2407_01249/figure_3.png
-- /iaifi-research-blog/figures/2407_01249/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2407.01249v2
 published: '2024-07-01T12:56:38+00:00'
 theme: Experimental Physics
@@ -89,17 +86,14 @@ For the 5-dimensional dimuon problem, aggregation didn't just match the sensitiv
 
 For the 24-dimensional CMS trigger dataset, the split-aggregation approach demonstrated clear discovery potential, successfully identifying injected anomalous signals at various rates while keeping false positive rates under control.
 
-![Figure 4](/iaifi-research-blog/figures/2407_01249/figure_2.png)
 
 The practical upside is immediate. Physicists can now apply NPLM to datasets they previously couldn't touch. The LHC generates petabytes of data per year, and even the fraction passing trigger filters represents a computational challenge for methods requiring joint training on the full sample. Batch parallelization opens up more inclusive, less filtered data samples, exactly where subtle new physics might hide.
 
 But the streaming capability may matter even more in the long run. NPLM could eventually operate *during* data collection, not just after. An anomaly-aware summary statistic that updates as new data arrives could flag unusual conditions in real time, whether new physics, detector malfunctions, or unexpected beam conditions. That would connect offline analysis and online data quality monitoring, two tasks currently handled by entirely different toolchains.
 
-![Figure 5](/iaifi-research-blog/figures/2407_01249/figure_3.png)
 
 There's also a broader point here about how particle physics is evolving. Rather than designing searches for specific hypothetical particles, signal-agnostic methods like NPLM let the data itself point to anomalies. As LHC datasets grow through Run 3 and toward the High-Luminosity LHC upgrade, the ability to search those datasets efficiently and thoroughly only becomes more valuable.
 
-![Figure 6](/iaifi-research-blog/figures/2407_01249/figure_3.png)
 
 > **Bottom Line:** The batch-aggregation extension of NPLM makes large-scale anomaly detection at particle colliders computationally tractable without sacrificing (and sometimes actually improving) statistical sensitivity, opening the door to real-time physics discovery in streaming data environments.
 

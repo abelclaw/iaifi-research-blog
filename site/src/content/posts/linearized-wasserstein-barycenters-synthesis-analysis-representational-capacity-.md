@@ -33,7 +33,6 @@ concepts:
 - bayesian inference
 figures:
 - /iaifi-research-blog/figures/2410_23602/figure_1.png
-- /iaifi-research-blog/figures/2410_23602/figure_2.png
 - /iaifi-research-blog/figures/2410_23602/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.23602v2
 published: '2024-10-31T03:36:12+00:00'
@@ -78,7 +77,7 @@ The team also proves finite-sample error rates using results on entropy-regulari
 
 In one dimension: yes, completely. Theorem 4 shows that reference measures supported on just two points $\{a, b\}$, with the uniform measure on $[a,b]$ as the base, make the LBCM **dense in the space of all probability measures on $[a,b]$**. Two endpoints suffice to span all of distribution space.
 
-![Figure 2](/iaifi-research-blog/figures/2410_23602/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2410_23602/figure_3.png)
 
 In two dimensions: this fails. Theorem 5 proves the natural generalization, measures on the four corners of a square, cannot approximate all distributions on the square. The intuition is geometric: in 1D, transport maps are monotone rearrangements, a tractable class. In higher dimensions, they must satisfy a curl-free condition, severely restricting what any finite linear span can express. The correct 2D generalization remains an open problem, one the authors explicitly flag as unresolved.
 
@@ -88,7 +87,6 @@ The team validates LBCM on two concrete tasks. For **covariance estimation**, th
 
 For **data imputation**, they test image reconstruction from partial data. LBCM achieves quality comparable to full Wasserstein barycenter methods while running significantly faster, since the closed-form synthesis replaces iterative solvers.
 
-![Figure 3](/iaifi-research-blog/figures/2410_23602/figure_3.png)
 
 The experiments also reveal that base measure choice matters. A well-chosen base improves reconstruction; a poor one degrades it. This sensitivity is a practical consideration, but it also gives practitioners a tunable knob for improving performance without changing the model architecture.
 

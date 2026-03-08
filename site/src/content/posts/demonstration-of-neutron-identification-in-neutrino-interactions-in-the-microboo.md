@@ -219,10 +219,7 @@ concepts:
 - classification
 figures:
 - /iaifi-research-blog/figures/2406_10583/figure_1.png
-- /iaifi-research-blog/figures/2406_10583/figure_1.png
 - /iaifi-research-blog/figures/2406_10583/figure_2.png
-- /iaifi-research-blog/figures/2406_10583/figure_2.png
-- /iaifi-research-blog/figures/2406_10583/figure_3.png
 - /iaifi-research-blog/figures/2406_10583/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2406.10583v1
 published: '2024-06-15T09:59:52+00:00'
@@ -260,11 +257,10 @@ The detection strategy unfolds in several steps:
 
 Many short proton-like tracks arise from other sources. Pions bouncing off nuclei, misidentified muon segments, or ordinary protons from the primary collision placed at the wrong location can all mimic the signal. Separating genuine NISPs from this background required careful study of the neutron interaction length in argon (roughly 40 cm, the average distance a neutron travels before hitting a nucleus) and the characteristic energy-loss pattern of stopping protons.
 
-![Figure 3](/iaifi-research-blog/figures/2406_10583/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2406_10583/figure_3.png)
 
 The team validated their method using muon-neutrino charged current interactions, where an incoming muon-neutrino produces a muon plus other particles. These are the best-understood neutrino collisions, making them ideal for a proof-of-concept test. Simulations using GENIE (which models neutrino-nucleus interactions) and GEANT4 (which tracks how resulting particles travel through detector material) predicted the neutron production and scattering rates. The data agreed well with those predictions.
 
-![Figure 5](/iaifi-research-blog/figures/2406_10583/figure_3.png)
 
 ## Why It Matters
 

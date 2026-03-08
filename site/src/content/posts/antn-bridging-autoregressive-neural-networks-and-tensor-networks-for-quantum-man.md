@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2304_01996/figure_1.png
 - /iaifi-research-blog/figures/2304_01996/figure_2.png
-- /iaifi-research-blog/figures/2304_01996/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2304.01996v3
 published: '2023-04-04T17:54:14+00:00'
 theme: Theoretical Physics
@@ -88,7 +87,6 @@ The harder test came from the **2D J₁-J₂ Heisenberg model**, a notorious ben
 
 Across multiple system sizes and coupling parameters, ANTN consistently found lower ground state energies than either baseline, with the advantage most pronounced in exactly the frustrated regime. The two variants offered a practical tradeoff: blockwise ANTN achieved better accuracy; elementwise ANTN was computationally cheaper.
 
-![Figure 3](/iaifi-research-blog/figures/2304_01996/figure_3.png)
 
 The immediate payoff is a better trial wavefunction for quantum simulation, useful for studying exotic phases of matter, designing new quantum materials, and benchmarking quantum computers. The frustrated 2D Heisenberg model isn't just an academic exercise; its physics connects directly to high-temperature superconductors, topological materials, and quantum spin liquids that physicists hope to harness for quantum computing.
 

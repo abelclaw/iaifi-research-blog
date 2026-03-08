@@ -39,13 +39,7 @@ concepts:
 - dark energy
 - monte carlo methods
 - surrogate modeling
-figures:
-- /iaifi-research-blog/figures/2409_10609/figure_1.png
-- /iaifi-research-blog/figures/2409_10609/figure_1.png
-- /iaifi-research-blog/figures/2409_10609/figure_2.png
-- /iaifi-research-blog/figures/2409_10609/figure_2.png
-- /iaifi-research-blog/figures/2409_10609/figure_3.png
-- /iaifi-research-blog/figures/2409_10609/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2409.10609v2
 published: '2024-09-16T18:00:03+00:00'
 theme: Astrophysics
@@ -79,13 +73,11 @@ Here's the pipeline:
 3. **Train a neural density estimator** on the resulting parameter cloud. The neural network learns the shape of the physically realistic region of parameter space.
 4. **Use that learned distribution as a prior** when analyzing real data from BOSS (the Baryon Oscillation Spectroscopic Survey).
 
-![Figure 1](/iaifi-research-blog/figures/2409_10609/figure_1.png)
 
 On the theory side, the team developed an efficient method to compute field-level transfer functions using **time-sliced perturbation theory** combined with the **logarithmic fast Fourier transform**, making forward-model calculations fast enough to run across thousands of simulations.
 
 Something important turned up during the simulation phase: the EFT parameters' dependence on cosmology is largely degenerate with the HOD parameters. In plain terms, adjusting the galaxy formation recipe can mimic the effect of changing the cosmology. This meant the team could generate their priors at a single fixed cosmology without introducing significant bias, a major practical simplification.
 
-![Figure 3](/iaifi-research-blog/figures/2409_10609/figure_2.png)
 
 The neural density estimator captures the complex, irregular shape of the realistic EFT parameter region, something a simple bell-curve assumption would miss entirely. When this learned prior is applied to BOSS power spectrum data, the results sharpen considerably.
 
@@ -97,7 +89,6 @@ That σ_8 value matters. The Planck satellite, measuring the **cosmic microwave 
 
 This discrepancy is the **structure growth tension**: the universe appears to have grown less clumpy than ΛCDM predicts. The tension isn't new, but this analysis sharpens it considerably, making it harder to dismiss as statistical noise or poorly constrained nuisance parameters.
 
-![Figure 5](/iaifi-research-blog/figures/2409_10609/figure_3.png)
 
 There's a broader point here too. The gap between simulation-based inference and analytic EFT methods is closing. Rather than choosing between EFT's physical interpretability and simulations' small-scale power, researchers can now combine the two.
 

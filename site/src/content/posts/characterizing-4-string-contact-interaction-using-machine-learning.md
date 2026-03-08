@@ -29,9 +29,6 @@ concepts:
 - tachyon potential
 - monte carlo methods
 figures:
-- /iaifi-research-blog/figures/2211_09129/figure_1.png
-- /iaifi-research-blog/figures/2211_09129/figure_1.png
-- /iaifi-research-blog/figures/2211_09129/figure_2.png
 - /iaifi-research-blog/figures/2211_09129/figure_2.png
 - /iaifi-research-blog/figures/2211_09129/figure_3.png
 - /iaifi-research-blog/figures/2211_09129/figure_3.png
@@ -70,11 +67,11 @@ The workflow breaks into three steps:
 
 3. **Train the indicator function network.** Not every arrangement of four punctures corresponds to a genuine string contact interaction. Some belong to Feynman regions, diagrams built from simpler lower-order interactions that shouldn't be double-counted. A second neural network learns the indicator function Θ₀,₄: a binary classifier that outputs 1 for configurations in the vertex region (a true contact interaction) and 0 otherwise.
 
-![Figure 1](/iaifi-research-blog/figures/2211_09129/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2211_09129/figure_2.png)
 
 This classifier replaces an explicit geometric description of the vertex region with a trainable function, one that can be retrained for any number of punctures.
 
-![Figure 3](/iaifi-research-blog/figures/2211_09129/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2211_09129/figure_3.png)
 
 To validate the approach, the team computed the **4-tachyon contact term** in the tachyon potential, a benchmark involving an unstable particle-like state called a *tachyon* that Nicolas Moeller had previously calculated using classical methods. Their result matched the literature well.
 

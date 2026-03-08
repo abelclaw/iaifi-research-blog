@@ -39,7 +39,6 @@ concepts:
 - score-based models
 - optimal transport
 figures:
-- /iaifi-research-blog/figures/2511_22688/figure_1.png
 - /iaifi-research-blog/figures/2511_22688/figure_2.png
 - /iaifi-research-blog/figures/2511_22688/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2511.22688v1
@@ -63,7 +62,7 @@ Scoring functions work only on clean, finished images, not on the blurry, half-f
 
 The framework builds on two complementary descriptions of how noise becomes an image. The **velocity field** gives the instantaneous drift at each moment. The **flow map** encodes the full solution: given a particle's position at time *t*, where does it end up at time *T*? The two are related by a fundamental identity that the researchers exploit.
 
-![Figure 2](/iaifi-research-blog/figures/2511_22688/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2511_22688/figure_3.png)
 
 Figure 2 makes the advantage concrete. At early noise levels, the one-step denoiser produces blurry, nearly useless predictions of the final image. A one-step flow map already does better. Four steps yield strikingly clear predictions even from heavily corrupted inputs. This matters because reward guidance depends on accurate look-ahead: garbage prediction, garbage gradient.
 
@@ -76,7 +75,7 @@ The FMTT algorithm works as follows:
 
 The framework supports two modes: importance weighting, which adjusts how often different outputs are selected to enable exact sampling from the tilted distribution, and principled search for finding local reward maximizers. Both outperform baseline guidance methods. The importance weighting approach connects to the Jarzynski equality from statistical physics, giving the method formal guarantees about sampling correctness.
 
-![Figure 1](/iaifi-research-blog/figures/2511_22688/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2511_22688/figure_2.png)
 
 The clock example in Figure 1 shows the practical difference. Without FMTT, diffusion models routinely generate clocks showing the wrong time because the model has strong biases toward common clock positions. FMTT's test-time search overcomes these biases and reliably produces images matching precise time specifications that baselines cannot.
 

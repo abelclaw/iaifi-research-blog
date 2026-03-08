@@ -30,10 +30,6 @@ concepts:
 - quantum computing
 - quantum field theory
 figures:
-- /iaifi-research-blog/figures/2503_10400/figure_1.png
-- /iaifi-research-blog/figures/2503_10400/figure_1.png
-- /iaifi-research-blog/figures/2503_10400/figure_2.png
-- /iaifi-research-blog/figures/2503_10400/figure_2.png
 - /iaifi-research-blog/figures/2503_10400/figure_3.png
 - /iaifi-research-blog/figures/2503_10400/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.10400v3
@@ -61,7 +57,7 @@ The researchers started with the standard definition of envariance. A quantum st
 
 For unitary operations (reversible, energy-conserving), the compensating maps are well understood. System and environment swap phases in a symmetric dance dictated by the **Schmidt decomposition**, the unique way to write any entangled two-part quantum state as a sum of matched pairs.
 
-![Figure 1](/iaifi-research-blog/figures/2503_10400/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2503_10400/figure_3.png)
 
 The new paper extends this to **CPTP maps**: completely positive, trace-preserving operations that represent the most general physically allowed quantum processes, including noise, measurement, and dissipation. These are described using **Kraus operators**, a mathematical toolkit for encoding how a quantum state transforms under open dynamics. The central technical result is a proof of what form Kraus operators must take for envariance to hold.
 
@@ -73,7 +69,7 @@ The answer is quite restrictive. For envariance to work under non-unitary dynami
 
 A DFS arises only when the environment interacts with the system in a highly symmetric way. Generic open dynamics, the kind encountered in any real lab, destroys this structure.
 
-![Figure 2](/iaifi-research-blog/figures/2503_10400/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2503_10400/figure_3.png)
 
 So envariance under non-unitary operations isn't merely difficult. It is structurally impossible in generic open systems.
 
@@ -85,13 +81,11 @@ The first consequence hits environment-assisted **shortcuts to adiabaticity**. T
 
 The no-go theorem kills this strategy for non-unitary dynamics. If your environment interacts dissipatively with the system (as real environments inevitably do), the envariance condition cannot be satisfied and the shortcut collapses. No loopholes; the math is airtight.
 
-![Figure 3](/iaifi-research-blog/figures/2503_10400/figure_2.png)
 
 The second implication lands in a very different part of physics: the **eternal black hole** in Anti-de Sitter space, a theoretical curved spacetime central to high-energy physics. The **AdS/CFT correspondence** maps a black hole in (d+1)-dimensional gravity to a pair of coupled quantum field theories (CFTs) living on the boundary. Maintaining the eternal black hole requires these two boundary CFTs to stay in a specific entangled state, upheld by a symmetry condition that the authors show is equivalent to envariance.
 
 When those CFTs couple to external thermal baths, the envariance condition breaks, the symmetry fails, and the static black hole geometry cannot be maintained.
 
-![Figure 4](/iaifi-research-blog/figures/2503_10400/figure_2.png)
 
 This ties quantum information theory to a basic question in theoretical physics: how does classical spacetime geometry emerge from quantum entanglement? The answer, it turns out, depends on whether quantum operations preserve the right kind of symmetry.
 

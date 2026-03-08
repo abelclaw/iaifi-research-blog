@@ -35,10 +35,6 @@ concepts:
 - superresolution
 figures:
 - /iaifi-research-blog/figures/2310_02299/figure_1.png
-- /iaifi-research-blog/figures/2310_02299/figure_1.png
-- /iaifi-research-blog/figures/2310_02299/figure_2.png
-- /iaifi-research-blog/figures/2310_02299/figure_2.png
-- /iaifi-research-blog/figures/2310_02299/figure_3.png
 - /iaifi-research-blog/figures/2310_02299/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.02299v8
 published: '2023-10-03T14:03:21+00:00'
@@ -77,7 +73,6 @@ The team tested the framework across three distinct physical scenarios:
 - **Turbulent channel flow and isotropic flow**: Channel flow has walls that break both isotropy (directional uniformity) and homogeneity (positional uniformity), while isotropic flow develops subtle directional biases in finite simulation boxes. The relaxed weights identified both effects independently, even pinpointing *where* in a turbulent channel the symmetry broke most strongly.
 - **Pendulum with time-reversal breaking**: A conservative pendulum looks identical played forward and backward. Add friction, and it doesn't. The model detected this time-reversal asymmetry through its relaxed weight pattern, and the magnitude of the learned asymmetry tracked the physical damping coefficient.
 
-![Figure 3](/iaifi-research-blog/figures/2310_02299/figure_2.png)
 
 On fluid super-resolution tasks, relaxed convolution models outperformed both fully symmetric baselines and unconstrained baselines, delivering more interpretable *and* more accurate results.
 

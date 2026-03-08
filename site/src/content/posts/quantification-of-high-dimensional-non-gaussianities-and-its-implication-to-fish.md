@@ -40,9 +40,7 @@ concepts:
 - dark energy
 - dark matter
 figures:
-- /iaifi-research-blog/figures/2204_05435/figure_1.png
 - /iaifi-research-blog/figures/2204_05435/figure_2.png
-- /iaifi-research-blog/figures/2204_05435/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2204.05435v1
 published: '2022-04-11T23:09:27+00:00'
 theme: Astrophysics
@@ -78,17 +76,15 @@ To test this, they used the **Quijote simulations**, a suite of 44,100 gravity-o
 
 For each statistic, they applied two Gaussianity tests (following Sellentin & Heavens 2017) that quantify whether the distribution of a statistic across many simulations actually looks like a bell curve in high dimensions. Even the humble power spectrum fails, and more exotic statistics can fail harder.
 
-![Figure 1](/iaifi-research-blog/figures/2204_05435/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2204_05435/figure_2.png)
 
 They then developed a procedure to Gaussianize the statistics: identify the mathematical directions in which the data varies in a skewed or irregular way, then remove them. What remains is a cleaned, bell-curve-safe version. They reran Fisher matrix calculations on both raw and Gaussianized versions and compared the results.
 
 The differences are substantial. For some statistics and cosmological parameters, constraints shift by roughly a factor of two. The non-Gaussian dimensions were quietly inflating or deflating the apparent information content, and the Fisher matrix couldn't tell the difference.
 
-![Figure 2](/iaifi-research-blog/figures/2204_05435/figure_2.png)
 
 A toy example drives the point home. Apply a monotonic transformation to a statistic that carries *zero* new cosmological information, and the Fisher matrix still produces different, often tighter, constraints. A statistic shouldn't get credit for information it doesn't have just because its probability distribution has a funny shape.
 
-![Figure 3](/iaifi-research-blog/figures/2204_05435/figure_3.png)
 
 The released code, which runs on both CPUs and GPUs, computes power spectra, bispectra, and WST, making these non-Gaussianity tests available to the broader cosmology community.
 

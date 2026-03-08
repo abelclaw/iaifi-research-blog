@@ -45,7 +45,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2109_13243/figure_1.png
 - /iaifi-research-blog/figures/2109_13243/figure_2.png
-- /iaifi-research-blog/figures/2109_13243/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2109.13243v3
 published: '2021-09-27T18:00:00+00:00'
 theme: Experimental Physics
@@ -88,7 +87,6 @@ A few statistical subtleties need explicit handling. **Acceptance effects** (the
 
 The proposed format handles all of this through a structured file schema integrated with **HEPData**, the existing community repository for particle physics measurements. Shared reference software lets theorists and phenomenologists immediately start using unbinned results in global fits. A worked example walks through the full pipeline: simulated dataset, unbinned unfolding, proposed format, then re-binned comparison with a traditional analysis. The agreement validates the approach and makes the information-preservation advantage concrete.
 
-![Figure 3](/iaifi-research-blog/figures/2109_13243/figure_3.png)
 
 ## Why It Matters
 

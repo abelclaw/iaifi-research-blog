@@ -225,9 +225,6 @@ figures:
 - /iaifi-research-blog/figures/2406_10123/figure_1.png
 - /iaifi-research-blog/figures/2406_10123/figure_1.png
 - /iaifi-research-blog/figures/2406_10123/figure_2.png
-- /iaifi-research-blog/figures/2406_10123/figure_2.png
-- /iaifi-research-blog/figures/2406_10123/figure_3.png
-- /iaifi-research-blog/figures/2406_10123/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2406.10123v1
 published: '2024-06-14T15:31:21+00:00'
 theme: Experimental Physics
@@ -274,15 +271,12 @@ The validation is what sets this apart. Machine learning methods can latch onto 
 
 The payoff shows up directly in physics reach. When tested against a neutrino oscillation analysis searching for **sterile neutrino** signatures (hypothetical particle types that would not interact via any known force), the RNN-based estimator improves sensitivity over the traditional approach. That improvement survives a full treatment of statistical and systematic uncertainties, which in neutrino physics are notoriously large, covering everything from interaction cross-sections to detector response modeling. Getting through that gauntlet intact is a meaningful result.
 
-![Figure 4](/iaifi-research-blog/figures/2406_10123/figure_2.png)
 
 The RNN framework handles any set of reconstructed particles without assuming a fixed event topology, making it adaptable to other interaction channels, other LArTPC experiments, or different detector technologies. Upcoming experiments SBND and ICARUS (which share the same Fermilab neutrino beamline) and the next-generation **DUNE** detector are natural candidates to pick this up.
 
-![Figure 5](/iaifi-research-blog/figures/2406_10123/figure_3.png)
 
 One open question: how to handle systematic uncertainties directly within network training. Currently they are assessed after the fact. Future iterations that incorporate uncertainty-aware training could squeeze out further sensitivity gains.
 
-![Figure 6](/iaifi-research-blog/figures/2406_10123/figure_3.png)
 
 > **Bottom Line:** MicroBooNE's RNN-based energy estimator outperforms the conventional visible-energy method in both bias and resolution, survives real-data validation, and improves sensitivity for neutrino oscillation searches, establishing a blueprint for deep learning in next-generation neutrino detectors.
 

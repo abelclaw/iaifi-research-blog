@@ -32,7 +32,6 @@ concepts:
 - dark matter
 - monte carlo methods
 figures:
-- /iaifi-research-blog/figures/2306_12584/figure_1.png
 - /iaifi-research-blog/figures/2306_12584/figure_2.png
 - /iaifi-research-blog/figures/2306_12584/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2306.12584v2
@@ -60,7 +59,7 @@ The core challenge is **simulation-based inference (SBI)**: learning about a mod
 
 The authors formalize the layered structure mathematically. Every dataset is governed by global parameters *θ* (things like a particle interaction cross-section or dark matter mass) and per-event local parameters *z_i*, specific to each individual measurement. A naive approach handles local parameters one event at a time, then multiplies the results. The authors prove this is only valid under specific conditions, and violating them leads to systematically wrong or miscalibrated results.
 
-![Figure 1](/iaifi-research-blog/figures/2306_12584/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2306_12584/figure_2.png)
 
 Their solution comes in two flavors:
 
@@ -69,13 +68,12 @@ Their solution comes in two flavors:
 
 To handle sets of variable size, the architecture uses **permutation-invariant networks**: models that produce the same output regardless of how you shuffle the inputs. The network aggregates information across events using learned summary statistics, then maps that aggregate to a parameter estimate.
 
-![Figure 2](/iaifi-research-blog/figures/2306_12584/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2306_12584/figure_3.png)
 
 The team validates these methods across three progressively complex case studies. First, a toy Gaussian mixture model where the correct answer is known analytically. Second, a particle physics scenario involving a **marked Poisson process**, a collider model where the number of events itself carries information about a signal rate. Third and hardest: **strong gravitational lensing**, where telescope images of galaxies distorted by a foreground mass must be analyzed to infer properties of that mass.
 
 In all three cases, the pattern is the same: hierarchy-aware inference produces tighter, better-calibrated constraints than naive event-by-event combination.
 
-![Figure 3](/iaifi-research-blog/figures/2306_12584/figure_3.png)
 
 In the gravitational lensing application, the hierarchical approach yields meaningfully narrower posterior distributions, translating directly into better science per photon collected. The method is also much faster than **Markov Chain Monte Carlo** sampling, a standard but computationally intensive technique for exploring complex probability spaces, even when the likelihood is tractable. It also enables **streaming inference**, where the posterior updates in real time as new observations arrive without reanalyzing old data.
 

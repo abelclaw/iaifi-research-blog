@@ -40,8 +40,6 @@ concepts:
 - topological freezing
 figures:
 - /iaifi-research-blog/figures/2305_02402/figure_1.png
-- /iaifi-research-blog/figures/2305_02402/figure_2.png
-- /iaifi-research-blog/figures/2305_02402/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.02402v1
 published: '2023-05-03T19:54:04+00:00'
 theme: Theoretical Physics
@@ -79,7 +77,6 @@ Both architectures share one structural feature that makes everything work: **ma
 
 The researchers carefully characterize which masking patterns respect the periodic boundary conditions and gauge invariance of the lattice, a non-trivial constraint that differs between two and four dimensions.
 
-![Figure 2](/iaifi-research-blog/figures/2305_02402/figure_2.png)
 
 Four-dimensional geometry introduces new design choices at every level: how to tile the lattice with masks, how to parameterize the neural networks generating context-dependent transformations, and how to schedule training. The paper lays out these choices systematically and reports what works and what doesn't.
 
@@ -89,7 +86,6 @@ LQCD calculations are the gold standard for testing the Standard Model, connecti
 
 The problem is worst at fine lattice spacings, where **topological freezing** traps the simulation in a single topological sector (a broad class of field configurations sharing the same global winding structure) for millions of steps, producing biased estimates. Flow-based samplers that generate statistically independent configurations would cut through this at the root.
 
-![Figure 3](/iaifi-research-blog/figures/2305_02402/figure_3.png)
 
 From the machine learning side, this work pushes generative modeling into structured, symmetry-constrained territory. **Gauge equivariance**, the requirement that flows commute with local symmetry transformations, cannot be satisfied by off-the-shelf architectures. The masked autoregressive framework developed here is general enough to apply to other non-Abelian gauge theories and potentially to field theories beyond the Standard Model. The explicit characterization of unbiased Jacobian estimators for high-dimensional group-valued variables is itself a contribution to the broader normalizing flows literature.
 

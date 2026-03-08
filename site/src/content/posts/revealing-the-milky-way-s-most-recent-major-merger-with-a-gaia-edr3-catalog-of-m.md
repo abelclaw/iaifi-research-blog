@@ -39,7 +39,6 @@ concepts:
 - cosmological simulation
 figures:
 - /iaifi-research-blog/figures/2205_12278/figure_1.png
-- /iaifi-research-blog/figures/2205_12278/figure_2.png
 - /iaifi-research-blog/figures/2205_12278/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.12278v1
 published: '2022-05-24T18:00:01+00:00'
@@ -83,13 +82,12 @@ The team validated their approach by holding out a subset of stars with known ve
 
 With 92 million newly completed stellar records in hand, the researchers turned to one of galactic archaeology's most celebrated finds: **Gaia-Sausage-Enceladus (GSE)**, the last major galaxy to merge with the Milky Way. GSE was discovered in 2018 through the distinctive "sausage" shape its stars trace in velocity space. The collision happened roughly 8–10 billion years ago, when the original host galaxy (somewhere between 100 million and a billion solar masses) was torn apart by the Milky Way's gravity.
 
-![Figure 2](/iaifi-research-blog/figures/2205_12278/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2205_12278/figure_3.png)
 
 The identification strategy relies on the debris' distinctive orbital signature. GSE stars move on highly **eccentric, radial orbits**: long, stretched paths that plunge deep toward the galactic center and back out again, with little of the rotational motion typical of stars born inside the Milky Way. By selecting stars with high orbital eccentricity and examining how their orbital energies and angular momenta cluster, the team isolated roughly 450,000 GSE candidates. That's nearly twenty times more than the 6D *Gaia* dataset alone could provide.
 
 Chemical fingerprinting backs up the identification. Cross-matching with spectroscopic surveys GALAH and APOGEE revealed a **metallicity distribution** peaking near [Fe/H] ≈ −1.4 to −1.2 (lower values mean fewer heavy elements relative to the Sun). That's what you'd expect from a galaxy that stopped forming stars after being stripped apart billions of years ago. Kinematics, spatial distribution, and chemistry all tell the same story.
 
-![Figure 3](/iaifi-research-blog/figures/2205_12278/figure_3.png)
 
 The approach generalizes well beyond this single merger. Train on the fraction of data with complete information, validate carefully, deploy to recover physics hiding in incomplete datasets. Any large sky survey capturing partial motion measurements could use the same playbook.
 

@@ -41,7 +41,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2211_07541/figure_1.png
 - /iaifi-research-blog/figures/2211_07541/figure_2.png
-- /iaifi-research-blog/figures/2211_07541/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.07541v1
 published: '2022-11-14T17:07:37+00:00'
 theme: Theoretical Physics
@@ -86,7 +85,6 @@ No analogous universal cost scaling law exists for flow-based methods. The scali
 
 Numerical experiments drive the point home. Different flow-based approaches exhibit qualitatively different scaling with system size, quark mass, and other parameters. A scaling law fitted in one regime can be dramatically wrong when extrapolated to another. The **integrated autocorrelation time**, a measure of how many steps an algorithm must take before successive samples are statistically independent, is the standard efficiency metric for HMC. But it isn't even the right quantity to minimize for flow-based samplers, since their configurations can be generated independently rather than sequentially.
 
-![Figure 3](/iaifi-research-blog/figures/2211_07541/figure_3.png)
 
 The paper also draws a careful distinction between two concepts that often get conflated. **Scalability** asks: can this approach handle the volumes and parameters that matter for real physics? **Cost scaling** asks: how does cost change as you vary parameters? For HMC, these are tightly linked. For flows, they're not. A method with poor cost scaling might still be scalable if it starts from a much lower absolute cost, or if training can be amortized across many calculations.
 

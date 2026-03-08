@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2010_11998/figure_1.png
 - /iaifi-research-blog/figures/2010_11998/figure_2.png
-- /iaifi-research-blog/figures/2010_11998/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2010.11998v2
 published: '2020-10-22T19:18:19+00:00'
 theme: Experimental Physics
@@ -82,7 +81,6 @@ The team applies their method in two modes. In *supplementation mode*, the algor
 
 In *from-scratch mode*, starting only from raw jet image inputs, the algorithm iteratively assembles a set of EFPs that matches CNN performance within statistical uncertainty. The selected EFPs tell a coherent physical story about what distinguishes W jets from QCD jets.
 
-![Figure 3](/iaifi-research-blog/figures/2010_11998/figure_3.png)
 
 The black-box guided search also far outperforms both brute-force search and "truth-label guiding," where the known particle labels serve as the guide instead of the neural network. The black box turns out to be a *better* teacher than the ground truth itself, because it encodes decision boundaries tuned to the actual structure of the data, not just the labels.
 

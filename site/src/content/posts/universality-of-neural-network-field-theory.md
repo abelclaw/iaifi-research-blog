@@ -25,7 +25,6 @@ concepts:
 - string theory
 figures:
 - /iaifi-research-blog/figures/2601_14453/figure_1.png
-- /iaifi-research-blog/figures/2601_14453/figure_2.png
 - /iaifi-research-blog/figures/2601_14453/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2601.14453v1
 published: '2026-01-20T20:24:13+00:00'
@@ -66,11 +65,10 @@ The proof handles this in three steps:
 
 That answer is the **DOZZ formula** (named after Dorn, Otto, Zamolodchikov, and Zamolodchikov), which gives the **three-point function**, a number capturing how three field measurements at different locations are statistically correlated. Computing this numerically is a serious challenge.
 
-![Figure 2](/iaifi-research-blog/figures/2601_14453/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2601_14453/figure_3.png)
 
 The team built a neural network representation of the Liouville field using **spherical harmonics**, wave-like building blocks on a sphere, analogous to how any sound can be decomposed into pure tones. They retained finitely many modes to make computation feasible, drew samples from the parameter distribution, computed the three-point function numerically, and compared results to the DOZZ formula.
 
-![Figure 3](/iaifi-research-blog/figures/2601_14453/figure_3.png)
 
 The agreement is within a few percent. The residual error comes from truncating the infinite basis at finite order; it shrinks as more modes are included. The theorem produces working simulations, not just abstract mathematics.
 

@@ -32,9 +32,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2408_08474/figure_1.png
 - /iaifi-research-blog/figures/2408_08474/figure_1.png
-- /iaifi-research-blog/figures/2408_08474/figure_2.png
-- /iaifi-research-blog/figures/2408_08474/figure_2.png
-- /iaifi-research-blog/figures/2408_08474/figure_3.png
 - /iaifi-research-blog/figures/2408_08474/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.08474v2
 published: '2024-08-16T01:20:27+00:00'
@@ -75,7 +72,7 @@ Here's the pipeline, step by step:
 
 The network operates entirely in **latent space**, the compressed numerical world of the VAE's summaries, rather than on raw sensor data. This keeps computation tractable: instead of predicting nanosecond-by-nanosecond photon counts across 5,000 bins per sensor, the UNet works with 64-dimensional summaries. The team trained on roughly 500,000 simulated muon track events (muons being a heavier, unstable cousin of the electron), with 75,000 held aside for testing.
 
-![Figure 3](/iaifi-research-blog/figures/2408_08474/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2408_08474/figure_3.png)
 
 One subtle challenge: sensors far from the neutrino interaction point record very few photons, making their timing distributions hard for the VAE to capture faithfully. But for reconstruction purposes, what matters most is the *first hit time* and the *peak position*, and the network captures both reliably.
 

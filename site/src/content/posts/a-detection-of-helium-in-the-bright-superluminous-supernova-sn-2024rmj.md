@@ -44,7 +44,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2506_06417/figure_1.png
 - /iaifi-research-blog/figures/2506_06417/figure_2.png
-- /iaifi-research-blog/figures/2506_06417/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.06417v1
 published: '2025-06-06T18:00:00+00:00'
 theme: Astrophysics
@@ -86,7 +85,6 @@ The **light curve**, how the explosion's brightness changed over time, adds anot
 
 The bulk of the light curve fits a **magnetar spin-down model**: the explosion leaves behind a **magnetar**, a rapidly rotating, ultra-magnetized neutron star that continuously pumps energy into the surrounding debris as it slows down. Best-fit parameters are physically plausible: a spin period of ~2.1 milliseconds, a magnetic field of ~6×10¹³ Gauss, and roughly 12 solar masses of ejected material.
 
-![Figure 3](/iaifi-research-blog/figures/2506_06417/figure_3.png)
 
 ## Why It Matters
 

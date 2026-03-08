@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2510_13968/figure_1.png
 - /iaifi-research-blog/figures/2510_13968/figure_2.png
-- /iaifi-research-blog/figures/2510_13968/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.13968v2
 published: '2025-10-15T18:00:14+00:00'
 theme: Astrophysics
@@ -88,7 +87,6 @@ For the cross-correlation between CMB lensing and Euclid weak lensing, WPH outpe
 
 The story changes for CMB lensing alone. When analyzing κ_CMB in isolation, WST and standard C_ℓ's yield comparable constraints. The gain from wavelets emerges specifically in the cross-correlation regime, where non-Gaussian structure in the lower-redshift galaxy lensing maps hasn't been erased by projection effects. This makes physical sense: galaxy weak lensing probes structure closer to us, where nonlinear evolution is most advanced and the crumpled-paper creases are most pronounced.
 
-![Figure 3](/iaifi-research-blog/figures/2510_13968/figure_3.png)
 
 Learned binning carries a broader lesson. Cosmological analyses face a growing pile of summary statistic choices: how many ℓ-bins for a power spectrum, which angular separations for a bispectrum (a statistic capturing three-point correlations beyond what a two-point power spectrum can see), which wavelet scales to include. Learned binning gives an interpretable way to compress any statistic to a fixed dimensionality while maximizing information content.
 

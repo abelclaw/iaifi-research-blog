@@ -31,12 +31,8 @@ concepts:
 - scalability
 - loss function design
 figures:
-- /iaifi-research-blog/figures/2206_04672/figure_1.png
-- /iaifi-research-blog/figures/2206_04672/figure_1.png
 - /iaifi-research-blog/figures/2206_04672/figure_2.png
 - /iaifi-research-blog/figures/2206_04672/figure_2.png
-- /iaifi-research-blog/figures/2206_04672/figure_3.png
-- /iaifi-research-blog/figures/2206_04672/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2206.04672v1
 published: '2022-06-09T17:59:57+00:00'
 theme: Foundational AI
@@ -60,11 +56,11 @@ The theoretical backbone comes from **neural tangent kernel (NTK) theory**, a fr
 
 For value functions, this is trouble. Value functions tend to be complex and jagged because of the recursive structure of **Bellman equations**, the mathematical rules that govern how an agent's value estimates feed into one another.
 
-![Figure 1](/iaifi-research-blog/figures/2206_04672/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2206_04672/figure_2.png)
 
 Toy experiments make this concrete. A standard 4-layer **multi-layer perceptron (MLP)** trained with **fitted Q-iteration** produces a smoothed-out, blurry approximation of the true value function. Making the network three times deeper or training five times longer doesn't help. The architecture is constitutionally biased against the sharp value landscapes agents actually need.
 
-![Figure 2](/iaifi-research-blog/figures/2206_04672/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2206_04672/figure_2.png)
 
 The solution borrows from computer graphics, where researchers hit an identical wall when neural networks tried to represent fine 3D scene details. The fix, there and here, is to first transform raw inputs through **random Fourier features**: sinusoidal functions at randomly sampled frequencies that lift low-dimensional inputs into a higher-dimensional space rich with oscillatory structure. Mathematically, this reshapes the network's learning profile from a broad low-pass filter into a **composite kernel** tunable across a wide frequency range.
 
@@ -81,7 +77,6 @@ The embedding is fixed and doesn't train, so there's no added computational cost
 
 The performance gains speak for themselves. On continuous control benchmarks (physics-simulated locomotion and manipulation tasks that stress-test modern RL algorithms) FFN achieves state-of-the-art results with a fraction of the compute. Faster convergence means the agent reaches the same performance level in fewer environment interactions, directly reducing training time and sample requirements.
 
-![Figure 3](/iaifi-research-blog/figures/2206_04672/figure_2.png)
 
 The most surprising finding is what becomes possible once learning stabilizes: the **target network** can be removed. Target networks, a second slowly-updated copy of the value network used to generate stable training targets, have been a standard fixture in deep RL since the original DQN paper in 2013. They exist because neural network training tends to spiral into catastrophic divergence without them. With FFN's improved stability, the authors show successful training without this crutch on several tasks. Dropping the target network also eliminates a source of estimation bias (a systematic distortion the target network inevitably introduces) which further improves accuracy.
 

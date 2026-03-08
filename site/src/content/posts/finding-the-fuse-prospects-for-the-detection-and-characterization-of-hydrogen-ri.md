@@ -47,9 +47,6 @@ figures:
 - /iaifi-research-blog/figures/2408_13314/figure_1.png
 - /iaifi-research-blog/figures/2408_13314/figure_1.png
 - /iaifi-research-blog/figures/2408_13314/figure_2.png
-- /iaifi-research-blog/figures/2408_13314/figure_2.png
-- /iaifi-research-blog/figures/2408_13314/figure_3.png
-- /iaifi-research-blog/figures/2408_13314/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.13314v2
 published: '2024-08-23T18:00:11+00:00'
 theme: Experimental Physics
@@ -93,11 +90,9 @@ For single-epoch searches, detection rates run roughly 40 to 130 precursors per 
 
 The binning strategy is where things get interesting. Over LSST's first three years, stacking images in optimally sized bins yields between 150 and 400 total detections. The right bin size tracks the underlying physics: 100-day bins work best for long-lived plateau-like precursors similar to SN 2020tlf, while 20-day bins are better tuned to shorter, sharper eruptions. It's like choosing the right shutter speed for a photograph.
 
-![Figure 4](/iaifi-research-blog/figures/2408_13314/figure_2.png)
 
 The paper also tackles **template contamination**. To detect a precursor, astronomers subtract a reference image of the host galaxy from new observations. But if a precursor began months before the reference was taken, its light is already baked into the baseline, hiding subsequent brightening. The team quantifies how much this degrades detection rates and proposes strategies to estimate and subtract the residual flux, a step that will matter a great deal for making LSST searches work in practice.
 
-![Figure 5](/iaifi-research-blog/figures/2408_13314/figure_3.png)
 
 ## Why It Matters
 
@@ -105,7 +100,6 @@ Supernova precursors aren't just astronomical curiosities. They're a direct prob
 
 With hundreds of detections rather than a handful, LSST will give researchers enough events to test these predictions against real data. Combined with **spectroscopic follow-up**, where a precursor's light is split through a prism-like instrument to identify its chemical fingerprint and speed, astronomers will measure the velocity and composition of ejected material and pin down mass-loss rates and the physics behind them.
 
-![Figure 6](/iaifi-research-blog/figures/2408_13314/figure_3.png)
 
 The timing matters. Rubin Observatory's survey is set to begin operations imminently. This study is a preparation paper, a roadmap for designing searches, setting detection thresholds, and handling data challenges before the flood of data arrives. Getting the strategy right now means not missing hundreds of cosmic death-rattles when LSST begins.
 

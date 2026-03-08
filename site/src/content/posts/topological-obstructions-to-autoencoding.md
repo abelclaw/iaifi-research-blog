@@ -38,10 +38,7 @@ concepts:
 - jet physics
 figures:
 - /iaifi-research-blog/figures/2102_08380/figure_1.png
-- /iaifi-research-blog/figures/2102_08380/figure_1.png
 - /iaifi-research-blog/figures/2102_08380/figure_2.png
-- /iaifi-research-blog/figures/2102_08380/figure_2.png
-- /iaifi-research-blog/figures/2102_08380/figure_3.png
 - /iaifi-research-blog/figures/2102_08380/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2102.08380v2
 published: '2021-02-16T19:00:00+00:00'
@@ -72,7 +69,7 @@ The authors make this concrete through a sequence of increasingly complex exampl
 
 When an autoencoder compresses the circle onto a line, it must "cut" the circle somewhere. Points near that cut are genuine neighbors on the circle but end up far apart in latent space, so the autoencoder flags them as badly reconstructed outliers. These are false positives, plain and simple.
 
-![Figure 2](/iaifi-research-blog/figures/2102_08380/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2102_08380/figure_2.png)
 
 The researchers trained actual autoencoders on these toy problems and watched this failure unfold. On a circle dataset, the network reliably produces a "dead zone" where reconstruction error spikes, not because those points are rare, but purely because of topology. The dead zone shifts with random initialization but never disappears.
 
@@ -82,15 +79,13 @@ The problems get worse in higher dimensions:
 - **The double cone** (two sheets joined at a point) shows how sharp geometric features and non-uniform sampling further confuse the autoencoder.
 - **3-body phase space**, directly relevant to collider physics, inherits spherical topology and displays all the same pathologies.
 
-![Figure 3](/iaifi-research-blog/figures/2102_08380/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2102_08380/figure_3.png)
 
 There's a second failure mode cutting in the opposite direction. Neural networks have a strong **inductive bias** toward local interpolation: they excel at smoothly filling gaps between nearby training examples. If an anomaly signal is a rare but localized cluster of events (like Higgs decays concentrated at a specific **invariant mass**), the autoencoder may reconstruct those events *too well*. It interpolates across the gap, treating the signal as a natural extension of the background, and assigns a low reconstruction error. That's exactly the wrong answer.
 
-![Figure 4](/iaifi-research-blog/figures/2102_08380/figure_2.png)
 
 The paper illustrates this with a mock **bump hunt**, a standard search technique where physicists look for an unexpected spike in event counts at a particular energy, potentially signaling an unknown particle. The autoencoder fails to flag the signal because the signal events live on a topologically equivalent submanifold that the network confidently interpolates over.
 
-![Figure 5](/iaifi-research-blog/figures/2102_08380/figure_3.png)
 
 ## Why It Matters
 

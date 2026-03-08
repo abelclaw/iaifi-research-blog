@@ -36,9 +36,6 @@ figures:
 - /iaifi-research-blog/figures/2202_11712/figure_1.png
 - /iaifi-research-blog/figures/2202_11712/figure_1.png
 - /iaifi-research-blog/figures/2202_11712/figure_2.png
-- /iaifi-research-blog/figures/2202_11712/figure_2.png
-- /iaifi-research-blog/figures/2202_11712/figure_3.png
-- /iaifi-research-blog/figures/2202_11712/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2202.11712v1
 published: '2022-02-23T19:00:00+00:00'
 theme: Theoretical Physics

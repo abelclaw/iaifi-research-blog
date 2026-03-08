@@ -40,9 +40,6 @@ figures:
 - /iaifi-research-blog/figures/2409_13810/figure_1.png
 - /iaifi-research-blog/figures/2409_13810/figure_1.png
 - /iaifi-research-blog/figures/2409_13810/figure_2.png
-- /iaifi-research-blog/figures/2409_13810/figure_2.png
-- /iaifi-research-blog/figures/2409_13810/figure_3.png
-- /iaifi-research-blog/figures/2409_13810/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.13810v1
 published: '2024-09-20T18:00:00+00:00'
 theme: Astrophysics
@@ -94,15 +91,12 @@ But the *orbital energy distribution* of streams, essentially where in the galax
 - Galaxies with a thicker, lower-density disk host stream-like debris on lower-energy orbits, closer to the galactic center.
 - Galaxies with a more massive disk show a preference for streams on higher-energy orbits, farther out in the outer halo.
 
-![Figure 4](/iaifi-research-blog/figures/2409_13810/figure_2.png)
 
 This matters for interpreting Milky Way observations. The streams we see around our galaxy sit on notably low-energy orbits compared to simulated counterparts. StreamGen offers a physical explanation: a thicker or lower-mass Milky Way disk could naturally produce exactly that pattern, with no need to invoke exotic dark matter physics.
 
 The study also quantified **halo-to-halo variance**, the natural galaxy-to-galaxy scatter that exists even among galaxies with identical average properties. That variance is large enough that drawing firm conclusions from a single galaxy like our own Milky Way is inherently risky.
 
-![Figure 5](/iaifi-research-blog/figures/2409_13810/figure_3.png)
 
-![Figure 6](/iaifi-research-blog/figures/2409_13810/figure_3.png)
 
 This work sits at the heart of **near-field cosmology**, the idea that we can test dark matter theories by studying the detailed structure of the Milky Way and its neighbors. Stellar streams are one of the sharpest tools in that toolkit, because their shapes and orbits encode information about the gravitational forces acting on them, and therefore about how dark matter is distributed around the galaxy.
 

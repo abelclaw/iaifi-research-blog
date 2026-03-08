@@ -35,10 +35,7 @@ concepts:
 - surrogate modeling
 figures:
 - /iaifi-research-blog/figures/2311_01405/figure_1.png
-- /iaifi-research-blog/figures/2311_01405/figure_1.png
 - /iaifi-research-blog/figures/2311_01405/figure_2.png
-- /iaifi-research-blog/figures/2311_01405/figure_2.png
-- /iaifi-research-blog/figures/2311_01405/figure_3.png
 - /iaifi-research-blog/figures/2311_01405/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2311.01405v1
 published: '2023-11-02T17:19:18+00:00'
@@ -69,7 +66,7 @@ The foundation is **Active Sensing Motor Policies (ASMP)**, the paper's central 
 
 The policy receives an **estimation reward**, a bonus signal tied to how accurately the robot's onboard **state estimator** can measure terrain slipperiness or roughness. The state estimator is a software module trained entirely in simulation to infer hidden physical conditions from sensor readings. The result is emergent, almost animal-like behavior: the quadruped learns on its own to drag a foot sideways to probe friction, or vary its gait to make roughness measurable. Nobody programmed that swiping motion. The robot discovered it because sliding a foot is simply the most informative thing it can do.
 
-![Figure 2](/iaifi-research-blog/figures/2311_01405/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2311_01405/figure_2.png)
 
 Here's how the full pipeline chains together:
 

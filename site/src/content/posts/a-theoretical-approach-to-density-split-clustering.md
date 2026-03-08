@@ -40,9 +40,6 @@ figures:
 - /iaifi-research-blog/figures/2501_14638/figure_1.png
 - /iaifi-research-blog/figures/2501_14638/figure_1.png
 - /iaifi-research-blog/figures/2501_14638/figure_2.png
-- /iaifi-research-blog/figures/2501_14638/figure_2.png
-- /iaifi-research-blog/figures/2501_14638/figure_3.png
-- /iaifi-research-blog/figures/2501_14638/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.14638v2
 published: '2025-01-24T16:57:27+00:00'
 theme: Astrophysics
@@ -82,7 +79,6 @@ For LDT predictions to work, the team connects density-split statistics to the *
 
 All three models were validated against the AbacusSummit suite of N-body simulations, large-scale computer simulations that track how gravity pulls billions of particles together over cosmic time. The comparison covered a range of density thresholds and accounted for Poisson shot noise and galaxy bias.
 
-![Figure 5](/iaifi-research-blog/figures/2501_14638/figure_3.png)
 
 LDT consistently outperforms the log-normal approximation. On large scales it matches simulations within the cosmic variance of a typical DESI DR1 sample, the statistical noise floor set by having only one observable universe. It does this with a single free parameter.
 

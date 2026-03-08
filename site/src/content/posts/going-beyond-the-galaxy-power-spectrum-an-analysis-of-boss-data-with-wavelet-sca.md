@@ -40,7 +40,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2204_13717/figure_1.png
 - /iaifi-research-blog/figures/2204_13717/figure_2.png
-- /iaifi-research-blog/figures/2204_13717/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2204.13717v3
 published: '2022-04-28T18:00:07+00:00'
 theme: Astrophysics
@@ -84,7 +83,6 @@ The Hubble constant was derived indirectly, anchored to the angular size of the 
 
 Compared to the standard power spectrum analysis, the WST delivered posterior uncertainties 3 to 5 times smaller with flat priors, and 3 to 8 times smaller when a Big Bang Nucleosynthesis prior constrains ω_b. This is not a marginal improvement. It's the difference between a blurry photograph and a sharp one, wrung from the same underlying data.
 
-![Figure 3](/iaifi-research-blog/figures/2204_13717/figure_3.png)
 
 That gain matters for the next generation of galaxy surveys. Instruments like DESI, the Vera C. Rubin Observatory's LSST, Euclid, and the Nancy Grace Roman Space Telescope will map the universe with unprecedented precision over the next decade. They need statistical tools equal to the task.
 

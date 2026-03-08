@@ -42,11 +42,8 @@ concepts:
 - dark energy
 - regression
 figures:
-- /iaifi-research-blog/figures/2501_16602/figure_1.png
-- /iaifi-research-blog/figures/2501_16602/figure_1.png
 - /iaifi-research-blog/figures/2501_16602/figure_2.png
 - /iaifi-research-blog/figures/2501_16602/figure_2.png
-- /iaifi-research-blog/figures/2501_16602/figure_3.png
 - /iaifi-research-blog/figures/2501_16602/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.16602v2
 published: '2025-01-28T00:31:29+00:00'
@@ -79,13 +76,13 @@ The team ran cosmological simulations targeting dwarf galaxies with halo masses 
 
 By holding the star and gas physics constant across CDM and SIDM runs, any remaining difference in outcomes must come from the dark matter physics itself.
 
-![Figure 1](/iaifi-research-blog/figures/2501_16602/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_16602/figure_2.png)
 
 The key diagnostic isn't just central density. It's the **logarithmic slope of the density profile**, which measures how quickly density falls off as you move outward from a galaxy's center. Think of the dark matter distribution as a hill: the slope tells you how steep the hill is at each point, and whether that steepness changes gradually or snaps abruptly.
 
 In feedback-driven CDM cores, the transition from flat to steep is gradual, spread across a wide range of radii. In SIDM halos, the transition is sharper and more compressed. The core just *ends*.
 
-![Figure 3](/iaifi-research-blog/figures/2501_16602/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2501_16602/figure_3.png)
 
 The researchers quantified this by comparing two characteristic radii: where the density slope reaches −1 (density begins falling noticeably) versus where it reaches −2 (density falls steeply). In SIDM halos, these radii sit much closer together, producing a tight, compact transition zone. In feedback-shaped CDM halos, the same transition is smeared out over larger scales.
 
@@ -95,7 +92,6 @@ Even when full stellar physics was added to the SIDM simulations, self-interacti
 
 The "cusp-core problem" has haunted cosmology for thirty years. If we can't tell CDM-plus-feedback from SIDM by looking at galaxy centers, we lose one of our best handles on whether dark matter particles have exotic properties. SIDM would require physics beyond the Standard Model, with new fundamental forces acting among dark matter particles but not on ordinary matter.
 
-![Figure 5](/iaifi-research-blog/figures/2501_16602/figure_3.png)
 
 This study points toward a concrete observational strategy. Next-generation instruments like the Vera C. Rubin Observatory, the Nancy Grace Roman Space Telescope, and powerful radio arrays will deliver unprecedentedly detailed maps of how stars and gas move inside dwarf galaxies. The slope transition signature identified here is exactly the kind of subtle profile shape that those instruments could resolve.
 

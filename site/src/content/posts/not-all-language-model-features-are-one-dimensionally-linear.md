@@ -37,11 +37,8 @@ concepts:
 - clustering
 - embeddings
 figures:
-- /iaifi-research-blog/figures/2405_14860/figure_1.png
-- /iaifi-research-blog/figures/2405_14860/figure_1.png
 - /iaifi-research-blog/figures/2405_14860/figure_2.png
 - /iaifi-research-blog/figures/2405_14860/figure_2.png
-- /iaifi-research-blog/figures/2405_14860/figure_3.png
 - /iaifi-research-blog/figures/2405_14860/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.14860v3
 published: '2024-05-23T17:59:04+00:00'
@@ -75,7 +72,7 @@ The pipeline:
 
 The results were hard to ignore.
 
-![Figure 1](/iaifi-research-blog/figures/2405_14860/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_14860/figure_2.png)
 
 Visualizing the discovered clusters using PCA (a standard technique for collapsing complex data to its most important dimensions), the days of the week formed a perfect circle in a two-dimensional subspace of layer 7 in GPT-2-small. Monday through Sunday, spiraling in order. Months of the year made the same shape. Even years of the 20th century traced a circular arc. These weren't visualization artifacts. The geometry was genuinely present in the model's internals.
 
@@ -83,7 +80,7 @@ Finding a pretty picture is one thing, though. The harder question is whether th
 
 Ask a language model "If today is Thursday, what day is it in four days?" and it must compute (4 + 4) mod 7 = 1, which is Monday. Modular arithmetic, the kind that wraps around, is geometrically natural on a circle. When the team patched in the circular representation for a different starting day in Mistral 7B and Llama 3 8B, the model's answer changed in exactly the way the circle's geometry predicts. The circle isn't decorative; it's the actual variable the model passes through its circuits to solve the problem.
 
-![Figure 3](/iaifi-research-blog/figures/2405_14860/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2405_14860/figure_3.png)
 
 Erasing the full circular feature degraded performance far more than erasing any single one-dimensional component of it. The whole is genuinely more than the sum of its parts. When text referred to "early Monday" versus "late Monday," the model's representation shifted continuously around the circle, treating time as a smooth, analog quantity rather than discrete buckets. The model has apparently learned something like a continuous clock.
 

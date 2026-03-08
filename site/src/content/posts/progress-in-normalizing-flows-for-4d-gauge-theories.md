@@ -29,8 +29,6 @@ concepts:
 - topological freezing
 figures:
 - /iaifi-research-blog/figures/2502_00263/figure_1.png
-- /iaifi-research-blog/figures/2502_00263/figure_1.png
-- /iaifi-research-blog/figures/2502_00263/figure_2.png
 - /iaifi-research-blog/figures/2502_00263/figure_2.png
 pdfUrl: https://arxiv.org/pdf/2502.00263v1
 published: '2025-02-01T01:43:58+00:00'
@@ -64,13 +62,12 @@ It works in three steps:
 
 Any fixed-loop architecture is a special case of this design, where the learned weights happen to select a single geometry. Freeing these parameters lets each stage simultaneously access local correlations and long-range structure.
 
-![Figure 2](/iaifi-research-blog/figures/2502_00263/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_00263/figure_2.png)
 
 The second innovation is **correlated ensemble methods**, a statistical strategy for measuring small differences with high precision. Rather than using the flow model as a standalone sampler, the team generates correlated samples from two slightly different action parameters (two lattice spacings or quark masses) simultaneously. Drawing from both with correlated random numbers dramatically reduces the statistical noise in their *difference*, making certain ratios measurable with far fewer samples.
 
 The team applied this to calculate the gluon momentum fraction of the pion (how much of the pion's momentum is carried by gluons) in QCD with $N_f=2$ dynamical twisted-mass fermions at a pion mass of roughly 540 MeV. This is the first application of correlated ensemble methods to a theory with dynamical fermions.
 
-![Figure 3](/iaifi-research-blog/figures/2502_00263/figure_2.png)
 
 ## Why It Matters
 
@@ -80,7 +77,6 @@ A flow-based sampler that sidesteps this ceiling would change the field. What ma
 
 Future work will push toward lighter pion masses, finer lattice spacings, and eventually the physical quark masses where real QCD lives and where current algorithms suffer most.
 
-![Figure 4](/iaifi-research-blog/figures/2502_00263/figure_2.png)
 
 > **Bottom Line:** Learned active loops give flow models new expressive power by letting the network discover which geometric structures matter. Correlated ensemble methods deliver real computational gains for dynamical QCD, marking the first demonstration that flow-based sampling can accelerate calculations in a physically realistic gauge theory with fermions.
 

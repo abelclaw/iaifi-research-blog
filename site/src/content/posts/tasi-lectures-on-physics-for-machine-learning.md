@@ -27,7 +27,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2408_00082/figure_1.png
 - /iaifi-research-blog/figures/2408_00082/figure_2.png
-- /iaifi-research-blog/figures/2408_00082/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.00082v1
 published: '2024-07-31T18:00:22+00:00'
 theme: Theoretical Physics
@@ -72,7 +71,6 @@ The deepest part of the lectures is the **NN-FT correspondence**: a formal map b
 
 Halverson shows explicitly how *ϕ⁴* theory (a workhorse model in particle physics, built around a field raised to the fourth power) emerges from the neural network perturbative expansion. The quartic coupling plays the role of the non-Gaussian correction. This isn't just analogy. It opens a two-way research program: physicists can apply **renormalization group** methods to understand how neural network behavior changes with scale, while ML researchers can use neural networks as computational tools for field theory calculations.
 
-![Figure 3](/iaifi-research-blog/figures/2408_00082/figure_3.png)
 
 Several open questions remain. Does renormalization group flow of neural networks correspond to something meaningful about learning? What do the "phases" of neural network behavior look like in hyperparameter space?
 

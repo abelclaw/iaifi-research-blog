@@ -38,9 +38,6 @@ figures:
 - /iaifi-research-blog/figures/2105_09923/figure_1.png
 - /iaifi-research-blog/figures/2105_09923/figure_1.png
 - /iaifi-research-blog/figures/2105_09923/figure_2.png
-- /iaifi-research-blog/figures/2105_09923/figure_2.png
-- /iaifi-research-blog/figures/2105_09923/figure_3.png
-- /iaifi-research-blog/figures/2105_09923/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2105.09923v2
 published: '2021-05-20T17:36:53+00:00'
 theme: Theoretical Physics
@@ -83,13 +80,11 @@ The team tested two variants. **MultiFold** processes the full event as a point 
 
 The results are nuanced, which is part of what makes them useful. When the signal **cross section** (roughly, how often the exotic decay occurs relative to all collisions) is high enough, OmniFold successfully preserves the new physics information. The researchers quantify this using the **Fisher information**, a measure of how much a dataset "knows" about a particular parameter. In favorable cases, the Fisher information in the unfolded data matches the raw detector data: quantifiably, nothing is lost.
 
-![Figure 4](/iaifi-research-blog/figures/2105_09923/figure_2.png)
 
 But when the signal is rare, unfolding degrades. Classifiers trained overwhelmingly on Standard Model events don't correctly model the rare signal's detector response, and the corrected data can misrepresent the new physics in ways that are difficult to catch after the fact.
 
 The team also tested what happens when new physics is included in the simulation used for unfolding, a more realistic scenario where physicists have some prior suspicion of what to look for. Including the signal in the generation step improves fidelity substantially. This suggests that hybrid strategies, part model-agnostic and part model-informed, may offer the best practical path forward.
 
-![Figure 5](/iaifi-research-blog/figures/2105_09923/figure_3.png)
 
 For most of the LHC's history, the workflow has been linear: theorists propose a model, experimentalists design a targeted analysis, and the two communities meet when results are published. Full phase space unfolding scrambles that workflow in the best possible way. Experimentalists could publish unfolded datasets that any theorist can analyze with any model, no access to raw detector data or proprietary simulation chains required.
 

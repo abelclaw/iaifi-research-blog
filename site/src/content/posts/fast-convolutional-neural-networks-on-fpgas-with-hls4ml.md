@@ -46,7 +46,6 @@ concepts:
 - classification
 figures:
 - /iaifi-research-blog/figures/2101_05108/figure_1.png
-- /iaifi-research-blog/figures/2101_05108/figure_2.png
 - /iaifi-research-blog/figures/2101_05108/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2101.05108v2
 published: '2021-01-13T14:47:11+00:00'
@@ -82,11 +81,10 @@ Two compression strategies did the heavy lifting:
 - **Pruning**: Weights close to zero are forced to exactly zero, then permanently removed from the firmware. The FPGA skips those computations entirely, saving resources and power with no approximation error.
 - **Quantization-aware training (QAT)**: Instead of 32-bit floating-point weights, the QKeras library trains with reduced precision, as few as 2 or 3 bits per weight. The network learns to compensate for the coarseness during training, which dramatically outperforms quantization applied after training is complete.
 
-![Figure 2](/iaifi-research-blog/figures/2101_05108/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2101_05108/figure_3.png)
 
 Starting from a baseline too resource-hungry for practical deployment, pruning and quantization together reduced **DSP usage** (the specialized hardware blocks that handle neural network multiplications) by 97% with zero accuracy loss. Pushing harder and accepting a 6% accuracy hit cut resource usage by 99%. The final compressed model runs with 5-microsecond inference latency, comfortably within the LHC trigger budget.
 
-![Figure 3](/iaifi-research-blog/figures/2101_05108/figure_3.png)
 
 ## Why It Matters
 

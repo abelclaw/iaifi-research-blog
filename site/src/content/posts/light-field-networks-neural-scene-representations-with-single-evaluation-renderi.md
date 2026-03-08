@@ -36,13 +36,7 @@ concepts:
 - embeddings
 - surrogate modeling
 - semi-supervised learning
-figures:
-- /iaifi-research-blog/figures/2106_02634/figure_1.png
-- /iaifi-research-blog/figures/2106_02634/figure_1.png
-- /iaifi-research-blog/figures/2106_02634/figure_2.png
-- /iaifi-research-blog/figures/2106_02634/figure_2.png
-- /iaifi-research-blog/figures/2106_02634/figure_3.png
-- /iaifi-research-blog/figures/2106_02634/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2106.02634v2
 published: '2021-06-04T17:54:49+00:00'
 theme: Foundational AI
@@ -78,17 +72,14 @@ Light fields aren't inherently multi-view consistent. Different rays hitting the
 3. At inference time, given even a single photograph, the system rapidly optimizes a **latent code** (a compact numerical summary) that produces an LFN consistent with that observation
 4. The resulting network renders the scene from any viewpoint, in real time
 
-![Figure 1](/iaifi-research-blog/figures/2106_02634/figure_1.png)
 
 The meta-learning step is what makes consistency work. The prior encodes physical regularities like coherent object shapes and predictable light behavior, so the reconstructed light field generalizes to unseen viewpoints rather than just memorizing the training image.
 
-![Figure 2](/iaifi-research-blog/figures/2106_02634/figure_1.png)
 
 ## Why It Matters
 
 The performance gains are hard to overstate. Compared to volumetric renderers like NeRF, LFNs are roughly **three orders of magnitude faster** per ray at test time. Storing a 360-degree light field as an LFN takes **two orders of magnitude less memory** than the Lumigraph, an early approach that stored complete light fields as dense data tables. And reconstruction from a single image, which takes NeRF-style methods multiple GPU-hours, happens in seconds.
 
-![Figure 3](/iaifi-research-blog/figures/2106_02634/figure_2.png)
 
 Geometry isn't lost just because explicit 3D structure has been dropped, either. By taking the *analytical derivative* of the LFN with respect to its inputs (asking how predicted color changes as you nudge a ray), the system extracts sparse depth maps and recovers surface locations. This works because **neural implicit representations**, neural networks encoding continuous functions like surfaces or fields, are smoothly differentiable everywhere. You can ask calculus questions of them that are impossible with discrete voxel grids or point clouds.
 

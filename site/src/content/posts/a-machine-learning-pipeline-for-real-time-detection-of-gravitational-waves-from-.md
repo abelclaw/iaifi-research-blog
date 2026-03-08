@@ -42,7 +42,6 @@ concepts:
 - scientific workflows
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2403_18661/figure_1.png
 - /iaifi-research-blog/figures/2403_18661/figure_2.png
 - /iaifi-research-blog/figures/2403_18661/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.18661v2
@@ -76,7 +75,7 @@ The architecture adapts **ResNet34** ("Residual Network with 34 layers"), a deep
 - **1D convolutions** replace standard 2D convolutions, processing data that unfolds over time (like a seismograph readout) rather than across a two-dimensional image.
 - **Group Normalization** replaces Batch Normalization. Standard batch normalization tracks statistics across the full training batch, but training batches are loaded with simulated signals while live inference sees mostly noise. Group Normalization computes statistics within smaller channel groups, keeping the network's behavior consistent between training and deployment.
 
-![Figure 1](/iaifi-research-blog/figures/2403_18661/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2403_18661/figure_2.png)
 
 The pipeline runs in a sliding-window fashion at **4 Hz**, evaluating a new window every 0.25 seconds. Each raw output is smoothed with a one-second **"top hat" filter** (a moving average over a one-second window), converting noisy frame-by-frame scores into a stable detection statistic. Four Hz strikes the right balance: frequent enough to catch transient signals, light enough to keep compute costs manageable.
 
@@ -84,7 +83,7 @@ For live throughput, Aframe uses an **inference-as-a-service (IaaS)** architectu
 
 Training relies on aggressive **data augmentation**: simulated binary black hole waveforms are injected at varying signal strengths into real LIGO noise, forcing the network to handle the non-stationary, glitchy character of real detector data rather than idealized Gaussian noise. The network trains with binary cross-entropy loss, an Adam optimizer, and a one-cycle learning rate schedule with cosine annealing.
 
-![Figure 2](/iaifi-research-blog/figures/2403_18661/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2403_18661/figure_3.png)
 
 ## Why It Matters
 
@@ -96,7 +95,6 @@ But Aframe's deeper significance is infrastructural. The field has struggled for
 
 Binary neutron star mergers are the obvious next target: they spend far longer in the detector's sensitive band and present harder detection challenges. The IaaS architecture, the normalization choices, and the augmentation strategies developed here all carry over directly.
 
-![Figure 3](/iaifi-research-blog/figures/2403_18661/figure_3.png)
 
 > **Bottom Line:** Aframe proves that a fully ML-based gravitational wave search pipeline can operate in real time with competitive sensitivity and a fraction of traditional latency. Faster multi-messenger alerts and AI-powered astrophysics infrastructure are now within reach.
 

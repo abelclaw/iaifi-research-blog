@@ -42,9 +42,6 @@ figures:
 - /iaifi-research-blog/figures/2302_04265/figure_1.png
 - /iaifi-research-blog/figures/2302_04265/figure_1.png
 - /iaifi-research-blog/figures/2302_04265/figure_2.png
-- /iaifi-research-blog/figures/2302_04265/figure_2.png
-- /iaifi-research-blog/figures/2302_04265/figure_3.png
-- /iaifi-research-blog/figures/2302_04265/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2302.04265v2
 published: '2023-02-08T18:58:02+00:00'
 theme: Foundational AI
@@ -92,7 +89,6 @@ On CIFAR-10, a standard image generation benchmark, PFGM++ with D=2048 achieves 
 
 Raw performance isn't the whole story, though. Smaller *D* values produce models that degrade more gracefully when things go wrong. The researchers tested three distinct failure modes: injecting controlled noise into network outputs during sampling, using large step sizes that accumulate rounding errors, and applying post-training quantization (compressing model weights to save memory at the cost of some precision). In every case, models with smaller *D* held up better. The reason is baked into the physics: a small *D* widens the distribution of noisy training sample norms, giving the model a broader tolerance band for imperfect predictions.
 
-![Figure 4](/iaifi-research-blog/figures/2302_04265/figure_2.png)
 
 This unification opens up a real new axis of design. Rather than choosing between two fixed frameworks, researchers can now navigate a continuous spectrum, selecting the *D* that best matches their task difficulty, architecture quality, and tolerance for error. It also raises worthwhile theoretical questions: why does intermediate *D* outperform both extremes? What is it about finite-dimensional augmentation that unlocks extra generative capacity?
 

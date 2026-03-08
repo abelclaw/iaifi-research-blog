@@ -37,7 +37,6 @@ concepts:
 - anomaly detection
 - monte carlo methods
 figures:
-- /iaifi-research-blog/figures/2310_07499/figure_1.png
 - /iaifi-research-blog/figures/2310_07499/figure_2.png
 - /iaifi-research-blog/figures/2310_07499/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.07499v1
@@ -62,7 +61,7 @@ A team of physicists from MIT, CEA Paris-Saclay, and the University of Abomey-Ca
 
 Pure noise in high-dimensional data has a universal fingerprint: its eigenvalue spectrum follows the **Marchenko-Pastur (MP) distribution**, the characteristic curve describing how correlations spread across a large random matrix. This signature is as reliable as a fingerprint. Just as water molecules don't "know" they're water when they undergo a phase transition, high-dimensional noise doesn't care whether it came from a stock market or a brain scan. It follows MP law.
 
-![Figure 1](/iaifi-research-blog/figures/2310_07499/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2310_07499/figure_2.png)
 
 The researchers build an **effective field theory** for the covariance matrix of the dataset (the table of correlations between all pairs of variables). In an effective field theory, you capture the essential physics without tracking every microscopic detail. Previous work in this line used equilibrium Boltzmann distributions and connected signal detection to **Z₂-symmetry breaking**, the same mechanism that drives a paramagnet to become a ferromagnet. A system suddenly "picks a side" from an initially balanced, symmetric state.
 
@@ -75,11 +74,10 @@ The central question: can this stochastic system reach equilibrium at all? The a
 
 The team studies this breakdown using the **local potential approximation (LPA)** of the FRG, a controlled simplification that retains the key physics while keeping the equations tractable. They write down the Wetterich flow equation, which describes how the system's energy landscape shifts as fluctuations are peeled away scale by scale. The FRG works as a systematic zoom-out, asking at each step: what are the essential degrees of freedom here?
 
-![Figure 2](/iaifi-research-blog/figures/2310_07499/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2310_07499/figure_3.png)
 
 For small signals, the RG flow reveals a sharp transition. Below a critical signal strength, ergodicity always breaks. The system's inability to equilibrate acts as a direct indicator of the signal's presence, and the location of this breakdown defines a **detection threshold**, a precise boundary below which conventional equilibrium analysis declares "no signal" but the stochastic RG analysis says otherwise.
 
-![Figure 3](/iaifi-research-blog/figures/2310_07499/figure_3.png)
 
 The detection criterion comes not from fitting a model to data, but from the topology of the renormalization group flow itself, an intrinsic property of the theory.
 

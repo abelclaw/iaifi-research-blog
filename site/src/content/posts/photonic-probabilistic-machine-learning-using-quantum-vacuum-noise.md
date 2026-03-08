@@ -46,7 +46,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2403_04731/figure_1.png
 - /iaifi-research-blog/figures/2403_04731/figure_2.png
-- /iaifi-research-blog/figures/2403_04731/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.04731v1
 published: '2024-03-07T18:35:18+00:00'
 theme: Theoretical Physics
@@ -91,7 +90,6 @@ For **discriminative** tasks, they implemented a **stochastic binary neural netw
 
 For **generative** tasks, they ran a **pixel convolutional neural network (pixelCNN)**, which synthesizes images one pixel at a time, each conditioned on all previously generated pixels. Quantum vacuum noise provided the stochastic seed that, combined with learned probability distributions, produced entirely new handwritten digit images from scratch.
 
-![Figure 3](/iaifi-research-blog/figures/2403_04731/figure_3.png)
 
 The researchers also mapped out a path to a fully all-optical platform that would eliminate the electronic loop entirely, projecting a sampling rate around 1 Gbps and energy consumption of roughly 5 femtojoules per multiply-accumulate operation. If those numbers hold, that's orders of magnitude faster and more efficient than conventional silicon.
 

@@ -50,9 +50,6 @@ figures:
 - /iaifi-research-blog/figures/2411_09851/figure_1.png
 - /iaifi-research-blog/figures/2411_09851/figure_1.png
 - /iaifi-research-blog/figures/2411_09851/figure_2.png
-- /iaifi-research-blog/figures/2411_09851/figure_2.png
-- /iaifi-research-blog/figures/2411_09851/figure_3.png
-- /iaifi-research-blog/figures/2411_09851/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.09851v4
 published: '2024-11-15T00:09:37+00:00'
 theme: Experimental Physics

@@ -69,13 +69,7 @@ concepts:
 - circumstellar interaction
 - hypothesis testing
 - bayesian inference
-figures:
-- /iaifi-research-blog/figures/2503_21874/figure_1.png
-- /iaifi-research-blog/figures/2503_21874/figure_1.png
-- /iaifi-research-blog/figures/2503_21874/figure_2.png
-- /iaifi-research-blog/figures/2503_21874/figure_2.png
-- /iaifi-research-blog/figures/2503_21874/figure_3.png
-- /iaifi-research-blog/figures/2503_21874/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2503.21874v2
 published: '2025-03-27T18:00:04+00:00'
 theme: Astrophysics
@@ -100,7 +94,6 @@ The team drew data from three major sources: the ePESSTO+ survey, the FLEET tran
 
 Different spectra were taken at different points in each explosion's evolution, and SLSNe change rapidly. The researchers normalized timing not just relative to peak brightness but relative to the explosion itself, then scaled by each event's characteristic decline time. Think of it as comparing aging across individuals by biological age rather than calendar date.
 
-![Figure 1](/iaifi-research-blog/figures/2503_21874/figure_1.png)
 
 Once aligned, the team constructed **phase-binned average spectra**: composite snapshots of what a typical SLSN looks like at each evolutionary stage. The pattern that emerged is clear:
 
@@ -110,11 +103,9 @@ Once aligned, the team constructed **phase-binned average spectra**: composite s
 
 To probe diversity more rigorously, the team deployed **Principal Component Analysis (PCA)**, a mathematical technique that distills a complex dataset to its most essential axes of variation. Think of it as finding the fewest "ingredients" needed to reconstruct any spectrum in the collection. When spectra were grouped using the explosion-scaled timeline rather than peak-brightness dates, PCA required fewer components to explain the same fraction of variance. The population became statistically more coherent.
 
-![Figure 3](/iaifi-research-blog/figures/2503_21874/figure_2.png)
 
 The team then used **K-means clustering**, an algorithm that automatically sorts data into groups by similarity, to search for distinct subpopulations. Despite a handful of outliers showing signs of interaction with surrounding material, they found no statistically significant evidence for multiple distinct subclasses. SLSNe, for all their apparent variety, form a single continuous population.
 
-![Figure 5](/iaifi-research-blog/figures/2503_21874/figure_3.png)
 
 The final piece came from velocity measurements. The researchers tracked **Fe II λ5169**, an iron absorption line that traces the photosphere, the visible "surface" of the expanding explosion. Its velocity closely matched the radius inferred from blackbody fits to the continuum, confirming the iron line forms right at the photosphere.
 

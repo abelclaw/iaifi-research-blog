@@ -32,7 +32,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2212_10659/figure_1.png
 - /iaifi-research-blog/figures/2212_10659/figure_2.png
-- /iaifi-research-blog/figures/2212_10659/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2212.10659v2
 published: '2022-12-20T21:22:09+00:00'
 theme: Experimental Physics
@@ -79,7 +78,6 @@ More complex architectures showed marginal gains but scaled poorly. Tripletwise 
 
 One surprise: even a *single-dimensional* latent space in the pairwise architecture outperformed the full ATLAS analysis. With a few dozen dimensions, performance plateaus near optimal. The features the network learned to extract correlate with the hand-engineered features physicists already use, discovered automatically from raw kinematics without being told what to look for.
 
-![Figure 3](/iaifi-research-blog/figures/2212_10659/figure_3.png)
 
 ## Why It Matters
 

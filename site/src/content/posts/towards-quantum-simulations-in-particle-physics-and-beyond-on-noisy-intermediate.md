@@ -32,9 +32,6 @@ figures:
 - /iaifi-research-blog/figures/2110_03809/figure_1.png
 - /iaifi-research-blog/figures/2110_03809/figure_1.png
 - /iaifi-research-blog/figures/2110_03809/figure_2.png
-- /iaifi-research-blog/figures/2110_03809/figure_2.png
-- /iaifi-research-blog/figures/2110_03809/figure_3.png
-- /iaifi-research-blog/figures/2110_03809/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.03809v1
 published: '2021-10-07T22:13:37+00:00'
 theme: Theoretical Physics
@@ -94,7 +91,6 @@ Combining leaner circuits with cleaner measurements produces results much closer
 
 Particle physics is the motivating application, but these techniques are general tools. Any VQE application, whether in quantum chemistry, condensed matter physics, or quantum optimization, benefits from circuits that are maximally efficient and measurements that are maximally accurate. The readout mitigation scheme is hardware-agnostic and applies to any gate-based quantum computer regardless of the underlying technology.
 
-![Figure 4](/iaifi-research-blog/figures/2110_03809/figure_2.png)
 
 Simulating full quantum chromodynamics in 3+1 dimensions remains far beyond current hardware. But algorithmic improvements accumulate. Better circuit design, better error mitigation, better classical validation: the community is building infrastructure that will eventually make such simulations possible. These are concrete, benchmarked gains on real devices, not aspirational promises.
 

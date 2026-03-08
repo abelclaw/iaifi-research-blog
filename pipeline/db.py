@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS figures (
     height INTEGER NOT NULL,
     extraction_type TEXT NOT NULL,
     sort_order INTEGER NOT NULL DEFAULT 0,
+    selected INTEGER NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -118,6 +119,19 @@ class Database:
                     "ALTER TABLE blog_posts ADD COLUMN fix_count INTEGER DEFAULT 0"
                 )
                 logger.info("Migrated: added fix_count column to blog_posts")
+            if "images_fixed" not in bp_columns:
+                await db.execute(
+                    "ALTER TABLE blog_posts ADD COLUMN images_fixed INTEGER DEFAULT 0"
+                )
+                logger.info("Migrated: added images_fixed column to blog_posts")
+            # Migration: add selected column to figures if missing
+            fig_cursor = await db.execute("PRAGMA table_info(figures)")
+            fig_columns = {row[1] for row in await fig_cursor.fetchall()}
+            if "selected" not in fig_columns:
+                await db.execute(
+                    "ALTER TABLE figures ADD COLUMN selected INTEGER NOT NULL DEFAULT 1"
+                )
+                logger.info("Migrated: added selected column to figures")
             await db.commit()
         logger.info(f"Database initialized at {self.db_path}")
 
@@ -463,6 +477,37 @@ class Database:
                 except (json.JSONDecodeError, TypeError):
                     pass
             return result
+
+    async def get_images_fixed(self, arxiv_id: str) -> int:
+        """Get images_fixed count for a blog post."""
+        async with aiosqlite.connect(self.db_path) as db:
+            cur = await db.execute(
+                "SELECT images_fixed FROM blog_posts WHERE paper_arxiv_id = ?",
+                (arxiv_id,),
+            )
+            row = await cur.fetchone()
+            return row[0] if row and row[0] else 0
+
+    async def set_images_fixed(self, arxiv_id: str) -> None:
+        """Increment images_fixed for a blog post."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                """UPDATE blog_posts
+                   SET images_fixed = COALESCE(images_fixed, 0) + 1,
+                       updated_at = datetime('now')
+                   WHERE paper_arxiv_id = ?""",
+                (arxiv_id,),
+            )
+            await db.commit()
+
+    async def update_figure_selection(self, figure_id: int, selected: bool) -> None:
+        """Mark a figure as selected or deselected."""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                "UPDATE figures SET selected = ? WHERE id = ?",
+                (1 if selected else 0, figure_id),
+            )
+            await db.commit()
 
     async def get_figures(self, arxiv_id: str) -> list[dict]:
         """Retrieve all figures for a paper, ordered by sort_order."""

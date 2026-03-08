@@ -29,10 +29,7 @@ concepts:
 - variational autoencoders
 figures:
 - /iaifi-research-blog/figures/2106_15612/figure_1.png
-- /iaifi-research-blog/figures/2106_15612/figure_1.png
 - /iaifi-research-blog/figures/2106_15612/figure_2.png
-- /iaifi-research-blog/figures/2106_15612/figure_2.png
-- /iaifi-research-blog/figures/2106_15612/figure_3.png
 - /iaifi-research-blog/figures/2106_15612/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2106.15612v2
 published: '2021-06-29T17:56:11+00:00'
@@ -66,7 +63,7 @@ TIA introduces a formal structure called the **Task Informed MDP (TiMDP)**, whic
 - **s⁺ (task state):** Features correlated with reward, the stuff the agent actually needs to maximize performance.
 - **s⁻ (distractor state):** Everything else: background motion, irrelevant objects, visual noise.
 
-![Figure 2](/iaifi-research-blog/figures/2106_15612/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2106_15612/figure_2.png)
 
 Two models work together in a cooperative-adversarial game. The **task model** learns s⁺ by predicting rewards and must capture whatever features matter for success. The **distractor model** learns s⁻ through a competing mechanism: it is *explicitly penalized* for learning anything correlated with rewards, forcing it to absorb only the irrelevant residual.
 
@@ -78,7 +75,6 @@ This threads a needle that previous methods missed. Pure reconstruction learning
 
 This problem shows up everywhere. Any domain where an agent must learn from high-dimensional observations littered with irrelevant variation (medical robotics, scientific instrument control, autonomous vehicles) faces the same challenge.
 
-![Figure 4](/iaifi-research-blog/figures/2106_15612/figure_2.png)
 
 TIA consistently outperforms state-of-the-art baselines across three distinct evaluation settings:
 

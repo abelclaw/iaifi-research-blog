@@ -30,11 +30,8 @@ concepts:
 - spectral methods
 - attention mechanisms
 figures:
-- /iaifi-research-blog/figures/2312_07534/figure_1.png
-- /iaifi-research-blog/figures/2312_07534/figure_1.png
 - /iaifi-research-blog/figures/2312_07534/figure_2.png
 - /iaifi-research-blog/figures/2312_07534/figure_2.png
-- /iaifi-research-blog/figures/2312_07534/figure_3.png
 - /iaifi-research-blog/figures/2312_07534/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2312.07534v1
 published: '2023-12-12T18:58:42+00:00'
@@ -61,7 +58,7 @@ The researchers trained their model on the **CAMELS Multifield Dataset**, a coll
 
 The core architecture is a **denoising diffusion probabilistic model (DDPM)**, a neural network that learns to reverse a gradual noising process. Think of it like teaching a network to restore a painting from static. You corrupt the original with noise in small, controlled steps, then train the model to undo them. At inference time, you start from pure noise and let the model sculpt it into a realistic cosmic field.
 
-![Figure 1](/iaifi-research-blog/figures/2312_07534/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2312_07534/figure_2.png)
 
 Two design choices made the physics work:
 
@@ -72,7 +69,7 @@ Training proceeded in two stages. First, train on downsampled 64×64 images for 
 
 The generated fields' power spectra matched the simulated distribution closely for three validation parameter sets, with z-scores near zero across nearly all wavenumber bins. The best checkpoint achieved a mean reduced chi-squared of 1.30, versus 1.27 for actual simulation samples. A perfect match scores 1.0. These numbers put the diffusion model's fields statistically on par with real simulations.
 
-![Figure 2](/iaifi-research-blog/figures/2312_07534/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2312_07534/figure_2.png)
 
 The model also captures differential signatures. Increasing Ωm boosts power across all scales and shifts the pixel value distribution. Changes in σ8 affect only large scales. These are physically meaningful distinctions the model picked up without being explicitly told.
 

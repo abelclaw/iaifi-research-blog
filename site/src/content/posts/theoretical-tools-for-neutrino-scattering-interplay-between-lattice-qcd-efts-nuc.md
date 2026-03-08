@@ -89,12 +89,8 @@ concepts:
 - scattering amplitudes
 - simulation-based inference
 figures:
-- /iaifi-research-blog/figures/2203_09030/figure_1.png
-- /iaifi-research-blog/figures/2203_09030/figure_1.png
 - /iaifi-research-blog/figures/2203_09030/figure_2.png
 - /iaifi-research-blog/figures/2203_09030/figure_2.png
-- /iaifi-research-blog/figures/2203_09030/figure_3.png
-- /iaifi-research-blog/figures/2203_09030/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2203.09030v2
 published: '2022-03-17T02:08:42+00:00'
 theme: Theoretical Physics
@@ -127,13 +123,12 @@ The white paper organizes the theoretical toolkit into four interconnected layer
 
 - **Neutrino event generators**, the simulation software (GENIE, NuWro, NEUT, GiBUU) that experiments use to predict detector signals, synthesize all theoretical inputs into coherent, fast simulations running over millions of events.
 
-![Figure 1](/iaifi-research-blog/figures/2203_09030/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2203_09030/figure_2.png)
 
 The energy range splits the problem into distinct regimes. At tens of MeV, the range relevant for supernova neutrinos, theorists must compute exclusive processes down to specific nuclear excited states. Get this wrong, and you lose the astrophysical information needed to reconstruct how neutron stars form.
 
 At GeV energies relevant for DUNE, the picture fragments further. Quasi-elastic scattering, pion production, and deep inelastic scattering all overlap in a messy transition region no single framework handles cleanly. The paper gives particular attention to **quark-hadron duality**, the empirical observation that averaging over many particle resonances often reproduces predictions from the fundamental theory of the strong force, as a potential bridge across this transition zone.
 
-![Figure 3](/iaifi-research-blog/figures/2203_09030/figure_2.png)
 
 The white paper is frank about event generators: they often incorporate theoretical models inconsistently. Improving them requires sustained, funded collaboration between generator developers and the broader theory community, something the field has historically struggled to maintain.
 

@@ -45,9 +45,6 @@ figures:
 - /iaifi-research-blog/figures/2405_13083/figure_1.png
 - /iaifi-research-blog/figures/2405_13083/figure_1.png
 - /iaifi-research-blog/figures/2405_13083/figure_2.png
-- /iaifi-research-blog/figures/2405_13083/figure_2.png
-- /iaifi-research-blog/figures/2405_13083/figure_3.png
-- /iaifi-research-blog/figures/2405_13083/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.13083v1
 published: '2024-05-21T07:12:44+00:00'
 theme: Astrophysics
@@ -98,7 +95,6 @@ The performance difference is stark. The NFST detects parity violation with 4 ti
 
 In the most data-limited regimes, the NFST reaches 6σ statistical confidence (the gold standard for a discovery claim in physics) while the WST and CNN fail to register any detection at all.
 
-![Figure 4](/iaifi-research-blog/figures/2405_13083/figure_2.png)
 
 Two properties drive this advantage: the ability to learn genuinely asymmetric filters (the WST's fixed wavelets are symmetric and thus parity-blind by construction), and architectural symmetry constraints that prevent the model from wasting capacity on irrelevant invariances.
 

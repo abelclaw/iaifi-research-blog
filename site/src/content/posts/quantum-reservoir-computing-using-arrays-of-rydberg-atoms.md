@@ -35,9 +35,6 @@ concepts:
 - multi-task learning
 - phase transitions
 figures:
-- /iaifi-research-blog/figures/2111_10956/figure_1.png
-- /iaifi-research-blog/figures/2111_10956/figure_1.png
-- /iaifi-research-blog/figures/2111_10956/figure_2.png
 - /iaifi-research-blog/figures/2111_10956/figure_2.png
 - /iaifi-research-blog/figures/2111_10956/figure_3.png
 - /iaifi-research-blog/figures/2111_10956/figure_3.png
@@ -66,7 +63,7 @@ The core idea borrows from neuroscience. **Recurrent neural networks (RNNs)** fe
 
 Instead of hand-coded synaptic weights, connections between qubits are determined by the natural physics of the quantum system: its **Hamiltonian dynamics**, the built-in rules governing how energy flows through the system. The network's wiring isn't programmed by engineers. It's dictated by physics.
 
-![Figure 1](/iaifi-research-blog/figures/2111_10956/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2111_10956/figure_2.png)
 
 This is the reservoir computing trick: instead of training the internal dynamics (which is hard and error-prone), you fix the quantum system's interactions and train only a simple linear readout layer. The richness of the quantum dynamics does the heavy lifting.
 
@@ -77,11 +74,11 @@ What makes the Rydberg reservoir special:
 - **Interspecies interactions**: Atoms excited to different energy levels (described by different principal quantum numbers) carry distinct interaction profiles. This naturally encodes *inhibitory* and *excitatory* connections, the same mix neuroscientists know is essential for cognitive flexibility and multitasking.
 - **Quantum many-body scars**: Certain quantum states in Rydberg arrays resist the normal expectation that quantum systems rapidly scramble information. These non-thermalizing states persist over long timescales, acting as a built-in long-term memory written into the physics itself.
 
-![Figure 2](/iaifi-research-blog/figures/2111_10956/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2111_10956/figure_3.png)
 
 The team numerically tested Rydberg reservoir computers on three cognitive benchmarks drawn from neuroscience: multitasking, decision-making, and long-term memory. With only a handful of atoms, the qRNN succeeded on all three.
 
-![Figure 3](/iaifi-research-blog/figures/2111_10956/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2111_10956/figure_3.png)
 
 The researchers also show a theoretical advantage for simulating **stochastic dynamics**, random processes like a noisy signal or a molecule's random walk. A classical RNN must sample many trajectories to approximate a probability distribution. A qRNN, evolving through a superposition of all possible configurations simultaneously, accesses the full distribution directly. That speedup is rooted in quantum mechanics itself.
 
@@ -89,7 +86,6 @@ The researchers also show a theoretical advantage for simulating **stochastic dy
 
 On one level, this work offers a practical path through the NISQ bottleneck. The reservoir computing framework sidesteps the training instabilities that plague **variational quantum circuits**, a common quantum ML approach in which circuit parameters are iteratively adjusted like tuning knobs. Because the quantum dynamics are fixed and only the output layer is trained classically, the system is inherently noise-tolerant. Much as the brain processes information reliably even when individual neurons misfire, the reservoir's collective dynamics smooth over errors.
 
-![Figure 4](/iaifi-research-blog/figures/2111_10956/figure_2.png)
 
 On another level, the paper clarifies *why* quantum hardware helps, not just *that* it does. The performance gains trace back to identifiable physical mechanisms: multitasking arises from interspecies Rydberg interactions; long-term memory arises from quantum many-body scars. That kind of mechanistic clarity can guide engineers building better quantum ML hardware, rather than hoping quantum systems help by accident.
 

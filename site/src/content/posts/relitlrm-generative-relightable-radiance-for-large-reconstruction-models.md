@@ -40,7 +40,6 @@ concepts:
 - novel view synthesis
 - transfer learning
 figures:
-- /iaifi-research-blog/figures/2410_06231/figure_1.png
 - /iaifi-research-blog/figures/2410_06231/figure_2.png
 - /iaifi-research-blog/figures/2410_06231/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.06231v2
@@ -70,11 +69,11 @@ The trick at RelitLRM's core is architectural: don't try to solve the whole prob
 
 2. **Generate the appearance under new light.** Once geometry is locked in, RelitLRM hands off to a **diffusion-based appearance generator**, the family of models behind image generators like Stable Diffusion. Why diffusion? Because relighting is *fundamentally uncertain*. A glossy surface can produce **specular highlights** (intense bright spots where light bounces directly toward the camera) that could appear in several plausible positions depending on tiny, unknown surface details. A regression model trained to predict a single "best" output averages over those possibilities, producing a blurry smear. A diffusion model samples from the full distribution of plausible appearances, picking one sharp, physically coherent answer instead of the washed-out mean.
 
-![Figure 1](/iaifi-research-blog/figures/2410_06231/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2410_06231/figure_2.png)
 
 The two stages are trained **end-to-end** (optimized together as a single system) on a large synthetic dataset of 3D objects rendered under many known illuminations. The target lighting condition is fed in as an additional input token, telling the system not just what the object looks like, but what kind of light to simulate. On a single A100 GPU, inference takes about one second.
 
-![Figure 2](/iaifi-research-blog/figures/2410_06231/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2410_06231/figure_3.png)
 
 This design also sidesteps **shadow baking**, a persistent flaw in earlier methods. Per-scene optimization often accidentally embeds the original lighting (shadows, highlights, and all) directly into the surface material representation. The result: artifacts stubbornly remain when you try to relight, like a shadow that won't move when the sun does. Training end-to-end across diverse illuminations teaches RelitLRM to pull apart lighting and material properties from the start.
 
@@ -84,7 +83,6 @@ The obvious applications are in digital content creation, gaming, and augmented 
 
 But the deeper significance is methodological. RelitLRM makes the case that the right answer to a physically ambiguous inverse problem isn't always to push harder on optimization. Sometimes it's to reframe the problem as generative sampling. The material-lighting ambiguity that has dogged inverse rendering researchers for two decades is a **multi-modal** uncertainty (many equally valid answers exist, not just one), and diffusion models are well-suited to represent exactly that kind of uncertainty. The same logic should apply wherever physics produces genuinely ambiguous observations.
 
-![Figure 3](/iaifi-research-blog/figures/2410_06231/figure_3.png)
 
 Open questions remain. The system trains on synthetic data, and real-world photographs introduce mismatches that the authors acknowledge. The geometry stage still relies on images where the camera position is roughly known. And the diffusion-based appearance generator, while excellent at capturing high-frequency specular effects, introduces some randomness that regression-based methods avoid.
 

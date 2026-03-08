@@ -40,9 +40,7 @@ concepts:
 - kernel methods
 - representation learning
 figures:
-- /iaifi-research-blog/figures/2510_01349/figure_1.png
 - /iaifi-research-blog/figures/2510_01349/figure_2.png
-- /iaifi-research-blog/figures/2510_01349/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.01349v1
 published: '2025-10-01T18:26:33+00:00'
 theme: Foundational AI
@@ -64,7 +62,7 @@ Hannah Lawrence, Elyssa Hofgard, and colleagues built a diagnostic tool to measu
 
 > **Key Insight:** The benefits of equivariant machine learning depend critically on whether training data is uniformly distributed across orientations. Most benchmark datasets are not, which can cause equivariant methods to *hurt* rather than help.
 
-![Figure 1](/iaifi-research-blog/figures/2510_01349/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2510_01349/figure_2.png)
 
 ## How It Works
 
@@ -72,7 +70,6 @@ The core concept is **distributional symmetry breaking**: when a data point $x$ 
 
 The team's solution: train a classifier to distinguish between the original dataset and a randomly rotated copy of it. If the dataset is perfectly symmetric, no classifier should do better than 50% accuracy; the two distributions look identical. But if the dataset is canonicalized, a smart classifier can easily tell "original" from "rotated" by recognizing that certain orientations simply don't occur naturally.
 
-![Figure 2](/iaifi-research-blog/figures/2510_01349/figure_2.png)
 
 This **two-sample classifier test** has several practical virtues:
 - It requires no domain knowledge about *why* the data might be anisotropic

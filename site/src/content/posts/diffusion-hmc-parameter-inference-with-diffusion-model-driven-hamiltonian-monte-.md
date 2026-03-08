@@ -37,11 +37,8 @@ concepts:
 - robustness
 - convolutional networks
 figures:
-- /iaifi-research-blog/figures/2405_05255/figure_1.png
-- /iaifi-research-blog/figures/2405_05255/figure_1.png
 - /iaifi-research-blog/figures/2405_05255/figure_2.png
 - /iaifi-research-blog/figures/2405_05255/figure_2.png
-- /iaifi-research-blog/figures/2405_05255/figure_3.png
 - /iaifi-research-blog/figures/2405_05255/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.05255v2
 published: '2024-05-08T17:59:03+00:00'
@@ -65,7 +62,7 @@ The foundation is a **denoising diffusion probabilistic model (DDPM)**, the same
 
 Training data comes from the CAMELS Multifield Dataset, drawn from IllustrisTNG simulations. Each simulation tracks 256³ dark matter particles over a 25 Mpc/h volume. The team trained on 10,500 two-dimensional field slices spanning 700 cosmologies, using a U-Net with **circular convolutions** to respect the periodic boundary conditions of cosmological simulations.
 
-![Figure 1](/iaifi-research-blog/figures/2405_05255/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_05255/figure_2.png)
 
 Once trained, the model fills two roles:
 
@@ -74,13 +71,11 @@ Once trained, the model fills two roles:
 
 The inference step uses **Hamiltonian Monte Carlo (HMC)**, a sampling method borrowed from physics. Think of a ball rolling across a hilly landscape where valleys mark likely parameter combinations. HMC uses gradient information to explore efficiently. The gradients come from the diffusion model itself: by tracking how reconstruction error changes as Ω_m and σ_8 are varied, the team extracts a differentiable approximate likelihood and uses HMC to walk through it, building a full **posterior distribution**.
 
-![Figure 3](/iaifi-research-blog/figures/2405_05255/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2405_05255/figure_3.png)
 
 The result is not just a best-fit cosmology but a complete picture of consistent values and their trade-offs. The method also holds up under noise. When the researchers added Gaussian noise to test fields and compared Diffusion-HMC against a standard discriminative CNN, the CNN's performance degraded noticeably. The diffusion model, trained to denoise fields at every corruption level, retained structural knowledge of the signal even when noise intruded.
 
-![Figure 5](/iaifi-research-blog/figures/2405_05255/figure_3.png)
 
-![Figure 6](/iaifi-research-blog/figures/2405_05255/figure_3.png)
 
 ## Why It Matters
 

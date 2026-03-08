@@ -40,12 +40,8 @@ concepts:
 - surrogate modeling
 - dark energy
 figures:
-- /iaifi-research-blog/figures/2402_13310/figure_1.png
-- /iaifi-research-blog/figures/2402_13310/figure_1.png
 - /iaifi-research-blog/figures/2402_13310/figure_2.png
 - /iaifi-research-blog/figures/2402_13310/figure_2.png
-- /iaifi-research-blog/figures/2402_13310/figure_3.png
-- /iaifi-research-blog/figures/2402_13310/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.13310v2
 published: '2024-02-20T19:00:00+00:00'
 theme: Astrophysics
@@ -74,7 +70,7 @@ EFT requires **galaxy bias parameters**, numbers like *b*₁, *b*₂, and *bG*�
 
 Traditionally, analysts treat these as free parameters and marginalize over them using broad, uninformative priors, averaging over all plausible values. The result: significant dilution of the cosmological signals you're trying to measure. You're leaving the scale vibrating when you don't have to.
 
-![Figure 1](/iaifi-research-blog/figures/2402_13310/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2402_13310/figure_2.png)
 
 The team's solution unfolds in two steps:
 
@@ -82,7 +78,6 @@ The team's solution unfolds in two steps:
 
 2. **Learn the distribution with normalizing flows.** The 10,500 samples span a 14-dimensional parameter space (HOD parameters plus EFT bias parameters). Rather than fitting simple Gaussian approximations, the team used **normalizing flows**, a type of neural network that learns complex probability distributions by gradually transforming a simple shape (like a bell curve) into whatever shape the data requires.
 
-![Figure 3](/iaifi-research-blog/figures/2402_13310/figure_2.png)
 
 The learned marginal distribution over EFT parameters then serves as a prior in the actual data analysis. It isn't a vague Gaussian guess. It knows, from thousands of simulations, which combinations of bias parameters are physically plausible for BOSS-like galaxies and rules out the vast swaths of parameter space that are physically unreasonable.
 
@@ -92,7 +87,6 @@ The immediate application is **primordial non-Gaussianity (PNG)**, subtle statis
 
 Using HOD-based priors on BOSS **power spectra and bispectra** (statistical summaries of how strongly galaxies cluster at different scales and in different geometric configurations), the team finds *f*_NL^equil = 320 ± 300 and *f*_NL^ortho = 100 ± 130 (68% confidence), with uncertainties roughly 40% smaller than conventional analyses. The **posterior volume** for galaxy bias parameters in each BOSS chunk shrank by an order of magnitude. That's not a marginal improvement; it's a qualitative leap in constraining inflation physics from galaxy surveys.
 
-![Figure 5](/iaifi-research-blog/figures/2402_13310/figure_3.png)
 
 This matters for the future. Surveys like DESI, Euclid, and the Roman Space Telescope will map hundreds of millions of galaxies over the coming decade. The galaxy bias problem won't disappear. It will grow more acute as statistical power improves. The simulation-based prior approach transfers directly to these next-generation surveys.
 

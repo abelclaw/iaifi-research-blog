@@ -31,10 +31,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2508_09249/figure_1.png
-- /iaifi-research-blog/figures/2508_09249/figure_1.png
-- /iaifi-research-blog/figures/2508_09249/figure_2.png
-- /iaifi-research-blog/figures/2508_09249/figure_2.png
-- /iaifi-research-blog/figures/2508_09249/figure_3.png
 - /iaifi-research-blog/figures/2508_09249/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2508.09249v1
 published: '2025-08-12T18:00:01+00:00'
@@ -68,17 +64,15 @@ The authors consider three baselines, each probing a different layer of Earth's 
 - **Fermilab → KM3NeT** (Mediterranean): ~8,600 km, through the mantle
 - **Fermilab → IceCube** (South Pole): ~12,900 km, through the core
 
-![Figure 2](/iaifi-research-blog/figures/2508_09249/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2508_09249/figure_3.png)
 
 The oscillation search compares the flavor composition (the mix of neutrino types) at the source against what arrives at the detector. Standard neutrino oscillations are well understood: neutrinos quantum-mechanically morph between their three flavors (electron, muon, and tau) as they travel. New physics would show up as deviations from the expected pattern. The beam's angular spread also provides a useful trick: sampling different off-axis angles effectively samples different neutrino energies, sharpening sensitivity to oscillation signals through what's known as the PRISM effect.
 
 The physics reach is worth spelling out. For **sterile neutrinos** (hypothetical particles that don't interact via the weak force), the kaleidoscope could probe mixing with ordinary neutrinos at mass splittings around 1 eV², with sensitivity orders of magnitude beyond existing terrestrial experiments.
 
-![Figure 3](/iaifi-research-blog/figures/2508_09249/figure_2.png)
 
 The reach for **Lorentz invariance violation** is even more dramatic. Some quantum gravity theories predict tiny departures from Einstein's special relativity. These effects accumulate over long baselines and become measurable at TeV energies. The kaleidoscope could probe violations suppressed by the Planck scale (~10¹⁹ GeV), equivalent to detecting a wrinkle in the fabric of spacetime itself.
 
-![Figure 4](/iaifi-research-blog/figures/2508_09249/figure_2.png)
 
 ## Why It Matters
 

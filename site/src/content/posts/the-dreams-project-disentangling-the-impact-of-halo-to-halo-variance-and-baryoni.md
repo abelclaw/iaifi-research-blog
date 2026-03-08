@@ -52,7 +52,6 @@ concepts:
 - surrogate modeling
 figures:
 - /iaifi-research-blog/figures/2512_04157/figure_1.png
-- /iaifi-research-blog/figures/2512_04157/figure_2.png
 - /iaifi-research-blog/figures/2512_04157/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.04157v1
 published: '2025-12-03T19:00:01+00:00'
@@ -92,13 +91,12 @@ The key question: which source of uncertainty matters most?
 
 The answer was unambiguous: halo-to-halo variance dominates. The spread between individual simulated galaxies swamps any effect from tweaking feedback physics. Host halo mass matters secondarily. Supernova and black hole feedback uncertainties? Negligible.
 
-![Figure 2](/iaifi-research-blog/figures/2512_04157/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2512_04157/figure_3.png)
 
 On the reassuring side, imperfect models of stellar feedback won't dramatically bias dark matter detection predictions. But there's a harder problem: the Milky Way's particular formation history, something we can only partially reconstruct, introduces an irreducible uncertainty that no improvement in feedback physics can resolve.
 
 The team also combined results across all 1,024 halos to produce a new prediction for the Milky Way's dark matter speed distribution. The Standard Halo Model falls within the uncertainty range, but that doesn't mean the SHM is right for any specific galaxy. Many individual simulated galaxies deviate significantly. The SHM survives as a statistical average, not a reliable description of any particular galaxy.
 
-![Figure 3](/iaifi-research-blog/figures/2512_04157/figure_3.png)
 
 ## Why It Matters
 

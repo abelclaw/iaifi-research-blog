@@ -26,10 +26,7 @@ concepts:
 - generative models
 figures:
 - /iaifi-research-blog/figures/2103_12226/figure_1.png
-- /iaifi-research-blog/figures/2103_12226/figure_1.png
 - /iaifi-research-blog/figures/2103_12226/figure_2.png
-- /iaifi-research-blog/figures/2103_12226/figure_2.png
-- /iaifi-research-blog/figures/2103_12226/figure_3.png
 - /iaifi-research-blog/figures/2103_12226/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2103.12226v1
 published: '2021-03-22T23:22:33+00:00'
@@ -65,13 +62,13 @@ The ML approaches reviewed span a wide range:
 
 Here's what makes particle physics genuinely unusual as an ML domain: individual events don't have truth labels. Because of quantum mechanical interference, a collision event isn't purely "signal" or purely "background." It's a superposition of both. The probability distribution takes the form |M_S + M_B|², where the cross term represents quantum interference between signal and background amplitudes. Only mixture fractions can be inferred, never per-event identity. You can't train on ground truth labels the way you'd label cats and dogs.
 
-![Figure 2](/iaifi-research-blog/figures/2103_12226/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2103_12226/figure_2.png)
 
 What saves the field is 40+ years of expert-built simulation tools that model collisions across 20 orders of magnitude in length scale, from 10⁻¹⁸ meters where perturbative quantum field theory governs, up to the 100-meter scale of the ATLAS detector. These simulators generate roughly one trillion synthetic events, enabling supervised training even without event-level labels.
 
 The most promising frontier is **weakly supervised and unsupervised learning**, methods that reduce or eliminate simulation dependence entirely. Techniques like **CWoLa (Classification Without Labels)** exploit the fact that different data regions contain different signal fractions, training classifiers directly on real data rather than simulations. **Anomaly detection** methods search for events that look unlike any simulated background, a way to find unexpected signals without specifying in advance what new physics should look like.
 
-![Figure 3](/iaifi-research-blog/figures/2103_12226/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2103_12226/figure_3.png)
 
 ## Why It Matters
 
@@ -81,7 +78,6 @@ The LHC has already recorded more data than physicists can fully analyze with tr
 
 The influence runs both directions. The unique demands of particle physics (high-dimensional, physically structured, quantum-mechanical data without individual ground truth) are pushing ML toward new architectures, training paradigms, and theoretical frameworks. Networks that respect the symmetries of special relativity. Generative models that faithfully reproduce complex multi-particle collisions. Classifiers calibrated rigorously enough for scientific inference. Particle physics is helping to define all of these frontiers.
 
-![Figure 4](/iaifi-research-blog/figures/2103_12226/figure_2.png)
 
 Open challenges remain significant. Systematic uncertainties, the differences between simulation and reality, can bias ML classifiers in subtle, hard-to-detect ways. Interpretability is a persistent concern: when a deep network finds a signal, can physicists understand *why*? And the field is still developing the statistical frameworks needed to rigorously combine ML outputs with traditional hypothesis testing.
 

@@ -38,9 +38,6 @@ figures:
 - /iaifi-research-blog/figures/2110_02965/figure_1.png
 - /iaifi-research-blog/figures/2110_02965/figure_1.png
 - /iaifi-research-blog/figures/2110_02965/figure_2.png
-- /iaifi-research-blog/figures/2110_02965/figure_2.png
-- /iaifi-research-blog/figures/2110_02965/figure_3.png
-- /iaifi-research-blog/figures/2110_02965/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.02965v3
 published: '2021-10-06T18:00:01+00:00'
 theme: Theoretical Physics
@@ -90,15 +87,12 @@ The efficiency gains are stark. For tasks like predicting how a process acts on 
 
 The team validated ShadowQPT on IonQ's trapped-ion quantum computer, characterizing processes on 2, 3, and 4 qubits using both Pauli and Clifford measurements. They tested both unitary processes (clean, reversible quantum gates) and non-unitary channels involving noise.
 
-![Figure 4](/iaifi-research-blog/figures/2110_02965/figure_2.png)
 
 ShadowQPT-reconstructed processes showed good agreement with direct measurements. Clifford shadows outperformed Pauli measurements for full process reconstruction, consistent with theory. The physical projection and purification steps measurably boosted accuracy.
 
-![Figure 5](/iaifi-research-blog/figures/2110_02965/figure_3.png)
 
 The team also demonstrated **Hamiltonian learning**, reconstructing the physical equations governing a quantum system directly from ShadowQPT data. They recovered parameters of a random 1D Ising model (a standard model of interacting quantum particles arranged in a line), with measurement requirements scaling logarithmically in system size.
 
-![Figure 6](/iaifi-research-blog/figures/2110_02965/figure_3.png)
 
 ## Why It Matters
 

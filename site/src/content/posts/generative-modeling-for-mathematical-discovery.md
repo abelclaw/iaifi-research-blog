@@ -32,8 +32,6 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2503_11061/figure_1.png
-- /iaifi-research-blog/figures/2503_11061/figure_2.png
-- /iaifi-research-blog/figures/2503_11061/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.11061v2
 published: '2025-03-14T03:54:43+00:00'
 theme: Foundational AI
@@ -74,11 +72,9 @@ The benchmarks are encouraging. Tested on the **cap set problem** — a classic 
 
 In some cases it discovered principles that *generalized* beyond the specific problem it was trained on. That's not brute-force search. That's something closer to learning.
 
-![Figure 2](/iaifi-research-blog/figures/2503_11061/figure_2.png)
 
 This points toward a genuinely new role for AI in mathematics: not replacing human insight, but dramatically accelerating the exploratory phase of research. The hardest part of mathematical discovery is often knowing *where to look*. Funsearch doesn't just search faster — it learns to search smarter. And because results are executable Python programs, mathematicians can inspect exactly *what* the LLM learned, potentially extracting new conjectures or proof strategies from the evolved code.
 
-![Figure 3](/iaifi-research-blog/figures/2503_11061/figure_3.png)
 
 The broader implications extend beyond pure mathematics. Many problems in theoretical physics share the same structure: easy to check, hard to find. Whether searching for optimal lattice configurations, extremal quantum states, or combinatorial structures underlying physical symmetries, funsearch could become a standard tool in the computational scientist's toolkit. The team's open-source release lowers the barrier to adoption considerably — any researcher with a laptop and an API key can try it.
 

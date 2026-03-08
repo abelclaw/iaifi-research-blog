@@ -36,7 +36,6 @@ concepts:
 - feature extraction
 figures:
 - /iaifi-research-blog/figures/2402_19306/figure_1.png
-- /iaifi-research-blog/figures/2402_19306/figure_2.png
 - /iaifi-research-blog/figures/2402_19306/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.19306v3
 published: '2024-02-29T16:12:56+00:00'
@@ -69,7 +68,7 @@ Here's how the encoding works in practice:
 
 3. **Run on real hardware.** The team executed this encoding on an IBM quantum processor using 8 qubits, which supports 3⁸ = 6,561 parity observables, enough to store the full information from a neutrino interaction event.
 
-![Figure 2](/iaifi-research-blog/figures/2402_19306/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2402_19306/figure_3.png)
 
 4. **Decode and verify.** After storage, they read the quantum states back by measuring all the parity observables and reconstructing the original bitstring. The result: 84% fidelity, meaning 84% of the stored bits were recovered correctly from the quantum computer.
 

@@ -38,7 +38,6 @@ concepts:
 - generative models
 - score-based models
 figures:
-- /iaifi-research-blog/figures/2510_03335/figure_1.png
 - /iaifi-research-blog/figures/2510_03335/figure_2.png
 - /iaifi-research-blog/figures/2510_03335/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.03335v1
@@ -65,7 +64,7 @@ Two key players make the story work.
 
 The first is the **Kabsch-Umeyama algorithm**, a classical method for finding the best rotation that aligns two sets of 3D points. When training a diffusion model on molecules, practitioners use this to rotate the model's prediction so it lines up as closely as possible with the ground-truth structure before computing the error. It's like grading a student's answer by first rotating it to match the answer key.
 
-![Figure 1](/iaifi-research-blog/figures/2510_03335/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2510_03335/figure_2.png)
 
 The second is the **matrix Fisher distribution**, a probability distribution over rotations in 3D space. Think of it like a bell curve, but instead of describing how likely different numbers are, it describes how likely different orientations are. The more concentrated the distribution, the more confidently you can say which rotation is correct.
 
@@ -79,11 +78,10 @@ So where does alignment fit in?
 
 This explains why alignment works at all. As noise decreases during denoising, the optimal rotation becomes more concentrated, and simple alignment becomes an increasingly accurate approximation of the true optimal answer.
 
-![Figure 2](/iaifi-research-blog/figures/2510_03335/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2510_03335/figure_3.png)
 
 The team went further, using **Laplace's method** (a classical technique for approximating integrals by expanding around their peaks) to derive correction terms beyond the zeroth-order approximation. Higher-order estimators capture the spread of the Fisher distribution around its peak, accounting for the range of plausible rotations rather than just the most likely one. The added computational cost is negligible: the correction terms are computed analytically, not through Monte Carlo sampling.
 
-![Figure 3](/iaifi-research-blog/figures/2510_03335/figure_3.png)
 
 In experiments, the corrected estimators showed reduced bias compared to plain alignment, especially at higher noise levels. But there's a practical twist: for the noise levels that dominate typical training loss, standard alignment is already quite accurate. The low-noise regime, where improved estimators matter most in theory, is also where plain alignment barely makes errors anyway.
 

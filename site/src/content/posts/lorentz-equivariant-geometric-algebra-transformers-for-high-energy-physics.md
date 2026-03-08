@@ -37,9 +37,6 @@ figures:
 - /iaifi-research-blog/figures/2405_14806/figure_1.png
 - /iaifi-research-blog/figures/2405_14806/figure_1.png
 - /iaifi-research-blog/figures/2405_14806/figure_2.png
-- /iaifi-research-blog/figures/2405_14806/figure_2.png
-- /iaifi-research-blog/figures/2405_14806/figure_3.png
-- /iaifi-research-blog/figures/2405_14806/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.14806v3
 published: '2024-05-23T17:15:41+00:00'
 theme: Foundational AI
@@ -86,7 +83,6 @@ L-GATr matches or outperforms specialized baselines across all three. That's the
 
 The broader point is one of architectural philosophy. Domain-specific models built for one task can't easily transfer. L-GATr is a single backbone that plugs into the entire analysis pipeline. As collider experiments grow more demanding (the High-Luminosity LHC upgrade will increase collision rates roughly fivefold), the need for data-efficient, versatile architectures will only intensify. Building Lorentz symmetry in from the start is not just elegant; it's a practical engineering advantage.
 
-![Figure 4](/iaifi-research-blog/figures/2405_14806/figure_2.png)
 
 Several extensions follow naturally. The current architecture handles the Lorentz group but not the full **Poincaré group**, which also includes spacetime translations. Long-lived particles that travel measurable distances before decaying would require tracking absolute positions, an extension that is straightforward in principle. The framework could also be adapted to other symmetry groups in particle physics: SU(3) color symmetry governs the strong force and remains largely untouched by equivariant ML.
 

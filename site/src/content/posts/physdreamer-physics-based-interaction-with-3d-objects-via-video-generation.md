@@ -42,10 +42,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2404_13026/figure_1.png
 - /iaifi-research-blog/figures/2404_13026/figure_1.png
-- /iaifi-research-blog/figures/2404_13026/figure_2.png
-- /iaifi-research-blog/figures/2404_13026/figure_2.png
-- /iaifi-research-blog/figures/2404_13026/figure_3.png
-- /iaifi-research-blog/figures/2404_13026/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.13026v2
 published: '2024-04-19T17:41:05+00:00'
 theme: Foundational AI
@@ -85,7 +81,6 @@ The power of this approach is that every step is mathematically connected. Becau
 
 Once the material field is estimated, it's free. Apply any new force (a gust of wind, a finger push, a violent shake) and the physics simulator generates a physically consistent response from any camera angle. The video generation model is only needed during estimation, not at interaction time.
 
-![Figure 4](/iaifi-research-blog/figures/2404_13026/figure_2.png)
 
 The team tested PhysDreamer on a deliberately diverse set of elastic objects: flowers, potted plants, a beanie hat, and a telephone cord. A user study comparing PhysDreamer against state-of-the-art alternatives found that participants consistently rated its synthesized interactions as more realistic, in both motion quality and visual fidelity.
 

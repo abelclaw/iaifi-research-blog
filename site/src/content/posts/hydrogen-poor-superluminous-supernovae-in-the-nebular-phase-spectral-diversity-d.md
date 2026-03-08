@@ -46,8 +46,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2511_10747/figure_1.png
-- /iaifi-research-blog/figures/2511_10747/figure_2.png
-- /iaifi-research-blog/figures/2511_10747/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2511.10747v1
 published: '2025-11-13T19:02:15+00:00'
 theme: Astrophysics
@@ -84,7 +82,6 @@ The diagnostic at the center of this work is the **line ratio L₇₃₀₀/L₆
 
 Normal **stripped-envelope supernovae** (SNe Ic, the closest structural analogs to SLSNe) cluster in a narrow range of nebular line ratios. SLSNe-I scatter across a much wider range, with some showing L₇₃₀₀/L₆₃₀₀ more than three times larger than normal SNe Ic. That spread carries physical information.
 
-![Figure 2](/iaifi-research-blog/figures/2511_10747/figure_2.png)
 
 Here's where it gets interesting. The line ratio correlates with the *light curve*, how the supernova brightened and faded in the weeks before the nebular spectra were taken. Supernovae that rise and fall more slowly show *higher* ionization at late times. This is the first confirmed link between an SLSN's early light curve behavior and its late-time spectral properties.
 
@@ -92,7 +89,6 @@ The magnetar scenario explains this cleanly. Slower light curves indicate magnet
 
 A handful of outliers complicate the picture. Several events show *increasing* L₇₃₀₀/L₆₃₀₀ over time, or sustained high ratios for unusually long periods. The team argues these may reflect **circumstellar medium (CSM) interaction**, where the expanding debris plows into material the progenitor star shed before it died. That collision injects fresh energy that mimics, but does not replicate, the magnetar signature.
 
-![Figure 3](/iaifi-research-blog/figures/2511_10747/figure_3.png)
 
 ## Why It Matters
 

@@ -37,7 +37,6 @@ concepts:
 - anomaly detection
 figures:
 - /iaifi-research-blog/figures/2204_08486/figure_1.png
-- /iaifi-research-blog/figures/2204_08486/figure_2.png
 - /iaifi-research-blog/figures/2204_08486/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2204.08486v1
 published: '2022-04-18T18:00:02+00:00'
@@ -75,13 +74,12 @@ To figure out what powers these explosions, the team fit a **combined magnetar p
 
 **Spectroscopy** told a consistent story. LSNe show no sharp divide from either neighboring class. Their spectra form a continuous bridge from ordinary Type Ic features to the W-shaped oxygen absorption lines that mark young SLSNe. As LSNe cool, they look more and more like normal Type Ic supernovae, exactly as aging SLSNe do.
 
-![Figure 2](/iaifi-research-blog/figures/2204_08486/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2204_08486/figure_3.png)
 
 LSNe also split into two sub-groups. The first evolves quickly, rising and falling on timescales comparable to ordinary Type Ib/c supernovae. These events appear driven primarily by **over-abundant ⁵⁶Ni**: more radioactive nickel than a typical Type Ic produces, but not enough to require an exotic energy source. Think ordinary supernovae with the volume turned up.
 
 The second group stretches over weeks to months, like SLSNe. These appear powered by **weak magnetar engines**: neutron stars spinning down and depositing energy, but with less punch than the magnetars behind true SLSNe. Their physical parameters sit between the two established classes in ejecta mass, magnetic field strength, and spin period.
 
-![Figure 3](/iaifi-research-blog/figures/2204_08486/figure_3.png)
 
 Event rates reinforce this picture. SLSNe represent less than 1% of the Type Ib/c volumetric rate. LSNe occupy an intermediate niche, which suggests magnetar engines don't suddenly switch on at some luminosity threshold. Instead, they span a continuum of power.
 

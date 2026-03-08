@@ -49,9 +49,6 @@ concepts:
 - graph neural networks
 figures:
 - /iaifi-research-blog/figures/2402_05137/figure_1.png
-- /iaifi-research-blog/figures/2402_05137/figure_1.png
-- /iaifi-research-blog/figures/2402_05137/figure_2.png
-- /iaifi-research-blog/figures/2402_05137/figure_2.png
 - /iaifi-research-blog/figures/2402_05137/figure_3.png
 - /iaifi-research-blog/figures/2402_05137/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.05137v2
@@ -88,7 +85,7 @@ Each method has different strengths. NPE is fast at inference time. NLE handles 
 
 Raw inference isn't enough, though. A posterior that looks confident can still be wrong. LtU-ILI bakes in **validation metrics**, including simulation-based calibration (SBC) tests that check whether the pipeline's credible intervals actually deliver on their promise. If your 90% credible interval only captures the truth 60% of the time, you've got a problem, and LtU-ILI will flag it.
 
-![Figure 2](/iaifi-research-blog/figures/2402_05137/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2402_05137/figure_3.png)
 
 The team tested the pipeline on five real astrophysics problems: galaxy cluster masses from X-ray photometry, cosmological parameters from matter power spectra and dark matter halo point clouds, gravitational wave signals from merging black holes and neutron stars, dust physics from galaxy colors, and semi-analytic models of galaxy formation. In each case, they benchmarked multiple ILI methods head-to-head, which is uncommon in a field where methods are usually tested in isolation.
 

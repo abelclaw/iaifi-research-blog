@@ -60,7 +60,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2512_02095/figure_1.png
 - /iaifi-research-blog/figures/2512_02095/figure_2.png
-- /iaifi-research-blog/figures/2512_02095/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.02095v1
 published: '2025-12-01T19:00:00+00:00'
 theme: Astrophysics
@@ -98,7 +97,6 @@ The results are telling. Plot the predicted satellite stellar mass function for 
 
 There is one exception worth noting. Supernova wind energy, the total kinetic energy injected into surrounding gas when massive stars explode, does leave a measurable imprint. Cranking up wind energy suppresses satellite stellar masses and produces more spatially extended stellar distributions. The physics is intuitive: stronger winds push gas outward before it can collapse into stars, leaving satellites less centrally concentrated. Wind speed, by contrast, has only a minor effect. Parameters governing black holes, cosmic expansion, and other processes show essentially no measurable signal.
 
-![Figure 3](/iaifi-research-blog/figures/2512_02095/figure_3.png)
 
 ## Why It Matters
 

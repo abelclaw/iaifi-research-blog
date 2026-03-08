@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2410_13148/figure_1.png
 - /iaifi-research-blog/figures/2410_13148/figure_1.png
 - /iaifi-research-blog/figures/2410_13148/figure_2.png
-- /iaifi-research-blog/figures/2410_13148/figure_2.png
-- /iaifi-research-blog/figures/2410_13148/figure_3.png
-- /iaifi-research-blog/figures/2410_13148/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2410.13148v3
 published: '2024-10-17T02:07:54+00:00'
 theme: Experimental Physics
@@ -82,15 +79,12 @@ The physics payoff is real. When tested on reconstruction tasks (recovering a pa
 
 This matters beyond IceCube. Several next-generation neutrino telescopes are under construction or planned: KM3NeT in the Mediterranean, Baikal-GVD in Russia, P-ONE in the Pacific, and IceCube-Gen2, which would expand the Antarctic detector tenfold. Each will generate more data at higher rates. A general-purpose representation learner that works at the earliest stage of data collection could become infrastructure, deployed at the detector level, quietly enabling everything downstream.
 
-![Figure 4](/iaifi-research-blog/figures/2410_13148/figure_2.png)
 
 There is also a machine learning angle here. Transformers have revolutionized language and vision, but applying them to irregular, variable-length physics data requires architectural care. The hybrid encoder design (attention across features, feedforward networks across sequence length) is a specific engineering choice that the paper validates empirically, showing transformers outperform fully connected baselines on this task.
 
-![Figure 5](/iaifi-research-blog/figures/2410_13148/figure_3.png)
 
 The VAE's continuous, structured latent space also creates possibilities that previous approaches didn't offer. Nearby points in latent space correspond to similar physical events, which means the representations can support anomaly detection, generative modeling, and semi-supervised learning, all active frontiers in particle physics data analysis.
 
-![Figure 6](/iaifi-research-blog/figures/2410_13148/figure_3.png)
 
 > **Bottom Line:** om2vec converts messy, variable neutrino detector data into compact, physics-rich representations that are faster to process and more flexible than existing methods, a potential building block for next-generation neutrino telescope analysis.
 

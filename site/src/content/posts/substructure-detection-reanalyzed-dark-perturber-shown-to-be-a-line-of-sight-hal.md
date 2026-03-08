@@ -33,7 +33,6 @@ concepts:
 - cosmological simulation
 figures:
 - /iaifi-research-blog/figures/2112_00749/figure_1.png
-- /iaifi-research-blog/figures/2112_00749/figure_2.png
 - /iaifi-research-blog/figures/2112_00749/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2112.00749v3
 published: '2021-12-01T19:00:01+00:00'
@@ -76,7 +75,7 @@ Their pipeline used `lenstronomy`, an open-source Python lensing package, with t
 
 They sampled the full posterior over all model parameters, including the perturber's redshift, position, mass, and concentration. The result was unambiguous.
 
-![Figure 2](/iaifi-research-blog/figures/2112_00749/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2112_00749/figure_3.png)
 
 ## Why It Matters
 
@@ -84,7 +83,6 @@ The perturber's redshift converged not to z = 0.881, but to **z = 1.42** (±0.10
 
 The mass consequence is dramatic. As a tightly-bound subhalo, the perturber appeared to weigh ~1.9 × 10⁸ solar masses. Recast as a background NFW halo with its true geometry, it comes out an order of magnitude heavier. The difference arises because the lensing geometry, specifically how far the perturber sits from the observer-source line, changes entirely when you place it at a different redshift.
 
-![Figure 3](/iaifi-research-blog/figures/2112_00749/figure_3.png)
 
 This isn't a minor calibration tweak. It's a qualitatively different physical object, living in a qualitatively different environment, obeying a qualitatively different mass function.
 

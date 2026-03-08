@@ -27,13 +27,7 @@ concepts:
 - quantum well bilayer
 - automated discovery
 - symmetry preservation
-figures:
-- /iaifi-research-blog/figures/2512_10909/figure_1.png
-- /iaifi-research-blog/figures/2512_10909/figure_1.png
-- /iaifi-research-blog/figures/2512_10909/figure_2.png
-- /iaifi-research-blog/figures/2512_10909/figure_2.png
-- /iaifi-research-blog/figures/2512_10909/figure_3.png
-- /iaifi-research-blog/figures/2512_10909/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2512.10909v1
 published: '2025-12-11T18:39:04+00:00'
 theme: Theoretical Physics
@@ -68,7 +62,6 @@ Their architecture is attention-based, similar in spirit to transformer models. 
 
 The team studied spin-polarized electrons confined in a GaAs-like quantum well, scanning across two key parameters: electron density (*r_s*, the ratio of interparticle spacing to effective Bohr radius) and well thickness *d*. By letting the neural network find the lowest-energy state at each point, they built a complete phase diagram with no preconceptions required.
 
-![Figure 1](/iaifi-research-blog/figures/2512_10909/figure_1.png)
 
 ## Phases Emerge from First Principles
 
@@ -76,21 +69,16 @@ At narrow well thicknesses, the physics is familiar. At low density (*r_s* aroun
 
 Widen the well, and something new happens. Higher energy levels become accessible, and electrons spread out along the depth of the well, spontaneously splitting into two layers even though the well itself has no physical divider. The **Fermi surface** (the boundary in momentum space separating occupied from empty electron states) splits from one circular surface into two distinct ones.
 
-![Figure 2](/iaifi-research-blog/figures/2512_10909/figure_1.png)
 
 In the bilayer regime at low density, crystalline phases appear. But the bilayer geometry introduces a frustration problem: two triangular lattices stacked on top of each other can't simultaneously minimize all their interlayer repulsions. The triangular crystal isn't always the winner.
 
-![Figure 3](/iaifi-research-blog/figures/2512_10909/figure_2.png)
 
 What wins instead, in a specific range of densities and well widths, is the **quantum quasicrystal**. The simulations reveal a phase with 12-fold rotational symmetry, a pattern that tiles the plane with two different shapes, never repeating, yet never disordered. This dodecagonal order appears in the **structure factor** (a mathematical fingerprint of how electron density is organized in space) with sharp peaks no ordinary crystal can produce.
 
-![Figure 4](/iaifi-research-blog/figures/2512_10909/figure_2.png)
 
 The quasicrystal isn't a classical effect. By computing the **zero-point quantum fluctuations**, the irreducible quantum jitter electrons retain even at absolute zero, the team showed these fluctuations actually *stabilize* the quasicrystal relative to competing crystal phases. Remove quantum mechanics, and the quasicrystal disappears.
 
-![Figure 5](/iaifi-research-blog/figures/2512_10909/figure_3.png)
 
-![Figure 6](/iaifi-research-blog/figures/2512_10909/figure_3.png)
 
 ## Why It Matters
 

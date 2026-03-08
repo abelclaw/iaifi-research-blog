@@ -40,7 +40,6 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2108_01403/figure_1.png
-- /iaifi-research-blog/figures/2108_01403/figure_2.png
 - /iaifi-research-blog/figures/2108_01403/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2108.01403v2
 published: '2021-08-03T10:36:04+00:00'
@@ -80,11 +79,10 @@ The analysis distinguishes two flavors of RG flow:
 
 The active RG is the conceptually striking result. When you tune a network's weight initialization, a routine practical choice, you are performing a renormalization group transformation in a precise mathematical sense.
 
-![Figure 2](/iaifi-research-blog/figures/2108_01403/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2108_01403/figure_3.png)
 
 The team focuses on **translation-invariant kernels**, which allow momentum-space methods to apply cleanly, and works through the **local potential approximation (LPA)**, a controlled simplification of the full effective action that preserves essential physics while keeping the equations tractable. They analyze both the symmetric phase and symmetry-broken phases, tracking fixed points and flows numerically.
 
-![Figure 3](/iaifi-research-blog/figures/2108_01403/figure_3.png)
 
 The paper also tackles a subtle issue. **Locality** in standard QFT means fields interact only at the same spacetime point, rooted in causality. Neural network inputs are arbitrary vectors with no natural spacetime structure, so that constraint doesn't apply. The RG itself generates a natural notion of locality, with modes organized by their eigenvalues under the kernel rather than by spacetime position. When input data lacks permutation symmetry, the authors argue that **random tensor field theories** offer the right generalization, pointing toward connections with an active area of mathematical physics.
 

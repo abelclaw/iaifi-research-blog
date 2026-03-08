@@ -43,11 +43,8 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2403_03154/figure_1.png
-- /iaifi-research-blog/figures/2403_03154/figure_1.png
 - /iaifi-research-blog/figures/2403_03154/figure_2.png
 - /iaifi-research-blog/figures/2403_03154/figure_2.png
-- /iaifi-research-blog/figures/2403_03154/figure_3.png
-- /iaifi-research-blog/figures/2403_03154/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.03154v2
 published: '2024-03-05T17:47:22+00:00'
 theme: Foundational AI
@@ -81,7 +78,7 @@ The derivation unfolds across five main stages:
 4. **Organize Hartree and Fock terms** — sort the resulting energy equation into its two components: direct electron-electron repulsion (Hartree) and exchange interaction (Fock).
 5. **Reveal symmetry structure** — use the system's symmetries to identify the *order parameter*, the quantity that measures how "ordered" the material is (the way magnetization measures how magnetic something is) and signals what phase it might enter.
 
-![Figure 2](/iaifi-research-blog/figures/2403_03154/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2403_03154/figure_2.png)
 
 The researchers assembled a benchmark of 15 real physics papers from the past decade, spanning twisted bilayer graphene, topological insulators, Moiré systems, and more. For each paper, they filled in the templates with problem-specific information and asked GPT-4 to execute the derivation step by step. The model correctly produced the final **Hartree-Fock Hamiltonian** in 13 of 15 cases. The two failures involved minor errors, not catastrophic breakdowns.
 

@@ -41,9 +41,6 @@ figures:
 - /iaifi-research-blog/figures/2402_17090/figure_1.png
 - /iaifi-research-blog/figures/2402_17090/figure_1.png
 - /iaifi-research-blog/figures/2402_17090/figure_2.png
-- /iaifi-research-blog/figures/2402_17090/figure_2.png
-- /iaifi-research-blog/figures/2402_17090/figure_3.png
-- /iaifi-research-blog/figures/2402_17090/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.17090v2
 published: '2024-02-26T23:56:34+00:00'
 theme: Foundational AI
@@ -85,7 +82,6 @@ By diffusing in Fourier space, the model selectively corrupts and recovers diffe
 
 On standard image benchmarks, FDDM produced competitive image quality with substantially reduced training time compared to pixel-domain diffusion models, a direct consequence of the sparsity advantage in Fourier space.
 
-![Figure 4](/iaifi-research-blog/figures/2402_17090/figure_2.png)
 
 ## Why It Matters
 
@@ -95,7 +91,6 @@ That changes the conversation. The mathematical structures physicists have refin
 
 The authors point to several open directions: extending the framework to other data modalities (audio, molecular structures, scientific data), testing whether alternative RG schemes yield further gains, and deepening the theoretical connections to categorical and algebraic structures in both physics and machine learning.
 
-![Figure 5](/iaifi-research-blog/figures/2402_17090/figure_3.png)
 
 > **Bottom Line:** FDDM proves that the renormalization group, a tool forged in quantum field theory, can be reverse-engineered into a faster, more principled image generator. Physics didn't just inspire the model; it built it.
 

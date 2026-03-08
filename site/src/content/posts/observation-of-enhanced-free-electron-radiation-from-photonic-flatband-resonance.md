@@ -43,9 +43,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2110_03550/figure_1.png
 - /iaifi-research-blog/figures/2110_03550/figure_1.png
-- /iaifi-research-blog/figures/2110_03550/figure_2.png
-- /iaifi-research-blog/figures/2110_03550/figure_2.png
-- /iaifi-research-blog/figures/2110_03550/figure_3.png
 - /iaifi-research-blog/figures/2110_03550/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.03550v1
 published: '2021-10-07T15:16:15+00:00'
@@ -88,7 +85,6 @@ The experimental setup fired electron beams from a scanning electron microscope 
 
 The team also used the electron beam itself as a probe. By mapping the angle-resolved emission spectrum (measuring how light is emitted at different angles as electron speed changes) they reconstructed the photonic band structure of the crystal. This technique works where conventional optical measurements can't easily reach, opening a new window onto how light propagates through complex materials.
 
-![Figure 4](/iaifi-research-blog/figures/2110_03550/figure_2.png)
 
 ## Why It Matters
 

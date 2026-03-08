@@ -36,11 +36,8 @@ concepts:
 - inverse problems
 figures:
 - /iaifi-research-blog/figures/2110_08406/figure_1.png
-- /iaifi-research-blog/figures/2110_08406/figure_1.png
 - /iaifi-research-blog/figures/2110_08406/figure_2.png
 - /iaifi-research-blog/figures/2110_08406/figure_2.png
-- /iaifi-research-blog/figures/2110_08406/figure_3.png
-- /iaifi-research-blog/figures/2110_08406/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.08406v1
 published: '2021-10-15T23:08:24+00:00'
 theme: Theoretical Physics
@@ -75,7 +72,7 @@ SIB-CL fuses these sources through a two-stage training pipeline. In the first s
 
 The model sees two differently-transformed versions of the same input and learns to place them close together in a shared representational space, while pushing representations of different inputs far apart. The transformations aren't arbitrary. They're chosen to reflect the actual physical symmetries of the problem. A rotation that leaves a crystal's properties invariant becomes a principled training signal. The physics does the work.
 
-![Figure 2](/iaifi-research-blog/figures/2110_08406/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2110_08406/figure_2.png)
 
 Interleaved with this contrastive step is **surrogate transfer learning**: the model pre-trains on the cheaper approximate dataset before fine-tuning on the small, precious set of high-fidelity labels. This gives the network's **encoder**, the component that transforms raw inputs into a compact internal representation, a meaningful head start. It arrives at fine-tuning already understanding the structure of the problem, even if the surrogate's answers aren't exact.
 

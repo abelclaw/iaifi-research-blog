@@ -28,7 +28,6 @@ concepts:
 - phase transitions
 figures:
 - /iaifi-research-blog/figures/2601_03738/figure_1.png
-- /iaifi-research-blog/figures/2601_03738/figure_2.png
 - /iaifi-research-blog/figures/2601_03738/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2601.03738v1
 published: '2026-01-07T09:27:25+00:00'
@@ -72,13 +71,12 @@ The real breakthrough came when the authors shifted focus from tree-graphs to th
 
 The pattern jumps out. Energies grow roughly like *p*^*n*, while degeneracies grow like (*p*−1)·*p*^(*n*−1). The ratio stays controlled in just the right way.
 
-![Figure 2](/iaifi-research-blog/figures/2601_03738/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2601_03738/figure_3.png)
 
 To extract the thermodynamics, the researchers computed the **partition function**, the fundamental accounting tool of statistical mechanics that tallies all possible states weighted by their thermal probability. Getting the high-temperature asymptotics right required care: both energies and degeneracies grow exponentially, so standard approximation schemes break down. The authors developed a systematic expansion showing that entropy scales as the square root of energy, exactly as in the ordinary non-relativistic string.
 
 But the entropy doesn't simply scale like √*E*. It oscillates. The leading behavior is Hardy-Ramanujan-like, modulated by log-periodic fluctuations that repeat every time the energy increases by a fixed multiplicative factor. This is a hallmark of **discrete scale invariance**: the ultrametric world is hierarchical by construction, and that hierarchy leaves its mark on the thermodynamics.
 
-![Figure 3](/iaifi-research-blog/figures/2601_03738/figure_3.png)
 
 The same spectrum also arises as the eigenspectrum of the **Neumann-to-Dirichlet operator** on U*p*, a boundary-value operator that maps how steeply a function slopes at an edge to the function's value there. This connection gives an independent derivation of the ultrametric string spectrum, confirming its mathematical naturality.
 

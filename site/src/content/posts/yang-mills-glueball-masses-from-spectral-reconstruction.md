@@ -28,13 +28,7 @@ concepts:
 - uncertainty quantification
 - lattice gauge theory
 - lattice qcd
-figures:
-- /iaifi-research-blog/figures/2212_01113/figure_1.png
-- /iaifi-research-blog/figures/2212_01113/figure_1.png
-- /iaifi-research-blog/figures/2212_01113/figure_2.png
-- /iaifi-research-blog/figures/2212_01113/figure_2.png
-- /iaifi-research-blog/figures/2212_01113/figure_3.png
-- /iaifi-research-blog/figures/2212_01113/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2212.01113v2
 published: '2022-12-02T11:59:31+00:00'
 theme: Theoretical Physics
@@ -64,23 +58,18 @@ Getting from one to the other requires inverting a mathematical transform that i
 
 2. **Identify the right tensor structures.** Different glueballs are distinguished by their **tensor structure**, the geometric shape of how gluon fields combine at the interaction point. For the scalar glueball ($J^{PC} = 0^{++}$, zero spin and symmetric under certain reflections), the natural arrangement of the four-gluon vertex suffices. For the pseudo-scalar ($J^{PC} = 0^{-+}$, which flips sign under those same reflections), the team employs a structure involving the antisymmetric tensor $\varepsilon_{\mu\nu\rho\sigma}$, chosen so the two channels stay orthogonal. Keeping them from bleeding into each other is essential; mixing channels would make spectral reconstruction exponentially harder.
 
-![Figure 1](/iaifi-research-blog/figures/2212_01113/figure_1.png)
 
 3. **Reconstruct the spectral function with Gaussian process regression (GPR).** Here is where machine learning enters. GPR is a Bayesian technique that treats the unknown **spectral function** (a mathematical object encoding all the frequencies at which a quantum field can vibrate, with peaks corresponding to real particles) as a random field with a prior encoding smoothness assumptions. Given the Euclidean data, GPR updates that prior to a posterior, yielding both a best estimate and rigorous uncertainty bands. It handles the ill-posed inversion gracefully: it doesn't claim to know more than the data support.
 
-![Figure 2](/iaifi-research-blog/figures/2212_01113/figure_1.png)
 
 Where the spectral function peaks, a resonance lives, and a resonance is a particle. The scalar glueball appears as a clean peak in the scalar channel; the pseudo-scalar appears in the pseudo-scalar channel.
 
-![Figure 3](/iaifi-research-blog/figures/2212_01113/figure_2.png)
 
 What makes this approach satisfying is its self-consistency. Rather than solving a separate bound-state equation (the usual **Bethe-Salpeter approach**, which models two particles attracting each other into a composite state), the team extracts glueball masses directly from the same four-gluon correlation functions used throughout the fRG calculation. The glueballs are already hiding inside the vertex; you just need the right tool to see them.
 
-![Figure 4](/iaifi-research-blog/figures/2212_01113/figure_2.png)
 
 The final results: $m_{sc} = 1870 \pm 75$ MeV for the scalar glueball and $m_{ps} = 2700 \pm 120$ MeV for the pseudo-scalar. Both agree well with independent lattice QCD calculations and with functional bound-state methods, a nontrivial consistency check across very different computational approaches.
 
-![Figure 5](/iaifi-research-blog/figures/2212_01113/figure_3.png)
 
 ## Why It Matters
 

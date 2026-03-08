@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2101_12668/figure_1.png
 - /iaifi-research-blog/figures/2101_12668/figure_1.png
 - /iaifi-research-blog/figures/2101_12668/figure_2.png
-- /iaifi-research-blog/figures/2101_12668/figure_2.png
-- /iaifi-research-blog/figures/2101_12668/figure_3.png
-- /iaifi-research-blog/figures/2101_12668/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2101.12668v1
 published: '2021-01-29T16:14:50+00:00'
 theme: Theoretical Physics
@@ -87,15 +84,12 @@ The team tested their approach on Wilson loops in (1+1)-dimensional SU(2) and SU
 
 The results speak for themselves. For the largest loops at the finest lattice spacings, variance dropped by factors between 1,000 and 10,000. To put that in perspective: a 10,000-fold variance reduction means you need 10,000 times fewer Monte Carlo samples to hit the same statistical precision. That's the difference between a calculation that takes years and one that finishes in hours.
 
-![Figure 4](/iaifi-research-blog/figures/2101_12668/figure_2.png)
 
 Because the Jacobian computation scales linearly, the technique doesn't become exponentially more expensive as the system grows. That's a hard requirement for any method that hopes to work on realistic lattice sizes.
 
-![Figure 5](/iaifi-research-blog/figures/2101_12668/figure_3.png)
 
 The researchers also derived exact analytical results for variances in (1+1)D gauge theory, giving them a precise benchmark. In several cases, the optimized deformations essentially saturated the theoretical limit for variance reduction.
 
-![Figure 6](/iaifi-research-blog/figures/2101_12668/figure_3.png)
 
 The sign and signal-to-noise problems aren't mere technical inconveniences. They block calculations of nuclear binding energies, neutron matter properties, and dense-matter behavior in heavy-ion collisions. Without solutions, entire regimes of the Standard Model stay computationally out of reach.
 

@@ -37,10 +37,7 @@ concepts:
 - score-based models
 figures:
 - /iaifi-research-blog/figures/2405_14530/figure_1.png
-- /iaifi-research-blog/figures/2405_14530/figure_1.png
 - /iaifi-research-blog/figures/2405_14530/figure_2.png
-- /iaifi-research-blog/figures/2405_14530/figure_2.png
-- /iaifi-research-blog/figures/2405_14530/figure_3.png
 - /iaifi-research-blog/figures/2405_14530/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.14530v2
 published: '2024-05-23T13:15:24+00:00'
@@ -65,7 +62,7 @@ Researchers at Harvard and Kyoto University have now built a model that does wha
 
 The core idea is deceptively simple: train a small model to understand tiny image patches, then let the pieces talk to each other.
 
-![Figure 2](/iaifi-research-blog/figures/2405_14530/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2405_14530/figure_2.png)
 
 The team trained a **denoising diffusion process** on 16×16 pixel crops from synthetic images of matte objects. The model predicts **surface normal fields**, which encode the 3D orientation of each surface point as a vector perpendicular to the surface. Training on patches rather than whole images keeps the model compact (just 10MB of weights) and forces it to learn local shading relationships without baking in global scene biases.
 

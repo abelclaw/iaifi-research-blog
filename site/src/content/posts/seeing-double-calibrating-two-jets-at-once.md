@@ -30,7 +30,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2402_14067/figure_1.png
 - /iaifi-research-blog/figures/2402_14067/figure_2.png
-- /iaifi-research-blog/figures/2402_14067/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.14067v1
 published: '2024-02-21T19:00:07+00:00'
 theme: Experimental Physics
@@ -73,7 +72,6 @@ The authors tested this on simulated proton-collision dijet events from the CMS 
 
 The fits reveal a clear pattern: Λ is consistently *smaller* than σ across all pT ranges studied. That's exactly the regime where the correlation-improved method helps most.
 
-![Figure 3](/iaifi-research-blog/figures/2402_14067/figure_3.png)
 
 Across the full pT range, the method achieves a 3–5% relative improvement in jet energy resolution, corresponding to roughly a 35% reduction in the squared resolution. In experimental physics, where precision campaigns work for years to gain percent-level improvements, that's a real payoff from a simple modification. The improved estimates are also unbiased, verified in simulation to neither systematically over- nor under-estimate the true jet energy.
 

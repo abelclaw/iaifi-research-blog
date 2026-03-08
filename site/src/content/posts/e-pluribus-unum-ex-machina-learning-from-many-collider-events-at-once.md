@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2101_07263/figure_1.png
 - /iaifi-research-blog/figures/2101_07263/figure_2.png
-- /iaifi-research-blog/figures/2101_07263/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2101.07263v3
 published: '2021-01-18T19:00:00+00:00'
 theme: Experimental Physics
@@ -77,7 +76,6 @@ Per-instance training won across the board. The reason comes down to gradient qu
 
 The analysis also covers **regression tasks**, not just "which class?" but "what is the value of a continuous parameter, like the top quark mass?" Regression can be recast as a parametrized classification problem, and per-instance approaches remain at least as effective as per-ensemble ones here too.
 
-![Figure 3](/iaifi-research-blog/figures/2101_07263/figure_3.png)
 
 ## Why It Matters
 

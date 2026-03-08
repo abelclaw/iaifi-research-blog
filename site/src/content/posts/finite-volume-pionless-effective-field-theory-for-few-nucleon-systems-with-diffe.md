@@ -35,11 +35,8 @@ concepts:
 - surrogate modeling
 figures:
 - /iaifi-research-blog/figures/2202_03530/figure_1.png
-- /iaifi-research-blog/figures/2202_03530/figure_1.png
 - /iaifi-research-blog/figures/2202_03530/figure_2.png
 - /iaifi-research-blog/figures/2202_03530/figure_2.png
-- /iaifi-research-blog/figures/2202_03530/figure_3.png
-- /iaifi-research-blog/figures/2202_03530/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2202.03530v2
 published: '2022-02-07T21:42:57+00:00'
 theme: Theoretical Physics
@@ -77,7 +74,7 @@ The key steps:
 3. **Backpropagate**: automatically calculate how each parameter nudges the energy, and update all parameters simultaneously via gradient descent.
 4. **Stack multiple optimized states** and solve a **generalized eigenvalue problem (GEVP)** to extract the most accurate energy levels from overlapping approximate solutions.
 
-![Figure 2](/iaifi-research-blog/figures/2202_03530/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2202_03530/figure_2.png)
 
 Where SVM needs hundreds of Gaussian terms to represent the helium-4 (⁴He) ground state, differentiable programming achieves comparable accuracy with roughly ten times fewer. That compactness matters. Memory and compute scale badly with term count, so a 10× reduction opens calculations that were previously impossible.
 
@@ -85,7 +82,6 @@ Where SVM needs hundreds of Gaussian terms to represent the helium-4 (⁴He) gro
 
 The team validated the method by computing binding energies for nuclei with A∈{2,3,4} inside finite-volume boxes, matching them to existing lattice QCD results at an artificially heavy pion mass of m_π = 806 MeV. With LECs pinned down, they extrapolated to infinite volume and pushed up to A=5 and A=6, systems not previously reached with this framework.
 
-![Figure 4](/iaifi-research-blog/figures/2202_03530/figure_2.png)
 
 ## Why It Matters
 

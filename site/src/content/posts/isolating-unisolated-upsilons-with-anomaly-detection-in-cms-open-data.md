@@ -32,9 +32,6 @@ concepts:
 - simulation-based inference
 figures:
 - /iaifi-research-blog/figures/2502_14036/figure_1.png
-- /iaifi-research-blog/figures/2502_14036/figure_1.png
-- /iaifi-research-blog/figures/2502_14036/figure_2.png
-- /iaifi-research-blog/figures/2502_14036/figure_2.png
 - /iaifi-research-blog/figures/2502_14036/figure_3.png
 - /iaifi-research-blog/figures/2502_14036/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.14036v2
@@ -72,13 +69,13 @@ To fight back, the researchers deployed **CATHODE** (Classifying Anomalies THrou
 4. **Build an anomaly score** comparing actual data to the predicted background, so events that don't look like background light up as anomalous
 5. **Reweight and scan** the mass spectrum, looking for a resonant bump that anomaly detection makes visible
 
-![Figure 2](/iaifi-research-blog/figures/2502_14036/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_14036/figure_3.png)
 
 The three auxiliary features were chosen carefully. Dimuon transverse momentum and impact parameters carry information about how the Upsilon was produced: fragmentation-produced Upsilons behave differently from background muon pairs. The team verified these features don't sculpt artificial peaks in the mass spectrum, a known pitfall where the anomaly score itself creates false bumps by preferentially selecting events at certain masses.
 
 After applying the learned anomaly score, the Upsilon signal jumps from 1.6σ to 6.4σ. The team also compared two ways of using the anomaly score: a simple **cut-and-count** approach (keeping only events above a chosen threshold) versus **likelihood-ratio reweighting**, which uses the full continuous distribution of anomaly scores rather than drawing a hard cutoff. Reweighting consistently outperformed cuts, a finding worth keeping in mind for future searches.
 
-![Figure 3](/iaifi-research-blog/figures/2502_14036/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2502_14036/figure_3.png)
 
 ## Why It Matters
 

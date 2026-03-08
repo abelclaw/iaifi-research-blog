@@ -34,10 +34,7 @@ concepts:
 - materials discovery
 figures:
 - /iaifi-research-blog/figures/2509_03683/figure_1.png
-- /iaifi-research-blog/figures/2509_03683/figure_1.png
 - /iaifi-research-blog/figures/2509_03683/figure_2.png
-- /iaifi-research-blog/figures/2509_03683/figure_2.png
-- /iaifi-research-blog/figures/2509_03683/figure_3.png
 - /iaifi-research-blog/figures/2509_03683/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2509.03683v1
 published: '2025-09-03T20:06:39+00:00'
@@ -80,11 +77,11 @@ Once the network converges, three independent diagnostics confirm the result is 
 - **Total angular momentum**: chiral *p_x ± ip_y* pairing means the ground state carries net angular momentum. Measurements from the optimized wavefunction match the expected chiral quantum number.
 - **Off-diagonal long-range order (ODLRO)**: the smoking gun of superconductivity, visible in the two-body reduced density matrix. The wavefunction shows the characteristic long-range correlations that define true superconducting order.
 
-![Figure 2](/iaifi-research-blog/figures/2509_03683/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2509_03683/figure_2.png)
 
 All three diagnostics converge on the same conclusion across a broad range of interaction strengths, from weak coupling where BCS theory applies to strong coupling where it breaks down entirely. At strong coupling, the neural network goes beyond mean-field theory, capturing quantum fluctuation effects that perturbative methods miss.
 
-![Figure 3](/iaifi-research-blog/figures/2509_03683/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2509_03683/figure_3.png)
 
 ## Why It Matters
 
@@ -92,7 +89,6 @@ The topological character of the state, confirmed by the reversed odd-even bindi
 
 Previous neural quantum state studies of superconductivity required modifying the wavefunction ansatz to include pairing structure by hand. The self-attention approach needs none of that scaffolding.
 
-![Figure 4](/iaifi-research-blog/figures/2509_03683/figure_2.png)
 
 This points toward a future where AI acts as an unbiased explorer of the quantum phase diagram. Real materials (high-temperature superconductors, topological insulators, quantum spin liquids) are governed by strongly correlated Hamiltonians that have resisted decades of analytical and numerical effort. A general-purpose solver that can find exotic ground states without being told where to look could systematically map territory that has long been inaccessible.
 

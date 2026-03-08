@@ -38,12 +38,8 @@ concepts:
 - effective field theory
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2512_05851/figure_1.png
-- /iaifi-research-blog/figures/2512_05851/figure_1.png
 - /iaifi-research-blog/figures/2512_05851/figure_2.png
 - /iaifi-research-blog/figures/2512_05851/figure_2.png
-- /iaifi-research-blog/figures/2512_05851/figure_3.png
-- /iaifi-research-blog/figures/2512_05851/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.05851v1
 published: '2025-12-05T16:26:18+00:00'
 theme: Theoretical Physics
@@ -65,7 +61,7 @@ Researchers at MIT have now borrowed a powerful computational framework from nuc
 
 The core idea sounds almost playful in its audacity: take the mathematical machinery physicists use to study quarks and gluons inside protons, and apply it to a circuit etched onto a silicon chip. The connection is deeper than analogy.
 
-![Figure 1](/iaifi-research-blog/figures/2512_05851/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2512_05851/figure_2.png)
 
 In **circuit QED**, the detailed microscopic theory of superconducting devices, each superconducting island carries a **phase variable**: a quantum degree of freedom that lives on a circle (technically, a U(1) variable). An array of 100 Josephson junctions means 100 such variables, all quantum-mechanically entangled. The governing equation is, in general, unsolvable by brute force.
 
@@ -76,7 +72,7 @@ Lattice field theory offers a route around this. The method proceeds in four ste
 3. **Sample with Monte Carlo.** The path integral is evaluated by randomly sampling configurations of the phase variables, directly over the full circular U(1) space without truncating it. This sidesteps the systematic errors other methods incur.
 4. **Extract the spectrum from correlators.** Qubit energies and matrix elements are recovered from how quantum correlations decay across Euclidean time slices. This is exactly how particle physicists extract hadron masses from lattice QCD.
 
-![Figure 2](/iaifi-research-blog/figures/2512_05851/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2512_05851/figure_2.png)
 
 The key advantage over **tensor network (TN)** methods, currently the state of the art for many-body circuit simulation, lies in step three. Tensor networks must choose a finite basis to represent each junction's quantum state space, which is technically infinite-dimensional. That introduces truncation errors requiring careful justification. The lattice method keeps variables on their natural domain and avoids the problem entirely.
 
@@ -86,17 +82,14 @@ There's also a practical bonus. After computing one device, a technique called *
 
 The team applies their method to fluxonium, a qubit built from a single small Josephson junction shunted by an array of 100 or more larger junctions. The array functions as a superinductor, an element with unusually high electrical inductance, giving fluxonium its exceptional resistance to environmental noise. But the array also hosts collective quantum excitations called **array modes**, and at high impedance, coherent phase slips can propagate through it and disrupt the qubit's quantum coherence.
 
-![Figure 3](/iaifi-research-blog/figures/2512_05851/figure_2.png)
 
 The team simulates thousands of individual fluxonium qubits, each with a different random realization of charge disorder across the Josephson junction array. This kind of exhaustive microscopic statistical study, explicitly averaging over disorder at the circuit level, is essentially impossible with any other existing method. From it, they extract the **charge noise dephasing rate** as a function of impedance, finding deviations from existing analytic formulas. At very high impedances, they observe signatures of multiple simultaneous phase slip events, effects that lie beyond the reach of current analytic theories.
 
-![Figure 4](/iaifi-research-blog/figures/2512_05851/figure_2.png)
 
 There's also a surprise involving ground capacitance. Every circuit element has some small capacitance to the chip's ground plane; these stray capacitances are usually ignored. The lattice calculations show that ground capacitances actually *reduce* charge noise. That's counterintuitive, and it has direct implications for hardware design. It also goes beyond what tensor network methods have so far achieved for fluxonium.
 
 The method generalizes to any superconducting circuit with capacitors, inductors, and Josephson junctions. Next-generation qubit designs like the 0-π qubit, blochnium, bifluxon, and harmonium all rely on long Josephson junction arrays where many-body effects matter. As quantum processors scale toward **fault-tolerant quantum computing**, where errors can be detected and corrected reliably, having a method that predicts device behavior without approximation is not a luxury. It is a necessity.
 
-![Figure 5](/iaifi-research-blog/figures/2512_05851/figure_3.png)
 
 > **Bottom Line:** Borrowing tools from nuclear physics for quantum hardware design, this work delivers the first lattice field theory approach to superconducting circuits, simulating thousands of realistic fluxonium qubits at the microscopic level and revealing many-body physics invisible to every other existing technique.
 

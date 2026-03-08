@@ -34,8 +34,6 @@ concepts:
 - dimensionality reduction
 figures:
 - /iaifi-research-blog/figures/2507_13449/figure_1.png
-- /iaifi-research-blog/figures/2507_13449/figure_2.png
-- /iaifi-research-blog/figures/2507_13449/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2507.13449v1
 published: '2025-07-17T18:00:13+00:00'
 theme: Astrophysics

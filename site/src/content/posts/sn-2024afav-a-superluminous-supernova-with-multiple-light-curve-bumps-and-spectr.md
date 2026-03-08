@@ -41,7 +41,6 @@ concepts:
 - magnetar spin-down
 figures:
 - /iaifi-research-blog/figures/2512_06067/figure_1.png
-- /iaifi-research-blog/figures/2512_06067/figure_2.png
 - /iaifi-research-blog/figures/2512_06067/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.06067v1
 published: '2025-12-05T19:00:00+00:00'
@@ -80,11 +79,10 @@ The team gathered spectra across 26 epochs spanning −14 to +160 days relative 
 
 The timing is not a coincidence. Each spectral feature debuted when the light curve showed a new bump, a synchronicity that argues strongly for successive encounters between expanding ejecta and discrete shells of pre-ejected circumstellar material.
 
-![Figure 2](/iaifi-research-blog/figures/2512_06067/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2512_06067/figure_3.png)
 
 The team compared SN 2024afav to three analogues with similarly bumpy light curves: PTF10hgi, SN 2017egm, and SN 2019hge. All four share the helium signature, the hydrogen absorption, and the early [O III]. In each case, a progenitor shed hydrogen-rich material into its immediate environment before dying as a stripped core. The ejecta-CSM collision then lit up the scene repeatedly as the expanding shock wave hit discrete shells.
 
-![Figure 3](/iaifi-research-blog/figures/2512_06067/figure_3.png)
 
 ## Why It Matters
 

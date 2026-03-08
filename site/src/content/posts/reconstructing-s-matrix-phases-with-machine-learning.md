@@ -31,7 +31,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2308_09451/figure_1.png
 - /iaifi-research-blog/figures/2308_09451/figure_2.png
-- /iaifi-research-blog/figures/2308_09451/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.09451v1
 published: '2023-08-18T10:29:26+00:00'
 theme: Theoretical Physics
@@ -75,7 +74,6 @@ To find phase-ambiguous solutions, the researchers added a **repulsive loss** te
 
 For finitely many partial waves, where at most 2^L phases can exist for L partial waves, the method finds multiple solutions systematically. For the infinite partial wave case, the team discovered new phase-ambiguous solutions that push well beyond bounds established decades ago.
 
-![Figure 3](/iaifi-research-blog/figures/2308_09451/figure_3.png)
 
 The mathematical scaffolding comes from classical complex analysis: **Blaschke products**, which express scattering amplitudes using the locations of zeros of a complex-valued function. ML provides the numerical muscle to search through the vast space of possible solutions.
 

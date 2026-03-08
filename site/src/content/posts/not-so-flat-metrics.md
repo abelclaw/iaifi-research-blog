@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2411_00962/figure_1.png
 - /iaifi-research-blog/figures/2411_00962/figure_1.png
 - /iaifi-research-blog/figures/2411_00962/figure_2.png
-- /iaifi-research-blog/figures/2411_00962/figure_2.png
-- /iaifi-research-blog/figures/2411_00962/figure_3.png
-- /iaifi-research-blog/figures/2411_00962/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.00962v1
 published: '2024-11-01T18:18:50+00:00'
 theme: Theoretical Physics
@@ -83,7 +80,6 @@ This source is not constant: it inherits all the pointwise variation of the curv
 
 As a concrete application, they calculate the shift to the **spectrum of the scalar Laplacian**: the set of allowed vibrational modes of the geometry, which govern scalar particle masses in the four-dimensional theory we observe. The correction is small (the expansion is controlled), but finite, calculable, and previously out of reach.
 
-![Figure 4](/iaifi-research-blog/figures/2411_00962/figure_2.png)
 
 ## Why It Matters
 

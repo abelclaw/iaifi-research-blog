@@ -35,7 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2510_02670/figure_1.png
 - /iaifi-research-blog/figures/2510_02670/figure_2.png
-- /iaifi-research-blog/figures/2510_02670/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.02670v1
 published: '2025-10-03T02:03:16+00:00'
 theme: Foundational AI
@@ -88,7 +87,6 @@ There's also a plausible connection to **neural collapse**, the phenomenon where
 
 The bridge to physics runs deeper than analogy. In condensed matter physics, phenomena like topological insulators are characterized by **topological invariants**: numbers that capture a material's fundamental structure and change only at sharp transitions called critical points. The authors note this connection explicitly. Tools from topological field theory could transfer directly to the study of neural networks. The threshold η* is, in this framing, a genuine phase transition, not metaphorically, but mathematically.
 
-![Figure 3](/iaifi-research-blog/figures/2510_02670/figure_3.png)
 
 > **Bottom Line:** Training a neural network isn't just optimization. It's a topological process with a sharp phase boundary. Cross η*, and your network enters a regime where topology collapses and capacity shrinks. Stay below it, and the geometry of your model is mathematically protected.
 

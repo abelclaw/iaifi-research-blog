@@ -30,13 +30,7 @@ concepts:
 - quantum field theory
 - inverse problems
 - bayesian inference
-figures:
-- /iaifi-research-blog/figures/2102_04329/figure_1.png
-- /iaifi-research-blog/figures/2102_04329/figure_1.png
-- /iaifi-research-blog/figures/2102_04329/figure_2.png
-- /iaifi-research-blog/figures/2102_04329/figure_2.png
-- /iaifi-research-blog/figures/2102_04329/figure_3.png
-- /iaifi-research-blog/figures/2102_04329/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2102.04329v1
 published: '2021-02-08T16:34:00+00:00'
 theme: Theoretical Physics
@@ -63,7 +57,6 @@ The starting point is **pionless effective field theory (EFT_π/)**, a framework
 
 The core idea: run this EFT *inside the same finite box* as the LQCD calculation. Finite-volume effects are long-range phenomena, arising from long-wavelength physics being cut off by the box walls, placing them squarely within EFT_π/'s domain of validity. Match the EFT to LQCD results in the box, fix the LECs, then run the EFT without a box to get infinite-volume predictions.
 
-![Figure 1](/iaifi-research-blog/figures/2102_04329/figure_1.png)
 
 The computational engine is the **stochastic variational method (SVM)**, a technique for building approximate wavefunctions of few-body systems. The SVM constructs trial quantum states as combinations of Gaussian basis functions, then iteratively adjusts them to minimize the system's energy. For two- and three-nucleon systems, this yields highly accurate variational wavefunctions both inside the box and in infinite volume.
 
@@ -73,11 +66,9 @@ The procedure has two matched stages:
 
 2. **Matrix element matching:** Using wavefunctions from stage one, finite-volume matrix elements of external currents are computed within FVEFT_π/ and matched to LQCD calculations of the same operators. This fixes additional two-body counterterms, coupling constants that encode how nucleon pairs respond collectively to external probes beyond what single-nucleon responses predict.
 
-![Figure 3](/iaifi-research-blog/figures/2102_04329/figure_2.png)
 
 The framework covers scalar matrix elements (sensitive to how nucleon mass arises from quark condensates), tensor matrix elements (related to quark spin distributions), axial matrix elements (tied to weak interactions and beta decay), magnetic moments, and the isovector longitudinal momentum fraction. The axial matrix element is a particularly high-value target: it governs proton-proton fusion in the sun and neutrino-nucleus scattering, and its two-body LEC, L₁,A, has been notoriously difficult to pin down.
 
-![Figure 5](/iaifi-research-blog/figures/2102_04329/figure_3.png)
 
 ## Why It Matters
 

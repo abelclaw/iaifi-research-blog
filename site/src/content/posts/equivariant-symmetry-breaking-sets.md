@@ -33,10 +33,6 @@ concepts:
 - phase transitions
 - crystal structure
 figures:
-- /iaifi-research-blog/figures/2402_02681/figure_1.png
-- /iaifi-research-blog/figures/2402_02681/figure_1.png
-- /iaifi-research-blog/figures/2402_02681/figure_2.png
-- /iaifi-research-blog/figures/2402_02681/figure_2.png
 - /iaifi-research-blog/figures/2402_02681/figure_3.png
 - /iaifi-research-blog/figures/2402_02681/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2402.02681v3
@@ -64,7 +60,7 @@ The paper draws a sharp distinction between two flavors of symmetry breaking. **
 
 Think of a ball balanced atop a Mexican-hat-shaped hill. The hill is perfectly symmetric around the peak, but the ball must fall *somewhere*, rolling into one of infinitely many equivalent positions around the rim. This is the regime that broke earlier approaches.
 
-![Figure 1](/iaifi-research-blog/figures/2402_02681/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2402_02681/figure_3.png)
 
 Rather than tinkering with the internals of an existing equivariant network, Xie and Smidt propose feeding the network additional "symmetry breaking objects" alongside the original input. These objects carry just enough asymmetry to nudge the network toward one valid low-symmetry output. The trick is designing them so the whole input (original data plus symmetry breaker) still transforms correctly whenever the system is rotated, reflected, or reoriented.
 
@@ -74,11 +70,10 @@ Here's what "correctly" means in practice:
 - **Minimizing set size maximizes data efficiency.** A smaller SBS means fewer symmetry-breaking copies of your data to process. The authors prove that finding the minimum-size equivariant SBS is mathematically equivalent to finding **complements** of subgroups: the minimal extra structure needed to complete a partial symmetry into a full one.
 - **Counterintuitive bonus:** Sometimes it's more efficient to break *more* symmetry than strictly necessary. Breaking all symmetry of the input can yield a smaller, cleaner SBS than carefully preserving some symmetries.
 
-![Figure 2](/iaifi-research-blog/figures/2402_02681/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2402_02681/figure_3.png)
 
 The researchers tabulate concrete solutions for all **point groups**, the symmetry groups describing molecules and crystals. This is the kind of reference table computational physicists will actually use: pick your input symmetry, pick your desired output symmetry, look up the table, and you have your SBS recipe.
 
-![Figure 3](/iaifi-research-blog/figures/2402_02681/figure_2.png)
 
 To demonstrate the framework, the paper walks through crystal distortions from high- to low-symmetry phases, ground states that break Hamiltonian symmetry, and fluid dynamics simulations where symmetric flows spontaneously develop asymmetric Kármán vortex streets. In each case, a standard equivariant network augmented with an SBS produces the full set of valid lower-symmetry outputs, something that was previously out of reach.
 

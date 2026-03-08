@@ -40,11 +40,7 @@ concepts:
 - variational autoencoders
 figures:
 - /iaifi-research-blog/figures/2302_12235/figure_1.png
-- /iaifi-research-blog/figures/2302_12235/figure_1.png
 - /iaifi-research-blog/figures/2302_12235/figure_2.png
-- /iaifi-research-blog/figures/2302_12235/figure_2.png
-- /iaifi-research-blog/figures/2302_12235/figure_3.png
-- /iaifi-research-blog/figures/2302_12235/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2302.12235v2
 published: '2023-02-23T18:54:27+00:00'
 theme: Theoretical Physics
@@ -80,17 +76,15 @@ Training the flow to follow the Q function's time evolution required two complem
 - **Euler-KL method**: Advances the simulation one small time step at a time. At each step, the current flow predicts the Q function a moment later, and **KL divergence**, a standard measure of distributional mismatch, adjusts the flow to match. Conceptually clean and scalable.
 - **TDVP (Time-Dependent Variational Principle)**: A more sophisticated update derived from the Euler approach that accounts for the internal geometry of the model's parameter space, making updates more efficient and better-conditioned.
 
-![Figure 2](/iaifi-research-blog/figures/2302_12235/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2302_12235/figure_2.png)
 
 The team tested Q-Flow on two canonical problems: the **dissipative harmonic oscillator** and a **dissipative bosonic model**, both run across increasing numbers of dimensions. In low dimensions, Q-Flow matches or beats traditional PDE solvers (finite-difference and pseudo-spectral methods) in accuracy. As dimension increases, those classical methods collapse under exponential cost. Q-Flow doesn't.
 
-![Figure 3](/iaifi-research-blog/figures/2302_12235/figure_2.png)
 
 Q-Flow also outperforms **physics-informed neural networks (PINNs)**, a popular approach that trains neural networks to satisfy PDE residuals. PINNs struggle to scale. Q-Flow's normalizing flow representation is better matched to high-dimensional probability distributions, and the Euler-KL training signal is more stable than minimizing raw residuals.
 
 The real takeaway: for Q-Flow, the computational bottleneck is no longer *dimension* but the *complexity of the Q function itself*. If the quantum state isn't wildly irregular, Q-Flow handles systems that are completely out of reach for conventional methods.
 
-![Figure 4](/iaifi-research-blog/figures/2302_12235/figure_2.png)
 
 ## Why It Matters
 

@@ -38,7 +38,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2501_19406/figure_1.png
 - /iaifi-research-blog/figures/2501_19406/figure_2.png
-- /iaifi-research-blog/figures/2501_19406/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.19406v2
 published: '2025-01-31T18:59:16+00:00'
 theme: Foundational AI

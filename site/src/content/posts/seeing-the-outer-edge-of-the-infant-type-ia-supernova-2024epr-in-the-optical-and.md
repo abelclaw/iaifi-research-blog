@@ -66,11 +66,8 @@ concepts:
 - regression
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2502_17556/figure_1.png
-- /iaifi-research-blog/figures/2502_17556/figure_1.png
 - /iaifi-research-blog/figures/2502_17556/figure_2.png
 - /iaifi-research-blog/figures/2502_17556/figure_2.png
-- /iaifi-research-blog/figures/2502_17556/figure_3.png
 - /iaifi-research-blog/figures/2502_17556/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.17556v2
 published: '2025-02-24T19:00:01+00:00'
@@ -96,13 +93,13 @@ SN 2024epr was caught within two days of first light, making it one of the earli
 
 The research team, led by W. B. Hoogendam at the University of Hawai'i, ran an intensive observational campaign across multiple telescopes. They collected **photometry** (brightness measurements over time) in optical and near-infrared wavelengths, alongside **spectroscopy**, splitting the supernova's light into its constituent colors to identify chemical fingerprints.
 
-![Figure 1](/iaifi-research-blog/figures/2502_17556/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_17556/figure_2.png)
 
 The spectra told a striking story. In visible light, the team spotted **absorption features**, dark gaps in the spectrum created when gas absorbs light at characteristic wavelengths. These fingerprints revealed calcium and silicon moving at roughly 30,000 km/s, about 10% the speed of light. Typical high-velocity features in Type Ia supernovae sit around 20,000 km/s. These were faster still, placing them among the rarest velocities ever recorded in a Type Ia spectrum. The interpretation: an unusually dense shell of material in the outermost layers of the exploding star.
 
 The near-infrared spectra added another twist. A feature called the **C I "knee"** turned up: a signature left by unburned carbon lingering in the outermost expelled material, or *ejecta*. "C I" is spectroscopic notation for neutral carbon. This diagnostic is visible only in near-infrared light, and only in the earliest observations, before the material spreads too thin to detect.
 
-![Figure 2](/iaifi-research-blog/figures/2502_17556/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_17556/figure_2.png)
 
 Here's the paradox at the heart of SN 2024epr:
 
@@ -113,7 +110,7 @@ One leading class of models, **thick-shell helium detonation**, predicts high-ve
 
 Other leading frameworks fail too. **Delayed detonation**, where the explosion begins as a slow burn before accelerating to supersonic speeds, and **thin-shell double detonation**, a similar helium-trigger scenario involving a thinner outer shell, both struggle to reproduce the peculiar early colors alongside everything else.
 
-![Figure 3](/iaifi-research-blog/figures/2502_17556/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2502_17556/figure_3.png)
 
 ## Why It Matters
 
@@ -121,7 +118,6 @@ SN 2024epr is more than a single puzzling supernova. By combing the literature, 
 
 The "standardizability" of Type Ia supernovae, our ability to use them as precise cosmic rulers, rests on properties measured at peak brightness. If there's hidden diversity in the first days that we almost always miss, we may be systematically misunderstanding these objects.
 
-![Figure 4](/iaifi-research-blog/figures/2502_17556/figure_2.png)
 
 Next-generation surveys could change that. The Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) will catch thousands of supernovae within hours of explosion. Pairing those optical detections with rapid near-infrared follow-up, the combination that made SN 2024epr so revealing, could finally discriminate between explosion mechanisms that look identical at peak light.
 

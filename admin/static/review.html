@@ -686,6 +686,7 @@
             <button class="filter-btn" onclick="filterPosts('rejected', this)">Rejected</button>
             <button id="fix-unfixed-btn" style="margin-left:auto;padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#7c3aed;color:#fff;border:none;border-radius:5px;" onclick="fixUnfixedPosts()">Fix Unfixed Posts</button>
             <button id="fix-all-btn" style="padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#d97706;color:#fff;border:none;border-radius:5px;" onclick="fixAllPosts()">Fix All Posts</button>
+            <button id="fix-images-btn" style="padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#0891b2;color:#fff;border:none;border-radius:5px;" onclick="fixAllImages()">Fix All Images</button>
             <button id="approve-all-btn" class="btn-approve" onclick="approveAllPosts()">Approve All Drafts</button>
         </div>
         <div id="fix-all-status" style="font-size:0.85rem;color:#666;margin-bottom:0.5rem;"></div>
@@ -701,6 +702,7 @@
                     <th>Status</th>
                     <th>Word Count</th>
                     <th>Fixes</th>
+                    <th>Imgs Fixed</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -855,11 +857,13 @@
                 var title = escapeHtml(p.paper_title || p.title || 'Untitled');
                 var wc = p.word_count || 0;
                 var fc = p.fix_count || 0;
+                var imf = p.images_fixed || 0;
                 return '<tr>' +
                     '<td class="title-cell" title="' + title + '">' + title + '</td>' +
                     '<td>' + badgeHtml(p.status) + '</td>' +
                     '<td>' + wc + '</td>' +
                     '<td>' + (fc > 0 ? fc : '—') + '</td>' +
+                    '<td>' + (imf > 0 ? '✓' : '—') + '</td>' +
                     '<td><button class="btn-review" onclick="viewPost(\'' + escapeHtml(p.paper_arxiv_id) + '\')">Review</button></td>' +
                     '</tr>';
             }).join('');
@@ -1611,6 +1615,47 @@
             } catch (e) {}
         }
 
+        // --- Fix All Images ---
+        async function fixAllImages() {
+            var btn = document.getElementById('fix-images-btn');
+            var statusDiv = document.getElementById('fix-all-status');
+            btn.disabled = true;
+            statusDiv.textContent = 'Starting image fix...';
+            try {
+                var active = await (await fetch('/api/bulk/active')).json();
+                var taskId;
+                if (active.status === 'running' && active.type === 'fix-images') {
+                    taskId = active.task_id;
+                    statusDiv.textContent = 'Resuming image fix tracking...';
+                } else {
+                    var resp = await fetch('/api/bulk/fix-images', { method: 'POST' });
+                    if (!resp.ok) { var e = await resp.json(); throw new Error(e.detail || 'start failed'); }
+                    taskId = (await resp.json()).task_id;
+                }
+                while (true) {
+                    await new Promise(r => setTimeout(r, 1500));
+                    var sd = await (await fetch('/api/bulk/' + taskId + '/status')).json();
+                    var msg = sd.step + ' — ' + sd.done + '/' + sd.total + ' done';
+                    if (sd.errors > 0) msg += ', ' + sd.errors + ' errors';
+                    statusDiv.textContent = msg;
+                    if (sd.status === 'complete') {
+                        statusDiv.textContent = 'Image fix complete: ' + sd.done + ' posts processed.';
+                        loadPosts(null);
+                        break;
+                    } else if (sd.status === 'cancelled') {
+                        statusDiv.textContent = 'Image fix cancelled after ' + sd.done + ' posts.';
+                        break;
+                    } else if (sd.status === 'error') {
+                        throw new Error(sd.error || 'bulk fix-images failed');
+                    }
+                }
+            } catch (e) {
+                statusDiv.textContent = 'Error: ' + e.message;
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
         // Check for active bulk fix task on page load
         async function checkActiveBulkFix() {
             try {
@@ -1620,6 +1665,8 @@
                     fixAllPosts();
                 } else if (active.status === 'running' && active.type === 'fix-unfixed') {
                     fixUnfixedPosts();
+                } else if (active.status === 'running' && active.type === 'fix-images') {
+                    fixAllImages();
                 }
             } catch (e) {}
         }

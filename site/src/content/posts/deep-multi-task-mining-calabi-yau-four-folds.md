@@ -34,9 +34,6 @@ figures:
 - /iaifi-research-blog/figures/2108_02221/figure_1.png
 - /iaifi-research-blog/figures/2108_02221/figure_1.png
 - /iaifi-research-blog/figures/2108_02221/figure_2.png
-- /iaifi-research-blog/figures/2108_02221/figure_2.png
-- /iaifi-research-blog/figures/2108_02221/figure_3.png
-- /iaifi-research-blog/figures/2108_02221/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2108.02221v2
 published: '2021-08-04T18:00:15+00:00'
 theme: Theoretical Physics
@@ -79,7 +76,6 @@ The results came in strong:
 
 The hardest number, h^(2,2), reflects genuinely richer geometric complexity. Its values span a much wider range and the dataset distribution is more spread out. But physics saves the day. The **Euler characteristic**, a single integer summarizing a manifold's overall topological shape, satisfies a linear formula tying all four Hodge numbers together. Since the Euler characteristic is easy to compute algebraically, you can plug it in as a constraint. Do that, and the model achieves **100% total accuracy** even where individual predictions were uncertain.
 
-![Figure 5](/iaifi-research-blog/figures/2108_02221/figure_3.png)
 
 ## Why It Matters
 

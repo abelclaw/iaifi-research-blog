@@ -30,7 +30,6 @@ concepts:
 - materials discovery
 - quantum simulation
 figures:
-- /iaifi-research-blog/figures/2602_09093/figure_1.png
 - /iaifi-research-blog/figures/2602_09093/figure_2.png
 - /iaifi-research-blog/figures/2602_09093/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2602.09093v1
@@ -56,7 +55,7 @@ MIT physicists Max Geier and Liang Fu have turned to neural networks to cut thro
 
 The approach centers on **neural-network variational Monte Carlo (NN-VMC)**, a technique that encodes the quantum wavefunction (the mathematical object describing all possible states of every electron simultaneously) inside a neural network. Instead of approximating electron-electron interactions, NN-VMC confronts them head-on.
 
-![Figure 1](/iaifi-research-blog/figures/2602_09093/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2602_09093/figure_2.png)
 
 Here's the basic workflow:
 
@@ -71,7 +70,7 @@ Geier and Fu recognized that all possible magnetization values can in principle 
 
 The materials studied are **moiré semiconductors**: atomically thin crystals stacked with a slight twist or lattice mismatch, creating a long-wavelength interference pattern that fundamentally alters how electrons behave. These systems have become a hotbed for exotic quantum phases because their properties can be tuned electrically. Here, the specific systems are WSe₂/WS₂ heterobilayers and twisted Γ-valley homobilayers of WS₂, MoS₂, and MoSe₂.
 
-![Figure 2](/iaifi-research-blog/figures/2602_09093/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2602_09093/figure_3.png)
 
 For WSe₂/WS₂, NN-VMC predicts **itinerant ferromagnetism**, a metallic state where electrons remain delocalized but collectively align their spins. This is the same phenomenon behind iron's magnetism. For the homobilayer system, it finds an **antiferromagnetic insulator**, where electrons localize and neighboring sites develop opposing spin orientations. Two completely different magnetic phases, from the same framework, from the same fundamental equations.
 
@@ -79,7 +78,6 @@ For WSe₂/WS₂, NN-VMC predicts **itinerant ferromagnetism**, a metallic state
 
 The stakes extend well beyond academic curiosity. Powerful permanent magnets, the kind driving electric motors and wind turbines, currently depend on rare-earth elements like neodymium and samarium. These materials are geopolitically sensitive and environmentally costly to mine. Finding rare-earth-free alternatives requires understanding what makes a material magnetic before synthesizing it, which demands exactly the kind of reliable predictive theory that has so far eluded computational physics.
 
-![Figure 3](/iaifi-research-blog/figures/2602_09093/figure_3.png)
 
 Beyond the specific materials, the results show that neural networks trained purely on first-principles physics can discover qualitatively different ground states without human guidance. The same network that finds ferromagnetism in one material finds antiferromagnetism in another — not because it was told to, but because the energy landscape demanded it. As moiré systems continue to reveal new quantum phases (superconductivity, Mott insulators, Wigner crystals), tools that can navigate that energy landscape reliably will be essential. Working within the Sz = 0 sector alone makes the method significantly more practical for screening candidate materials at scale.
 

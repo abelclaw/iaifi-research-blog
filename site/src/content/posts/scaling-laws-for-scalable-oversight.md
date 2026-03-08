@@ -39,7 +39,6 @@ concepts:
 - interpretability
 - reinforcement learning
 figures:
-- /iaifi-research-blog/figures/2504_18530/figure_1.png
 - /iaifi-research-blog/figures/2504_18530/figure_2.png
 - /iaifi-research-blog/figures/2504_18530/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.18530v3
@@ -65,13 +64,13 @@ Researchers at MIT have built the first mathematical framework for scalable over
 
 The MIT team reframes oversight as a two-player game. On one side sits the **Houdini** — an AI trying to escape detection, hide malicious code, or manipulate the outcome. On the other sits the **Guard** — a weaker AI trying to catch it. The question: under what conditions does the Guard win, and how does that probability change as the capability gap grows?
 
-![Figure 1](/iaifi-research-blog/figures/2504_18530/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2504_18530/figure_2.png)
 
 To measure capability, they borrow **Elo scores** from competitive chess — a number capturing relative skill, where a 400-point gap means the stronger player wins roughly 91% of the time. Each model gets two scores: one as Guard, one as Houdini.
 
 Those scores don't track general AI capability in a straight line. The researchers propose the **Double ReLU model** (named after a mathematical function that produces a bent-line shape) with three distinct phases: flat at the bottom when a model is too weak to even engage, rising through a "payoff region" where more intelligence genuinely helps, then flat again once the task is fully solved. They validate this on a modified version of the game Nim and find that large language model (LLM) performance follows exactly this three-phase shape.
 
-![Figure 2](/iaifi-research-blog/figures/2504_18530/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2504_18530/figure_3.png)
 
 They then apply the framework to four oversight challenges:
 
@@ -86,7 +85,6 @@ The paper's deepest contribution is a theoretical analysis of **Nested Scalable 
 
 The answer depends on three things: the capability gap between adjacent levels, the Double ReLU slope (how much domain skill you gain per unit of general intelligence), and the number of steps in the chain. The researchers derive the **optimal number of oversight levels** that maximizes total success probability. Too few levels and a weak Guard faces a powerful Houdini; too many and errors compound, each step's failure probability multiplying.
 
-![Figure 3](/iaifi-research-blog/figures/2504_18530/figure_3.png)
 
 Applying NSO theory to the four games — assuming a 400 Elo gap between the weakest and strongest AI in the chain — yields:
 

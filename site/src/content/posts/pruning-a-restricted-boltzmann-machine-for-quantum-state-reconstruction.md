@@ -35,9 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2110_03676/figure_1.png
 - /iaifi-research-blog/figures/2110_03676/figure_1.png
-- /iaifi-research-blog/figures/2110_03676/figure_2.png
-- /iaifi-research-blog/figures/2110_03676/figure_2.png
-- /iaifi-research-blog/figures/2110_03676/figure_3.png
 - /iaifi-research-blog/figures/2110_03676/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2110.03676v1
 published: '2021-10-07T17:58:16+00:00'
@@ -79,13 +76,12 @@ In the ferromagnetic phase, pruning more than half the weights left all four obs
 
 At the quantum critical point, the story is different. Quantum correlations become long-ranged here, stretching across the entire system with no preferred scale. Capturing this behavior requires full connectivity. Even removing a small fraction of weights caused measurable degradation in the reconstructed state's physical properties.
 
-![Figure 3](/iaifi-research-blog/figures/2110_03676/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2110_03676/figure_3.png)
 
 Different observables also failed at different pruning thresholds. The energy might look fine while correlation functions had already degraded significantly. This is a real trap: a single metric can give false confidence. Tracking the full set of relevant physical observables matters, not just training loss.
 
 The team also tested a provocative alternative. Instead of training a large RBM and pruning it down, why not start sparse and train directly? It works, but only if the sparsity pattern is chosen carefully. A random sparse network fails. A pattern informed by the known locality of interactions in the TFIM succeeds. This skips the expensive detour of building a full model first.
 
-![Figure 4](/iaifi-research-blog/figures/2110_03676/figure_2.png)
 
 ## Why It Matters
 

@@ -35,10 +35,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2205_10375/figure_1.png
 - /iaifi-research-blog/figures/2205_10375/figure_1.png
-- /iaifi-research-blog/figures/2205_10375/figure_2.png
-- /iaifi-research-blog/figures/2205_10375/figure_2.png
-- /iaifi-research-blog/figures/2205_10375/figure_3.png
-- /iaifi-research-blog/figures/2205_10375/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2205.10375v2
 published: '2022-05-20T18:00:00+00:00'
 theme: Theoretical Physics
@@ -78,7 +74,6 @@ To stress-test degeneracy engineering, the team used **Energy Flow Polynomials (
 
 The results were unambiguous. The single-ancilla encoding performed poorly; the annealer consistently missed the known optimal solution. The double-ancilla encoding found the correct sparse solution far more reliably across all tested problems. The paper also introduces two "refined regression" heuristics that warm-start annealing from classical ℓ₁ or ℓ₂ solutions, using fast classical methods to identify a promising region and then annealing to refine. These hybrid approaches point toward practical strategies for near-term quantum hardware.
 
-![Figure 3](/iaifi-research-blog/figures/2205_10375/figure_2.png)
 
 ## Why It Matters
 

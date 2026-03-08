@@ -51,9 +51,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2309_16541/figure_1.png
 - /iaifi-research-blog/figures/2309_16541/figure_1.png
-- /iaifi-research-blog/figures/2309_16541/figure_2.png
-- /iaifi-research-blog/figures/2309_16541/figure_2.png
-- /iaifi-research-blog/figures/2309_16541/figure_3.png
 - /iaifi-research-blog/figures/2309_16541/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2309.16541v2
 published: '2023-09-28T15:53:45+00:00'
@@ -93,7 +90,7 @@ The pipeline involves:
 
 The galaxy sample, BOSS DR12 CMASS, covers roughly 650,000 massive galaxies at redshifts z ≈ 0.43–0.70 and is one of the richest datasets available for this kind of analysis. The team pushed measurements down to scales of just 1 h⁻¹ Mpc, deep into the regime where gravity creates messy, nonlinear structure but where their emulators remain accurate.
 
-![Figure 3](/iaifi-research-blog/figures/2309_16541/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2309_16541/figure_3.png)
 
 A critical part of the analysis was modeling **assembly bias**, the question of whether galaxies' tendency to occupy halos depends not just on halo mass but also on the surrounding environment. The team found genuine signatures: galaxies prefer halos that are more concentrated or differently shaped depending on local density. It's a subtle effect, but ignoring it would bias the cosmological results.
 
@@ -101,7 +98,6 @@ A critical part of the analysis was modeling **assembly bias**, the question of 
 
 The results land squarely in agreement with Planck 2018. The key numbers: ω_cdm = 0.1201 ± 0.0022 (cold dark matter density), σ_8 = 0.792 ± 0.034 (how clumpy matter is today), n_s = 0.970 ± 0.018 (the tilt of primordial fluctuations), and a growth rate fσ_8 = 0.462 ± 0.020 (how fast cosmic structure has been building). That agreement matters. The universe's growth rate, as traced by these massive galaxies, is consistent with predictions from the **CMB** (the faint thermal glow left over from the Big Bang), easing tensions that have plagued cosmology in recent years.
 
-![Figure 5](/iaifi-research-blog/figures/2309_16541/figure_3.png)
 
 The team also tested whether any physics beyond standard **ΛCDM** (the current best model of the universe, built from ordinary matter, cold dark matter, and a constant dark energy) was hiding in the data. They varied the running of the spectral index, the dark energy equation of state, and the density of relic neutrinos. None showed statistically compelling deviations from the base model. A clean null result, but one that still meaningfully constrains exotic physics.
 

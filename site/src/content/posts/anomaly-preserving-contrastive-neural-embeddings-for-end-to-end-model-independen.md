@@ -45,11 +45,8 @@ concepts:
 - transformers
 - semi-supervised learning
 figures:
-- /iaifi-research-blog/figures/2502_15926/figure_1.png
-- /iaifi-research-blog/figures/2502_15926/figure_1.png
 - /iaifi-research-blog/figures/2502_15926/figure_2.png
 - /iaifi-research-blog/figures/2502_15926/figure_2.png
-- /iaifi-research-blog/figures/2502_15926/figure_3.png
 - /iaifi-research-blog/figures/2502_15926/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.15926v2
 published: '2025-02-21T20:47:08+00:00'
@@ -73,7 +70,7 @@ A new study from MIT and ETH Zürich, led by Kyle Metzger and collaborators at I
 
 The core idea borrows from **contrastive learning**, a technique that teaches a neural network what "similar" and "different" mean without explicit labels. The network sees pairs or groups of events and learns to map them into a compact geometric space where events that look alike cluster together and unusual events get pushed to the outskirts.
 
-![Figure 1](/iaifi-research-blog/figures/2502_15926/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_15926/figure_2.png)
 
 The researchers trained two flavors of contrastive **embeddings** (compact mathematical fingerprints of each collision event):
 
@@ -84,7 +81,7 @@ Both were tested with two neural architectures. **Multilayer perceptrons (MLPs)*
 
 The inputs are measured properties of motion (energies, directions, and masses) of reconstructed physics objects: jets (sprays of particles from quark or gluon scattering), leptons (fundamental particles like electrons and muons), and missing energy (a signature of particles that escape the detector unseen). The network compresses all of this into an embedding with as few as 4 to 16 dimensions.
 
-![Figure 2](/iaifi-research-blog/figures/2502_15926/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_15926/figure_2.png)
 
 These embeddings feed into **signal-agnostic statistical detection methods**, algorithms that scan for unusual clusters in the embedding space without being told what signal to look for. Tested against a suite of benchmark new-physics signals and rare Standard Model processes, the contrastive embeddings consistently outperform hand-crafted features, achieving substantially higher sensitivity to injected rare signals at fixed false-positive rates.
 
@@ -92,19 +89,17 @@ These embeddings feed into **signal-agnostic statistical detection methods**, al
 
 The most interesting finding here isn't a benchmark number. It's a conceptual warning. The researchers identified an **inherent tension** between two goals that might seem aligned: learning to classify background events accurately and learning to detect anomalies.
 
-![Figure 3](/iaifi-research-blog/figures/2502_15926/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2502_15926/figure_3.png)
 
 When you optimize a representation to organize known background processes as cleanly as possible, you inadvertently suppress the very irregularities that make new physics stand out. A perfectly organized background leaves no room for the unexpected. Put differently, the best representation for known physics is *not* the best representation for discovering unknown physics. That's a subtle but consequential distinction, and it should shape how future searches are designed.
 
 The sweet spot lies in combining two things: **data compression** (forcing the network to be selective about what it preserves) and domain knowledge (using physics-motivated labels to guide which background structures get organized). Supervised labels without compression risk encoding too much background detail. Compression without guidance can lose signal-relevant structure. Together, they produce embeddings that strike the right balance.
 
-![Figure 4](/iaifi-research-blog/figures/2502_15926/figure_2.png)
 
 The LHC's Run 3 is generating data at unprecedented rates, and the High-Luminosity LHC upgrade will push this further still. Model-independent searches are increasingly viewed as essential complements to targeted searches, but their power depends entirely on the quality of the representation feeding into them. A single trained embedding can simultaneously search for diverse signals across different final states, covering the full complexity of LHC collision data at once.
 
 Open questions remain. How do these embeddings behave under detector systematics and real experimental noise? Can self-supervised versions be deployed in real-time trigger systems to catch anomalies before data is written to disk? The path from benchmark study to deployed LHC analysis is long, but the direction is clear.
 
-![Figure 5](/iaifi-research-blog/figures/2502_15926/figure_3.png)
 
 > **Bottom Line:** By learning compact, anomaly-preserving representations of LHC collision events through contrastive training, researchers have built a more sensitive radar for new physics, one that searches broadly across diverse signals without needing to know what it's looking for.
 

@@ -32,11 +32,8 @@ concepts:
 - stochastic processes
 - surrogate modeling
 figures:
-- /iaifi-research-blog/figures/2208_14995/figure_1.png
-- /iaifi-research-blog/figures/2208_14995/figure_1.png
 - /iaifi-research-blog/figures/2208_14995/figure_2.png
 - /iaifi-research-blog/figures/2208_14995/figure_2.png
-- /iaifi-research-blog/figures/2208_14995/figure_3.png
 - /iaifi-research-blog/figures/2208_14995/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.14995v2
 published: '2022-08-31T17:50:04+00:00'
@@ -61,7 +58,7 @@ A team at MIT has taken a different approach: reframe the whole problem as a que
 
 When a dynamical system has conserved quantities, every trajectory in **phase space** (the multi-dimensional map of all possible states) is trapped on a lower-dimensional surface called an **isosurface**. Think of energy conservation like a topographic contour line: a marble can move freely along a line of constant elevation, but it can't jump to a different elevation without violating energy conservation. Each distinct set of conserved values defines a distinct isosurface, and the system's trajectories sample these surfaces.
 
-![Figure 1](/iaifi-research-blog/figures/2208_14995/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2208_14995/figure_2.png)
 
 The method works in three stages:
 
@@ -71,13 +68,13 @@ The method works in three stages:
 
 3. **Extract the embedding with diffusion maps.** Once you have a pairwise distance matrix between all trajectories, **diffusion maps** (a technique for uncovering hidden geometric structure in high-dimensional data) find the low-dimensional shape hiding in that matrix. Each axis of the resulting embedding corresponds directly to one conserved quantity.
 
-![Figure 2](/iaifi-research-blog/figures/2208_14995/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2208_14995/figure_2.png)
 
 The output isn't just a count of conserved quantities. It's a map of the space those quantities inhabit. For a simple harmonic oscillator, where energy is the only conserved quantity, the embedding is a one-dimensional curve. For a system with two conserved quantities, it's a two-dimensional surface.
 
 The researchers verified this analytically for the harmonic oscillator and numerically for systems ranging from a double pendulum to the **Korteweg–De Vries (KdV) equation**, a classic model of shallow water waves famously discovered to have *infinitely many* conserved quantities. Their method correctly identifies the leading conserved modes without ever being told the equations of motion.
 
-![Figure 3](/iaifi-research-blog/figures/2208_14995/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2208_14995/figure_3.png)
 
 The approach handles real-world messiness well. Noise in measurements, missing phase-space dimensions, and approximate conservation laws all degrade results only gradually. Because the geometry is built on statistical distributions of points rather than individual precise measurements, it holds up where point-by-point methods would break down.
 

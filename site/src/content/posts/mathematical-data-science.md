@@ -24,10 +24,6 @@ concepts:
 - hypothesis testing
 - self-supervised learning
 figures:
-- /iaifi-research-blog/figures/2502_08620/figure_1.png
-- /iaifi-research-blog/figures/2502_08620/figure_1.png
-- /iaifi-research-blog/figures/2502_08620/figure_2.png
-- /iaifi-research-blog/figures/2502_08620/figure_2.png
 - /iaifi-research-blog/figures/2502_08620/figure_3.png
 - /iaifi-research-blog/figures/2502_08620/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.08620v1
@@ -60,19 +56,18 @@ Every step still requires human mathematicians. Choices about what to measure, h
 
 One of the paper's conceptual contributions is the **"platonic dataset."** Most ML datasets are fuzzy: web-scraped text, photographs with inconsistent labels. A platonic dataset is mathematically precise. It consists of a well-defined set of objects, a function mapping each to measurable invariants, and a principled rule for choosing finite subsets to analyze. Because of this precision, any conjecture the ML suggests can be stated in exact mathematical language, which is a prerequisite for eventually proving it.
 
-![Figure 1](/iaifi-research-blog/figures/2502_08620/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_08620/figure_3.png)
 
 The first case study involves **murmurations**, a phenomenon recently discovered in the statistics of elliptic curve *L*-functions. An *L*-function is a formula encoding deep arithmetic information about a mathematical object; here, an **elliptic curve**, a smooth curve defined by a cubic equation with rich number-theoretic properties. Researchers had studied these functions one at a time for decades.
 
 When Lee and collaborators looked at large collections of elliptic curves, sorting them by **rank** (the number of independent rational solutions) and plotting average values of the *L*-functions, they found an unexpected oscillatory correlation. They called it a murmuration pattern, after the collective undulation of starling flocks. This structure is invisible when you study one curve at a time. It only shows up statistically, from the crowd.
 
-![Figure 2](/iaifi-research-blog/figures/2502_08620/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2502_08620/figure_3.png)
 
 The second case study tackles **Kronecker coefficients**, numbers that appear throughout the mathematics of symmetry and have applications in quantum information theory. These coefficients are notoriously hard to compute, and harder still to understand conceptually.
 
 The authors define a dataset of **integer partitions** (ways to write a number as an ordered sum; for example, 4 can be expressed as 3+1, or 2+2, or 2+1+1) and compute associated **loadings**, numerical summaries capturing how Kronecker coefficients are distributed across the dataset. Machine learning experiments reveal clustering patterns in these loadings, pointing toward combinatorial structure that pure theory had not predicted.
 
-![Figure 3](/iaifi-research-blog/figures/2502_08620/figure_2.png)
 
 ## Why It Matters
 
@@ -82,7 +77,6 @@ The authors are clear-eyed about what distinguishes math from other data science
 
 The tension between the power of modern ML and the rigorous demands of mathematics is where the field must develop. Techniques like **attribution analysis**, which identify which input features drove a model's prediction, are one way to turn a statistical pattern into a mathematical insight.
 
-![Figure 4](/iaifi-research-blog/figures/2502_08620/figure_2.png)
 
 The timing is right. Mathematical databases like the LMFDB (L-functions and Modular Forms Database) and KnotInfo have matured. Computing power makes datasets of millions of objects routine. Perhaps most importantly, the culture is shifting: mathematicians and ML researchers are increasingly working together. The 2021 Nature paper by DeepMind, collaborating with mathematicians Geordie Williamson and Marc Lackenby, produced new theorems in knot theory and representation theory. Douglas and Lee's paper is an invitation to more such collaborations.
 

@@ -42,11 +42,8 @@ concepts:
 - stellar feedback
 - bayesian inference
 figures:
-- /iaifi-research-blog/figures/2501_04084/figure_1.png
-- /iaifi-research-blog/figures/2501_04084/figure_1.png
 - /iaifi-research-blog/figures/2501_04084/figure_2.png
 - /iaifi-research-blog/figures/2501_04084/figure_2.png
-- /iaifi-research-blog/figures/2501_04084/figure_3.png
 - /iaifi-research-blog/figures/2501_04084/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.04084v2
 published: '2025-01-07T19:00:01+00:00'
@@ -70,7 +67,7 @@ A team led by Francisco Mercado has used the FIREbox cosmological simulation to 
 
 The researchers turned to **FIREbox**, a cosmological simulation from the Feedback In Realistic Environments (FIRE) project that tracks galaxy formation across a cube of space roughly 22 megaparsecs on a side. Unlike zoom-in simulations that study single galaxies in extreme detail, FIREbox captures a statistical sample of about 1,200 low-mass galaxies: 886 "central" galaxies sitting at the heart of their own dark matter halos and 332 "satellites" orbiting inside larger host halos. All have stellar masses between one million and one billion times the mass of our Sun.
 
-![Figure 1](/iaifi-research-blog/figures/2501_04084/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2501_04084/figure_2.png)
 
 To measure each galaxy's gravitational stress from its surroundings, the team introduced the **Perturbation Index (PI)**, a single number capturing the cumulative tidal force a galaxy feels from all its neighbors, weighted by their mass and proximity. Tidal force is the stretching force that arises when gravity pulls harder on one side of an object than the other. It's the same effect that drives Earth's ocean tides, here operating at cosmic scales. A galaxy with PI > 1 is significantly tugged by its environment; PI < 1 means it's relatively undisturbed. This metric lets researchers slice their sample into disturbed and undisturbed groups and compare properties at fixed stellar mass.
 
@@ -78,7 +75,7 @@ The results were clear. At the same stellar mass, high-PI galaxies are systemati
 
 To disentangle causation, the team trained a **Random Forest regression model** to predict each galaxy's relative size and dark matter content. Random Forest is an ensemble technique that builds hundreds of decision trees, each a flowchart of yes/no questions about the data, and averages their predictions. Inputs included the Perturbation Index, total halo mass, and stellar mass. By examining which variables the model relied on most heavily (its **feature importance** scores), the researchers could rank the drivers of galaxy structure.
 
-![Figure 2](/iaifi-research-blog/figures/2501_04084/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_04084/figure_2.png)
 
 Both environment (PI) and halo mass emerged as significant predictors. But halo mass is itself strongly shaped by environment: galaxies in high-tidal-force regions tend to have their dark matter halos stripped, reducing total halo mass. So environment operates on two tracks simultaneously. There's a direct track that physically distorts and inflates a galaxy, and an indirect track that erodes the dark matter halo governing everything else.
 
@@ -87,7 +84,6 @@ The team examined three key scaling relations:
 - **Inner dark matter mass-stellar mass relation** (dark matter within the half-mass radius vs. stellar mass): High-PI galaxies are dark-matter-poor relative to low-PI counterparts.
 - **Halo mass-stellar mass relation**: High-PI galaxies occupy systematically lower-mass halos, consistent with tidal stripping of the outer dark matter envelope.
 
-![Figure 4](/iaifi-research-blog/figures/2501_04084/figure_2.png)
 
 ## Why It Matters
 

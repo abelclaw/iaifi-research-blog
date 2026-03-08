@@ -44,11 +44,8 @@ concepts:
 - stellar evolution
 - exoplanets
 figures:
-- /iaifi-research-blog/figures/2408_07126/figure_1.png
-- /iaifi-research-blog/figures/2408_07126/figure_1.png
 - /iaifi-research-blog/figures/2408_07126/figure_2.png
 - /iaifi-research-blog/figures/2408_07126/figure_2.png
-- /iaifi-research-blog/figures/2408_07126/figure_3.png
 - /iaifi-research-blog/figures/2408_07126/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.07126v1
 published: '2024-08-13T18:00:01+00:00'
@@ -78,7 +75,7 @@ The old approach had two weaknesses. First, **sky subtraction** (removing the at
 
 Second, the pipeline searched for the best-matching **stellar template** by scanning a grid of options and picking the winner. Grid searches discard information. They throw away all the "almost right" templates and commit to a single answer.
 
-![Figure 1](/iaifi-research-blog/figures/2408_07126/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2408_07126/figure_2.png)
 
 Saydjari and colleagues replaced both steps with a unified probabilistic framework, implemented in a Julia package called `apMADGICS.jl`. Two innovations make it work:
 
@@ -87,13 +84,12 @@ Saydjari and colleagues replaced both steps with a unified probabilistic framewo
 
 The payoff is a much cleaner measurement. Residual sky contamination no longer systematically biases the answer. And the uncertainty estimates are properly calibrated: when the pipeline reports uncertainty X, it actually means it.
 
-![Figure 3](/iaifi-research-blog/figures/2408_07126/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2408_07126/figure_3.png)
 
 ## Why It Matters
 
 The numbers tell the story. The previous APOGEE pipeline struggled to reach its theoretical limits. On the same fiber, the new catalog achieves noise-limited precision down to **30 m/s**, matching the theoretical floor. That's several times better than what surveys of comparable scale have managed. The closest competitor, the GALAH survey (R ~ 28,000), delivered ~140 m/s precision across ~340,000 stars. APOGEE DR17 covers ~730,000 stars, advancing on both precision and sample size at once.
 
-![Figure 5](/iaifi-research-blog/figures/2408_07126/figure_3.png)
 
 The team also uncovered something subtle: individual fibers in a **multi-object spectrograph** (an instrument that captures light from hundreds of stars through separate optical threads) introduce constant velocity offsets relative to each other. This fiber-to-fiber bias had been lurking in APOGEE data, quietly degrading the combined catalog. The new method characterizes and removes these offsets.
 

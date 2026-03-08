@@ -39,7 +39,6 @@ concepts:
 - data augmentation
 figures:
 - /iaifi-research-blog/figures/2409_16143/figure_1.png
-- /iaifi-research-blog/figures/2409_16143/figure_2.png
 - /iaifi-research-blog/figures/2409_16143/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2409.16143v1
 published: '2024-09-24T14:50:21+00:00'
@@ -74,7 +73,7 @@ To understand why, the researchers tried several interventions:
 
 The animal face result was the most revealing. Fine-tuning on non-human animals closed roughly half the performance gap, without ever showing the model a single pareidolic image. Human pareidolia, it turns out, isn't purely about human face detection. It emerges from a broader, evolutionarily ancient system tuned to recognize faces across species.
 
-![Figure 2](/iaifi-research-blog/figures/2409_16143/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2409_16143/figure_3.png)
 
 So why doesn't pareidolia trigger everywhere? Any sufficiently blurry texture could, in principle, trip the face detector, yet it doesn't.
 
@@ -82,7 +81,6 @@ The researchers proposed two complementary frameworks. The first treats image pa
 
 Images that are too uniform (a flat gray wall) contain nothing face-like. Images that are too chaotic (static noise) overwhelm the detection mechanism. Pareidolia peaks in between, where texture is structured enough to suggest faces but random enough to produce them by accident. Perception experiments on human subjects confirmed this: both humans and trained detectors showed the same inverted U-shaped response curve, peaking at intermediate complexity.
 
-![Figure 3](/iaifi-research-blog/figures/2409_16143/figure_3.png)
 
 ## Why It Matters
 

@@ -39,10 +39,7 @@ concepts:
 - pseudofermion sampling
 figures:
 - /iaifi-research-blog/figures/2208_03832/figure_1.png
-- /iaifi-research-blog/figures/2208_03832/figure_1.png
 - /iaifi-research-blog/figures/2208_03832/figure_2.png
-- /iaifi-research-blog/figures/2208_03832/figure_2.png
-- /iaifi-research-blog/figures/2208_03832/figure_3.png
 - /iaifi-research-blog/figures/2208_03832/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2208.03832v2
 published: '2022-08-07T22:16:20+00:00'
@@ -78,7 +75,7 @@ QCD also involves fermions (quarks), which add another layer of complexity. The 
 
 Drawing multiple pseudofermion samples for each fixed gauge background and averaging the resulting weights yields increasingly precise estimates of the Dirac operator determinant. This quantity encodes quark-gluon interactions and is notoriously expensive to compute.
 
-![Figure 2](/iaifi-research-blog/figures/2208_03832/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2208_03832/figure_2.png)
 
 The first numerical demonstration used a modest 4⁴ lattice (four sites in each of four spacetime dimensions) with two fermion flavors and parameters far from the physically realistic regime. The goal was proof-of-principle: show that all the algorithmic pieces fit together and the sampler actually works.
 
@@ -86,7 +83,7 @@ The first numerical demonstration used a modest 4⁴ lattice (four sites in each
 
 The two diseases this approach targets are not academic nuisances. As lattice volumes grow toward the physically relevant regime, with larger lattices, finer spacings, and lighter quark masses, traditional algorithms scale catastrophically. Topological freezing in particular can invalidate results for quantities sensitive to the global topology of the gauge field, and that includes many physically important observables.
 
-![Figure 3](/iaifi-research-blog/figures/2208_03832/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2208_03832/figure_3.png)
 
 Flow-based methods offer a fundamentally different scaling behavior. Because the flow generates independent samples rather than evolving through configuration space step by step, it sidesteps the random-walk dynamics that cause critical slowing-down. A well-trained flow can, in principle, move probability weight between topological sectors directly, escaping freezing entirely.
 

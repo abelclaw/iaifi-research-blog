@@ -34,7 +34,6 @@ concepts:
 - bayesian inference
 figures:
 - /iaifi-research-blog/figures/2404_10819/figure_1.png
-- /iaifi-research-blog/figures/2404_10819/figure_2.png
 - /iaifi-research-blog/figures/2404_10819/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.10819v1
 published: '2024-04-16T18:00:05+00:00'
@@ -71,11 +70,10 @@ How do perpendicular links get generated? The researchers use a small normalizin
 
 Stacking these doubling layers and alternating between spacetime directions builds the full fine lattice from scratch, scale by scale. Each layer adds a new octave of detail, and each layer's network can specialize in the physics at that scale.
 
-![Figure 2](/iaifi-research-blog/figures/2404_10819/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2404_10819/figure_3.png)
 
 The team tested this framework across U(1) gauge theory (the Abelian case, essentially a lattice version of electromagnetism) in 2, 3, and 4 dimensions, and SU(3) in 4 dimensions. They measured **effective sample size (ESS)**, a number between 0 and 1 quantifying how many independent samples the model delivers per generated configuration. An ESS near 1 means nearly every sample is independent; near 0 means the model is badly miscalibrated.
 
-![Figure 3](/iaifi-research-blog/figures/2404_10819/figure_3.png)
 
 Multiscale models showed competitive or improved ESS compared to flat normalizing flow baselines. The hierarchical structure enabled more stable training and better expressiveness across varying **coupling strengths**, the parameter controlling how strongly particles interact.
 

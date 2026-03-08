@@ -36,7 +36,6 @@ concepts:
 - generative models
 figures:
 - /iaifi-research-blog/figures/2411_02393/figure_1.png
-- /iaifi-research-blog/figures/2411_02393/figure_2.png
 - /iaifi-research-blog/figures/2411_02393/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.02393v1
 published: '2024-11-04T18:58:01+00:00'
@@ -59,7 +58,7 @@ Researchers at MIT CSAIL have built a system that brings this adaptive logic to 
 
 The core innovation is **ALIT** (Adaptive Length Image Tokenizer).
 
-![Figure 2](/iaifi-research-blog/figures/2411_02393/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2411_02393/figure_3.png)
 
 Processing starts by converting an input image into **2D image tokens** — a standard grid-based representation, like a patchwork of small image crops that preserve the scene's spatial structure.
 

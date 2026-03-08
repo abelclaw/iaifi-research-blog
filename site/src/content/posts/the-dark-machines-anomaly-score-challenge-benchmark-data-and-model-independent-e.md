@@ -70,7 +70,6 @@ concepts:
 - generative adversarial networks
 figures:
 - /iaifi-research-blog/figures/2105_14027/figure_1.png
-- /iaifi-research-blog/figures/2105_14027/figure_2.png
 - /iaifi-research-blog/figures/2105_14027/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2105.14027v3
 published: '2021-05-28T18:00:02+00:00'
@@ -107,13 +106,12 @@ Thirteen algorithms competed, spanning a rich zoo of machine learning architectu
 
 The challenge also tested **normalizing flows** (which learn an explicit probability density over the data), **kernel density estimation** (a classical technique for estimating how densely populated different regions of data space are), **Deep SVDD** (which maps normal data onto a tight hypersphere in latent space, flagging anything that falls outside it), and hybrid models combining multiple approaches.
 
-![Figure 2](/iaifi-research-blog/figures/2105_14027/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2105_14027/figure_3.png)
 
 The results, shown as box-and-whisker plots across 17 signals and multiple analysis channels, paint a nuanced picture. No single algorithm wins across all scenarios. For some signals, particularly those producing distinctive high-energy particle showers called boosted jets, certain autoencoder variants achieve impressive significance improvements. For others, especially signals that differ only subtly from the background, most methods struggle.
 
 Combining multiple algorithms often outperforms any individual method, which suggests ensemble approaches deserve serious attention in future LHC analyses. The benchmark also included a "blinded" dataset whose signals were unknown to algorithm developers until after submission. This was a real test of generalization, not in-sample optimization.
 
-![Figure 3](/iaifi-research-blog/figures/2105_14027/figure_3.png)
 
 ## Why It Matters
 

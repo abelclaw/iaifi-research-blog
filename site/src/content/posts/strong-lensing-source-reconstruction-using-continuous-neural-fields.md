@@ -31,7 +31,6 @@ concepts:
 - superresolution
 figures:
 - /iaifi-research-blog/figures/2206_14820/figure_1.png
-- /iaifi-research-blog/figures/2206_14820/figure_2.png
 - /iaifi-research-blog/figures/2206_14820/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2206.14820v2
 published: '2022-06-29T18:00:01+00:00'
@@ -66,7 +65,7 @@ The pipeline has three main components:
 
 3. **Variational inference over everything.** With both the source (neural network weights) and the lens (7 physical parameters) as unknowns, the method applies **gradient-based variational inference** (a technique for efficiently mapping the full range of plausible solutions consistent with the data) to simultaneously optimize the neural field and estimate a probability distribution over lens parameters. Rather than yielding a single best-fit answer, this produces a **posterior** that captures our uncertainty about the lens configuration.
 
-![Figure 2](/iaifi-research-blog/figures/2206_14820/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2206_14820/figure_3.png)
 
 The results on simulated data hold up well. Tested on a mock lensed image of galaxy NGC2906, the reconstructed source closely matches the true source, with residuals consistent with noise. The predicted lensed image agrees with the true observation at the noise level, and the recovered posterior over lens parameters correctly encompasses the true values.
 

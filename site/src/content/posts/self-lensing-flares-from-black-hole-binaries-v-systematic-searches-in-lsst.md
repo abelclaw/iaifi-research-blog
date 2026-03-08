@@ -37,7 +37,6 @@ concepts:
 - bayesian inference
 - cosmological simulation
 figures:
-- /iaifi-research-blog/figures/2512_08427/figure_1.png
 - /iaifi-research-blog/figures/2512_08427/figure_2.png
 - /iaifi-research-blog/figures/2512_08427/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2512.08427v1
@@ -69,7 +68,7 @@ The team built a realistic simulation pipeline to test two competing detection s
 
 On top of the binary signal, they layered realistic quasar "noise" using the **damped random walk (DRW)** model, a standard description of how quasar brightness drifts irregularly over time. They then downsampled the light-curves to mimic LSST's actual observing cadence, including gaps and sporadic visits, with realistic measurement uncertainties added in. The result: simulated light-curves that look like what LSST will actually deliver.
 
-![Figure 1](/iaifi-research-blog/figures/2512_08427/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2512_08427/figure_2.png)
 
 With those synthetic light-curves in hand, they applied two detection methods:
 
@@ -81,7 +80,7 @@ With those synthetic light-curves in hand, they applied two detection methods:
 
 Matched filters blew the periodogram out of the water. Even with LSST-like sparse cadences and realistic DRW noise, matched filter SNR reliably distinguished injected flares from noise.
 
-![Figure 2](/iaifi-research-blog/figures/2512_08427/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2512_08427/figure_3.png)
 
 Beyond simple detection, the team developed a **three-step matched filter procedure** for parameter recovery:
 
@@ -89,7 +88,6 @@ Beyond simple detection, the team developed a **three-step matched filter proced
 - **Step 2:** Use candidate flare detections to constrain the orbital period. Since flares occur twice per orbit, pairs separated by half a period give a direct period estimate.
 - **Step 3:** Refine binary parameters (mass ratio, eccentricity, inclination) by fitting the full multi-component light-curve model to the data.
 
-![Figure 3](/iaifi-research-blog/figures/2512_08427/figure_3.png)
 
 The whole pipeline is computationally cheap enough to run on millions of quasar light-curves, a hard requirement for any method aimed at LSST's enormous catalog.
 

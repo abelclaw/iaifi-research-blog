@@ -38,11 +38,8 @@ concepts:
 - bayesian inference
 - cosmological simulation
 figures:
-- /iaifi-research-blog/figures/2308_07271/figure_1.png
-- /iaifi-research-blog/figures/2308_07271/figure_1.png
 - /iaifi-research-blog/figures/2308_07271/figure_2.png
 - /iaifi-research-blog/figures/2308_07271/figure_2.png
-- /iaifi-research-blog/figures/2308_07271/figure_3.png
 - /iaifi-research-blog/figures/2308_07271/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2308.07271v1
 published: '2023-08-14T16:58:44+00:00'
@@ -66,7 +63,7 @@ Using archival Hubble images of 65 superluminous supernova host galaxies, from n
 
 The analysis hinges on Hubble's unmatched sharpness. Ground-based telescopes blur the fine structure of distant galaxies; Hubble resolves individual star-forming clumps even at cosmological distances. The team gathered images from Hubble's **Advanced Camera for Surveys (ACS)** and **Wide Field Camera 3 (WFC3)**, targeting the galaxy's ultraviolet glow, the wavelength that most directly traces young, hot, massive stars still embedded in star-forming regions.
 
-![Figure 1](/iaifi-research-blog/figures/2308_07271/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2308_07271/figure_2.png)
 
 For each of the 65 SLSNe, the researchers performed careful **astrometric matching**, precisely aligning Hubble images of each host galaxy against earlier images that caught the supernova while it was still shining. This pinpointed each explosion to a specific pixel within the host galaxy image, often to within a fraction of an arcsecond (smaller than 1/3600 of a degree on the sky).
 
@@ -76,13 +73,13 @@ From those pinpointed positions, the team measured three things:
 - **Host-normalized offset**: that distance divided by the host galaxy's **half-light radius** (the radius enclosing half the galaxy's total brightness), enabling fair comparisons across galaxies of very different sizes
 - **Fractional flux**: the fraction of the host galaxy's UV light that comes from regions *dimmer* than the supernova's location, a direct measure of how star-rich or star-poor that neighborhood is
 
-![Figure 2](/iaifi-research-blog/figures/2308_07271/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2308_07271/figure_2.png)
 
 The **fractional flux** statistic is the most telling. If a supernova lands in the brightest star-forming knot of its galaxy, the fractional flux approaches 1, meaning nearly all the galaxy's light comes from regions fainter than that spot. If it detonates just beyond the galaxy's visible edge, fractional flux is 0.
 
 For comparison: long gamma-ray bursts (LGRBs), brief intense flashes also thought to come from dying massive stars, cluster in the *brightest* regions of their hosts, with fractional fluxes skewed strongly toward 1. SLSNe look nothing like that. Roughly 40% of the sample lands at fractional flux = 0, in regions so faint they register essentially no UV light at all.
 
-![Figure 3](/iaifi-research-blog/figures/2308_07271/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2308_07271/figure_3.png)
 
 The normalized offset distribution tells the same story. SLSNe roughly follow an exponential disk profile, the gradual brightness falloff from galactic center to edge you'd expect if events traced the galaxy's overall starlight. But there is a dramatic excess of events at large offsets: 1.5 to 4 times the host half-light radius. This excess is systematically larger than what's seen for LGRBs, and larger still compared to ordinary Type Ib/c and Type II core-collapse supernovae.
 
@@ -92,7 +89,6 @@ The contrast with LGRBs is the study's sharpest result. Long gamma-ray bursts ar
 
 This study undermines that assumption. The SLSN offset and fractional flux distributions are statistically distinct from LGRBs, not just cosmetically different. Something is moving SLSN parent stars away from their birth sites before they explode.
 
-![Figure 4](/iaifi-research-blog/figures/2308_07271/figure_2.png)
 
 The team's favored explanation: **runaway stars**. In dense stellar environments, massive stars often form in binary pairs, two stars bound by gravity and orbiting each other. If one star explodes first, the blast can sever the gravitational bond and send the surviving companion careening through the galaxy at around 100 km/s.
 
@@ -102,7 +98,6 @@ The researchers also tested whether SLSN locations varied with redshift or with 
 
 If SLSNe are primarily the deaths of runaway stars from disrupted binaries, that constrains not just the parent-star mass and chemical composition, but the entire stellar evolutionary pathway: binary formation, first-star death, gravitational disruption, and then a long, lonely journey across the galaxy before the second star collapses.
 
-![Figure 5](/iaifi-research-blog/figures/2308_07271/figure_3.png)
 
 The Vera C. Rubin Observatory's Legacy Survey of Space and Time will discover thousands of SLSNe in the coming years. Those numbers should be enough to test the runaway hypothesis directly, searching for velocity signatures of runaway parent stars and mapping SLSN environments across a wider range of host galaxy types.
 

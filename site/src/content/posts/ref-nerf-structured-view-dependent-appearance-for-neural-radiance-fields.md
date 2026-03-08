@@ -31,13 +31,7 @@ concepts:
 - interpretability
 - representation learning
 - inverse problems
-figures:
-- /iaifi-research-blog/figures/2112_03907/figure_1.png
-- /iaifi-research-blog/figures/2112_03907/figure_1.png
-- /iaifi-research-blog/figures/2112_03907/figure_2.png
-- /iaifi-research-blog/figures/2112_03907/figure_2.png
-- /iaifi-research-blog/figures/2112_03907/figure_3.png
-- /iaifi-research-blog/figures/2112_03907/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2112.03907v1
 published: '2021-12-07T18:58:37+00:00'
 theme: Foundational AI
@@ -59,7 +53,6 @@ But point it at a glossy teapot or a shiny car, and the results look haunted: br
 
 The root of NeRF's glossiness problem is subtle but worth understanding. When NeRF models how a surface looks from different angles, it takes the raw *viewing direction* as input to its neural network. For a glossy surface, the brightness you see depends on whether that angle aligns with a specular highlight, and highlights move *fast* as the viewing angle changes. The function NeRF has to learn is therefore jagged and complicated. Filling in the gaps between training photos produces the uncanny flickering artifacts that plague glossy renderings.
 
-![Figure 2](/iaifi-research-blog/figures/2112_03907/figure_1.png)
 
 Ref-NeRF's first move: instead of feeding the viewing direction into the network, feed in the *reflected* direction, the viewing vector mirrored about the surface's local normal vector. This is exactly how a mirror works. If you're looking at a mirror ball and move your head, the reflection you see is the portion of the environment in the reflected direction. That reflected radiance function is far smoother and easier to interpolate, because it doesn't depend on the viewer's absolute position, only on the surface orientation and the environment lighting.
 
@@ -71,7 +64,6 @@ The second contribution is **Integrated Directional Encoding (IDE)**, a mathemat
 
 This decomposition means the network never confuses "this surface is red" with "this surface is shiny," keeping each component smooth and learnable.
 
-![Figure 1](/iaifi-research-blog/figures/2112_03907/figure_1.png)
 
 There's a catch. To compute the reflection direction at any point, you need an accurate surface normal, the perpendicular to the surface at that location. NeRF's volumetric geometry is famously "foggy," with density smeared out around surfaces rather than concentrated at them. Normals derived from such geometry are noisy and unreliable.
 
@@ -79,7 +71,6 @@ Ref-NeRF addresses this with a **normal vector regularizer**, a penalty that pus
 
 ## Why It Matters
 
-![Figure 3](/iaifi-research-blog/figures/2112_03907/figure_2.png)
 
 The improvements are immediately visible. On benchmark scenes with highly specular objects, Ref-NeRF substantially outperforms previous methods, including mip-NeRF, the variant of NeRF it builds on. Specular highlights now move across surfaces smoothly as the camera translates, rather than blinking in and out. Objects look solid rather than surrounded by ghostly halos.
 

@@ -38,8 +38,6 @@ concepts:
 - representation learning
 figures:
 - /iaifi-research-blog/figures/2506_02473/figure_1.png
-- /iaifi-research-blog/figures/2506_02473/figure_2.png
-- /iaifi-research-blog/figures/2506_02473/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.02473v2
 published: '2025-06-03T05:43:20+00:00'
 theme: Foundational AI
@@ -81,7 +79,6 @@ The most interesting behavior is emergent. Given a *static* single image, the mo
 
 Then, when motion frames arrive, the distribution tightens. Inconsistent explanations get ruled out, and the model converges toward the geometrically correct answer.
 
-![Figure 2](/iaifi-research-blog/figures/2506_02473/figure_2.png)
 
 ## Why It Matters
 

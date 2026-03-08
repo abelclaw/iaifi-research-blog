@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2303_13506/figure_1.png
 - /iaifi-research-blog/figures/2303_13506/figure_1.png
 - /iaifi-research-blog/figures/2303_13506/figure_2.png
-- /iaifi-research-blog/figures/2303_13506/figure_2.png
-- /iaifi-research-blog/figures/2303_13506/figure_3.png
-- /iaifi-research-blog/figures/2303_13506/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2303.13506v3
 published: '2023-03-23T17:58:43+00:00'
 theme: Foundational AI
@@ -78,7 +75,6 @@ Then they turn to real language models. To study how scaling decomposes for actu
 
 The clusters are revealing. One groups texts where the model's job is to increment a numbered list, whether of song titles, legal clauses, or book chapters. Another captures the task of predicting line breaks in fixed-width formats across wildly different content. These quanta are genuinely **universal**: the same computational skill applies across many superficially different contexts, exactly as the theory predicts.
 
-![Figure 4](/iaifi-research-blog/figures/2303_13506/figure_2.png)
 
 The team then asks whether the discovered quanta obey the predicted frequency distribution. The answer: yes. The frequency at which auto-discovered skill clusters appear in training data roughly follows a power law, with an exponent matching the empirical scaling exponent for language models. The circle closes. The same Zipfian structure in skill frequencies that the theory requires to produce power law scaling is actually present in the data these models train on.
 

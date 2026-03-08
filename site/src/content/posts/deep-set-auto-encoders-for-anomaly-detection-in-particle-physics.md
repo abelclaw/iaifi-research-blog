@@ -25,11 +25,8 @@ concepts:
 - density estimation
 - optimal transport
 figures:
-- /iaifi-research-blog/figures/2109_01695/figure_1.png
-- /iaifi-research-blog/figures/2109_01695/figure_1.png
 - /iaifi-research-blog/figures/2109_01695/figure_2.png
 - /iaifi-research-blog/figures/2109_01695/figure_2.png
-- /iaifi-research-blog/figures/2109_01695/figure_3.png
 - /iaifi-research-blog/figures/2109_01695/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2109.01695v2
 published: '2021-09-03T18:22:37+00:00'
@@ -54,7 +51,7 @@ Bryan Ostdiek at Harvard's IAIFI developed a powerful tool for exactly this chal
 
 Particle physics experiments don't record individual quarks. They record *reconstructed objects*: jets of particles, electrons, muons, photons, each described by energy and direction. An event might contain anywhere from a few to twenty such objects. The crucial observation: these objects form a **set**, not a sequence. There's no meaningful "first" or "second" particle.
 
-![Figure 1](/iaifi-research-blog/figures/2109_01695/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2109_01695/figure_2.png)
 
 Traditional neural networks struggle with unordered inputs. Ostdiek builds on **Particle Flow Networks**, architectures designed for exactly this problem. The method works in two stages:
 
@@ -71,19 +68,17 @@ The full model includes a decoder that reconstructs the original particle set us
 
 At β = 1, you don't need a decoder at all. The method reduces to a pure encoder asking one question: how well does this event fit the Gaussian? Standard Model events, trained to fit that shape, compress easily. New physics (unusual particle multiplicities, unexpected energy distributions, exotic combinations) resists.
 
-![Figure 2](/iaifi-research-blog/figures/2109_01695/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2109_01695/figure_2.png)
 
 Ostdiek tested the approach on the **Dark Machines Anomaly Score Challenge**, a rigorous benchmark with over one billion simulated proton-proton collisions at 13 TeV, drawn from 26 Standard Model processes. The challenge included four search channels: a hadronic channel with missing energy, two leptonic channels, and a high-activity inclusive channel. Eleven exotic physics scenarios covered dark matter candidates and two variants of **supersymmetry** (a theoretical framework predicting heavier partner particles for every known particle), spanning 18 different mass spectra. Signals were initially *blinded*, so methods had to perform without knowing what was hidden in the test data.
 
-![Figure 3](/iaifi-research-blog/figures/2109_01695/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2109_01695/figure_3.png)
 
 The Deep Set VAE with β = 1 ranked among the top-performing methods on both open and blinded datasets. It was particularly strong at flagging individual anomalous events, a harder task than finding statistical bumps in aggregate distributions.
 
-![Figure 4](/iaifi-research-blog/figures/2109_01695/figure_2.png)
 
 The other top methods shared a common theme: all used "fixed target" approaches, either mapping events to a Gaussian or to a single fixed vector. Methods that tried to reconstruct their inputs consistently underperformed. One hypothesis: reconstruction forces the network to memorize event details rather than learn the deep structure of what's "normal."
 
-![Figure 5](/iaifi-research-blog/figures/2109_01695/figure_3.png)
 
 ## Why It Matters
 
@@ -93,7 +88,6 @@ The deep sets framework also points toward a useful architectural lesson. By res
 
 The finding that "learn a good encoding" outperforms "reconstruct the input" may carry implications well beyond collider physics. The same principle applies wherever data arrives as unordered collections: molecular modeling, 3D point cloud analysis, social network graphs. Whether the decoder half of an autoencoder actually earns its keep is a question worth revisiting across these fields.
 
-![Figure 6](/iaifi-research-blog/figures/2109_01695/figure_3.png)
 
 > **Bottom Line:** By treating particle collision events as mathematical sets and optimizing purely for compact latent representations, Ostdiek's Deep Set VAE achieved top-tier anomaly detection in a major international challenge and revealed that the decoder half of an autoencoder may be hurting more than it helps.
 

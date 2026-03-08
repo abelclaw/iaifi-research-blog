@@ -34,9 +34,6 @@ figures:
 - /iaifi-research-blog/figures/2506_16570/figure_1.png
 - /iaifi-research-blog/figures/2506_16570/figure_1.png
 - /iaifi-research-blog/figures/2506_16570/figure_2.png
-- /iaifi-research-blog/figures/2506_16570/figure_2.png
-- /iaifi-research-blog/figures/2506_16570/figure_3.png
-- /iaifi-research-blog/figures/2506_16570/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.16570v1
 published: '2025-06-19T19:51:54+00:00'
 theme: Theoretical Physics
@@ -89,7 +86,6 @@ The deeper contribution is conceptual. Quantum thermodynamics usually focuses on
 
 The same mathematical structure (Landau-Zener transitions, frame-dependent particle definitions, superadiabatic corrections) appears in wildly different physical contexts: particle production in an expanding universe, neutrino flavor oscillations in stellar interiors, quantum heat engines. A thermodynamic language that unifies nonadiabaticity and decoherence could prove useful across all of them.
 
-![Figure 4](/iaifi-research-blog/figures/2506_16570/figure_2.png)
 
 > **Bottom Line:** By treating nonadiabatic control errors as entropy production and identifying the superadiabatic frame as the natural thermodynamic reference, this work lays groundwork for a unified theory of quantum control fidelity, one where noise and speed finally speak the same language.
 

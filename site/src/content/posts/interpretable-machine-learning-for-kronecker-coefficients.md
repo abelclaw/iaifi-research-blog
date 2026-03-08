@@ -28,7 +28,6 @@ concepts:
 - embeddings
 - kernel methods
 figures:
-- /iaifi-research-blog/figures/2502_11774/figure_1.png
 - /iaifi-research-blog/figures/2502_11774/figure_2.png
 - /iaifi-research-blog/figures/2502_11774/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2502.11774v1
@@ -58,7 +57,7 @@ Previous work showed that convolutional neural networks and gradient boosting co
 
 **Gradient saliency analysis** identifies which input features most strongly drive a network's output. Think of it as asking the network to highlight the evidence it found most useful. When partitions are represented as *n*-dimensional vectors, the analysis reveals that the first few and last few entries matter far more than the middle. The "extremes" of a partition carry the signal.
 
-![Figure 1](/iaifi-research-blog/figures/2502_11774/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2502_11774/figure_2.png)
 
 The second key ingredient is the **b-loading**, a single number assigned to each partition. The researchers build a matrix recording pairwise distances between every partition of *n*, then apply a standard linear-algebra technique to extract a ranking. Each partition lands on a one-dimensional scale, rescaled to [0, 100]. That position is its b-loading.
 
@@ -68,7 +67,7 @@ For a triple (λ,µ,ν), the **b-loading of the triple** is the sum b(λ) + b(µ
 - Separating distributions by whether g(λ,µ,ν) = 0 reveals a threshold
 - Below a critical value b\*, the coefficient is *always* nonzero, a provable sufficient condition
 
-![Figure 2](/iaifi-research-blog/figures/2502_11774/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2502_11774/figure_3.png)
 
 The team trained three families of interpretable models on b-loadings: **Kolmogorov-Arnold Networks (KANs)**, which learn flexible mathematical functions expressible in explicit human-readable form; small neural networks whose parameters can be read directly; and **PySR**, a symbolic regression tool that searches for explicit algebraic formulas. All three converged near 83% accuracy, essentially the theoretical ceiling for what b-loadings alone can achieve (~85%).
 

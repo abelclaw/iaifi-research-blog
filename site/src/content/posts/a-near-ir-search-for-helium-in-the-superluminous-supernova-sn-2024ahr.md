@@ -50,9 +50,6 @@ concepts:
 - monte carlo methods
 figures:
 - /iaifi-research-blog/figures/2501_01485/figure_1.png
-- /iaifi-research-blog/figures/2501_01485/figure_1.png
-- /iaifi-research-blog/figures/2501_01485/figure_2.png
-- /iaifi-research-blog/figures/2501_01485/figure_2.png
 - /iaifi-research-blog/figures/2501_01485/figure_3.png
 - /iaifi-research-blog/figures/2501_01485/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.01485v1
@@ -90,11 +87,10 @@ The brightness measurements came from multiple facilities:
 - Peak absolute magnitude M_g ≈ M_r ≈ −21, firmly superluminous
 - Rise time of ~40 days, decline time of ~80 days to half-peak brightness
 
-![Figure 2](/iaifi-research-blog/figures/2501_01485/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2501_01485/figure_3.png)
 
 They modeled the light curve using a **magnetar spin-down engine**, the leading explanation for what powers SLSNe-I. A magnetar is a newborn neutron star spinning hundreds of times per second, with a magnetic field so strong it transfers rotational energy into the surrounding explosion debris. The fit yielded a spin period of 3.3 milliseconds, a magnetic field of 6 × 10¹³ Gauss, and an ejecta mass of ~9.5 solar masses, all typical for the SLSN-I population.
 
-![Figure 4](/iaifi-research-blog/figures/2501_01485/figure_2.png)
 
 The near-infrared spectrum told the real story. No significant signal appeared at the 2.058 μm helium line. By comparing synthetic spectra modeled with varying helium masses, the team set a conservative upper limit of ~0.05 solar masses, far below the detection threshold of most optical methods. What they *did* find were features of magnesium (Mg I λ1.575 μm) and a cobalt-magnesium blend (Co II λ2.126 μm + Mg II λ2.136 μm), stretched wider by the high ejecta velocities that define SLSNe-I. These are signatures of Type Ic supernovae.
 
@@ -108,7 +104,6 @@ Comparing SN 2024ahr to other SLSNe-I with near-infrared spectroscopy turned up 
 
 That distinction matters because a clean, representative sample is what's needed to statistically measure the Ib-like versus Ic-like fraction. Right now, the field is working with a handful of oddities. The researchers make a strong case that more near-infrared observations of ordinary superluminous supernovae are essential to real progress.
 
-![Figure 5](/iaifi-research-blog/figures/2501_01485/figure_3.png)
 
 Upcoming wide-field surveys will find supernovae at low enough redshifts for high-quality near-infrared follow-up, potentially expanding the sample rapidly. Combined with improved spectral modeling, the helium fraction in SLSN-I progenitors may soon be measurable at a population level, directly informing theories of stellar mass loss and the final years of massive star life.
 

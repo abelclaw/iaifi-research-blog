@@ -40,9 +40,6 @@ figures:
 - /iaifi-research-blog/figures/2209_11178/figure_1.png
 - /iaifi-research-blog/figures/2209_11178/figure_1.png
 - /iaifi-research-blog/figures/2209_11178/figure_2.png
-- /iaifi-research-blog/figures/2209_11178/figure_2.png
-- /iaifi-research-blog/figures/2209_11178/figure_3.png
-- /iaifi-research-blog/figures/2209_11178/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2209.11178v4
 published: '2022-09-22T17:26:58+00:00'
 theme: Foundational AI
@@ -88,7 +85,6 @@ This physical anchoring also helps with error tolerance. In score-based approach
 
 The numbers tell a clear story. On the standard CIFAR-10 benchmark, PFGM achieves an **FID score** (Fréchet Inception Distance, where lower means generated images match real ones more closely) of 2.35 and an **Inception score** of 9.68 (higher means greater image diversity and realism). Among normalizing flow models, that's the best reported result. PFGM also performs on par with the best SDE-based generators while requiring 10× to 20× fewer neural network evaluations. That's not a marginal speedup; it's the difference between seconds and minutes at scale.
 
-![Figure 4](/iaifi-research-blog/figures/2209_11178/figure_2.png)
 
 The model is also unusually forgiving. When the researchers deliberately swapped in a weaker neural architecture that causes competing ODE methods to produce garbage, PFGM continued generating decent images. Step size is similarly forgiving: whether you use 10 or 100 integration steps, performance degrades gracefully rather than catastrophically. For practical deployment, where speed-quality tradeoffs get tuned on the fly, that flexibility matters.
 

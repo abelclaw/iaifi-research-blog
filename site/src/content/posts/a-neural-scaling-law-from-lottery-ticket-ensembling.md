@@ -30,10 +30,6 @@ concepts:
 - phase transitions
 figures:
 - /iaifi-research-blog/figures/2310_02258/figure_1.png
-- /iaifi-research-blog/figures/2310_02258/figure_1.png
-- /iaifi-research-blog/figures/2310_02258/figure_2.png
-- /iaifi-research-blog/figures/2310_02258/figure_2.png
-- /iaifi-research-blog/figures/2310_02258/figure_3.png
 - /iaifi-research-blog/figures/2310_02258/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.02258v2
 published: '2023-10-03T17:58:33+00:00'
@@ -67,7 +63,7 @@ Standard fitting theory predicts loss should decay as N^(-4) for ReLU networks, 
 
 To understand why, the researchers did something increasingly rare in deep learning: they opened the networks and looked inside. In an extremely wide network (N=10,000 SiLU neurons), the learned weights and biases showed a striking pattern of **symmetric neurons**, pairs that are exact mirror images of each other. For nearly every neuron with parameters (w, b), a corresponding neuron existed with parameters (-w, b). This symmetry guarantees the network represents an even function, which is exactly what y = x² is.
 
-![Figure 2](/iaifi-research-blog/figures/2310_02258/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2310_02258/figure_3.png)
 
 They then trained 1,000 tiny networks with just N=2 neurons. Instead of a smooth spread of outcomes, the results showed discrete peaks, evidence that small networks converge to only a handful of distinct internal "algorithms." The lowest-loss peak corresponded to networks that had found the symmetric neuron configuration.
 
@@ -79,7 +75,6 @@ Elementary statistics does the rest. Average n independent estimates of the same
 
 This work pins down a regime where the standard function-fitting explanation for scaling laws breaks down. The ReLU results are particularly telling: fitting theory governs early scaling, but the mechanism switches at larger widths. If large language models operate in a similar regime, the N^(-4/d) predictions may get the scaling exponent wrong, either underestimating the gains from further scale or missing the dominant effect altogether.
 
-![Figure 3](/iaifi-research-blog/figures/2310_02258/figure_2.png)
 
 The statistical physics angle is what makes this more than a curiosity. The central limit theorem is one of the most universal results in mathematics: it describes why averages of random things converge, regardless of the specific distribution. Finding it at work inside neural scaling laws suggests that macroscopic scaling behavior may emerge from the collective statistics of microscopic computational sub-structures, much as temperature and pressure emerge from the collective behavior of individual molecules.
 

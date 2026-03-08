@@ -23,8 +23,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2410_08161/figure_1.png
 - /iaifi-research-blog/figures/2410_08161/figure_1.png
-- /iaifi-research-blog/figures/2410_08161/figure_2.png
-- /iaifi-research-blog/figures/2410_08161/figure_2.png
 pdfUrl: https://arxiv.org/pdf/2410.08161v1
 published: '2024-10-10T17:43:13+00:00'
 theme: Theoretical Physics

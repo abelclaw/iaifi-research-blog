@@ -31,12 +31,8 @@ concepts:
 - dimensionality reduction
 - symmetry preservation
 figures:
-- /iaifi-research-blog/figures/2405_04484/figure_1.png
-- /iaifi-research-blog/figures/2405_04484/figure_1.png
 - /iaifi-research-blog/figures/2405_04484/figure_2.png
 - /iaifi-research-blog/figures/2405_04484/figure_2.png
-- /iaifi-research-blog/figures/2405_04484/figure_3.png
-- /iaifi-research-blog/figures/2405_04484/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.04484v1
 published: '2024-05-07T16:53:29+00:00'
 theme: Foundational AI
@@ -62,7 +58,7 @@ Researchers at MIT's IAIFI have now built a machine learning system that navigat
 
 The central insight behind OptPDE is simple: instead of searching for conserved quantities in a fixed equation, flip the problem around. Treat the equation's coefficients as adjustable knobs, and turn those knobs until the number of conserved quantities is as large as possible.
 
-![Figure 1](/iaifi-research-blog/figures/2405_04484/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_04484/figure_2.png)
 
 This requires two interlocking pieces. The first is **CQFinder**, a routine that takes any PDE and a library of candidate basis functions, then computes how many conserved quantities that PDE actually has. It translates the conservation condition into a linear system, then uses **singular value decomposition (SVD)** to enumerate all solutions. In effect, CQFinder counts how many directions in function space remain perfectly frozen as the equation evolves.
 
@@ -78,11 +74,10 @@ The team ran this optimization 5,000 times from random starting points, each tim
 
 Four families emerged. One was immediately familiar: the **Korteweg–De Vries (KdV) equation**, one of the most celebrated integrable PDEs in mathematical physics. It describes shallow water waves and self-reinforcing wave packets called **solitons**. Finding it confirmed the method works.
 
-![Figure 2](/iaifi-research-blog/figures/2405_04484/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2405_04484/figure_2.png)
 
 The other three families were new. The most striking was *u_t = (u_x + a²u_xxx)³*. Its special case *a = 0* gives *u_t = u_x³*, which looks deceptively simple but hides rich behavior. It supports wave-like solutions and develops breaking similar to Burgers' equation. Before breaking, it possesses infinitely many conserved quantities; afterward, the solution's magnitude decays following a power law, converging to a triangular wave shape.
 
-![Figure 3](/iaifi-research-blog/figures/2405_04484/figure_2.png)
 
 The machine generates a clean symbolic expression, not a black-box network, and human mathematicians step in to verify properties, prove theorems, and understand the physics. That closed loop is the whole point.
 

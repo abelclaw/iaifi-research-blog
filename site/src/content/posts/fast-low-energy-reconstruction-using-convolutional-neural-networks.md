@@ -28,11 +28,8 @@ concepts:
 - uncertainty quantification
 figures:
 - /iaifi-research-blog/figures/2505_16777/figure_1.png
-- /iaifi-research-blog/figures/2505_16777/figure_1.png
 - /iaifi-research-blog/figures/2505_16777/figure_2.png
 - /iaifi-research-blog/figures/2505_16777/figure_2.png
-- /iaifi-research-blog/figures/2505_16777/figure_3.png
-- /iaifi-research-blog/figures/2505_16777/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.16777v3
 published: '2025-05-22T15:19:02+00:00'
 theme: Experimental Physics
@@ -66,7 +63,7 @@ The architecture processes events through several layers of learned filters:
 2. **Convolutional layers** — Successive 3D convolutions detect local patterns (clusters of hits, timing gradients) and build up to detector-scale features.
 3. **Output heads** — Separate branches predict reconstructed energy; zenith angle (the neutrino's arrival direction measured from directly overhead); interaction vertex coordinates; a **particle identification (PID)** score distinguishing track-like events (muons leaving long trails) from cascade-like events (electron or tau neutrinos producing compact, spherical bursts); and a background classifier separating genuine neutrino interactions from atmospheric muons.
 
-![Figure 2](/iaifi-research-blog/figures/2505_16777/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2505_16777/figure_2.png)
 
 Speed was a hard constraint. Oscillation analyses require processing millions of simulated and real events. Likelihood-based methods can take seconds per event; the CNN reconstructions run orders of magnitude faster.
 
@@ -74,11 +71,9 @@ Speed was a hard constraint. Oscillation analyses require processing millions of
 
 The networks were trained on detailed **Monte Carlo simulations** that mimic particle interactions and detector response, including photon propagation through inhomogeneous ice with depth-dependent scattering and absorption. Validation on real data confirmed that the networks generalize from simulation to observation, which is a notoriously difficult step in particle physics machine learning.
 
-![Figure 4](/iaifi-research-blog/figures/2505_16777/figure_2.png)
 
 The CNN energy estimator achieves better resolution than previous methods at low energies, and directional reconstruction similarly outperforms classical fits. The PID network cleanly separates muon neutrinos (track signatures) from electron and tau neutrinos (cascade signatures), a separation essential for measuring both the disappearance and appearance channels of neutrino oscillation.
 
-![Figure 5](/iaifi-research-blog/figures/2505_16777/figure_3.png)
 
 ## Why It Matters
 
@@ -88,7 +83,6 @@ IceCube-DeepCore sits in a sweet spot. It measures atmospheric neutrinos at ener
 
 This CNN framework isn't a minor upgrade. It is the backbone of IceCube's current-generation oscillation analysis. Fast, accurate reconstruction makes full likelihood analyses feasible, exploiting the complete reconstructed phase space rather than a handful of binned observables. As the proposed **IceCube Upgrade** adds densely-instrumented low-energy strings, this kind of reconstruction becomes even more necessary.
 
-![Figure 6](/iaifi-research-blog/figures/2505_16777/figure_3.png)
 
 The approach also offers a template for other sparse 3D Cherenkov detectors, from ORCA in the Mediterranean to future water-based neutrino telescopes. When detector geometry can be mapped to a structured grid, the full toolkit of computer vision becomes available for particle physics reconstruction.
 

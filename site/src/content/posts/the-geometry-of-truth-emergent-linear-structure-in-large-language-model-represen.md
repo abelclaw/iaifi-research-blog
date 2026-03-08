@@ -33,11 +33,7 @@ concepts:
 - scalability
 figures:
 - /iaifi-research-blog/figures/2310_06824/figure_1.png
-- /iaifi-research-blog/figures/2310_06824/figure_1.png
 - /iaifi-research-blog/figures/2310_06824/figure_2.png
-- /iaifi-research-blog/figures/2310_06824/figure_2.png
-- /iaifi-research-blog/figures/2310_06824/figure_3.png
-- /iaifi-research-blog/figures/2310_06824/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.06824v3
 published: '2023-10-10T17:54:39+00:00'
 theme: Foundational AI
@@ -72,13 +68,12 @@ With clean data in hand, they ran three types of experiments using models from t
 
 3. **Causal interventions** — This was the strongest evidence. The researchers performed **activation patching**, a technique that surgically replaces the internal signal pattern for one statement with that of another mid-computation. They swapped the internal signals for a false statement with those of a true one, and the model then *output* the opposite truth value. They weren't observing a correlation. They were directly manipulating the model's belief by editing its internals.
 
-![Figure 2](/iaifi-research-blog/figures/2310_06824/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2310_06824/figure_2.png)
 
 The team also compared multiple probing techniques: logistic regression, PCA-based probes, and a simple **difference-in-means (DIM) probe** that computes the average activation difference between true and false examples. The DIM probe matched the classification accuracy of more sophisticated methods, but it identified a direction that was *more causally implicated* in the model's outputs. Complexity didn't win. The simplest geometry captured the most meaningful structure.
 
 Scale mattered. Smaller LLaMA-2 models showed weak or inconsistent truth structure. Larger models, particularly the 13B and 70B variants, showed strong, generalizable truth directions. The geometry of truth appears to be an **emergent property** that develops only as models grow large enough to represent abstract concepts rather than surface patterns.
 
-![Figure 4](/iaifi-research-blog/figures/2310_06824/figure_2.png)
 
 ## Why It Matters
 

@@ -38,7 +38,6 @@ concepts:
 - disentangled representations
 figures:
 - /iaifi-research-blog/figures/2503_07596/figure_1.png
-- /iaifi-research-blog/figures/2503_07596/figure_2.png
 - /iaifi-research-blog/figures/2503_07596/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2503.07596v1
 published: '2025-03-10T17:57:01+00:00'
@@ -69,7 +68,7 @@ Earlier **Hamiltonian Neural Networks (HNNs)**, AI architectures that embedded t
 
 **Second: a denoising objective.** Inspired by **diffusion models** (the AI systems behind image generators like DALL-E and Stable Diffusion), DHN doesn't just predict trajectories: it learns to *denoise* them. During training, the network sees corrupted versions of physical trajectories and learns to recover the clean, physically valid path underneath. The payoff is better stability over long forecasting horizons and a built-in mechanism for handling sparse, noisy, or incomplete data. Different noise patterns unlock different tasks: the same trained model can complete a partial trajectory, infer system parameters, or interpolate sparse observations just by changing the conditioning structure.
 
-![Figure 2](/iaifi-research-blog/figures/2503_07596/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2503_07596/figure_3.png)
 
 **Third: global conditioning for multi-system modeling.** Most HNNs model one physical system at a time. Pendulums of different lengths require separate models. DHN solves this with a **global latent code**, a learned embedding that encodes system-specific properties like mass or length. A single DHN generalizes across physically distinct systems without abandoning the underlying Hamiltonian structure.
 
@@ -81,7 +80,6 @@ The researchers tested this across three genuinely different tasks:
 
 Each task has different inputs and outputs. A single DHN handles all three, something standard HNNs simply can't do.
 
-![Figure 3](/iaifi-research-blog/figures/2503_07596/figure_3.png)
 
 ## Why It Matters
 

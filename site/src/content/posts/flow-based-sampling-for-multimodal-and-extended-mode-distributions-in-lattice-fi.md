@@ -39,9 +39,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2107_00734/figure_1.png
 - /iaifi-research-blog/figures/2107_00734/figure_1.png
-- /iaifi-research-blog/figures/2107_00734/figure_2.png
-- /iaifi-research-blog/figures/2107_00734/figure_2.png
-- /iaifi-research-blog/figures/2107_00734/figure_3.png
 - /iaifi-research-blog/figures/2107_00734/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2107.00734v2
 published: '2021-07-01T20:22:10+00:00'
@@ -85,13 +82,12 @@ To fight mode collapse, the researchers tested two categories of approaches.
 - **Adiabatic retraining** slowly anneals the model from a simpler distribution to the full multimodal target
 - **Flow-distance regularization** adds a penalty discouraging the model from concentrating probability mass too tightly
 
-![Figure 3](/iaifi-research-blog/figures/2107_00734/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2107_00734/figure_3.png)
 
 The team tested these methods on two-dimensional real scalar field theory (Z₂ symmetry, discrete modes) and complex scalar field theory (U(1) symmetry, a continuous ring of modes). They tracked quality using the **effective sample size**, which measures how many independent, usable samples the flow-plus-Metropolis procedure produces per forward pass.
 
 No single method dominates universally. Equivariant flows combined with forwards KL training consistently produced the most reliable results. Mixture models with adaptive weighting also worked well when the symmetry structure wasn't known in advance.
 
-![Figure 5](/iaifi-research-blog/figures/2107_00734/figure_3.png)
 
 The most practically powerful contribution is the **composite sampling algorithm**. Rather than committing entirely to flow-based or HMC sampling, it interleaves HMC steps between flow proposals. The logic is simple: flow models are good at jumping between modes (something HMC almost never manages once topological freezing kicks in), while HMC is good at exploring within a mode (something the flow may do imprecisely). Together, they patch each other's blind spots.
 
@@ -99,7 +95,6 @@ The most practically powerful contribution is the **composite sampling algorithm
 
 Lattice field theory is currently the only systematic, non-perturbative method for calculating nuclear physics from first principles. Quantities like the proton's internal structure, the neutron's electric dipole moment, and the masses of exotic hadrons all depend on efficiently sampling field configurations. As physicists push toward finer lattices and more realistic quark masses, topological freezing becomes so severe that even state-of-the-art supercomputer runs can fail to sample all topological sectors.
 
-![Figure 6](/iaifi-research-blog/figures/2107_00734/figure_3.png)
 
 The authors are careful to frame their 2D scalar field demonstrations as testbeds, not production tools. They have not yet tackled full QCD. But the methods are general and modular. The architectural tricks (equivariance, topology matching, mixtures) and training tricks (forwards KL, adiabatic annealing, flow-distance regularization) all transfer to more complex theories in principle.
 

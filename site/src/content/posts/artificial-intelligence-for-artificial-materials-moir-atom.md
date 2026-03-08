@@ -26,7 +26,6 @@ concepts:
 - tensor networks
 figures:
 - /iaifi-research-blog/figures/2303_08162/figure_1.png
-- /iaifi-research-blog/figures/2303_08162/figure_2.png
 - /iaifi-research-blog/figures/2303_08162/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2303.08162v2
 published: '2023-03-14T18:21:50+00:00'
@@ -74,13 +73,12 @@ For a single electron, the charge density hugs the bottom of the potential well 
 
 Electrical repulsion fights confinement, and the electrons arrange into geometric patterns (triangles, squares, pentagons) like charges evenly distributed on a tiny two-dimensional cage. These are **Wigner molecules**, named for Eugene Wigner, who predicted that strongly interacting electrons would crystallize into ordered arrangements. Wigner molecules were already known in semiconductor quantum dots, but the moiré setting adds a twist: the crystal field breaks rotational symmetry and locks the Wigner molecule's orientation to the underlying lattice, making each pattern a fingerprint of the material's symmetry.
 
-![Figure 2](/iaifi-research-blog/figures/2303_08162/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2303_08162/figure_3.png)
 
 This isn't just theory. Scanning tunneling microscopy (STM) can image electron density at atomic resolution, and modern STM experiments on moiré systems have already resolved individual trapped electrons. The charge density patterns predicted by the neural network, whether triangular or hexagonal depending on φ, should be directly observable.
 
 That means you could measure the charge density shape in a known TMD heterostructure and infer the interaction strength and crystal field symmetry, effectively using the moiré atom as a quantum sensor for its own physics.
 
-![Figure 3](/iaifi-research-blog/figures/2303_08162/figure_3.png)
 
 The payoff runs in two directions. For condensed matter physics, neural networks can now solve strongly-correlated continuum models without the approximations that held back earlier methods: no band truncation, no self-interaction error, no neglected quantum correlations. For machine learning, neural network quantum states have arrived as practical tools for real materials problems, not just toy models.
 

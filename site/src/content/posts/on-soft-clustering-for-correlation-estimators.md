@@ -52,13 +52,7 @@ concepts:
 - posterior estimation
 - dark energy
 - rho statistics
-figures:
-- /iaifi-research-blog/figures/2504_06174/figure_1.png
-- /iaifi-research-blog/figures/2504_06174/figure_1.png
-- /iaifi-research-blog/figures/2504_06174/figure_2.png
-- /iaifi-research-blog/figures/2504_06174/figure_2.png
-- /iaifi-research-blog/figures/2504_06174/figure_3.png
-- /iaifi-research-blog/figures/2504_06174/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2504.06174v3
 published: '2025-04-08T16:18:39+00:00'
 theme: Astrophysics
@@ -92,7 +86,6 @@ The paper tests this across three experiments:
 - **Differentiability:** Forward-model a gravitational simulation and compute gradients through the correlation estimator.
 - **Surrogate modeling:** Train a neural network to emulate the full estimator, then use that differentiable proxy for fast Bayesian inference.
 
-![Figure 1](/iaifi-research-blog/figures/2504_06174/figure_1.png)
 
 The differentiability result is the most technically ambitious. The **Landy-Szalay estimator**, the classic statistic for measuring how galaxy positions correlate across the sky, involves counting galaxy pairs in angular distance bins. With soft assignments, those bin counts become smooth functions, and in principle you can take gradients all the way back to the input catalog.
 
@@ -104,7 +97,6 @@ The practical payoff comes from surrogate models. Rather than differentiating th
 
 They demonstrate this on **galaxy intrinsic alignment (IA)**, the subtle tendency of galaxies to orient themselves with the large-scale structure around them. IA is a major systematic in weak gravitational lensing surveys. Model it incorrectly and your measurements of dark energy and dark matter shift. A trained surrogate successfully recovers IA parameters via Hamiltonian Monte Carlo, a sampling algorithm that requires gradients to work efficiently.
 
-![Figure 2](/iaifi-research-blog/figures/2504_06174/figure_1.png)
 
 The framework applies across multiple science cases:
 - **PSF modeling** for JWST/NIRCam, where small star counts make clustering errors non-negligible

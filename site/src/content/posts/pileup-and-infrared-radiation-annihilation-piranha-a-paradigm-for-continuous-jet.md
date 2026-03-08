@@ -32,9 +32,7 @@ concepts:
 - effective field theory
 - anomaly detection
 figures:
-- /iaifi-research-blog/figures/2305_00989/figure_1.png
 - /iaifi-research-blog/figures/2305_00989/figure_2.png
-- /iaifi-research-blog/figures/2305_00989/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.00989v3
 published: '2023-05-01T18:00:00+00:00'
 theme: Experimental Physics
@@ -65,19 +63,17 @@ PIRANHA turns this intuition into an algorithm. Rather than removing particles b
 - Outputs respond smoothly as soft particles are added, removed, or shifted
 - The geometric structure of the jet is preserved while contamination is removed
 
-![Figure 1](/iaifi-research-blog/figures/2305_00989/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2305_00989/figure_2.png)
 
 The paper presents three concrete implementations. **Apollonius Subtraction (P-AS)** assigns each particle a region of influence based on an **Apollonius diagram**, a generalization of the **Voronoi tessellation** (dividing space into nearest-neighbor regions) that also accounts for particle energy, then subtracts background within each region. It's continuous but computationally expensive. **Iterated Voronoi Subtraction (P-IVS)** approximates P-AS using standard Voronoi regions applied iteratively, trading some precision for speed. Both were introduced in earlier work.
 
 The new contribution is **Recursive Subtraction (P-RS)**, specifically **P-RSF** (Recursive Subtraction with a Fraction *f*). P-RSF operates on the **clustering tree**, the hierarchical branching structure that jet-finding algorithms already produce. At each branch point, it subtracts a fraction *f* of the softer branch's energy from the harder branch, then propagates upward. This is dramatically cheaper to compute and slots naturally into existing pipelines. The special case *f* = 1/2 is the only fully **soft-continuous** variant, producing no abrupt jumps as low-energy particles come and go, and it's the focus throughout the paper.
 
-![Figure 2](/iaifi-research-blog/figures/2305_00989/figure_2.png)
 
 ## Why It Matters
 
 The authors test Recursive Subtraction against several contamination sources: hadronization (the process by which quarks and gluons bind into detectable particles), charged-only versus full-particle reconstruction, pileup from overlapping collisions, and the underlying event. In each case, P-RSF shows smaller sensitivity than traditional groomers like Soft Drop. For the practically important task of measuring *W* boson and top quark jet masses (crucial benchmarks at the LHC), Recursive Subtraction delivers cleaner mass peaks with less smearing from pileup.
 
-![Figure 3](/iaifi-research-blog/figures/2305_00989/figure_3.png)
 
 The paper also provides a rigorous perturbative analysis tracing exactly why hard-cutoff groomers suffer from discontinuities and how PIRANHA avoids them. The authors distinguish **soft discontinuities** (sensitivity to changes in particle energies) from **angular discontinuities** (sensitivity to changes in particle directions), then locate each type precisely in the mathematics of different algorithms. An appendix pushes toward a full resummed perturbative calculation, systematically accounting for cumulative quantum corrections, for Recursive Subtraction. This opens the door to precision QCD (Quantum Chromodynamics, the theory of the strong force) predictions with PIRANHA-groomed observables.
 

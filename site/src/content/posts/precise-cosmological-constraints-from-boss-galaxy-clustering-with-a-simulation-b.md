@@ -38,11 +38,8 @@ concepts:
 - dark matter
 - convolutional networks
 figures:
-- /iaifi-research-blog/figures/2310_16116/figure_1.png
-- /iaifi-research-blog/figures/2310_16116/figure_1.png
 - /iaifi-research-blog/figures/2310_16116/figure_2.png
 - /iaifi-research-blog/figures/2310_16116/figure_2.png
-- /iaifi-research-blog/figures/2310_16116/figure_3.png
 - /iaifi-research-blog/figures/2310_16116/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2310.16116v3
 published: '2023-10-24T18:33:11+00:00'
@@ -68,7 +65,7 @@ A team from Harvard and Stanford has now shown that one such tool, the **Wavelet
 
 The WST takes inspiration from convolutional neural networks, but with one key difference: it's interpretable. Instead of learning arbitrary filters through training, it applies a fixed bank of wavelet filters at multiple scales, measures each response, and averages the results. Wavelet filters are mathematical probes that detect patterns at specific sizes and orientations, similar to edge-detectors in computer vision. The output is a set of **WST coefficients**, compact numbers describing clustering patterns in a 3D galaxy map. These coefficients capture filamentarity (how much galaxies arrange into strands and sheets) and void statistics (the sizes and distribution of empty regions) that the 2-point function simply cannot see.
 
-![Figure 1](/iaifi-research-blog/figures/2310_16116/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2310_16116/figure_2.png)
 
 To use these coefficients for parameter inference, you need to know how they depend on cosmology. Valogiannis, Yuan, and Dvorkin solved this by building a **neural network emulator**, a fast surrogate model trained on the **AbacusSummit** simulation suite: thousands of virtual universes run with different cosmological settings. For each simulated cosmology, they modeled the galaxy population using a **Halo Occupation Distribution (HOD)**, a flexible prescription for how many galaxies occupy dark matter halos of given masses. The emulator predicts WST coefficients and 2-point function multipoles for any point in a high-dimensional parameter space in milliseconds rather than hours.
 
@@ -79,7 +76,7 @@ The pipeline runs in four stages:
 3. **Analyze real BOSS CMASS data**, specifically the DR12 galaxy sample in the redshift window 0.46 < z < 0.57
 4. **Run a joint likelihood analysis** combining WST coefficients and 2-point correlation function multipoles
 
-![Figure 3](/iaifi-research-blog/figures/2310_16116/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2310_16116/figure_3.png)
 
 The validation step was especially thorough. Internal tests used AbacusSummit simulations; external tests used independent galaxy mocks from entirely different simulation codes. An emulator that only works on its training data isn't trustworthy. Successful recovery in both cases confirmed the pipeline was learning genuine cosmological signal, not simulation artifacts.
 
@@ -87,7 +84,6 @@ The validation step was especially thorough. Internal tests used AbacusSummit si
 
 The numbers speak for themselves. Compared to the 2-point correlation function alone, the joint WST + 2PCF analysis shrinks error bars by a factor of 2.5 to 6 across standard **ΛCDM** (Lambda Cold Dark Matter, the current best model of the universe's evolution) parameters. The joint analysis also gains an additional factor of 1.4 to 2.5 over WST alone, showing the two statistics are genuinely complementary.
 
-![Figure 5](/iaifi-research-blog/figures/2310_16116/figure_3.png)
 
 In concrete terms: a 0.9% measurement of ωc (cold dark matter density), a 2.3% measurement of σ8 (the amplitude of matter fluctuations, measuring how clumpy the universe is on large scales), and a 1% measurement of ns (spectral tilt of primordial fluctuations). The Hubble parameter h is constrained to 0.7%, and the growth rate parameter f(z)σ8(z) to 2.5%. All results agree with Planck 2018 measurements, confirming the pipeline is physically sound.
 

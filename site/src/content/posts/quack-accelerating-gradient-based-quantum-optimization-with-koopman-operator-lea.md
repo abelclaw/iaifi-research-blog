@@ -36,11 +36,8 @@ concepts:
 - kernel methods
 - stochastic processes
 figures:
-- /iaifi-research-blog/figures/2211_01365/figure_1.png
-- /iaifi-research-blog/figures/2211_01365/figure_1.png
 - /iaifi-research-blog/figures/2211_01365/figure_2.png
 - /iaifi-research-blog/figures/2211_01365/figure_2.png
-- /iaifi-research-blog/figures/2211_01365/figure_3.png
 - /iaifi-research-blog/figures/2211_01365/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2211.01365v3
 published: '2022-11-02T17:59:25+00:00'
@@ -66,7 +63,7 @@ The core idea: reframe quantum optimization as a **dynamical system**, one whose
 
 **Koopman operator theory** makes this possible. Developed in the 1930s, it says that even for wildly nonlinear systems, there exists a linear operator that captures all the dynamics exactly. The catch is that this operator acts on an infinite-dimensional space of measurable quantities. In practice, you approximate it with a finite set of measurements. What you get is a linear representation of nonlinear behavior, and linear systems are far easier to predict.
 
-![Figure 1](/iaifi-research-blog/figures/2211_01365/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2211_01365/figure_2.png)
 
 QuACK's pipeline breaks into four stages:
 
@@ -77,7 +74,7 @@ QuACK's pipeline breaks into four stages:
 
 The "alternating" in the name refers to the core optimization scheme: the algorithm alternates between updating the Koopman embedding and updating the linear operator, converging efficiently to a stable representation. The authors analyze **spectral stability** to ensure predicted dynamics don't blow up, and extend the approach to handle nonlinear corrections via sliding windows and neural network enhancements.
 
-![Figure 2](/iaifi-research-blog/figures/2211_01365/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2211_01365/figure_2.png)
 
 The connection to **quantum natural gradient** is worth unpacking. The natural gradient accounts for the geometry of quantum state space, treating the optimization landscape as curved rather than flat. This curvature is captured by the **quantum Fisher information metric**, which measures how distinguishable nearby quantum states are. The authors show that Koopman learning in this geometric setting is theoretically well-posed. Overparameterized circuits, those with more parameters than strictly needed, are especially amenable because their loss landscapes are smoother and the dynamics more predictable.
 
@@ -85,7 +82,7 @@ The connection to **quantum natural gradient** is worth unpacking. The natural g
 
 The results are striking. In the overparameterized regime, QuACK delivers over **200x speedup** compared to standard gradient-based methods. In the smooth regime, it achieves **10x speedup**. Even in non-smooth settings, notoriously difficult for any optimizer, QuACK still manages **3x speedup**. The team validated these results across quantum chemistry, condensed matter spin systems, quantum machine learning tasks, and noisy environments mimicking real hardware.
 
-![Figure 3](/iaifi-research-blog/figures/2211_01365/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2211_01365/figure_3.png)
 
 The gradient bottleneck has been one of the most stubborn practical obstacles to deploying VQAs on near-term hardware. Quantum computers are expensive to run, noisy, and time-limited. A 200x reduction in required circuit evaluations could be the difference between a feasible experiment and an impossible one.
 

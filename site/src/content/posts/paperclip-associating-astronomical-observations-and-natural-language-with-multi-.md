@@ -33,11 +33,8 @@ concepts:
 - self-supervised learning
 figures:
 - /iaifi-research-blog/figures/2403_08851/figure_1.png
-- /iaifi-research-blog/figures/2403_08851/figure_1.png
 - /iaifi-research-blog/figures/2403_08851/figure_2.png
 - /iaifi-research-blog/figures/2403_08851/figure_2.png
-- /iaifi-research-blog/figures/2403_08851/figure_3.png
-- /iaifi-research-blog/figures/2403_08851/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2403.08851v1
 published: '2024-03-13T18:00:00+00:00'
 theme: Astrophysics
@@ -79,7 +76,7 @@ The training pipeline then works as follows:
 
 The team tested PAPERCLIP on two retrieval tasks. In **image retrieval**, they queried the model with a text description and asked it to find the most relevant Hubble observations from a large candidate pool. In **text retrieval**, they fed it an image and asked it to identify which astrophysical category ("spiral galaxy," "planetary nebula," "globular cluster") best describes it.
 
-![Figure 2](/iaifi-research-blog/figures/2403_08851/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2403_08851/figure_2.png)
 
 PAPERCLIP substantially outperforms the base CLIP model on both tasks. Domain-specific fine-tuning clearly transfers real scientific knowledge into how the model interprets astronomical imagery. The version trained on LLM-summarized abstracts also consistently beat the version trained on raw abstracts, which supports the guided summarization approach.
 

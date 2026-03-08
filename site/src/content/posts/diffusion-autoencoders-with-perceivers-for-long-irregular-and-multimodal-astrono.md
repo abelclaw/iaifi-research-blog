@@ -33,9 +33,7 @@ concepts:
 - variational autoencoders
 - galaxy classification
 figures:
-- /iaifi-research-blog/figures/2510_20595/figure_1.png
 - /iaifi-research-blog/figures/2510_20595/figure_2.png
-- /iaifi-research-blog/figures/2510_20595/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.20595v1
 published: '2025-10-23T14:21:01+00:00'
 theme: Foundational AI
@@ -58,7 +56,7 @@ A team from MIT and Harvard has built the right-shaped peg. Their new system, **
 
 DAEP solves three problems simultaneously: handling variable-length inputs, compressing them into a meaningful representation, and reconstructing the originals faithfully. It does this by chaining two powerful ideas from modern deep learning.
 
-![Figure 1](/iaifi-research-blog/figures/2510_20595/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2510_20595/figure_2.png)
 
 The pipeline works in three stages:
 
@@ -70,11 +68,9 @@ To isolate the value of diffusion, the authors also built **MAEP** (Masked AutoE
 
 ## Why It Matters
 
-![Figure 2](/iaifi-research-blog/figures/2510_20595/figure_2.png)
 
 Tested on spectroscopic datasets (galaxy spectra from SDSS and DESI) and photometric datasets (supernova light curves from ZTF and ATLAS), DAEP consistently beats the baselines. It achieves lower reconstruction error than both the **VAE** (Variational Autoencoder, a standard AI compression approach) and MAEP. The most striking gains show up on high-frequency features: sharp emission lines in spectra, rapid brightness changes in transient events. These are exactly the details that smoother decoders tend to smear over. DAEP's internal summaries are also more discriminative, meaning similar objects cluster together more tightly, which matters when downstream tasks involve classifying galaxy types or flagging rare transients.
 
-![Figure 3](/iaifi-research-blog/figures/2510_20595/figure_3.png)
 
 The design isn't limited to astronomy. The authors built DAEP for any domain where data arrives as long, messy, mixed-type sequences: irregularly sampled patient health records, financial time series with gaps, sensor networks that report only when something interesting happens. The architecture doesn't need clean inputs to extract clean knowledge.
 

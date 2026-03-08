@@ -25,7 +25,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2408_04199/figure_1.png
 - /iaifi-research-blog/figures/2408_04199/figure_2.png
-- /iaifi-research-blog/figures/2408_04199/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2408.04199v2
 published: '2024-08-08T03:49:31+00:00'
 theme: Theoretical Physics
@@ -71,7 +70,6 @@ Finite-temperature CFT is a bottleneck in theoretical physics. The toolkit that 
 
 The p-adic setting has a strong track record. Results computed first in p-adic string theory later guided real string theory calculations. Holographic conformal blocks for five- and six-point functions were worked out p-adically before anyone could do the real-place versions. This paper extends that track record to finite-temperature physics, establishing a concrete framework where thermal OPE data, conformal block decompositions at finite temperature, and higher-point thermal correlators are all computable. The natural next step is to use this toy model to conjecture structures for real finite-temperature CFTs, then verify them at the real place.
 
-![Figure 3](/iaifi-research-blog/figures/2408_04199/figure_3.png)
 
 > **Bottom Line:** The Tate curve gives p-adic AdS/CFT a thermal sector, and this paper delivers its complete one-loop and tree-level correlator toolkit: a working laboratory for finite-temperature physics where the hard parts are actually solvable.
 

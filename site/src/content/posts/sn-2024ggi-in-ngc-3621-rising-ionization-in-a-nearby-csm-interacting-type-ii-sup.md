@@ -66,10 +66,7 @@ concepts:
 - spectral methods
 figures:
 - /iaifi-research-blog/figures/2404_19006/figure_1.png
-- /iaifi-research-blog/figures/2404_19006/figure_1.png
 - /iaifi-research-blog/figures/2404_19006/figure_2.png
-- /iaifi-research-blog/figures/2404_19006/figure_2.png
-- /iaifi-research-blog/figures/2404_19006/figure_3.png
 - /iaifi-research-blog/figures/2404_19006/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.19006v3
 published: '2024-04-29T18:00:03+00:00'
@@ -99,7 +96,7 @@ Within 0.8 days of discovery, the team detected emission lines of hydrogen, heli
 
 Then came the surprise. By 1.5 days, less than 17 hours later, the spectrum had transformed. New, higher-ionization lines appeared: He II, C IV, N IV/V, and O V. These are highly energized forms of helium, carbon, nitrogen, and oxygen, each stripped of more electrons than before. Creating these ions requires more energetic photons, signaling that the gas had been hit by an even more intense radiation burst.
 
-![Figure 2](/iaifi-research-blog/figures/2404_19006/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_19006/figure_2.png)
 
 The team interprets this rising ionization as evidence that the shockwave broke out not from the star's surface, but from deep within an extended, dense CSM cloud. The explosion had to punch through extra material before light could escape freely.
 
@@ -112,11 +109,10 @@ To extract physical parameters, the team ran a grid of **radiation hydrodynamics
 - CSM confined within ~5 × 10¹⁴ cm (~33 astronomical units, roughly Neptune's orbital distance) of the star's center
 - Enhanced mass loss beginning roughly 3 years before explosion
 
-![Figure 3](/iaifi-research-blog/figures/2404_19006/figure_2.png)
+![Figure 3](/iaifi-research-blog/figures/2404_19006/figure_3.png)
 
 SN 2024ggi peaked at absolute magnitude −18.7 in the ultraviolet and −18.1 in the optical, consistent with the broader population of CSM-interacting Type II supernovae.
 
-![Figure 4](/iaifi-research-blog/figures/2404_19006/figure_2.png)
 
 ## Why It Matters
 
@@ -126,7 +122,6 @@ The proximity of SN 2024ggi (23 million light-years), combined with its rapid di
 
 Wide-field survey telescopes coming online soon, along with automated alert systems and machine-learning classifiers that flag young transients (newly exploded stars) in real time, will be essential for catching these critical early moments. Why massive stars convulse so violently just before core collapse remains an open question, one with implications for stellar feedback, galaxy evolution, and the neutron stars and black holes supernovae leave behind.
 
-![Figure 5](/iaifi-research-blog/figures/2404_19006/figure_3.png)
 
 > **Bottom Line:** SN 2024ggi gave astronomers a rare, real-time window into a star's death throes, revealing furious mass loss in the progenitor's final years that challenges standard stellar models and points toward a violent, still-unexplained instability at the end of massive stellar evolution.
 

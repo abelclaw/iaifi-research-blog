@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2405_02163/figure_1.png
 - /iaifi-research-blog/figures/2405_02163/figure_1.png
 - /iaifi-research-blog/figures/2405_02163/figure_2.png
-- /iaifi-research-blog/figures/2405_02163/figure_2.png
-- /iaifi-research-blog/figures/2405_02163/figure_3.png
-- /iaifi-research-blog/figures/2405_02163/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.02163v1
 published: '2024-05-03T15:09:11+00:00'
 theme: Experimental Physics
@@ -78,7 +75,6 @@ The CNN processes raw photon hit data directly, learning to distinguish genuine 
 
 The results, assuming **normal neutrino mass ordering** (where the two lighter mass states are grouped together, rather than apart from the heaviest): Δm²₃₂ = 2.40 ⁺⁰·⁰⁵₋₀.₀₄ × 10⁻³ eV² and sin²θ₂₃ = 0.54 ⁺⁰·⁰⁴₋₀.₀₃. The CNN simultaneously boosted signal statistics and maintained high neutrino purity, a combination that traditional approaches typically cannot achieve without painful tradeoffs.
 
-![Figure 4](/iaifi-research-blog/figures/2405_02163/figure_2.png)
 
 The value sin²θ₂₃ = 0.54 is particularly telling. Exactly 0.5 would mean muon and tau neutrinos mix with perfect symmetry, or **maximal mixing**. IceCube's result nudges above 0.5, hinting at a preference for the upper **octant** (θ₂₃ > 45°), though the uncertainty still admits maximal mixing.
 
@@ -88,7 +84,6 @@ Neutrino physics sits at a frontier where precision measurements can expose phys
 
 The machine learning approach here points toward a shift in how experimental particle physics gets done. Traditional reconstruction algorithms encode human understanding of detector physics into hand-crafted likelihood functions. These are powerful but slow to develop and bounded by what humans can explicitly model. CNNs learn directly from simulated data, capturing correlations humans might miss.
 
-![Figure 6](/iaifi-research-blog/figures/2405_02163/figure_3.png)
 
 As detectors grow more complex and datasets larger, that advantage grows with them. The upcoming IceCube-Upgrade will add denser instrumentation to DeepCore, and these CNN techniques will scale with it, potentially reaching sub-percent precision on oscillation parameters from atmospheric neutrinos alone.
 

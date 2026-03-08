@@ -37,7 +37,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2207_12511/figure_1.png
 - /iaifi-research-blog/figures/2207_12511/figure_2.png
-- /iaifi-research-blog/figures/2207_12511/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2207.12511v2
 published: '2022-07-25T20:14:22+00:00'
 theme: Astrophysics
@@ -75,7 +74,6 @@ One more complication: **redshift distortions**. Galaxy distances are inferred f
 
 Standard reconstruction achieves high-fidelity recovery up to wavenumber *k* ≈ 0.2 *h* Mpc⁻¹. The CNN hybrid pushes that to *k* ≈ 0.4 *h* Mpc⁻¹, a factor of 2 in wavenumber. Because the number of independent modes in a 3D volume scales as *k*³, that doubling corresponds to an eightfold increase in well-reconstructed modes. Not a marginal improvement, but a qualitative jump in how much cosmological information becomes accessible.
 
-![Figure 3](/iaifi-research-blog/figures/2207_12511/figure_3.png)
 
 The method also nearly eliminates redshift-distortion anisotropy, making the reconstructed field effectively isotropic. Measurements no longer depend on which direction you're probing. For precision cosmology, that directional independence matters as much as the raw resolution gains.
 

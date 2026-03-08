@@ -33,9 +33,6 @@ figures:
 - /iaifi-research-blog/figures/2506_00113/figure_1.png
 - /iaifi-research-blog/figures/2506_00113/figure_1.png
 - /iaifi-research-blog/figures/2506_00113/figure_2.png
-- /iaifi-research-blog/figures/2506_00113/figure_2.png
-- /iaifi-research-blog/figures/2506_00113/figure_3.png
-- /iaifi-research-blog/figures/2506_00113/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2506.00113v2
 published: '2025-05-30T18:00:00+00:00'
 theme: Experimental Physics
@@ -79,7 +76,6 @@ There's a distinction here worth spelling out: mismodeling vs. uncertainty. Mism
 
 Then came the real test: quark/gluon jet discrimination using QCD simulations. Quark and gluon jets look similar but differ subtly. Gluons spray more particles; quarks are more collimated. The team trained wifi ensembles on simulated jet data, learned the likelihood ratio between jet types, and inferred the quark fraction in a synthetic mixed sample.
 
-![Figure 4](/iaifi-research-blog/figures/2506_00113/figure_2.png)
 
 The inferred fractions matched ground truth, and uncertainty intervals showed proper frequentist coverage across a range of true quark fractions, all without the computationally expensive Neyman construction that traditional bootstrapping requires.
 

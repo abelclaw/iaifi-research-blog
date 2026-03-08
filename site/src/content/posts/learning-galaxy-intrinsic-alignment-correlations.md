@@ -37,12 +37,8 @@ concepts:
 - multi-task learning
 - monte carlo methods
 figures:
-- /iaifi-research-blog/figures/2404_13702/figure_1.png
-- /iaifi-research-blog/figures/2404_13702/figure_1.png
 - /iaifi-research-blog/figures/2404_13702/figure_2.png
 - /iaifi-research-blog/figures/2404_13702/figure_2.png
-- /iaifi-research-blog/figures/2404_13702/figure_3.png
-- /iaifi-research-blog/figures/2404_13702/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2404.13702v1
 published: '2024-04-21T16:16:56+00:00'
 theme: Astrophysics
@@ -68,7 +64,7 @@ The training data came from a multi-step pipeline. First, **N-body simulations**
 
 On top of the standard HOD framework, the team added an IA model. Central galaxies, the massive ones at a halo's core, were aligned with their host halo's major axis (its longest physical dimension). Satellite galaxies orbiting within were aligned radially toward the center. Both models include random scatter reflecting the messiness of real galaxy formation. Seven parameters control the whole system: five HOD occupation parameters governing galaxy counts, plus two IA strength parameters, one for centrals and one for satellites.
 
-![Figure 1](/iaifi-research-blog/figures/2404_13702/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2404_13702/figure_2.png)
 
 From each mock catalog, the team measured three correlation functions across 20 radial bins:
 
@@ -78,11 +74,10 @@ From each mock catalog, the team measured three correlation functions across 20 
 
 Together these three functions give a complete statistical picture of how galaxy shapes and positions are linked. Computing them from simulations is the expensive part. The neural network's job is to skip that computation entirely.
 
-![Figure 2](/iaifi-research-blog/figures/2404_13702/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2404_13702/figure_2.png)
 
 The architecture is an **encoder-decoder network**. The encoder compresses the seven HOD+IA input parameters into a compact internal summary; the decoder expands that summary into the full set of correlation values across all radial bins. The model also predicts **aleatoric uncertainties**, the irreducible noise from galaxy formation's stochasticity, using a **mean-variance estimation** procedure. In practice, the network outputs both its best guess and a calibrated error bar, which any downstream statistical analysis needs.
 
-![Figure 4](/iaifi-research-blog/figures/2404_13702/figure_2.png)
 
 ## Why It Matters
 
@@ -90,7 +85,6 @@ The position-position correlation ξ(r) comes out cleanest, with predictions acc
 
 The orientation correlations ω(r) and η(r) are harder. Galaxy orientations are more sensitive to the stochastic scatter in the alignment models, and the emulator's accuracy drops accordingly. It captures the underlying signal, but individual predictions carry larger errors. The root cause is the training data itself: when each simulation realization is somewhat random, the network has to learn average behavior from noisy examples. Averaging measurements over multiple simulation runs would sharpen the training signal.
 
-![Figure 5](/iaifi-research-blog/figures/2404_13702/figure_3.png)
 
 Weak lensing surveys are entering a golden age. Experiments like the Rubin Observatory's LSST, the Euclid satellite, and the Nancy Grace Roman Space Telescope are collecting galaxy shapes for billions of objects. Extracting cosmological constraints (how fast the universe is expanding, how clumpy dark matter is) requires modeling IA with high precision. Getting it wrong biases everything downstream.
 

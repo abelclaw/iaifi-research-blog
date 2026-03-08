@@ -36,11 +36,6 @@ concepts:
 - stochastic processes
 figures:
 - /iaifi-research-blog/figures/2106_05934/figure_1.png
-- /iaifi-research-blog/figures/2106_05934/figure_1.png
-- /iaifi-research-blog/figures/2106_05934/figure_2.png
-- /iaifi-research-blog/figures/2106_05934/figure_2.png
-- /iaifi-research-blog/figures/2106_05934/figure_3.png
-- /iaifi-research-blog/figures/2106_05934/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2106.05934v2
 published: '2021-06-10T17:32:47+00:00'
 theme: Theoretical Physics
@@ -77,31 +72,26 @@ The paper identifies four distinct sampling schemes, each a different decomposit
 
 Each scheme offers different tradeoffs between expressiveness and computational cost.
 
-![Figure 2](/iaifi-research-blog/figures/2106_05934/figure_1.png)
 
 The flow architectures required careful attention to symmetry. The pseudofermion action possesses **translational symmetry**, meaning the physics is identical whether you shift every grid point by the same amount. But there's a twist: **boundary conditions** differ between bosons and fermions. Fermion fields are **antiperiodic** (they flip sign when wrapping around the time direction), while bosons use ordinary periodic conditions.
 
 The team built **equivariant coupling layers**: neural network building blocks engineered to respect these mixed boundary conditions automatically, so the model never wastes capacity on structure that symmetry already determines.
 
-![Figure 3](/iaifi-research-blog/figures/2106_05934/figure_2.png)
 
 The demonstration targets a two-dimensional **Yukawa model**, a theory coupling a scalar bosonic field to a fermionic field using **staggered fermions**, a discretization scheme that efficiently represents fermionic degrees of freedom on the lattice. It's a standard testbed in lattice field theory: complex enough to contain genuine fermionic physics, simple enough to benchmark rigorously.
 
 Flow-based sampling produces statistically independent configurations with **acceptance rates** (the fraction of proposed configurations accepted as valid samples) far exceeding standard HMC. The gap widens near more challenging parameter regimes.
 
-![Figure 4](/iaifi-research-blog/figures/2106_05934/figure_2.png)
 
 ## Why It Matters
 
 The Standard Model is dominated by fermions. Quantum chromodynamics, the theory of the strong force, involves quarks (fermions) bound by gluons into protons and neutrons. Computing proton properties from first principles, understanding the **quark-gluon plasma** (the hot soup of free quarks and gluons that existed microseconds after the Big Bang), searching for new physics in precision measurements: all of these require accurate lattice QCD calculations. Those calculations are fundamentally limited by the sampling problem this paper addresses.
 
-![Figure 5](/iaifi-research-blog/figures/2106_05934/figure_3.png)
 
 The implications reach beyond particle physics. **Strongly correlated electron systems** in condensed matter, materials like high-temperature superconductors where intense quantum interactions produce exotic collective behavior, share the same underlying mathematical structure as fermionic lattice field theories. Sampling improvements that work for lattice QCD translate directly to materials science.
 
 The four sampling schemes here aren't alternatives to HMC so much as a toolkit. The pseudofermion refreshment scheme, for instance, can drop into existing HMC workflows as a direct upgrade, reducing autocorrelations without requiring a complete algorithmic overhaul.
 
-![Figure 6](/iaifi-research-blog/figures/2106_05934/figure_3.png)
 
 The immediate frontier is scaling. The two-dimensional Yukawa demonstration is a proof of principle; next steps are three- and four-dimensional theories, non-Abelian gauge fields (gluons), and eventually the full QCD action. Each step brings new architectural challenges, since flow models must scale efficiently with lattice volume while preserving exact gauge and fermionic symmetries. But the conceptual barrier has been cleared: flow-based sampling is no longer bosons-only.
 

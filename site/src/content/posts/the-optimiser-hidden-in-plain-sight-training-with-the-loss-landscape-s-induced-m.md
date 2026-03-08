@@ -33,8 +33,6 @@ concepts:
 - lagrangian methods
 figures:
 - /iaifi-research-blog/figures/2509_03594/figure_1.png
-- /iaifi-research-blog/figures/2509_03594/figure_2.png
-- /iaifi-research-blog/figures/2509_03594/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2509.03594v1
 published: '2025-09-03T18:00:33+00:00'
 theme: Foundational AI
@@ -74,13 +72,11 @@ Harvey tests the new optimizers across a ladder of problems, from pathological t
 
 In low-dimensional optimization, the log-loss variant was the only optimizer tested that found the global minimum across *all* pathological test functions. That's strong evidence the geometric curvature adaptation does exactly what the theory promises.
 
-![Figure 2](/iaifi-research-blog/figures/2509_03594/figure_2.png)
 
 For neural network training, the picture is more mixed. Across MLPs on MNIST, ResNet-18 on CIFAR-10, and transformer models on TinyShakespeare, the RMSprop-preconditioned variant performed best on average across most tasks. The improvements over Adam and AdamW are modest but consistent.
 
 The framework is also modular. The induced metric correction can be applied on top of *any* existing preconditioning method, including Muon. It's not locked to one algorithm; it's a wrapper that can upgrade existing tools.
 
-![Figure 3](/iaifi-research-blog/figures/2509_03594/figure_3.png)
 
 The practical gains are incremental rather than revolutionary, and Harvey is careful to say as much. The deeper value is conceptual. The field has built up a grab bag of empirical tricks: gradient clipping to prevent explosions, learning rate schedules to manage convergence, decoupled weight decay to separate regularization from momentum. Each was developed independently, justified by its own ad-hoc rationale.
 

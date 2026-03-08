@@ -41,10 +41,7 @@ concepts:
 - scalability
 - simulation-based inference
 - density estimation
-figures:
-- /iaifi-research-blog/figures/2510_06220/figure_1.png
-- /iaifi-research-blog/figures/2510_06220/figure_2.png
-- /iaifi-research-blog/figures/2510_06220/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2510.06220v1
 published: '2025-10-07T17:59:58+00:00'
 theme: Astrophysics
@@ -75,7 +72,6 @@ This polling exercise has two compounding problems:
 1. **Unreliable respondents.** Events near the detection threshold are individually imprecise. Some may not be real mergers at all.
 2. **Accumulating numerical error.** The **population likelihood**, a score measuring how well a proposed model fits the entire catalog, is computed by combining finite parameter samples from every event. As catalogs grow, these imperfect representations introduce systematic inaccuracies that quietly bias conclusions about the whole population.
 
-![Figure 1](/iaifi-research-blog/figures/2510_06220/figure_1.png)
 
 The proposed remedy: raise the **network SNR threshold**, a measure of signal loudness relative to detector noise, from the standard value of 11 up to 15, 17, or 19. A higher cut means fewer events in the analysis. But how much do the scientific conclusions actually suffer?
 
@@ -85,13 +81,11 @@ The answer depends on which black hole properties you care about:
 - **Spin distribution:** Constraints on black hole spin remained essentially *unchanged* even with the higher cut. Loud, nearby signals carry nearly all the spin information.
 - **Cosmic merger rate:** Here's the real cost. Uncertainties on how the merger rate evolves across cosmic history more than doubled. Distant mergers are the quiet ones, so cutting by loudness disproportionately removes high-redshift events.
 
-![Figure 2](/iaifi-research-blog/figures/2510_06220/figure_2.png)
 
 On the computational side, raising the threshold from SNR > 11 to SNR > 15 caused numerical uncertainty in the population likelihood estimate to drop by more than half. This is the central payoff: more reliable analysis at no additional computational expense.
 
 The intuition is clean. Louder signals are more precisely characterized, with tighter and better-behaved parameter estimates. Quiet events near the detection threshold are individually imprecise, collectively problematic, and potentially not even real astrophysical signals.
 
-![Figure 3](/iaifi-research-blog/figures/2510_06220/figure_3.png)
 
 ## Why It Matters
 

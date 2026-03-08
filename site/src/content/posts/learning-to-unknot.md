@@ -36,11 +36,8 @@ concepts:
 - interpretability
 figures:
 - /iaifi-research-blog/figures/2010_16263/figure_1.png
-- /iaifi-research-blog/figures/2010_16263/figure_1.png
 - /iaifi-research-blog/figures/2010_16263/figure_2.png
 - /iaifi-research-blog/figures/2010_16263/figure_2.png
-- /iaifi-research-blog/figures/2010_16263/figure_3.png
-- /iaifi-research-blog/figures/2010_16263/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2010.16263v1
 published: '2020-10-28T18:00:05+00:00'
 theme: Theoretical Physics
@@ -72,7 +69,7 @@ The researchers generated N-crossing braids and balanced datasets of unknots and
 
 The Reformer and shared-QK Transformer both outperformed the baseline. What's less obvious: the longer the braid word, the *higher* the classification accuracy. More crossings should mean a harder problem, but longer braid words carry more redundancy and context, giving the attention mechanism more signal to work with.
 
-![Figure 2](/iaifi-research-blog/figures/2010_16263/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2010_16263/figure_2.png)
 
 The team also found a deep connection between classifier confidence and the **Jones polynomial**, a knot invariant (a quantity that stays fixed under any deformation, as long as you don't cut the knot) introduced in 1984. Highly confident predictions correlated strongly with the degree of the Jones polynomial. The network didn't know about the Jones polynomial. It rediscovered this correlation from braid words alone.
 
@@ -88,7 +85,6 @@ Among several RL algorithms tested (PPO, A2C, random walkers), **Trust Region Po
 
 Looking at the agent's choices revealed something mathematically concrete: braid relations proved far more useful than one of the two Markov moves (stabilization), which was rarely helpful. This is a direct, actionable insight for mathematicians designing knot simplification algorithms.
 
-![Figure 4](/iaifi-research-blog/figures/2010_16263/figure_2.png)
 
 Unlike the classifier, the RL agent provides a *proof*. When it successfully unknots a braid, it hands you an explicit, mechanically verifiable sequence of moves, transforming a probabilistic prediction into a mathematical certificate.
 

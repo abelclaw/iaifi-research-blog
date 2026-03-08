@@ -36,7 +36,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2304_14526/figure_1.png
 - /iaifi-research-blog/figures/2304_14526/figure_2.png
-- /iaifi-research-blog/figures/2304_14526/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2304.14526v1
 published: '2023-04-27T20:48:22+00:00'
 theme: Experimental Physics
@@ -82,7 +81,6 @@ Prometheus makes something new possible: **cross-experiment reconstruction algor
 
 There's a democratization angle too. Neutrino telescope simulation software has traditionally lived inside large collaborations, accessible only to members. A graduate student designing a novel detector or a machine learning researcher developing new reconstruction methods can now reach for the same simulation quality as the major experiments.
 
-![Figure 3](/iaifi-research-blog/figures/2304_14526/figure_3.png)
 
 The paper includes benchmark checks validating Prometheus output against known results, plus performance evaluations showing it balances speed and physical accuracy well. The C++/Python architecture keeps computationally intensive steps fast while the user-facing interface stays approachable.
 

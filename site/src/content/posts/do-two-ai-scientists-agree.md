@@ -39,7 +39,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2504_02822/figure_1.png
 - /iaifi-research-blog/figures/2504_02822/figure_2.png
-- /iaifi-research-blog/figures/2504_02822/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.02822v1
 published: '2025-04-03T17:58:44+00:00'
 theme: Foundational AI
@@ -84,7 +83,6 @@ This research asks not just "can AI do physics?" but "what physics will AI do, a
 
 That Lagrangian dynamics emerges as the "singular accurate family of descriptions" in a rich theory space will come as no surprise to physicists, who have long favored Lagrangian and Hamiltonian approaches not just for elegance but for generalizability. What's striking is that MASS rediscovers this preference from scratch, through pure data pressure, with no human hand guiding it toward those frameworks.
 
-![Figure 3](/iaifi-research-blog/figures/2504_02822/figure_3.png)
 
 The framework opens harder questions. Can AI scientists discover genuinely *new* frameworks that generalize even beyond the Lagrangian? What happens when training data contains noise or systematic errors, as real experimental data always does? And can seed dependence be tamed, or does it represent an irreducible randomness in how intelligent systems carve nature at its joints?
 

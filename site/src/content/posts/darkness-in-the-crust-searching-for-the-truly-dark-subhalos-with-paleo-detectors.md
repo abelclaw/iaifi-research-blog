@@ -33,11 +33,7 @@ concepts:
 - cosmic microwave background
 figures:
 - /iaifi-research-blog/figures/2504_13247/figure_1.png
-- /iaifi-research-blog/figures/2504_13247/figure_1.png
 - /iaifi-research-blog/figures/2504_13247/figure_2.png
-- /iaifi-research-blog/figures/2504_13247/figure_2.png
-- /iaifi-research-blog/figures/2504_13247/figure_3.png
-- /iaifi-research-blog/figures/2504_13247/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.13247v1
 published: '2025-04-17T18:00:00+00:00'
 theme: Astrophysics
@@ -73,7 +69,6 @@ Over an exposure of roughly 10⁹ years, what was a 10⁻⁸ chance per year bec
 
 The team models subhalos using **NFW profiles**, a standard description of how dark matter density rises steeply toward a halo's center. The key parameter is the **mass-concentration relation c(M)**, which describes how centrally concentrated a halo is as a function of its total mass. Different dark matter candidates predict different c(M) curves, especially at small masses where simulations and observations diverge. This makes c(M) a sensitive discriminant between cosmological models.
 
-![Figure 3](/iaifi-research-blog/figures/2504_13247/figure_2.png)
 
 Their analysis spans 13 orders of magnitude in subhalo mass, from 10⁻⁵ to 10⁸ solar masses. They consider multiple dark matter particle masses and **cross-sections** (a measure of how readily a dark matter particle interacts with ordinary matter), examining both **spin-independent** interactions (where a particle's spin doesn't affect how it scatters) and **spin-dependent** ones (where it does). The central question: given a particular c(M) relation and particle properties, what signal would a paleo-detector array observe, and could a non-detection rule out certain models?
 
@@ -81,7 +76,6 @@ Their analysis spans 13 orders of magnitude in subhalo mass, from 10⁻⁵ to 10
 
 The result is a new kind of constraint. For subhalo masses between 10 and 10⁴ solar masses, a regime completely inaccessible to gravitational lensing, stellar stream analysis, or any other current probe, paleo-detectors could constrain the mass-concentration relation if dark matter has a mass around 5 GeV (roughly five times the proton mass, a relatively light candidate). That range is not yet excluded by current underground experiments like LZ or XENON, making this live, testable territory.
 
-![Figure 5](/iaifi-research-blog/figures/2504_13247/figure_3.png)
 
 The paper also points toward a conceptually different kind of experiment: using a single detector to probe both the *particle* nature of dark matter and the *large-scale structure* predictions of **ΛCDM** (the standard cosmological model describing how dark matter clumps and builds structure across cosmic time). Until now, these questions have lived in separate experimental programs. Direct detection experiments ask: what are the microphysical properties of dark matter particles? Cosmological observations ask: how does dark matter cluster on small scales?
 

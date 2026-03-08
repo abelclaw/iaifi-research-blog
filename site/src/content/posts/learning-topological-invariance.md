@@ -34,7 +34,6 @@ concepts:
 - convolutional networks
 figures:
 - /iaifi-research-blog/figures/2504_12390/figure_1.png
-- /iaifi-research-blog/figures/2504_12390/figure_2.png
 - /iaifi-research-blog/figures/2504_12390/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2504.12390v1
 published: '2025-04-16T18:00:50+00:00'
@@ -68,7 +67,7 @@ To verify equivalence, the team compares **hyperbolic knot volumes** — a power
 
 With the networks trained, Halverson and Ruehle ask a deeper question: *what did they actually learn?* A student-teacher experiment probes this. Large "teacher" networks produce compact numerical representations of braid words. Simpler "student" networks then try to reproduce those representations — but using only known mathematical invariants as input: the Alexander polynomial, HOMFLY polynomial, signature, and the **Goeritz matrix** (which encodes how strands link and wrap around each other).
 
-![Figure 2](/iaifi-research-blog/figures/2504_12390/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2504_12390/figure_3.png)
 
 The verdict is consistent across every architecture and training method: the student finds the strongest correlation with the Goeritz matrix. Given no hints, the neural networks converged on the same object that experienced knot theorists regard as fundamental. This is automated mathematical discovery, and it raises an immediate question: could a more expressive student network point toward invariants not yet named?
 
@@ -78,7 +77,6 @@ Could there exist a genuinely knotted loop whose Jones polynomial is identical t
 
 The team trains a Transformer to map Jones polynomials to braid words, then searches the network's learned space near the region where unknots cluster. This generates thousands of candidate braid words with simple Jones polynomials, which are then checked against other invariants to separate genuine unknots from imposters.
 
-![Figure 3](/iaifi-research-blog/figures/2504_12390/figure_3.png)
 
 No counterexample was found — but the framework itself is new: a principled, generative method for exploring a conjecture that pure mathematics has not yet cracked.
 

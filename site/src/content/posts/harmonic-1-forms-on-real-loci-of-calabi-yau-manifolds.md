@@ -32,7 +32,6 @@ concepts:
 - geometric deep learning
 - quantum field theory
 figures:
-- /iaifi-research-blog/figures/2405_19402/figure_1.png
 - /iaifi-research-blog/figures/2405_19402/figure_2.png
 - /iaifi-research-blog/figures/2405_19402/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.19402v2
@@ -68,7 +67,7 @@ The four test cases span a range of topologies:
 - **Quintic**: b₁ = 1, so a harmonic 1-form exists in principle, but classical 3-manifold geometry guarantees it must vanish somewhere. Another control.
 - **CICY1 and CICY2**: complete intersections of a quadric and a quartic in ℙ⁵. Real loci are topologically S¹ × S², with b₁ = 1 and no topological obstruction to a nowhere-vanishing 1-form.
 
-![Figure 1](/iaifi-research-blog/figures/2405_19402/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_19402/figure_2.png)
 
 The paper's **Corollary 3.8** provides the mathematical backbone: if a nowhere-vanishing 1-form exists for an *approximate* metric sufficiently close to solving Monge-Ampère, then a genuine nowhere-vanishing harmonic 1-form for the *true* metric must exist nearby. This transforms a numerical finding into a potential pathway toward a computer-assisted proof.
 
@@ -78,11 +77,10 @@ The results validate the approach on both controls. On the Fermat quintic and Qu
 
 CICY2 is where it gets interesting. The approximate harmonic 1-form turns out to be roughly constant along the S¹ direction and roughly zero along S². That is exactly the pattern you'd expect for a true nowhere-vanishing 1-form on S¹ × S², where the natural candidate is simply the differential of the S¹ coordinate.
 
-![Figure 2](/iaifi-research-blog/figures/2405_19402/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2405_19402/figure_3.png)
 
 The authors also observe that the Calabi-Yau metric develops **long necks** near singular limits, regions where the geometry stretches thin as parameters vary. This behavior is analytically guaranteed for hypersurfaces by a 2019 theorem, but was previously unknown for higher-codimension manifolds like CICYs. The neural network simulations provide the first evidence it occurs there too.
 
-![Figure 3](/iaifi-research-blog/figures/2405_19402/figure_3.png)
 
 What makes this work unusual is its relationship to proof. The authors are explicit that their approximations are not yet accurate enough to complete a formal proof. But Corollary 3.8 already shows how to get there: push the approximation accuracy high enough and a rigorous computer-assisted proof follows.
 

@@ -35,7 +35,6 @@ concepts:
 - equivariant neural networks
 - crystal structure
 figures:
-- /iaifi-research-blog/figures/2601_07742/figure_1.png
 - /iaifi-research-blog/figures/2601_07742/figure_2.png
 - /iaifi-research-blog/figures/2601_07742/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2601.07742v3
@@ -61,7 +60,7 @@ A team of MIT and UCLA researchers has introduced **Phonon Fine-Tuning (PFT)**, 
 
 The curvature that matters here is encoded in **phonons**, the quantum mechanical vibrations of atoms in a crystal lattice. Phonons govern how heat flows through a material, how it expands when warmed, and whether it can become a superconductor. Calculating phonon properties requires the **force constant matrix** (also called the **Hessian**): a grid encoding how the force on every atom changes when any other atom is nudged. This matrix is the mathematical fingerprint of curvature.
 
-![Figure 1](/iaifi-research-blog/figures/2601_07742/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2601_07742/figure_2.png)
 
 The standard approach is a **finite displacement calculation**: take a supercell (a tiled copy of the crystal's repeating unit, large enough that edge effects vanish), nudge each atom, measure forces using **density functional theory (DFT)**, and numerically differentiate. DFT computes electron-atom interactions from first principles, and it's slow. Supercells can contain hundreds or thousands of atoms, and the full Hessian for *N* atoms has 3*N* × 3*N* entries. Training directly on that matrix is computationally ruinous.
 
@@ -85,7 +84,7 @@ The results:
 
 That last result is worth pausing on. PFT targets second derivatives of the potential energy. Yet it also improved predictions that depend on *third-order* derivatives. Better curvature supervision seems to teach the model something more general about the shape of the energy landscape, a lesson that carries upward through higher-order properties.
 
-![Figure 2](/iaifi-research-blog/figures/2601_07742/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2601_07742/figure_3.png)
 
 The materials science community has invested enormous resources building "universal" MLIPs, trained on millions of DFT calculations spanning the periodic table. These models are increasingly used as drop-in replacements for DFT in high-throughput screening workflows. But if they systematically misrepresent energy-surface curvature, anything vibrational becomes unreliable.
 

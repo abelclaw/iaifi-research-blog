@@ -30,10 +30,6 @@ concepts:
 - self-supervised learning
 - sparse models
 figures:
-- /iaifi-research-blog/figures/2305_18552/figure_1.png
-- /iaifi-research-blog/figures/2305_18552/figure_1.png
-- /iaifi-research-blog/figures/2305_18552/figure_2.png
-- /iaifi-research-blog/figures/2305_18552/figure_2.png
 - /iaifi-research-blog/figures/2305_18552/figure_3.png
 - /iaifi-research-blog/figures/2305_18552/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2305.18552v1
@@ -66,17 +62,16 @@ Here's the concrete construction:
 3. This group acts on the **weight space** of the network, transforming the filters themselves rather than the input data directly.
 4. The result is a set of filters that are geometrically related to each other by the learned transformation.
 
-![Figure 1](/iaifi-research-blog/figures/2305_18552/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2305_18552/figure_3.png)
 
 Applying the group transformation to learned filters rather than to raw input images is a deliberate design choice. Keeping the transformations in this moderate-dimensional space makes the network both interpretable and computationally efficient.
 
-![Figure 2](/iaifi-research-blog/figures/2305_18552/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2305_18552/figure_3.png)
 
 The authors use **unfolded networks**, architectures built by unrolling an iterative problem-solving algorithm into a fixed sequence of layers. These networks reconstruct an approximation of the input at every layer, which keeps the filters tethered to the data space where human inspection is possible.
 
 Training is entirely self-supervised with respect to the group. The network simultaneously learns the weights and the group generator, with no labels indicating what symmetries are present. The only signal comes from the downstream task itself.
 
-![Figure 3](/iaifi-research-blog/figures/2305_18552/figure_2.png)
 
 So what does the network actually discover? On natural image datasets, the learned group actions cluster into recognizable categories:
 
@@ -86,11 +81,9 @@ So what does the network actually discover? On natural image datasets, the learn
 
 Ablation studies show that certain filter sets have group actions with high correlation to compositions of rotations and **median filtering**, the latter closely related to the pooling operations ubiquitous in modern deep learning.
 
-![Figure 4](/iaifi-research-blog/figures/2305_18552/figure_2.png)
 
 One of the paper's sharpest findings: the learned group structure depends on *both* the data distribution *and* the task. Training the same architecture on the same images for different objectives (reconstruction versus classification) produces different groups. Symmetry is not a fixed property of a dataset. It's a joint property of the data and what you're trying to do with it.
 
-![Figure 5](/iaifi-research-blog/figures/2305_18552/figure_3.png)
 
 ## Why It Matters
 
@@ -102,7 +95,6 @@ Because the learned groups are finite matrices, you can inspect them. You can co
 
 The authors frame this explicitly: their goal isn't just to build a better architecture, but to use LGNs as a *probe* for understanding what symmetries matter in real-world data. Open questions remain (how to scale to very high-dimensional weight spaces, how to handle continuous rather than discrete groups, whether discovered symmetries transfer across datasets), but the groundwork is in place.
 
-![Figure 6](/iaifi-research-blog/figures/2305_18552/figure_3.png)
 
 > **Bottom Line:** Linear Group Networks show that neural networks can discover their own symmetries from scratch, and those symmetries are interpretable, mapping onto operations researchers already know and use. This reframes symmetry not as a design choice baked into architecture, but as something a sufficiently flexible model can learn to need.
 

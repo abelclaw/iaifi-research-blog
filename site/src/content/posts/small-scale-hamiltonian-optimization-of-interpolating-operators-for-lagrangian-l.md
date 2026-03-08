@@ -38,11 +38,8 @@ concepts:
 - quantum states
 - quantum simulation
 figures:
-- /iaifi-research-blog/figures/2411_02185/figure_1.png
-- /iaifi-research-blog/figures/2411_02185/figure_1.png
 - /iaifi-research-blog/figures/2411_02185/figure_2.png
 - /iaifi-research-blog/figures/2411_02185/figure_2.png
-- /iaifi-research-blog/figures/2411_02185/figure_3.png
 - /iaifi-research-blog/figures/2411_02185/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2411.02185v1
 published: '2024-11-04T15:39:30+00:00'
@@ -75,17 +72,16 @@ The hybrid strategy works in four steps:
 3. **Transfer the coefficients.** Plug those optimized coefficients directly into the Monte Carlo calculation.
 4. **Check robustness.** Verify that the transferred construction actually improves statistical precision, despite differences between the two approaches.
 
-![Figure 1](/iaifi-research-blog/figures/2411_02185/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2411_02185/figure_2.png)
 
 The team tested this in the **Schwinger model**, quantum electrodynamics reduced to one spatial dimension plus time. Their target was the **pseudoscalar meson**, a quark-antiquark bound state analogous to the pion. This model is a standard proving ground: solvable enough to cross-check, yet complex enough to be nontrivial.
 
 Two mismatches between the approaches could potentially wreck the transfer. First, the renormalized coupling constants (the numbers setting interaction strength once quantum fluctuations are accounted for) differ between the quantum-state and Monte Carlo versions of the same physical theory. This happens because the Hamiltonian formulation treats time as continuous while the Lagrangian (Monte Carlo) approach discretizes both time and space. Second, any practical small-scale quantum-state calculation uses a smaller volume or coarser lattice spacing than the full Monte Carlo simulation.
 
-![Figure 2](/iaifi-research-blog/figures/2411_02185/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2411_02185/figure_2.png)
 
 The researchers found that coupling mismatches alone do not significantly degrade the transferred operators. Coarsening the Hamiltonian lattice spacing by a large factor at fixed physical volume eventually hurts accuracy, but reducing physical volume at fixed lattice spacing, which directly cuts computational cost, does not. Here's the surprise: even when the meson mass itself receives large finite-volume corrections in the small Hamiltonian calculation, the optimized operator construction remains accurate. The particle in the box is distorted, but the fingerprint the operator learns is still good.
 
-![Figure 4](/iaifi-research-blog/figures/2411_02185/figure_2.png)
 
 ## Why It Matters
 
@@ -93,7 +89,6 @@ Lattice QCD, the gold standard for calculating properties of hadrons like proton
 
 The near-term implication has to do with quantum hardware. Tensor-network and quantum-computer calculations are currently limited to small system sizes. The results here show that *small is enough*: a quantum or tensor-network device doesn't need to simulate the full physical volume to deliver useful operator improvements for a large classical calculation. The two technologies can cooperate rather than compete, each doing what it does best.
 
-![Figure 5](/iaifi-research-blog/figures/2411_02185/figure_3.png)
 
 Open questions remain. The Schwinger model is simpler than QCD: a single flavor, no confinement in the usual sense. Whether this robustness extends to theories with richer spectra, where excited states crowd closer together and operator optimization becomes harder, is the real test. The authors flag this explicitly as future work.
 

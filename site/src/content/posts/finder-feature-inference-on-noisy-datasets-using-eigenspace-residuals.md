@@ -41,8 +41,6 @@ concepts:
 - uncertainty quantification
 figures:
 - /iaifi-research-blog/figures/2510_19917/figure_1.png
-- /iaifi-research-blog/figures/2510_19917/figure_2.png
-- /iaifi-research-blog/figures/2510_19917/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2510.19917v1
 published: '2025-10-22T18:00:03+00:00'
 theme: Foundational AI
@@ -84,13 +82,11 @@ Once stochastic features are constructed, classification is the easy part. Data 
 
 The results on real datasets speak for themselves. On **Alzheimer's Disease stage classification**, FINDER hit state-of-the-art performance on a notoriously difficult neuroimaging dataset from the Alzheimer's Disease Neuroimaging Initiative (ADNI). Brain scan data is high-dimensional, expensive to collect, and deeply heterogeneous between patients. These are exactly the conditions where FINDER's noise-aware design pays off.
 
-![Figure 2](/iaifi-research-blog/figures/2510_19917/figure_2.png)
 
 On **remote sensing deforestation detection**, where satellite imagery is corrupted by clouds, seasonal variation, and sensor noise, FINDER again beat existing methods. These aren't toy benchmarks. Alzheimer's staging from imaging data could accelerate clinical trials and enable earlier interventions. Automated deforestation detection is a tool for environmental monitoring at scales no human analyst can match.
 
 There's a broader point here, too. The field has largely advanced by throwing more data and more compute at problems. FINDER takes a different path: building the mathematical structure of uncertainty directly into the feature representation, making the most of whatever data exists. The authors are upfront about its limitations (it's not a universal solution), but the framework gives a rigorous way to ask *when* noise-aware methods should win, and by how much.
 
-![Figure 3](/iaifi-research-blog/figures/2510_19917/figure_3.png)
 
 Open questions remain. Can the KLE-based approach extend to multi-class problems beyond binary classification? How does FINDER interact with modern deep learning architectures, where features are learned end-to-end? Can stochastic feature construction scale to truly large datasets without sacrificing its mathematical guarantees?
 

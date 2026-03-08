@@ -35,12 +35,8 @@ concepts:
 - feature extraction
 - spectral methods
 figures:
-- /iaifi-research-blog/figures/2405_17209/figure_1.png
-- /iaifi-research-blog/figures/2405_17209/figure_1.png
 - /iaifi-research-blog/figures/2405_17209/figure_2.png
 - /iaifi-research-blog/figures/2405_17209/figure_2.png
-- /iaifi-research-blog/figures/2405_17209/figure_3.png
-- /iaifi-research-blog/figures/2405_17209/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2405.17209v1
 published: '2024-05-23T01:14:22+00:00'
 theme: Foundational AI
@@ -64,7 +60,7 @@ What they found: transformers appear to solve the SHO the same way a careful phy
 
 The researchers framed their investigation as a hypothesis-testing problem. Given a known solution method *g* (say, the matrix exponential), does the transformer actually use *g* internally? If so, then *g*'s intermediate computational quantities should be encoded somewhere in the transformer's hidden states.
 
-![Figure 1](/iaifi-research-blog/figures/2405_17209/figure_1.png)
+![Figure 1](/iaifi-research-blog/figures/2405_17209/figure_2.png)
 
 To build their toolkit, they first studied a simpler stand-in: **in-context linear regression**, a task where a model estimates the relationship between inputs and outputs (a slope *w*) purely from examples, without being told the underlying formula. The model never sees *w* directly but must implicitly compute it to predict *y = wx* correctly. They defined three ways an intermediate can live inside a hidden state:
 
@@ -81,7 +77,7 @@ From there, they formalized four criteria for establishing that a transformer ac
 
 That fourth criterion is the gold standard. If you can surgically edit the transformer's hidden representation of an intermediate and watch the output change in exactly the predicted way, you have genuine causal evidence, not just correlation.
 
-![Figure 2](/iaifi-research-blog/figures/2405_17209/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2405_17209/figure_2.png)
 
 With these criteria in hand, the team turned to the main event: the simple harmonic oscillator, governed by *ẍ + 2γẋ + ω₀²x = 0*. They trained transformers to predict the next position and velocity from past observations, varying the damping parameter *γ* and natural frequency *ω₀* across training examples. They generated five candidate hypotheses for how the model might solve the problem, ranging from directly inferring *γ* and *ω₀* to running numerical solvers like Euler's method (a step-by-step approximation) or the matrix exponential.
 

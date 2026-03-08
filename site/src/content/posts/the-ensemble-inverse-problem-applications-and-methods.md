@@ -43,7 +43,6 @@ concepts:
 figures:
 - /iaifi-research-blog/figures/2601_22029/figure_1.png
 - /iaifi-research-blog/figures/2601_22029/figure_2.png
-- /iaifi-research-blog/figures/2601_22029/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2601.22029v1
 published: '2026-01-29T17:34:41+00:00'
 theme: Foundational AI
@@ -98,7 +97,6 @@ In seismology, full waveform inversion already demands supercomputers running ph
 
 The work also connects to an emerging thread in AI research: **in-context learning** — the ability of AI systems to pick up new tasks from examples provided at query time, without any retraining. Large language models demonstrate this: show them a few examples in the prompt, and they adapt on the fly. The EIP framework formalizes an analogous capability for physical inverse problems, using the ensemble as a kind of context that lets the model adapt to a new prior without modification.
 
-![Figure 3](/iaifi-research-blog/figures/2601_22029/figure_3.png)
 
 > **Bottom Line:** The Ensemble Inverse Problem gives a unified mathematical home to inverse challenges across physics, geoscience, and imaging — and the proposed generative model approach solves them without forward-model simulations at inference time, while generalizing to distributions never seen during training.
 

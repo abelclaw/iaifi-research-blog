@@ -25,7 +25,6 @@ concepts:
 - scalability
 figures:
 - /iaifi-research-blog/figures/2505_10559/figure_1.png
-- /iaifi-research-blog/figures/2505_10559/figure_2.png
 - /iaifi-research-blog/figures/2505_10559/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2505.10559v1
 published: '2025-05-15T17:59:22+00:00'
@@ -60,7 +59,7 @@ The correspondences they uncover are precise:
 - **Second Law / Thermal Conduction** — When the learning rate decays through **annealing** (gradually dialing back how aggressively the model updates itself), the system cools. The fast variable's distribution contracts toward the valley floor. A hot system cannot cool below its thermostat's temperature; analogously, the model's fluctuation level cannot drop below what the learning rate permits.
 - **Entropic Force and Third Law** — Fast fluctuations exert an effective **entropic force** (invisible pressure from statistics, not explicit gradients) that pushes the system toward regions of wider valleys. Those regions have more accessible microscopic states, exactly mirroring entropic forces in physical polymer systems.
 
-![Figure 2](/iaifi-research-blog/figures/2505_10559/figure_2.png)
+![Figure 2](/iaifi-research-blog/figures/2505_10559/figure_3.png)
 
 The team validates these predictions against actual LLM training runs, showing the toy model captures qualitative and often quantitative behavior of real models with billions of parameters.
 
@@ -70,7 +69,6 @@ This work does something rare: it turns an analogy into a theorem. Researchers h
 
 The immediate payoff is practical. The framework provides a principled basis for designing **learning rate schedules**, the programmed plan for how the learning rate changes over training. The standard warmup-stable-decay (WSD) schedule used in modern LLM pretraining now has a physical interpretation: the stable phase corresponds to thermal equilibration along the river, the decay phase to controlled cooling. NTL predicts *why* these schedules work and suggests how to improve them.
 
-![Figure 3](/iaifi-research-blog/figures/2505_10559/figure_3.png)
 
 The deeper implications stretch further. If LLM training obeys thermodynamic laws, then tools from statistical mechanics (phase transitions, free energy minimization, fluctuation-dissipation theorems) become available for analyzing AI systems. The third-law analog hints at a "ground state" for trained models determined by loss landscape geometry.
 

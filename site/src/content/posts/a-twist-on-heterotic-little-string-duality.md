@@ -31,13 +31,7 @@ concepts:
 - generalized symmetries
 - moduli space
 - conformal field theory
-figures:
-- /iaifi-research-blog/figures/2411_05313/figure_1.png
-- /iaifi-research-blog/figures/2411_05313/figure_1.png
-- /iaifi-research-blog/figures/2411_05313/figure_2.png
-- /iaifi-research-blog/figures/2411_05313/figure_2.png
-- /iaifi-research-blog/figures/2411_05313/figure_3.png
-- /iaifi-research-blog/figures/2411_05313/figure_3.png
+figures: []
 pdfUrl: https://arxiv.org/pdf/2411.05313v1
 published: '2024-11-08T04:01:11+00:00'
 theme: Theoretical Physics
@@ -61,7 +55,6 @@ The central trick is a mathematical maneuver called a **twisted compactification
 
 Think of it like a Möbius strip instead of a cylinder. An ant walking along a Möbius strip returns to its starting position upside down. Similarly, a field going around the twisted circle comes back transformed. This seemingly small change has dramatic consequences: the resulting 5D theory has a smaller space of possible configurations and a different symmetry structure than its untwisted counterpart.
 
-![Figure 1](/iaifi-research-blog/figures/2411_05313/figure_1.png)
 
 The team identifies three types of twists:
 
@@ -71,19 +64,16 @@ The team identifies three types of twists:
 
 To determine which theories are dual to each other, the team assembles a set of **duality invariants**: quantities that must match across any two T-dual theories. These are the dimension of the 5D Coulomb branch (the space of vacuum configurations available to the theory), two 2-group structure constants (κ_R and κ_P, encoding how certain symmetries mix in the quantum theory), and the rank of the flavor symmetry algebra (the symmetry acting on the theory's matter content). All four quantities stay preserved even when twists are introduced, which tightly constrains which theories can possibly be dual.
 
-![Figure 2](/iaifi-research-blog/figures/2411_05313/figure_1.png)
 
 The geometric proof of duality is where things get particularly satisfying. Each 5D theory can be engineered in **M-theory**, the eleven-dimensional framework that unifies all five string theories, by placing it on a specially shaped geometric space called a Calabi-Yau threefold. A single Calabi-Yau space can be described in multiple inequivalent ways (like viewing the same sculpture from different angles), and each description, interpreted through F-theory, a 12-dimensional geometric formulation of string theory, corresponds to a different 6D theory.
 
 The theories are dual by construction: they arise from the same underlying geometry, just described differently. The researchers specifically use Calabi-Yau threefolds *without a section*, meaning there is no global way to pick a base point in each fiber. This is precisely what implements the twist geometrically.
 
-![Figure 3](/iaifi-research-blog/figures/2411_05313/figure_2.png)
 
 ## Why It Matters
 
 This work matters for reasons beyond completing a mathematical catalog. It shows that discrete symmetries are first-class citizens in the duality web, not footnotes or edge cases but generators of whole new families of theories with distinct physical properties. Twisted T-dualities reveal that the space of consistent string vacua is even richer than previously appreciated.
 
-![Figure 4](/iaifi-research-blog/figures/2411_05313/figure_2.png)
 
 The paper also constructs a genuinely new class of theories: CHL-like twisted LSTs in which the two M9 branes (boundary objects in the heterotic M-theory description) are identified with each other. This identification, impossible in the untwisted setting, creates theories with unusual properties, including modified anomaly inflow structures. The invariant-matching procedure then generates predictions for what T-dual descriptions of these new theories must look like, offering a roadmap for future geometric verification.
 

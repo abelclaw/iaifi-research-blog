@@ -35,9 +35,6 @@ figures:
 - /iaifi-research-blog/figures/2501_17219/figure_1.png
 - /iaifi-research-blog/figures/2501_17219/figure_1.png
 - /iaifi-research-blog/figures/2501_17219/figure_2.png
-- /iaifi-research-blog/figures/2501_17219/figure_2.png
-- /iaifi-research-blog/figures/2501_17219/figure_3.png
-- /iaifi-research-blog/figures/2501_17219/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2501.17219v2
 published: '2025-01-28T19:00:00+00:00'
 theme: Theoretical Physics
@@ -87,15 +84,12 @@ The reweighted MC sample encodes everything the precision calculations know abou
 
 The practical stakes are real. At the LHC's high-luminosity phase and proposed future colliders, theoretical systematic uncertainties are becoming the primary bottleneck. Today's matching schemes generate significant fractions of negative-weight events, which are computationally expensive to cancel and corrosive to statistical power. Strictly positive weights mean every simulated event contributes constructively.
 
-![Figure 4](/iaifi-research-blog/figures/2501_17219/figure_2.png)
 
 The conceptual payoff is just as important. By framing the problem as information-theoretic optimization, the method naturally propagates systematic uncertainties from the precision calculation into the Monte Carlo. Varying the input moments and their uncertainties directly changes the output weights and their spread. Theorists know exactly what they are assuming and where their uncertainties come from.
 
-![Figure 5](/iaifi-research-blog/figures/2501_17219/figure_3.png)
 
 The proof-of-concept focuses on thrust in electron-positron collisions, a clean setting where precision QCD calculations are mature and well-tested. But the framework is general: any observable computable analytically or numerically can become a constraint. Future applications could target LHC processes, incorporate electroweak corrections, or constrain dozens of observables at once.
 
-![Figure 6](/iaifi-research-blog/figures/2501_17219/figure_3.png)
 
 > **Bottom Line:** This work recasts a decades-old problem in collider physics as an information-theoretic optimization, delivering positive-weight Monte Carlo events that genuinely reflect the precision of state-of-the-art QCD calculations. It's a combination the field has wanted for a long time.
 

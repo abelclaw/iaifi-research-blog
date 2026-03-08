@@ -35,11 +35,8 @@ concepts:
 - overfitting detection
 figures:
 - /iaifi-research-blog/figures/2212_08095/figure_1.png
-- /iaifi-research-blog/figures/2212_08095/figure_1.png
 - /iaifi-research-blog/figures/2212_08095/figure_2.png
 - /iaifi-research-blog/figures/2212_08095/figure_2.png
-- /iaifi-research-blog/figures/2212_08095/figure_3.png
-- /iaifi-research-blog/figures/2212_08095/figure_3.png
 pdfUrl: https://arxiv.org/pdf/2212.08095v1
 published: '2022-12-15T19:14:39+00:00'
 theme: Astrophysics
@@ -87,7 +84,7 @@ The team then tested different combinations of smoothing scales:
 
 That last result deserves emphasis. More information makes things worse. Finely spaced smoothing scales are nearly redundant; they add correlated noise rather than new physics, and the network gets confused.
 
-![Figure 2](/iaifi-research-blog/figures/2212_08095/figure_1.png)
+![Figure 2](/iaifi-research-blog/figures/2212_08095/figure_2.png)
 
 ## The Two-Direction Discovery
 
@@ -95,13 +92,11 @@ After training the full network with nine features (three quantities at three sc
 
 They computed **principal components** of this gradient field, a standard technique for finding the axes of greatest variation. Think of it as identifying the main axes of an elongated cloud of points. The result was unambiguous: two components dominate. Two directions, in a nine-dimensional space, capture nearly all the variation in how halos form.
 
-![Figure 4](/iaifi-research-blog/figures/2212_08095/figure_2.png)
 
 When they compressed the nine features down to these two principal components and retrained, performance matched or *improved* over the full nine-dimensional version. Dimensionality reduction made the model more accurate, not less.
 
 What do these two directions represent physically? The team resists assigning clean labels. Because the original features are so strongly correlated across scales, the principal components are complex mixtures that don't map neatly onto familiar concepts like "density" or "tidal shear." The network has found something real, but it speaks a different language than traditional bias theory.
 
-![Figure 5](/iaifi-research-blog/figures/2212_08095/figure_3.png)
 
 ## Why It Matters
 
