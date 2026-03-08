@@ -216,12 +216,12 @@ const graphData = JSON.stringify({
 
         <div class="flex flex-wrap items-center gap-2">
           <span class="text-xs text-gray-500 font-medium mr-1">Depth:</span>
-          <input id="depth-slider" type="range" min="1" max="3" value="2" class="w-20 accent-[#663399]" />
-          <span id="depth-label" class="text-xs text-gray-600 font-mono w-4">2</span>
+          <input id="depth-slider" type="range" min="1" max="3" value="3" class="w-20 accent-[#663399]" />
+          <input id="depth-number" type="number" min="1" max="3" value="3" class="w-10 text-xs text-gray-600 font-mono text-center border border-gray-300 rounded px-1 py-0.5" />
           <span class="text-xs text-gray-400 mx-1">|</span>
           <span class="text-xs text-gray-500 font-medium mr-1">Strength:</span>
-          <input id="min-shared-slider" type="range" min="20" max="60" value="35" step="1" class="w-20 accent-[#663399]" />
-          <span id="min-shared-label" class="text-xs text-gray-600 font-mono w-6">3.5</span>
+          <input id="min-shared-slider" type="range" min="20" max="60" value="30" step="1" class="w-20 accent-[#663399]" />
+          <input id="min-shared-number" type="number" min="2" max="6" value="3.0" step="0.1" class="w-14 text-xs text-gray-600 font-mono text-center border border-gray-300 rounded px-1 py-0.5" />
           <span class="text-xs text-gray-400 mx-1">|</span>
           <span id="center-label" class="text-xs text-gray-500 truncate max-w-[250px]">Most connected paper</span>
           <button id="reset-center" class="text-xs text-[#663399] hover:underline ml-1 hidden">reset</button>
@@ -494,14 +494,14 @@ const graphData = JSON.stringify({
     const minR = 6, maxR = 22;
 
     // These are recomputed whenever minShared changes
-    let minSharedThreshold = 3.5;
+    let minSharedThreshold = 3.0;
     let filteredLinks: PaperLink[] = [];
     let paperAdj: Record<string, Set<string>> = {};
     let connectivityScore: Record<string, number> = {};
     let maxScore = 1;
     let centerPaperId = allPaperNodes[0]?.id || "";
     let defaultCenterId = centerPaperId;
-    let maxDepth = 2;
+    let maxDepth = 3;
 
     function recomputeAdjacency() {
       filteredLinks = allPaperLinks.filter((l) => l.score >= minSharedThreshold);
@@ -525,7 +525,9 @@ const graphData = JSON.stringify({
       defaultCenterId = bestId || allPaperNodes[0]?.id || "";
     }
     recomputeAdjacency();
-    centerPaperId = defaultCenterId;
+    // Default to "Multiscale Normalizing Flows for Gauge Theories" as central hub
+    const preferredCenter = "2404.10819";
+    centerPaperId = paperNodeById.has(preferredCenter) ? preferredCenter : defaultCenterId;
 
     function paperRadius(d: PaperNode): number {
       return minR + (maxR - minR) * ((connectivityScore[d.id] || 0) / maxScore);
@@ -613,7 +615,16 @@ const graphData = JSON.stringify({
     const panelTitle = document.getElementById("panel-title")!;
     const panelTheme = document.getElementById("panel-theme")!;
     const panelBody = document.getElementById("panel-body")!;
-    document.getElementById("close-panel")!.addEventListener("click", () => panel.classList.add("hidden"));
+    function setPanelOpen(open: boolean) {
+      if (open) {
+        panel.classList.remove("hidden");
+        document.body.style.marginRight = "20rem";
+      } else {
+        panel.classList.add("hidden");
+        document.body.style.marginRight = "";
+      }
+    }
+    document.getElementById("close-panel")!.addEventListener("click", () => setPanelOpen(false));
 
     // === Theme toggle state ===
     const activeThemes = new Set(Object.keys(themeColors));
@@ -952,7 +963,7 @@ const graphData = JSON.stringify({
       html += '</div>';
 
       panelBody.innerHTML = html;
-      panel.classList.remove("hidden");
+      setPanelOpen(true);
     }
 
     function openConceptPanel(name: string, papers: string[]) {
@@ -975,7 +986,7 @@ const graphData = JSON.stringify({
       }
       html += "</div>";
       panelBody.innerHTML = html;
-      panel.classList.remove("hidden");
+      setPanelOpen(true);
     }
 
     // Recenter button delegation in side panel
@@ -990,26 +1001,34 @@ const graphData = JSON.stringify({
       if (paper) openPaperPanel(paper);
     });
 
-    // === Depth slider ===
+    // === Depth slider + number input ===
     const depthSlider = document.getElementById("depth-slider") as HTMLInputElement;
-    const depthLabelEl = document.getElementById("depth-label")!;
-    depthSlider?.addEventListener("input", () => {
-      maxDepth = parseInt(depthSlider.value);
-      depthLabelEl.textContent = String(maxDepth);
+    const depthNumber = document.getElementById("depth-number") as HTMLInputElement;
+    function setDepth(val: number) {
+      val = Math.max(1, Math.min(3, val));
+      maxDepth = val;
+      depthSlider.value = String(val);
+      depthNumber.value = String(val);
       rebuildGraph();
       updateCenterLabel();
-    });
+    }
+    depthSlider?.addEventListener("input", () => setDepth(parseInt(depthSlider.value)));
+    depthNumber?.addEventListener("change", () => setDepth(parseInt(depthNumber.value)));
 
-    // === Min shared slider ===
+    // === Min shared slider + number input ===
     const minSharedSlider = document.getElementById("min-shared-slider") as HTMLInputElement;
-    const minSharedLabelEl = document.getElementById("min-shared-label")!;
-    minSharedSlider?.addEventListener("input", () => {
-      minSharedThreshold = parseFloat(minSharedSlider.value) / 10;
-      minSharedLabelEl.textContent = minSharedThreshold.toFixed(1);
+    const minSharedNumber = document.getElementById("min-shared-number") as HTMLInputElement;
+    function setMinShared(val: number) {
+      val = Math.max(2, Math.min(6, val));
+      minSharedThreshold = val;
+      minSharedSlider.value = String(Math.round(val * 10));
+      minSharedNumber.value = val.toFixed(1);
       recomputeAdjacency();
       rebuildGraph();
       updateCenterLabel();
-    });
+    }
+    minSharedSlider?.addEventListener("input", () => setMinShared(parseFloat(minSharedSlider.value) / 10));
+    minSharedNumber?.addEventListener("change", () => setMinShared(parseFloat(minSharedNumber.value)));
 
     // Reset center
     document.getElementById("reset-center")!.addEventListener("click", () => {
@@ -1176,9 +1195,7 @@ const graphData = JSON.stringify({
         centerPaperId = bestPaper;
         // Increase depth enough to hopefully show all papers with this concept
         const origDepth = maxDepth;
-        maxDepth = Math.max(maxDepth, 3);
-        depthSlider.value = String(maxDepth);
-        depthLabelEl.textContent = String(maxDepth);
+        setDepth(Math.max(maxDepth, 3));
         rebuildGraph();
         updateCenterLabel();
 
