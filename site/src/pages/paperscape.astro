@@ -14,12 +14,7 @@ const papers = psData.papers as Array<{
   nc: number;
 }>;
 
-const themeColors: Record<string, string> = {
-  "Foundational AI": "#3b82f6",
-  "Theoretical Physics": "#8b5cf6",
-  "Experimental Physics": "#f59e0b",
-  "Astrophysics": "#10b981",
-};
+const hasPapers = papers.length > 0;
 ---
 
 <BaseLayout title="Paperscape - IAIFI Research Blog">
@@ -29,207 +24,663 @@ const themeColors: Record<string, string> = {
       Paperscape
     </h1>
     <p class="text-gray-600 text-sm mb-1">
-      Explore IAIFI papers on the interactive arXiv Paperscape map.
-      Click a paper below to find it on the map, or explore freely.
+      IAIFI papers on the arXiv Paperscape map. Background shows all ~3M arXiv papers;
+      highlighted circles are IAIFI publications.
+    </p>
+    <p class="text-xs text-gray-400">
+      Scroll to zoom. Drag to pan. Hover for details. Click to visit.
     </p>
   </section>
 
-  <!-- IAIFI paper browser -->
-  <div class="mb-4 space-y-3">
-    <div class="flex flex-wrap items-center gap-3">
-      <div class="flex items-center gap-2">
-        <span class="text-xs text-gray-500 font-medium">Theme:</span>
-        <div id="theme-buttons" class="flex flex-wrap gap-1">
-          {Object.entries(themeColors).map(([theme, color]) => (
-            <button
-              class="theme-btn flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors"
-              style={`border-color:${color};color:${color};background:${color}20;`}
-              data-theme={theme}
-            >
-              <span class="w-2 h-2 rounded-full" style={`background:${color}`}></span>
-              {theme}
-            </button>
-          ))}
+  {!hasPapers ? (
+    <div class="text-center py-16 text-gray-500 bg-white rounded-lg border border-gray-200">
+      <p class="text-lg font-medium mb-2">No papers published yet.</p>
+    </div>
+  ) : (
+    <>
+      <!-- Controls -->
+      <div class="mb-4 space-y-3">
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Theme:</span>
+            <div id="theme-buttons" class="flex flex-wrap gap-1"></div>
+          </div>
+          <span class="text-xs text-gray-400">|</span>
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
+            <span class="text-xs text-gray-500 font-medium">Search:</span>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Title, author, or arXiv ID..."
+              class="flex-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]"
+            />
+          </div>
+        </div>
+        <div id="search-results" class="flex flex-wrap gap-1 text-xs"></div>
+      </div>
+
+      <!-- Map container -->
+      <div
+        id="ps-container"
+        class="w-full bg-[#1a1a2e] rounded-lg border border-gray-200 overflow-hidden relative"
+        style="height: 650px; cursor: grab;"
+      >
+        <canvas id="ps-canvas" class="absolute inset-0 w-full h-full"></canvas>
+      </div>
+
+      <div class="mt-3 flex items-center justify-between">
+        <div class="text-xs text-gray-400">
+          Showing <span id="paper-count" class="font-medium text-gray-600">{papers.length}</span> IAIFI papers
+        </div>
+        <div class="text-xs text-gray-400">
+          Background: <a href="https://paperscape.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">Paperscape</a>
+          · <a href="https://github.com/paperscape" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">GitHub</a>
         </div>
       </div>
-      <span class="text-xs text-gray-400">|</span>
-      <div class="flex items-center gap-2 flex-1 max-w-sm">
-        <span class="text-xs text-gray-500 font-medium">Search:</span>
-        <input
-          id="search-input"
-          type="text"
-          placeholder="Title, arXiv ID..."
-          class="flex-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]"
-        />
-      </div>
-    </div>
-
-    <!-- Paper chips -->
-    <div id="paper-chips" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
-      {papers.map((p) => (
-        <button
-          class="paper-chip px-2.5 py-1 rounded-full text-xs border border-gray-200 text-gray-600 hover:border-[#663399] hover:text-[#663399] hover:bg-[#663399]/5 transition-colors truncate max-w-[280px]"
-          data-arxiv={p.arxiv_id}
-          data-theme={p.theme}
-          title={`${p.title} (${p.arxiv_id})`}
-        >
-          {p.title.length > 45 ? p.title.slice(0, 45) + "..." : p.title}
-        </button>
-      ))}
-    </div>
-    <div class="text-xs text-gray-400">
-      <span id="paper-count">{papers.length}</span> IAIFI papers.
-      Click a chip to locate it on the map.
-    </div>
-  </div>
-
-  <!-- Paperscape iframe -->
-  <div
-    id="ps-container"
-    class="w-full rounded-lg border border-gray-200 overflow-hidden relative bg-[#1a1a2e]"
-    style="height: 650px;"
-  >
-    <iframe
-      id="ps-iframe"
-      src="https://paperscape.org/"
-      class="w-full h-full border-0"
-      allow="fullscreen"
-      loading="lazy"
-      title="Paperscape - Interactive arXiv map"
-    ></iframe>
-    <div id="ps-loading" class="absolute inset-0 flex items-center justify-center bg-[#1a1a2e] pointer-events-none transition-opacity duration-500">
-      <div class="text-center">
-        <div class="inline-block w-8 h-8 border-2 border-white/20 border-t-white/70 rounded-full animate-spin mb-3"></div>
-        <p class="text-white/60 text-sm">Loading Paperscape...</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-3 flex items-center justify-between">
-    <div class="text-xs text-gray-400">
-      Powered by <a href="https://paperscape.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">Paperscape</a>
-      · <a href="https://github.com/paperscape" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600">GitHub</a>
-    </div>
-    <button
-      id="open-external"
-      class="text-xs text-[#663399] hover:underline"
-    >
-      Open in new tab
-    </button>
-  </div>
+    </>
+  )}
 </BaseLayout>
 
+<style>
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+</style>
+
 <script>
-  interface PaperEntry {
+  import psData from "../data/paperscape-data.json";
+
+  interface PaperPoint {
     arxiv_id: string;
     title: string;
     theme: string;
     slug: string | null;
+    ps_id: number;
+    x: number;
+    y: number;
+    r: number;
+    nc: number;
   }
 
-  function init() {
-    const iframe = document.getElementById("ps-iframe") as HTMLIFrameElement;
-    const loading = document.getElementById("ps-loading") as HTMLElement;
-    const searchInput = document.getElementById("search-input") as HTMLInputElement;
-    const chipsContainer = document.getElementById("paper-chips") as HTMLElement;
-    const paperCountEl = document.getElementById("paper-count") as HTMLElement;
-    const openExtBtn = document.getElementById("open-external") as HTMLElement;
+  async function init() {
+    const container = document.getElementById("ps-container");
+    const canvas = document.getElementById("ps-canvas") as HTMLCanvasElement;
+    if (!container || !canvas) return;
 
-    if (!iframe) return;
+    const baseUrl = import.meta.env.BASE_URL;
+    const papers: PaperPoint[] = psData.papers as PaperPoint[];
+    const world = psData.world;
+    if (papers.length === 0) return;
 
-    // Hide loading spinner when iframe loads
-    iframe.addEventListener("load", () => {
-      loading.style.opacity = "0";
-      setTimeout(() => { loading.style.display = "none"; }, 500);
-    });
+    // Dimensions
+    const rect = container.getBoundingClientRect();
+    const W = rect.width || 800;
+    const H = rect.height || 650;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
 
-    // Collect all paper data from chips
-    const allChips = Array.from(chipsContainer.querySelectorAll(".paper-chip")) as HTMLElement[];
-    const allPapers: PaperEntry[] = allChips.map(chip => ({
-      arxiv_id: chip.dataset.arxiv || "",
-      title: chip.title || "",
-      theme: chip.dataset.theme || "",
-      slug: null,
-    }));
+    const ctx = canvas.getContext("2d")!;
+    ctx.scale(dpr, dpr);
 
-    // Current iframe search state
-    let currentSearch = "";
+    // Theme colors
+    const themeColors: Record<string, string> = {
+      "Foundational AI": "#3b82f6",
+      "Theoretical Physics": "#8b5cf6",
+      "Experimental Physics": "#f59e0b",
+      "Astrophysics": "#10b981",
+    };
 
-    function navigateTo(arxivId: string) {
-      currentSearch = arxivId;
-      iframe.src = `https://paperscape.org/?s=${encodeURIComponent(arxivId)}`;
-      // Show loading again
-      loading.style.display = "flex";
-      loading.style.opacity = "1";
+    // State
+    const activeThemes = new Set(Object.keys(themeColors));
+    let searchQuery = "";
+    const searchMatches = new Set<string>();
+    let hoveredPaper: PaperPoint | null = null;
+    let selectedPaper: PaperPoint | null = null;
+
+    // Fit IAIFI paper cluster with padding
+    const xs = papers.map((p) => p.x);
+    const ys = papers.map((p) => p.y);
+    const pxMin = Math.min(...xs) - 8000;
+    const pxMax = Math.max(...xs) + 8000;
+    const pyMin = Math.min(...ys) - 8000;
+    const pyMax = Math.max(...ys) + 8000;
+
+    const scaleX = W / (pxMax - pxMin);
+    const scaleY = H / (pyMax - pyMin);
+    const initialScale = Math.min(scaleX, scaleY);
+
+    // Camera: pan (translate) + zoom (scale)
+    let camX = (pxMin + pxMax) / 2;
+    let camY = (pyMin + pyMax) / 2;
+    let camScale = initialScale;
+
+    function worldToScreen(wx: number, wy: number): [number, number] {
+      return [
+        W / 2 + (wx - camX) * camScale,
+        H / 2 + (wy - camY) * camScale,
+      ];
     }
 
-    // Click on paper chip -> navigate iframe
-    chipsContainer.addEventListener("click", (e) => {
-      const chip = (e.target as HTMLElement).closest(".paper-chip") as HTMLElement;
-      if (!chip) return;
-      const arxivId = chip.dataset.arxiv;
-      if (!arxivId) return;
-
-      // Highlight active chip
-      allChips.forEach(c => c.classList.remove("ring-2", "ring-[#663399]", "bg-[#663399]/10"));
-      chip.classList.add("ring-2", "ring-[#663399]", "bg-[#663399]/10");
-
-      navigateTo(arxivId);
-    });
-
-    // Open external button
-    openExtBtn.addEventListener("click", () => {
-      const url = currentSearch
-        ? `https://paperscape.org/?s=${encodeURIComponent(currentSearch)}`
-        : "https://paperscape.org/";
-      window.open(url, "_blank");
-    });
-
-    // Theme filter buttons
-    const activeThemes = new Set(["Foundational AI", "Theoretical Physics", "Experimental Physics", "Astrophysics"]);
-    const themeButtons = document.querySelectorAll(".theme-btn") as NodeListOf<HTMLElement>;
-
-    function applyFilters() {
-      const query = searchInput.value.trim().toLowerCase();
-      let visibleCount = 0;
-
-      allChips.forEach((chip, i) => {
-        const paper = allPapers[i];
-        const themeMatch = activeThemes.has(paper.theme);
-        const searchMatch = !query || paper.title.toLowerCase().includes(query) || paper.arxiv_id.includes(query);
-        const visible = themeMatch && searchMatch;
-        chip.style.display = visible ? "" : "none";
-        if (visible) visibleCount++;
-      });
-
-      paperCountEl.textContent = String(visibleCount);
+    function screenToWorld(sx: number, sy: number): [number, number] {
+      return [
+        camX + (sx - W / 2) / camScale,
+        camY + (sy - H / 2) / camScale,
+      ];
     }
 
-    themeButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const theme = btn.dataset.theme!;
-        if (activeThemes.has(theme)) {
-          activeThemes.delete(theme);
-          btn.style.opacity = "0.3";
-        } else {
-          activeThemes.add(theme);
-          btn.style.opacity = "1";
+    // ── Tile system ──
+    const tileServers = [
+      "https://tile1.paperscape.org",
+      "https://tile2.paperscape.org",
+      "https://tile3.paperscape.org",
+      "https://tile4.paperscape.org",
+    ];
+    let tileServerIdx = 0;
+    function getTileServer() {
+      tileServerIdx = (tileServerIdx + 1) % tileServers.length;
+      return tileServers[tileServerIdx];
+    }
+
+    const tilings = [
+      { z: 0, tw: 45392, th: 45392, nx: 4, ny: 4 },
+      { z: 1, tw: 22696, th: 22696, nx: 8, ny: 8 },
+      { z: 2, tw: 11348, th: 11348, nx: 16, ny: 16 },
+      { z: 3, tw: 5674, th: 5674, nx: 32, ny: 32 },
+      { z: 4, tw: 2837, th: 2837, nx: 64, ny: 64 },
+      { z: 5, tw: 1418, th: 1418, nx: 128, ny: 128 },
+    ];
+    const TILE_PX = 512;
+
+    const tileCache = new Map<string, HTMLImageElement | "loading" | "error">();
+
+    function getBestTiling() {
+      for (const t of tilings) {
+        if (t.tw * camScale >= TILE_PX * 0.5) return t;
+      }
+      return tilings[tilings.length - 1];
+    }
+
+    function drawTiles() {
+      ctx.fillStyle = "#1a1a2e";
+      ctx.fillRect(0, 0, W, H);
+
+      const tiling = getBestTiling();
+      const [vxMin, vyMin] = screenToWorld(0, 0);
+      const [vxMax, vyMax] = screenToWorld(W, H);
+
+      const ixMin = Math.max(1, Math.floor((vxMin - world.xmin) / tiling.tw) + 1);
+      const ixMax = Math.min(tiling.nx, Math.ceil((vxMax - world.xmin) / tiling.tw));
+      const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / tiling.th) + 1);
+      const iyMax = Math.min(tiling.ny, Math.ceil((vyMax - world.ymin) / tiling.th));
+
+      ctx.globalAlpha = 0.35;
+
+      for (let ix = ixMin; ix <= ixMax; ix++) {
+        for (let iy = iyMin; iy <= iyMax; iy++) {
+          const tileKey = `${tiling.z}/${ix}/${iy}`;
+          const tileWx = world.xmin + (ix - 1) * tiling.tw;
+          const tileWy = world.ymin + (iy - 1) * tiling.th;
+
+          const [sx, sy] = worldToScreen(tileWx, tileWy);
+          const sw = tiling.tw * camScale;
+          const sh = tiling.th * camScale;
+
+          const cached = tileCache.get(tileKey);
+          if (cached instanceof HTMLImageElement) {
+            ctx.drawImage(cached, sx, sy, sw, sh);
+          } else if (cached !== "loading") {
+            tileCache.set(tileKey, "loading");
+            const img = new Image();
+            img.onload = () => {
+              tileCache.set(tileKey, img);
+              scheduleRender();
+            };
+            img.onerror = () => {
+              tileCache.set(tileKey, "error");
+            };
+            img.src = `${getTileServer()}/world/tiles/${tileKey}.png`;
+          }
         }
+      }
+
+      ctx.globalAlpha = 1.0;
+    }
+
+    // ── Paper rendering ──
+    function isVisible(p: PaperPoint): boolean {
+      if (!activeThemes.has(p.theme)) return false;
+      if (searchQuery && !searchMatches.has(p.arxiv_id)) return false;
+      return true;
+    }
+
+    function paperScreenRadius(p: PaperPoint): number {
+      const base = Math.max(4, Math.min(16, 4 + p.nc * 0.2));
+      // Scale inversely with zoom so dots stay usable at all levels
+      return base / Math.pow(camScale / initialScale, 0.3);
+    }
+
+    function drawPapers() {
+      const time = performance.now();
+      const pulsePhase = Math.sin(time / 800) * 0.15 + 0.85; // 0.7 – 1.0
+
+      for (const p of papers) {
+        if (!isVisible(p)) continue;
+
+        const [sx, sy] = worldToScreen(p.x, p.y);
+        // Skip if off screen
+        if (sx < -20 || sx > W + 20 || sy < -20 || sy > H + 20) continue;
+
+        const r = paperScreenRadius(p);
+        const color = themeColors[p.theme] || "#6b7280";
+        const isHovered = hoveredPaper === p;
+        const isSelected = selectedPaper === p;
+        const isHighlighted = searchQuery && searchMatches.has(p.arxiv_id);
+
+        // Glow effect
+        if (isHovered || isSelected || isHighlighted) {
+          ctx.beginPath();
+          ctx.arc(sx, sy, r * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.globalAlpha = 0.2;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Outer glow ring (pulse)
+        ctx.beginPath();
+        ctx.arc(sx, sy, r * 1.4, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = isHovered ? 0.4 : 0.15 * pulsePhase;
+        ctx.fill();
+
+        // Main dot
+        ctx.globalAlpha = isHovered ? 1 : 0.9;
+        ctx.beginPath();
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+
+        // White border
+        ctx.strokeStyle = "rgba(255,255,255,0.6)";
+        ctx.lineWidth = isHovered ? 2 : 0.5;
+        ctx.stroke();
+
+        ctx.globalAlpha = 1;
+
+        // Labels when zoomed in enough or hovered
+        const zoomRatio = camScale / initialScale;
+        if (isHovered || isSelected || (zoomRatio > 3 && r > 5)) {
+          const label = p.title.length > 35 ? p.title.slice(0, 35) + "..." : p.title;
+          ctx.font = `${isHovered ? "bold " : ""}${Math.max(10, Math.min(13, r))}px system-ui, sans-serif`;
+          ctx.fillStyle = "rgba(255,255,255,0.9)";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "top";
+
+          // Background for readability
+          const metrics = ctx.measureText(label);
+          const lx = sx - metrics.width / 2 - 3;
+          const ly = sy + r + 4;
+          ctx.fillStyle = "rgba(0,0,0,0.7)";
+          ctx.fillRect(lx, ly, metrics.width + 6, 16);
+          ctx.fillStyle = "rgba(255,255,255,0.95)";
+          ctx.fillText(label, sx, ly + 2);
+        }
+      }
+    }
+
+    // ── Tooltip ──
+    const tooltip = document.createElement("div");
+    tooltip.className = "fixed hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs";
+    document.body.appendChild(tooltip);
+
+    function showTooltip(p: PaperPoint, mx: number, my: number) {
+      tooltip.innerHTML =
+        `<strong>${p.title}</strong><br>` +
+        `<span style="opacity:0.7;font-size:0.75rem">${p.arxiv_id} · ${p.theme}</span>` +
+        (p.nc > 0 ? `<br><span style="opacity:0.5;font-size:0.75rem">${p.nc} concepts</span>` : "");
+      tooltip.classList.remove("hidden");
+      tooltip.style.left = `${mx + 14}px`;
+      tooltip.style.top = `${my - 10}px`;
+    }
+
+    function hideTooltip() {
+      tooltip.classList.add("hidden");
+    }
+
+    // ── Render loop ──
+    let renderScheduled = false;
+    let animating = true;
+
+    function scheduleRender() {
+      if (!renderScheduled) {
+        renderScheduled = true;
+        requestAnimationFrame(render);
+      }
+    }
+
+    function render() {
+      renderScheduled = false;
+      ctx.clearRect(0, 0, W, H);
+      drawTiles();
+      drawPapers();
+
+      // Keep animating for the pulse glow
+      if (animating) {
+        requestAnimationFrame(render);
+      }
+    }
+
+    // Stop continuous animation after 5s to save CPU, restart on interaction
+    setTimeout(() => { animating = false; }, 5000);
+
+    function restartAnimation() {
+      if (!animating) {
+        animating = true;
+        scheduleRender();
+        setTimeout(() => { animating = false; }, 2000);
+      }
+    }
+
+    // ── Mouse interaction ──
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragCamX = 0;
+    let dragCamY = 0;
+
+    function hitTest(mx: number, my: number): PaperPoint | null {
+      // Check in reverse so top-drawn papers are hit first
+      for (let i = papers.length - 1; i >= 0; i--) {
+        const p = papers[i];
+        if (!isVisible(p)) continue;
+        const [sx, sy] = worldToScreen(p.x, p.y);
+        const r = paperScreenRadius(p) + 4; // generous hit area
+        const dx = mx - sx;
+        const dy = my - sy;
+        if (dx * dx + dy * dy <= r * r) return p;
+      }
+      return null;
+    }
+
+    canvas.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      dragStartX = e.offsetX;
+      dragStartY = e.offsetY;
+      dragCamX = camX;
+      dragCamY = camY;
+      canvas.style.cursor = "grabbing";
+    });
+
+    canvas.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        const dx = e.offsetX - dragStartX;
+        const dy = e.offsetY - dragStartY;
+        camX = dragCamX - dx / camScale;
+        camY = dragCamY - dy / camScale;
+        scheduleRender();
+        return;
+      }
+
+      const hit = hitTest(e.offsetX, e.offsetY);
+      if (hit !== hoveredPaper) {
+        hoveredPaper = hit;
+        canvas.style.cursor = hit ? "pointer" : "grab";
+        if (hit) {
+          showTooltip(hit, e.clientX, e.clientY);
+        } else {
+          hideTooltip();
+        }
+        scheduleRender();
+        restartAnimation();
+      } else if (hit) {
+        // Update tooltip position
+        tooltip.style.left = `${e.clientX + 14}px`;
+        tooltip.style.top = `${e.clientY - 10}px`;
+      }
+    });
+
+    canvas.addEventListener("mouseup", () => {
+      if (isDragging) {
+        isDragging = false;
+        canvas.style.cursor = hoveredPaper ? "pointer" : "grab";
+      }
+    });
+
+    canvas.addEventListener("mouseleave", () => {
+      isDragging = false;
+      hoveredPaper = null;
+      hideTooltip();
+      canvas.style.cursor = "grab";
+      scheduleRender();
+    });
+
+    canvas.addEventListener("click", (e) => {
+      if (Math.abs(e.offsetX - dragStartX) > 5 || Math.abs(e.offsetY - dragStartY) > 5) return;
+      const hit = hitTest(e.offsetX, e.offsetY);
+      if (hit) {
+        selectedPaper = hit;
+        if (hit.slug) {
+          window.open(baseUrl + "posts/" + hit.slug, "_self");
+        } else {
+          window.open(`https://arxiv.org/abs/${hit.arxiv_id}`, "_blank");
+        }
+      }
+    });
+
+    // Zoom with scroll wheel
+    canvas.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const zoomFactor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * zoomFactor));
+
+      // Zoom toward mouse position
+      const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
+      camScale = newScale;
+      // Adjust cam so the world point under cursor stays fixed
+      camX = wx - (e.offsetX - W / 2) / camScale;
+      camY = wy - (e.offsetY - H / 2) / camScale;
+
+      scheduleRender();
+      restartAnimation();
+    }, { passive: false });
+
+    // Touch support
+    let lastTouchDist = 0;
+    let lastTouchMid = { x: 0, y: 0 };
+
+    canvas.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        dragStartX = e.touches[0].clientX;
+        dragStartY = e.touches[0].clientY;
+        dragCamX = camX;
+        dragCamY = camY;
+      } else if (e.touches.length === 2) {
+        isDragging = false;
+        const dx = e.touches[1].clientX - e.touches[0].clientX;
+        const dy = e.touches[1].clientY - e.touches[0].clientY;
+        lastTouchDist = Math.sqrt(dx * dx + dy * dy);
+        lastTouchMid = {
+          x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+          y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+        };
+      }
+      e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 1 && isDragging) {
+        const dx = e.touches[0].clientX - dragStartX;
+        const dy = e.touches[0].clientY - dragStartY;
+        camX = dragCamX - dx / camScale;
+        camY = dragCamY - dy / camScale;
+        scheduleRender();
+      } else if (e.touches.length === 2) {
+        const dx = e.touches[1].clientX - e.touches[0].clientX;
+        const dy = e.touches[1].clientY - e.touches[0].clientY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const mid = {
+          x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+          y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+        };
+
+        if (lastTouchDist > 0) {
+          const zoomFactor = dist / lastTouchDist;
+          const canvasRect = canvas.getBoundingClientRect();
+          const mx = mid.x - canvasRect.left;
+          const my = mid.y - canvasRect.top;
+          const [wx, wy] = screenToWorld(mx, my);
+          camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * zoomFactor));
+          camX = wx - (mx - W / 2) / camScale;
+          camY = wy - (my - H / 2) / camScale;
+        }
+
+        lastTouchDist = dist;
+        lastTouchMid = mid;
+        scheduleRender();
+        restartAnimation();
+      }
+      e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener("touchend", () => {
+      isDragging = false;
+      lastTouchDist = 0;
+    });
+
+    // ── Theme buttons ──
+    const themeBtnContainer = document.getElementById("theme-buttons")!;
+    for (const [theme, color] of Object.entries(themeColors)) {
+      const btn = document.createElement("button");
+      btn.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors";
+      btn.style.cssText = `border-color:${color};color:${color};background:${color}20;`;
+      btn.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${theme}`;
+      btn.addEventListener("click", () => {
+        if (activeThemes.has(theme)) activeThemes.delete(theme);
+        else activeThemes.add(theme);
+        btn.style.opacity = activeThemes.has(theme) ? "1" : "0.3";
         applyFilters();
       });
-    });
+      themeBtnContainer.appendChild(btn);
+    }
 
-    // Search input
+    // ── Search ──
+    const searchInput = document.getElementById("search-input") as HTMLInputElement;
+    const searchResultsEl = document.getElementById("search-results")!;
+
+    const searchIndex = papers.map((p) => ({
+      paper: p,
+      text: `${p.title} ${p.arxiv_id}`.toLowerCase(),
+    }));
+
+    // Add author data if available
+    try {
+      const scatterData = (await import("../data/scatter-data.json")).default as any;
+      for (const sp of (scatterData?.papers || [])) {
+        if (sp.a?.length > 0) {
+          const entry = searchIndex.find((e) => e.paper.arxiv_id === sp.id);
+          if (entry) entry.text += " " + sp.a.join(" ").toLowerCase();
+        }
+      }
+    } catch {}
+
+    function doSearch(query: string) {
+      searchQuery = query.trim().toLowerCase();
+      searchMatches.clear();
+
+      if (searchQuery.length === 0) {
+        searchResultsEl.innerHTML = "";
+        applyFilters();
+        return;
+      }
+
+      const terms = searchQuery.split(/\s+/);
+      for (const entry of searchIndex) {
+        if (terms.every((t) => entry.text.includes(t))) {
+          searchMatches.add(entry.paper.arxiv_id);
+        }
+      }
+
+      const matchCount = searchMatches.size;
+      searchResultsEl.innerHTML =
+        matchCount > 0
+          ? `<span class="text-gray-500">${matchCount} match${matchCount !== 1 ? "es" : ""}</span>` +
+            (matchCount <= 10
+              ? Array.from(searchMatches)
+                  .map((id) => {
+                    const p = papers.find((pp) => pp.arxiv_id === id)!;
+                    return `<button class="ps-zoom-btn px-2 py-0.5 rounded-full border border-gray-300 text-gray-600 hover:border-[#663399] hover:text-[#663399]" data-id="${id}">${p.title.slice(0, 40)}${p.title.length > 40 ? "..." : ""}</button>`;
+                  })
+                  .join("")
+              : "")
+          : '<span class="text-gray-400">No matches</span>';
+
+      // Click to zoom to paper
+      searchResultsEl.querySelectorAll(".ps-zoom-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = (btn as HTMLElement).dataset.id!;
+          const p = papers.find((pp) => pp.arxiv_id === id);
+          if (p) smoothZoomTo(p.x, p.y, initialScale * 8);
+        });
+      });
+
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const visibleCount = papers.filter((p) => isVisible(p)).length;
+      document.getElementById("paper-count")!.textContent = String(visibleCount);
+      scheduleRender();
+      restartAnimation();
+    }
+
     let searchTimeout: number;
     searchInput.addEventListener("input", () => {
       clearTimeout(searchTimeout);
-      searchTimeout = window.setTimeout(applyFilters, 150);
+      searchTimeout = window.setTimeout(() => doSearch(searchInput.value), 200);
     });
+
+    // ── Smooth zoom animation ──
+    function smoothZoomTo(wx: number, wy: number, targetScale: number, duration = 750) {
+      const startCamX = camX;
+      const startCamY = camY;
+      const startScale = camScale;
+      const startTime = performance.now();
+
+      function step(now: number) {
+        const t = Math.min(1, (now - startTime) / duration);
+        // Ease in-out
+        const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        camX = startCamX + (wx - startCamX) * ease;
+        camY = startCamY + (wy - startCamY) * ease;
+        camScale = startScale + (targetScale - startScale) * ease;
+        scheduleRender();
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // ── Initial render ──
+    render();
+  }
+
+  async function safeInit() {
+    try {
+      await init();
+    } catch (e: any) {
+      console.error("Paperscape init error:", e);
+      const c = document.getElementById("ps-container");
+      if (c) c.innerHTML = `<div style="padding:2rem;color:red;font-size:14px;">Error: ${e.message}</div>`;
+    }
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(safeInit));
   } else {
-    init();
+    requestAnimationFrame(safeInit);
   }
 </script>
