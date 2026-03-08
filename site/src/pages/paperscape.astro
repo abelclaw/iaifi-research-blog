@@ -135,6 +135,44 @@ const hasPapers = papers.length > 0;
     { x: -19048, y: 37523, r: 87167, name: "statistics", code: "stat" },
   ];
 
+  // Paperscape category colors (from their SCSS source)
+  const catColors: Record<string, string> = {
+    "hep-th": "#8888ff",
+    "hep-ph": "#88ff88",
+    "hep-ex": "#ffff88",
+    "hep-lat": "#b35c33",
+    "gr-qc": "#88ffff",
+    "astro-ph": "#e38799",
+    "cond-mat": "#b38066",
+    "quant-ph": "#66b3b3",
+    "physics": "#ff8080",
+    "math": "#9edb3d",
+    "math-ph": "#9edb3d",
+    "cs": "#b34d99",
+    "q-bio": "#b34d99",
+    "q-fin": "#b34d99",
+    "stat": "#b34d99",
+    "nucl-ex": "#b35c33",
+    "nucl-th": "#b35c33",
+    "other": "#b3ff4d",
+  };
+
+  // Determine arXiv category color for a world position by nearest field center
+  function colorForPosition(wx: number, wy: number): string {
+    let bestDist = Infinity;
+    let bestCode = "other";
+    for (const f of fieldLabels) {
+      const dx = wx - f.x;
+      const dy = wy - f.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestCode = f.code;
+      }
+    }
+    return catColors[bestCode] || catColors["other"];
+  }
+
   async function init() {
     const container = document.getElementById("ps-container");
     const canvas = document.getElementById("ps-canvas") as HTMLCanvasElement;
@@ -142,8 +180,46 @@ const hasPapers = papers.length > 0;
 
     const baseUrl = import.meta.env.BASE_URL;
     const papers: PaperPoint[] = psData.papers as PaperPoint[];
-    const world = psData.world;
+    const storedWorld = psData.world;
     if (papers.length === 0) return;
+
+    // Fetch live world index from Paperscape to get current bounds & zone config
+    let world = storedWorld;
+    let zoneConfig = { w: 22696, h: 22696, nx: 8, ny: 8 }; // z=6 defaults
+    try {
+      const resp = await fetch("https://tile1.paperscape.org/world/world_index.json");
+      const liveIndex = await resp.json();
+      const liveWorld = {
+        xmin: liveIndex.xmin,
+        ymin: liveIndex.ymin,
+        xmax: liveIndex.xmax,
+        ymax: liveIndex.ymax,
+      };
+
+      // Apply coordinate correction to paper positions if bounds shifted
+      const dx = liveWorld.xmin - storedWorld.xmin;
+      const dy = liveWorld.ymin - storedWorld.ymin;
+      if (dx !== 0 || dy !== 0) {
+        console.log(`Paperscape bounds shifted: dx=${dx}, dy=${dy}, correcting paper positions`);
+        for (const p of papers) {
+          p.x += dx;
+          p.y += dy;
+        }
+      }
+
+      world = liveWorld;
+
+      // Get z=6 zone config
+      if (liveIndex.zones) {
+        const z6 = liveIndex.zones.find((z: any) => z.nx === 8 && z.ny === 8);
+        if (z6) {
+          zoneConfig = { w: z6.w, h: z6.h, nx: z6.nx, ny: z6.ny };
+          console.log(`Zone config: ${zoneConfig.w}x${zoneConfig.h}, ${zoneConfig.nx}x${zoneConfig.ny}`);
+        }
+      }
+    } catch (e) {
+      console.warn("Failed to fetch live Paperscape index, using stored bounds", e);
+    }
 
     // Dimensions
     const rect = container.getBoundingClientRect();
@@ -243,10 +319,6 @@ const hasPapers = papers.length > 0;
 
       const zoomRatio = camScale / initialScale;
 
-      // Fade out tile images when zone labels take over
-      // At zoomRatio >= 80, tiles are fully hidden (zone labels are crisp)
-      if (zoomRatio >= 80) return;
-
       const tiling = getBestTiling();
       const [vxMin, vyMin] = screenToWorld(0, 0);
       const [vxMax, vyMax] = screenToWorld(W, H);
@@ -256,8 +328,9 @@ const hasPapers = papers.length > 0;
       const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / tiling.th) + 1);
       const iyMax = Math.min(tiling.ny, Math.ceil((vyMax - world.ymin) / tiling.th));
 
-      // Crossfade: tiles fade from 35% to 0% as zoom goes from 20x to 80x
-      const tileAlpha = zoomRatio < 20 ? 0.35 : 0.35 * Math.max(0, 1 - (zoomRatio - 20) / 60);
+      // Tiles visible at low-mid zoom, fade out as zone circles take over at deep zoom
+      if (zoomRatio >= 100) return; // fully replaced by zone circles
+      const tileAlpha = zoomRatio < 20 ? 0.35 : 0.35 * Math.max(0, 1 - (zoomRatio - 20) / 80);
       ctx.globalAlpha = tileAlpha;
 
       for (let ix = ixMin; ix <= ixMax; ix++) {
@@ -323,7 +396,10 @@ const hasPapers = papers.length > 0;
     interface ZoneLabel { x: number; y: number; r: number; lbl: string; }
     const zoneCache = new Map<string, ZoneLabel[]>();
     const zoneLoading = new Set<string>();
-    const ZONE_GRID = 8; // z=6 uses 8x8 grid
+    const ZONE_NX = zoneConfig.nx; // z=6 grid columns
+    const ZONE_NY = zoneConfig.ny; // z=6 grid rows
+    const ZONE_TW = zoneConfig.w;  // zone tile width (world units, square)
+    const ZONE_TH = zoneConfig.h;  // zone tile height (world units, square)
     const ZONE_MIN_ZOOM = 8; // start showing zone papers at 8x zoom
     const ZONE_TILE_SERVERS = [
       "https://tile1.paperscape.org",
@@ -364,18 +440,15 @@ const hasPapers = papers.length > 0;
       const zoomRatio = camScale / initialScale;
       if (zoomRatio < ZONE_MIN_ZOOM) return;
 
-      const zoneW = (world.xmax - world.xmin) / ZONE_GRID;
-      const zoneH = (world.ymax - world.ymin) / ZONE_GRID;
-
       const [vxMin, vyMin] = screenToWorld(0, 0);
       const [vxMax, vyMax] = screenToWorld(W, H);
 
-      const ixMin = Math.max(1, Math.floor((vxMin - world.xmin) / zoneW) + 1);
-      const ixMax = Math.min(ZONE_GRID, Math.ceil((vxMax - world.xmin) / zoneW));
-      const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / zoneH) + 1);
-      const iyMax = Math.min(ZONE_GRID, Math.ceil((vyMax - world.ymin) / zoneH));
+      const ixMin = Math.max(1, Math.floor((vxMin - world.xmin) / ZONE_TW) + 1);
+      const ixMax = Math.min(ZONE_NX, Math.ceil((vxMax - world.xmin) / ZONE_TW));
+      const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / ZONE_TH) + 1);
+      const iyMax = Math.min(ZONE_NY, Math.ceil((vyMax - world.ymin) / ZONE_TH));
 
-      // Opacity ramps up: 0 at 8x, full at 20x
+      // Zone circles fade in: 0 at 8x, full at 20x
       const zoneAlpha = Math.min(1, (zoomRatio - ZONE_MIN_ZOOM) / 12);
 
       for (let ix = ixMin; ix <= ixMax; ix++) {
@@ -389,30 +462,25 @@ const hasPapers = papers.length > 0;
 
           for (const lbl of labels) {
             const screenR = lbl.r * camScale;
-            if (screenR < 1.5) continue; // too small
+            if (screenR < 1.5) continue;
 
             const [sx, sy] = worldToScreen(lbl.x, lbl.y);
             if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) continue;
 
             const drawR = Math.max(1.5, screenR);
 
-            // Draw filled circle — white/blue like the Paperscape tiles
+            // Color by arXiv category based on map position
+            const color = colorForPosition(lbl.x, lbl.y);
             ctx.beginPath();
             ctx.arc(sx, sy, drawR, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(160, 170, 210, ${0.5 * zoneAlpha})`;
+            ctx.fillStyle = color;
+            ctx.globalAlpha = zoneAlpha * 0.85;
             ctx.fill();
+            ctx.globalAlpha = 1.0;
 
-            // Brighter border for larger papers
-            if (drawR > 3) {
-              ctx.strokeStyle = `rgba(190, 200, 240, ${0.6 * zoneAlpha})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-
-            // Labels when circles are large enough to read
+            // Author labels at deep zoom
             if (screenR > 12) {
               const parts = lbl.lbl.split(",");
-              // lbl format: "keywords,topic,Author,et al."
               const label = parts.length >= 3
                 ? `${parts[2].trim()}${parts[3] ? " " + parts[3].trim() : ""}`
                 : parts[0].trim();
