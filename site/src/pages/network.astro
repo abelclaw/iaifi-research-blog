@@ -395,14 +395,14 @@ const graphData = JSON.stringify({
         </div>
       </div>
 
-      <!-- Categorized Concept Index -->
+      <!-- Categorized Concept Index (collapsible, starts collapsed) -->
       {sortedCategories.length > 0 && (
-        <section class="mt-8">
-          <h2 class="text-lg font-bold text-[#212529] mb-4 flex items-center gap-2">
-            <span class="w-1 h-5 rounded-full bg-[#444] inline-block"></span>
-            Concept Index
-          </h2>
-          <div class="space-y-4">
+        <div class="mt-4">
+          <button id="concept-index-toggle" class="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+            <span class="text-sm font-semibold text-gray-700">Concept Index</span>
+            <span id="concept-index-icon" class="text-gray-400 text-sm">&#9654;</span>
+          </button>
+          <div id="concept-index-body" class="border border-t-0 border-gray-200 rounded-b-lg p-6 bg-white space-y-4" style="display:none">
             {sortedCategories.map((category) => {
               const colors = categoryColorMap[category] || defaultColor;
               const concepts = conceptsByCategory[category];
@@ -430,8 +430,17 @@ const graphData = JSON.stringify({
               );
             })}
           </div>
-        </section>
+        </div>
       )}
+
+      <!-- Blog post preview (shown below graph when paper selected) -->
+      <div id="blog-preview" class="hidden mt-4">
+        <button id="blog-toggle" class="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+          <span class="text-sm font-semibold text-gray-700">Blog Post Preview</span>
+          <span id="blog-toggle-icon" class="text-gray-400 text-sm">&#9660;</span>
+        </button>
+        <div id="blog-content" class="border border-t-0 border-gray-200 rounded-b-lg p-6 bg-white prose prose-sm max-w-none"></div>
+      </div>
     </>
   )}
 </BaseLayout>
@@ -967,6 +976,7 @@ const graphData = JSON.stringify({
 
       panelBody.innerHTML = html;
       setPanelOpen(true);
+      showBlogPreview(d);
     }
 
     function openConceptPanel(name: string, papers: string[]) {
@@ -990,6 +1000,7 @@ const graphData = JSON.stringify({
       html += "</div>";
       panelBody.innerHTML = html;
       setPanelOpen(true);
+      blogPreview.classList.add("hidden");
     }
 
     // Recenter button delegation in side panel
@@ -1181,6 +1192,55 @@ const graphData = JSON.stringify({
         searchResultsEl?.classList.add("hidden");
       }
     });
+
+    // === Collapsible concept index ===
+    const conceptIndexToggle = document.getElementById("concept-index-toggle");
+    const conceptIndexBody = document.getElementById("concept-index-body");
+    const conceptIndexIcon = document.getElementById("concept-index-icon");
+    if (conceptIndexToggle && conceptIndexBody && conceptIndexIcon) {
+      conceptIndexToggle.addEventListener("click", () => {
+        const visible = conceptIndexBody.style.display !== "none";
+        conceptIndexBody.style.display = visible ? "none" : "";
+        conceptIndexIcon.innerHTML = visible ? "&#9654;" : "&#9660;";
+      });
+    }
+
+    // === Blog post preview below graph ===
+    const blogPreview = document.getElementById("blog-preview")!;
+    const blogContent = document.getElementById("blog-content")!;
+    const blogToggle = document.getElementById("blog-toggle")!;
+    const blogToggleIcon = document.getElementById("blog-toggle-icon")!;
+    let blogExpanded = true;
+
+    blogToggle.addEventListener("click", () => {
+      blogExpanded = !blogExpanded;
+      blogContent.style.display = blogExpanded ? "" : "none";
+      blogToggleIcon.innerHTML = blogExpanded ? "&#9660;" : "&#9654;";
+    });
+
+    async function showBlogPreview(d: PaperNode) {
+      if (!d.url) {
+        blogPreview.classList.add("hidden");
+        return;
+      }
+      blogPreview.classList.remove("hidden");
+      blogContent.innerHTML = '<p class="text-gray-400 text-sm">Loading blog post...</p>';
+      try {
+        const resp = await fetch(d.url);
+        if (!resp.ok) throw new Error("Not found");
+        const html = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const article = doc.querySelector("article") || doc.querySelector("main") || doc.querySelector(".prose");
+        if (article) {
+          blogContent.innerHTML = article.innerHTML;
+        } else {
+          blogContent.innerHTML = '<p class="text-gray-400 text-sm">Could not extract blog content.</p>';
+        }
+      } catch {
+        blogContent.innerHTML = `<p class="text-gray-400 text-sm">Blog post not available. <a href="${d.url}" class="text-blue-600 hover:underline">Open in full page &rarr;</a></p>`;
+      }
+    }
 
     // === Concept index tag clicks ===
     document.querySelectorAll(".concept-tag").forEach((btn) => {

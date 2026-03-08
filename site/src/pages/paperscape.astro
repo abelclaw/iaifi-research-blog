@@ -28,7 +28,7 @@ const hasPapers = papers.length > 0;
       highlighted circles are IAIFI publications.
     </p>
     <p class="text-xs text-gray-400">
-      Scroll to zoom. Drag to pan. Click a paper to inspect.
+      Scroll to zoom. Drag to pan. Click any spot to identify the paper there.
     </p>
   </section>
 
@@ -503,7 +503,17 @@ const hasPapers = papers.length > 0;
     }
 
     // ── Paperscape API: fetch any paper at a world location ──
+    function showApiStatus(msg: string) {
+      panelHeader.textContent = "Paperscape";
+      panelTitle.textContent = msg;
+      panelTheme.textContent = "";
+      panelBody.innerHTML = "";
+      setPanelOpen(true);
+    }
+
     function fetchPapescapePaper(wx: number, wy: number) {
+      showApiStatus("Looking up paper at this location...");
+
       const url = `https://paperscape.org/wombat?ml2p%5B%5D=${Math.round(wx)}&ml2p%5B%5D=${Math.round(wy)}&tbl=&callback=__ps_cb`;
 
       // Clean up old callback
@@ -512,14 +522,20 @@ const hasPapers = papers.length > 0;
       const script = document.createElement("script");
       (window as any).__ps_cb = (data: any) => {
         script.remove();
-        if (!data?.r?.id) return;
+        if (!data?.r?.id) {
+          showApiStatus("No paper found at this location.");
+          return;
+        }
 
         const paperId = data.r.id;
-        // Now fetch metadata
+        showApiStatus("Loading paper details...");
         fetchPapescapeMeta(paperId);
       };
       script.src = url;
-      script.onerror = () => script.remove();
+      script.onerror = () => {
+        script.remove();
+        showApiStatus("Could not reach Paperscape API.");
+      };
       document.head.appendChild(script);
     }
 
@@ -731,7 +747,7 @@ const hasPapers = papers.length > 0;
     canvas.addEventListener("wheel", (e) => {
       e.preventDefault();
       const zoomFactor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * zoomFactor));
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * zoomFactor));
 
       const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
       camScale = newScale;
@@ -783,7 +799,7 @@ const hasPapers = papers.length > 0;
           const mx = mid.x - canvasRect.left;
           const my = mid.y - canvasRect.top;
           const [wx, wy] = screenToWorld(mx, my);
-          camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * zoomFactor));
+          camScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * zoomFactor));
           camX = wx - (mx - W / 2) / camScale;
           camY = wy - (my - H / 2) / camScale;
         }
@@ -920,7 +936,7 @@ const hasPapers = papers.length > 0;
     const initCamY = camY;
 
     function zoomByFactor(factor: number) {
-      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 500, camScale * factor));
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 5000, camScale * factor));
       camScale = newScale;
       scheduleRender();
       restartAnimation();

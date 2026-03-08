@@ -60,6 +60,28 @@ const hasPapers = papers.length > 0;
         class="w-full bg-white rounded-lg border border-gray-200 overflow-hidden"
         style="height: 600px"
       ></div>
+
+      <!-- Side panel -->
+      <div id="scatter-panel" class="hidden fixed top-0 right-0 h-full w-80 bg-white shadow-xl border-l border-gray-200 z-50 overflow-y-auto">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 id="sp-header" class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Paper</h3>
+            <button id="sp-close" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+          </div>
+          <h2 id="sp-title" class="text-base font-bold text-gray-900 mb-1"></h2>
+          <p id="sp-theme" class="text-xs mb-3"></p>
+          <div id="sp-body"></div>
+        </div>
+      </div>
+
+      <!-- Blog post preview (shown below map when paper selected) -->
+      <div id="blog-preview" class="hidden mt-4">
+        <button id="blog-toggle" class="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+          <span class="text-sm font-semibold text-gray-700">Blog Post Preview</span>
+          <span id="blog-toggle-icon" class="text-gray-400 text-sm">&#9660;</span>
+        </button>
+        <div id="blog-content" class="border border-t-0 border-gray-200 rounded-b-lg p-6 bg-white prose prose-sm max-w-none"></div>
+      </div>
     </>
   )}
 </BaseLayout>
@@ -265,7 +287,7 @@ const hasPapers = papers.length > 0;
         select(event.currentTarget).attr("opacity", getOpacity(d)).attr("stroke-width", 0.5);
         tooltip.classed("hidden", true);
       })
-      .on("click", (_, d) => { if (d.url) window.open(d.url, "_self"); });
+      .on("click", (_, d) => { openScatterPanel(d); });
 
     function applyColors() {
       dots.attr("fill", (d: PaperPoint) => getFill(d))
@@ -532,6 +554,106 @@ const hasPapers = papers.length > 0;
         w.appendChild(s);
       }
       subControls.appendChild(w);
+    }
+
+    // ── Side panel ──
+    const scatterPanel = document.getElementById("scatter-panel")!;
+    const spHeader = document.getElementById("sp-header")!;
+    const spTitle = document.getElementById("sp-title")!;
+    const spTheme = document.getElementById("sp-theme")!;
+    const spBody = document.getElementById("sp-body")!;
+
+    function setPanelOpen(open: boolean) {
+      if (open) {
+        scatterPanel.classList.remove("hidden");
+        document.body.style.marginRight = "20rem";
+      } else {
+        scatterPanel.classList.add("hidden");
+        document.body.style.marginRight = "";
+      }
+    }
+    document.getElementById("sp-close")!.addEventListener("click", () => setPanelOpen(false));
+
+    function openScatterPanel(d: PaperPoint) {
+      spHeader.textContent = "Paper Details";
+      spTitle.textContent = d.title;
+      spTheme.textContent = d.theme;
+      spTheme.style.color = themeColors[d.theme] || "#6b7280";
+
+      let html = "";
+      if (d.a.length > 0) {
+        html += `<p class="text-xs text-gray-500 mb-2">${d.a.join(", ")}</p>`;
+      }
+      html += `<p class="text-xs text-gray-400 mb-1">${d.id}</p>`;
+      if (d.year) html += `<p class="text-xs text-gray-400 mb-1">Published: ${d.year}</p>`;
+      if (d.inst) html += `<p class="text-xs text-gray-400 mb-1">Institution: ${d.inst}</p>`;
+      if (d.cc > 0) html += `<p class="text-xs text-gray-400 mb-3">${d.cc} concepts</p>`;
+
+      // Concepts for this paper
+      const i = idx(d);
+      const concepts = Array.from(paperConceptSet[i] || []);
+      if (concepts.length > 0) {
+        html += '<div class="flex flex-wrap gap-1 mb-3">';
+        for (const c of concepts) {
+          html += `<span class="inline-block text-xs px-2 py-0.5 rounded-full border border-gray-200 text-gray-600">${c}</span>`;
+        }
+        html += '</div>';
+      }
+
+      // Links
+      html += '<div class="mt-3 pt-3 border-t border-gray-100 space-y-2">';
+      if (d.url) {
+        html += `<a href="${d.url}" class="block text-sm text-blue-600 hover:text-blue-800 font-medium">Read blog post &rarr;</a>`;
+      }
+      html += `<a href="https://arxiv.org/abs/${d.id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">View on arXiv &nearr;</a>`;
+      html += `<a href="https://arxiv.org/pdf/${d.id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">Download PDF &nearr;</a>`;
+      html += '</div>';
+
+      spBody.innerHTML = html;
+      setPanelOpen(true);
+
+      // Show blog post preview if available
+      showBlogPreview(d);
+    }
+
+    // ── Blog post preview below map ──
+    const blogPreview = document.getElementById("blog-preview")!;
+    const blogContent = document.getElementById("blog-content")!;
+    const blogToggle = document.getElementById("blog-toggle")!;
+    const blogToggleIcon = document.getElementById("blog-toggle-icon")!;
+    let blogExpanded = true;
+
+    blogToggle.addEventListener("click", () => {
+      blogExpanded = !blogExpanded;
+      blogContent.style.display = blogExpanded ? "" : "none";
+      blogToggleIcon.innerHTML = blogExpanded ? "&#9660;" : "&#9654;";
+    });
+
+    async function showBlogPreview(d: PaperPoint) {
+      if (!d.slug) {
+        blogPreview.classList.add("hidden");
+        return;
+      }
+
+      blogPreview.classList.remove("hidden");
+      blogContent.innerHTML = '<p class="text-gray-400 text-sm">Loading blog post...</p>';
+
+      try {
+        const resp = await fetch(import.meta.env.BASE_URL + "posts/" + d.slug + "/");
+        if (!resp.ok) throw new Error("Not found");
+        const html = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        // Extract the main article content
+        const article = doc.querySelector("article") || doc.querySelector("main") || doc.querySelector(".prose");
+        if (article) {
+          blogContent.innerHTML = article.innerHTML;
+        } else {
+          blogContent.innerHTML = '<p class="text-gray-400 text-sm">Could not extract blog content.</p>';
+        }
+      } catch {
+        blogContent.innerHTML = `<p class="text-gray-400 text-sm">Blog post not available. <a href="${d.url}" class="text-blue-600 hover:underline">Open in full page &rarr;</a></p>`;
+      }
     }
 
     // Init sub-controls

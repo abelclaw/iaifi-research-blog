@@ -85,6 +85,16 @@ posts.forEach(p => {
         All Posts
       </h2>
 
+      <!-- Search bar -->
+      <div class="mb-4">
+        <input
+          id="post-search"
+          type="text"
+          placeholder="Search posts by title, author, or concept..."
+          class="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399] transition-colors"
+        />
+      </div>
+
       <ThemeFilter />
 
       <div id="timeline" class="space-y-4">
@@ -92,6 +102,7 @@ posts.forEach(p => {
           <PostCard post={post} />
         ))}
       </div>
+      <p id="no-search-results" class="hidden text-center py-8 text-gray-400 text-sm">No posts match your search.</p>
     </section>
   )}
 
@@ -104,3 +115,28 @@ posts.forEach(p => {
     </div>
   )}
 </BaseLayout>
+
+<script>
+  const searchInput = document.getElementById("post-search") as HTMLInputElement | null;
+  const timeline = document.getElementById("timeline");
+  const noResults = document.getElementById("no-search-results");
+
+  if (searchInput && timeline) {
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = timeline.querySelectorAll<HTMLElement>("article");
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const text = card.textContent?.toLowerCase() || "";
+        const match = !query || text.includes(query);
+        card.style.display = match ? "" : "none";
+        if (match) visible++;
+      });
+
+      if (noResults) {
+        noResults.classList.toggle("hidden", visible > 0 || !query);
+      }
+    });
+  }
+</script>
