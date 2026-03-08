@@ -530,6 +530,7 @@ const graphData = JSON.stringify({
     centerPaperId = paperNodeById.has(preferredCenter) ? preferredCenter : defaultCenterId;
 
     function paperRadius(d: PaperNode): number {
+      if (d.id === centerPaperId) return maxR;
       return minR + (maxR - minR) * ((connectivityScore[d.id] || 0) / maxScore);
     }
 
@@ -738,15 +739,12 @@ const graphData = JSON.stringify({
           const tgtId = linkId(d.target);
           const srcP = paperNodeById.get(srcId);
           const tgtP = paperNodeById.get(tgtId);
-          const srcName = srcP?.nickname || srcP?.title || srcId;
-          const tgtName = tgtP?.nickname || tgtP?.title || tgtId;
           // Compute shared concepts on the fly from paper nodes
           const srcConcepts = new Set(srcP?.concepts || []);
           const shared = (tgtP?.concepts || []).filter((c: string) => srcConcepts.has(c));
           tooltip.html(
-            `<strong>${srcName}</strong> — <strong>${tgtName}</strong>` +
-            `<br/><span style="opacity:0.6">score: ${d.score.toFixed(1)}</span>` +
-            (shared.length > 0 ? `<br/><span style="opacity:0.5">${shared.slice(0, 5).join(", ")}${shared.length > 5 ? " ..." : ""}</span>` : "")
+            (shared.length > 0 ? `<strong>${shared.join(", ")}</strong>` : `<em>No shared concepts</em>`) +
+            `<br/><span style="opacity:0.6">score: ${d.score.toFixed(1)}</span>`
           ).classed("hidden", false);
         })
         .on("mousemove", (ev: MouseEvent) => {
@@ -1216,5 +1214,8 @@ const graphData = JSON.stringify({
     // === Initial render ===
     rebuildGraph();
     updateCenterLabel();
+    // Auto-open panel for the center node
+    const centerNode = paperNodeById.get(centerPaperId);
+    if (centerNode) openPaperPanel(centerNode);
   });
 </script>
