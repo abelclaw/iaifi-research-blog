@@ -447,7 +447,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2601.06249",
     "pdfUrl": "https://arxiv.org/pdf/2601.06249",
-    "blogSlug": null
+    "blogSlug": "string-theory-from-infinite-width-neural-networks"
   },
   {
     "arxivId": "2601.03738",
@@ -521,7 +521,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2601.03738",
     "pdfUrl": "https://arxiv.org/pdf/2601.03738",
-    "blogSlug": null
+    "blogSlug": "a-glimpse-into-the-ultrametric-spectrum"
   },
   {
     "arxivId": "2601.03436",
@@ -610,7 +610,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2601.03436",
     "pdfUrl": "https://arxiv.org/pdf/2601.03436",
-    "blogSlug": null
+    "blogSlug": "marvel-a-multi-agent-based-research-validator-and-enabler-using-large-language-m"
   },
   {
     "arxivId": "2512.24935",
@@ -686,7 +686,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.24935",
     "pdfUrl": "https://arxiv.org/pdf/2512.24935",
-    "blogSlug": null
+    "blogSlug": "green-s-function-on-the-tate-curve"
   },
   {
     "arxivId": "2512.23750",
@@ -779,7 +779,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.23750",
     "pdfUrl": "https://arxiv.org/pdf/2512.23750",
-    "blogSlug": null
+    "blogSlug": "machine-learning-invariants-of-tensors"
   },
   {
     "arxivId": "2512.19889",
@@ -853,7 +853,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.19889",
     "pdfUrl": "https://arxiv.org/pdf/2512.19889",
-    "blogSlug": null
+    "blogSlug": "entanglement-cohomology-for-ghz-and-w-states"
   },
   {
     "arxivId": "2512.17865",
@@ -1000,7 +1000,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.17865",
     "pdfUrl": "https://arxiv.org/pdf/2512.17865",
-    "blogSlug": null
+    "blogSlug": "constraining-primordial-non-gaussianity-from-desi-dr1-quasars-and-planck-pr4-cmb"
   },
   {
     "arxivId": "2512.17204",
@@ -1087,7 +1087,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.17204",
     "pdfUrl": "https://arxiv.org/pdf/2512.17204",
-    "blogSlug": null
+    "blogSlug": "a-search-for-binary-black-hole-mergers-in-ligo-o1-o3-data-with-convolutional-neu"
   },
   {
     "arxivId": "2512.13681",
@@ -1186,7 +1186,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.13681",
     "pdfUrl": "https://arxiv.org/pdf/2512.13681",
-    "blogSlug": null
+    "blogSlug": "bridging-simulations-and-eft-a-hybrid-model-of-the-lyman-alpha-forest-field"
   },
   {
     "arxivId": "2512.10909",
@@ -1279,7 +1279,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.10909",
     "pdfUrl": "https://arxiv.org/pdf/2512.10909",
-    "blogSlug": null
+    "blogSlug": "electronic-crystals-and-quasicrystals-in-semiconductor-quantum-wells-an-ai-power"
   },
   {
     "arxivId": "2512.08427",
@@ -1363,7 +1363,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.08427",
     "pdfUrl": "https://arxiv.org/pdf/2512.08427",
-    "blogSlug": null
+    "blogSlug": "self-lensing-flares-from-black-hole-binaries-v-systematic-searches-in-lsst"
   },
   {
     "arxivId": "2512.06319",
@@ -1465,7 +1465,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.06319",
     "pdfUrl": "https://arxiv.org/pdf/2512.06319",
-    "blogSlug": null
+    "blogSlug": "a-fully-photometric-approach-to-type-ia-supernova-cosmology-in-the-lsst-era-host"
   },
   {
     "arxivId": "2512.06067",
@@ -1542,7 +1542,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.06067",
     "pdfUrl": "https://arxiv.org/pdf/2512.06067",
-    "blogSlug": null
+    "blogSlug": "sn-2024afav-a-superluminous-supernova-with-multiple-light-curve-bumps-and-spectr"
   },
   {
     "arxivId": "2512.05851",
@@ -1638,7 +1638,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.05851",
     "pdfUrl": "https://arxiv.org/pdf/2512.05851",
-    "blogSlug": null
+    "blogSlug": "lattice-field-theory-for-superconducting-circuits"
   },
   {
     "arxivId": "2512.04157",
@@ -1745,7 +1745,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.04157",
     "pdfUrl": "https://arxiv.org/pdf/2512.04157",
-    "blogSlug": null
+    "blogSlug": "the-dreams-project-disentangling-the-impact-of-halo-to-halo-variance-and-baryoni"
   },
   {
     "arxivId": "2512.04145",
@@ -1838,7 +1838,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.04145",
     "pdfUrl": "https://arxiv.org/pdf/2512.04145",
-    "blogSlug": null
+    "blogSlug": "minuet-a-diffusion-autoencoder-for-compact-semantic-compression-of-multi-band-ga"
   },
   {
     "arxivId": "2512.03132",
@@ -1942,7 +1942,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.03132",
     "pdfUrl": "https://arxiv.org/pdf/2512.03132",
-    "blogSlug": null
+    "blogSlug": "the-dreams-project-disentangling-the-impact-of-halo-to-halo-variance-and-baryoni-2512-03132"
   },
   {
     "arxivId": "2512.02095",
@@ -2047,7 +2047,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.02095",
     "pdfUrl": "https://arxiv.org/pdf/2512.02095",
-    "blogSlug": null
+    "blogSlug": "the-dreams-project-disentangling-the-impact-of-halo-to-halo-variance-and-baryoni-2512-02095"
   },
   {
     "arxivId": "2512.01873",
@@ -2141,7 +2141,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2512.01873",
     "pdfUrl": "https://arxiv.org/pdf/2512.01873",
-    "blogSlug": null
+    "blogSlug": "refining-heuristic-predictors-of-fractional-chern-insulators-using-machine-learn"
   },
   {
     "arxivId": "2511.22688",
@@ -2320,7 +2320,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2511.16741",
     "pdfUrl": "https://arxiv.org/pdf/2511.16741",
-    "blogSlug": null
+    "blogSlug": "fermions-and-supersymmetry-in-neural-network-field-theories"
   },
   {
     "arxivId": "2511.14858",
@@ -2416,7 +2416,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2511.14858",
     "pdfUrl": "https://arxiv.org/pdf/2511.14858",
-    "blogSlug": null
+    "blogSlug": "large-language-model-driven-analysis-of-general-coordinates-network-gcn-circular"
   },
   {
     "arxivId": "2511.10747",
@@ -2503,7 +2503,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2511.10747",
     "pdfUrl": "https://arxiv.org/pdf/2511.10747",
-    "blogSlug": null
+    "blogSlug": "hydrogen-poor-superluminous-supernovae-in-the-nebular-phase-spectral-diversity-d"
   },
   {
     "arxivId": "2511.09118",
@@ -2807,7 +2807,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2511.03926",
     "pdfUrl": "https://arxiv.org/pdf/2511.03926",
-    "blogSlug": null
+    "blogSlug": "spectral-diversity-in-type-ibn-supernovae-and-the-large-host-offset-of-sn2024acy"
   },
   {
     "arxivId": "2511.03095",
@@ -2996,7 +2996,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.23597",
     "pdfUrl": "https://arxiv.org/pdf/2510.23597",
-    "blogSlug": null
+    "blogSlug": "the-compressed-3d-lyman-alpha-forest-bispectrum"
   },
   {
     "arxivId": "2510.21935",
@@ -3476,7 +3476,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.18621",
     "pdfUrl": "https://arxiv.org/pdf/2510.18621",
-    "blogSlug": null
+    "blogSlug": "an-integrated-neural-wavefunction-solver-for-spinful-fermi-systems"
   },
   {
     "arxivId": "2510.17400",
@@ -3704,7 +3704,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.17104",
     "pdfUrl": "https://arxiv.org/pdf/2510.17104",
-    "blogSlug": null
+    "blogSlug": "optimizing-kilonova-searches-a-case-study-of-the-type-iib-sn-2025ulz-in-the-loca"
   },
   {
     "arxivId": "2510.14202",
@@ -3797,7 +3797,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.14202",
     "pdfUrl": "https://arxiv.org/pdf/2510.14202",
-    "blogSlug": null
+    "blogSlug": "hierarchical-simulation-based-inference-of-supernova-power-sources-and-their-phy"
   },
   {
     "arxivId": "2510.13968",
@@ -3891,7 +3891,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.13968",
     "pdfUrl": "https://arxiv.org/pdf/2510.13968",
-    "blogSlug": null
+    "blogSlug": "constraining-power-of-wavelet-vs-power-spectrum-statistics-for-cmb-lensing-and-w"
   },
   {
     "arxivId": "2510.06220",
@@ -3979,7 +3979,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.06220",
     "pdfUrl": "https://arxiv.org/pdf/2510.06220",
-    "blogSlug": null
+    "blogSlug": "studying-the-gravitational-wave-population-without-looking-that-far-out"
   },
   {
     "arxivId": "2510.02670",
@@ -4160,7 +4160,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2510.01733",
     "pdfUrl": "https://arxiv.org/pdf/2510.01733",
-    "blogSlug": null
+    "blogSlug": "reducing-simulation-dependence-in-neutrino-telescopes-with-masked-point-transfor"
   },
   {
     "arxivId": "2510.03335",
@@ -4718,7 +4718,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2509.19431",
     "pdfUrl": "https://arxiv.org/pdf/2509.19431",
-    "blogSlug": null
+    "blogSlug": "the-pareto-frontier-of-resilient-jet-tagging"
   },
   {
     "arxivId": "2509.12470",
@@ -4812,7 +4812,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2509.12470",
     "pdfUrl": "https://arxiv.org/pdf/2509.12470",
-    "blogSlug": null
+    "blogSlug": "when-iib-ceases-to-be-bridging-the-gap-between-iib-and-short-plateau-supernovae"
   },
   {
     "arxivId": "2509.11664",
@@ -4976,7 +4976,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2509.10438",
     "pdfUrl": "https://arxiv.org/pdf/2509.10438",
-    "blogSlug": null
+    "blogSlug": "gradient-based-search-of-quantum-phases-discovering-unconventional-fractional-ch"
   },
   {
     "arxivId": "2509.05081",
@@ -5070,7 +5070,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2509.05081",
     "pdfUrl": "https://arxiv.org/pdf/2509.05081",
-    "blogSlug": null
+    "blogSlug": "soliton-surfaces-and-the-geometry-of-integrable-deformations-of-the-mathbb-cp-n-"
   },
   {
     "arxivId": "2509.04734",
@@ -5248,7 +5248,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2509.03683",
     "pdfUrl": "https://arxiv.org/pdf/2509.03683",
-    "blogSlug": null
+    "blogSlug": "attention-is-all-you-need-to-solve-chiral-superconductivity"
   },
   {
     "arxivId": "2509.03594",
@@ -5530,7 +5530,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2508.17399",
     "pdfUrl": "https://arxiv.org/pdf/2508.17399",
-    "blogSlug": null
+    "blogSlug": "gw-yolo-multi-transient-segmentation-in-ligo-using-computer-vision"
   },
   {
     "arxivId": "2508.16067",
@@ -5797,7 +5797,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2508.09249",
     "pdfUrl": "https://arxiv.org/pdf/2508.09249",
-    "blogSlug": null
+    "blogSlug": "the-neutrino-kaleidoscope-searches-for-non-standard-neutrino-oscillations-at-neu"
   },
   {
     "arxivId": "2508.08370",
@@ -5977,7 +5977,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2508.05744",
     "pdfUrl": "https://arxiv.org/pdf/2508.05744",
-    "blogSlug": null
+    "blogSlug": "detecting-model-misspecification-in-cosmology-with-scale-dependent-normalizing-f"
   },
   {
     "arxivId": "2507.22864",
@@ -6125,7 +6125,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2507.22864",
     "pdfUrl": "https://arxiv.org/pdf/2507.22864",
-    "blogSlug": null
+    "blogSlug": "identification-and-photometric-classification-of-extragalactic-transients-in-the"
   },
   {
     "arxivId": "2507.17815",
@@ -6312,7 +6312,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2507.16817",
     "pdfUrl": "https://arxiv.org/pdf/2507.16817",
-    "blogSlug": null
+    "blogSlug": "mixture-of-expert-variational-autoencoders-for-cross-modality-embedding-of-type-"
   },
   {
     "arxivId": "2507.13449",
@@ -6399,7 +6399,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2507.13449",
     "pdfUrl": "https://arxiv.org/pdf/2507.13449",
-    "blogSlug": null
+    "blogSlug": "relaiss-a-python-package-for-flexible-similarity-searches-of-supernovae-and-thei"
   },
   {
     "arxivId": "2507.11842",
@@ -6499,7 +6499,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2507.11842",
     "pdfUrl": "https://arxiv.org/pdf/2507.11842",
-    "blogSlug": null
+    "blogSlug": "cosmoflow-scale-aware-representation-learning-for-cosmology-with-flow-matching"
   },
   {
     "arxivId": "2507.07937",
@@ -6754,7 +6754,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2507.00284",
     "pdfUrl": "https://arxiv.org/pdf/2507.00284",
-    "blogSlug": null
+    "blogSlug": "modeling-the-cosmological-lyman-forest-at-the-field-level"
   },
   {
     "arxivId": "2506.22566",
@@ -6913,7 +6913,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.20765",
     "pdfUrl": "https://arxiv.org/pdf/2506.20765",
-    "blogSlug": null
+    "blogSlug": "holography-with-null-boundaries"
   },
   {
     "arxivId": "2506.16570",
@@ -6994,7 +6994,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.16570",
     "pdfUrl": "https://arxiv.org/pdf/2506.16570",
-    "blogSlug": null
+    "blogSlug": "qubit-thermodynamics-entropy-production-from-nonadiabatic-driving"
   },
   {
     "arxivId": "2506.15427",
@@ -7086,7 +7086,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.15427",
     "pdfUrl": "https://arxiv.org/pdf/2506.15427",
-    "blogSlug": null
+    "blogSlug": "geography-of-landau-ginzburg-models-and-threefold-syzygies"
   },
   {
     "arxivId": "2506.13523",
@@ -7263,7 +7263,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.06417",
     "pdfUrl": "https://arxiv.org/pdf/2506.06417",
-    "blogSlug": null
+    "blogSlug": "a-detection-of-helium-in-the-bright-superluminous-supernova-sn-2024rmj"
   },
   {
     "arxivId": "2506.02473",
@@ -7456,7 +7456,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.02296",
     "pdfUrl": "https://arxiv.org/pdf/2506.02296",
-    "blogSlug": null
+    "blogSlug": "a-wide-field-map-of-ultra-compact-dwarfs-in-the-coma-cluster"
   },
   {
     "arxivId": "2506.02269",
@@ -7630,7 +7630,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.00121",
     "pdfUrl": "https://arxiv.org/pdf/2506.00121",
-    "blogSlug": null
+    "blogSlug": "splash-a-rapid-host-based-supernova-classifier-for-wide-field-time-domain-survey"
   },
   {
     "arxivId": "2506.00113",
@@ -7722,7 +7722,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2506.00113",
     "pdfUrl": "https://arxiv.org/pdf/2506.00113",
-    "blogSlug": null
+    "blogSlug": "frequentist-uncertainties-on-neural-density-ratios-with-wifi-ensembles"
   },
   {
     "arxivId": "2505.20268",
@@ -7958,7 +7958,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.16777",
     "pdfUrl": "https://arxiv.org/pdf/2505.16777",
-    "blogSlug": null
+    "blogSlug": "fast-low-energy-reconstruction-using-convolutional-neural-networks"
   },
   {
     "arxivId": "2505.15811",
@@ -8108,7 +8108,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.13013",
     "pdfUrl": "https://arxiv.org/pdf/2505.13013",
-    "blogSlug": null
+    "blogSlug": "on-the-normality-of-commuting-scheme-for-general-linear-lie-algebra"
   },
   {
     "arxivId": "2505.12387",
@@ -8201,7 +8201,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.12387",
     "pdfUrl": "https://arxiv.org/pdf/2505.12387",
-    "blogSlug": null
+    "blogSlug": "neural-thermodynamics-entropic-forces-in-deep-and-universal-representation-learn"
   },
   {
     "arxivId": "2505.10559",
@@ -8271,7 +8271,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.10559",
     "pdfUrl": "https://arxiv.org/pdf/2505.10559",
-    "blogSlug": null
+    "blogSlug": "neural-thermodynamic-laws-for-large-language-model-training"
   },
   {
     "arxivId": "2505.10485",
@@ -8368,7 +8368,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.10485",
     "pdfUrl": "https://arxiv.org/pdf/2505.10485",
-    "blogSlug": null
+    "blogSlug": "symbolic-learning-of-topological-bands-in-photonic-crystals"
   },
   {
     "arxivId": "2505.07956",
@@ -8450,7 +8450,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.07956",
     "pdfUrl": "https://arxiv.org/pdf/2505.07956",
-    "blogSlug": null
+    "blogSlug": "symbolic-regression-with-multimodal-large-language-models-and-kolmogorov-arnold-"
   },
   {
     "arxivId": "2505.17985",
@@ -8548,7 +8548,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.17985",
     "pdfUrl": "https://arxiv.org/pdf/2505.17985",
-    "blogSlug": null
+    "blogSlug": "ai-driven-robotics-for-optics"
   },
   {
     "arxivId": "2505.03626",
@@ -8629,7 +8629,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.03626",
     "pdfUrl": "https://arxiv.org/pdf/2505.03626",
-    "blogSlug": null
+    "blogSlug": "high-redshift-millennium-and-astrid-galaxies-in-effective-field-theory-at-the-fi"
   },
   {
     "arxivId": "2505.03063",
@@ -8727,7 +8727,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.03063",
     "pdfUrl": "https://arxiv.org/pdf/2505.03063",
-    "blogSlug": null
+    "blogSlug": "variational-diffusion-transformers-for-conditional-sampling-of-supernovae-spectr"
   },
   {
     "arxivId": "2505.02361",
@@ -8813,7 +8813,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.02361",
     "pdfUrl": "https://arxiv.org/pdf/2505.02361",
-    "blogSlug": null
+    "blogSlug": "learning-simple-heuristic-rules-for-classifying-materials-based-on-chemical-comp"
   },
   {
     "arxivId": "2505.02248",
@@ -8894,7 +8894,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2505.02248",
     "pdfUrl": "https://arxiv.org/pdf/2505.02248",
-    "blogSlug": null
+    "blogSlug": "heterosynaptic-circuits-are-universal-gradient-machines"
   },
   {
     "arxivId": "2504.18530",
@@ -8982,7 +8982,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.18530",
     "pdfUrl": "https://arxiv.org/pdf/2504.18530",
-    "blogSlug": null
+    "blogSlug": "scaling-laws-for-scalable-oversight"
   },
   {
     "arxivId": "2504.17294",
@@ -9070,7 +9070,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.17294",
     "pdfUrl": "https://arxiv.org/pdf/2504.17294",
-    "blogSlug": null
+    "blogSlug": "higher-spin-currents-and-flows-in-auxiliary-field-sigma-models"
   },
   {
     "arxivId": "2504.16929",
@@ -9165,7 +9165,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.16929",
     "pdfUrl": "https://arxiv.org/pdf/2504.16929",
-    "blogSlug": null
+    "blogSlug": "i-con-a-unifying-framework-for-representation-learning"
   },
   {
     "arxivId": "2504.16068",
@@ -9263,7 +9263,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.16068",
     "pdfUrl": "https://arxiv.org/pdf/2504.16068",
-    "blogSlug": null
+    "blogSlug": "high-performance-training-and-inference-for-deep-equivariant-interatomic-potenti"
   },
   {
     "arxivId": "2504.13247",
@@ -9350,7 +9350,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.13247",
     "pdfUrl": "https://arxiv.org/pdf/2504.13247",
-    "blogSlug": null
+    "blogSlug": "darkness-in-the-crust-searching-for-the-truly-dark-subhalos-with-paleo-detectors"
   },
   {
     "arxivId": "2504.13043",
@@ -9439,7 +9439,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.13043",
     "pdfUrl": "https://arxiv.org/pdf/2504.13043",
-    "blogSlug": null
+    "blogSlug": "machine-learning-decoding-of-circuit-level-noise-for-bivariate-bicycle-codes"
   },
   {
     "arxivId": "2504.12390",
@@ -9537,7 +9537,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.12390",
     "pdfUrl": "https://arxiv.org/pdf/2504.12390",
-    "blogSlug": null
+    "blogSlug": "learning-topological-invariance"
   },
   {
     "arxivId": "2504.07197",
@@ -9630,7 +9630,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.07197",
     "pdfUrl": "https://arxiv.org/pdf/2504.07197",
-    "blogSlug": null
+    "blogSlug": "rapid-inference-and-comparison-of-gravitational-wave-population-models-with-neur"
   },
   {
     "arxivId": "2504.06870",
@@ -9754,7 +9754,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.06870",
     "pdfUrl": "https://arxiv.org/pdf/2504.06870",
-    "blogSlug": null
+    "blogSlug": "bayesian-component-separation-for-desi-lae-automated-spectroscopic-redshifts-and"
   },
   {
     "arxivId": "2504.06174",
@@ -9861,7 +9861,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.06174",
     "pdfUrl": "https://arxiv.org/pdf/2504.06174",
-    "blogSlug": null
+    "blogSlug": "on-soft-clustering-for-correlation-estimators"
   },
   {
     "arxivId": "2504.05462",
@@ -9947,7 +9947,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.05462",
     "pdfUrl": "https://arxiv.org/pdf/2504.05462",
-    "blogSlug": null
+    "blogSlug": "quantum-mechanics-and-neural-networks"
   },
   {
     "arxivId": "2504.05235",
@@ -10042,7 +10042,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.05235",
     "pdfUrl": "https://arxiv.org/pdf/2504.05235",
-    "blogSlug": null
+    "blogSlug": "iaemu-learning-galaxy-intrinsic-alignment-correlations"
   },
   {
     "arxivId": "2504.02822",
@@ -10135,7 +10135,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2504.02822",
     "pdfUrl": "https://arxiv.org/pdf/2504.02822",
-    "blogSlug": null
+    "blogSlug": "do-two-ai-scientists-agree"
   },
   {
     "arxivId": "2503.21874",
@@ -10251,7 +10251,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.21874",
     "pdfUrl": "https://arxiv.org/pdf/2503.21874",
-    "blogSlug": null
+    "blogSlug": "the-type-i-superluminous-supernova-catalogue-ii-spectroscopic-evolution-in-the-p"
   },
   {
     "arxivId": "2503.12198",
@@ -10336,7 +10336,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.12198",
     "pdfUrl": "https://arxiv.org/pdf/2503.12198",
-    "blogSlug": null
+    "blogSlug": "extracting-the-distribution-amplitude-of-pseudoscalar-mesons-using-the-hope-meth"
   },
   {
     "arxivId": "2503.11061",
@@ -10419,7 +10419,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.11061",
     "pdfUrl": "https://arxiv.org/pdf/2503.11061",
-    "blogSlug": null
+    "blogSlug": "generative-modeling-for-mathematical-discovery"
   },
   {
     "arxivId": "2503.10400",
@@ -10502,7 +10502,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.10400",
     "pdfUrl": "https://arxiv.org/pdf/2503.10400",
-    "blogSlug": null
+    "blogSlug": "no-go-theorem-for-environment-assisted-invariance-in-non-unitary-dynamics"
   },
   {
     "arxivId": "2503.07596",
@@ -10600,7 +10600,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.07596",
     "pdfUrl": "https://arxiv.org/pdf/2503.07596",
-    "blogSlug": null
+    "blogSlug": "denoising-hamiltonian-network-for-physical-reasoning"
   },
   {
     "arxivId": "2503.05877",
@@ -10696,7 +10696,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.05877",
     "pdfUrl": "https://arxiv.org/pdf/2503.05877",
-    "blogSlug": null
+    "blogSlug": "decoding-the-galactic-twirl-the-downfall-of-milky-way-mass-galaxies-rotation-cur"
   },
   {
     "arxivId": "2503.05558",
@@ -10782,7 +10782,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.05558",
     "pdfUrl": "https://arxiv.org/pdf/2503.05558",
-    "blogSlug": null
+    "blogSlug": "diffusion-models-for-cayley-graphs"
   },
   {
     "arxivId": "2503.04725",
@@ -10859,7 +10859,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.04725",
     "pdfUrl": "https://arxiv.org/pdf/2503.04725",
-    "blogSlug": null
+    "blogSlug": "l-2-m-mutual-information-scaling-law-for-long-context-language-modeling"
   },
   {
     "arxivId": "2503.03812",
@@ -10956,7 +10956,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.03812",
     "pdfUrl": "https://arxiv.org/pdf/2503.03812",
-    "blogSlug": null
+    "blogSlug": "trial-by-fire-probing-the-dark-matter-density-profile-of-dwarf-galaxies-with-gra"
   },
   {
     "arxivId": "2503.02657",
@@ -11057,7 +11057,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2503.02657",
     "pdfUrl": "https://arxiv.org/pdf/2503.02657",
-    "blogSlug": null
+    "blogSlug": "a-deep-high-angular-resolution-3d-dust-map-of-the-southern-galactic-plane"
   },
   {
     "arxivId": "2502.19469",
@@ -11180,7 +11180,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.19469",
     "pdfUrl": "https://arxiv.org/pdf/2502.19469",
-    "blogSlug": null
+    "blogSlug": "evidence-for-an-instability-induced-binary-merger-in-the-double-peaked-helium-ri"
   },
   {
     "arxivId": "2502.17556",
@@ -11291,7 +11291,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.17556",
     "pdfUrl": "https://arxiv.org/pdf/2502.17556",
-    "blogSlug": null
+    "blogSlug": "seeing-the-outer-edge-of-the-infant-type-ia-supernova-2024epr-in-the-optical-and"
   },
   {
     "arxivId": "2502.15926",
@@ -11394,7 +11394,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.15926",
     "pdfUrl": "https://arxiv.org/pdf/2502.15926",
-    "blogSlug": null
+    "blogSlug": "anomaly-preserving-contrastive-neural-embeddings-for-end-to-end-model-independen"
   },
   {
     "arxivId": "2502.14036",
@@ -11488,7 +11488,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.14036",
     "pdfUrl": "https://arxiv.org/pdf/2502.14036",
-    "blogSlug": null
+    "blogSlug": "isolating-unisolated-upsilons-with-anomaly-detection-in-cms-open-data"
   },
   {
     "arxivId": "2502.12243",
@@ -11562,7 +11562,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.12243",
     "pdfUrl": "https://arxiv.org/pdf/2502.12243",
-    "blogSlug": null
+    "blogSlug": "on-the-learnability-of-knot-invariants-representation-predictability-and-neural-"
   },
   {
     "arxivId": "2502.11774",
@@ -11661,7 +11661,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.11774",
     "pdfUrl": "https://arxiv.org/pdf/2502.11774",
-    "blogSlug": null
+    "blogSlug": "interpretable-machine-learning-for-kronecker-coefficients"
   },
   {
     "arxivId": "2502.10894",
@@ -11749,7 +11749,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.10894",
     "pdfUrl": "https://arxiv.org/pdf/2502.10894",
-    "blogSlug": null
+    "blogSlug": "bridging-the-sim-to-real-gap-for-athletic-loco-manipulation"
   },
   {
     "arxivId": "2502.10843",
@@ -11842,7 +11842,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.10843",
     "pdfUrl": "https://arxiv.org/pdf/2502.10843",
-    "blogSlug": null
+    "blogSlug": "leaps-a-discrete-neural-sampler-via-locally-equivariant-networks"
   },
   {
     "arxivId": "2502.10581",
@@ -11923,7 +11923,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.10581",
     "pdfUrl": "https://arxiv.org/pdf/2502.10581",
-    "blogSlug": null
+    "blogSlug": "do-we-need-to-verify-step-by-step-rethinking-process-supervision-from-a-theoreti"
   },
   {
     "arxivId": "2502.10360",
@@ -12016,7 +12016,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.10360",
     "pdfUrl": "https://arxiv.org/pdf/2502.10360",
-    "blogSlug": null
+    "blogSlug": "machine-learning-the-vanishing-order-of-rational-l-functions"
   },
   {
     "arxivId": "2502.08620",
@@ -12102,7 +12102,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.08620",
     "pdfUrl": "https://arxiv.org/pdf/2502.08620",
-    "blogSlug": null
+    "blogSlug": "mathematical-data-science"
   },
   {
     "arxivId": "2502.06079",
@@ -12192,7 +12192,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.06079",
     "pdfUrl": "https://arxiv.org/pdf/2502.06079",
-    "blogSlug": null
+    "blogSlug": "debiasing-guidance-for-discrete-diffusion-with-sequential-monte-carlo"
   },
   {
     "arxivId": "2502.05300",
@@ -12286,7 +12286,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.05300",
     "pdfUrl": "https://arxiv.org/pdf/2502.05300",
-    "blogSlug": null
+    "blogSlug": "parameter-symmetry-potentially-unifies-deep-learning-theory"
   },
   {
     "arxivId": "2502.01628",
@@ -12374,7 +12374,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.01628",
     "pdfUrl": "https://arxiv.org/pdf/2502.01628",
-    "blogSlug": null
+    "blogSlug": "harmonic-loss-trains-interpretable-ai-models"
   },
   {
     "arxivId": "2502.01627",
@@ -12468,7 +12468,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.01627",
     "pdfUrl": "https://arxiv.org/pdf/2502.01627",
-    "blogSlug": null
+    "blogSlug": "a-poisson-process-autodecoder-for-x-ray-sources"
   },
   {
     "arxivId": "2502.00873",
@@ -12560,7 +12560,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.00873",
     "pdfUrl": "https://arxiv.org/pdf/2502.00873",
-    "blogSlug": null
+    "blogSlug": "language-models-use-trigonometry-to-do-addition"
   },
   {
     "arxivId": "2502.00263",
@@ -12657,7 +12657,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.00263",
     "pdfUrl": "https://arxiv.org/pdf/2502.00263",
-    "blogSlug": null
+    "blogSlug": "progress-in-normalizing-flows-for-4d-gauge-theories"
   },
   {
     "arxivId": "2502.00243",
@@ -12744,7 +12744,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2502.00243",
     "pdfUrl": "https://arxiv.org/pdf/2502.00243",
-    "blogSlug": null
+    "blogSlug": "a-fast-periodicity-detection-algorithm-sensitive-to-arbitrary-waveforms"
   },
   {
     "arxivId": "2501.19406",
@@ -12837,7 +12837,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.19406",
     "pdfUrl": "https://arxiv.org/pdf/2501.19406",
-    "blogSlug": null
+    "blogSlug": "low-rank-adapting-models-for-sparse-autoencoders"
   },
   {
     "arxivId": "2501.17219",
@@ -12925,7 +12925,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.17219",
     "pdfUrl": "https://arxiv.org/pdf/2501.17219",
-    "blogSlug": null
+    "blogSlug": "qcd-theory-meets-information-theory"
   },
   {
     "arxivId": "2501.16602",
@@ -13018,7 +13018,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.16602",
     "pdfUrl": "https://arxiv.org/pdf/2501.16602",
-    "blogSlug": null
+    "blogSlug": "central-densities-of-dark-matter-halos-in-fire-2-simulations-of-low-mass-galaxie"
   },
   {
     "arxivId": "2501.14868",
@@ -13110,7 +13110,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.14868",
     "pdfUrl": "https://arxiv.org/pdf/2501.14868",
-    "blogSlug": null
+    "blogSlug": "theoretical-predictions-for-the-inner-dark-matter-distribution-in-the-milky-way-"
   },
   {
     "arxivId": "2501.14638",
@@ -13201,7 +13201,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.14638",
     "pdfUrl": "https://arxiv.org/pdf/2501.14638",
-    "blogSlug": null
+    "blogSlug": "a-theoretical-approach-to-density-split-clustering"
   },
   {
     "arxivId": "2501.14048",
@@ -13296,7 +13296,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.14048",
     "pdfUrl": "https://arxiv.org/pdf/2501.14048",
-    "blogSlug": null
+    "blogSlug": "sidda-sinkhorn-dynamic-domain-adaptation-for-image-classification-with-equivaria"
   },
   {
     "arxivId": "2501.12391",
@@ -13379,7 +13379,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.12391",
     "pdfUrl": "https://arxiv.org/pdf/2501.12391",
-    "blogSlug": null
+    "blogSlug": "physics-of-skill-learning"
   },
   {
     "arxivId": "2501.09081",
@@ -13470,7 +13470,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.09081",
     "pdfUrl": "https://arxiv.org/pdf/2501.09081",
-    "blogSlug": null
+    "blogSlug": "inferring-transition-dynamics-from-value-functions"
   },
   {
     "arxivId": "2501.09080",
@@ -13558,7 +13558,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.09080",
     "pdfUrl": "https://arxiv.org/pdf/2501.09080",
-    "blogSlug": null
+    "blogSlug": "average-reward-soft-actor-critic"
   },
   {
     "arxivId": "2501.08475",
@@ -13679,7 +13679,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.08475",
     "pdfUrl": "https://arxiv.org/pdf/2501.08475",
-    "blogSlug": null
+    "blogSlug": "an-updated-detection-pipeline-for-precursor-emission-in-type-ii-supernova-2020tl"
   },
   {
     "arxivId": "2501.08278",
@@ -13762,7 +13762,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.08278",
     "pdfUrl": "https://arxiv.org/pdf/2501.08278",
-    "blogSlug": null
+    "blogSlug": "lake-and-surface-based-detectors-for-forward-neutrino-physics"
   },
   {
     "arxivId": "2501.07446",
@@ -13843,7 +13843,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.07446",
     "pdfUrl": "https://arxiv.org/pdf/2501.07446",
-    "blogSlug": null
+    "blogSlug": "synthesis-and-analysis-of-data-as-probability-measures-with-entropy-regularized-"
   },
   {
     "arxivId": "2501.04084",
@@ -13932,7 +13932,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.04084",
     "pdfUrl": "https://arxiv.org/pdf/2501.04084",
-    "blogSlug": null
+    "blogSlug": "effects-of-galactic-environment-on-size-and-dark-matter-content-in-low-mass-gala"
   },
   {
     "arxivId": "2501.02932",
@@ -14013,7 +14013,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.02932",
     "pdfUrl": "https://arxiv.org/pdf/2501.02932",
-    "blogSlug": null
+    "blogSlug": "predicting-band-gap-from-chemical-composition-a-simple-learned-model-for-a-mater"
   },
   {
     "arxivId": "2501.02105",
@@ -14100,7 +14100,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.02105",
     "pdfUrl": "https://arxiv.org/pdf/2501.02105",
-    "blogSlug": null
+    "blogSlug": "learning-fricke-signs-from-maass-form-coefficients"
   },
   {
     "arxivId": "2501.01912",
@@ -14190,7 +14190,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.01912",
     "pdfUrl": "https://arxiv.org/pdf/2501.01912",
-    "blogSlug": null
+    "blogSlug": "exoplanet-detection-via-differentiable-rendering"
   },
   {
     "arxivId": "2501.01778",
@@ -14284,7 +14284,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.01778",
     "pdfUrl": "https://arxiv.org/pdf/2501.01778",
-    "blogSlug": null
+    "blogSlug": "robust-resonant-anomaly-detection-with-nplm"
   },
   {
     "arxivId": "2501.01698",
@@ -14385,7 +14385,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.01698",
     "pdfUrl": "https://arxiv.org/pdf/2501.01698",
-    "blogSlug": null
+    "blogSlug": "cosmological-constraints-from-the-minkowski-functionals-of-the-boss-cmass-galaxy"
   },
   {
     "arxivId": "2501.01496",
@@ -14481,7 +14481,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.01496",
     "pdfUrl": "https://arxiv.org/pdf/2501.01496",
-    "blogSlug": null
+    "blogSlug": "oracle-a-real-time-hierarchical-deep-learning-photometric-classifier-for-the-lss"
   },
   {
     "arxivId": "2501.01485",
@@ -14569,7 +14569,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.01485",
     "pdfUrl": "https://arxiv.org/pdf/2501.01485",
-    "blogSlug": null
+    "blogSlug": "a-near-ir-search-for-helium-in-the-superluminous-supernova-sn-2024ahr"
   },
   {
     "arxivId": "2501.00989",
@@ -14639,7 +14639,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2501.00989",
     "pdfUrl": "https://arxiv.org/pdf/2501.00989",
-    "blogSlug": null
+    "blogSlug": "bootstrapped-reward-shaping"
   },
   {
     "arxivId": "2412.19883",
@@ -14745,7 +14745,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.19883",
     "pdfUrl": "https://arxiv.org/pdf/2412.19883",
-    "blogSlug": null
+    "blogSlug": "a-neural-network-based-search-for-unmodeled-transients-in-ligo-virgo-kagra-s-thi"
   },
   {
     "arxivId": "2412.15184",
@@ -14845,7 +14845,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.15184",
     "pdfUrl": "https://arxiv.org/pdf/2412.15184",
-    "blogSlug": null
+    "blogSlug": "data-for-mathematical-copilots-better-ways-of-presenting-proofs-for-machine-lear"
   },
   {
     "arxivId": "2412.07033",
@@ -14940,7 +14940,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.07033",
     "pdfUrl": "https://arxiv.org/pdf/2412.07033",
-    "blogSlug": null
+    "blogSlug": "product-manifold-machine-learning-for-physics"
   },
   {
     "arxivId": "2412.02798",
@@ -15027,7 +15027,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.02798",
     "pdfUrl": "https://arxiv.org/pdf/2412.02798",
-    "blogSlug": null
+    "blogSlug": "grayscale-to-hyperspectral-at-any-resolution-using-a-phase-only-lens"
   },
   {
     "arxivId": "2412.01888",
@@ -15128,7 +15128,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.01888",
     "pdfUrl": "https://arxiv.org/pdf/2412.01888",
-    "blogSlug": null
+    "blogSlug": "the-millennium-and-astrid-galaxies-in-effective-field-theory-comparison-with-gal"
   },
   {
     "arxivId": "2412.00968",
@@ -15215,7 +15215,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2412.00968",
     "pdfUrl": "https://arxiv.org/pdf/2412.00968",
-    "blogSlug": null
+    "blogSlug": "probing-primordial-non-gaussianity-by-reconstructing-the-initial-conditions"
   },
   {
     "arxivId": "2411.09851",
@@ -15314,7 +15314,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.09851",
     "pdfUrl": "https://arxiv.org/pdf/2411.09851",
-    "blogSlug": null
+    "blogSlug": "symbolfit-automatic-parametric-modeling-with-symbolic-regression"
   },
   {
     "arxivId": "2411.07287",
@@ -15398,7 +15398,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.07287",
     "pdfUrl": "https://arxiv.org/pdf/2411.07287",
-    "blogSlug": null
+    "blogSlug": "type-iin-supernovae-i-uniform-light-curve-characterization-and-a-bimodality-in-t"
   },
   {
     "arxivId": "2411.05313",
@@ -15479,7 +15479,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.05313",
     "pdfUrl": "https://arxiv.org/pdf/2411.05313",
-    "blogSlug": null
+    "blogSlug": "a-twist-on-heterotic-little-string-duality"
   },
   {
     "arxivId": "2411.04780",
@@ -15571,7 +15571,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.04780",
     "pdfUrl": "https://arxiv.org/pdf/2411.04780",
-    "blogSlug": null
+    "blogSlug": "conversations-and-deliberations-non-standard-cosmological-epochs-and-expansion-h"
   },
   {
     "arxivId": "2411.03496",
@@ -15652,7 +15652,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.03496",
     "pdfUrl": "https://arxiv.org/pdf/2411.03496",
-    "blogSlug": null
+    "blogSlug": "structure-factor-and-topological-bound-of-twisted-bilayer-semiconductors-at-frac"
   },
   {
     "arxivId": "2411.02393",
@@ -15752,7 +15752,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.02393",
     "pdfUrl": "https://arxiv.org/pdf/2411.02393",
-    "blogSlug": null
+    "blogSlug": "adaptive-length-image-tokenization-via-recurrent-allocation"
   },
   {
     "arxivId": "2411.02387",
@@ -15820,7 +15820,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.02387",
     "pdfUrl": "https://arxiv.org/pdf/2411.02387",
-    "blogSlug": null
+    "blogSlug": "the-mathcal-d-geometric-hilbert-scheme-part-ii-hilbert-and-quot-dg-schemes"
   },
   {
     "arxivId": "2411.02214",
@@ -15896,7 +15896,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.02214",
     "pdfUrl": "https://arxiv.org/pdf/2411.02214",
-    "blogSlug": null
+    "blogSlug": "dexhub-and-dart-towards-internet-scale-robot-data-collection"
   },
   {
     "arxivId": "2411.02185",
@@ -15991,7 +15991,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.02185",
     "pdfUrl": "https://arxiv.org/pdf/2411.02185",
-    "blogSlug": null
+    "blogSlug": "small-scale-hamiltonian-optimization-of-interpolating-operators-for-lagrangian-l"
   },
   {
     "arxivId": "2411.00962",
@@ -16084,7 +16084,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.00962",
     "pdfUrl": "https://arxiv.org/pdf/2411.00962",
-    "blogSlug": null
+    "blogSlug": "not-so-flat-metrics"
   },
   {
     "arxivId": "2411.00446",
@@ -16187,7 +16187,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2411.00446",
     "pdfUrl": "https://arxiv.org/pdf/2411.00446",
-    "blogSlug": null
+    "blogSlug": "a-lorentz-equivariant-transformer-for-all-of-the-lhc"
   },
   {
     "arxivId": "2410.23602",
@@ -16281,7 +16281,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.23602",
     "pdfUrl": "https://arxiv.org/pdf/2410.23602",
-    "blogSlug": null
+    "blogSlug": "linearized-wasserstein-barycenters-synthesis-analysis-representational-capacity-"
   },
   {
     "arxivId": "2410.23346",
@@ -16373,7 +16373,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.23346",
     "pdfUrl": "https://arxiv.org/pdf/2410.23346",
-    "blogSlug": null
+    "blogSlug": "asura-fdps-ml-star-by-star-galaxy-simulations-accelerated-by-surrogate-modeling-"
   },
   {
     "arxivId": "2410.21726",
@@ -16436,7 +16436,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.21726",
     "pdfUrl": "https://arxiv.org/pdf/2410.21726",
-    "blogSlug": null
+    "blogSlug": "multi-rigidity-of-schubert-classes-in-partial-flag-varieties"
   },
   {
     "arxivId": "2410.21367",
@@ -16537,7 +16537,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.21367",
     "pdfUrl": "https://arxiv.org/pdf/2410.21367",
-    "blogSlug": null
+    "blogSlug": "inferring-the-morphology-of-the-galactic-center-excess-with-gaussian-processes"
   },
   {
     "arxivId": "2410.20942",
@@ -16605,7 +16605,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.20942",
     "pdfUrl": "https://arxiv.org/pdf/2410.20942",
-    "blogSlug": null
+    "blogSlug": "relative-monoidal-bondal-orlov"
   },
   {
     "arxivId": "2410.20516",
@@ -16700,7 +16700,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.20516",
     "pdfUrl": "https://arxiv.org/pdf/2410.20516",
-    "blogSlug": null
+    "blogSlug": "a-cosmic-scale-benchmark-for-symmetry-preserving-data-processing"
   },
   {
     "arxivId": "2410.17704",
@@ -16789,7 +16789,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.17704",
     "pdfUrl": "https://arxiv.org/pdf/2410.17704",
-    "blogSlug": null
+    "blogSlug": "fermion-masses-and-mixing-in-string-inspired-models"
   },
   {
     "arxivId": "2410.17322",
@@ -16896,7 +16896,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.17322",
     "pdfUrl": "https://arxiv.org/pdf/2410.17322",
-    "blogSlug": null
+    "blogSlug": "blast-a-web-application-for-characterizing-the-host-galaxies-of-astrophysical-tr"
   },
   {
     "arxivId": "2410.14670",
@@ -16983,7 +16983,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.14670",
     "pdfUrl": "https://arxiv.org/pdf/2410.14670",
-    "blogSlug": null
+    "blogSlug": "decomposing-the-dark-matter-of-sparse-autoencoders"
   },
   {
     "arxivId": "2410.13148",
@@ -17064,7 +17064,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.13148",
     "pdfUrl": "https://arxiv.org/pdf/2410.13148",
-    "blogSlug": null
+    "blogSlug": "learning-efficient-representations-of-neutrino-telescope-events"
   },
   {
     "arxivId": "2410.12529",
@@ -17146,7 +17146,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.12529",
     "pdfUrl": "https://arxiv.org/pdf/2410.12529",
-    "blogSlug": null
+    "blogSlug": "hodge-theory-for-entanglement-cohomology"
   },
   {
     "arxivId": "2410.09143",
@@ -17228,7 +17228,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.09143",
     "pdfUrl": "https://arxiv.org/pdf/2410.09143",
-    "blogSlug": null
+    "blogSlug": "auriga-streams-ii-orbital-properties-of-tidally-disrupting-satellites-of-milky-w"
   },
   {
     "arxivId": "2410.08439",
@@ -17308,7 +17308,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.08439",
     "pdfUrl": "https://arxiv.org/pdf/2410.08439",
-    "blogSlug": null
+    "blogSlug": "reinforcement-learning-for-control-of-non-markovian-cellular-population-dynamics"
   },
   {
     "arxivId": "2410.08201",
@@ -17403,7 +17403,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.08201",
     "pdfUrl": "https://arxiv.org/pdf/2410.08201",
-    "blogSlug": null
+    "blogSlug": "efficient-dictionary-learning-with-switch-sparse-autoencoders"
   },
   {
     "arxivId": "2410.19750",
@@ -17499,7 +17499,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.19750",
     "pdfUrl": "https://arxiv.org/pdf/2410.19750",
-    "blogSlug": null
+    "blogSlug": "the-geometry-of-concepts-sparse-autoencoder-feature-structure"
   },
   {
     "arxivId": "2410.08161",
@@ -17566,7 +17566,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.08161",
     "pdfUrl": "https://arxiv.org/pdf/2410.08161",
-    "blogSlug": null
+    "blogSlug": "dirac-traces-and-the-tutte-polynomial"
   },
   {
     "arxivId": "2410.08255",
@@ -17647,7 +17647,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.08255",
     "pdfUrl": "https://arxiv.org/pdf/2410.08255",
-    "blogSlug": null
+    "blogSlug": "investigating-representation-universality-case-study-on-genealogical-representat"
   },
   {
     "arxivId": "2410.06231",
@@ -17737,7 +17737,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.06231",
     "pdfUrl": "https://arxiv.org/pdf/2410.06231",
-    "blogSlug": null
+    "blogSlug": "relitlrm-generative-relightable-radiance-for-large-reconstruction-models"
   },
   {
     "arxivId": "2410.14706",
@@ -17819,7 +17819,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.14706",
     "pdfUrl": "https://arxiv.org/pdf/2410.14706",
-    "blogSlug": null
+    "blogSlug": "transformers-are-efficient-compilers-provably"
   },
   {
     "arxivId": "2410.05379",
@@ -17912,7 +17912,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.05379",
     "pdfUrl": "https://arxiv.org/pdf/2410.05379",
-    "blogSlug": null
+    "blogSlug": "specter-efficient-evaluation-of-the-spectral-emd"
   },
   {
     "arxivId": "2410.03602",
@@ -17995,7 +17995,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.03602",
     "pdfUrl": "https://arxiv.org/pdf/2410.03602",
-    "blogSlug": null
+    "blogSlug": "exploring-gauge-fixing-conditions-with-gradient-based-optimization"
   },
   {
     "arxivId": "2410.03006",
@@ -18083,7 +18083,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2410.03006",
     "pdfUrl": "https://arxiv.org/pdf/2410.03006",
-    "blogSlug": null
+    "blogSlug": "formation-of-representations-in-neural-networks"
   },
   {
     "arxivId": "2409.18740",
@@ -18166,7 +18166,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.18740",
     "pdfUrl": "https://arxiv.org/pdf/2409.18740",
-    "blogSlug": null
+    "blogSlug": "t-overline-t-like-flows-of-yang-mills-theories"
   },
   {
     "arxivId": "2409.18167",
@@ -18261,7 +18261,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.18167",
     "pdfUrl": "https://arxiv.org/pdf/2409.18167",
-    "blogSlug": null
+    "blogSlug": "optimal-quantum-purity-amplification"
   },
   {
     "arxivId": "2409.16143",
@@ -18358,7 +18358,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.16143",
     "pdfUrl": "https://arxiv.org/pdf/2409.16143",
-    "blogSlug": null
+    "blogSlug": "seeing-faces-in-things-a-model-and-dataset-for-pareidolia"
   },
   {
     "arxivId": "2409.13810",
@@ -18448,7 +18448,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.13810",
     "pdfUrl": "https://arxiv.org/pdf/2409.13810",
-    "blogSlug": null
+    "blogSlug": "streamgen-connecting-populations-of-streams-and-shells-to-their-host-galaxies"
   },
   {
     "arxivId": "2409.13150",
@@ -18534,7 +18534,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.13150",
     "pdfUrl": "https://arxiv.org/pdf/2409.13150",
-    "blogSlug": null
+    "blogSlug": "a-field-guide-to-event-shape-observables-using-optimal-transport"
   },
   {
     "arxivId": "2409.12222",
@@ -18627,7 +18627,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.12222",
     "pdfUrl": "https://arxiv.org/pdf/2409.12222",
-    "blogSlug": null
+    "blogSlug": "conformal-fields-from-neural-networks"
   },
   {
     "arxivId": "2409.10609",
@@ -18721,7 +18721,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.10609",
     "pdfUrl": "https://arxiv.org/pdf/2409.10609",
-    "blogSlug": null
+    "blogSlug": "full-shape-analysis-with-simulation-based-priors-cosmological-parameters-and-the"
   },
   {
     "arxivId": "2409.10596",
@@ -18813,7 +18813,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.10596",
     "pdfUrl": "https://arxiv.org/pdf/2409.10596",
-    "blogSlug": null
+    "blogSlug": "unveiling-the-diversity-of-type-iin-supernovae-via-systematic-light-curve-modeli"
   },
   {
     "arxivId": "2409.05704",
@@ -18889,7 +18889,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.05704",
     "pdfUrl": "https://arxiv.org/pdf/2409.05704",
-    "blogSlug": null
+    "blogSlug": "auxiliary-field-deformations-of-semi-symmetric-space-sigma-models"
   },
   {
     "arxivId": "2409.02980",
@@ -18998,7 +18998,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.02980",
     "pdfUrl": "https://arxiv.org/pdf/2409.02980",
-    "blogSlug": null
+    "blogSlug": "how-dreams-are-made-emulating-satellite-galaxy-and-subhalo-populations-with-diff"
   },
   {
     "arxivId": "2409.02174",
@@ -19126,7 +19126,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.02174",
     "pdfUrl": "https://arxiv.org/pdf/2409.02174",
-    "blogSlug": null
+    "blogSlug": "double-acct-a-distinct-double-peaked-supernova-matching-pulsational-pair-instabi"
   },
   {
     "arxivId": "2409.01359",
@@ -19230,7 +19230,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2409.01359",
     "pdfUrl": "https://arxiv.org/pdf/2409.01359",
-    "blogSlug": null
+    "blogSlug": "sn-2021foa-the-flip-flop-type-iin-ibn-supernova"
   },
   {
     "arxivId": "2408.16829",
@@ -19331,7 +19331,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.16829",
     "pdfUrl": "https://arxiv.org/pdf/2408.16829",
-    "blogSlug": null
+    "blogSlug": "maven-a-multimodal-foundation-model-for-supernova-science"
   },
   {
     "arxivId": "2408.15495",
@@ -19418,7 +19418,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.15495",
     "pdfUrl": "https://arxiv.org/pdf/2408.15495",
-    "blogSlug": null
+    "blogSlug": "remove-symmetries-to-control-model-expressivity-and-improve-optimization"
   },
   {
     "arxivId": "2408.15136",
@@ -19512,7 +19512,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.15136",
     "pdfUrl": "https://arxiv.org/pdf/2408.15136",
-    "blogSlug": null
+    "blogSlug": "low-budget-simulation-based-inference-with-bayesian-neural-networks"
   },
   {
     "arxivId": "2408.14538",
@@ -19607,7 +19607,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.14538",
     "pdfUrl": "https://arxiv.org/pdf/2408.14538",
-    "blogSlug": null
+    "blogSlug": "linx-a-fast-differentiable-and-extensible-big-bang-nucleosynthesis-package"
   },
   {
     "arxivId": "2408.14531",
@@ -19702,7 +19702,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.14531",
     "pdfUrl": "https://arxiv.org/pdf/2408.14531",
-    "blogSlug": null
+    "blogSlug": "cosmological-parameter-estimation-with-a-joint-likelihood-analysis-of-the-cosmic"
   },
   {
     "arxivId": "2408.13314",
@@ -19794,7 +19794,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.13314",
     "pdfUrl": "https://arxiv.org/pdf/2408.13314",
-    "blogSlug": null
+    "blogSlug": "finding-the-fuse-prospects-for-the-detection-and-characterization-of-hydrogen-ri"
   },
   {
     "arxivId": "2408.12296",
@@ -19880,7 +19880,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.12296",
     "pdfUrl": "https://arxiv.org/pdf/2408.12296",
-    "blogSlug": null
+    "blogSlug": "multiple-testing-for-signal-agnostic-searches-of-new-physics-with-machine-learni"
   },
   {
     "arxivId": "2408.10205",
@@ -19975,7 +19975,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.10205",
     "pdfUrl": "https://arxiv.org/pdf/2408.10205",
-    "blogSlug": null
+    "blogSlug": "kan-2-0-kolmogorov-arnold-networks-meet-science"
   },
   {
     "arxivId": "2408.08474",
@@ -20056,7 +20056,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.08474",
     "pdfUrl": "https://arxiv.org/pdf/2408.08474",
-    "blogSlug": null
+    "blogSlug": "enhancing-events-in-neutrino-telescopes-through-deep-learning-driven-super-resol"
   },
   {
     "arxivId": "2408.07126",
@@ -20150,7 +20150,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.07126",
     "pdfUrl": "https://arxiv.org/pdf/2408.07126",
-    "blogSlug": null
+    "blogSlug": "improving-radial-velocities-by-marginalizing-over-stars-and-sky-achieving-30-m-s"
   },
   {
     "arxivId": "2408.04720",
@@ -20311,7 +20311,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.04199",
     "pdfUrl": "https://arxiv.org/pdf/2408.04199",
-    "blogSlug": null
+    "blogSlug": "finite-temperature-at-finite-places"
   },
   {
     "arxivId": "2408.01482",
@@ -20408,7 +20408,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.01482",
     "pdfUrl": "https://arxiv.org/pdf/2408.01482",
-    "blogSlug": null
+    "blogSlug": "at2023vto-an-exceptionally-luminous-helium-tidal-disruption-event-from-a-massive"
   },
   {
     "arxivId": "2408.00835",
@@ -20500,7 +20500,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.00835",
     "pdfUrl": "https://arxiv.org/pdf/2408.00835",
-    "blogSlug": null
+    "blogSlug": "on-the-generality-and-persistence-of-cosmological-stasis"
   },
   {
     "arxivId": "2408.00830",
@@ -20574,7 +20574,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.00830",
     "pdfUrl": "https://arxiv.org/pdf/2408.00830",
-    "blogSlug": null
+    "blogSlug": "attractors-geodesics-and-the-geometry-of-moduli-spaces"
   },
   {
     "arxivId": "2408.00082",
@@ -20659,7 +20659,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2408.00082",
     "pdfUrl": "https://arxiv.org/pdf/2408.00082",
-    "blogSlug": null
+    "blogSlug": "tasi-lectures-on-physics-for-machine-learning"
   },
   {
     "arxivId": "2407.21097",
@@ -20754,7 +20754,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.21097",
     "pdfUrl": "https://arxiv.org/pdf/2407.21097",
-    "blogSlug": null
+    "blogSlug": "a-generative-modeling-approach-to-reconstructing-21-cm-tomographic-data"
   },
   {
     "arxivId": "2407.20471",
@@ -20842,7 +20842,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.20471",
     "pdfUrl": "https://arxiv.org/pdf/2407.20471",
-    "blogSlug": null
+    "blogSlug": "relaxed-equivariant-graph-neural-networks"
   },
   {
     "arxivId": "2407.16186",
@@ -20929,7 +20929,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.16186",
     "pdfUrl": "https://arxiv.org/pdf/2407.16186",
-    "blogSlug": null
+    "blogSlug": "automatic-environment-shaping-is-the-next-frontier-in-rl"
   },
   {
     "arxivId": "2407.11284",
@@ -21022,7 +21022,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.11284",
     "pdfUrl": "https://arxiv.org/pdf/2407.11284",
-    "blogSlug": null
+    "blogSlug": "moment-unfolding"
   },
   {
     "arxivId": "2407.07946",
@@ -21140,7 +21140,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.07946",
     "pdfUrl": "https://arxiv.org/pdf/2407.07946",
-    "blogSlug": null
+    "blogSlug": "the-type-i-superluminous-supernova-catalog-i-light-curve-properties-models-and-c"
   },
   {
     "arxivId": "2407.04080",
@@ -21232,7 +21232,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.04080",
     "pdfUrl": "https://arxiv.org/pdf/2407.04080",
-    "blogSlug": null
+    "blogSlug": "find-the-haystacks-then-look-for-needles-the-rate-of-strongly-lensed-transients-"
   },
   {
     "arxivId": "2407.03524",
@@ -21325,7 +21325,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.03524",
     "pdfUrl": "https://arxiv.org/pdf/2407.03524",
-    "blogSlug": null
+    "blogSlug": "a-multicategory-jet-image-classification-framework-using-deep-neural-network"
   },
   {
     "arxivId": "2407.01249",
@@ -21416,7 +21416,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2407.01249",
     "pdfUrl": "https://arxiv.org/pdf/2407.01249",
-    "blogSlug": null
+    "blogSlug": "anomaly-aware-summary-statistic-from-data-batches"
   },
   {
     "arxivId": "2406.18033",
@@ -21492,7 +21492,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.18033",
     "pdfUrl": "https://arxiv.org/pdf/2406.18033",
-    "blogSlug": null
+    "blogSlug": "boosting-soft-q-learning-by-bounding"
   },
   {
     "arxivId": "2406.17645",
@@ -21585,7 +21585,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.17645",
     "pdfUrl": "https://arxiv.org/pdf/2406.17645",
-    "blogSlug": null
+    "blogSlug": "simulating-moir-quantum-matter-with-neural-network"
   },
   {
     "arxivId": "2406.16825",
@@ -21672,7 +21672,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.16825",
     "pdfUrl": "https://arxiv.org/pdf/2406.16825",
-    "blogSlug": null
+    "blogSlug": "derived-moduli-spaces-of-nonlinear-pdes-ii-variational-tricomplex-and-bv-formali"
   },
   {
     "arxivId": "2406.10583",
@@ -21946,7 +21946,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.10583",
     "pdfUrl": "https://arxiv.org/pdf/2406.10583",
-    "blogSlug": null
+    "blogSlug": "demonstration-of-neutron-identification-in-neutrino-interactions-in-the-microboo"
   },
   {
     "arxivId": "2406.10123",
@@ -22219,7 +22219,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.10123",
     "pdfUrl": "https://arxiv.org/pdf/2406.10123",
-    "blogSlug": null
+    "blogSlug": "improving-neutrino-energy-estimation-of-charged-current-interaction-events-with-"
   },
   {
     "arxivId": "2406.09273",
@@ -22305,7 +22305,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.09273",
     "pdfUrl": "https://arxiv.org/pdf/2406.09273",
-    "blogSlug": null
+    "blogSlug": "qcd-constraints-on-isospin-dense-matter-and-the-nuclear-equation-of-state"
   },
   {
     "arxivId": "2406.06742",
@@ -22392,7 +22392,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.06742",
     "pdfUrl": "https://arxiv.org/pdf/2406.06742",
-    "blogSlug": null
+    "blogSlug": "an-elliptic-kernel-unsupervised-autoencoder-graph-convolutional-network-ensemble"
   },
   {
     "arxivId": "2406.05629",
@@ -22480,7 +22480,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.05629",
     "pdfUrl": "https://arxiv.org/pdf/2406.05629",
-    "blogSlug": null
+    "blogSlug": "separating-the-chirp-from-the-chat-self-supervised-visual-grounding-of-sound-and"
   },
   {
     "arxivId": "2406.04393",
@@ -22562,7 +22562,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.04393",
     "pdfUrl": "https://arxiv.org/pdf/2406.04393",
-    "blogSlug": null
+    "blogSlug": "a-heterotic-k-hler-gravity-and-the-distance-conjecture"
   },
   {
     "arxivId": "2406.04000",
@@ -22647,7 +22647,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.04000",
     "pdfUrl": "https://arxiv.org/pdf/2406.04000",
-    "blogSlug": null
+    "blogSlug": "stochastic-logic-in-biased-coupled-photonic-probabilistic-bits"
   },
   {
     "arxivId": "2406.06576",
@@ -22737,7 +22737,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.06576",
     "pdfUrl": "https://arxiv.org/pdf/2406.06576",
-    "blogSlug": null
+    "blogSlug": "occamllm-fast-and-exact-language-model-arithmetic-in-a-single-step"
   },
   {
     "arxivId": "2406.01507",
@@ -22840,7 +22840,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.01507",
     "pdfUrl": "https://arxiv.org/pdf/2406.01507",
-    "blogSlug": null
+    "blogSlug": "towards-universal-unfolding-of-detector-effects-in-high-energy-physics-using-den"
   },
   {
     "arxivId": "2406.00230",
@@ -22903,7 +22903,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.00230",
     "pdfUrl": "https://arxiv.org/pdf/2406.00230",
-    "blogSlug": null
+    "blogSlug": "sheaf-stable-pairs-quot-schemes-and-birational-geometry"
   },
   {
     "arxivId": "2406.00132",
@@ -22993,7 +22993,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2406.00132",
     "pdfUrl": "https://arxiv.org/pdf/2406.00132",
-    "blogSlug": null
+    "blogSlug": "quanta-efficient-high-rank-fine-tuning-of-llms-with-quantum-informed-tensor-adap"
   },
   {
     "arxivId": "2405.21046",
@@ -23083,7 +23083,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.21046",
     "pdfUrl": "https://arxiv.org/pdf/2405.21046",
-    "blogSlug": null
+    "blogSlug": "exploratory-preference-optimization-harnessing-implicit-q-approximation-for-samp"
   },
   {
     "arxivId": "2405.19402",
@@ -23171,7 +23171,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.19402",
     "pdfUrl": "https://arxiv.org/pdf/2405.19402",
-    "blogSlug": null
+    "blogSlug": "harmonic-1-forms-on-real-loci-of-calabi-yau-manifolds"
   },
   {
     "arxivId": "2405.17425",
@@ -23266,7 +23266,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.17425",
     "pdfUrl": "https://arxiv.org/pdf/2405.17425",
-    "blogSlug": null
+    "blogSlug": "from-neurons-to-neutrons-a-case-study-in-interpretability"
   },
   {
     "arxivId": "2405.17420",
@@ -23355,7 +23355,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.17420",
     "pdfUrl": "https://arxiv.org/pdf/2405.17420",
-    "blogSlug": null
+    "blogSlug": "survival-of-the-fittest-representation-a-case-study-with-modular-addition"
   },
   {
     "arxivId": "2405.14867",
@@ -23446,7 +23446,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.14867",
     "pdfUrl": "https://arxiv.org/pdf/2405.14867",
-    "blogSlug": null
+    "blogSlug": "improved-distribution-matching-distillation-for-fast-image-synthesis"
   },
   {
     "arxivId": "2405.14860",
@@ -23541,7 +23541,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.14860",
     "pdfUrl": "https://arxiv.org/pdf/2405.14860",
-    "blogSlug": null
+    "blogSlug": "not-all-language-model-features-are-one-dimensionally-linear"
   },
   {
     "arxivId": "2405.14806",
@@ -23643,7 +23643,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.14806",
     "pdfUrl": "https://arxiv.org/pdf/2405.14806",
-    "blogSlug": null
+    "blogSlug": "lorentz-equivariant-geometric-algebra-transformers-for-high-energy-physics"
   },
   {
     "arxivId": "2405.14530",
@@ -23730,7 +23730,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.14530",
     "pdfUrl": "https://arxiv.org/pdf/2405.14530",
-    "blogSlug": null
+    "blogSlug": "multistable-shape-from-shading-emerges-from-patch-diffusion"
   },
   {
     "arxivId": "2405.17209",
@@ -23811,7 +23811,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.17209",
     "pdfUrl": "https://arxiv.org/pdf/2405.17209",
-    "blogSlug": null
+    "blogSlug": "how-do-transformers-do-physics-investigating-the-simple-harmonic-oscillator"
   },
   {
     "arxivId": "2405.13083",
@@ -23907,7 +23907,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.13083",
     "pdfUrl": "https://arxiv.org/pdf/2405.13083",
-    "blogSlug": null
+    "blogSlug": "unsupervised-searches-for-cosmological-parity-violation-improving-detection-powe"
   },
   {
     "arxivId": "2405.12140",
@@ -23995,7 +23995,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.12140",
     "pdfUrl": "https://arxiv.org/pdf/2405.12140",
-    "blogSlug": null
+    "blogSlug": "resonant-neutrino-flavor-conversion-in-the-atmosphere"
   },
   {
     "arxivId": "2405.05255",
@@ -24100,7 +24100,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.05255",
     "pdfUrl": "https://arxiv.org/pdf/2405.05255",
-    "blogSlug": null
+    "blogSlug": "diffusion-hmc-parameter-inference-with-diffusion-model-driven-hamiltonian-monte-"
   },
   {
     "arxivId": "2405.04484",
@@ -24193,7 +24193,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.04484",
     "pdfUrl": "https://arxiv.org/pdf/2405.04484",
-    "blogSlug": null
+    "blogSlug": "optpde-discovering-novel-integrable-systems-via-ai-human-collaboration"
   },
   {
     "arxivId": "2405.03877",
@@ -24274,7 +24274,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.03877",
     "pdfUrl": "https://arxiv.org/pdf/2405.03877",
-    "blogSlug": null
+    "blogSlug": "bounds-and-dualities-of-type-ii-little-string-theories"
   },
   {
     "arxivId": "2405.02252",
@@ -24391,7 +24391,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.02252",
     "pdfUrl": "https://arxiv.org/pdf/2405.02252",
-    "blogSlug": null
+    "blogSlug": "a-parameter-masked-mock-data-challenge-for-beyond-two-point-galaxy-clustering-st"
   },
   {
     "arxivId": "2405.02163",
@@ -24482,7 +24482,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.02163",
     "pdfUrl": "https://arxiv.org/pdf/2405.02163",
-    "blogSlug": null
+    "blogSlug": "measurement-of-atmospheric-neutrino-oscillation-parameters-using-convolutional-n"
   },
   {
     "arxivId": "2405.01672",
@@ -24649,7 +24649,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.01402",
     "pdfUrl": "https://arxiv.org/pdf/2405.01402",
-    "blogSlug": null
+    "blogSlug": "learning-force-control-for-legged-manipulation"
   },
   {
     "arxivId": "2405.00766",
@@ -24769,7 +24769,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2405.00766",
     "pdfUrl": "https://arxiv.org/pdf/2405.00766",
-    "blogSlug": null
+    "blogSlug": "introducing-the-dreams-project-dark-matter-and-astrophysics-with-machine-learnin"
   },
   {
     "arxivId": "2404.19756",
@@ -24861,7 +24861,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.19756",
     "pdfUrl": "https://arxiv.org/pdf/2404.19756",
-    "blogSlug": null
+    "blogSlug": "kan-kolmogorov-arnold-networks"
   },
   {
     "arxivId": "2404.19006",
@@ -24970,7 +24970,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.19006",
     "pdfUrl": "https://arxiv.org/pdf/2404.19006",
-    "blogSlug": null
+    "blogSlug": "sn-2024ggi-in-ngc-3621-rising-ionization-in-a-nearby-csm-interacting-type-ii-sup"
   },
   {
     "arxivId": "2404.16191",
@@ -25045,7 +25045,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.16191",
     "pdfUrl": "https://arxiv.org/pdf/2404.16191",
-    "blogSlug": null
+    "blogSlug": "position-space-renormalization-schemes-for-four-quark-operators-in-hqet"
   },
   {
     "arxivId": "2404.13702",
@@ -25140,7 +25140,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.13702",
     "pdfUrl": "https://arxiv.org/pdf/2404.13702",
-    "blogSlug": null
+    "blogSlug": "learning-galaxy-intrinsic-alignment-correlations"
   },
   {
     "arxivId": "2404.13026",
@@ -25238,7 +25238,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.13026",
     "pdfUrl": "https://arxiv.org/pdf/2404.13026",
-    "blogSlug": null
+    "blogSlug": "physdreamer-physics-based-interaction-with-3d-objects-via-video-generation"
   },
   {
     "arxivId": "2404.12039",
@@ -25323,7 +25323,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.12039",
     "pdfUrl": "https://arxiv.org/pdf/2404.12039",
-    "blogSlug": null
+    "blogSlug": "constraints-on-the-finite-volume-two-nucleon-spectrum-at-m-approx-806-mev"
   },
   {
     "arxivId": "2404.11674",
@@ -25415,7 +25415,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.11674",
     "pdfUrl": "https://arxiv.org/pdf/2404.11674",
-    "blogSlug": null
+    "blogSlug": "practical-applications-of-machine-learned-flows-on-gauge-fields"
   },
   {
     "arxivId": "2404.10819",
@@ -25513,7 +25513,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.10819",
     "pdfUrl": "https://arxiv.org/pdf/2404.10819",
-    "blogSlug": null
+    "blogSlug": "multiscale-normalizing-flows-for-gauge-theories"
   },
   {
     "arxivId": "2404.10771",
@@ -25602,7 +25602,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.10771",
     "pdfUrl": "https://arxiv.org/pdf/2404.10771",
-    "blogSlug": null
+    "blogSlug": "teng-time-evolving-natural-gradient-for-solving-pdes-with-deep-neural-nets-towar"
   },
   {
     "arxivId": "2404.02191",
@@ -25695,7 +25695,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.02191",
     "pdfUrl": "https://arxiv.org/pdf/2404.02191",
-    "blogSlug": null
+    "blogSlug": "the-frozen-phase-of-heterotic-f-theory-duality"
   },
   {
     "arxivId": "2404.01413",
@@ -25793,7 +25793,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.01413",
     "pdfUrl": "https://arxiv.org/pdf/2404.01413",
-    "blogSlug": null
+    "blogSlug": "is-model-collapse-inevitable-breaking-the-curse-of-recursion-by-accumulating-rea"
   },
   {
     "arxivId": "2404.01235",
@@ -25915,7 +25915,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.01235",
     "pdfUrl": "https://arxiv.org/pdf/2404.01235",
-    "blogSlug": null
+    "blogSlug": "anomaly-detection-and-approximate-similarity-searches-of-transients-in-real-time"
   },
   {
     "arxivId": "2404.01223",
@@ -26003,7 +26003,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2404.01223",
     "pdfUrl": "https://arxiv.org/pdf/2404.01223",
-    "blogSlug": null
+    "blogSlug": "feature-splatting-language-driven-physics-based-scene-synthesis-and-editing"
   },
   {
     "arxivId": "2403.19647",
@@ -26099,7 +26099,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.19647",
     "pdfUrl": "https://arxiv.org/pdf/2403.19647",
-    "blogSlug": null
+    "blogSlug": "sparse-feature-circuits-discovering-and-editing-interpretable-causal-graphs-in-l"
   },
   {
     "arxivId": "2403.18661",
@@ -26198,7 +26198,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.18661",
     "pdfUrl": "https://arxiv.org/pdf/2403.18661",
-    "blogSlug": null
+    "blogSlug": "a-machine-learning-pipeline-for-real-time-detection-of-gravitational-waves-from-"
   },
   {
     "arxivId": "2403.17887",
@@ -26281,7 +26281,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.17887",
     "pdfUrl": "https://arxiv.org/pdf/2403.17887",
-    "blogSlug": null
+    "blogSlug": "the-unreasonable-ineffectiveness-of-the-deeper-layers"
   },
   {
     "arxivId": "2403.10648",
@@ -26377,7 +26377,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.10648",
     "pdfUrl": "https://arxiv.org/pdf/2403.10648",
-    "blogSlug": null
+    "blogSlug": "debiasing-with-diffusion-probabilistic-reconstruction-of-dark-matter-fields-from"
   },
   {
     "arxivId": "2403.10516",
@@ -26479,7 +26479,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.10516",
     "pdfUrl": "https://arxiv.org/pdf/2403.10516",
-    "blogSlug": null
+    "blogSlug": "featup-a-model-agnostic-framework-for-features-at-any-resolution"
   },
   {
     "arxivId": "2403.08854",
@@ -26572,7 +26572,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.08854",
     "pdfUrl": "https://arxiv.org/pdf/2403.08854",
-    "blogSlug": null
+    "blogSlug": "moments-of-clarity-streamlining-latent-spaces-in-machine-learning-using-moment-p"
   },
   {
     "arxivId": "2403.08851",
@@ -26659,7 +26659,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.08851",
     "pdfUrl": "https://arxiv.org/pdf/2403.08851",
-    "blogSlug": null
+    "blogSlug": "paperclip-associating-astronomical-observations-and-natural-language-with-multi-"
   },
   {
     "arxivId": "2403.07975",
@@ -26761,7 +26761,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.07975",
     "pdfUrl": "https://arxiv.org/pdf/2403.07975",
-    "blogSlug": null
+    "blogSlug": "superphot-realtime-fitting-and-classification-of-supernova-light-curves"
   },
   {
     "arxivId": "2403.07066",
@@ -26856,7 +26856,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.07066",
     "pdfUrl": "https://arxiv.org/pdf/2403.07066",
-    "blogSlug": null
+    "blogSlug": "re-simulation-based-self-supervised-learning-for-pre-training-foundation-models"
   },
   {
     "arxivId": "2403.07065",
@@ -26942,7 +26942,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.07065",
     "pdfUrl": "https://arxiv.org/pdf/2403.07065",
-    "blogSlug": null
+    "blogSlug": "on-classical-de-sitter-solutions-and-parametric-control"
   },
   {
     "arxivId": "2403.04731",
@@ -27036,7 +27036,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.04731",
     "pdfUrl": "https://arxiv.org/pdf/2403.04731",
-    "blogSlug": null
+    "blogSlug": "photonic-probabilistic-machine-learning-using-quantum-vacuum-noise"
   },
   {
     "arxivId": "2403.03199",
@@ -27123,7 +27123,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.03199",
     "pdfUrl": "https://arxiv.org/pdf/2403.03199",
-    "blogSlug": null
+    "blogSlug": "operator-learning-renormalization-group"
   },
   {
     "arxivId": "2403.03154",
@@ -27209,7 +27209,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2403.03154",
     "pdfUrl": "https://arxiv.org/pdf/2403.03154",
-    "blogSlug": null
+    "blogSlug": "quantum-many-body-physics-calculations-with-large-language-models"
   },
   {
     "arxivId": "2402.19306",
@@ -27298,7 +27298,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.19306",
     "pdfUrl": "https://arxiv.org/pdf/2402.19306",
-    "blogSlug": null
+    "blogSlug": "new-pathways-in-neutrino-physics-via-quantum-encoded-data-analysis"
   },
   {
     "arxivId": "2402.17090",
@@ -27387,7 +27387,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.17090",
     "pdfUrl": "https://arxiv.org/pdf/2402.17090",
-    "blogSlug": null
+    "blogSlug": "renormalization-group-flow-optimal-transport-and-diffusion-based-generative-mode"
   },
   {
     "arxivId": "2402.14067",
@@ -27479,7 +27479,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.14067",
     "pdfUrl": "https://arxiv.org/pdf/2402.14067",
-    "blogSlug": null
+    "blogSlug": "seeing-double-calibrating-two-jets-at-once"
   },
   {
     "arxivId": "2402.13321",
@@ -27572,7 +27572,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.13321",
     "pdfUrl": "https://arxiv.org/pdf/2402.13321",
-    "blogSlug": null
+    "blogSlug": "rigor-with-machine-learning-from-field-theory-to-the-poincar-conjecture"
   },
   {
     "arxivId": "2402.13310",
@@ -27667,7 +27667,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.13310",
     "pdfUrl": "https://arxiv.org/pdf/2402.13310",
-    "blogSlug": null
+    "blogSlug": "full-shape-analysis-with-simulation-based-priors-constraints-on-single-field-inf"
   },
   {
     "arxivId": "2402.06607",
@@ -27761,7 +27761,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.06607",
     "pdfUrl": "https://arxiv.org/pdf/2402.06607",
-    "blogSlug": null
+    "blogSlug": "real-time-dynamics-of-the-schwinger-model-as-an-open-quantum-system-with-neural-"
   },
   {
     "arxivId": "2402.05916",
@@ -27848,7 +27848,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.05916",
     "pdfUrl": "https://arxiv.org/pdf/2402.05916",
-    "blogSlug": null
+    "blogSlug": "geneft-understanding-statics-and-dynamics-of-model-generalization-via-effective-"
   },
   {
     "arxivId": "2402.05110",
@@ -27948,7 +27948,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.05110",
     "pdfUrl": "https://arxiv.org/pdf/2402.05110",
-    "blogSlug": null
+    "blogSlug": "opening-the-ai-black-box-program-synthesis-via-mechanistic-interpretability"
   },
   {
     "arxivId": "2402.05164",
@@ -28024,7 +28024,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.05164",
     "pdfUrl": "https://arxiv.org/pdf/2402.05164",
-    "blogSlug": null
+    "blogSlug": "a-resource-model-for-neural-scaling-law"
   },
   {
     "arxivId": "2402.05137",
@@ -28135,7 +28135,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.05137",
     "pdfUrl": "https://arxiv.org/pdf/2402.05137",
-    "blogSlug": null
+    "blogSlug": "ltu-ili-an-all-in-one-framework-for-implicit-inference-in-astrophysics-and-cosmo"
   },
   {
     "arxivId": "2402.02681",
@@ -28215,7 +28215,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2402.02681",
     "pdfUrl": "https://arxiv.org/pdf/2402.02681",
-    "blogSlug": null
+    "blogSlug": "equivariant-symmetry-breaking-sets"
   },
   {
     "arxivId": "2401.16624",
@@ -28308,7 +28308,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2401.16624",
     "pdfUrl": "https://arxiv.org/pdf/2401.16624",
-    "blogSlug": null
+    "blogSlug": "substructure-detection-in-realistic-strong-lensing-systems-with-machine-learning"
   },
   {
     "arxivId": "2401.11375",
@@ -28371,7 +28371,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2401.11375",
     "pdfUrl": "https://arxiv.org/pdf/2401.11375",
-    "blogSlug": null
+    "blogSlug": "rigid-schubert-classes-in-partial-flag-varieties"
   },
   {
     "arxivId": "2401.10874",
@@ -28477,7 +28477,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2401.10874",
     "pdfUrl": "https://arxiv.org/pdf/2401.10874",
-    "blogSlug": null
+    "blogSlug": "applications-of-flow-models-to-the-generation-of-correlated-lattice-qcd-ensemble"
   },
   {
     "arxivId": "2401.09949",
@@ -28571,7 +28571,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2401.09949",
     "pdfUrl": "https://arxiv.org/pdf/2401.09949",
-    "blogSlug": null
+    "blogSlug": "symbolnet-neural-symbolic-regression-with-adaptive-dynamic-pruning-for-compressi"
   },
   {
     "arxivId": "2312.16687",
@@ -28663,7 +28663,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.16687",
     "pdfUrl": "https://arxiv.org/pdf/2312.16687",
-    "blogSlug": null
+    "blogSlug": "a-physics-informed-variational-autoencoder-for-rapid-galaxy-inference-and-anomal"
   },
   {
     "arxivId": "2312.14265",
@@ -28759,7 +28759,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.14265",
     "pdfUrl": "https://arxiv.org/pdf/2312.14265",
-    "blogSlug": null
+    "blogSlug": "applications-of-lipschitz-neural-networks-to-the-run-3-lhcb-trigger-system"
   },
   {
     "arxivId": "2312.13945",
@@ -29043,7 +29043,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.13945",
     "pdfUrl": "https://arxiv.org/pdf/2312.13945",
-    "blogSlug": null
+    "blogSlug": "first-search-for-dark-trident-processes-using-the-microboone-detector"
   },
   {
     "arxivId": "2312.11608",
@@ -29132,7 +29132,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.11608",
     "pdfUrl": "https://arxiv.org/pdf/2312.11608",
-    "blogSlug": null
+    "blogSlug": "inhomogeneous-energy-injection-in-the-21-cm-power-spectrum-sensitivity-to-dark-m"
   },
   {
     "arxivId": "2312.07534",
@@ -29225,7 +29225,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.07534",
     "pdfUrl": "https://arxiv.org/pdf/2312.07534",
-    "blogSlug": null
+    "blogSlug": "cosmological-field-emulation-and-parameter-inference-with-diffusion-models"
   },
   {
     "arxivId": "2312.05226",
@@ -29306,7 +29306,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.05226",
     "pdfUrl": "https://arxiv.org/pdf/2312.05226",
-    "blogSlug": null
+    "blogSlug": "derived-moduli-spaces-of-nonlinear-pdes-i-singular-propagations"
   },
   {
     "arxivId": "2312.03051",
@@ -29393,7 +29393,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.03051",
     "pdfUrl": "https://arxiv.org/pdf/2312.03051",
-    "blogSlug": null
+    "blogSlug": "generating-interpretable-networks-using-hypernetworks"
   },
   {
     "arxivId": "2312.02815",
@@ -29474,7 +29474,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.02815",
     "pdfUrl": "https://arxiv.org/pdf/2312.02815",
-    "blogSlug": null
+    "blogSlug": "shifted-symplectic-structures-on-derived-quot-stacks-ii-derived-quot-schemes-as-"
   },
   {
     "arxivId": "2312.00119",
@@ -29567,7 +29567,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2312.00119",
     "pdfUrl": "https://arxiv.org/pdf/2312.00119",
-    "blogSlug": null
+    "blogSlug": "anomaly-detection-in-collider-physics-via-factorized-observables"
   },
   {
     "arxivId": "2311.18828",
@@ -29664,7 +29664,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.18828",
     "pdfUrl": "https://arxiv.org/pdf/2311.18828",
-    "blogSlug": null
+    "blogSlug": "one-step-diffusion-with-distribution-matching-distillation"
   },
   {
     "arxivId": "2311.18017",
@@ -29760,7 +29760,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.18017",
     "pdfUrl": "https://arxiv.org/pdf/2311.18017",
-    "blogSlug": null
+    "blogSlug": "learning-an-effective-evolution-equation-for-particle-mesh-simulations-across-co"
   },
   {
     "arxivId": "2311.17141",
@@ -29864,7 +29864,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.17141",
     "pdfUrl": "https://arxiv.org/pdf/2311.17141",
-    "blogSlug": null
+    "blogSlug": "a-point-cloud-approach-to-generative-modeling-for-galaxy-surveys-at-the-field-le"
   },
   {
     "arxivId": "2311.16199",
@@ -29958,7 +29958,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.16199",
     "pdfUrl": "https://arxiv.org/pdf/2311.16199",
-    "blogSlug": null
+    "blogSlug": "symphony-symmetry-equivariant-point-centered-spherical-harmonics-for-3d-molecule"
   },
   {
     "arxivId": "2311.12163",
@@ -30051,7 +30051,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.12163",
     "pdfUrl": "https://arxiv.org/pdf/2311.12163",
-    "blogSlug": null
+    "blogSlug": "quantum-inception-score"
   },
   {
     "arxivId": "2311.09074",
@@ -30132,7 +30132,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.09074",
     "pdfUrl": "https://arxiv.org/pdf/2311.09074",
-    "blogSlug": null
+    "blogSlug": "super-gromov-witten-invariants-via-torus-localization"
   },
   {
     "arxivId": "2311.08558",
@@ -30221,7 +30221,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.08558",
     "pdfUrl": "https://arxiv.org/pdf/2311.08558",
-    "blogSlug": null
+    "blogSlug": "probabilistic-reconstruction-of-dark-matter-fields-from-biased-tracers-using-dif"
   },
   {
     "arxivId": "2311.07652",
@@ -30308,7 +30308,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.07652",
     "pdfUrl": "https://arxiv.org/pdf/2311.07652",
-    "blogSlug": null
+    "blogSlug": "safe-but-incalculable-energy-weighting-is-not-all-you-need"
   },
   {
     "arxivId": "2311.04983",
@@ -30482,7 +30482,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.02168",
     "pdfUrl": "https://arxiv.org/pdf/2311.02168",
-    "blogSlug": null
+    "blogSlug": "t-duality-and-flavor-symmetries-in-little-string-theories"
   },
   {
     "arxivId": "2311.02143",
@@ -30575,7 +30575,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.02143",
     "pdfUrl": "https://arxiv.org/pdf/2311.02143",
-    "blogSlug": null
+    "blogSlug": "pairing-based-graph-neural-network-for-simulating-quantum-materials"
   },
   {
     "arxivId": "2311.01500",
@@ -30663,7 +30663,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.01500",
     "pdfUrl": "https://arxiv.org/pdf/2311.01500",
-    "blogSlug": null
+    "blogSlug": "e-2-equivariant-neural-networks-for-robust-galaxy-morphology-classification"
   },
   {
     "arxivId": "2311.01405",
@@ -30751,7 +30751,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2311.01405",
     "pdfUrl": "https://arxiv.org/pdf/2311.01405",
-    "blogSlug": null
+    "blogSlug": "learning-to-see-physical-properties-with-active-sensing-motor-policies"
   },
   {
     "arxivId": "2310.19870",
@@ -30837,7 +30837,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.19870",
     "pdfUrl": "https://arxiv.org/pdf/2310.19870",
-    "blogSlug": null
+    "blogSlug": "metric-flows-with-neural-networks"
   },
   {
     "arxivId": "2310.16116",
@@ -30930,7 +30930,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.16116",
     "pdfUrl": "https://arxiv.org/pdf/2310.16116",
-    "blogSlug": null
+    "blogSlug": "precise-cosmological-constraints-from-boss-galaxy-clustering-with-a-simulation-b"
   },
   {
     "arxivId": "2310.07765",
@@ -31011,7 +31011,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.07765",
     "pdfUrl": "https://arxiv.org/pdf/2310.07765",
-    "blogSlug": null
+    "blogSlug": "feature-learning-and-generalization-in-deep-networks-with-orthogonal-weights"
   },
   {
     "arxivId": "2310.07711",
@@ -31093,7 +31093,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.07711",
     "pdfUrl": "https://arxiv.org/pdf/2310.07711",
-    "blogSlug": null
+    "blogSlug": "growing-brains-co-emergence-of-anatomical-and-functional-modularity-in-recurrent"
   },
   {
     "arxivId": "2310.07660",
@@ -31371,7 +31371,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.07660",
     "pdfUrl": "https://arxiv.org/pdf/2310.07660",
-    "blogSlug": null
+    "blogSlug": "search-for-heavy-neutral-leptons-in-electron-positron-and-neutral-pion-final-sta"
   },
   {
     "arxivId": "2310.07499",
@@ -31466,7 +31466,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.07499",
     "pdfUrl": "https://arxiv.org/pdf/2310.07499",
-    "blogSlug": null
+    "blogSlug": "functional-renormalization-group-for-signal-detection-and-stochastic-ergodicity-"
   },
   {
     "arxivId": "2310.06824",
@@ -31552,7 +31552,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.06824",
     "pdfUrl": "https://arxiv.org/pdf/2310.06824",
-    "blogSlug": null
+    "blogSlug": "the-geometry-of-truth-emergent-linear-structure-in-large-language-model-represen"
   },
   {
     "arxivId": "2310.05918",
@@ -31633,7 +31633,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.05918",
     "pdfUrl": "https://arxiv.org/pdf/2310.05918",
-    "blogSlug": null
+    "blogSlug": "grokking-as-compression-a-nonlinear-complexity-perspective"
   },
   {
     "arxivId": "2310.02258",
@@ -31713,7 +31713,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.02258",
     "pdfUrl": "https://arxiv.org/pdf/2310.02258",
-    "blogSlug": null
+    "blogSlug": "a-neural-scaling-law-from-lottery-ticket-ensembling"
   },
   {
     "arxivId": "2310.02299",
@@ -31808,7 +31808,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2310.02299",
     "pdfUrl": "https://arxiv.org/pdf/2310.02299",
-    "blogSlug": null
+    "blogSlug": "discovering-symmetry-breaking-in-physical-systems-with-relaxed-group-convolution"
   },
   {
     "arxivId": "2309.16541",
@@ -31914,7 +31914,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.16541",
     "pdfUrl": "https://arxiv.org/pdf/2309.16541",
-    "blogSlug": null
+    "blogSlug": "cosmological-constraints-from-density-split-clustering-in-the-boss-cmass-galaxy-"
   },
   {
     "arxivId": "2309.16539",
@@ -32020,7 +32020,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.16539",
     "pdfUrl": "https://arxiv.org/pdf/2309.16539",
-    "blogSlug": null
+    "blogSlug": "sunbird-a-simulation-based-model-for-full-shape-density-split-clustering"
   },
   {
     "arxivId": "2309.15912",
@@ -32120,7 +32120,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.15912",
     "pdfUrl": "https://arxiv.org/pdf/2309.15912",
-    "blogSlug": null
+    "blogSlug": "chained-quantile-morphing-with-normalizing-flows"
   },
   {
     "arxivId": "2309.11537",
@@ -32223,7 +32223,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.11537",
     "pdfUrl": "https://arxiv.org/pdf/2309.11537",
-    "blogSlug": null
+    "blogSlug": "gwak-gravitational-wave-anomalous-knowledge-with-recurrent-autoencoders"
   },
   {
     "arxivId": "2309.09337",
@@ -32325,7 +32325,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.09337",
     "pdfUrl": "https://arxiv.org/pdf/2309.09337",
-    "blogSlug": null
+    "blogSlug": "simulation-based-inference-for-exoplanet-atmospheric-retrieval-insights-from-win"
   },
   {
     "arxivId": "2309.01156",
@@ -32426,7 +32426,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.01156",
     "pdfUrl": "https://arxiv.org/pdf/2309.01156",
-    "blogSlug": null
+    "blogSlug": "advances-in-machine-learning-based-sampling-motivated-by-lattice-quantum-chromod"
   },
   {
     "arxivId": "2309.00600",
@@ -32509,7 +32509,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2309.00600",
     "pdfUrl": "https://arxiv.org/pdf/2309.00600",
-    "blogSlug": null
+    "blogSlug": "signal-to-noise-improvement-through-neural-network-contour-deformations-for-3d-s"
   },
   {
     "arxivId": "2308.09751",
@@ -32602,7 +32602,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.09751",
     "pdfUrl": "https://arxiv.org/pdf/2308.09751",
-    "blogSlug": null
+    "blogSlug": "data-compression-and-inference-in-cosmology-with-self-supervised-machine-learnin"
   },
   {
     "arxivId": "2308.09739",
@@ -32695,7 +32695,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.09739",
     "pdfUrl": "https://arxiv.org/pdf/2308.09739",
-    "blogSlug": null
+    "blogSlug": "subhalo-effective-density-slope-measurements-from-hst-strong-lensing-data-with-n"
   },
   {
     "arxivId": "2308.09451",
@@ -32776,7 +32776,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.09451",
     "pdfUrl": "https://arxiv.org/pdf/2308.09451",
-    "blogSlug": null
+    "blogSlug": "reconstructing-s-matrix-phases-with-machine-learning"
   },
   {
     "arxivId": "2308.08342",
@@ -32863,7 +32863,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.08342",
     "pdfUrl": "https://arxiv.org/pdf/2308.08342",
-    "blogSlug": null
+    "blogSlug": "gravitational-action-for-a-massive-majorana-fermion-in-2d-quantum-gravity"
   },
   {
     "arxivId": "2308.07271",
@@ -32951,7 +32951,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.07271",
     "pdfUrl": "https://arxiv.org/pdf/2308.07271",
-    "blogSlug": null
+    "blogSlug": "an-extensive-textit-hubble-space-telescope-study-of-the-offset-and-host-light-di"
   },
   {
     "arxivId": "2308.05145",
@@ -33039,7 +33039,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.05145",
     "pdfUrl": "https://arxiv.org/pdf/2308.05145",
-    "blogSlug": null
+    "blogSlug": "florah-a-generative-model-for-halo-assembly-histories"
   },
   {
     "arxivId": "2308.03924",
@@ -33318,7 +33318,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.03924",
     "pdfUrl": "https://arxiv.org/pdf/2308.03924",
-    "blogSlug": null
+    "blogSlug": "first-application-of-a-liquid-argon-time-projection-chamber-for-the-search-for-i"
   },
   {
     "arxivId": "2308.01295",
@@ -33409,7 +33409,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.01295",
     "pdfUrl": "https://arxiv.org/pdf/2308.01295",
-    "blogSlug": null
+    "blogSlug": "a-parsec-scale-galactic-3d-dust-map-out-to-1-25-kpc-from-the-sun"
   },
   {
     "arxivId": "2308.07931",
@@ -33499,7 +33499,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2308.07931",
     "pdfUrl": "https://arxiv.org/pdf/2308.07931",
-    "blogSlug": null
+    "blogSlug": "distilled-feature-fields-enable-few-shot-language-guided-manipulation"
   },
   {
     "arxivId": "2307.13687",
@@ -33592,7 +33592,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2307.13687",
     "pdfUrl": "https://arxiv.org/pdf/2307.13687",
-    "blogSlug": null
+    "blogSlug": "score-based-diffusion-models-for-generating-liquid-argon-time-projection-chamber"
   },
   {
     "arxivId": "2307.08106",
@@ -33663,7 +33663,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2307.08106",
     "pdfUrl": "https://arxiv.org/pdf/2307.08106",
-    "blogSlug": null
+    "blogSlug": "polarization-multi-image-synthesis-with-birefringent-metasurfaces"
   },
   {
     "arxivId": "2307.03223",
@@ -33752,7 +33752,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2307.03223",
     "pdfUrl": "https://arxiv.org/pdf/2307.03223",
-    "blogSlug": null
+    "blogSlug": "neural-network-field-theories-non-gaussianity-actions-and-locality"
   },
   {
     "arxivId": "2307.03165",
@@ -33861,7 +33861,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2307.03165",
     "pdfUrl": "https://arxiv.org/pdf/2307.03165",
-    "blogSlug": null
+    "blogSlug": "from-discovery-to-the-first-month-of-the-type-ii-supernova-2023ixf-high-and-vari"
   },
   {
     "arxivId": "2306.17844",
@@ -33949,7 +33949,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.17844",
     "pdfUrl": "https://arxiv.org/pdf/2306.17844",
-    "blogSlug": null
+    "blogSlug": "the-clock-and-the-pizza-two-stories-in-mechanistic-explanation-of-neural-network"
   },
   {
     "arxivId": "2306.12584",
@@ -34049,7 +34049,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.12584",
     "pdfUrl": "https://arxiv.org/pdf/2306.12584",
-    "blogSlug": null
+    "blogSlug": "hierarchical-neural-simulation-based-inference-over-event-ensembles"
   },
   {
     "arxivId": "2306.09873",
@@ -34145,7 +34145,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.09873",
     "pdfUrl": "https://arxiv.org/pdf/2306.09873",
-    "blogSlug": null
+    "blogSlug": "development-of-the-topological-trigger-for-lhcb-run-3"
   },
   {
     "arxivId": "2306.09730",
@@ -34232,7 +34232,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.09730",
     "pdfUrl": "https://arxiv.org/pdf/2306.09730",
-    "blogSlug": null
+    "blogSlug": "torus-actions-on-moduli-spaces-of-super-stable-maps-of-genus-zero"
   },
   {
     "arxivId": "2306.06099",
@@ -34321,7 +34321,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.06099",
     "pdfUrl": "https://arxiv.org/pdf/2306.06099",
-    "blogSlug": null
+    "blogSlug": "nuclr-nuclear-co-learned-representations"
   },
   {
     "arxivId": "2306.03905",
@@ -34408,7 +34408,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2306.03905",
     "pdfUrl": "https://arxiv.org/pdf/2306.03905",
-    "blogSlug": null
+    "blogSlug": "quantum-computation-and-simulation-using-fermion-pair-registers"
   },
   {
     "arxivId": "2305.19525",
@@ -34503,7 +34503,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.19525",
     "pdfUrl": "https://arxiv.org/pdf/2305.19525",
-    "blogSlug": null
+    "blogSlug": "discovering-new-interpretable-conservation-laws-as-sparse-invariants"
   },
   {
     "arxivId": "2305.18552",
@@ -34596,7 +34596,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.18552",
     "pdfUrl": "https://arxiv.org/pdf/2305.18552",
-    "blogSlug": null
+    "blogSlug": "learning-linear-groups-in-neural-networks"
   },
   {
     "arxivId": "2305.13780",
@@ -34684,7 +34684,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.13780",
     "pdfUrl": "https://arxiv.org/pdf/2305.13780",
-    "blogSlug": null
+    "blogSlug": "machine-learning-for-quantum-enhanced-gravitational-wave-observatories"
   },
   {
     "arxivId": "2305.13291",
@@ -34780,7 +34780,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.13291",
     "pdfUrl": "https://arxiv.org/pdf/2305.13291",
-    "blogSlug": null
+    "blogSlug": "materialistic-selecting-similar-materials-in-images"
   },
   {
     "arxivId": "2305.11168",
@@ -34875,7 +34875,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.11168",
     "pdfUrl": "https://arxiv.org/pdf/2305.11168",
-    "blogSlug": null
+    "blogSlug": "multiple-peaks-and-a-long-precursor-in-the-type-iin-supernova-2021qqp-an-energet"
   },
   {
     "arxivId": "2305.06313",
@@ -34968,7 +34968,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.06313",
     "pdfUrl": "https://arxiv.org/pdf/2305.06313",
-    "blogSlug": null
+    "blogSlug": "constraint-of-pionless-eft-using-two-nucleon-spectra-from-lattice-qcd"
   },
   {
     "arxivId": "2305.04099",
@@ -35160,7 +35160,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.03751",
     "pdfUrl": "https://arxiv.org/pdf/2305.03751",
-    "blogSlug": null
+    "blogSlug": "a-spectral-metric-for-collider-geometry"
   },
   {
     "arxivId": "2305.08746",
@@ -35253,7 +35253,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.08746",
     "pdfUrl": "https://arxiv.org/pdf/2305.08746",
-    "blogSlug": null
+    "blogSlug": "seeing-is-believing-brain-inspired-modular-training-for-mechanistic-interpretabi"
   },
   {
     "arxivId": "2305.02402",
@@ -35363,7 +35363,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.02402",
     "pdfUrl": "https://arxiv.org/pdf/2305.02402",
-    "blogSlug": null
+    "blogSlug": "normalizing-flows-for-lattice-gauge-theory-in-arbitrary-space-time-dimension"
   },
   {
     "arxivId": "2305.02299",
@@ -35446,7 +35446,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.02299",
     "pdfUrl": "https://arxiv.org/pdf/2305.02299",
-    "blogSlug": null
+    "blogSlug": "dynamic-sparse-training-with-structured-sparsity"
   },
   {
     "arxivId": "2305.00989",
@@ -35534,7 +35534,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2305.00989",
     "pdfUrl": "https://arxiv.org/pdf/2305.00989",
-    "blogSlug": null
+    "blogSlug": "pileup-and-infrared-radiation-annihilation-piranha-a-paradigm-for-continuous-jet"
   },
   {
     "arxivId": "2304.14526",
@@ -35624,7 +35624,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.14526",
     "pdfUrl": "https://arxiv.org/pdf/2304.14526",
-    "blogSlug": null
+    "blogSlug": "prometheus-an-open-source-neutrino-telescope-simulation"
   },
   {
     "arxivId": "2304.09304",
@@ -35694,7 +35694,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.09304",
     "pdfUrl": "https://arxiv.org/pdf/2304.09304",
-    "blogSlug": null
+    "blogSlug": "searching-for-ribbons-with-machine-learning"
   },
   {
     "arxivId": "2304.03820",
@@ -35786,7 +35786,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.03820",
     "pdfUrl": "https://arxiv.org/pdf/2304.03820",
-    "blogSlug": null
+    "blogSlug": "correlation-function-distributions-for-o-n-lattice-field-theories-in-the-disorde"
   },
   {
     "arxivId": "2304.02637",
@@ -35881,7 +35881,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.02637",
     "pdfUrl": "https://arxiv.org/pdf/2304.02637",
-    "blogSlug": null
+    "blogSlug": "genphys-from-physical-processes-to-generative-models"
   },
   {
     "arxivId": "2304.01996",
@@ -35976,7 +35976,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.01996",
     "pdfUrl": "https://arxiv.org/pdf/2304.01996",
-    "blogSlug": null
+    "blogSlug": "antn-bridging-autoregressive-neural-networks-and-tensor-networks-for-quantum-man"
   },
   {
     "arxivId": "2304.01201",
@@ -36057,7 +36057,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.01201",
     "pdfUrl": "https://arxiv.org/pdf/2304.01201",
-    "blogSlug": null
+    "blogSlug": "neural-volumetric-memory-for-visual-locomotion-control"
   },
   {
     "arxivId": "2304.01159",
@@ -36144,7 +36144,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.01159",
     "pdfUrl": "https://arxiv.org/pdf/2304.01159",
-    "blogSlug": null
+    "blogSlug": "dribblebot-dynamic-legged-manipulation-in-the-wild"
   },
   {
     "arxivId": "2304.00027",
@@ -36230,7 +36230,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2304.00027",
     "pdfUrl": "https://arxiv.org/pdf/2304.00027",
-    "blogSlug": null
+    "blogSlug": "level-crossings-attractor-points-and-complex-multiplication"
   },
   {
     "arxivId": "2303.14448",
@@ -36305,7 +36305,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.14448",
     "pdfUrl": "https://arxiv.org/pdf/2303.14448",
-    "blogSlug": null
+    "blogSlug": "noisy-dynamical-systems-evolve-error-correcting-codes-and-modularity"
   },
   {
     "arxivId": "2303.13506",
@@ -36387,7 +36387,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.13506",
     "pdfUrl": "https://arxiv.org/pdf/2303.13506",
-    "blogSlug": null
+    "blogSlug": "the-quantization-model-of-neural-scaling"
   },
   {
     "arxivId": "2303.08162",
@@ -36475,7 +36475,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.08162",
     "pdfUrl": "https://arxiv.org/pdf/2303.08162",
-    "blogSlug": null
+    "blogSlug": "artificial-intelligence-for-artificial-materials-moir-atom"
   },
   {
     "arxivId": "2303.03799",
@@ -36568,7 +36568,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.03799",
     "pdfUrl": "https://arxiv.org/pdf/2303.03799",
-    "blogSlug": null
+    "blogSlug": "exploring-the-cp-violating-dashen-phase-in-the-schwinger-model-with-tensor-netwo"
   },
   {
     "arxivId": "2303.02484",
@@ -36660,7 +36660,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.02484",
     "pdfUrl": "https://arxiv.org/pdf/2303.02484",
-    "blogSlug": null
+    "blogSlug": "multi-symmetry-ensembles-improving-diversity-and-generalization-via-opposing-sym"
   },
   {
     "arxivId": "2303.01529",
@@ -36753,7 +36753,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.01529",
     "pdfUrl": "https://arxiv.org/pdf/2303.01529",
-    "blogSlug": null
+    "blogSlug": "via-machinae-2-0-full-sky-model-agnostic-search-for-stellar-streams-in-gaia-dr2"
   },
   {
     "arxivId": "2303.00757",
@@ -36842,7 +36842,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2303.00757",
     "pdfUrl": "https://arxiv.org/pdf/2303.00757",
-    "blogSlug": null
+    "blogSlug": "computational-mirror-symmetry"
   },
   {
     "arxivId": "2302.12266",
@@ -36937,7 +36937,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2302.12266",
     "pdfUrl": "https://arxiv.org/pdf/2302.12266",
-    "blogSlug": null
+    "blogSlug": "shaper-can-you-hear-the-shape-of-a-jet"
   },
   {
     "arxivId": "2302.12235",
@@ -37032,7 +37032,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2302.12235",
     "pdfUrl": "https://arxiv.org/pdf/2302.12235",
-    "blogSlug": null
+    "blogSlug": "q-flow-generative-modeling-for-differential-equations-of-open-quantum-dynamics-w"
   },
   {
     "arxivId": "2302.04265",
@@ -37128,7 +37128,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2302.04265",
     "pdfUrl": "https://arxiv.org/pdf/2302.04265",
-    "blogSlug": null
+    "blogSlug": "pfgm-unlocking-the-potential-of-physics-inspired-generative-models"
   },
   {
     "arxivId": "2302.03019",
@@ -37220,7 +37220,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2302.03019",
     "pdfUrl": "https://arxiv.org/pdf/2302.03019",
-    "blogSlug": null
+    "blogSlug": "geometry-of-contact-contact-planning-for-multi-legged-robots-via-spin-models-dua"
   },
   {
     "arxivId": "2301.08128",
@@ -37313,7 +37313,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2301.08128",
     "pdfUrl": "https://arxiv.org/pdf/2301.08128",
-    "blogSlug": null
+    "blogSlug": "epic-gan-equivariant-point-cloud-generation-for-particle-jets"
   },
   {
     "arxivId": "2301.06221",
@@ -37415,7 +37415,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2301.06221",
     "pdfUrl": "https://arxiv.org/pdf/2301.06221",
-    "blogSlug": null
+    "blogSlug": "first-demonstration-of-neural-sensing-and-control-in-a-kilometer-scale-gravitati"
   },
   {
     "arxivId": "2212.10659",
@@ -37508,7 +37508,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.10659",
     "pdfUrl": "https://arxiv.org/pdf/2212.10659",
-    "blogSlug": null
+    "blogSlug": "comparing-point-cloud-strategies-for-collider-event-classification"
   },
   {
     "arxivId": "2212.08095",
@@ -37595,7 +37595,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.08095",
     "pdfUrl": "https://arxiv.org/pdf/2212.08095",
-    "blogSlug": null
+    "blogSlug": "non-parametric-lagrangian-biasing-from-the-insights-of-neural-nets"
   },
   {
     "arxivId": "2212.06835",
@@ -37695,7 +37695,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.06835",
     "pdfUrl": "https://arxiv.org/pdf/2212.06835",
-    "blogSlug": null
+    "blogSlug": "simulating-2-1d-lattice-quantum-electrodynamics-at-finite-density-with-neural-fl"
   },
   {
     "arxivId": "2212.04514",
@@ -37782,7 +37782,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.04514",
     "pdfUrl": "https://arxiv.org/pdf/2212.04514",
-    "blogSlug": null
+    "blogSlug": "stellar-reddening-based-extinction-maps-for-cosmological-applications"
   },
   {
     "arxivId": "2212.03879",
@@ -37877,7 +37877,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.03879",
     "pdfUrl": "https://arxiv.org/pdf/2212.03879",
-    "blogSlug": null
+    "blogSlug": "measuring-the-8621-diffuse-interstellar-band-in-gaia-dr3-rvs-spectra-obtaining-a"
   },
   {
     "arxivId": "2212.03238",
@@ -37963,7 +37963,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.03238",
     "pdfUrl": "https://arxiv.org/pdf/2212.03238",
-    "blogSlug": null
+    "blogSlug": "walk-these-ways-tuning-robot-control-for-generalization-with-multiplicity-of-beh"
   },
   {
     "arxivId": "2212.01113",
@@ -38064,7 +38064,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.01113",
     "pdfUrl": "https://arxiv.org/pdf/2212.01113",
-    "blogSlug": null
+    "blogSlug": "yang-mills-glueball-masses-from-spectral-reconstruction"
   },
   {
     "arxivId": "2212.00782",
@@ -38157,7 +38157,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2212.00782",
     "pdfUrl": "https://arxiv.org/pdf/2212.00782",
-    "blogSlug": null
+    "blogSlug": "variational-neural-network-ansatz-for-continuum-quantum-field-theory"
   },
   {
     "arxivId": "2211.14181",
@@ -38242,7 +38242,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.14181",
     "pdfUrl": "https://arxiv.org/pdf/2211.14181",
-    "blogSlug": null
+    "blogSlug": "search-for-higgs-boson-and-observation-of-z-boson-through-their-decay-into-a-cha"
   },
   {
     "arxivId": "2211.15338",
@@ -38331,7 +38331,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.15338",
     "pdfUrl": "https://arxiv.org/pdf/2211.15338",
-    "blogSlug": null
+    "blogSlug": "learning-integrable-dynamics-with-action-angle-networks"
   },
   {
     "arxivId": "2211.12444",
@@ -38429,7 +38429,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.12444",
     "pdfUrl": "https://arxiv.org/pdf/2211.12444",
-    "blogSlug": null
+    "blogSlug": "can-denoising-diffusion-probabilistic-models-generate-realistic-astrophysical-fi"
   },
   {
     "arxivId": "2211.11744",
@@ -38519,7 +38519,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.11744",
     "pdfUrl": "https://arxiv.org/pdf/2211.11744",
-    "blogSlug": null
+    "blogSlug": "visual-dexterity-in-hand-reorientation-of-novel-and-complex-object-shapes"
   },
   {
     "arxivId": "2211.09129",
@@ -38617,7 +38617,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.09129",
     "pdfUrl": "https://arxiv.org/pdf/2211.09129",
-    "blogSlug": null
+    "blogSlug": "characterizing-4-string-contact-interaction-using-machine-learning"
   },
   {
     "arxivId": "2211.07541",
@@ -38720,7 +38720,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.07541",
     "pdfUrl": "https://arxiv.org/pdf/2211.07541",
-    "blogSlug": null
+    "blogSlug": "aspects-of-scaling-and-scalability-for-flow-based-sampling-of-lattice-qcd"
   },
   {
     "arxivId": "2211.03974",
@@ -38801,7 +38801,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.03974",
     "pdfUrl": "https://arxiv.org/pdf/2211.03974",
-    "blogSlug": null
+    "blogSlug": "limits-on-simultaneous-and-delayed-optical-emission-from-well-localized-fast-rad"
   },
   {
     "arxivId": "2211.03198",
@@ -38895,7 +38895,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.03198",
     "pdfUrl": "https://arxiv.org/pdf/2211.03198",
-    "blogSlug": null
+    "blogSlug": "gauge-equivariant-neural-networks-for-2-1d-u-1-gauge-theory-simulations-in-hamil"
   },
   {
     "arxivId": "2211.01365",
@@ -38989,7 +38989,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2211.01365",
     "pdfUrl": "https://arxiv.org/pdf/2211.01365",
-    "blogSlug": null
+    "blogSlug": "quack-accelerating-gradient-based-quantum-optimization-with-koopman-operator-lea"
   },
   {
     "arxivId": "2210.16859",
@@ -39082,7 +39082,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.16859",
     "pdfUrl": "https://arxiv.org/pdf/2210.16859",
-    "blogSlug": null
+    "blogSlug": "a-solvable-model-of-neural-scaling-laws"
   },
   {
     "arxivId": "2210.15888",
@@ -39170,7 +39170,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.15888",
     "pdfUrl": "https://arxiv.org/pdf/2210.15888",
-    "blogSlug": null
+    "blogSlug": "deep-learning-detection-and-classification-of-gravitational-waves-from-neutron-s"
   },
   {
     "arxivId": "2210.15789",
@@ -39250,7 +39250,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.15789",
     "pdfUrl": "https://arxiv.org/pdf/2210.15789",
-    "blogSlug": null
+    "blogSlug": "large-time-correlation-functions-in-bosonic-lattice-field-theories"
   },
   {
     "arxivId": "2210.13447",
@@ -39337,7 +39337,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.13447",
     "pdfUrl": "https://arxiv.org/pdf/2210.13447",
-    "blogSlug": null
+    "blogSlug": "precision-machine-learning"
   },
   {
     "arxivId": "2210.10811",
@@ -39435,7 +39435,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.10811",
     "pdfUrl": "https://arxiv.org/pdf/2210.10811",
-    "blogSlug": null
+    "blogSlug": "the-first-two-years-of-fleet-an-active-search-for-superluminous-supernovae"
   },
   {
     "arxivId": "2210.10810",
@@ -39533,7 +39533,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.10810",
     "pdfUrl": "https://arxiv.org/pdf/2210.10810",
-    "blogSlug": null
+    "blogSlug": "identifying-tidal-disruption-events-with-an-expansion-of-the-fleet-machine-learn"
   },
   {
     "arxivId": "2210.09369",
@@ -39613,7 +39613,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.09369",
     "pdfUrl": "https://arxiv.org/pdf/2210.09369",
-    "blogSlug": null
+    "blogSlug": "symmetries-of-calabi-yau-prepotentials-with-isomorphic-flops"
   },
   {
     "arxivId": "2210.08628",
@@ -39688,7 +39688,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.08628",
     "pdfUrl": "https://arxiv.org/pdf/2210.08628",
-    "blogSlug": null
+    "blogSlug": "electric-magnetic-duality-in-a-class-of-g-2-compactifications-of-m-theory"
   },
   {
     "arxivId": "2210.06171",
@@ -39776,7 +39776,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.06171",
     "pdfUrl": "https://arxiv.org/pdf/2210.06171",
-    "blogSlug": null
+    "blogSlug": "learning-to-optimize-quasi-newton-methods"
   },
   {
     "arxivId": "2210.04783",
@@ -39868,7 +39868,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.04783",
     "pdfUrl": "https://arxiv.org/pdf/2210.04783",
-    "blogSlug": null
+    "blogSlug": "on-the-importance-of-calibration-in-semi-supervised-learning"
   },
   {
     "arxivId": "2210.01117",
@@ -39949,7 +39949,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.01117",
     "pdfUrl": "https://arxiv.org/pdf/2210.01117",
-    "blogSlug": null
+    "blogSlug": "omnigrok-grokking-beyond-algorithmic-data"
   },
   {
     "arxivId": "2210.00563",
@@ -40038,7 +40038,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2210.00563",
     "pdfUrl": "https://arxiv.org/pdf/2210.00563",
-    "blogSlug": null
+    "blogSlug": "ai-assisted-discovery-of-quantitative-and-formal-models-in-social-science"
   },
   {
     "arxivId": "2209.15624",
@@ -40119,7 +40119,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2209.15624",
     "pdfUrl": "https://arxiv.org/pdf/2209.15624",
-    "blogSlug": null
+    "blogSlug": "finding-neemo-geometric-fitting-using-neural-estimation-of-the-energy-mover-s-di"
   },
   {
     "arxivId": "2209.11178",
@@ -40207,7 +40207,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2209.11178",
     "pdfUrl": "https://arxiv.org/pdf/2209.11178",
-    "blogSlug": null
+    "blogSlug": "poisson-flow-generative-models"
   },
   {
     "arxivId": "2208.14995",
@@ -40300,7 +40300,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.14995",
     "pdfUrl": "https://arxiv.org/pdf/2208.14995",
-    "blogSlug": null
+    "blogSlug": "discovering-conservation-laws-using-optimal-transport-and-manifold-learning"
   },
   {
     "arxivId": "2208.13796",
@@ -40393,7 +40393,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.13796",
     "pdfUrl": "https://arxiv.org/pdf/2208.13796",
-    "blogSlug": null
+    "blogSlug": "inferring-subhalo-effective-density-slopes-from-strong-lensing-observations-with"
   },
   {
     "arxivId": "2208.12825",
@@ -40487,7 +40487,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.12825",
     "pdfUrl": "https://arxiv.org/pdf/2208.12825",
-    "blogSlug": null
+    "blogSlug": "uncovering-dark-matter-density-profiles-in-dwarf-galaxies-with-graph-neural-netw"
   },
   {
     "arxivId": "2208.08962",
@@ -40575,7 +40575,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.08962",
     "pdfUrl": "https://arxiv.org/pdf/2208.08962",
-    "blogSlug": null
+    "blogSlug": "stable-object-reorientation-using-contact-plane-registration"
   },
   {
     "arxivId": "2208.05484",
@@ -40680,7 +40680,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.05484",
     "pdfUrl": "https://arxiv.org/pdf/2208.05484",
-    "blogSlug": null
+    "blogSlug": "neural-embedding-learning-the-embedding-of-the-manifold-of-physics-data"
   },
   {
     "arxivId": "2208.03955",
@@ -40767,7 +40767,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.03955",
     "pdfUrl": "https://arxiv.org/pdf/2208.03955",
-    "blogSlug": null
+    "blogSlug": "confinement-in-non-abelian-lattice-gauge-theory-via-persistent-homology"
   },
   {
     "arxivId": "2208.03832",
@@ -40871,12 +40871,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.03832",
     "pdfUrl": "https://arxiv.org/pdf/2208.03832",
-    "blogSlug": null
+    "blogSlug": "sampling-qcd-field-configurations-with-gauge-equivariant-flow-models"
   },
   {
     "arxivId": "2208.01056",
     "title": "Robust Clustering of the Local Milky Way Stellar Kinematic Substructures with Gaia eDR3",
-    "nickname": "Stellar Streams",
+    "nickname": "Stellar Clusters",
     "theme": "Astrophysics",
     "published": "2022-08-01T18:00:08+00:00",
     "authors": [
@@ -40958,12 +40958,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2208.01056",
     "pdfUrl": "https://arxiv.org/pdf/2208.01056",
-    "blogSlug": null
+    "blogSlug": "robust-clustering-of-the-local-milky-way-stellar-kinematic-substructures-with-ga"
   },
   {
     "arxivId": "2207.13097",
     "title": "Characterizing the Expected Behavior of Non-Poissonian Template Fitting",
-    "nickname": "Non-Poisson Fitting",
+    "nickname": "Template Fitting",
     "theme": "Astrophysics",
     "published": "2022-07-26T18:00:00+00:00",
     "authors": [
@@ -41050,12 +41050,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.13097",
     "pdfUrl": "https://arxiv.org/pdf/2207.13097",
-    "blogSlug": null
+    "blogSlug": "characterizing-the-expected-behavior-of-non-poissonian-template-fitting"
   },
   {
     "arxivId": "2207.12511",
     "title": "Reconstructing Cosmological Initial Conditions from Late-Time Structure with Convolutional Neural Networks",
-    "nickname": "Cosmic Archaeology",
+    "nickname": "Cosmic Reconstruction",
     "theme": "Astrophysics",
     "published": "2022-07-25T20:14:22+00:00",
     "authors": [
@@ -41136,7 +41136,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.12511",
     "pdfUrl": "https://arxiv.org/pdf/2207.12511",
-    "blogSlug": null
+    "blogSlug": "reconstructing-cosmological-initial-conditions-from-late-time-structure-with-con"
   },
   {
     "arxivId": "2207.09408",
@@ -41220,7 +41220,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.09408",
     "pdfUrl": "https://arxiv.org/pdf/2207.09408",
-    "blogSlug": null
+    "blogSlug": "bounding-generalization-error-with-input-compression-an-empirical-study-with-inf"
   },
   {
     "arxivId": "2207.08945",
@@ -41334,7 +41334,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.08945",
     "pdfUrl": "https://arxiv.org/pdf/2207.08945",
-    "blogSlug": null
+    "blogSlug": "gauge-equivariant-flow-models-for-sampling-in-lattice-field-theories-with-pseudo"
   },
   {
     "arxivId": "2207.06425",
@@ -41420,7 +41420,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.06425",
     "pdfUrl": "https://arxiv.org/pdf/2207.06425",
-    "blogSlug": null
+    "blogSlug": "modeling-early-universe-energy-injection-with-dense-neural-networks"
   },
   {
     "arxivId": "2207.00529",
@@ -41514,12 +41514,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2207.00529",
     "pdfUrl": "https://arxiv.org/pdf/2207.00529",
-    "blogSlug": null
+    "blogSlug": "deep-learning-and-symbolic-regression-for-discovering-parametric-equations"
   },
   {
     "arxivId": "2206.14820",
     "title": "Strong Lensing Source Reconstruction Using Continuous Neural Fields",
-    "nickname": "Neural Lensing",
+    "nickname": "Lens Fields",
     "theme": "Astrophysics",
     "published": "2022-06-29T18:00:01+00:00",
     "authors": [
@@ -41600,12 +41600,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2206.14820",
     "pdfUrl": "https://arxiv.org/pdf/2206.14820",
-    "blogSlug": null
+    "blogSlug": "strong-lensing-source-reconstruction-using-continuous-neural-fields"
   },
   {
     "arxivId": "2206.11909",
     "title": "The Dark Energy Camera Plane Survey 2 (DECaPS2): More Sky, Less Bias, and Better Uncertainties",
-    "nickname": "Galactic Plane",
+    "nickname": "Plane Survey",
     "theme": "Astrophysics",
     "published": "2022-06-23T18:00:01+00:00",
     "authors": [
@@ -41697,7 +41697,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2206.11909",
     "pdfUrl": "https://arxiv.org/pdf/2206.11909",
-    "blogSlug": null
+    "blogSlug": "the-dark-energy-camera-plane-survey-2-decaps2-more-sky-less-bias-and-better-unce"
   },
   {
     "arxivId": "2206.07713",
@@ -41780,7 +41780,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2206.07713",
     "pdfUrl": "https://arxiv.org/pdf/2206.07713",
-    "blogSlug": null
+    "blogSlug": "a-stimulating-explanation-of-the-extragalactic-radio-background"
   },
   {
     "arxivId": "2206.04672",
@@ -41867,7 +41867,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2206.04672",
     "pdfUrl": "https://arxiv.org/pdf/2206.04672",
-    "blogSlug": null
+    "blogSlug": "overcoming-the-spectral-bias-of-neural-value-approximation"
   },
   {
     "arxivId": "2206.04115",
@@ -41948,12 +41948,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2206.04115",
     "pdfUrl": "https://arxiv.org/pdf/2206.04115",
-    "blogSlug": null
+    "blogSlug": "simplifying-polylogarithms-with-machine-learning"
   },
   {
     "arxivId": "2205.12278",
     "title": "Revealing the Milky Way's Most Recent Major Merger with a Gaia EDR3 Catalog of Machine-Learned Line-of-Sight Velocities",
-    "nickname": "Galactic Merger",
+    "nickname": "Milky Merger",
     "theme": "Astrophysics",
     "published": "2022-05-24T18:00:01+00:00",
     "authors": [
@@ -42036,7 +42036,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.12278",
     "pdfUrl": "https://arxiv.org/pdf/2205.12278",
-    "blogSlug": null
+    "blogSlug": "revealing-the-milky-way-s-most-recent-major-merger-with-a-gaia-edr3-catalog-of-m"
   },
   {
     "arxivId": "2205.10375",
@@ -42125,7 +42125,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.10375",
     "pdfUrl": "https://arxiv.org/pdf/2205.10375",
-    "blogSlug": null
+    "blogSlug": "degeneracy-engineering-for-classical-and-quantum-annealing-a-case-study-of-spars"
   },
   {
     "arxivId": "2205.10343",
@@ -42215,7 +42215,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.10343",
     "pdfUrl": "https://arxiv.org/pdf/2205.10343",
-    "blogSlug": null
+    "blogSlug": "towards-understanding-grokking-an-effective-theory-of-representation-learning"
   },
   {
     "arxivId": "2205.06818",
@@ -42302,7 +42302,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.06818",
     "pdfUrl": "https://arxiv.org/pdf/2205.06818",
-    "blogSlug": null
+    "blogSlug": "power-counting-energy-flow-polynomials"
   },
   {
     "arxivId": "2205.05084",
@@ -42395,7 +42395,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.05084",
     "pdfUrl": "https://arxiv.org/pdf/2205.05084",
-    "blogSlug": null
+    "blogSlug": "bias-and-priors-in-machine-learning-calibrations-for-high-energy-physics"
   },
   {
     "arxivId": "2205.04459",
@@ -42482,7 +42482,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.04459",
     "pdfUrl": "https://arxiv.org/pdf/2205.04459",
-    "blogSlug": null
+    "blogSlug": "disentangling-quarks-and-gluons-with-cms-open-data"
   },
   {
     "arxivId": "2205.03413",
@@ -42575,7 +42575,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.03413",
     "pdfUrl": "https://arxiv.org/pdf/2205.03413",
-    "blogSlug": null
+    "blogSlug": "learning-uncertainties-the-frequentist-way-calibration-and-correlation-in-high-e"
   },
   {
     "arxivId": "2205.02824",
@@ -42652,7 +42652,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.02824",
     "pdfUrl": "https://arxiv.org/pdf/2205.02824",
-    "blogSlug": null
+    "blogSlug": "rapid-locomotion-via-reinforcement-learning"
   },
   {
     "arxivId": "2205.01001",
@@ -42732,7 +42732,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2205.01001",
     "pdfUrl": "https://arxiv.org/pdf/2205.01001",
-    "blogSlug": null
+    "blogSlug": "infinite-variance-in-monte-carlo-sampling-of-lattice-field-theories"
   },
   {
     "arxivId": "2204.13717",
@@ -42824,7 +42824,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.13717",
     "pdfUrl": "https://arxiv.org/pdf/2204.13717",
-    "blogSlug": null
+    "blogSlug": "going-beyond-the-galaxy-power-spectrum-an-analysis-of-boss-data-with-wavelet-sca"
   },
   {
     "arxivId": "2204.10298",
@@ -42918,12 +42918,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.10298",
     "pdfUrl": "https://arxiv.org/pdf/2204.10298",
-    "blogSlug": null
+    "blogSlug": "diffcse-difference-based-contrastive-learning-for-sentence-embeddings"
   },
   {
     "arxivId": "2204.09809",
     "title": "Photometrically-Classified Superluminous Supernovae from the Pan-STARRS1 Medium Deep Survey: A Case Study for Science with Machine Learning-Based Classification",
-    "nickname": "Photometric Classification",
+    "nickname": "Supernova Photometry",
     "theme": "Astrophysics",
     "published": "2022-04-20T23:22:52+00:00",
     "authors": [
@@ -43012,7 +43012,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.09809",
     "pdfUrl": "https://arxiv.org/pdf/2204.09809",
-    "blogSlug": null
+    "blogSlug": "photometrically-classified-superluminous-supernovae-from-the-pan-starrs1-medium-"
   },
   {
     "arxivId": "2204.08486",
@@ -43095,12 +43095,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.08486",
     "pdfUrl": "https://arxiv.org/pdf/2204.08486",
-    "blogSlug": null
+    "blogSlug": "luminous-supernovae-unveiling-a-population-between-superluminous-and-normal-core"
   },
   {
     "arxivId": "2204.05435",
     "title": "Quantification of high dimensional non-Gaussianities and its implication to Fisher analysis in cosmology",
-    "nickname": "Non-Gaussian Cosmology",
+    "nickname": "Non-Gaussianity",
     "theme": "Astrophysics",
     "published": "2022-04-11T23:09:27+00:00",
     "authors": [
@@ -43189,7 +43189,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.05435",
     "pdfUrl": "https://arxiv.org/pdf/2204.05435",
-    "blogSlug": null
+    "blogSlug": "quantification-of-high-dimensional-non-gaussianities-and-its-implication-to-fish"
   },
   {
     "arxivId": "2204.02496",
@@ -43276,7 +43276,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.02496",
     "pdfUrl": "https://arxiv.org/pdf/2204.02496",
-    "blogSlug": null
+    "blogSlug": "towards-designing-and-exploiting-generative-networks-for-neutrino-physics-experi"
   },
   {
     "arxivId": "2204.02489",
@@ -43363,7 +43363,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2204.02489",
     "pdfUrl": "https://arxiv.org/pdf/2204.02489",
-    "blogSlug": null
+    "blogSlug": "pareto-optimal-clustering-with-the-primal-deterministic-information-bottleneck"
   },
   {
     "arxivId": "2203.12610",
@@ -43450,7 +43450,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2203.12610",
     "pdfUrl": "https://arxiv.org/pdf/2203.12610",
-    "blogSlug": null
+    "blogSlug": "ai-poincar-2-0-machine-learning-conservation-laws-from-differential-equations"
   },
   {
     "arxivId": "2203.09030",
@@ -43595,7 +43595,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2203.09030",
     "pdfUrl": "https://arxiv.org/pdf/2203.09030",
-    "blogSlug": null
+    "blogSlug": "theoretical-tools-for-neutrino-scattering-interplay-between-lattice-qcd-efts-nuc"
   },
   {
     "arxivId": "2203.08414",
@@ -43690,7 +43690,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2203.08414",
     "pdfUrl": "https://arxiv.org/pdf/2203.08414",
-    "blogSlug": null
+    "blogSlug": "unsupervised-semantic-segmentation-by-distilling-feature-correspondences"
   },
   {
     "arxivId": "2203.01343",
@@ -43783,7 +43783,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2203.01343",
     "pdfUrl": "https://arxiv.org/pdf/2203.01343",
-    "blogSlug": null
+    "blogSlug": "creating-simple-interpretable-anomaly-detectors-for-new-physics-in-jet-substruct"
   },
   {
     "arxivId": "2203.01243",
@@ -43875,7 +43875,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2203.01243",
     "pdfUrl": "https://arxiv.org/pdf/2203.01243",
-    "blogSlug": null
+    "blogSlug": "flow-based-density-of-states-for-complex-actions"
   },
   {
     "arxivId": "2202.12887",
@@ -43959,7 +43959,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2202.12887",
     "pdfUrl": "https://arxiv.org/pdf/2202.12887",
-    "blogSlug": null
+    "blogSlug": "fault-tolerant-neural-networks-from-biological-error-correction-codes"
   },
   {
     "arxivId": "2202.11712",
@@ -44059,7 +44059,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2202.11712",
     "pdfUrl": "https://arxiv.org/pdf/2202.11712",
-    "blogSlug": null
+    "blogSlug": "flow-based-sampling-in-the-lattice-schwinger-model-at-criticality"
   },
   {
     "arxivId": "2202.07590",
@@ -44140,12 +44140,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2202.07590",
     "pdfUrl": "https://arxiv.org/pdf/2202.07590",
-    "blogSlug": null
+    "blogSlug": "identifying-equivalent-calabi-yau-topologies-a-discrete-challenge-from-math-and-"
   },
   {
     "arxivId": "2202.05255",
     "title": "Topogivity: A Machine-Learned Chemical Rule for Discovering Topological Materials",
-    "nickname": "Topological Materials",
+    "nickname": "Topogivity",
     "theme": "Astrophysics",
     "published": "2022-02-10T18:57:17+00:00",
     "authors": [
@@ -44237,7 +44237,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2202.05255",
     "pdfUrl": "https://arxiv.org/pdf/2202.05255",
-    "blogSlug": null
+    "blogSlug": "topogivity-a-machine-learned-chemical-rule-for-discovering-topological-materials"
   },
   {
     "arxivId": "2202.03530",
@@ -44325,12 +44325,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2202.03530",
     "pdfUrl": "https://arxiv.org/pdf/2202.03530",
-    "blogSlug": null
+    "blogSlug": "finite-volume-pionless-effective-field-theory-for-few-nucleon-systems-with-diffe"
   },
   {
     "arxivId": "2201.07246",
     "title": "Photometry on Structured Backgrounds: Local Pixelwise Infilling by Regression",
-    "nickname": "Stellar Photometry",
+    "nickname": "Background Photometry",
     "theme": "Astrophysics",
     "published": "2022-01-18T19:00:01+00:00",
     "authors": [
@@ -44417,7 +44417,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2201.07246",
     "pdfUrl": "https://arxiv.org/pdf/2201.07246",
-    "blogSlug": null
+    "blogSlug": "photometry-on-structured-backgrounds-local-pixelwise-infilling-by-regression"
   },
   {
     "arxivId": "2201.03726",
@@ -44499,12 +44499,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2201.03726",
     "pdfUrl": "https://arxiv.org/pdf/2201.03726",
-    "blogSlug": null
+    "blogSlug": "cracking-the-quantum-scaling-limit-with-machine-learned-electron-densities"
   },
   {
     "arxivId": "2201.03609",
     "title": "Constraining the Time of Gravitational Wave Emission from Core-Collapse Supernovae",
-    "nickname": "Supernova Waves",
+    "nickname": "Supernova Timing",
     "theme": "Astrophysics",
     "published": "2022-01-10T19:22:59+00:00",
     "authors": [
@@ -44594,7 +44594,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2201.03609",
     "pdfUrl": "https://arxiv.org/pdf/2201.03609",
-    "blogSlug": null
+    "blogSlug": "constraining-the-time-of-gravitational-wave-emission-from-core-collapse-supernov"
   },
   {
     "arxivId": "2112.08526",
@@ -44688,12 +44688,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.08526",
     "pdfUrl": "https://arxiv.org/pdf/2112.08526",
-    "blogSlug": null
+    "blogSlug": "invariance-through-latent-alignment"
   },
   {
     "arxivId": "2112.05763",
     "title": "Impact of Massive Binary Star and Cosmic Evolution on Gravitational Wave Observations II: Double Compact Object Rates and Properties",
-    "nickname": "Binary Evolution",
+    "nickname": "Merger Rates",
     "theme": "Astrophysics",
     "published": "2021-12-10T19:00:00+00:00",
     "authors": [
@@ -44784,7 +44784,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.05763",
     "pdfUrl": "https://arxiv.org/pdf/2112.05763",
-    "blogSlug": null
+    "blogSlug": "impact-of-massive-binary-star-and-cosmic-evolution-on-gravitational-wave-observa"
   },
   {
     "arxivId": "2112.05722",
@@ -44877,7 +44877,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.05722",
     "pdfUrl": "https://arxiv.org/pdf/2112.05722",
-    "blogSlug": null
+    "blogSlug": "symmetrygan-symmetry-discovery-with-deep-learning"
   },
   {
     "arxivId": "2112.05124",
@@ -44974,7 +44974,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.05124",
     "pdfUrl": "https://arxiv.org/pdf/2112.05124",
-    "blogSlug": null
+    "blogSlug": "neural-descriptor-fields-se-3-equivariant-object-representations-for-manipulatio"
   },
   {
     "arxivId": "2112.04527",
@@ -45065,7 +45065,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.04527",
     "pdfUrl": "https://arxiv.org/pdf/2112.04527",
-    "blogSlug": null
+    "blogSlug": "building-quantum-field-theories-out-of-neurons"
   },
   {
     "arxivId": "2112.04503",
@@ -45148,7 +45148,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.04503",
     "pdfUrl": "https://arxiv.org/pdf/2112.04503",
-    "blogSlug": null
+    "blogSlug": "pq-axiverse"
   },
   {
     "arxivId": "2112.03907",
@@ -45226,7 +45226,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.03907",
     "pdfUrl": "https://arxiv.org/pdf/2112.03907",
-    "blogSlug": null
+    "blogSlug": "ref-nerf-structured-view-dependent-appearance-for-neural-radiance-fields"
   },
   {
     "arxivId": "2112.02309",
@@ -45340,12 +45340,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.02309",
     "pdfUrl": "https://arxiv.org/pdf/2112.02309",
-    "blogSlug": null
+    "blogSlug": "machine-learning-in-nuclear-physics"
   },
   {
     "arxivId": "2112.00749",
     "title": "Substructure Detection Reanalyzed: Dark Perturber shown to be a Line-of-Sight Halo",
-    "nickname": "Substructure Detection",
+    "nickname": "Dark Substructure",
     "theme": "Astrophysics",
     "published": "2021-12-01T19:00:01+00:00",
     "authors": [
@@ -45422,7 +45422,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.00749",
     "pdfUrl": "https://arxiv.org/pdf/2112.00749",
-    "blogSlug": null
+    "blogSlug": "substructure-detection-reanalyzed-dark-perturber-shown-to-be-a-line-of-sight-hal"
   },
   {
     "arxivId": "2112.00723",
@@ -45514,7 +45514,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.00723",
     "pdfUrl": "https://arxiv.org/pdf/2112.00723",
-    "blogSlug": null
+    "blogSlug": "infinite-neural-network-quantum-states-entanglement-and-training-dynamics"
   },
   {
     "arxivId": "2112.00038",
@@ -45601,7 +45601,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2112.00038",
     "pdfUrl": "https://arxiv.org/pdf/2112.00038",
-    "blogSlug": null
+    "blogSlug": "robust-and-provably-monotonic-networks"
   },
   {
     "arxivId": "2111.10956",
@@ -45689,12 +45689,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2111.10956",
     "pdfUrl": "https://arxiv.org/pdf/2111.10956",
-    "blogSlug": null
+    "blogSlug": "quantum-reservoir-computing-using-arrays-of-rydberg-atoms"
   },
   {
     "arxivId": "2111.10386",
     "title": "New limits on light dark matter - proton cross section from the cosmic large-scale structure",
-    "nickname": "Dark Matter Limits",
+    "nickname": "Dark Matter",
     "theme": "Astrophysics",
     "published": "2021-11-19T19:00:02+00:00",
     "authors": [
@@ -45782,7 +45782,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2111.10386",
     "pdfUrl": "https://arxiv.org/pdf/2111.10386",
-    "blogSlug": null
+    "blogSlug": "new-limits-on-light-dark-matter-proton-cross-section-from-the-cosmic-large-scale"
   },
   {
     "arxivId": "2111.00899",
@@ -45880,7 +45880,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2111.00899",
     "pdfUrl": "https://arxiv.org/pdf/2111.00899",
-    "blogSlug": null
+    "blogSlug": "equivariant-contrastive-learning"
   },
   {
     "arxivId": "2110.08406",
@@ -45975,7 +45975,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.08406",
     "pdfUrl": "https://arxiv.org/pdf/2110.08406",
-    "blogSlug": null
+    "blogSlug": "surrogate-and-invariance-boosted-contrastive-learning-for-data-scarce-applicatio"
   },
   {
     "arxivId": "2110.06948",
@@ -46070,12 +46070,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.06948",
     "pdfUrl": "https://arxiv.org/pdf/2110.06948",
-    "blogSlug": null
+    "blogSlug": "challenges-for-unsupervised-anomaly-detection-in-particle-physics"
   },
   {
     "arxivId": "2110.06931",
     "title": "A neural simulation-based inference approach for characterizing the Galactic Center $γ$-ray excess",
-    "nickname": "Gamma-ray Excess",
+    "nickname": "Galactic Gamma",
     "theme": "Astrophysics",
     "published": "2021-10-13T18:00:00+00:00",
     "authors": [
@@ -46168,7 +46168,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.06931",
     "pdfUrl": "https://arxiv.org/pdf/2110.06931",
-    "blogSlug": null
+    "blogSlug": "a-neural-simulation-based-inference-approach-for-characterizing-the-galactic-cen"
   },
   {
     "arxivId": "2110.04683",
@@ -46261,7 +46261,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.04683",
     "pdfUrl": "https://arxiv.org/pdf/2110.04683",
-    "blogSlug": null
+    "blogSlug": "mixture-model-auto-encoders-deep-clustering-through-dictionary-learning"
   },
   {
     "arxivId": "2110.03809",
@@ -46352,7 +46352,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.03809",
     "pdfUrl": "https://arxiv.org/pdf/2110.03809",
-    "blogSlug": null
+    "blogSlug": "towards-quantum-simulations-in-particle-physics-and-beyond-on-noisy-intermediate"
   },
   {
     "arxivId": "2110.03676",
@@ -46438,7 +46438,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.03676",
     "pdfUrl": "https://arxiv.org/pdf/2110.03676",
-    "blogSlug": null
+    "blogSlug": "pruning-a-restricted-boltzmann-machine-for-quantum-state-reconstruction"
   },
   {
     "arxivId": "2110.03550",
@@ -46525,7 +46525,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.03550",
     "pdfUrl": "https://arxiv.org/pdf/2110.03550",
-    "blogSlug": null
+    "blogSlug": "observation-of-enhanced-free-electron-radiation-from-photonic-flatband-resonance"
   },
   {
     "arxivId": "2110.02965",
@@ -46612,7 +46612,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.02965",
     "pdfUrl": "https://arxiv.org/pdf/2110.02965",
-    "blogSlug": null
+    "blogSlug": "classical-shadows-for-quantum-process-tomography-on-near-term-quantum-computers"
   },
   {
     "arxivId": "2110.01620",
@@ -46703,7 +46703,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2110.01620",
     "pdfUrl": "https://arxiv.org/pdf/2110.01620",
-    "blogSlug": null
+    "blogSlug": "inferring-dark-matter-substructure-with-astrometric-lensing-beyond-the-power-spe"
   },
   {
     "arxivId": "2109.13901",
@@ -46797,7 +46797,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2109.13901",
     "pdfUrl": "https://arxiv.org/pdf/2109.13901",
-    "blogSlug": null
+    "blogSlug": "physics-augmented-learning-a-new-paradigm-beyond-physics-informed-learning"
   },
   {
     "arxivId": "2109.13243",
@@ -46906,7 +46906,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2109.13243",
     "pdfUrl": "https://arxiv.org/pdf/2109.13243",
-    "blogSlug": null
+    "blogSlug": "presenting-unbinned-differential-cross-section-results"
   },
   {
     "arxivId": "2109.01695",
@@ -46997,7 +46997,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2109.01695",
     "pdfUrl": "https://arxiv.org/pdf/2109.01695",
-    "blogSlug": null
+    "blogSlug": "deep-set-auto-encoders-for-anomaly-detection-in-particle-physics"
   },
   {
     "arxivId": "2109.00024",
@@ -47089,7 +47089,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2109.00024",
     "pdfUrl": "https://arxiv.org/pdf/2109.00024",
-    "blogSlug": null
+    "blogSlug": "machine-learning-media-bias"
   },
   {
     "arxivId": "2108.13027",
@@ -47180,12 +47180,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2108.13027",
     "pdfUrl": "https://arxiv.org/pdf/2108.13027",
-    "blogSlug": null
+    "blogSlug": "what-you-can-learn-by-staring-at-a-blank-wall"
   },
   {
     "arxivId": "2108.12430",
     "title": "Hardware-accelerated Inference for Real-Time Gravitational-Wave Astronomy",
-    "nickname": "Real-Time Detection",
+    "nickname": "Real-Time Waves",
     "theme": "Astrophysics",
     "published": "2021-08-27T18:00:00+00:00",
     "authors": [
@@ -47280,12 +47280,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2108.12430",
     "pdfUrl": "https://arxiv.org/pdf/2108.12430",
-    "blogSlug": null
+    "blogSlug": "hardware-accelerated-inference-for-real-time-gravitational-wave-astronomy"
   },
   {
     "arxivId": "2108.07821",
     "title": "Towards an Optimal Estimation of Cosmological Parameters with the Wavelet Scattering Transform",
-    "nickname": "Cosmological Parameters",
+    "nickname": "Wavelet Cosmology",
     "theme": "Astrophysics",
     "published": "2021-08-17T18:00:04+00:00",
     "authors": [
@@ -47372,7 +47372,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2108.07821",
     "pdfUrl": "https://arxiv.org/pdf/2108.07821",
-    "blogSlug": null
+    "blogSlug": "towards-an-optimal-estimation-of-cosmological-parameters-with-the-wavelet-scatte"
   },
   {
     "arxivId": "2108.02221",
@@ -47466,7 +47466,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2108.02221",
     "pdfUrl": "https://arxiv.org/pdf/2108.02221",
-    "blogSlug": null
+    "blogSlug": "deep-multi-task-mining-calabi-yau-four-folds"
   },
   {
     "arxivId": "2108.01403",
@@ -47553,7 +47553,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2108.01403",
     "pdfUrl": "https://arxiv.org/pdf/2108.01403",
-    "blogSlug": null
+    "blogSlug": "nonperturbative-renormalization-for-the-neural-network-qft-correspondence"
   },
   {
     "arxivId": "2107.10879",
@@ -47646,7 +47646,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2107.10879",
     "pdfUrl": "https://arxiv.org/pdf/2107.10879",
-    "blogSlug": null
+    "blogSlug": "discovering-sparse-interpretable-dynamics-from-partial-observations"
   },
   {
     "arxivId": "2107.08979",
@@ -47738,7 +47738,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2107.08979",
     "pdfUrl": "https://arxiv.org/pdf/2107.08979",
-    "blogSlug": null
+    "blogSlug": "neural-conditional-reweighting"
   },
   {
     "arxivId": "2107.00734",
@@ -47844,7 +47844,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2107.00734",
     "pdfUrl": "https://arxiv.org/pdf/2107.00734",
-    "blogSlug": null
+    "blogSlug": "flow-based-sampling-for-multimodal-and-extended-mode-distributions-in-lattice-fi"
   },
   {
     "arxivId": "2106.15612",
@@ -47926,7 +47926,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.15612",
     "pdfUrl": "https://arxiv.org/pdf/2106.15612",
-    "blogSlug": null
+    "blogSlug": "learning-task-informed-abstractions"
   },
   {
     "arxivId": "2106.10326",
@@ -48010,7 +48010,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.10326",
     "pdfUrl": "https://arxiv.org/pdf/2106.10326",
-    "blogSlug": null
+    "blogSlug": "single-electrons-on-solid-neon-as-a-solid-state-qubit-platform"
   },
   {
     "arxivId": "2106.10165",
@@ -48103,7 +48103,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.10165",
     "pdfUrl": "https://arxiv.org/pdf/2106.10165",
-    "blogSlug": null
+    "blogSlug": "the-principles-of-deep-learning-theory"
   },
   {
     "arxivId": "2106.07627",
@@ -48183,7 +48183,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.07627",
     "pdfUrl": "https://arxiv.org/pdf/2106.07627",
-    "blogSlug": null
+    "blogSlug": "toward-automatic-interpretation-of-3d-plots"
   },
   {
     "arxivId": "2106.05934",
@@ -48282,7 +48282,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.05934",
     "pdfUrl": "https://arxiv.org/pdf/2106.05934",
-    "blogSlug": null
+    "blogSlug": "flow-based-sampling-for-fermionic-lattice-field-theories"
   },
   {
     "arxivId": "2106.02634",
@@ -48371,7 +48371,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.02634",
     "pdfUrl": "https://arxiv.org/pdf/2106.02634",
-    "blogSlug": null
+    "blogSlug": "light-field-networks-neural-scene-representations-with-single-evaluation-renderi"
   },
   {
     "arxivId": "2106.00694",
@@ -48458,7 +48458,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2106.00694",
     "pdfUrl": "https://arxiv.org/pdf/2106.00694",
-    "blogSlug": null
+    "blogSlug": "symmetry-via-duality-invariant-neural-network-densities-from-parameter-space-cor"
   },
   {
     "arxivId": "2105.14027",
@@ -48593,7 +48593,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2105.14027",
     "pdfUrl": "https://arxiv.org/pdf/2105.14027",
-    "blogSlug": null
+    "blogSlug": "the-dark-machines-anomaly-score-challenge-benchmark-data-and-model-independent-e"
   },
   {
     "arxivId": "2105.10439",
@@ -48675,7 +48675,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2105.10439",
     "pdfUrl": "https://arxiv.org/pdf/2105.10439",
-    "blogSlug": null
+    "blogSlug": "covariance-free-sparse-bayesian-learning"
   },
   {
     "arxivId": "2105.09923",
@@ -48768,7 +48768,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2105.09923",
     "pdfUrl": "https://arxiv.org/pdf/2105.09923",
-    "blogSlug": null
+    "blogSlug": "preserving-new-physics-while-simultaneously-unfolding-all-observables"
   },
   {
     "arxivId": "2105.01683",
@@ -48864,7 +48864,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2105.01683",
     "pdfUrl": "https://arxiv.org/pdf/2105.01683",
-    "blogSlug": null
+    "blogSlug": "a-reconfigurable-neural-network-asic-for-detector-front-end-data-compression-at-"
   },
   {
     "arxivId": "2104.11667",
@@ -48966,7 +48966,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2104.11667",
     "pdfUrl": "https://arxiv.org/pdf/2104.11667",
-    "blogSlug": null
+    "blogSlug": "deep-learning-for-bayesian-optimization-of-scientific-problems-with-high-dimensi"
   },
   {
     "arxivId": "2104.04529",
@@ -49060,7 +49060,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2104.04529",
     "pdfUrl": "https://arxiv.org/pdf/2104.04529",
-    "blogSlug": null
+    "blogSlug": "a-compound-poisson-generator-approach-to-point-source-inference-in-astrophysics"
   },
   {
     "arxivId": "2104.00008",
@@ -49139,7 +49139,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2104.00008",
     "pdfUrl": "https://arxiv.org/pdf/2104.00008",
-    "blogSlug": null
+    "blogSlug": "why-is-ai-hard-and-physics-simple"
   },
   {
     "arxivId": "2103.14039",
@@ -49229,7 +49229,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.14039",
     "pdfUrl": "https://arxiv.org/pdf/2103.14039",
-    "blogSlug": null
+    "blogSlug": "machine-learning-the-6th-dimension-stellar-radial-velocities-from-5d-phase-space"
   },
   {
     "arxivId": "2103.12226",
@@ -49320,7 +49320,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.12226",
     "pdfUrl": "https://arxiv.org/pdf/2103.12226",
-    "blogSlug": null
+    "blogSlug": "modern-machine-learning-and-particle-physics"
   },
   {
     "arxivId": "2103.09177",
@@ -49395,7 +49395,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.09177",
     "pdfUrl": "https://arxiv.org/pdf/2103.09177",
-    "blogSlug": null
+    "blogSlug": "deep-learning-a-statistical-viewpoint"
   },
   {
     "arxivId": "2103.05579",
@@ -49509,12 +49509,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.05579",
     "pdfUrl": "https://arxiv.org/pdf/2103.05579",
-    "blogSlug": null
+    "blogSlug": "hls4ml-an-open-source-codesign-workflow-to-empower-scientific-low-power-machine-"
   },
   {
     "arxivId": "2103.02611",
     "title": "The Luminous and Double-Peaked Type Ic Supernova 2019stc: Evidence for Multiple Energy Sources",
-    "nickname": "Dual-Peaked Supernova",
+    "nickname": "Double-Peaked Supernova",
     "theme": "Astrophysics",
     "published": "2021-03-03T19:00:01+00:00",
     "authors": [
@@ -49581,7 +49581,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.02611",
     "pdfUrl": "https://arxiv.org/pdf/2103.02611",
-    "blogSlug": null
+    "blogSlug": "the-luminous-and-double-peaked-type-ic-supernova-2019stc-evidence-for-multiple-e"
   },
   {
     "arxivId": "2103.02602",
@@ -49661,7 +49661,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2103.02602",
     "pdfUrl": "https://arxiv.org/pdf/2103.02602",
-    "blogSlug": null
+    "blogSlug": "real-time-lattice-gauge-theory-actions-unitarity-convergence-and-path-integral-c"
   },
   {
     "arxivId": "2102.12066",
@@ -49741,7 +49741,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2102.12066",
     "pdfUrl": "https://arxiv.org/pdf/2102.12066",
-    "blogSlug": null
+    "blogSlug": "on-the-minimal-error-of-empirical-risk-minimization"
   },
   {
     "arxivId": "2102.08380",
@@ -49841,12 +49841,12 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2102.08380",
     "pdfUrl": "https://arxiv.org/pdf/2102.08380",
-    "blogSlug": null
+    "blogSlug": "topological-obstructions-to-autoencoding"
   },
   {
     "arxivId": "2102.07003",
     "title": "On the convergence of group-sparse autoencoders",
-    "nickname": "Sparse Auto",
+    "nickname": "Sparse Autoencoders",
     "theme": "Astrophysics",
     "published": "2021-02-13T21:17:07+00:00",
     "authors": [
@@ -49930,7 +49930,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2102.07003",
     "pdfUrl": "https://arxiv.org/pdf/2102.07003",
-    "blogSlug": null
+    "blogSlug": "on-the-convergence-of-group-sparse-autoencoders"
   },
   {
     "arxivId": "2102.04329",
@@ -50016,7 +50016,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2102.04329",
     "pdfUrl": "https://arxiv.org/pdf/2102.04329",
-    "blogSlug": null
+    "blogSlug": "few-nucleon-matrix-elements-in-pionless-effective-field-theory-in-a-finite-volum"
   },
   {
     "arxivId": "2101.12668",
@@ -50105,7 +50105,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2101.12668",
     "pdfUrl": "https://arxiv.org/pdf/2101.12668",
-    "blogSlug": null
+    "blogSlug": "path-integral-contour-deformations-for-observables-in-su-n-gauge-theory"
   },
   {
     "arxivId": "2101.08320",
@@ -50260,7 +50260,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2101.08320",
     "pdfUrl": "https://arxiv.org/pdf/2101.08320",
-    "blogSlug": null
+    "blogSlug": "the-lhc-olympics-2020-a-community-challenge-for-anomaly-detection-in-high-energy"
   },
   {
     "arxivId": "2101.08176",
@@ -50352,7 +50352,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2101.08176",
     "pdfUrl": "https://arxiv.org/pdf/2101.08176",
-    "blogSlug": null
+    "blogSlug": "introduction-to-normalizing-flows-for-lattice-field-theory"
   },
   {
     "arxivId": "2101.07263",
@@ -50450,7 +50450,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2101.07263",
     "pdfUrl": "https://arxiv.org/pdf/2101.07263",
-    "blogSlug": null
+    "blogSlug": "e-pluribus-unum-ex-machina-learning-from-many-collider-events-at-once"
   },
   {
     "arxivId": "2101.05108",
@@ -50542,7 +50542,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2101.05108",
     "pdfUrl": "https://arxiv.org/pdf/2101.05108",
-    "blogSlug": null
+    "blogSlug": "fast-convolutional-neural-networks-on-fpgas-with-hls4ml"
   },
   {
     "arxivId": "2012.13101",
@@ -50630,7 +50630,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2012.13101",
     "pdfUrl": "https://arxiv.org/pdf/2012.13101",
-    "blogSlug": null
+    "blogSlug": "detection-and-parameter-estimation-of-gravitational-waves-from-binary-neutron-st"
   },
   {
     "arxivId": "2011.13866",
@@ -50716,7 +50716,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2011.13866",
     "pdfUrl": "https://arxiv.org/pdf/2011.13866",
-    "blogSlug": null
+    "blogSlug": "field-of-junctions-extracting-boundary-structure-at-low-snr"
   },
   {
     "arxivId": "2011.03550",
@@ -50811,7 +50811,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2011.03550",
     "pdfUrl": "https://arxiv.org/pdf/2011.03550",
-    "blogSlug": null
+    "blogSlug": "quasi-anomalous-knowledge-searching-for-new-physics-with-embedded-knowledge"
   },
   {
     "arxivId": "2010.16263",
@@ -50899,7 +50899,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2010.16263",
     "pdfUrl": "https://arxiv.org/pdf/2010.16263",
-    "blogSlug": null
+    "blogSlug": "learning-to-unknot"
   },
   {
     "arxivId": "2010.11998",
@@ -50992,7 +50992,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2010.11998",
     "pdfUrl": "https://arxiv.org/pdf/2010.11998",
-    "blogSlug": null
+    "blogSlug": "mapping-machine-learned-physics-into-a-human-readable-space"
   },
   {
     "arxivId": "2010.09745",
@@ -51086,7 +51086,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2010.09745",
     "pdfUrl": "https://arxiv.org/pdf/2010.09745",
-    "blogSlug": null
+    "blogSlug": "enhancing-searches-for-resonances-with-machine-learning-and-moment-decomposition"
   },
   {
     "arxivId": "2004.04508",
@@ -51179,7 +51179,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/2004.04508",
     "pdfUrl": "https://arxiv.org/pdf/2004.04508",
-    "blogSlug": null
+    "blogSlug": "twisted-quasimaps-and-symplectic-duality-for-hypertoric-spaces"
   },
   {
     "arxivId": "1909.04114",
@@ -51270,7 +51270,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/1909.04114",
     "pdfUrl": "https://arxiv.org/pdf/1909.04114",
-    "blogSlug": null
+    "blogSlug": "search-for-low-mass-vector-resonances-decaying-into-quark-antiquark-pairs-in-pro"
   },
   {
     "arxivId": "1908.00651",
@@ -51352,7 +51352,7 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/1908.00651",
     "pdfUrl": "https://arxiv.org/pdf/1908.00651",
-    "blogSlug": null
+    "blogSlug": "strictification-and-gluing-of-lagrangian-distributions-on-derived-schemes-with-s"
   },
   {
     "arxivId": "1905.11481",
@@ -51438,6 +51438,6 @@
     ],
     "arxivUrl": "https://arxiv.org/abs/1905.11481",
     "pdfUrl": "https://arxiv.org/pdf/1905.11481",
-    "blogSlug": null
+    "blogSlug": "ai-feynman-a-physics-inspired-method-for-symbolic-regression"
   }
 ]
