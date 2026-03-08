@@ -1,5 +1,5 @@
 /**
- * Precompute t-SNE and PCA coordinates for the scatter plot.
+ * Precompute t-SNE, PCA, and UMAP coordinates for the scatter plot.
  * Run: node scripts/compute-scatter.cjs
  * Output: src/data/scatter-coords.json
  */
@@ -75,12 +75,29 @@ async function main() {
   const tsneCoords = tsneModel.getOutputScaled();
   console.log("t-SNE done");
 
-  // Build output: arxivId -> { pca, tsne }
+  // UMAP
+  console.log("Computing UMAP...");
+  const { UMAP } = require("umap-js");
+  const nNeighbors = Math.min(15, Math.floor(conceptEntries.length / 5));
+  const umap = new UMAP({ nComponents: 2, nNeighbors, minDist: 0.1, nEpochs: 400 });
+  const umapCoords = umap.fit(reducedMatrix);
+  // Normalize UMAP to [-1, 1]
+  const umapXs = umapCoords.map((p) => p[0]), umapYs = umapCoords.map((p) => p[1]);
+  const umapXMin = Math.min(...umapXs), umapXMax = Math.max(...umapXs);
+  const umapYMin = Math.min(...umapYs), umapYMax = Math.max(...umapYs);
+  const normUmap = umapCoords.map((p) => [
+    (p[0] - umapXMin) / (umapXMax - umapXMin) * 2 - 1,
+    (p[1] - umapYMin) / (umapYMax - umapYMin) * 2 - 1,
+  ]);
+  console.log("UMAP done");
+
+  // Build output: arxivId -> { pca, tsne, umap }
   const coords = {};
   for (let i = 0; i < conceptEntries.length; i++) {
     coords[conceptEntries[i].arxivId] = {
       pca: [Math.round(pcaCoords[i][0] * 10000) / 10000, Math.round(pcaCoords[i][1] * 10000) / 10000],
       tsne: [Math.round(tsneCoords[i][0] * 10000) / 10000, Math.round(tsneCoords[i][1] * 10000) / 10000],
+      umap: [Math.round(normUmap[i][0] * 10000) / 10000, Math.round(normUmap[i][1] * 10000) / 10000],
     };
   }
 
@@ -175,6 +192,7 @@ async function main() {
       inst: e.institution || null,
       pca: coords[e.arxivId].pca,
       tsne: coords[e.arxivId].tsne,
+      umap: coords[e.arxivId].umap,
     }));
 
   const scatterData = { papers, topConcepts, topAuthors, topInstitutions, conceptIndex, authorIndex, institutionIndex };

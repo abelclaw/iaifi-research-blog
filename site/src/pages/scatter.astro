@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import scatterData from "../data/scatter-data.json";
 
 const baseUrl = import.meta.env.BASE_URL;
-// Add blog post URLs
 const papers = scatterData.papers.map((p: any) => ({
   ...p,
   url: p.slug ? baseUrl + "posts/" + p.slug : null,
@@ -11,53 +10,86 @@ const papers = scatterData.papers.map((p: any) => ({
 const hasPapers = papers.length > 0;
 ---
 
-<BaseLayout title="Paper Map - IAIFI Research Blog">
+<BaseLayout title="Research Landscape - IAIFI Research Blog">
   <section class="mb-6">
     <h1 class="text-2xl font-bold text-[#212529] mb-2 flex items-center gap-2">
       <span class="w-1 h-5 rounded-full bg-[#663399] inline-block"></span>
-      Paper Map
+      Research Landscape
     </h1>
     <p class="text-gray-600 text-sm mb-1">
-      Papers positioned by conceptual similarity using dimensionality reduction.
-      Nearby papers share similar research concepts.
+      Each paper is encoded as a vector of research concepts (e.g. <em>bayesian inference</em>, <em>equivariant neural networks</em>),
+      then projected to 2D so that papers with similar concept profiles land nearby.
+      Hover any paper to reveal which others share its concepts (highlighted in purple).
     </p>
-    <p class="text-xs text-gray-400">
-      Hover for details. Click to visit the blog post. Scroll to zoom.
-    </p>
+    <div class="text-xs text-gray-400 space-y-0.5 mt-1">
+      <p><strong class="text-gray-500">UMAP</strong> — preserves both local clusters <em>and</em> the distances between them. The most faithful overall map.</p>
+      <p><strong class="text-gray-500">t-SNE</strong> — tight, well-separated clusters. But cluster positions relative to each other are arbitrary — don't read meaning into which cluster is "left" or "right".</p>
+      <p><strong class="text-gray-500">PCA</strong> — linear projection. The horizontal axis is roughly the direction of maximum variance across all concept vectors; the vertical axis is the next. Preserves global spread but smears fine-grained clusters.</p>
+    </div>
+    <p class="text-xs text-gray-400 mt-2">Scroll to zoom · drag to pan · hover to discover related work · click for details</p>
   </section>
 
   {!hasPapers ? (
     <div class="text-center py-16 text-gray-500 bg-white rounded-lg border border-gray-200">
       <p class="text-lg font-medium mb-2">No papers published yet.</p>
-      <p class="text-sm">Add papers through the admin interface.</p>
     </div>
   ) : (
     <>
       <!-- Controls -->
-      <div class="mb-4 space-y-3">
+      <div class="mb-4 space-y-2">
         <div class="flex flex-wrap items-center gap-3">
+          <!-- Layout method -->
           <div class="flex items-center gap-2">
-            <span class="text-xs text-gray-500 font-medium">Method:</span>
-            <button id="btn-tsne" class="px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white">t-SNE</button>
-            <button id="btn-pca" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">PCA</button>
+            <span class="text-xs text-gray-500 font-medium">Layout:</span>
+            <button id="btn-method-umap" class="px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white" title="Preserves both local clusters and global distances between them">UMAP</button>
+            <button id="btn-method-tsne" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300" title="Good local clusters; global distances not meaningful">t-SNE</button>
+            <button id="btn-method-pca" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300" title="Linear projection of concept vectors; axes = directions of maximum variance">PCA</button>
           </div>
           <span class="text-xs text-gray-400">|</span>
+          <!-- Color mode -->
           <div class="flex items-center gap-2">
-            <span class="text-xs text-gray-500 font-medium">Color by:</span>
+            <span class="text-xs text-gray-500 font-medium">Color:</span>
             <button id="btn-color-theme" class="px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white">Theme</button>
-            <button id="btn-color-concept" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Concept</button>
             <button id="btn-color-year" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Year</button>
-            <button id="btn-color-author" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Author</button>
             <button id="btn-color-institution" class="px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">Institution</button>
           </div>
+          <span class="text-xs text-gray-400">|</span>
+          <!-- Year filter -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Years:</span>
+            <select id="year-from" class="px-2 py-1 text-xs border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 bg-white"></select>
+            <span class="text-xs text-gray-400">–</span>
+            <select id="year-to" class="px-2 py-1 text-xs border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 bg-white"></select>
+          </div>
+          <span class="text-xs text-gray-400">|</span>
+          <!-- Concept search/highlight -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500 font-medium">Concept:</span>
+            <div class="relative">
+              <input
+                id="concept-search"
+                type="text"
+                placeholder="Highlight a concept…"
+                class="px-3 py-1 text-xs border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399] w-44"
+              />
+              <div id="concept-dropdown" class="absolute left-0 top-full mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-40 overflow-y-auto hidden"></div>
+            </div>
+            <button id="concept-clear" class="hidden text-xs text-gray-400 hover:text-gray-600 px-1">✕</button>
+          </div>
         </div>
+        <!-- Sub-controls -->
         <div id="sub-controls" class="flex flex-wrap items-center gap-2"></div>
+        <!-- Filter summary -->
+        <div id="filter-summary" class="hidden text-xs text-gray-500 flex items-center gap-2">
+          <span id="filter-label"></span>
+          <button id="clear-filters" class="text-[#663399] hover:underline">Clear</button>
+        </div>
       </div>
 
-      <!-- Scatter plot -->
+      <!-- Map -->
       <div
         id="scatter-container"
-        class="w-full bg-white rounded-lg border border-gray-200 overflow-hidden"
+        class="w-full bg-white rounded-lg border border-gray-200 overflow-hidden relative"
         style="height: 600px"
       ></div>
 
@@ -65,7 +97,7 @@ const hasPapers = papers.length > 0;
       <div id="scatter-panel" class="hidden fixed top-0 right-0 h-full w-80 bg-white shadow-xl border-l border-gray-200 z-50 overflow-y-auto">
         <div class="p-4">
           <div class="flex items-center justify-between mb-3">
-            <h3 id="sp-header" class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Paper</h3>
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Paper</h3>
             <button id="sp-close" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
           </div>
           <h2 id="sp-title" class="text-base font-bold text-gray-900 mb-1"></h2>
@@ -74,7 +106,7 @@ const hasPapers = papers.length > 0;
         </div>
       </div>
 
-      <!-- Blog post preview (shown below map when paper selected) -->
+      <!-- Blog post preview -->
       <div id="blog-preview" class="hidden mt-4">
         <button id="blog-toggle" class="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
           <span class="text-sm font-semibold text-gray-700">Blog Post Preview</span>
@@ -89,7 +121,7 @@ const hasPapers = papers.length > 0;
 <script>
   import { select } from "d3-selection";
   import { scaleLinear } from "d3-scale";
-  import { zoom, zoomIdentity } from "d3-zoom";
+  import { zoom } from "d3-zoom";
   import type { ZoomBehavior } from "d3-zoom";
   import scatterData from "../data/scatter-data.json";
 
@@ -106,33 +138,89 @@ const hasPapers = papers.length > 0;
     cc: number;
     pca: [number, number];
     tsne: [number, number];
+    umap: [number, number];
   }
 
+  type Method = "umap" | "tsne" | "pca";
+
+  // ── k-means++ ─────────────────────────────────────────────────────────────
+  function kMeans(
+    points: [number, number][],
+    k: number,
+    iters = 50
+  ): { assignments: number[]; centroids: [number, number][] } {
+    const n = points.length;
+    if (n === 0 || k >= n) return { assignments: Array(n).fill(0), centroids: points.slice(0, k) };
+
+    // k-means++ seed
+    const chosen: number[] = [Math.floor(Math.random() * n)];
+    while (chosen.length < k) {
+      const dists = points.map((p) =>
+        Math.min(
+          ...chosen.map((c) => {
+            const dx = p[0] - points[c][0], dy = p[1] - points[c][1];
+            return dx * dx + dy * dy;
+          })
+        )
+      );
+      const total = dists.reduce((a, b) => a + b, 0);
+      let r = Math.random() * total;
+      let picked = n - 1;
+      for (let i = 0; i < n; i++) {
+        r -= dists[i];
+        if (r <= 0) { picked = i; break; }
+      }
+      chosen.push(picked);
+    }
+
+    let centroids: [number, number][] = chosen.map((i) => [points[i][0], points[i][1]]);
+    const assignments = new Array<number>(n).fill(0);
+
+    for (let iter = 0; iter < iters; iter++) {
+      let changed = false;
+      for (let i = 0; i < n; i++) {
+        let best = 0, bestD = Infinity;
+        for (let c = 0; c < k; c++) {
+          const dx = points[i][0] - centroids[c][0], dy = points[i][1] - centroids[c][1];
+          const d = dx * dx + dy * dy;
+          if (d < bestD) { bestD = d; best = c; }
+        }
+        if (assignments[i] !== best) { assignments[i] = best; changed = true; }
+      }
+      if (!changed) break;
+      const sums: [number, number, number][] = Array.from({ length: k }, () => [0, 0, 0]);
+      for (let i = 0; i < n; i++) {
+        sums[assignments[i]][0] += points[i][0];
+        sums[assignments[i]][1] += points[i][1];
+        sums[assignments[i]][2]++;
+      }
+      centroids = sums.map((s, c) => (s[2] > 0 ? [s[0] / s[2], s[1] / s[2]] : centroids[c])) as [number, number][];
+    }
+    return { assignments, centroids };
+  }
+
+  // ── Main ──────────────────────────────────────────────────────────────────
   function init() {
     const container = document.getElementById("scatter-container");
     if (!container) return;
 
-    const { topConcepts, topAuthors, topInstitutions, conceptIndex, authorIndex, institutionIndex } = scatterData as any;
+    const { topConcepts, topInstitutions, conceptIndex } = scatterData as any;
     const papers: PaperPoint[] = (scatterData as any).papers.map((p: any) => ({
       ...p,
       url: p.slug ? import.meta.env.BASE_URL + "posts/" + p.slug : null,
     }));
     if (papers.length === 0) return;
 
-    // Build per-paper lookup sets from indices
-    const paperConceptSet: Set<string>[] = papers.map(() => new Set());
+    // Per-paper concept sets from index
+    const paperConceptSet: Set<string>[] = papers.map(() => new Set<string>());
     for (const [concept, indices] of Object.entries(conceptIndex as Record<string, number[]>)) {
       for (const i of indices) paperConceptSet[i].add(concept);
     }
-    const paperAuthorSet: Set<string>[] = papers.map(() => new Set());
-    for (const [author, indices] of Object.entries(authorIndex as Record<string, number[]>)) {
-      for (const i of indices) paperAuthorSet[i].add(author);
-    }
 
     const rect = container.getBoundingClientRect();
-    const width = rect.width || container.clientWidth || 800;
-    const height = rect.height || container.clientHeight || 600;
-    const padding = 40;
+    const width = rect.width || 800;
+    const height = 600;
+    const padding = 48;
 
     const themeColors: Record<string, string> = {
       "Foundational AI": "#3b82f6",
@@ -140,534 +228,488 @@ const hasPapers = papers.length > 0;
       "Experimental Physics": "#f59e0b",
       Astrophysics: "#10b981",
     };
+    const institutionColors: Record<string, string> = {
+      MIT: "#a31f34", Harvard: "#a51c30", Northeastern: "#d41b2c",
+      Tufts: "#3e8ede", Brandeis: "#003478", "UMass Boston": "#005a8b",
+      Brown: "#4e3629", UPRM: "#00703c", "U. Bern": "#e6002e",
+      "U. New Hampshire": "#003da5", "U. Minnesota": "#7a0019",
+    };
 
-    // Year color scale
     const years = papers.map((p) => p.year).filter((y): y is number => y !== null);
     const minYear = Math.min(...years);
     const maxYear = Math.max(...years);
+    const uniqueYears = [...new Set(years)].sort();
     const yearColorScale = scaleLinear<string>()
       .domain([minYear, (minYear + maxYear) / 2, maxYear])
       .range(["#6366f1", "#06b6d4", "#10b981"]);
 
-    const dimColor = "#d1d5db";
-    // Palette for multi-select highlighting
-    const palette = ["#e11d48", "#f59e0b", "#3b82f6", "#10b981", "#8b5cf6", "#ec4899", "#14b8a6", "#f97316", "#6366f1", "#84cc16"];
-    const institutionColors: Record<string, string> = {
-      "MIT": "#a31f34",
-      "Harvard": "#a51c30",
-      "Northeastern": "#d41b2c",
-      "Tufts": "#3e8ede",
-      "Brandeis": "#003478",
-      "Brown": "#4e3629",
-      "UMass Boston": "#005a8b",
-      "UPRM": "#00703c",
-      "U. Bern": "#e6002e",
-      "U. New Hampshire": "#003da5",
-      "U. Minnesota": "#7a0019",
-    };
+    const relatedColor = "#a855f7";
+    const onPill = "px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white";
+    const offPill = "px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300";
 
     // State
-    let currentMethod: "tsne" | "pca" = "tsne";
-    let colorMode: "theme" | "concept" | "year" | "author" | "institution" = "theme";
-    const selectedConcepts: string[] = [];
-    const selectedAuthors: string[] = [];
-    const selectedInstitutions: string[] = [];
+    let method: Method = "umap";
+    let colorMode: "theme" | "year" | "institution" = "theme";
     const activeThemes = new Set(Object.keys(themeColors));
-    const minR = 4, maxR = 14;
-    const maxConcepts = Math.max(1, ...papers.map((p) => p.cc));
+    let activeConceptHighlight: string | null = null;
+    let yearFrom = minYear, yearTo = maxYear;
 
-    function radius(p: PaperPoint) { return minR + (maxR - minR) * (p.cc / maxConcepts); }
+    const minR = 4, maxR = 12;
+    const maxCC = Math.max(1, ...papers.map((p) => p.cc));
+    function radius(p: PaperPoint) { return minR + (maxR - minR) * (p.cc / maxCC); }
 
-    // Index helpers
     const idxMap = new Map(papers.map((p, i) => [p, i]));
     function idx(d: PaperPoint) { return idxMap.get(d) ?? -1; }
-    function hasConcept(d: PaperPoint, c: string) { return paperConceptSet[idx(d)]?.has(c) ?? false; }
-    function hasAuthor(d: PaperPoint, a: string) { return paperAuthorSet[idx(d)]?.has(a) ?? false; }
+
+    function isVisible(p: PaperPoint): boolean {
+      if (p.year === null || p.year < yearFrom || p.year > yearTo) return false;
+      if (colorMode === "theme" && !activeThemes.has(p.theme)) return false;
+      return true;
+    }
 
     function getFill(d: PaperPoint): string {
+      if (activeConceptHighlight) {
+        return paperConceptSet[idx(d)]?.has(activeConceptHighlight) ? relatedColor : "#e5e7eb";
+      }
       if (colorMode === "theme") return themeColors[d.theme] || "#6b7280";
-      if (colorMode === "concept") {
-        if (selectedConcepts.length === 0) return "#94a3b8";
-        // Use color of first matching concept
-        for (let i = 0; i < selectedConcepts.length; i++) {
-          if (hasConcept(d, selectedConcepts[i])) return palette[i % palette.length];
-        }
-        return dimColor;
-      }
       if (colorMode === "year") return d.year !== null ? yearColorScale(d.year) : "#9ca3af";
-      if (colorMode === "author") {
-        if (selectedAuthors.length === 0) return "#94a3b8";
-        for (let i = 0; i < selectedAuthors.length; i++) {
-          if (hasAuthor(d, selectedAuthors[i])) return palette[i % palette.length];
-        }
-        return dimColor;
-      }
-      if (colorMode === "institution") {
-        if (selectedInstitutions.length === 0) {
-          // Default: color by institution using fixed colors
-          return institutionColors[d.inst || ""] || "#94a3b8";
-        }
-        if (d.inst && selectedInstitutions.includes(d.inst)) {
-          return palette[selectedInstitutions.indexOf(d.inst) % palette.length];
-        }
-        return dimColor;
-      }
+      if (colorMode === "institution") return institutionColors[d.inst || ""] || "#94a3b8";
       return "#6b7280";
     }
 
     function getOpacity(d: PaperPoint): number {
-      if (colorMode === "theme") return activeThemes.has(d.theme) ? 0.8 : 0;
-      if (colorMode === "concept" && selectedConcepts.length > 0) {
-        return selectedConcepts.some((c) => hasConcept(d, c)) ? 0.9 : 0.15;
+      if (!isVisible(d)) return 0;
+      if (activeConceptHighlight) {
+        return paperConceptSet[idx(d)]?.has(activeConceptHighlight) ? 0.9 : 0.18;
       }
-      if (colorMode === "author" && selectedAuthors.length > 0) {
-        return selectedAuthors.some((a) => hasAuthor(d, a)) ? 0.9 : 0.15;
-      }
-      if (colorMode === "institution" && selectedInstitutions.length > 0) {
-        return d.inst && selectedInstitutions.includes(d.inst) ? 0.9 : 0.15;
-      }
-      return 0.8;
+      return 0.82;
     }
 
-    function getPointerEvents(d: PaperPoint): string {
-      if (colorMode === "theme") return activeThemes.has(d.theme) ? "all" : "none";
-      return "all";
+    // Scales — computed per method
+    function buildScales(m: Method) {
+      const xs = papers.map((p) => p[m][0]), ys = papers.map((p) => p[m][1]);
+      const xM = (Math.max(...xs) - Math.min(...xs)) * 0.06;
+      const yM = (Math.max(...ys) - Math.min(...ys)) * 0.06;
+      return {
+        x: scaleLinear().domain([Math.min(...xs) - xM, Math.max(...xs) + xM]).range([padding, width - padding]),
+        y: scaleLinear().domain([Math.min(...ys) - yM, Math.max(...ys) + yM]).range([padding, height - padding]),
+      };
     }
+    let scales = buildScales(method);
 
     // SVG
     const svg = select(container).append("svg").attr("width", width).attr("height", height).style("cursor", "grab");
     const g = svg.append("g");
+    const labelLayer = g.append("g").attr("pointer-events", "none");
+
     const tooltip = select("body").append("div")
-      .attr("class", "absolute hidden bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs")
+      .attr("class", "absolute hidden bg-gray-900 text-white text-xs px-3 py-2 rounded-lg shadow-lg pointer-events-none z-50 max-w-xs leading-relaxed")
       .style("position", "absolute");
 
     const zoomBehavior: ZoomBehavior<SVGSVGElement, unknown> = zoom<SVGSVGElement, unknown>()
-      .scaleExtent([0.5, 10])
+      .scaleExtent([0.4, 14])
       .on("zoom", (event) => { g.attr("transform", event.transform); });
     svg.call(zoomBehavior);
     svg.on("dblclick.zoom", null);
 
-    function getScales(method: "tsne" | "pca") {
-      const coords = papers.map((p) => p[method]);
-      const xs = coords.map((c) => c[0]), ys = coords.map((c) => c[1]);
-      const xExt = [Math.min(...xs), Math.max(...xs)];
-      const yExt = [Math.min(...ys), Math.max(...ys)];
-      const xM = (xExt[1] - xExt[0]) * 0.05 || 1;
-      const yM = (yExt[1] - yExt[0]) * 0.05 || 1;
-      return {
-        x: scaleLinear().domain([xExt[0] - xM, xExt[1] + xM]).range([padding, width - padding]),
-        y: scaleLinear().domain([yExt[0] - yM, yExt[1] + yM]).range([padding, height - padding]),
-      };
-    }
-
-    let scales = getScales(currentMethod);
-
+    // Dots
     const dots = g.selectAll<SVGCircleElement, PaperPoint>("circle")
       .data(papers).join("circle")
-      .attr("cx", (d) => scales.x(d[currentMethod][0]))
-      .attr("cy", (d) => scales.y(d[currentMethod][1]))
+      .attr("cx", (d) => scales.x(d[method][0]))
+      .attr("cy", (d) => scales.y(d[method][1]))
       .attr("r", (d) => radius(d))
       .attr("fill", (d) => getFill(d))
       .attr("opacity", (d) => getOpacity(d))
       .attr("stroke", "white").attr("stroke-width", 0.5)
       .style("cursor", "pointer")
+      .attr("pointer-events", (d) => (isVisible(d) ? "all" : "none"));
+
+    // ── Related-papers hover ───────────────────────────────────────────────
+    function getRelatedSet(hi: number): Set<number> {
+      const hc = paperConceptSet[hi];
+      if (!hc || hc.size === 0) return new Set();
+      const related = new Set<number>();
+      papers.forEach((p, i) => {
+        if (i === hi || !isVisible(p)) return;
+        let shared = 0;
+        for (const c of hc) {
+          if (paperConceptSet[i]?.has(c)) { shared++; if (shared >= 2) break; }
+        }
+        if (shared >= 2) related.add(i);
+      });
+      return related;
+    }
+
+    dots
       .on("mouseover", (event, d) => {
-        select(event.currentTarget).attr("opacity", 1).attr("stroke-width", 2);
-        const auth = d.a.length > 0 ? `<br><span class="text-gray-300 text-xs">${d.a.slice(0, 3).join(", ")}${d.a.length > 3 ? " et al." : ""}</span>` : "";
-        const yr = d.year ? ` · ${d.year}` : "";
-        const instLabel = d.inst ? ` · ${d.inst}` : "";
-        const nickLabel = d.nick ? `<span class="text-blue-300 text-xs font-semibold">${d.nick}</span><br>` : "";
-        tooltip.html(`${nickLabel}<strong>${d.title}</strong>${auth}<br><span class="text-gray-400 text-xs">${d.theme}${yr}${instLabel} · ${d.id}</span>`)
-          .classed("hidden", false).style("left", `${event.pageX + 12}px`).style("top", `${event.pageY - 10}px`);
+        const hi = idx(d);
+        const rel = getRelatedSet(hi);
+
+        dots
+          .attr("opacity", (dd) => {
+            if (!isVisible(dd)) return 0;
+            if (dd === d) return 1;
+            if (rel.has(idx(dd))) return 0.9;
+            return 0.07;
+          })
+          .attr("stroke", (dd) => (dd === d ? "white" : rel.has(idx(dd)) ? relatedColor : "white"))
+          .attr("stroke-width", (dd) => (dd === d ? 2 : rel.has(idx(dd)) ? 1.8 : 0.5));
+
+        // Tooltip with concepts
+        const concepts = Array.from(paperConceptSet[hi] || []).slice(0, 4);
+        const conceptsHtml = concepts.length > 0
+          ? `<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:3px">${concepts
+              .map((c) => `<span style="padding:1px 6px;background:rgba(168,85,247,0.25);border:1px solid rgba(168,85,247,0.45);border-radius:999px;font-size:10px;color:#e9d5ff">${c}</span>`)
+              .join("")}</div>`
+          : "";
+        const relInfo = rel.size > 0
+          ? `<div style="margin-top:4px;color:#94a3b8;font-size:10px">${rel.size} related paper${rel.size > 1 ? "s" : ""} highlighted</div>`
+          : "";
+        const auth = d.a.length > 0
+          ? `<div style="color:#94a3b8;margin-top:2px">${d.a.slice(0, 3).join(", ")}${d.a.length > 3 ? " et al." : ""}</div>`
+          : "";
+        const meta = [d.theme, d.year, d.inst].filter(Boolean).join(" · ");
+        const nick = d.nick ? `<div style="color:#60a5fa;font-size:10px;font-weight:600;margin-bottom:2px">${d.nick}</div>` : "";
+
+        tooltip
+          .html(`${nick}<div style="font-weight:600;line-height:1.3">${d.title}</div>${auth}<div style="color:#94a3b8;font-size:10px;margin-top:2px">${meta}</div>${conceptsHtml}${relInfo}`)
+          .classed("hidden", false)
+          .style("left", `${event.pageX + 14}px`)
+          .style("top", `${event.pageY - 12}px`);
       })
       .on("mousemove", (event) => {
-        tooltip.style("left", `${event.pageX + 12}px`).style("top", `${event.pageY - 10}px`);
+        tooltip.style("left", `${event.pageX + 14}px`).style("top", `${event.pageY - 12}px`);
       })
-      .on("mouseout", (event, d) => {
-        select(event.currentTarget).attr("opacity", getOpacity(d)).attr("stroke-width", 0.5);
+      .on("mouseout", () => {
+        dots.attr("opacity", (d) => getOpacity(d)).attr("stroke", "white").attr("stroke-width", 0.5);
         tooltip.classed("hidden", true);
       })
-      .on("click", (_, d) => { openScatterPanel(d); });
+      .on("click", (_, d) => openPanel(d));
 
-    function applyColors() {
-      dots.attr("fill", (d: PaperPoint) => getFill(d))
-        .attr("opacity", (d: PaperPoint) => getOpacity(d))
-        .attr("pointer-events", (d: PaperPoint) => getPointerEvents(d));
+    // ── Cluster labels ─────────────────────────────────────────────────────
+    function renderClusterLabels() {
+      labelLayer.selectAll("*").remove();
+      if (activeConceptHighlight) return; // labels clutter concept mode
+
+      const visible = papers.filter(isVisible);
+      if (visible.length < 12) return;
+
+      const K = Math.min(9, Math.floor(visible.length / 14));
+      const { assignments, centroids } = kMeans(visible.map((p) => p[method]), K);
+
+      // Count concepts per cluster
+      const ccounts: Map<string, number>[] = Array.from({ length: K }, () => new Map());
+      visible.forEach((p, vi) => {
+        const pi = idx(p);
+        for (const concept of (paperConceptSet[pi] || new Set())) {
+          ccounts[assignments[vi]].set(concept, (ccounts[assignments[vi]].get(concept) || 0) + 1);
+        }
+      });
+
+      centroids.forEach((centroid, c) => {
+        const clusterSize = assignments.filter((a) => a === c).length;
+        if (clusterSize < 5) return;
+        const sorted = [...ccounts[c].entries()].sort((a, b) => b[1] - a[1]);
+        if (!sorted[0]) return;
+        const label = sorted[0][0];
+        const scale = 0.85 + Math.min(0.55, clusterSize / 70);
+        labelLayer.append("text")
+          .attr("x", scales.x(centroid[0]))
+          .attr("y", scales.y(centroid[1]))
+          .attr("text-anchor", "middle")
+          .attr("fill", "rgba(50,50,70,0.16)")
+          .attr("font-size", `${12 * scale}px`)
+          .attr("font-weight", "700")
+          .attr("letter-spacing", "0.07em")
+          .attr("pointer-events", "none")
+          .text(label.toUpperCase());
+      });
     }
 
-    function updatePositions() {
-      scales = getScales(currentMethod);
-      dots.attr("cx", (d: PaperPoint) => scales.x(d[currentMethod][0]))
-        .attr("cy", (d: PaperPoint) => scales.y(d[currentMethod][1]));
-      svg.call(zoomBehavior.transform as any, zoomIdentity);
+    function applyAll() {
+      dots
+        .attr("fill", (d) => getFill(d))
+        .attr("opacity", (d) => getOpacity(d))
+        .attr("stroke", "white").attr("stroke-width", 0.5)
+        .attr("pointer-events", (d) => (isVisible(d) ? "all" : "none"));
+      renderClusterLabels();
+      updateSummary();
     }
 
-    // --- Method toggle ---
-    const btnTsne = document.getElementById("btn-tsne")!;
-    const btnPca = document.getElementById("btn-pca")!;
-    const onPill = "px-3 py-1 text-xs font-medium rounded-full bg-[#663399] text-white";
-    const offPill = "px-3 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300";
+    // ── Method toggle (UMAP / t-SNE / PCA) ────────────────────────────────
+    const methodBtns: [Method, HTMLElement | null][] = [
+      ["umap", document.getElementById("btn-method-umap")],
+      ["tsne", document.getElementById("btn-method-tsne")],
+      ["pca",  document.getElementById("btn-method-pca")],
+    ];
 
-    btnTsne.addEventListener("click", () => { currentMethod = "tsne"; btnTsne.className = onPill; btnPca.className = offPill; updatePositions(); });
-    btnPca.addEventListener("click", () => { currentMethod = "pca"; btnPca.className = onPill; btnTsne.className = offPill; updatePositions(); });
+    function switchMethod(m: Method) {
+      method = m;
+      scales = buildScales(m);
+      methodBtns.forEach(([k, b]) => { if (b) b.className = k === m ? onPill : offPill; });
+      dots
+        .transition().duration(600)
+        .attr("cx", (d) => scales.x(d[m][0]))
+        .attr("cy", (d) => scales.y(d[m][1]));
+      // Re-render labels after transition
+      setTimeout(() => renderClusterLabels(), 650);
+    }
+    methodBtns.forEach(([m, b]) => b?.addEventListener("click", () => switchMethod(m)));
 
-    // --- Color mode ---
-    const colorBtns: Record<string, HTMLElement> = {
-      theme: document.getElementById("btn-color-theme")!,
-      concept: document.getElementById("btn-color-concept")!,
-      year: document.getElementById("btn-color-year")!,
-      author: document.getElementById("btn-color-author")!,
-      institution: document.getElementById("btn-color-institution")!,
-    };
-    const subControls = document.getElementById("sub-controls")!;
+    // ── Year selects ───────────────────────────────────────────────────────
+    const yearFromSel = document.getElementById("year-from") as HTMLSelectElement;
+    const yearToSel = document.getElementById("year-to") as HTMLSelectElement;
+    for (const y of uniqueYears) {
+      yearFromSel.appendChild(Object.assign(document.createElement("option"), { value: y, textContent: y }));
+      yearToSel.appendChild(Object.assign(document.createElement("option"), { value: y, textContent: y }));
+    }
+    yearToSel.value = String(maxYear);
 
-    function setColorMode(mode: "theme" | "concept" | "year" | "author" | "institution") {
+    yearFromSel.addEventListener("change", () => {
+      yearFrom = parseInt(yearFromSel.value);
+      if (yearFrom > yearTo) { yearTo = yearFrom; yearToSel.value = yearFromSel.value; }
+      applyAll();
+    });
+    yearToSel.addEventListener("change", () => {
+      yearTo = parseInt(yearToSel.value);
+      if (yearTo < yearFrom) { yearFrom = yearTo; yearFromSel.value = yearToSel.value; }
+      applyAll();
+    });
+
+    // ── Concept highlight search ───────────────────────────────────────────
+    const conceptSearchEl = document.getElementById("concept-search") as HTMLInputElement;
+    const conceptDropdown = document.getElementById("concept-dropdown")!;
+    const conceptClearBtn = document.getElementById("concept-clear")!;
+
+    function setConceptHighlight(name: string | null) {
+      activeConceptHighlight = name;
+      conceptSearchEl.value = name ?? "";
+      conceptClearBtn.classList.toggle("hidden", !name);
+      applyAll();
+    }
+
+    function showConceptDD(filter: string) {
+      const list = filter
+        ? (topConcepts as any[]).filter((c: any) => c.name.toLowerCase().includes(filter.toLowerCase())).slice(0, 15)
+        : (topConcepts as any[]).slice(0, 15);
+      conceptDropdown.innerHTML = list.length === 0
+        ? '<div class="px-3 py-2 text-xs text-gray-400">No matches</div>'
+        : "";
+      for (const c of list) {
+        const it = document.createElement("button");
+        it.className = "w-full text-left px-3 py-1.5 text-xs hover:bg-gray-50 flex justify-between items-center";
+        it.innerHTML = `<span>${c.name}</span><span class="text-gray-400">${c.count}</span>`;
+        it.onmousedown = (e) => { e.preventDefault(); setConceptHighlight(c.name); conceptDropdown.classList.add("hidden"); };
+        conceptDropdown.appendChild(it);
+      }
+      conceptDropdown.classList.remove("hidden");
+    }
+    conceptSearchEl.addEventListener("focus", () => showConceptDD(conceptSearchEl.value));
+    conceptSearchEl.addEventListener("input", () => { if (!conceptSearchEl.value) setConceptHighlight(null); showConceptDD(conceptSearchEl.value); });
+    conceptSearchEl.addEventListener("blur", () => setTimeout(() => conceptDropdown.classList.add("hidden"), 150));
+    conceptClearBtn.addEventListener("click", () => setConceptHighlight(null));
+
+    // ── Color mode ─────────────────────────────────────────────────────────
+    const colorBtns: [string, HTMLElement | null][] = [
+      ["theme", document.getElementById("btn-color-theme")],
+      ["year", document.getElementById("btn-color-year")],
+      ["institution", document.getElementById("btn-color-institution")],
+    ];
+    function setColorMode(mode: "theme" | "year" | "institution") {
       colorMode = mode;
-      selectedConcepts.length = 0;
-      selectedAuthors.length = 0;
-      selectedInstitutions.length = 0;
-      for (const [k, b] of Object.entries(colorBtns)) b.className = k === mode ? onPill : offPill;
+      colorBtns.forEach(([k, b]) => { if (b) b.className = k === mode ? onPill : offPill; });
       buildSubControls();
-      applyColors();
+      applyAll();
     }
-    for (const [m, b] of Object.entries(colorBtns)) {
-      if (!b) { console.error("Missing button:", m); continue; }
-      b.addEventListener("click", () => setColorMode(m as any));
+    colorBtns.forEach(([m, b]) => b?.addEventListener("click", () => setColorMode(m as any)));
+
+    // ── Sub-controls ───────────────────────────────────────────────────────
+    const subControls = document.getElementById("sub-controls")!;
+    const filterSummaryEl = document.getElementById("filter-summary")!;
+    const filterLabelEl = document.getElementById("filter-label")!;
+
+    document.getElementById("clear-filters")!.addEventListener("click", () => {
+      yearFrom = minYear; yearTo = maxYear;
+      yearFromSel.value = String(minYear); yearToSel.value = String(maxYear);
+      setConceptHighlight(null);
+      Object.keys(themeColors).forEach((t) => activeThemes.add(t));
+      applyAll(); buildSubControls();
+    });
+
+    function updateSummary() {
+      const visible = papers.filter(isVisible).length;
+      const parts: string[] = [];
+      if (yearFrom > minYear || yearTo < maxYear) parts.push(`${yearFrom}–${yearTo}`);
+      if (activeConceptHighlight) parts.push(`concept: "${activeConceptHighlight}"`);
+      if (colorMode === "theme" && activeThemes.size < Object.keys(themeColors).length)
+        parts.push(`${activeThemes.size} theme${activeThemes.size > 1 ? "s" : ""}`);
+      if (parts.length > 0 || visible < papers.length) {
+        filterLabelEl.textContent = `${visible} of ${papers.length} papers${parts.length ? " · " + parts.join(", ") : ""}`;
+        filterSummaryEl.classList.remove("hidden");
+      } else {
+        filterSummaryEl.classList.add("hidden");
+      }
     }
 
     function buildSubControls() {
       subControls.innerHTML = "";
-      if (colorMode === "theme") buildThemeToggles();
-      else if (colorMode === "concept") buildConceptPicker();
-      else if (colorMode === "year") buildYearLegend();
-      else if (colorMode === "author") buildAuthorPicker();
-      else if (colorMode === "institution") buildInstitutionPicker();
+      if (colorMode === "theme") {
+        const w = document.createElement("div"); w.className = "flex flex-wrap gap-1";
+        for (const [theme, color] of Object.entries(themeColors)) {
+          const b = document.createElement("button");
+          b.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors";
+          b.style.cssText = `border-color:${color};color:${color};background:${color}20;opacity:${activeThemes.has(theme) ? 1 : 0.3}`;
+          b.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${theme}`;
+          b.onclick = () => {
+            activeThemes.has(theme) ? activeThemes.delete(theme) : activeThemes.add(theme);
+            b.style.opacity = activeThemes.has(theme) ? "1" : "0.3";
+            applyAll();
+          };
+          w.appendChild(b);
+        }
+        subControls.appendChild(w);
+      } else if (colorMode === "year") {
+        const w = document.createElement("div"); w.className = "flex items-center gap-2 flex-wrap";
+        const bw = document.createElement("div"); bw.className = "flex items-center gap-1";
+        ["" + minYear, "", "" + maxYear].forEach((t, i) => {
+          if (i === 1) {
+            const bar = document.createElement("div");
+            bar.className = "rounded-full h-3 w-28";
+            bar.style.background = "linear-gradient(to right, #6366f1, #06b6d4, #10b981)";
+            bw.appendChild(bar);
+          } else {
+            const s = document.createElement("span"); s.className = "text-xs text-gray-500"; s.textContent = t;
+            bw.appendChild(s);
+          }
+        });
+        w.appendChild(bw);
+        const cw = document.createElement("div"); cw.className = "flex flex-wrap gap-1 ml-2";
+        for (const y of uniqueYears) {
+          const s = document.createElement("span");
+          s.className = "px-2 py-0.5 text-xs rounded-full font-medium cursor-pointer hover:opacity-75 transition-opacity";
+          const c = yearColorScale(y);
+          s.style.cssText = `background:${c}30;color:${c};border:1px solid ${c}50`;
+          s.textContent = `${y} (${papers.filter((p) => p.year === y).length})`;
+          s.onclick = () => { yearFrom = y; yearTo = y; yearFromSel.value = String(y); yearToSel.value = String(y); applyAll(); };
+          cw.appendChild(s);
+        }
+        w.appendChild(cw); subControls.appendChild(w);
+      } else if (colorMode === "institution") {
+        const w = document.createElement("div"); w.className = "flex flex-wrap gap-1";
+        for (const inst of (topInstitutions || [])) {
+          const color = institutionColors[inst.name] || "#94a3b8";
+          const b = document.createElement("button");
+          b.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border";
+          b.style.cssText = `border-color:${color};color:${color};background:${color}20`;
+          b.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${inst.name} <span class="opacity-60 text-[10px]">${inst.count}</span>`;
+          w.appendChild(b);
+        }
+        subControls.appendChild(w);
+      }
     }
 
-    // Theme toggles
-    function buildThemeToggles() {
-      const w = document.createElement("div"); w.className = "flex flex-wrap gap-1";
-      for (const [theme, color] of Object.entries(themeColors)) {
-        const b = document.createElement("button");
-        b.className = "flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border transition-colors";
-        b.style.cssText = `border-color:${color};color:${color};background:${color}20;opacity:${activeThemes.has(theme) ? 1 : 0.3}`;
-        b.innerHTML = `<span class="w-2 h-2 rounded-full" style="background:${color}"></span>${theme}`;
-        b.onclick = () => { activeThemes.has(theme) ? activeThemes.delete(theme) : activeThemes.add(theme); b.style.opacity = activeThemes.has(theme) ? "1" : "0.3"; applyColors(); };
-        w.appendChild(b);
-      }
-      subControls.appendChild(w);
-    }
-
-    // Concept picker (multi-select)
-    function buildConceptPicker() {
-      const w = document.createElement("div"); w.className = "flex flex-col gap-2 w-full";
-
-      // Search
-      const sr = document.createElement("div"); sr.className = "relative";
-      const inp = document.createElement("input");
-      inp.type = "text"; inp.placeholder = "Search concepts...";
-      inp.className = "w-full max-w-sm px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]";
-
-      const dd = document.createElement("div");
-      dd.className = "absolute left-0 top-full mt-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto hidden";
-
-      function toggleConcept(name: string) {
-        const i = selectedConcepts.indexOf(name);
-        if (i >= 0) selectedConcepts.splice(i, 1);
-        else if (selectedConcepts.length < palette.length) selectedConcepts.push(name);
-        applyColors(); buildConceptPicker();
-      }
-
-      function showDD(f: string) {
-        const list = f.length > 0 ? topConcepts.filter((c: any) => c.name.toLowerCase().includes(f.toLowerCase())).slice(0, 20) : topConcepts.slice(0, 20);
-        dd.innerHTML = list.length === 0 ? '<div class="px-3 py-2 text-xs text-gray-400">No matches</div>' : "";
-        for (const c of list) {
-          const ci = selectedConcepts.indexOf(c.name);
-          const it = document.createElement("button");
-          it.className = "w-full text-left px-3 py-1.5 text-sm hover:bg-gray-50 flex justify-between items-center";
-          const dot = ci >= 0 ? `<span class="w-2 h-2 rounded-full inline-block mr-1" style="background:${palette[ci]}"></span>` : "";
-          it.innerHTML = `<span>${dot}${c.name}</span><span class="text-xs text-gray-400">${c.count}</span>`;
-          it.onmousedown = (e) => { e.preventDefault(); toggleConcept(c.name); inp.value = ""; dd.classList.add("hidden"); };
-          dd.appendChild(it);
-        }
-        dd.classList.remove("hidden");
-      }
-      inp.onfocus = () => showDD(inp.value);
-      inp.oninput = () => showDD(inp.value);
-      inp.onblur = () => setTimeout(() => dd.classList.add("hidden"), 150);
-      sr.appendChild(inp); sr.appendChild(dd); w.appendChild(sr);
-
-      // Chips (top concepts)
-      const cr = document.createElement("div"); cr.className = "flex flex-wrap gap-1";
-      for (const c of topConcepts.slice(0, 12)) {
-        const ci = selectedConcepts.indexOf(c.name);
-        const ch = document.createElement("button");
-        if (ci >= 0) {
-          ch.className = "px-2 py-0.5 text-xs rounded-full border transition-colors font-medium";
-          ch.style.cssText = `border-color:${palette[ci]};color:${palette[ci]};background:${palette[ci]}15`;
-        } else {
-          ch.className = "px-2 py-0.5 text-xs rounded-full border border-gray-300 text-gray-500 hover:border-gray-400 transition-colors";
-        }
-        ch.textContent = c.name;
-        ch.onclick = () => toggleConcept(c.name);
-        cr.appendChild(ch);
-      }
-      w.appendChild(cr);
-
-      // Legend for selected
-      if (selectedConcepts.length > 0) {
-        const legend = document.createElement("div"); legend.className = "flex flex-wrap gap-2 text-xs text-gray-500";
-        for (let i = 0; i < selectedConcepts.length; i++) {
-          const count = ((conceptIndex as any)[selectedConcepts[i]] || []).length;
-          const item = document.createElement("span");
-          item.innerHTML = `<span class="inline-block w-2 h-2 rounded-full mr-0.5" style="background:${palette[i]}"></span><strong>${selectedConcepts[i]}</strong> (${count})`;
-          legend.appendChild(item);
-        }
-        w.appendChild(legend);
-      }
-      subControls.appendChild(w);
-    }
-
-    // Year legend
-    function buildYearLegend() {
-      const w = document.createElement("div"); w.className = "flex items-center gap-2 flex-wrap";
-      const bw = document.createElement("div"); bw.className = "flex items-center gap-1";
-      const lMin = document.createElement("span"); lMin.className = "text-xs text-gray-500"; lMin.textContent = String(minYear);
-      const bar = document.createElement("div"); bar.className = "rounded-full h-3 w-32"; bar.style.background = "linear-gradient(to right, #6366f1, #06b6d4, #10b981)";
-      const lMax = document.createElement("span"); lMax.className = "text-xs text-gray-500"; lMax.textContent = String(maxYear);
-      bw.append(lMin, bar, lMax); w.appendChild(bw);
-
-      const cw = document.createElement("div"); cw.className = "flex flex-wrap gap-1 ml-2";
-      for (const y of [...new Set(years)].sort()) {
-        const s = document.createElement("span");
-        s.className = "px-2 py-0.5 text-xs rounded-full font-medium";
-        const c = yearColorScale(y);
-        s.style.cssText = `background:${c}30;color:${c};border:1px solid ${c}50`;
-        s.textContent = `${y} (${papers.filter((p) => p.year === y).length})`;
-        cw.appendChild(s);
-      }
-      w.appendChild(cw); subControls.appendChild(w);
-    }
-
-    // Author picker (multi-select)
-    function buildAuthorPicker() {
-      const w = document.createElement("div"); w.className = "flex flex-col gap-2 w-full";
-
-      const sr = document.createElement("div"); sr.className = "relative";
-      const inp = document.createElement("input");
-      inp.type = "text"; inp.placeholder = "Search authors...";
-      inp.className = "w-full max-w-sm px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#663399]/30 focus:border-[#663399]";
-
-      const dd = document.createElement("div");
-      dd.className = "absolute left-0 top-full mt-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto hidden";
-
-      function toggleAuthor(name: string) {
-        const i = selectedAuthors.indexOf(name);
-        if (i >= 0) selectedAuthors.splice(i, 1);
-        else if (selectedAuthors.length < palette.length) selectedAuthors.push(name);
-        applyColors(); buildAuthorPicker();
-      }
-
-      function showDD(f: string) {
-        const list = f.length > 0 ? topAuthors.filter((a: any) => a.name.toLowerCase().includes(f.toLowerCase())).slice(0, 20) : topAuthors.slice(0, 20);
-        dd.innerHTML = list.length === 0 ? '<div class="px-3 py-2 text-xs text-gray-400">No matches</div>' : "";
-        for (const a of list) {
-          const ai = selectedAuthors.indexOf(a.name);
-          const it = document.createElement("button");
-          it.className = "w-full text-left px-3 py-1.5 text-sm hover:bg-gray-50 flex justify-between items-center";
-          const dot = ai >= 0 ? `<span class="w-2 h-2 rounded-full inline-block mr-1" style="background:${palette[ai]}"></span>` : "";
-          it.innerHTML = `<span>${dot}${a.name}</span><span class="text-xs text-gray-400">${a.count}</span>`;
-          it.onmousedown = (e) => { e.preventDefault(); toggleAuthor(a.name); inp.value = ""; dd.classList.add("hidden"); };
-          dd.appendChild(it);
-        }
-        dd.classList.remove("hidden");
-      }
-      inp.onfocus = () => showDD(inp.value);
-      inp.oninput = () => showDD(inp.value);
-      inp.onblur = () => setTimeout(() => dd.classList.add("hidden"), 150);
-      sr.appendChild(inp); sr.appendChild(dd); w.appendChild(sr);
-
-      // Top author chips
-      const cr = document.createElement("div"); cr.className = "flex flex-wrap gap-1";
-      for (const a of topAuthors.slice(0, 10)) {
-        const ai = selectedAuthors.indexOf(a.name);
-        const ch = document.createElement("button");
-        if (ai >= 0) {
-          ch.className = "px-2 py-0.5 text-xs rounded-full border transition-colors font-medium";
-          ch.style.cssText = `border-color:${palette[ai]};color:${palette[ai]};background:${palette[ai]}15`;
-        } else {
-          ch.className = "px-2 py-0.5 text-xs rounded-full border border-gray-300 text-gray-500 hover:border-gray-400 transition-colors";
-        }
-        ch.textContent = `${a.name} (${a.count})`;
-        ch.onclick = () => toggleAuthor(a.name);
-        cr.appendChild(ch);
-      }
-      w.appendChild(cr);
-
-      // Legend
-      if (selectedAuthors.length > 0) {
-        const legend = document.createElement("div"); legend.className = "flex flex-wrap gap-2 text-xs text-gray-500";
-        for (let i = 0; i < selectedAuthors.length; i++) {
-          const count = ((authorIndex as any)[selectedAuthors[i]] || []).length;
-          const item = document.createElement("span");
-          item.innerHTML = `<span class="inline-block w-2 h-2 rounded-full mr-0.5" style="background:${palette[i]}"></span><strong>${selectedAuthors[i]}</strong> (${count})`;
-          legend.appendChild(item);
-        }
-        w.appendChild(legend);
-      }
-      subControls.appendChild(w);
-    }
-
-    // Institution picker
-    function buildInstitutionPicker() {
-      const w = document.createElement("div"); w.className = "flex flex-wrap gap-2";
-      for (const inst of (topInstitutions || [])) {
-        const si = selectedInstitutions.indexOf(inst.name);
-        const isSelected = si >= 0;
-        const defaultColor = institutionColors[inst.name] || "#6b7280";
-        const activeColor = isSelected ? palette[si % palette.length] : defaultColor;
-        const b = document.createElement("button");
-        b.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors";
-        if (selectedInstitutions.length === 0) {
-          // No selection: show all with their default colors
-          b.style.cssText = `border-color:${defaultColor};color:${defaultColor};background:${defaultColor}20`;
-        } else if (isSelected) {
-          b.style.cssText = `border-color:${activeColor};color:${activeColor};background:${activeColor}15`;
-        } else {
-          b.style.cssText = "border-color:#d1d5db;color:#9ca3af;background:transparent";
-        }
-        b.innerHTML = `<span class="w-2.5 h-2.5 rounded-full" style="background:${selectedInstitutions.length === 0 ? defaultColor : (isSelected ? activeColor : '#d1d5db')}"></span>${inst.name} <span class="text-[10px] opacity-60">${inst.count}</span>`;
-        b.onclick = () => {
-          const idx = selectedInstitutions.indexOf(inst.name);
-          if (idx >= 0) selectedInstitutions.splice(idx, 1);
-          else if (selectedInstitutions.length < palette.length) selectedInstitutions.push(inst.name);
-          applyColors(); buildInstitutionPicker();
-        };
-        w.appendChild(b);
-      }
-      // Show count of papers with no institution data
-      const unknownCount = papers.filter(p => !p.inst).length;
-      if (unknownCount > 0) {
-        const s = document.createElement("span");
-        s.className = "text-xs text-gray-400 self-center ml-1";
-        s.textContent = `+ ${unknownCount} unaffiliated`;
-        w.appendChild(s);
-      }
-      subControls.appendChild(w);
-    }
-
-    // ── Side panel ──
-    const scatterPanel = document.getElementById("scatter-panel")!;
-    const spHeader = document.getElementById("sp-header")!;
+    // ── Side panel ─────────────────────────────────────────────────────────
+    const panelEl = document.getElementById("scatter-panel")!;
     const spTitle = document.getElementById("sp-title")!;
     const spTheme = document.getElementById("sp-theme")!;
     const spBody = document.getElementById("sp-body")!;
 
     function setPanelOpen(open: boolean) {
-      if (open) {
-        scatterPanel.classList.remove("hidden");
-        document.body.style.marginRight = "20rem";
-      } else {
-        scatterPanel.classList.add("hidden");
-        document.body.style.marginRight = "";
-      }
+      if (open) { panelEl.classList.remove("hidden"); document.body.style.marginRight = "20rem"; }
+      else { panelEl.classList.add("hidden"); document.body.style.marginRight = ""; }
     }
     document.getElementById("sp-close")!.addEventListener("click", () => setPanelOpen(false));
 
-    function openScatterPanel(d: PaperPoint) {
-      spHeader.textContent = "Paper Details";
+    function openPanel(d: PaperPoint) {
       spTitle.textContent = d.title;
       spTheme.textContent = d.theme;
       spTheme.style.color = themeColors[d.theme] || "#6b7280";
 
+      const pi = idx(d);
+      const concepts = Array.from(paperConceptSet[pi] || []);
       let html = "";
-      if (d.a.length > 0) {
-        html += `<p class="text-xs text-gray-500 mb-2">${d.a.join(", ")}</p>`;
-      }
+      if (d.nick) html += `<p class="text-xs text-blue-500 font-semibold mb-1">${d.nick}</p>`;
+      if (d.a.length > 0) html += `<p class="text-xs text-gray-500 mb-2">${d.a.join(", ")}</p>`;
       html += `<p class="text-xs text-gray-400 mb-1">${d.id}</p>`;
-      if (d.year) html += `<p class="text-xs text-gray-400 mb-1">Published: ${d.year}</p>`;
-      if (d.inst) html += `<p class="text-xs text-gray-400 mb-1">Institution: ${d.inst}</p>`;
-      if (d.cc > 0) html += `<p class="text-xs text-gray-400 mb-3">${d.cc} concepts</p>`;
+      if (d.year) html += `<p class="text-xs text-gray-400 mb-1">Year: ${d.year}</p>`;
+      if (d.inst) html += `<p class="text-xs text-gray-400 mb-3">Institution: ${d.inst}</p>`;
 
-      // Concepts for this paper
-      const i = idx(d);
-      const concepts = Array.from(paperConceptSet[i] || []);
       if (concepts.length > 0) {
+        html += '<p class="text-xs text-gray-500 font-medium mb-1">Concepts — click to highlight on map</p>';
         html += '<div class="flex flex-wrap gap-1 mb-3">';
         for (const c of concepts) {
-          html += `<span class="inline-block text-xs px-2 py-0.5 rounded-full border border-gray-200 text-gray-600">${c}</span>`;
+          const isActive = activeConceptHighlight === c;
+          html += `<button class="concept-chip text-xs px-2 py-0.5 rounded-full border transition-colors ${
+            isActive
+              ? "border-[#a855f7] text-[#a855f7] bg-[#a855f720]"
+              : "border-gray-200 text-gray-600 hover:border-[#a855f7] hover:text-[#a855f7]"
+          }" data-concept="${c}">${c}</button>`;
         }
-        html += '</div>';
+        html += "</div>";
       }
 
-      // Links
       html += '<div class="mt-3 pt-3 border-t border-gray-100 space-y-2">';
-      if (d.url) {
-        html += `<a href="${d.url}" class="block text-sm text-blue-600 hover:text-blue-800 font-medium">Read blog post &rarr;</a>`;
-      }
+      if (d.url) html += `<a href="${d.url}" class="block text-sm text-blue-600 hover:text-blue-800 font-medium">Read blog post &rarr;</a>`;
       html += `<a href="https://arxiv.org/abs/${d.id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">View on arXiv &nearr;</a>`;
       html += `<a href="https://arxiv.org/pdf/${d.id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">Download PDF &nearr;</a>`;
-      html += '</div>';
+      html += "</div>";
 
       spBody.innerHTML = html;
-      setPanelOpen(true);
 
-      // Show blog post preview if available
+      // Concept chips → highlight on map
+      spBody.querySelectorAll<HTMLButtonElement>(".concept-chip").forEach((el) => {
+        el.addEventListener("click", () => {
+          const c = el.dataset.concept!;
+          setConceptHighlight(activeConceptHighlight === c ? null : c);
+          openPanel(d); // re-render to update chip styles
+        });
+      });
+
+      setPanelOpen(true);
       showBlogPreview(d);
     }
 
-    // ── Blog post preview below map ──
+    // ── Blog preview ────────────────────────────────────────────────────────
     const blogPreview = document.getElementById("blog-preview")!;
     const blogContent = document.getElementById("blog-content")!;
-    const blogToggle = document.getElementById("blog-toggle")!;
     const blogToggleIcon = document.getElementById("blog-toggle-icon")!;
     let blogExpanded = true;
 
-    blogToggle.addEventListener("click", () => {
+    document.getElementById("blog-toggle")!.addEventListener("click", () => {
       blogExpanded = !blogExpanded;
       blogContent.style.display = blogExpanded ? "" : "none";
       blogToggleIcon.innerHTML = blogExpanded ? "&#9660;" : "&#9654;";
     });
 
     async function showBlogPreview(d: PaperPoint) {
-      if (!d.slug) {
-        blogPreview.classList.add("hidden");
-        return;
-      }
-
+      if (!d.slug) { blogPreview.classList.add("hidden"); return; }
       blogPreview.classList.remove("hidden");
-      blogContent.innerHTML = '<p class="text-gray-400 text-sm">Loading blog post...</p>';
-
+      blogContent.innerHTML = '<p class="text-gray-400 text-sm">Loading…</p>';
       try {
         const resp = await fetch(import.meta.env.BASE_URL + "posts/" + d.slug + "/");
-        if (!resp.ok) throw new Error("Not found");
+        if (!resp.ok) throw new Error();
         const html = await resp.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        // Extract the main article content
+        const doc = new DOMParser().parseFromString(html, "text/html");
         const article = doc.querySelector("article") || doc.querySelector("main") || doc.querySelector(".prose");
-        if (article) {
-          blogContent.innerHTML = article.innerHTML;
-        } else {
-          blogContent.innerHTML = '<p class="text-gray-400 text-sm">Could not extract blog content.</p>';
-        }
+        blogContent.innerHTML = article?.innerHTML || '<p class="text-gray-400 text-sm">Could not extract content.</p>';
       } catch {
-        blogContent.innerHTML = `<p class="text-gray-400 text-sm">Blog post not available. <a href="${d.url}" class="text-blue-600 hover:underline">Open in full page &rarr;</a></p>`;
+        blogContent.innerHTML = `<p class="text-gray-400 text-sm">Preview unavailable. <a href="${d.url}" class="text-blue-600 hover:underline">Open full post →</a></p>`;
       }
     }
 
-    // Init sub-controls
+    // ── Kick off ───────────────────────────────────────────────────────────
     buildSubControls();
+    renderClusterLabels();
+    updateSummary();
   }
 
   function safeInit() {
     try { init(); } catch (e: any) {
       console.error("Scatter init error:", e);
       const c = document.getElementById("scatter-container");
-      if (c) c.innerHTML = `<div style="padding:2rem;color:red;font-size:14px;">Error: ${e.message}</div>`;
+      if (c) c.innerHTML = `<div style="padding:2rem;color:red;font-size:14px">Error: ${e.message}</div>`;
     }
   }
-  function scheduleInit() { requestAnimationFrame(() => safeInit()); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", scheduleInit);
-  else scheduleInit();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(safeInit));
+  else requestAnimationFrame(safeInit);
 </script>
