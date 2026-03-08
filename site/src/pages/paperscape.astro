@@ -66,6 +66,14 @@ const hasPapers = papers.length > 0;
         style="height: 650px; cursor: grab;"
       >
         <canvas id="ps-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <!-- Zoom controls -->
+        <div class="absolute top-3 right-3 flex flex-col gap-1 z-10">
+          <button id="zoom-in" class="w-9 h-9 bg-white/90 hover:bg-white rounded-lg shadow text-lg font-bold text-gray-700 hover:text-[#663399] transition-colors flex items-center justify-center" title="Zoom in">+</button>
+          <button id="zoom-out" class="w-9 h-9 bg-white/90 hover:bg-white rounded-lg shadow text-lg font-bold text-gray-700 hover:text-[#663399] transition-colors flex items-center justify-center" title="Zoom out">&minus;</button>
+          <button id="zoom-reset" class="w-9 h-9 bg-white/90 hover:bg-white rounded-lg shadow text-xs font-bold text-gray-700 hover:text-[#663399] transition-colors flex items-center justify-center mt-1" title="Reset view">&#8634;</button>
+        </div>
+        <!-- Zoom level indicator -->
+        <div id="zoom-level" class="absolute bottom-3 right-3 text-xs text-white/50 z-10"></div>
       </div>
 
       <div class="mt-3 flex items-center justify-between">
@@ -198,10 +206,12 @@ const hasPapers = papers.length > 0;
     const tileCache = new Map<string, HTMLImageElement | "loading" | "error">();
 
     function getBestTiling() {
-      for (const t of tilings) {
-        if (t.tw * camScale >= TILE_PX * 0.5) return t;
+      // Iterate from highest resolution (z=5, smallest tiles) to lowest (z=0).
+      // Pick the highest-res tiling whose tiles are at least TILE_PX/2 on screen.
+      for (let i = tilings.length - 1; i >= 0; i--) {
+        if (tilings[i].tw * camScale >= TILE_PX * 0.5) return tilings[i];
       }
-      return tilings[tilings.length - 1];
+      return tilings[0];
     }
 
     function drawTiles() {
@@ -367,6 +377,13 @@ const hasPapers = papers.length > 0;
       ctx.clearRect(0, 0, W, H);
       drawTiles();
       drawPapers();
+
+      // Update zoom indicator
+      const zl = document.getElementById("zoom-level");
+      if (zl) {
+        const ratio = camScale / initialScale;
+        zl.textContent = `${ratio.toFixed(1)}x · z${getBestTiling().z}`;
+      }
 
       // Keep animating for the pulse glow
       if (animating) {
@@ -663,6 +680,30 @@ const hasPapers = papers.length > 0;
       }
       requestAnimationFrame(step);
     }
+
+    // ── Zoom buttons ──
+    const zoomInBtn = document.getElementById("zoom-in")!;
+    const zoomOutBtn = document.getElementById("zoom-out")!;
+    const zoomResetBtn = document.getElementById("zoom-reset")!;
+    const initCamX = camX;
+    const initCamY = camY;
+
+    function zoomByFactor(factor: number) {
+      const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * factor));
+      // Zoom toward center of viewport
+      const [wx, wy] = screenToWorld(W / 2, H / 2);
+      camScale = newScale;
+      camX = wx - (W / 2 - W / 2) / camScale;
+      camY = wy - (H / 2 - H / 2) / camScale;
+      scheduleRender();
+      restartAnimation();
+    }
+
+    zoomInBtn.addEventListener("click", () => zoomByFactor(2));
+    zoomOutBtn.addEventListener("click", () => zoomByFactor(0.5));
+    zoomResetBtn.addEventListener("click", () => {
+      smoothZoomTo(initCamX, initCamY, initialScale);
+    });
 
     // ── Initial render ──
     render();
