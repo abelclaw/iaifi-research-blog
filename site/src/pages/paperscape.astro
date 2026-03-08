@@ -28,7 +28,7 @@ const hasPapers = papers.length > 0;
       highlighted circles are IAIFI publications.
     </p>
     <p class="text-xs text-gray-400">
-      Scroll to zoom. Drag to pan. Hover for details. Click to visit.
+      Scroll to zoom. Drag to pan. Click a paper to inspect.
     </p>
   </section>
 
@@ -76,6 +76,19 @@ const hasPapers = papers.length > 0;
         <div id="zoom-level" class="absolute bottom-3 right-3 text-xs text-white/50 z-10"></div>
       </div>
 
+      <!-- Side panel -->
+      <div id="paper-panel" class="hidden fixed top-0 right-0 h-full w-80 bg-white shadow-xl border-l border-gray-200 z-50 overflow-y-auto">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 id="panel-header" class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Paper</h3>
+            <button id="close-panel" class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+          </div>
+          <h2 id="panel-title" class="text-base font-bold text-gray-900 mb-1"></h2>
+          <p id="panel-theme" class="text-xs mb-3"></p>
+          <div id="panel-body"></div>
+        </div>
+      </div>
+
       <div class="mt-3 flex items-center justify-between">
         <div class="text-xs text-gray-400">
           Showing <span id="paper-count" class="font-medium text-gray-600">{papers.length}</span> IAIFI papers
@@ -88,13 +101,6 @@ const hasPapers = papers.length > 0;
     </>
   )}
 </BaseLayout>
-
-<style>
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-  }
-</style>
 
 <script>
   import psData from "../data/paperscape-data.json";
@@ -110,6 +116,24 @@ const hasPapers = papers.length > 0;
     r: number;
     nc: number;
   }
+
+  // arXiv field labels from Paperscape zone data (z=0)
+  const fieldLabels = [
+    { x: 23525, y: -32174, r: 94074, name: "astrophysics", code: "astro-ph" },
+    { x: 3629, y: 24158, r: 97061, name: "condensed matter", code: "cond-mat" },
+    { x: -15730, y: 47150, r: 99693, name: "computer science", code: "cs" },
+    { x: -16813, y: -27233, r: 77738, name: "high energy experiment", code: "hep-ex" },
+    { x: -19972, y: -9949, r: 64238, name: "high energy lattice", code: "hep-lat" },
+    { x: -13450, y: -23918, r: 78335, name: "high energy phenomenology", code: "hep-ph" },
+    { x: -898, y: -5209, r: 74684, name: "high energy theory", code: "hep-th" },
+    { x: -24515, y: 17003, r: 107648, name: "mathematics", code: "math" },
+    { x: -3326, y: 9054, r: 89106, name: "mathematical physics", code: "math-ph" },
+    { x: -20726, y: -13660, r: 72827, name: "nuclear experiment", code: "nucl-ex" },
+    { x: -18579, y: 32293, r: 86505, name: "quantitative biology", code: "q-bio" },
+    { x: -27327, y: 32545, r: 77755, name: "quantitative finance", code: "q-fin" },
+    { x: 18750, y: 16301, r: 95165, name: "quantum physics", code: "quant-ph" },
+    { x: -19048, y: 37523, r: 87167, name: "statistics", code: "stat" },
+  ];
 
   async function init() {
     const container = document.getElementById("ps-container");
@@ -206,8 +230,6 @@ const hasPapers = papers.length > 0;
     const tileCache = new Map<string, HTMLImageElement | "loading" | "error">();
 
     function getBestTiling() {
-      // Iterate from highest resolution (z=5, smallest tiles) to lowest (z=0).
-      // Pick the highest-res tiling whose tiles are at least TILE_PX/2 on screen.
       for (let i = tilings.length - 1; i >= 0; i--) {
         if (tilings[i].tw * camScale >= TILE_PX * 0.5) return tilings[i];
       }
@@ -260,6 +282,34 @@ const hasPapers = papers.length > 0;
       ctx.globalAlpha = 1.0;
     }
 
+    // ── Field labels ──
+    function drawFieldLabels() {
+      const zoomRatio = camScale / initialScale;
+      // Only show at lower zoom levels (they get too big when zoomed in)
+      if (zoomRatio > 4) return;
+
+      for (const f of fieldLabels) {
+        const [sx, sy] = worldToScreen(f.x, f.y);
+        // Skip if off screen
+        if (sx < -200 || sx > W + 200 || sy < -200 || sy > H + 200) continue;
+
+        // Scale font size with zoom, with limits
+        const fontSize = Math.max(10, Math.min(28, 14 * Math.pow(zoomRatio, 0.5)));
+
+        // Draw field name
+        ctx.font = `bold ${fontSize}px system-ui, sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.25)";
+        ctx.fillText(f.name, sx, sy);
+
+        // Draw code below in smaller text
+        ctx.font = `${fontSize * 0.65}px system-ui, sans-serif`;
+        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+        ctx.fillText(f.code, sx, sy + fontSize * 0.9);
+      }
+    }
+
     // ── Paper rendering ──
     function isVisible(p: PaperPoint): boolean {
       if (!activeThemes.has(p.theme)) return false;
@@ -269,19 +319,17 @@ const hasPapers = papers.length > 0;
 
     function paperScreenRadius(p: PaperPoint): number {
       const base = Math.max(4, Math.min(16, 4 + p.nc * 0.2));
-      // Scale inversely with zoom so dots stay usable at all levels
       return base / Math.pow(camScale / initialScale, 0.3);
     }
 
     function drawPapers() {
       const time = performance.now();
-      const pulsePhase = Math.sin(time / 800) * 0.15 + 0.85; // 0.7 – 1.0
+      const pulsePhase = Math.sin(time / 800) * 0.15 + 0.85;
 
       for (const p of papers) {
         if (!isVisible(p)) continue;
 
         const [sx, sy] = worldToScreen(p.x, p.y);
-        // Skip if off screen
         if (sx < -20 || sx > W + 20 || sy < -20 || sy > H + 20) continue;
 
         const r = paperScreenRadius(p);
@@ -295,7 +343,7 @@ const hasPapers = papers.length > 0;
           ctx.beginPath();
           ctx.arc(sx, sy, r * 2.5, 0, Math.PI * 2);
           ctx.fillStyle = color;
-          ctx.globalAlpha = 0.2;
+          ctx.globalAlpha = 0.25;
           ctx.fill();
           ctx.globalAlpha = 1;
         }
@@ -308,29 +356,27 @@ const hasPapers = papers.length > 0;
         ctx.fill();
 
         // Main dot
-        ctx.globalAlpha = isHovered ? 1 : 0.9;
+        ctx.globalAlpha = isHovered || isSelected ? 1 : 0.9;
         ctx.beginPath();
         ctx.arc(sx, sy, r, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
 
         // White border
-        ctx.strokeStyle = "rgba(255,255,255,0.6)";
-        ctx.lineWidth = isHovered ? 2 : 0.5;
+        ctx.strokeStyle = isSelected ? "#fff" : "rgba(255,255,255,0.6)";
+        ctx.lineWidth = isHovered || isSelected ? 2 : 0.5;
         ctx.stroke();
 
         ctx.globalAlpha = 1;
 
-        // Labels when zoomed in enough or hovered
+        // Labels when zoomed in or hovered
         const zoomRatio = camScale / initialScale;
         if (isHovered || isSelected || (zoomRatio > 3 && r > 5)) {
           const label = p.title.length > 35 ? p.title.slice(0, 35) + "..." : p.title;
-          ctx.font = `${isHovered ? "bold " : ""}${Math.max(10, Math.min(13, r))}px system-ui, sans-serif`;
-          ctx.fillStyle = "rgba(255,255,255,0.9)";
+          ctx.font = `${isHovered || isSelected ? "bold " : ""}${Math.max(10, Math.min(13, r))}px system-ui, sans-serif`;
           ctx.textAlign = "center";
           ctx.textBaseline = "top";
 
-          // Background for readability
           const metrics = ctx.measureText(label);
           const lx = sx - metrics.width / 2 - 3;
           const ly = sy + r + 4;
@@ -361,6 +407,96 @@ const hasPapers = papers.length > 0;
       tooltip.classList.add("hidden");
     }
 
+    // ── Side panel ──
+    const panel = document.getElementById("paper-panel")!;
+    const panelHeader = document.getElementById("panel-header")!;
+    const panelTitle = document.getElementById("panel-title")!;
+    const panelTheme = document.getElementById("panel-theme")!;
+    const panelBody = document.getElementById("panel-body")!;
+    let panelOpen = false;
+
+    function setPanelOpen(open: boolean) {
+      panelOpen = open;
+      panel.classList.toggle("hidden", !open);
+      if (!open) {
+        selectedPaper = null;
+        scheduleRender();
+      }
+    }
+
+    document.getElementById("close-panel")!.addEventListener("click", () => setPanelOpen(false));
+
+    function openPaperPanel(p: PaperPoint) {
+      selectedPaper = p;
+      panelHeader.textContent = "Paper Details";
+      panelTitle.textContent = p.title;
+      panelTheme.textContent = p.theme;
+      panelTheme.style.color = themeColors[p.theme] || "#6b7280";
+
+      let html = "";
+      html += `<p class="text-xs text-gray-500 mb-2">${p.arxiv_id}</p>`;
+
+      if (p.nc > 0) {
+        html += `<p class="text-xs text-gray-400 mb-3">${p.nc} concepts extracted</p>`;
+      }
+
+      // Links
+      html += '<div class="mt-4 pt-3 border-t border-gray-100 space-y-2">';
+      if (p.slug) {
+        html += `<a href="${baseUrl}posts/${p.slug}" class="block text-sm text-blue-600 hover:text-blue-800 font-medium">Read blog post &rarr;</a>`;
+      }
+      html += `<a href="https://arxiv.org/abs/${p.arxiv_id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">View on arXiv &nearr;</a>`;
+      html += `<a href="https://arxiv.org/pdf/${p.arxiv_id}" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-600 hover:text-gray-800">Download PDF &nearr;</a>`;
+      html += `<button class="ps-zoom-to text-sm text-[#663399] hover:text-[#663399]/70 font-medium" data-x="${p.x}" data-y="${p.y}">Zoom to paper &#8982;</button>`;
+      html += '</div>';
+
+      // Nearby IAIFI papers
+      const nearby = papers
+        .filter(q => q !== p && isVisible(q))
+        .map(q => ({ paper: q, dist: Math.sqrt((q.x - p.x) ** 2 + (q.y - p.y) ** 2) }))
+        .sort((a, b) => a.dist - b.dist)
+        .slice(0, 5);
+
+      if (nearby.length > 0) {
+        html += '<div class="mt-4 pt-3 border-t border-gray-100">';
+        html += '<p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Nearby IAIFI Papers</p>';
+        for (const n of nearby) {
+          const color = themeColors[n.paper.theme] || "#6b7280";
+          html += `<div class="mb-2 flex items-start gap-2">`;
+          html += `<span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:${color}"></span>`;
+          html += `<div><button class="ps-select-paper text-xs font-medium text-gray-700 hover:text-[#663399] text-left" data-id="${n.paper.arxiv_id}">${n.paper.title}</button>`;
+          html += `<p class="text-xs text-gray-400">${n.paper.arxiv_id}</p></div></div>`;
+        }
+        html += '</div>';
+      }
+
+      panelBody.innerHTML = html;
+      setPanelOpen(true);
+
+      // Bind zoom-to button
+      panelBody.querySelectorAll(".ps-zoom-to").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const x = parseFloat((btn as HTMLElement).dataset.x!);
+          const y = parseFloat((btn as HTMLElement).dataset.y!);
+          smoothZoomTo(x, y, initialScale * 8);
+        });
+      });
+
+      // Bind nearby paper selection
+      panelBody.querySelectorAll(".ps-select-paper").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = (btn as HTMLElement).dataset.id!;
+          const paper = papers.find(pp => pp.arxiv_id === id);
+          if (paper) {
+            openPaperPanel(paper);
+            smoothZoomTo(paper.x, paper.y, Math.max(camScale, initialScale * 4));
+          }
+        });
+      });
+
+      scheduleRender();
+    }
+
     // ── Render loop ──
     let renderScheduled = false;
     let animating = true;
@@ -376,6 +512,7 @@ const hasPapers = papers.length > 0;
       renderScheduled = false;
       ctx.clearRect(0, 0, W, H);
       drawTiles();
+      drawFieldLabels();
       drawPapers();
 
       // Update zoom indicator
@@ -385,13 +522,11 @@ const hasPapers = papers.length > 0;
         zl.textContent = `${ratio.toFixed(1)}x · z${getBestTiling().z}`;
       }
 
-      // Keep animating for the pulse glow
       if (animating) {
         requestAnimationFrame(render);
       }
     }
 
-    // Stop continuous animation after 5s to save CPU, restart on interaction
     setTimeout(() => { animating = false; }, 5000);
 
     function restartAnimation() {
@@ -410,12 +545,11 @@ const hasPapers = papers.length > 0;
     let dragCamY = 0;
 
     function hitTest(mx: number, my: number): PaperPoint | null {
-      // Check in reverse so top-drawn papers are hit first
       for (let i = papers.length - 1; i >= 0; i--) {
         const p = papers[i];
         if (!isVisible(p)) continue;
         const [sx, sy] = worldToScreen(p.x, p.y);
-        const r = paperScreenRadius(p) + 4; // generous hit area
+        const r = paperScreenRadius(p) + 4;
         const dx = mx - sx;
         const dy = my - sy;
         if (dx * dx + dy * dy <= r * r) return p;
@@ -454,7 +588,6 @@ const hasPapers = papers.length > 0;
         scheduleRender();
         restartAnimation();
       } else if (hit) {
-        // Update tooltip position
         tooltip.style.left = `${e.clientX + 14}px`;
         tooltip.style.top = `${e.clientY - 10}px`;
       }
@@ -475,16 +608,13 @@ const hasPapers = papers.length > 0;
       scheduleRender();
     });
 
+    // Click opens side panel instead of navigating
     canvas.addEventListener("click", (e) => {
       if (Math.abs(e.offsetX - dragStartX) > 5 || Math.abs(e.offsetY - dragStartY) > 5) return;
       const hit = hitTest(e.offsetX, e.offsetY);
       if (hit) {
-        selectedPaper = hit;
-        if (hit.slug) {
-          window.open(baseUrl + "posts/" + hit.slug, "_self");
-        } else {
-          window.open(`https://arxiv.org/abs/${hit.arxiv_id}`, "_blank");
-        }
+        openPaperPanel(hit);
+        hideTooltip();
       }
     });
 
@@ -494,10 +624,8 @@ const hasPapers = papers.length > 0;
       const zoomFactor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
       const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * zoomFactor));
 
-      // Zoom toward mouse position
       const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
       camScale = newScale;
-      // Adjust cam so the world point under cursor stays fixed
       camX = wx - (e.offsetX - W / 2) / camScale;
       camY = wy - (e.offsetY - H / 2) / camScale;
 
@@ -507,7 +635,6 @@ const hasPapers = papers.length > 0;
 
     // Touch support
     let lastTouchDist = 0;
-    let lastTouchMid = { x: 0, y: 0 };
 
     canvas.addEventListener("touchstart", (e) => {
       if (e.touches.length === 1) {
@@ -521,10 +648,6 @@ const hasPapers = papers.length > 0;
         const dx = e.touches[1].clientX - e.touches[0].clientX;
         const dy = e.touches[1].clientY - e.touches[0].clientY;
         lastTouchDist = Math.sqrt(dx * dx + dy * dy);
-        lastTouchMid = {
-          x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
-          y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
-        };
       }
       e.preventDefault();
     }, { passive: false });
@@ -557,7 +680,6 @@ const hasPapers = papers.length > 0;
         }
 
         lastTouchDist = dist;
-        lastTouchMid = mid;
         scheduleRender();
         restartAnimation();
       }
@@ -594,7 +716,6 @@ const hasPapers = papers.length > 0;
       text: `${p.title} ${p.arxiv_id}`.toLowerCase(),
     }));
 
-    // Add author data if available
     try {
       const scatterData = (await import("../data/scatter-data.json")).default as any;
       for (const sp of (scatterData?.papers || [])) {
@@ -636,12 +757,14 @@ const hasPapers = papers.length > 0;
               : "")
           : '<span class="text-gray-400">No matches</span>';
 
-      // Click to zoom to paper
       searchResultsEl.querySelectorAll(".ps-zoom-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const id = (btn as HTMLElement).dataset.id!;
           const p = papers.find((pp) => pp.arxiv_id === id);
-          if (p) smoothZoomTo(p.x, p.y, initialScale * 8);
+          if (p) {
+            smoothZoomTo(p.x, p.y, initialScale * 8);
+            openPaperPanel(p);
+          }
         });
       });
 
@@ -670,7 +793,6 @@ const hasPapers = papers.length > 0;
 
       function step(now: number) {
         const t = Math.min(1, (now - startTime) / duration);
-        // Ease in-out
         const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
         camX = startCamX + (wx - startCamX) * ease;
         camY = startCamY + (wy - startCamY) * ease;
@@ -690,11 +812,7 @@ const hasPapers = papers.length > 0;
 
     function zoomByFactor(factor: number) {
       const newScale = Math.max(initialScale * 0.05, Math.min(initialScale * 80, camScale * factor));
-      // Zoom toward center of viewport
-      const [wx, wy] = screenToWorld(W / 2, H / 2);
       camScale = newScale;
-      camX = wx - (W / 2 - W / 2) / camScale;
-      camY = wy - (H / 2 - H / 2) / camScale;
       scheduleRender();
       restartAnimation();
     }
