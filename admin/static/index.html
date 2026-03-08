@@ -995,7 +995,11 @@
                             var color = pct >= 80 ? '#dc2626' : pct >= 50 ? '#d97706' : '#16a34a';
                             usageTag = ' <span style="color:' + color + ';font-weight:500;">[5h usage: ' + pct + '%]</span>';
                         }
-                        setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || typeLabel + '...') + usageTag);
+                        var errTag = '';
+                        if (d.errors > 0) {
+                            errTag = ' <span style="color:#dc2626;font-weight:500;">[' + d.errors + ' error' + (d.errors === 1 ? '' : 's') + ']</span>';
+                        }
+                        setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || typeLabel + '...') + errTag + usageTag);
                     } else if (d.status === 'complete') {
                         var r = d.result || {};
                         setBulkStatus(typeLabel + ' complete! ' + (r.done || 0) + ' done' + (r.errors > 0 ? ', ' + r.errors + ' errors' : '') + ' of ' + (r.total || 0));
@@ -1045,7 +1049,7 @@
                     bulkRunning = true;
                     bulkTaskId = d.task_id;
                     showStopButton();
-                    var label = d.type === 'concepts' ? 'Concept extraction' : 'Blog generation';
+                    var label = d.type === 'concepts' ? 'Concept extraction' : d.type === 'fix' ? 'Post fixing' : 'Blog generation';
                     setBulkStatusHtml('<span style="color:#2563eb;">&#9679;</span> ' + escapeHtml(d.step || label + '...'));
                     pollBulkStatus(d.task_id, label);
                 }

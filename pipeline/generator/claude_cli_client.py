@@ -178,7 +178,7 @@ class ClaudeCLIClient:
 
         stdout, stderr = await asyncio.wait_for(
             proc.communicate(input=prompt.encode()),
-            timeout=120,
+            timeout=600,
         )
 
         if proc.returncode != 0:

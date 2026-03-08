@@ -814,7 +814,10 @@
                     throw new Error('HTTP ' + resp.status);
                 }
                 allPostsCache = await resp.json();
+                // Preserve scroll position across table reloads
+                var scrollY = window.scrollY;
                 renderFilteredPosts();
+                window.scrollTo(0, scrollY);
             } catch (err) {
                 countDiv.textContent = 'Error loading posts: ' + err.message;
             }
@@ -1440,8 +1443,22 @@
                         // Show progress with current paper highlighted
                         var progress = (sd.done || 0) + '/' + (sd.total || '?');
                         var current = sd.current_paper || '';
-                        statusDiv.textContent = 'Fixing post ' + progress + ': ' + current + '...';
+                        var extras = '';
+                        if (sd.errors > 0) {
+                            extras += ' <span style="color:#dc2626;font-weight:500;">[' + sd.errors + ' error' + (sd.errors === 1 ? '' : 's') + ']</span>';
+                        }
+                        if (sd.last_fix_duration != null) {
+                            extras += ' <span style="color:#6b7280;">[last: ' + sd.last_fix_duration + 's]</span>';
+                        }
+                        if (sd.usage_5h != null) {
+                            var pct = Math.round(sd.usage_5h);
+                            var ucolor = pct >= 80 ? '#dc2626' : pct >= 50 ? '#d97706' : '#16a34a';
+                            extras += ' <span style="color:' + ucolor + ';font-weight:500;">[5h usage: ' + pct + '%]</span>';
+                        }
+                        statusDiv.innerHTML = 'Fixing post ' + progress + ': ' + escapeHtml(current) + '...' + extras;
                         highlightFixingRow(current);
+                        // Reload table to update fix counts live
+                        loadPosts(currentPostFilter);
                     }
                 }
             } catch (e) {

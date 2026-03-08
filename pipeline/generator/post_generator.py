@@ -33,17 +33,20 @@ EDITOR_SYSTEM = (
 )
 
 
-def _generate_slug(title: str) -> str:
-    """Generate a URL-safe slug from a paper title.
+def _generate_slug(title: str, arxiv_id: str) -> str:
+    """Generate a URL-safe slug from a paper title and arxiv ID.
 
     Lowercase, replace non-alphanumeric with hyphens, collapse
     multiple hyphens, strip leading/trailing hyphens, truncate to 80 chars.
+    Appends arxiv ID to guarantee uniqueness.
     """
     slug = title.lower()
     slug = re.sub(r"[^a-z0-9]+", "-", slug)
     slug = re.sub(r"-+", "-", slug)
     slug = slug.strip("-")
-    return slug[:80]
+    aid = arxiv_id.replace(".", "-")
+    slug = slug[:80]
+    return f"{slug}-{aid}"
 
 
 class PostGenerator:
@@ -144,7 +147,7 @@ class PostGenerator:
             )
 
         # Generate slug from paper title
-        slug = _generate_slug(paper.title)
+        slug = _generate_slug(paper.title, paper.arxiv_id)
 
         # Calculate generation cost for this post
         generation_cost = self.llm.total_cost - cost_before

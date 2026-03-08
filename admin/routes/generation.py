@@ -5,7 +5,9 @@ import json
 import logging
 import subprocess
 import time
+import traceback
 from datetime import datetime, timezone
+from pathlib import Path
 
 import httpx
 from fastapi import APIRouter, BackgroundTasks, HTTPException
@@ -15,6 +17,21 @@ import aiosqlite
 from pipeline.config import settings
 from pipeline.db import Database
 from pipeline.orchestrator import ContentGenerator
+
+BULK_LOG_DIR = Path("data/logs")
+BULK_LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _log_bulk_error(task_id: str, arxiv_id: str, error: Exception) -> None:
+    """Append an error entry to the bulk task log file."""
+    log_file = BULK_LOG_DIR / f"{task_id}.log"
+    timestamp = datetime.now(timezone.utc).isoformat()
+    tb = traceback.format_exception(type(error), error, error.__traceback__)
+    with open(log_file, "a") as f:
+        f.write(f"[{timestamp}] FAIL {arxiv_id}\n")
+        f.write(f"  {type(error).__name__}: {error}\n")
+        f.write("  " + "  ".join(tb[-3:]))
+        f.write("\n")
 
 
 async def _get_paper_metadata(arxiv_id: str) -> dict | None:
@@ -359,6 +376,7 @@ async def trigger_bulk_generate(background_tasks: BackgroundTasks):
         "current_paper": None,
         "result": None,
         "error": None,
+        "log_file": str(BULK_LOG_DIR / f"{task_id}.log"),
         "started_at": datetime.now(timezone.utc).isoformat(),
     }
     background_tasks.add_task(_run_bulk_generate, task_id)
@@ -415,6 +433,7 @@ async def _run_bulk_generate(task_id: str) -> None:
             except Exception as e:
                 errors += 1
                 _bulk_tasks[task_id]["errors"] = errors
+                _log_bulk_error(task_id, aid, e)
                 logger.error("Bulk generate %s: failed for %s: %s", task_id, aid, e)
 
             # Check usage after each blog, show it in status, and wait if above threshold
@@ -547,6 +566,9 @@ async def trigger_bulk_fix(background_tasks: BackgroundTasks):
         "current_paper": None,
         "result": None,
         "error": None,
+        "usage_5h": None,
+        "last_fix_duration": None,
+        "log_file": str(BULK_LOG_DIR / f"{task_id}.log"),
         "started_at": datetime.now(timezone.utc).isoformat(),
     }
     background_tasks.add_task(_run_bulk_fix, task_id)
@@ -604,6 +626,7 @@ async def _run_bulk_fix(task_id: str) -> None:
                 if not paper:
                     raise ValueError(f"No paper found for {aid}")
 
+                fix_start = time.time()
                 fixed_content = await fixer.fix_post(
                     content=post["content"],
                     title=paper["title"],
@@ -611,14 +634,33 @@ async def _run_bulk_fix(task_id: str) -> None:
                     authors=paper.get("authors", ""),
                     abstract=paper.get("abstract", ""),
                 )
+                fix_duration = round(time.time() - fix_start, 1)
                 await db.update_blog_post_content(aid, fixed_content)
                 await db.increment_fix_count(aid)
                 done += 1
                 _bulk_tasks[task_id]["done"] = done
+                _bulk_tasks[task_id]["last_fix_duration"] = fix_duration
             except Exception as e:
                 errors += 1
                 _bulk_tasks[task_id]["errors"] = errors
+                _log_bulk_error(task_id, aid, e)
                 logger.error("Bulk fix %s: failed for %s: %s", task_id, aid, e)
+
+            # Check usage after each fix, show it in status, and wait if above threshold
+            usage = await _get_claude_usage()
+            if usage:
+                _bulk_tasks[task_id]["usage_5h"] = usage.get("five_hour", {}).get("utilization", 0.0)
+            await _wait_for_usage_clearance(task_id, _bulk_tasks, usage=usage)
+            if task_id in _bulk_cancelled:
+                _bulk_cancelled.discard(task_id)
+                _bulk_tasks[task_id].update({
+                    "status": "cancelled", "step": "cancelled",
+                    "done": done, "errors": errors,
+                    "result": {"done": done, "errors": errors, "total": len(eligible)},
+                    "completed_at": datetime.now(timezone.utc).isoformat(),
+                })
+                logger.info("Bulk fix %s: cancelled while waiting for usage, %d/%d", task_id, done, len(eligible))
+                return
 
         _bulk_tasks[task_id].update({
             "status": "complete", "step": "complete",
@@ -654,6 +696,7 @@ async def trigger_bulk_concepts(background_tasks: BackgroundTasks):
         "current_paper": None,
         "result": None,
         "error": None,
+        "log_file": str(BULK_LOG_DIR / f"{task_id}.log"),
         "started_at": datetime.now(timezone.utc).isoformat(),
     }
     background_tasks.add_task(_run_bulk_concepts, task_id)
@@ -712,6 +755,7 @@ async def _run_bulk_concepts(task_id: str) -> None:
             except Exception as e:
                 errors += 1
                 _bulk_tasks[task_id]["errors"] = errors
+                _log_bulk_error(task_id, aid, e)
                 logger.error("Bulk concepts %s: failed for %s: %s", task_id, aid, e)
 
         _bulk_tasks[task_id].update({

@@ -1,0 +1,96 @@
+---
+abstract: The Vera C. Rubin Observatory is slated to observe nearly 20 billion galaxies
+  during its decade-long Legacy Survey of Space and Time. The rich imaging data it
+  collects will be an invaluable resource for probing galaxy evolution across cosmic
+  time, characterizing the host galaxies of transient phenomena, and identifying novel
+  populations of anomalous systems. To facilitate these studies, we introduce a convolutional
+  variational autoencoder trained to estimate the redshift, stellar mass, and star-formation
+  rates of galaxies from multi-band imaging data. We train and test our physics-informed
+  CVAE on a spectroscopic sample of $\sim$26,000 galaxies within $z<1$ imaged through
+  the Dark Energy Camera Legacy Survey. We show that our model can infer redshift
+  and stellar mass more accurately than the latest image-based self-supervised learning
+  approaches, and is >100x faster than more computationally-intensive SED-fitting
+  techniques. Using a small sample of Green Pea and Red Spiral galaxies reported in
+  the literature, we further demonstrate how this CVAE can be used to rapidly identify
+  rare galaxy populations and interpret what makes them unique.
+arxivId: '2312.16687'
+arxivUrl: https://arxiv.org/abs/2312.16687
+authors:
+- Alexander Gagliano
+- V. Ashley Villar
+concepts:
+- variational autoencoders
+- physics-informed neural networks
+- disentangled representations
+- anomaly detection
+- convolutional networks
+- galaxy classification
+- photometric redshift estimation
+- out-of-distribution detection
+- representation learning
+- uncertainty quantification
+- self-supervised learning
+- simulation-based inference
+figures:
+- /iaifi-research-blog/figures/2312_16687/figure_1.png
+- /iaifi-research-blog/figures/2312_16687/figure_1.png
+- /iaifi-research-blog/figures/2312_16687/figure_2.png
+- /iaifi-research-blog/figures/2312_16687/figure_2.png
+- /iaifi-research-blog/figures/2312_16687/figure_3.png
+- /iaifi-research-blog/figures/2312_16687/figure_3.png
+pdfUrl: https://arxiv.org/pdf/2312.16687v1
+published: '2023-12-27T18:59:59+00:00'
+theme: Astrophysics
+title: A Physics-Informed Variational Autoencoder for Rapid Galaxy Inference and Anomaly
+  Detection
+wordCount: 1063
+---
+
+## The Big Picture
+
+Imagine trying to sort and analyze the entire population of a continent — not just counting people, but understanding their age, health, occupation, and life history — from aerial photographs alone. That's roughly the challenge facing astronomers as the Vera C. Rubin Observatory prepares to begin its decade-long Legacy Survey of Space and Time (LSST). When it comes online, it will photograph nearly **20 billion galaxies**. Twenty billion. That's more galaxies than there are seconds in 630 years.
+
+Traditional methods for extracting physical properties from galaxy images are too slow for this scale. The standard approach — **SED fitting** — works by matching a galaxy's brightness across many colors of light to known templates, reconstructing a "color fingerprint" that reveals what kinds of stars a galaxy contains. It's thorough, but so computationally demanding that running it on billions of galaxies would take centuries.
+
+Machine learning approaches that skip the physics trade away interpretability: they tell you what a galaxy looks like, but not what it *is*.
+
+Alexander Gagliano and V. Ashley Villar at IAIFI have built something that threads this needle — a neural network that learns to see galaxies the way physicists do, storing fundamental properties like mass and distance directly in its internal working memory.
+
+> **Key Insight:** By forcing a neural network's hidden "imagination space" to speak the language of physics — redshift, stellar mass, star-formation rate — researchers can do in milliseconds what conventional tools take minutes to accomplish, while also uncovering rare, exotic galaxies hiding in plain sight.
+
+## How It Works
+
+The architecture at the heart of this work is a **convolutional variational autoencoder (CVAE)** — a neural network designed to compress data into a compact representation and then reconstruct it. Think of it like a sophisticated game of telephone: the encoder whispers a galaxy's image into just a few numbers, and the decoder tries to reconstruct the original from those numbers alone.
+
+What makes this CVAE special is what those numbers are *forced* to mean. Most autoencoders let the network invent whatever abstract features it finds useful. Here, the researchers constrain four of the five **latent dimensions** — the compressed numbers encoding everything the network "knows" about a galaxy — to correspond to measurable physical quantities: orientation, **redshift** (a proxy for distance), **stellar mass**, and **star-formation rate**. A fifth dimension is left free to capture any remaining structure.
+
+![Figure 1](/iaifi-research-blog/figures/2312_16687/figure_1.png)
+
+This is accomplished through a three-part **loss function** — the mathematical score the network minimizes during training:
+
+1. **Reconstruction quality**: How well does the decoded image match the original, measured pixel by pixel.
+2. **Latent regularization**: The free fifth dimension is kept well-behaved using **KL divergence** — a statistical penalty that prevents the representation from drifting into meaningless noise.
+3. **Physical accuracy**: The four physics-constrained dimensions are penalized whenever they disagree with spectroscopically measured values from the training catalog.
+
+The team trained on roughly 26,000 galaxies imaged in three optical bands (g, r, z) from the Dark Energy Camera Legacy Survey (DECaLS), all within redshift z < 1. Images were preprocessed with nonlinear normalization to handle the enormous dynamic range of galaxy brightnesses, then resized to 69×69 pixels. Training ran for 1,000 epochs (complete passes through the training data) on two Nvidia A100 GPUs.
+
+## Why It Matters
+
+The numbers tell a clear story. On predicting redshift from images, the physics-informed CVAE achieves an R² of **0.83** — a measure of predictive accuracy where 1.0 is perfect — explaining 83% of the variance in true values. For stellar mass, it hits **0.75**. The best prior image-based method scores only 0.71 and 0.66. The new approach beats every image-based competitor in the comparison.
+
+Speed is where the advantage becomes overwhelming. SED fitting typically processes a single galaxy in seconds to minutes. The CVAE handles the same task **more than 100 times faster**, making it feasible to run on the billions of galaxies LSST will deliver.
+
+The most striking capability is anomaly detection. Because the latent space is structured around physics, objects that don't fit known populations stand out geometrically. The researchers tested this with two exotic types: **Green Pea galaxies** — tiny, intensely star-forming systems — and **Red Spiral galaxies** — spirals that have inexplicably stopped forming stars. Both populations, absent from the training set, cluster in distinctive regions of latent space. The model doesn't just flag them as unusual; it characterizes *what* makes them unusual, pointing to exactly which physical dimensions deviate from the norm.
+
+Beyond LSST, the approach demonstrates something more general: physics can be embedded into the geometry of machine learning representations, not just bolted on afterward. Similar ideas could apply to particle physics detectors, gravitational wave observatories, or any domain where the data are images and the questions concern underlying physical parameters.
+
+Open questions remain. The model currently works within z < 1; extending to higher redshifts, where galaxy morphologies are less regular and training data is scarcer, will require careful work. The fifth free latent dimension captures something real — interpreting that residual structure could itself yield scientific discoveries.
+
+> **Bottom Line:** A physics-informed variational autoencoder extracts galaxy properties from images more accurately than competing machine learning approaches, more than 100 times faster than conventional SED fitting, and identifies rare galaxy populations by their position in a physically meaningful latent space — a powerful tool for the 20-billion-galaxy era of astronomy.
+
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly fuses deep learning architecture design with physical domain knowledge, encoding astrophysical observables — redshift, stellar mass, star-formation rate — into the latent geometry of a convolutional neural network, demonstrating how AI and physics can inform each other at the model level.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The physics-informed loss function achieves superior regression performance over purely data-driven self-supervised approaches, suggesting that domain-constrained representation learning is a productive direction for scientific machine learning beyond astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling rapid, interpretable characterization of galaxy populations at scale, the method opens new pathways for studying galaxy evolution across cosmic time and identifying rare systems that challenge existing formation models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend coverage to higher redshifts and explore the scientific content of the free latent dimension; the method and trained models are publicly available, and the paper appeared at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023.</span></div></div>
+</div>
