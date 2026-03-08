@@ -684,7 +684,8 @@
             <button class="filter-btn" onclick="filterPosts('draft', this)">Drafts</button>
             <button class="filter-btn" onclick="filterPosts('approved', this)">Approved</button>
             <button class="filter-btn" onclick="filterPosts('rejected', this)">Rejected</button>
-            <button id="fix-all-btn" style="margin-left:auto;padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#d97706;color:#fff;border:none;border-radius:5px;" onclick="fixAllPosts()">Fix All Posts</button>
+            <button id="fix-unfixed-btn" style="margin-left:auto;padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#7c3aed;color:#fff;border:none;border-radius:5px;" onclick="fixUnfixedPosts()">Fix Unfixed Posts</button>
+            <button id="fix-all-btn" style="padding:0.4rem 0.8rem;font-size:0.85rem;font-weight:500;cursor:pointer;background:#d97706;color:#fff;border:none;border-radius:5px;" onclick="fixAllPosts()">Fix All Posts</button>
             <button id="approve-all-btn" class="btn-approve" onclick="approveAllPosts()">Approve All Drafts</button>
         </div>
         <div id="fix-all-status" style="font-size:0.85rem;color:#666;margin-bottom:0.5rem;"></div>
@@ -1470,6 +1471,82 @@
             }
         }
 
+        async function fixUnfixedPosts() {
+            var btn = document.getElementById('fix-unfixed-btn');
+            var statusDiv = document.getElementById('fix-all-status');
+            btn.disabled = true;
+            statusDiv.style.cssText = 'font-size:0.9rem;color:#5b21b6;background:#ede9fe;padding:0.5rem 0.75rem;border-radius:6px;margin-bottom:0.5rem;font-weight:500;';
+            statusDiv.textContent = 'Starting fix for unfixed posts...';
+
+            try {
+                var taskId;
+                var resp = await fetch('/api/bulk/fix-unfixed', { method: 'POST' });
+                if (resp.status === 409) {
+                    var activeResp = await fetch('/api/bulk/active');
+                    var active = await activeResp.json();
+                    if (active.status === 'running' && active.type === 'fix-unfixed') {
+                        taskId = active.task_id;
+                        statusDiv.textContent = 'Resuming fix-unfixed tracking...';
+                    } else {
+                        throw new Error('A different bulk task is already running');
+                    }
+                } else if (!resp.ok) {
+                    var errData = await resp.json().catch(function() { return {}; });
+                    throw new Error(errData.detail || 'HTTP ' + resp.status);
+                } else {
+                    var data = await resp.json();
+                    taskId = data.task_id;
+                }
+
+                var done = false;
+                while (!done) {
+                    await new Promise(function(resolve) { setTimeout(resolve, 2000); });
+                    var sr = await fetch('/api/bulk/' + encodeURIComponent(taskId) + '/status');
+                    if (!sr.ok) throw new Error('HTTP ' + sr.status);
+                    var sd = await sr.json();
+                    if (sd.status === 'complete') {
+                        done = true;
+                        highlightFixingRow(null);
+                        var r = sd.result || {};
+                        statusDiv.style.cssText = 'font-size:0.9rem;color:#065f46;background:#d1fae5;padding:0.5rem 0.75rem;border-radius:6px;margin-bottom:0.5rem;font-weight:500;';
+                        statusDiv.textContent = 'Fix unfixed complete! ' + (r.done || 0) + ' fixed' + (r.errors > 0 ? ', ' + r.errors + ' errors' : '') + ' of ' + (r.total || 0);
+                        loadPosts(currentPostFilter);
+                    } else if (sd.status === 'error') {
+                        highlightFixingRow(null);
+                        throw new Error(sd.error || 'bulk fix-unfixed failed');
+                    } else if (sd.status === 'cancelled') {
+                        highlightFixingRow(null);
+                        statusDiv.textContent = 'Fix cancelled. ' + (sd.done || 0) + ' done.';
+                        done = true;
+                    } else {
+                        var progress = (sd.done || 0) + '/' + (sd.total || '?');
+                        var current = sd.current_paper || '';
+                        var extras = '';
+                        if (sd.errors > 0) {
+                            extras += ' <span style="color:#dc2626;font-weight:500;">[' + sd.errors + ' error' + (sd.errors === 1 ? '' : 's') + ']</span>';
+                        }
+                        if (sd.last_fix_duration != null) {
+                            extras += ' <span style="color:#6b7280;">[last: ' + sd.last_fix_duration + 's]</span>';
+                        }
+                        if (sd.usage_5h != null) {
+                            var pct = Math.round(sd.usage_5h);
+                            var ucolor = pct >= 80 ? '#dc2626' : pct >= 50 ? '#d97706' : '#16a34a';
+                            extras += ' <span style="color:' + ucolor + ';font-weight:500;">[5h usage: ' + pct + '%]</span>';
+                        }
+                        statusDiv.innerHTML = 'Fixing unfixed ' + progress + ': ' + escapeHtml(current) + '...' + extras;
+                        highlightFixingRow(current);
+                        loadPosts(currentPostFilter);
+                    }
+                }
+            } catch (e) {
+                statusDiv.style.cssText = 'font-size:0.9rem;color:#991b1b;background:#fee2e2;padding:0.5rem 0.75rem;border-radius:6px;margin-bottom:0.5rem;font-weight:500;';
+                statusDiv.textContent = 'Fix unfixed failed: ' + e.message;
+                highlightFixingRow(null);
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
         async function approveAllPosts() {
             var btn = document.getElementById('approve-all-btn');
             var statusDiv = document.getElementById('approve-all-status');
@@ -1540,8 +1617,9 @@
                 var resp = await fetch('/api/bulk/active');
                 var active = await resp.json();
                 if (active.status === 'running' && active.type === 'fix') {
-                    // Resume polling the active fix task
                     fixAllPosts();
+                } else if (active.status === 'running' && active.type === 'fix-unfixed') {
+                    fixUnfixedPosts();
                 }
             } catch (e) {}
         }

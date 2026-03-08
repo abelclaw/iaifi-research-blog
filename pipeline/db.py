@@ -405,6 +405,16 @@ class Database:
             )
             await db.commit()
 
+    async def get_fix_count(self, arxiv_id: str) -> int | None:
+        """Get the current fix_count for a blog post."""
+        async with aiosqlite.connect(self.db_path) as db:
+            cur = await db.execute(
+                "SELECT fix_count FROM blog_posts WHERE paper_arxiv_id = ?",
+                (arxiv_id,),
+            )
+            row = await cur.fetchone()
+            return row[0] if row else None
+
     async def increment_fix_count(self, arxiv_id: str) -> None:
         """Increment the fix_count for a blog post."""
         async with aiosqlite.connect(self.db_path) as db:

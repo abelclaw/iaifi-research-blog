@@ -24,11 +24,11 @@ const hasPapers = papers.length > 0;
       Paperscape
     </h1>
     <p class="text-gray-600 text-sm mb-1">
-      IAIFI papers on the arXiv Paperscape map. Background shows all ~3M arXiv papers;
-      highlighted circles are IAIFI publications.
+      IAIFI papers on the <a href="https://paperscape.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-800">Paperscape</a> map.
+      Paperscape arranges all ~2.5 million arXiv papers using an N-body simulation: papers that cite each other are pulled together by gravitational attraction, so nearby papers tend to be on related topics. Each circle is one paper, and its size reflects how many citations it has received. The colored circles are IAIFI publications; the background shows the rest of arXiv.
     </p>
     <p class="text-xs text-gray-400">
-      Scroll to zoom. Drag to pan. Click any spot to identify the paper there.
+      Scroll to zoom, drag to pan. Click any IAIFI paper (colored) for details, or click near any background dot to identify that paper. Use the theme filters or search bar to find specific IAIFI publications.
     </p>
   </section>
 
@@ -512,31 +512,58 @@ const hasPapers = papers.length > 0;
     }
 
     function fetchPapescapePaper(wx: number, wy: number) {
-      showApiStatus("Looking up paper at this location...");
+      showApiStatus("Looking up paper...");
 
-      const url = `https://paperscape.org/wombat?ml2p%5B%5D=${Math.round(wx)}&ml2p%5B%5D=${Math.round(wy)}&tbl=&callback=__ps_cb`;
+      // The Paperscape API only returns a hit if the click falls inside
+      // a paper's circle. To improve usability, try the exact point first,
+      // then spiral outward in a grid to find nearby papers.
+      const searchRadius = Math.max(20, Math.round(50 / camScale));
+      const step = Math.max(10, Math.round(25 / camScale));
+      const offsets: [number, number][] = [[0, 0]];
+      for (let d = step; d <= searchRadius; d += step) {
+        for (const [dx, dy] of [
+          [d, 0], [-d, 0], [0, d], [0, -d],
+          [d, d], [-d, d], [d, -d], [-d, -d],
+        ] as [number, number][]) {
+          offsets.push([dx, dy]);
+        }
+      }
 
-      // Clean up old callback
-      (window as any).__ps_cb = null;
-
-      const script = document.createElement("script");
-      (window as any).__ps_cb = (data: any) => {
-        script.remove();
-        if (!data?.r?.id) {
-          showApiStatus("No paper found at this location.");
+      let attempt = 0;
+      function tryNext() {
+        if (attempt >= offsets.length) {
+          showApiStatus("No paper found near this location. Try clicking directly on a dot.");
           return;
         }
+        const [dx, dy] = offsets[attempt];
+        const rx = Math.round(wx + dx);
+        const ry = Math.round(wy + dy);
+        attempt++;
 
-        const paperId = data.r.id;
-        showApiStatus("Loading paper details...");
-        fetchPapescapeMeta(paperId);
-      };
-      script.src = url;
-      script.onerror = () => {
-        script.remove();
-        showApiStatus("Could not reach Paperscape API.");
-      };
-      document.head.appendChild(script);
+        const cbName = `__ps_cb_${attempt}`;
+        const url = `https://paperscape.org/wombat?ml2p%5B%5D=${rx}&ml2p%5B%5D=${ry}&tbl=&callback=${cbName}`;
+
+        const script = document.createElement("script");
+        (window as any)[cbName] = (data: any) => {
+          script.remove();
+          delete (window as any)[cbName];
+          if (!data?.r?.id) {
+            tryNext();
+            return;
+          }
+          showApiStatus("Loading paper details...");
+          fetchPapescapeMeta(data.r.id);
+        };
+        script.src = url;
+        script.onerror = () => {
+          script.remove();
+          delete (window as any)[cbName];
+          showApiStatus("Could not reach Paperscape API.");
+        };
+        document.head.appendChild(script);
+      }
+
+      tryNext();
     }
 
     function fetchPapescapeMeta(paperId: number) {
@@ -731,14 +758,19 @@ const hasPapers = papers.length > 0;
 
     // Click opens side panel — IAIFI paper or query Paperscape for any paper
     canvas.addEventListener("click", (e) => {
-      if (Math.abs(e.offsetX - dragStartX) > 5 || Math.abs(e.offsetY - dragStartY) > 5) return;
+      const dragDx = Math.abs(e.offsetX - dragStartX);
+      const dragDy = Math.abs(e.offsetY - dragStartY);
+      console.log("[PS click] offsetX=%d offsetY=%d dragDx=%d dragDy=%d", e.offsetX, e.offsetY, dragDx, dragDy);
+      if (dragDx > 5 || dragDy > 5) { console.log("[PS click] rejected as drag"); return; }
       const hit = hitTest(e.offsetX, e.offsetY);
       if (hit) {
+        console.log("[PS click] IAIFI hit:", hit.arxiv_id);
         openPaperPanel(hit);
         hideTooltip();
       } else {
         // Query Paperscape API for the paper at this world location
         const [wx, wy] = screenToWorld(e.offsetX, e.offsetY);
+        console.log("[PS click] no IAIFI hit, querying Paperscape at world (%d, %d)", Math.round(wx), Math.round(wy));
         fetchPapescapePaper(wx, wy);
       }
     });

@@ -337,6 +337,148 @@ async def get_active_bulk():
     return {"status": "none"}
 
 
+@router.post("/api/bulk/fix-unfixed")
+async def trigger_bulk_fix_unfixed(background_tasks: BackgroundTasks):
+    """Fix only blog posts that have never been fixed (fix_count = 0)."""
+    for task in _bulk_tasks.values():
+        if task["status"] == "running":
+            raise HTTPException(status_code=409, detail="A bulk task is already running")
+    task_id = f"bulk-fixu-{int(time.time())}"
+    _bulk_tasks[task_id] = {
+        "task_id": task_id,
+        "type": "fix-unfixed",
+        "status": "running",
+        "step": "starting",
+        "done": 0,
+        "errors": 0,
+        "total": 0,
+        "current_paper": None,
+        "result": None,
+        "error": None,
+        "usage_5h": None,
+        "last_fix_duration": None,
+        "log_file": str(BULK_LOG_DIR / f"{task_id}.log"),
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }
+    background_tasks.add_task(_run_bulk_fix_unfixed, task_id)
+    return {"task_id": task_id, "status": "started"}
+
+
+async def _run_bulk_fix_unfixed(task_id: str) -> None:
+    """Background: fix only blog posts with fix_count = 0."""
+    try:
+        db = Database(db_path=settings.DB_PATH)
+        await db.initialize()
+
+        from pipeline.generator.post_fixer import PostFixer
+        from pipeline.generator.claude_cli_client import ClaudeCLIClient
+
+        llm = ClaudeCLIClient(model="claude-opus-4-6")
+        fixer = PostFixer(llm_client=llm)
+
+        # Get only unfixed posts
+        all_posts = await db.get_blog_posts()
+        eligible = [
+            p for p in all_posts
+            if p.get("content") and (not p.get("fix_count") or p["fix_count"] == 0)
+        ]
+        _bulk_tasks[task_id]["total"] = len(eligible)
+
+        if not eligible:
+            _bulk_tasks[task_id].update({
+                "status": "complete", "step": "complete",
+                "result": {"done": 0, "errors": 0, "total": 0},
+                "completed_at": datetime.now(timezone.utc).isoformat(),
+            })
+            return
+
+        done = 0
+        errors = 0
+        for i, post in enumerate(eligible):
+            if task_id in _bulk_cancelled:
+                _bulk_cancelled.discard(task_id)
+                _bulk_tasks[task_id].update({
+                    "status": "cancelled", "step": "cancelled",
+                    "done": done, "errors": errors,
+                    "result": {"done": done, "errors": errors, "total": len(eligible)},
+                    "completed_at": datetime.now(timezone.utc).isoformat(),
+                })
+                logger.info("Bulk fix-unfixed %s: cancelled after %d/%d", task_id, done, len(eligible))
+                return
+
+            aid = post["paper_arxiv_id"]
+            _bulk_tasks[task_id].update({
+                "step": f"fixing ({i + 1}/{len(eligible)}): {aid}",
+                "current_paper": aid,
+                "done": done,
+                "errors": errors,
+            })
+            try:
+                paper = await _get_paper_metadata(aid)
+                if not paper:
+                    raise ValueError(f"No paper found for {aid}")
+
+                fix_start = time.time()
+                fixed_content = await fixer.fix_post(
+                    content=post["content"],
+                    title=paper["title"],
+                    arxiv_id=aid,
+                    authors=paper.get("authors", ""),
+                    abstract=paper.get("abstract", ""),
+                )
+                fix_duration = round(time.time() - fix_start, 1)
+                # Re-check fix_count before writing — guard against overlap
+                # with a previous cancelled task that finished its last fix
+                current_fc = await db.get_fix_count(aid)
+                if current_fc and current_fc > 0:
+                    logger.info("Skipping %s: already fixed (fix_count=%s)", aid, current_fc)
+                    done += 1
+                    _bulk_tasks[task_id]["done"] = done
+                    _bulk_tasks[task_id]["last_fix_duration"] = fix_duration
+                    continue
+                await db.update_blog_post_content(aid, fixed_content)
+                await db.increment_fix_count(aid)
+                done += 1
+                _bulk_tasks[task_id]["done"] = done
+                _bulk_tasks[task_id]["last_fix_duration"] = fix_duration
+            except Exception as e:
+                errors += 1
+                _bulk_tasks[task_id]["errors"] = errors
+                _log_bulk_error(task_id, aid, e)
+                logger.error("Bulk fix-unfixed %s: failed for %s: %s", task_id, aid, e)
+
+            # Check usage after each fix
+            usage = await _get_claude_usage()
+            if usage:
+                _bulk_tasks[task_id]["usage_5h"] = usage.get("five_hour", {}).get("utilization", 0.0)
+            await _wait_for_usage_clearance(task_id, _bulk_tasks, usage=usage)
+            if task_id in _bulk_cancelled:
+                _bulk_cancelled.discard(task_id)
+                _bulk_tasks[task_id].update({
+                    "status": "cancelled", "step": "cancelled",
+                    "done": done, "errors": errors,
+                    "result": {"done": done, "errors": errors, "total": len(eligible)},
+                    "completed_at": datetime.now(timezone.utc).isoformat(),
+                })
+                logger.info("Bulk fix-unfixed %s: cancelled while waiting, %d/%d", task_id, done, len(eligible))
+                return
+
+        _bulk_tasks[task_id].update({
+            "status": "complete", "step": "complete",
+            "done": done, "errors": errors,
+            "result": {"done": done, "errors": errors, "total": len(eligible)},
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+        logger.info("Bulk fix-unfixed %s: complete, %d done, %d errors", task_id, done, errors)
+
+    except Exception as e:
+        logger.exception("Bulk fix-unfixed %s failed", task_id)
+        _bulk_tasks[task_id].update({
+            "status": "error", "error": str(e),
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+
+
 @router.get("/api/bulk/{task_id}/status")
 async def bulk_status(task_id: str):
     """Get the status of a bulk task."""

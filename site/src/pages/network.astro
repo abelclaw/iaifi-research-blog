@@ -547,19 +547,20 @@ const graphData = JSON.stringify({
       return a === b || (paperAdj[a]?.has(b) ?? false);
     }
 
-    function bfsNeighborhood(centerId: string, dist: number): Set<string> {
-      const visited = new Set<string>([centerId]);
+    function bfsNeighborhood(centerId: string, dist: number): Map<string, number> {
+      // Returns map of id -> depth (depth 0 = center)
+      const depthMap = new Map<string, number>([[centerId, 0]]);
       let frontier = [centerId];
       for (let d = 0; d < dist; d++) {
         const next: string[] = [];
         for (const id of frontier) {
           for (const nb of paperAdj[id] || []) {
-            if (!visited.has(nb)) { visited.add(nb); next.push(nb); }
+            if (!depthMap.has(nb)) { depthMap.set(nb, d + 1); next.push(nb); }
           }
         }
         frontier = next;
       }
-      return visited;
+      return depthMap;
     }
 
     // === SVG setup (created once) ===
@@ -681,19 +682,19 @@ const graphData = JSON.stringify({
     let visConceptNodes: ConceptNode[] = [];
 
     function rebuildGraph() {
-      // 1. Compute visible set
-      currentVisibleIds = bfsNeighborhood(centerPaperId, maxDepth);
+      // 1. Compute visible set (map of id -> BFS depth)
+      const depthMap = bfsNeighborhood(centerPaperId, maxDepth);
+      currentVisibleIds = new Set(depthMap.keys());
 
       // 2. Filter data to visible subset only
       visPapers = allPaperNodes.filter((p) => currentVisibleIds.has(p.id));
-      const visIds = currentVisibleIds;
-      // Only show links radiating from the center paper (star topology).
-      // At depth > 1 also show links between depth-N and depth-N+1 (tree edges).
-      // This avoids the O(n^2) cross-link mess between neighbors.
-      // Show all links between visible papers
-      visPaperLinks = filteredLinks.filter(
-        (l) => visIds.has(l.source) && visIds.has(l.target)
-      );
+      // Only show "tree edges": links where the two endpoints are at adjacent BFS depths.
+      // This avoids the O(n²) cross-link mess when many neighbors are interconnected.
+      visPaperLinks = filteredLinks.filter((l) => {
+        const sd = depthMap.get(l.source);
+        const td = depthMap.get(l.target);
+        return sd !== undefined && td !== undefined && Math.abs(sd - td) === 1;
+      });
 
       // Concept nodes that bridge at least 2 visible papers
       const conceptUsage: Record<string, string[]> = {};
@@ -736,10 +737,20 @@ const graphData = JSON.stringify({
       }
 
       // 6. Render only visible elements
+      // Stroke width: center (depth-0) links are fat+score-based, deeper links are thin
+      function linkDepthWeight(d: PaperLink): number {
+        const sd = depthMap.get(d.source) ?? Infinity;
+        const td = depthMap.get(d.target) ?? Infinity;
+        return Math.min(sd, td) === 0 ? 1 + 4 * (d.score / maxLinkScore) : 0.8;
+      }
       const plGroup = linkLayer.selectAll("line").data(visPaperLinks).join("line")
         .attr("stroke", "#94a3b8")
-        .attr("stroke-opacity", linkOpacity)
-        .attr("stroke-width", (d: PaperLink) => 1 + 4 * (d.score / maxLinkScore))
+        .attr("stroke-opacity", (d: PaperLink) => {
+          const sd = depthMap.get(d.source) ?? Infinity;
+          const td = depthMap.get(d.target) ?? Infinity;
+          return Math.min(sd, td) === 0 ? linkOpacity : linkOpacity * 0.4;
+        })
+        .attr("stroke-width", linkDepthWeight)
         .attr("stroke-linecap", "round")
         .attr("cursor", "pointer")
         .on("mouseover", (ev: MouseEvent, d: PaperLink) => {
@@ -906,7 +917,10 @@ const graphData = JSON.stringify({
         plGroup.attr("stroke-opacity", (d: PaperLink) => {
           const src = visPaperById.get(linkId(d.source));
           const tgt = visPaperById.get(linkId(d.target));
-          return (src && activeThemes.has(src.theme) && tgt && activeThemes.has(tgt.theme)) ? linkOpacity : 0;
+          if (!src || !tgt || !activeThemes.has(src.theme) || !activeThemes.has(tgt.theme)) return 0;
+          const sd = depthMap.get(d.source) ?? Infinity;
+          const td = depthMap.get(d.target) ?? Infinity;
+          return Math.min(sd, td) === 0 ? linkOpacity : linkOpacity * 0.4;
         });
       }
       applyThemeFilter();
