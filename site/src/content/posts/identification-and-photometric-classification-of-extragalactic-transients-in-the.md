@@ -98,7 +98,7 @@ published: '2025-07-30T17:39:52+00:00'
 theme: Astrophysics
 title: Identification and photometric classification of extragalactic transients in
   the Vera C. Rubin Observatory's Data Preview 1
-wordCount: 999
+wordCount: 931
 ---
 
 ## The Big Picture
@@ -119,15 +119,15 @@ First comes **difference image analysis (DIA)**: subtract a stored "template" im
 
 To cut through the noise, the team required each candidate to have at least five detections, show an association with a galaxy beyond the Milky Way, and pass quality checks on its **light curve** (the graph of how brightness changes over time). Cross-matching against existing astronomical databases recovered three previously catalogued supernovae. Eight additional candidates passed all cuts as new, unreported events.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2507_22864/figure_1.png)
 
 Classification relied on **Superphot+**, a machine learning tool trained on simulated supernova light curves that assigns probabilistic sub-type labels. The two main categories: **Type Ia** (thermonuclear explosions of white dwarf stars, used as cosmological distance markers) and **Type II** (core-collapse explosions of massive stars). The algorithm needs multi-band photometry and enough data points to pin down the light curve shape. Of the eleven supernovae in the sample, only two got confident classifications above 95% probability: one Type Ia and one Type II. The rest lacked sufficient observations, a limitation that LSST's continuous cadence should largely solve.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2507_22864/figure_2.png)
 
 The team also ran **simsurvey** simulations to predict how many supernovae the campaign should have detected given its depth, cadence, and sky coverage. The answer: 15 ± 4. Finding eleven falls within that range. The shortfall is probably explained by a known DP1 quirk: template images were sometimes taken during the same campaign, causing some supernovae to be subtracted away before analysis even began.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2507_22864/figure_3.png)
 
 ## Why It Matters
 
@@ -139,12 +139,9 @@ The next phase brings **LSSTCam**, the 3.2-gigapixel instrument, covering 9.6 sq
 
 > **Bottom Line:** Eight new supernovae found in a sliver of commissioning data, results matching simulation predictions, and a classification pipeline that works under real-world constraints. Rubin's system has passed its first real test, and the full LSST survey is cleared for launch.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of observational astrophysics and machine learning, deploying AI-powered photometric classification on real commissioning data from a next-generation telescope and establishing automated supernova typing as a working capability for LSST.
-
-- **Impact on Artificial Intelligence:** The study stress-tests probabilistic light curve classification under real-world constraints: sparse cadence, missing filter bands, template contamination. It reveals where ML classifiers hold up and where they break down.
-
-- **Impact on Fundamental Interactions:** Accurate, automated supernova classification at LSST scale will produce the largest Type Ia sample in history, tightening constraints on dark energy and the universe's expansion rate.
-
-- **Outlook and References:** As LSSTCam begins full operations, future work will focus on improved template strategies and spectroscopic confirmation workflows. See [Freeburn et al. (2025)](https://arxiv.org/abs/2507.22864) for full details.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of observational astrophysics and machine learning, deploying AI-powered photometric classification on real commissioning data from a next-generation telescope and establishing automated supernova typing as a working capability for LSST.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study stress-tests probabilistic light curve classification under real-world constraints: sparse cadence, missing filter bands, template contamination. It reveals where ML classifiers hold up and where they break down.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Accurate, automated supernova classification at LSST scale will produce the largest Type Ia sample in history, tightening constraints on dark energy and the universe's expansion rate.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As LSSTCam begins full operations, future work will focus on improved template strategies and spectroscopic confirmation workflows. See [Freeburn et al. (2025)](https://arxiv.org/abs/2507.22864) for full details.</span></div></div>
+</div>

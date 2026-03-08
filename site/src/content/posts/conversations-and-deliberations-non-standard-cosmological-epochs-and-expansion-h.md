@@ -56,7 +56,7 @@ published: '2024-11-07T15:18:55+00:00'
 theme: Astrophysics
 title: 'Conversations and Deliberations: Non-Standard Cosmological Epochs and Expansion
   Histories'
-wordCount: 1112
+wordCount: 1073
 ---
 
 ## The Big Picture
@@ -81,19 +81,19 @@ The first major theme was the connection to observation: what telescopes and det
 - Changes to the abundances of light elements produced during BBN
 - Shifts in the **stochastic gravitational-wave background**, a faint hiss of gravitational waves from the early universe that space-based detectors like LISA may one day hear
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2411_04780/figure_1.png)
 
 A central topic was **Early Matter-Dominated Eras (EMDEs)**, periods when some heavy, slowly-decaying particle or field dominated the universe's energy budget before eventually decaying into radiation. During an EMDE, the universe expands more slowly than in standard radiation domination. This matters enormously for dark matter: particles that would have been diluted away survive, and small-scale structure forms differently. The imprints could show up in dwarf galaxies or dark matter streams detectable through gravitational lensing.
 
 Discussions also grappled with **scalar fields**, fundamental quantum fields that can drive unusual expansion phases. Depending on how a scalar field rolls down its potential energy landscape, it can mimic matter, radiation, or something in between. Several questions kept coming up: How do you distinguish between different scalar field scenarios observationally? What theoretical constraints does string theory impose? Do top-down motivations from moduli fields (the parameters that set the shape of hidden extra dimensions in string theory) favor particular expansion histories?
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2411_04780/figure_2.png)
 
 One of the liveliest discussions centered on **cosmological stasis**, a recently proposed phenomenon where multiple particle species conspire to hold the universe in a fixed expansion rate for an extended period, even as individual species decay and replenish each other. The concept grew out of thinking about "tower states," a cascade of increasingly massive particles predicted by string theory. Whether stasis is a generic outcome of certain theoretical frameworks or a fine-tuned curiosity remained an open debate.
 
 **Primordial black holes (PBHs)** rounded out the discussion. Tiny black holes formed from density fluctuations in the very early universe, PBHs could have briefly dominated the universe's energy density before evaporating via **Hawking radiation**, the slow, steady leak of energy that causes black holes to gradually shrink and disappear. A PBH-dominated epoch would leave its own gravitational wave signature and could affect dark matter production in ways distinct from other non-standard scenarios.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2411_04780/figure_3.png)
 
 ## Why It Matters
 
@@ -107,12 +107,9 @@ Preparing for those tests, understanding which signatures are unique to which sc
 
 > **Bottom Line:** The universe's first second remains cosmology's greatest mystery, but a new generation of gravitational wave detectors and structure surveys is poised to crack it open. The theoretical territory mapped out at this Pittsburgh workshop defines exactly what signatures to look for.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This workshop, with IAIFI-affiliated physicist James Halverson (Northeastern) among its Discussion Leaders, connects string theory and formal high-energy physics with observational cosmology, using insights from both formal theory and astrophysical data to constrain the pre-BBN universe.
-
-- **Impact on Artificial Intelligence:** The discussions identified machine learning as a needed tool for extracting subtle non-standard-epoch signatures from gravitational wave backgrounds and large-scale structure surveys, pointing toward AI-driven analysis pipelines as a near-term priority.
-
-- **Impact on Fundamental Interactions:** By mapping the full range of non-standard cosmological epochs, from EMDEs to stasis to PBH domination, the workshop establishes a coherent theoretical framework for connecting string-motivated physics (moduli fields, tower states) to observable cosmological signatures.
-
-- **Outlook and References:** Future work will focus on building observational probes that can discriminate between competing non-standard scenarios; the full workshop record is available at [arXiv:2411.04780](https://arxiv.org/abs/2411.04780).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This workshop, with IAIFI-affiliated physicist James Halverson (Northeastern) among its Discussion Leaders, connects string theory and formal high-energy physics with observational cosmology, using insights from both formal theory and astrophysical data to constrain the pre-BBN universe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The discussions identified machine learning as a needed tool for extracting subtle non-standard-epoch signatures from gravitational wave backgrounds and large-scale structure surveys, pointing toward AI-driven analysis pipelines as a near-term priority.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By mapping the full range of non-standard cosmological epochs, from EMDEs to stasis to PBH domination, the workshop establishes a coherent theoretical framework for connecting string-motivated physics (moduli fields, tower states) to observable cosmological signatures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on building observational probes that can discriminate between competing non-standard scenarios; the full workshop record is available at [arXiv:2411.04780](https://arxiv.org/abs/2411.04780).</span></div></div>
+</div>

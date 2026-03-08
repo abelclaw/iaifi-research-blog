@@ -44,7 +44,7 @@ pdfUrl: https://arxiv.org/pdf/2512.08427v1
 published: '2025-12-09T09:55:42+00:00'
 theme: Astrophysics
 title: 'Self-lensing flares from black hole binaries V: systematic searches in LSST'
-wordCount: 1112
+wordCount: 1342
 ---
 
 ## The Big Picture
@@ -69,7 +69,7 @@ The team built a realistic simulation pipeline to test two competing detection s
 
 On top of the binary signal, they layered realistic quasar "noise" using the **damped random walk (DRW)** model, a standard description of how quasar brightness drifts irregularly over time. They then downsampled the light-curves to mimic LSST's actual observing cadence, including gaps and sporadic visits, with realistic measurement uncertainties added in. The result: simulated light-curves that look like what LSST will actually deliver.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_08427/figure_1.png)
 
 With those synthetic light-curves in hand, they applied two detection methods:
 
@@ -81,7 +81,7 @@ With those synthetic light-curves in hand, they applied two detection methods:
 
 Matched filters blew the periodogram out of the water. Even with LSST-like sparse cadences and realistic DRW noise, matched filter SNR reliably distinguished injected flares from noise.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_08427/figure_2.png)
 
 Beyond simple detection, the team developed a **three-step matched filter procedure** for parameter recovery:
 
@@ -89,7 +89,7 @@ Beyond simple detection, the team developed a **three-step matched filter proced
 - **Step 2:** Use candidate flare detections to constrain the orbital period. Since flares occur twice per orbit, pairs separated by half a period give a direct period estimate.
 - **Step 3:** Refine binary parameters (mass ratio, eccentricity, inclination) by fitting the full multi-component light-curve model to the data.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_08427/figure_3.png)
 
 The whole pipeline is computationally cheap enough to run on millions of quasar light-curves, a hard requirement for any method aimed at LSST's enormous catalog.
 
@@ -105,18 +105,15 @@ Open questions remain. How well does the three-step procedure handle realistic d
 
 > **Bottom Line:** Standard periodogram searches are blind to self-lensing flares hidden in quasar noise, but matched filters can detect and characterize them at LSST scale, opening a path to discovering thousands of supermassive black hole binary systems in the next decade.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects gravitational astrophysics and signal processing, bringing matched filter techniques from gravitational wave detection to the problem of finding rare astrophysical transients in large optical surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The matched filter pipeline provides a computationally efficient, template-based approach to anomaly detection in time-series data, and could serve as a useful baseline when benchmarking ML methods against classical signal processing for astronomical transient searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Identifying self-lensing flares in LSST would provide direct electromagnetic evidence for sub-parsec supermassive black hole binaries, the dominant sources of the nanohertz gravitational wave background and key targets for future LISA observations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The method will be stress-tested against full LSST simulation outputs and realistic binary population models; the paper is available at [arXiv:2512.08427](https://arxiv.org/abs/2512.08427).
 
-- **Interdisciplinary Research Achievement:** This work connects gravitational astrophysics and signal processing, bringing matched filter techniques from gravitational wave detection to the problem of finding rare astrophysical transients in large optical surveys.
-
-- **Impact on Artificial Intelligence:** The matched filter pipeline provides a computationally efficient, template-based approach to anomaly detection in time-series data, and could serve as a useful baseline when benchmarking ML methods against classical signal processing for astronomical transient searches.
-
-- **Impact on Fundamental Interactions:** Identifying self-lensing flares in LSST would provide direct electromagnetic evidence for sub-parsec supermassive black hole binaries, the dominant sources of the nanohertz gravitational wave background and key targets for future LISA observations.
-
-- **Outlook and References:** The method will be stress-tested against full LSST simulation outputs and realistic binary population models; the paper is available at [arXiv:2512.08427](https://arxiv.org/abs/2512.08427).
-
-## Original Paper Details
-- **Title:** Self-lensing flares from black hole binaries V: systematic searches in LSST
-- **arXiv ID:** 2512.08427
-- **Authors:** ["Kevin Park", "Zoltan Haiman", "Chengcheng Xin", "Tzuken Shen", "Ashley Villar", "Jordy Davelaar"]
-- **Abstract:** The Vera C. Rubin Observatory has now seen first light, and over a 10 year duration, LSST is projected to catalogue tens of millions of quasars, many of which are expected to be associated with sub-parsec supermassive black hole binaries (SMBHBs). Out of these SMBHBs, up to thousands of relatively massive binary-quasars are expected to exhibit gravitational self-lensing flares (SLFs) that last for at least 20-30 days. We assess the effectiveness of the Lomb-Scargle (LS) periodogram and matched filters (MFs) as methods for systematic searches for these binaries, using toy-models of hydrodynamical, Doppler, and self-lensing variability from equal-mass, eccentric SMBHBs. We inject SLFs into random realizations of damped random walk (DRW) lightcurves, representing stochastic quasar variability, and compute the LS periodogram with and without the SLF. We find that periodograms of SLF+DRW light-curves do not have maximum peak heights that could not arise from DRW-only periodograms. On the other hand, the matched filter signal-to-noise ratio (SNR) can distinguish SLFs from noise even with LSST-like cadences and DRW noise. Furthermore, we develop a three-step procedure with matched filters, which can also recover injected binary parameters from these light-curves. We expect this method to be computationally efficient enough to be applicable to millions of quasar light-curves in LSST.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Self-lensing flares from black hole binaries V: systematic searches in LSST</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2512.08427</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Kevin Park", "Zoltan Haiman", "Chengcheng Xin", "Tzuken Shen", "Ashley Villar", "Jordy Davelaar"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">The Vera C. Rubin Observatory has now seen first light, and over a 10 year duration, LSST is projected to catalogue tens of millions of quasars, many of which are expected to be associated with sub-parsec supermassive black hole binaries (SMBHBs). Out of these SMBHBs, up to thousands of relatively massive binary-quasars are expected to exhibit gravitational self-lensing flares (SLFs) that last for at least 20-30 days. We assess the effectiveness of the Lomb-Scargle (LS) periodogram and matched filters (MFs) as methods for systematic searches for these binaries, using toy-models of hydrodynamical, Doppler, and self-lensing variability from equal-mass, eccentric SMBHBs. We inject SLFs into random realizations of damped random walk (DRW) lightcurves, representing stochastic quasar variability, and compute the LS periodogram with and without the SLF. We find that periodograms of SLF+DRW light-curves do not have maximum peak heights that could not arise from DRW-only periodograms. On the other hand, the matched filter signal-to-noise ratio (SNR) can distinguish SLFs from noise even with LSST-like cadences and DRW noise. Furthermore, we develop a three-step procedure with matched filters, which can also recover injected binary parameters from these light-curves. We expect this method to be computationally efficient enough to be applicable to millions of quasar light-curves in LSST.</span></div></div>
+</div>

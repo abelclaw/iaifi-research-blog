@@ -42,7 +42,7 @@ pdfUrl: https://arxiv.org/pdf/2208.14995v2
 published: '2022-08-31T17:50:04+00:00'
 theme: Theoretical Physics
 title: Discovering Conservation Laws using Optimal Transport and Manifold Learning
-wordCount: 1086
+wordCount: 1223
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ A team at MIT has taken a different approach: reframe the whole problem as a que
 
 When a dynamical system has conserved quantities, every trajectory in **phase space** (the multi-dimensional map of all possible states) is trapped on a lower-dimensional surface called an **isosurface**. Think of energy conservation like a topographic contour line: a marble can move freely along a line of constant elevation, but it can't jump to a different elevation without violating energy conservation. Each distinct set of conserved values defines a distinct isosurface, and the system's trajectories sample these surfaces.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2208_14995/figure_1.png)
 
 The method works in three stages:
 
@@ -71,13 +71,13 @@ The method works in three stages:
 
 3. **Extract the embedding with diffusion maps.** Once you have a pairwise distance matrix between all trajectories, **diffusion maps** (a technique for uncovering hidden geometric structure in high-dimensional data) find the low-dimensional shape hiding in that matrix. Each axis of the resulting embedding corresponds directly to one conserved quantity.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2208_14995/figure_1.png)
 
 The output isn't just a count of conserved quantities. It's a map of the space those quantities inhabit. For a simple harmonic oscillator, where energy is the only conserved quantity, the embedding is a one-dimensional curve. For a system with two conserved quantities, it's a two-dimensional surface.
 
 The researchers verified this analytically for the harmonic oscillator and numerically for systems ranging from a double pendulum to the **Korteweg–De Vries (KdV) equation**, a classic model of shallow water waves famously discovered to have *infinitely many* conserved quantities. Their method correctly identifies the leading conserved modes without ever being told the equations of motion.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2208_14995/figure_2.png)
 
 The approach handles real-world messiness well. Noise in measurements, missing phase-space dimensions, and approximate conservation laws all degrade results only gradually. Because the geometry is built on statistical distributions of points rather than individual precise measurements, it holds up where point-by-point methods would break down.
 
@@ -93,18 +93,15 @@ Open questions remain. The method works best when individual trajectories densel
 
 > **Bottom Line:** Reframing conservation law discovery as a geometry problem, measuring how trajectory shapes vary across initial conditions, gives you a fast, interpretable, model-free method that beats deep learning baselines on these tasks. Sometimes the most powerful tool isn't a bigger neural network, but a smarter way of looking at the data.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses optimal transport theory, manifold learning, and classical physics into a single discovery tool. It speaks both the language of geometry and the language of dynamics, exactly the kind of AI-physics crossover that IAIFI exists to pursue.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The non-parametric, interpretable approach shows that geometric reasoning can outperform black-box deep learning for structured scientific tasks, offering a template for physics-informed machine learning that doesn't sacrifice transparency.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By automating the identification of conserved quantities in complex nonlinear systems, including partial differential equations like KdV, this method could speed up the discovery of new symmetries and invariants in understudied physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions may target stochastic, high-dimensional, or quantum systems where conservation takes more subtle forms. The full method and codebase are openly available; see the [arXiv preprint (arXiv:2208.14995)](https://arxiv.org/abs/2208.14995) by Lu, Dangovski, and Soljačić at MIT.
 
-- **Interdisciplinary Research Achievement:** This work fuses optimal transport theory, manifold learning, and classical physics into a single discovery tool. It speaks both the language of geometry and the language of dynamics, exactly the kind of AI-physics crossover that IAIFI exists to pursue.
-
-- **Impact on Artificial Intelligence:** The non-parametric, interpretable approach shows that geometric reasoning can outperform black-box deep learning for structured scientific tasks, offering a template for physics-informed machine learning that doesn't sacrifice transparency.
-
-- **Impact on Fundamental Interactions:** By automating the identification of conserved quantities in complex nonlinear systems, including partial differential equations like KdV, this method could speed up the discovery of new symmetries and invariants in understudied physical systems.
-
-- **Outlook and References:** Future extensions may target stochastic, high-dimensional, or quantum systems where conservation takes more subtle forms. The full method and codebase are openly available; see the [arXiv preprint (arXiv:2208.14995)](https://arxiv.org/abs/2208.14995) by Lu, Dangovski, and Soljačić at MIT.
-
-## Original Paper Details
-- **Title:** Discovering Conservation Laws using Optimal Transport and Manifold Learning
-- **arXiv ID:** [arXiv:2208.14995](https://arxiv.org/abs/2208.14995)
-- **Authors:** Peter Y. Lu, Rumen Dangovski, Marin Soljačić
-- **Abstract:** Conservation laws are key theoretical and practical tools for understanding, characterizing, and modeling nonlinear dynamical systems. However, for many complex systems, the corresponding conserved quantities are difficult to identify, making it hard to analyze their dynamics and build stable predictive models. Current approaches for discovering conservation laws often depend on detailed dynamical information or rely on black box parametric deep learning methods. We instead reformulate this task as a manifold learning problem and propose a non-parametric approach for discovering conserved quantities. We test this new approach on a variety of physical systems and demonstrate that our method is able to both identify the number of conserved quantities and extract their values. Using tools from optimal transport theory and manifold learning, our proposed method provides a direct geometric approach to identifying conservation laws that is both robust and interpretable without requiring an explicit model of the system nor accurate time information.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Discovering Conservation Laws using Optimal Transport and Manifold Learning</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2208.14995](https://arxiv.org/abs/2208.14995)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Peter Y. Lu, Rumen Dangovski, Marin Soljačić</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Conservation laws are key theoretical and practical tools for understanding, characterizing, and modeling nonlinear dynamical systems. However, for many complex systems, the corresponding conserved quantities are difficult to identify, making it hard to analyze their dynamics and build stable predictive models. Current approaches for discovering conservation laws often depend on detailed dynamical information or rely on black box parametric deep learning methods. We instead reformulate this task as a manifold learning problem and propose a non-parametric approach for discovering conserved quantities. We test this new approach on a variety of physical systems and demonstrate that our method is able to both identify the number of conserved quantities and extract their values. Using tools from optimal transport theory and manifold learning, our proposed method provides a direct geometric approach to identifying conservation laws that is both robust and interpretable without requiring an explicit model of the system nor accurate time information.</span></div></div>
+</div>

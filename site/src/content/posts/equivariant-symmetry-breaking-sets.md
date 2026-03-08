@@ -64,7 +64,7 @@ The paper draws a sharp distinction between two flavors of symmetry breaking. **
 
 Think of a ball balanced atop a Mexican-hat-shaped hill. The hill is perfectly symmetric around the peak, but the ball must fall *somewhere*, rolling into one of infinitely many equivalent positions around the rim. This is the regime that broke earlier approaches.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2402_02681/figure_1.png)
 
 Rather than tinkering with the internals of an existing equivariant network, Xie and Smidt propose feeding the network additional "symmetry breaking objects" alongside the original input. These objects carry just enough asymmetry to nudge the network toward one valid low-symmetry output. The trick is designing them so the whole input (original data plus symmetry breaker) still transforms correctly whenever the system is rotated, reflected, or reoriented.
 
@@ -74,11 +74,11 @@ Here's what "correctly" means in practice:
 - **Minimizing set size maximizes data efficiency.** A smaller SBS means fewer symmetry-breaking copies of your data to process. The authors prove that finding the minimum-size equivariant SBS is mathematically equivalent to finding **complements** of subgroups: the minimal extra structure needed to complete a partial symmetry into a full one.
 - **Counterintuitive bonus:** Sometimes it's more efficient to break *more* symmetry than strictly necessary. Breaking all symmetry of the input can yield a smaller, cleaner SBS than carefully preserving some symmetries.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2402_02681/figure_1.png)
 
 The researchers tabulate concrete solutions for all **point groups**, the symmetry groups describing molecules and crystals. This is the kind of reference table computational physicists will actually use: pick your input symmetry, pick your desired output symmetry, look up the table, and you have your SBS recipe.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2402_02681/figure_2.png)
 
 To demonstrate the framework, the paper walks through crystal distortions from high- to low-symmetry phases, ground states that break Hamiltonian symmetry, and fluid dynamics simulations where symmetric flows spontaneously develop asymmetric Kármán vortex streets. In each case, a standard equivariant network augmented with an SBS produces the full set of valid lower-symmetry outputs, something that was previously out of reach.
 
@@ -92,12 +92,9 @@ That low barrier to adoption means the framework could spread quickly to molecul
 
 > **Bottom Line:** Xie and Smidt have solved the spontaneous symmetry breaking problem for equivariant neural networks, not by breaking the networks, but by giving them the right extra information. The result is a general, mathematically rigorous, and practically usable framework built on classical group theory.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work translates a classical mathematical concept (subgroup complements) into a concrete engineering recipe for AI systems that model physical symmetry breaking, bridging abstract group theory and practical machine learning for physics.
-
-- **Impact on Artificial Intelligence:** The symmetry breaking set framework is the first fully equivariant solution to spontaneous symmetry breaking in neural networks, letting ENNs model a class of physical phenomena that was previously beyond their reach while keeping their core mathematical guarantees intact.
-
-- **Impact on Fundamental Interactions:** Spontaneous symmetry breaking is the mechanism behind the Higgs field, phase transitions, and crystal distortions. By enabling AI models to handle it correctly, this work opens the door to deploying machine learning more broadly in quantum chemistry, condensed matter physics, and particle physics.
-
-- **Outlook and References:** Future work includes extending the framework to continuous groups and infinite-dimensional symmetries; the full tabulation of point group solutions is available in the paper (*Transactions on Machine Learning Research*, October 2024; [arXiv:2402.02681](https://arxiv.org/abs/2402.02681); code at github.com/atomicarchitects/equivariant-SBS).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work translates a classical mathematical concept (subgroup complements) into a concrete engineering recipe for AI systems that model physical symmetry breaking, bridging abstract group theory and practical machine learning for physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The symmetry breaking set framework is the first fully equivariant solution to spontaneous symmetry breaking in neural networks, letting ENNs model a class of physical phenomena that was previously beyond their reach while keeping their core mathematical guarantees intact.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Spontaneous symmetry breaking is the mechanism behind the Higgs field, phase transitions, and crystal distortions. By enabling AI models to handle it correctly, this work opens the door to deploying machine learning more broadly in quantum chemistry, condensed matter physics, and particle physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes extending the framework to continuous groups and infinite-dimensional symmetries; the full tabulation of point group solutions is available in the paper (*Transactions on Machine Learning Research*, October 2024; [arXiv:2402.02681](https://arxiv.org/abs/2402.02681); code at github.com/atomicarchitects/equivariant-SBS).</span></div></div>
+</div>

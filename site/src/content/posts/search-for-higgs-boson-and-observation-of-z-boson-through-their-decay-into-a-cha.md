@@ -37,7 +37,7 @@ theme: Experimental Physics
 title: Search for Higgs boson and observation of Z boson through their decay into
   a charm quark-antiquark pair in boosted topologies in proton-proton collisions at
   $\sqrt{s}$ = 13 TeV
-wordCount: 1043
+wordCount: 1028
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ The strategy hinges on boosting. When a Higgs boson is produced with enormous tr
 
 These merged jets are reconstructed as **AK8 jets**, large-radius particle clusters spanning an angular cone of size 0.8, built with the anti-kT algorithm. Before analysis, the team applies the **soft-drop algorithm**, which strips away soft, wide-angle radiation. This reveals the jet's underlying mass and suppresses the overwhelming background from ordinary strong-force multijet events. The cleaned jet mass, mSD, must fall between 40 and 201 GeV, a window containing both the Z boson peak (~91 GeV) and the Higgs peak (~125 GeV).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_14181/figure_1.png)
 
 The real muscle comes from deep neural network charm taggers, AI models trained to pick out charm-quark jets from the flood of ordinary jets. These taggers are **mass-decorrelated**: their output scores don't depend on jet mass. Without this property, a tagger could inadvertently sculpt a fake signal peak into the mass distribution, which would be fatal for a search defined by its mass window.
 
@@ -76,7 +76,7 @@ This multi-region fit extracts both the Z→cc and H→cc signal strengths (how 
 
 The Z boson observation is more than a calibration check. Measuring Z→cc at high transverse momentum with a signal strength of 1.00, perfectly matching the Standard Model, confirms that the charm tagger and analysis framework work as designed. This is the first observation of Z→cc in association with jets in the boosted regime, and it sets a new benchmark for flavor tagging at high momentum.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2211_14181/figure_2.png)
 
 For the Higgs, the result sets an observed upper limit of 47 times the Standard Model prediction for σ(H)×B(H→cc) at 95% confidence level, with an expected limit of 39 times. Those numbers might sound large, but they come from gluon-gluon fusion, a production mode never before explored for this decay channel. Combined with ongoing searches in associated production, this measurement adds an entirely new handle on the Higgs-charm coupling. Every independent constraint narrows the room for deviations from the Standard Model.
 
@@ -84,12 +84,9 @@ The High-Luminosity LHC upgrade will multiply the available dataset substantiall
 
 > **Bottom Line:** CMS has observed, for the first time, Z bosons decaying to charm quarks in boosted topologies, with results that match theory perfectly. The same AI-powered tagging method pushes the frontier on Higgs-to-charm searches in a production mode that had never been explored before.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of machine learning and experimental particle physics, deploying mass-decorrelated deep neural networks as the central tool for identifying charm quarks inside boosted jets, a task that is out of reach for traditional cut-based approaches.
-
-- **Impact on Artificial Intelligence:** The mass-decorrelated charm tagger shows how architectural constraints on neural networks can eliminate systematic artifacts like sculpted backgrounds while preserving discriminating power, a lesson that applies broadly to ML in high-energy physics.
-
-- **Impact on Fundamental Interactions:** The first observation of boosted Z→cc validates a new experimental channel and constrains the Higgs-charm Yukawa coupling from gluon-gluon fusion production for the first time, complementing existing VH-based searches.
-
-- **Outlook and References:** With the High-Luminosity LHC expected to increase the dataset by an order of magnitude, this boosted strategy may eventually reach Standard Model sensitivity for H→cc. The result was published in *Physical Review Letters* ([arXiv:2211.14181](https://arxiv.org/abs/2211.14181)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of machine learning and experimental particle physics, deploying mass-decorrelated deep neural networks as the central tool for identifying charm quarks inside boosted jets, a task that is out of reach for traditional cut-based approaches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The mass-decorrelated charm tagger shows how architectural constraints on neural networks can eliminate systematic artifacts like sculpted backgrounds while preserving discriminating power, a lesson that applies broadly to ML in high-energy physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The first observation of boosted Z→cc validates a new experimental channel and constrains the Higgs-charm Yukawa coupling from gluon-gluon fusion production for the first time, complementing existing VH-based searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With the High-Luminosity LHC expected to increase the dataset by an order of magnitude, this boosted strategy may eventually reach Standard Model sensitivity for H→cc. The result was published in *Physical Review Letters* ([arXiv:2211.14181](https://arxiv.org/abs/2211.14181)).</span></div></div>
+</div>

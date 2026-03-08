@@ -43,7 +43,7 @@ pdfUrl: https://arxiv.org/pdf/2101.07263v3
 published: '2021-01-18T19:00:00+00:00'
 theme: Experimental Physics
 title: 'E Pluribus Unum Ex Machina: Learning from Many Collider Events at Once'
-wordCount: 1081
+wordCount: 1014
 ---
 
 ## The Big Picture
@@ -67,17 +67,17 @@ That factorization has a direct consequence for classifiers. The **likelihood ra
 
 Neither direction requires training on ensembles. The information content is identical. The paper's title, *E Pluribus Unum Ex Machina* ("from many, one, by machine"), is a wry nod to this equivalence: the machine can extract the one from the many, or the many from the one, with no fundamental loss.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2101_07263/figure_1.png)
 
 To move beyond theory, Nachman and Thaler ran empirical comparisons on three benchmark tasks: a simple two-Gaussian classification problem, a **dijet resonance search** (looking for a new particle decaying to two jets of hadrons), and a **top quark mass measurement** (extracting the mass of the heaviest known elementary particle). In each case, they compared models trained on individual events against models trained on ensembles.
 
 Per-instance training won across the board. The reason comes down to gradient quality: when you train on ensembles, each individual event's contribution gets diluted across all other events in the batch. The gradient signal telling the network "this feature matters" weakens when averaged over many events simultaneously. Training on single events keeps that signal sharp.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2101_07263/figure_2.png)
 
 The analysis also covers **regression tasks**, not just "which class?" but "what is the value of a continuous parameter, like the top quark mass?" Regression can be recast as a parametrized classification problem, and per-instance approaches remain at least as effective as per-ensemble ones here too.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2101_07263/figure_3.png)
 
 ## Why It Matters
 
@@ -91,12 +91,9 @@ The framework itself, translating between per-instance and per-ensemble learning
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies statistical theory to a live machine learning challenge in experimental particle physics, proving a formal equivalence between single-event and multi-event classifiers that directly guides how LHC analysis pipelines are designed.
-
-- **Impact on Artificial Intelligence:** The paper provides a concrete example where complex, set-based neural architectures offer no benefit over standard per-instance classifiers. For the broader ML community, it's a useful reminder that ensemble inputs can dilute gradients rather than add signal.
-
-- **Impact on Fundamental Interactions:** By clarifying the optimal strategy for classifying and measuring particle collision events, this research sharpens the tools physicists use to search for new particles and measure Standard Model parameters at the LHC.
-
-- **Outlook and References:** Future work may uncover genuine advantages for multi-event methods in jet substructure studies, where particle emissions are approximately but not exactly independent; the full analysis is available at [arXiv:2101.07263](https://arxiv.org/abs/2101.07263).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies statistical theory to a live machine learning challenge in experimental particle physics, proving a formal equivalence between single-event and multi-event classifiers that directly guides how LHC analysis pipelines are designed.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides a concrete example where complex, set-based neural architectures offer no benefit over standard per-instance classifiers. For the broader ML community, it's a useful reminder that ensemble inputs can dilute gradients rather than add signal.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By clarifying the optimal strategy for classifying and measuring particle collision events, this research sharpens the tools physicists use to search for new particles and measure Standard Model parameters at the LHC.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may uncover genuine advantages for multi-event methods in jet substructure studies, where particle emissions are approximately but not exactly independent; the full analysis is available at [arXiv:2101.07263](https://arxiv.org/abs/2101.07263).</span></div></div>
+</div>

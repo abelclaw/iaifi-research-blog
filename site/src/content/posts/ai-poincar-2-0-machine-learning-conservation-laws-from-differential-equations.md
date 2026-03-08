@@ -54,7 +54,7 @@ A team at MIT and IIT Kharagpur set out to change that. Their algorithm, **AI Po
 
 The algorithm operates in three stages.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2203_12610/figure_1.png)
 
 **Stage 1: Train neural networks to be conserved quantities.** For any dynamical system, a conserved quantity H must satisfy one condition: its value doesn't change as the system evolves. Mathematically, if **f**(**z**) describes how the system moves, a conservation law H must obey ∇H · **f** = 0. Its gradient must always be perpendicular to the direction of motion. The team represents H as a neural network and trains it to minimize a **conservation loss**, penalizing the network whenever its gradient isn't perpendicular to the flow.
 
@@ -75,11 +75,11 @@ The method was tested on a demanding suite of classical problems:
 - **KdV wave equation**: 2–4 conservation laws recovered ✓
 - **Nonlinear Schrödinger equation**: 1–3 conservation laws recovered ✓
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2203_12610/figure_1.png)
 
 The KdV result stands out. The Korteweg–De Vries equation describes solitons, wave packets that travel without dispersing. Because solitons move in one direction, they violate the **ergodicity** assumption that earlier methods required: the idea that a system will eventually visit every possible state. AI Poincaré 1.0 would have stumbled here. Version 2.0 works directly from the equations rather than observed trajectories, so ergodicity is irrelevant.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2203_12610/figure_2.png)
 
 For the three-body problem, notorious for its chaotic complexity, the algorithm extracted known conserved quantities including total energy and momentum components as interpretable symbolic formulas, not opaque network weights.
 
@@ -91,19 +91,19 @@ The work has implications for AI as well. The functional independence framework 
 
 The natural next step is applying this to systems where conservation laws are *unknown*: turbulence, biological networks, novel materials. These are systems where human physicists haven't yet written down the invariants. AI Poincaré 2.0 is a step toward letting the machine do that discovery autonomously.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2203_12610/figure_2.png)
 
 > **Bottom Line:** AI Poincaré 2.0 shows that machine learning can systematically uncover the hidden invariants of dynamical systems, including famously hard cases like the three-body problem and nonlinear wave equations, by combining neural network training with a nonlinear independence test that works where classical linear algebra falls short.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects deep learning and classical physics by teaching neural networks to discover conservation laws and translate that understanding into symbolic formulas physicists can directly use.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The differential rank module introduces a nonlinear generalization of SVD that measures functional independence among learned representations, with applications to ensemble learning and representation diversity beyond physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The algorithm identifies all known conservation laws for the three-body problem, the KdV equation, and the nonlinear Schrödinger equation without human guidance, providing a general-purpose tool for discovering invariants in complex physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could apply AI Poincaré 2.0 to systems with unknown conservation laws, from turbulence to quantum many-body physics, potentially uncovering new symmetries; the paper is available at [arXiv:2203.12610](https://arxiv.org/abs/2203.12610).
 
-- **Interdisciplinary Research Achievement:** This work connects deep learning and classical physics by teaching neural networks to discover conservation laws and translate that understanding into symbolic formulas physicists can directly use.
-- **Impact on Artificial Intelligence:** The differential rank module introduces a nonlinear generalization of SVD that measures functional independence among learned representations, with applications to ensemble learning and representation diversity beyond physics.
-- **Impact on Fundamental Interactions:** The algorithm identifies all known conservation laws for the three-body problem, the KdV equation, and the nonlinear Schrödinger equation without human guidance, providing a general-purpose tool for discovering invariants in complex physical systems.
-- **Outlook and References:** Future work could apply AI Poincaré 2.0 to systems with unknown conservation laws, from turbulence to quantum many-body physics, potentially uncovering new symmetries; the paper is available at [arXiv:2203.12610](https://arxiv.org/abs/2203.12610).
-
-## Original Paper Details
-- **Title:** AI Poincaré 2.0: Machine Learning Conservation Laws from Differential Equations
-- **arXiv ID:** 2203.12610
-- **Authors:** ["Ziming Liu", "Varun Madhavan", "Max Tegmark"]
-- **Abstract:** We present a machine learning algorithm that discovers conservation laws from differential equations, both numerically (parametrized as neural networks) and symbolically, ensuring their functional independence (a non-linear generalization of linear independence). Our independence module can be viewed as a nonlinear generalization of singular value decomposition. Our method can readily handle inductive biases for conservation laws. We validate it with examples including the 3-body problem, the KdV equation and nonlinear Schrödinger equation.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">AI Poincaré 2.0: Machine Learning Conservation Laws from Differential Equations</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2203.12610</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ziming Liu", "Varun Madhavan", "Max Tegmark"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present a machine learning algorithm that discovers conservation laws from differential equations, both numerically (parametrized as neural networks) and symbolically, ensuring their functional independence (a non-linear generalization of linear independence). Our independence module can be viewed as a nonlinear generalization of singular value decomposition. Our method can readily handle inductive biases for conservation laws. We validate it with examples including the 3-body problem, the KdV equation and nonlinear Schrödinger equation.</span></div></div>
+</div>

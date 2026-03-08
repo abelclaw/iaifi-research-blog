@@ -66,7 +66,7 @@ The physics starts with **indirect illumination**: light that reaches a wall not
 
 The effect is extraordinarily subtle. The researchers measured the signal at between −20 dB and −35 dB below background imaging noise, roughly 100 to 3,000 times weaker than the camera's own noise floor. You'd never notice it, but it's mathematically present in every pixel.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2108_13027/figure_1.png)
 
 To extract this signal, the team built a multi-stage pipeline:
 
@@ -74,7 +74,7 @@ To extract this signal, the team built a multi-stage pipeline:
 2. **Signal extraction**: The video is projected into a compact **2D representation** that summarizes how the wall's illumination changes over time and across space.
 3. **Classification**: Two separate **convolutional neural networks (CNNs)** take this representation as input. One classifies the *number of people* present (zero, one, or two); the other classifies the *activity* (walking, jumping, waving, crouching, or none).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2108_13027/figure_1.png)
 
 Training required data from 20 different scenes with varying geometries, furniture arrangements, lighting setups, and wall materials. The key test: could the networks generalize to rooms they'd never seen, with no re-calibration?
 
@@ -82,7 +82,7 @@ They could. On held-out test scenes, the system achieved approximately 94% accur
 
 What sets this apart from other **non-line-of-sight (NLOS) sensing** methods is what it doesn't require. Most passive NLOS techniques depend on known occluders: a visible corner, a table edge, or a post that acts as an accidental lens imposing structure on the incoming light. Remove those occluders, and existing methods collapse. This system works on a featureless wall with no known geometry and no cooperation from the environment.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2108_13027/figure_2.png)
 
 The team also built a synthetic simulation to identify which scene parameters most affect signal quality. Distance between people and the wall, number and placement of light sources, and surface **reflectance** (how much light a surface bounces back) all shape how much signal bleeds through the noise floor. The simulation helped characterize both the limits and surprising robustness of the approach.
 
@@ -100,15 +100,15 @@ There's also a natural question about adversarial scenarios. If someone knows th
 
 > **Bottom Line:** A blank wall is not a blank canvas. It's a noisy, low-fidelity record of everything happening in the room it faces. Researchers at MIT have shown that convolutional neural networks can decode that record well enough to classify human activity and count people with ~94% accuracy, in real time, in rooms they've never visited.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines computational physics and machine learning, using light transport theory to design a signal representation that neural networks can exploit. Neither field alone would have gotten there.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The CNNs generalize across highly variable physical environments when trained on well-structured signal representations, achieving ~94% accuracy on unseen rooms without fine-tuning or re-calibration.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By formalizing how motion perturbs indirect illumination through multi-bounce light transport, the work sharpens our theoretical picture of passive sensing and the limits of information encoded in scattered light.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will push toward finer-grained localization and tracking in more complex scenes. The full paper is available at [arXiv:2108.13027](https://arxiv.org/abs/2108.13027).
 
-- **Interdisciplinary Research Achievement:** This work combines computational physics and machine learning, using light transport theory to design a signal representation that neural networks can exploit. Neither field alone would have gotten there.
-- **Impact on Artificial Intelligence:** The CNNs generalize across highly variable physical environments when trained on well-structured signal representations, achieving ~94% accuracy on unseen rooms without fine-tuning or re-calibration.
-- **Impact on Fundamental Interactions:** By formalizing how motion perturbs indirect illumination through multi-bounce light transport, the work sharpens our theoretical picture of passive sensing and the limits of information encoded in scattered light.
-- **Outlook and References:** Future work will push toward finer-grained localization and tracking in more complex scenes. The full paper is available at [arXiv:2108.13027](https://arxiv.org/abs/2108.13027).
-
-## Original Paper Details
-- **Title:** What You Can Learn by Staring at a Blank Wall
-- **arXiv ID:** 2108.13027
-- **Authors:** ["Prafull Sharma", "Miika Aittala", "Yoav Y. Schechner", "Antonio Torralba", "Gregory W. Wornell", "William T. Freeman", "Fredo Durand"]
-- **Abstract:** We present a passive non-line-of-sight method that infers the number of people or activity of a person from the observation of a blank wall in an unknown room. Our technique analyzes complex imperceptible changes in indirect illumination in a video of the wall to reveal a signal that is correlated with motion in the hidden part of a scene. We use this signal to classify between zero, one, or two moving people, or the activity of a person in the hidden scene. We train two convolutional neural networks using data collected from 20 different scenes, and achieve an accuracy of $\approx94\%$ for both tasks in unseen test environments and real-time online settings. Unlike other passive non-line-of-sight methods, the technique does not rely on known occluders or controllable light sources, and generalizes to unknown rooms with no re-calibration. We analyze the generalization and robustness of our method with both real and synthetic data, and study the effect of the scene parameters on the signal quality.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">What You Can Learn by Staring at a Blank Wall</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2108.13027</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Prafull Sharma", "Miika Aittala", "Yoav Y. Schechner", "Antonio Torralba", "Gregory W. Wornell", "William T. Freeman", "Fredo Durand"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present a passive non-line-of-sight method that infers the number of people or activity of a person from the observation of a blank wall in an unknown room. Our technique analyzes complex imperceptible changes in indirect illumination in a video of the wall to reveal a signal that is correlated with motion in the hidden part of a scene. We use this signal to classify between zero, one, or two moving people, or the activity of a person in the hidden scene. We train two convolutional neural networks using data collected from 20 different scenes, and achieve an accuracy of $\approx94\%$ for both tasks in unseen test environments and real-time online settings. Unlike other passive non-line-of-sight methods, the technique does not rely on known occluders or controllable light sources, and generalizes to unknown rooms with no re-calibration. We analyze the generalization and robustness of our method with both real and synthetic data, and study the effect of the scene parameters on the signal quality.</span></div></div>
+</div>

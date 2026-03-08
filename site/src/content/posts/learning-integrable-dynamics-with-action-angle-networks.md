@@ -71,11 +71,11 @@ The catch? Finding these coordinates has historically required deep mathematical
 
 3. **Decode:** The inverse transformation maps the updated action-angle state back to physical coordinates, positions and momenta, using the inverse of the learned symplectic map.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_15338/figure_1.png)
 
 There's a nice engineering detail worth mentioning: the network doesn't map directly onto a **torus** (the donut-shaped surface that is the natural geometry for looping angle coordinates), which would create numerical breakdowns at the edges. Instead, it outputs Cartesian components converted to polar form. A small trick, but it makes training dramatically more stable.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2211_15338/figure_1.png)
 
 The payoff is a simulator whose inference time doesn't depend on the time horizon at all. Want to predict a system's state one second in the future, or one million seconds? Same computation. Same cost. Traditional integrators work proportionally harder for larger time jumps. Action-Angle Networks don't.
 
@@ -89,12 +89,9 @@ The learned coordinates themselves become scientific artifacts worth examining. 
 
 > **Bottom Line:** By teaching a neural network to find the coordinates where physics becomes linear, Action-Angle Networks sidestep error accumulation entirely, delivering fast, stable, parameter-efficient simulations that improve with the elegance of the physics, not despite it.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work transplants a century-old concept from classical mechanics into a modern neural network architecture, showing that deep physical symmetry principles can be encoded as inductive biases to produce qualitatively better learned simulators.
-
-- **Impact on Artificial Intelligence:** Action-Angle Networks achieve competitive trajectory prediction with significantly fewer parameters than standard learned simulators, and uniquely offer inference time independent of the prediction horizon, a fundamental efficiency gain over all step-by-step integration approaches.
-
-- **Impact on Fundamental Interactions:** The framework provides a data-driven method to automatically discover hidden integrable structure in physical systems, which could speed up the identification of conserved quantities and symmetries across domains from celestial mechanics to condensed matter physics.
-
-- **Outlook and References:** Future work could extend the framework to approximately integrable and chaotic systems, explore connections to quantum integrability, and scale to higher-dimensional field theories. The paper appeared at the Machine Learning and the Physical Sciences workshop at NeurIPS 2022 ([arXiv:2211.15338](https://arxiv.org/abs/2211.15338)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work transplants a century-old concept from classical mechanics into a modern neural network architecture, showing that deep physical symmetry principles can be encoded as inductive biases to produce qualitatively better learned simulators.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Action-Angle Networks achieve competitive trajectory prediction with significantly fewer parameters than standard learned simulators, and uniquely offer inference time independent of the prediction horizon, a fundamental efficiency gain over all step-by-step integration approaches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework provides a data-driven method to automatically discover hidden integrable structure in physical systems, which could speed up the identification of conserved quantities and symmetries across domains from celestial mechanics to condensed matter physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the framework to approximately integrable and chaotic systems, explore connections to quantum integrability, and scale to higher-dimensional field theories. The paper appeared at the Machine Learning and the Physical Sciences workshop at NeurIPS 2022 ([arXiv:2211.15338](https://arxiv.org/abs/2211.15338)).</span></div></div>
+</div>

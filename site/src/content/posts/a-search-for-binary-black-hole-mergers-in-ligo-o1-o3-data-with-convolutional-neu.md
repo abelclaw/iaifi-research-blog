@@ -41,7 +41,7 @@ published: '2025-12-19T03:29:45+00:00'
 theme: Astrophysics
 title: A Search for Binary Black Hole Mergers in LIGO O1-O3 Data with Convolutional
   Neural Networks
-wordCount: 1055
+wordCount: 1238
 ---
 
 ## The Big Picture
@@ -62,7 +62,7 @@ The pipeline starts with real data. The team pulled roughly 22 days of continuou
 
 Getting the mass distribution right was critical. Real binary black hole events span a wide range of masses, but sampling each independently from a uniform distribution yields very few systems where both holes are low-mass, even though those systems produce longer, harder-to-detect signals. The team solved this with intentional oversampling: they first drew a maximum mass from a triangular distribution peaked at 5 solar masses, then sampled individual masses uniformly below that ceiling. This ensured the training set included plenty of challenging low-mass events.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_17204/figure_1.png)
 
 Waveforms were generated using the **SEOBNRv4** approximant, a state-of-the-art model for the time-domain gravitational wave signal from spinning, non-precessing black hole binaries, via the PyCBC library. Both signal and noise were then **whitened**: a preprocessing step that flattens the noise power spectrum so the network sees a statistically uniform background. Each 4-second template captures the inspiral (gradual approach), merger (collision), and ringdown (final settling) of the signal across both detectors simultaneously.
 
@@ -77,11 +77,11 @@ Both architectures learned to distinguish the characteristic chirp from noise tr
 
 The pipeline scanned all of LIGO's O1, O2, and O3 data, covering 75 binary black hole events with two-detector data available, and recovered 57 of those 75 events: a detection rate of 76%. That compares favorably to recent competing ML searches; AresGW found 40 of 65 O3 events, and AFrame found 38. The 57 false positives can largely be eliminated through quick parameter inference (fitting the signal to extract mass and spin) and human review, reducing the burden to a manageable vetting step.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_17204/figure_2.png)
 
 To measure how often the network would flag non-existent signals, the team ran an extensive **time-shift test**. They offset the L1 and H1 data streams by amounts large enough to destroy any genuine coincident signal. A real gravitational wave arrives at both detectors within ~10 milliseconds; a 100-second shift eliminates all real coincidences. Detections in this shifted data measured the **false alarm rate (FAR)** as a function of detection threshold, which is the standard LIGO method for characterizing detection significance.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_17204/figure_3.png)
 
 Speed is the central motivation. LIGO O4 has cataloged over 200 events in its first 23 months, and next-generation detectors like Einstein Telescope and Cosmic Explorer promise event rates orders of magnitude higher. The field needs tools that triage candidates instantly. A neural network processing 4 seconds of data in milliseconds can send alerts to optical telescopes while a neutron star merger's kilonova is still brightening.
 
@@ -89,18 +89,15 @@ Binary neutron star and neutron star-black hole mergers produce electromagnetic 
 
 > **Bottom Line:** A CNN-based pipeline trained on real LIGO noise recovers 76% of known binary black hole mergers across O1–O3, with a false alarm rate low enough for practical use. Machine learning is ready to play a central role in the next era of gravitational wave astronomy.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of gravitational wave astrophysics and deep learning, using convolutional neural networks trained on real interferometer data to tackle one of observational physics' most demanding signal-detection problems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The pipeline shows that CNNs can generalize from training data to perform blind searches over years of real-world detector output, handling non-Gaussian noise artifacts and multi-detector coincidence analysis.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering 57 of 75 cataloged binary black hole mergers across LIGO O1–O3, the work validates ML as a viable complement to matched filtering, directly advancing detection infrastructure for gravitational wave and multi-messenger astronomy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the approach to binary neutron star and neutron star-black hole mergers and explore low-latency deployment for real-time alerts; the paper is available at [arXiv:2512.17204](https://arxiv.org/abs/2512.17204).
 
-- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of gravitational wave astrophysics and deep learning, using convolutional neural networks trained on real interferometer data to tackle one of observational physics' most demanding signal-detection problems.
-
-- **Impact on Artificial Intelligence:** The pipeline shows that CNNs can generalize from training data to perform blind searches over years of real-world detector output, handling non-Gaussian noise artifacts and multi-detector coincidence analysis.
-
-- **Impact on Fundamental Interactions:** By recovering 57 of 75 cataloged binary black hole mergers across LIGO O1–O3, the work validates ML as a viable complement to matched filtering, directly advancing detection infrastructure for gravitational wave and multi-messenger astronomy.
-
-- **Outlook and References:** Future work will extend the approach to binary neutron star and neutron star-black hole mergers and explore low-latency deployment for real-time alerts; the paper is available at [arXiv:2512.17204](https://arxiv.org/abs/2512.17204).
-
-## Original Paper Details
-- **Title:** A Search for Binary Black Hole Mergers in LIGO O1-O3 Data with Convolutional Neural Networks
-- **arXiv ID:** 2512.17204
-- **Authors:** ["Ethan Silver", "Plamen Krastev", "Edo Berger"]
-- **Abstract:** Since the first detection of gravitational waves in 2015 by LIGO from the binary black hole merger GW150914, gravitational-wave astronomy has developed significantly, with over 200 compact binary merger events cataloged. The use of neural networks has the potential to significantly speed up the detection, classification, and especially parameter estimation for gravitational wave events, compared to current techniques, quite important for electromagnetic follow-up of events. In this work, we present a machine learning pipeline using neural networks to detect gravitational wave events. We generate training data using real LIGO data to train and refine neural networks that can detect binary black hole (BBH) mergers, and apply these models to search through LIGO's first three observing runs. We detect 57 out of the 75 total cataloged BBH events with two detectors of data in O1, O2, and O3, with 57 false positives that can mostly be ruled out with parameter inference and human inspection. Finally, we extensively test this pipeline on time-shifted data to characterize its False Alarm Rate (FAR). These results are an important step in developing machine learning-based GW searches, enabling low-latency detection and multi-messenger astronomy.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A Search for Binary Black Hole Mergers in LIGO O1-O3 Data with Convolutional Neural Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2512.17204</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ethan Silver", "Plamen Krastev", "Edo Berger"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Since the first detection of gravitational waves in 2015 by LIGO from the binary black hole merger GW150914, gravitational-wave astronomy has developed significantly, with over 200 compact binary merger events cataloged. The use of neural networks has the potential to significantly speed up the detection, classification, and especially parameter estimation for gravitational wave events, compared to current techniques, quite important for electromagnetic follow-up of events. In this work, we present a machine learning pipeline using neural networks to detect gravitational wave events. We generate training data using real LIGO data to train and refine neural networks that can detect binary black hole (BBH) mergers, and apply these models to search through LIGO's first three observing runs. We detect 57 out of the 75 total cataloged BBH events with two detectors of data in O1, O2, and O3, with 57 false positives that can mostly be ruled out with parameter inference and human inspection. Finally, we extensively test this pipeline on time-shifted data to characterize its False Alarm Rate (FAR). These results are an important step in developing machine learning-based GW searches, enabling low-latency detection and multi-messenger astronomy.</span></div></div>
+</div>

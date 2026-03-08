@@ -49,7 +49,7 @@ pdfUrl: https://arxiv.org/pdf/2510.06220v1
 published: '2025-10-07T17:59:58+00:00'
 theme: Astrophysics
 title: Studying the gravitational-wave population without looking that FAR out
-wordCount: 1012
+wordCount: 969
 ---
 
 ## The Big Picture
@@ -75,7 +75,7 @@ This polling exercise has two compounding problems:
 1. **Unreliable respondents.** Events near the detection threshold are individually imprecise. Some may not be real mergers at all.
 2. **Accumulating numerical error.** The **population likelihood**, a score measuring how well a proposed model fits the entire catalog, is computed by combining finite parameter samples from every event. As catalogs grow, these imperfect representations introduce systematic inaccuracies that quietly bias conclusions about the whole population.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2510_06220/figure_1.png)
 
 The proposed remedy: raise the **network SNR threshold**, a measure of signal loudness relative to detector noise, from the standard value of 11 up to 15, 17, or 19. A higher cut means fewer events in the analysis. But how much do the scientific conclusions actually suffer?
 
@@ -85,13 +85,13 @@ The answer depends on which black hole properties you care about:
 - **Spin distribution:** Constraints on black hole spin remained essentially *unchanged* even with the higher cut. Loud, nearby signals carry nearly all the spin information.
 - **Cosmic merger rate:** Here's the real cost. Uncertainties on how the merger rate evolves across cosmic history more than doubled. Distant mergers are the quiet ones, so cutting by loudness disproportionately removes high-redshift events.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2510_06220/figure_2.png)
 
 On the computational side, raising the threshold from SNR > 11 to SNR > 15 caused numerical uncertainty in the population likelihood estimate to drop by more than half. This is the central payoff: more reliable analysis at no additional computational expense.
 
 The intuition is clean. Louder signals are more precisely characterized, with tighter and better-behaved parameter estimates. Quiet events near the detection threshold are individually imprecise, collectively problematic, and potentially not even real astrophysical signals.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2510_06220/figure_3.png)
 
 ## Why It Matters
 
@@ -103,9 +103,9 @@ There's a broader methodological lesson, too. In data-hungry science, the tempta
 
 > **Bottom Line:** By raising gravitational-wave detection thresholds, researchers lose little information about black hole masses and spins but gain substantially more reliable inference, a trade-off that becomes increasingly attractive as catalogs scale toward thousands of events.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects gravitational-wave astrophysics with rigorous statistical inference, showing how principled data curation can preserve scientific conclusions while greatly improving computational tractability for large-scale population analyses.
-- **Impact on Artificial Intelligence:** The study shows how numerical errors in likelihood estimation, analogous to approximation errors in large-scale probabilistic machine learning, can be controlled through input selection. This offers a template for Bayesian inference pipelines at scale.
-- **Impact on Fundamental Interactions:** By identifying which black hole population parameters are robust to significance cuts and which are not, this research provides a concrete roadmap for unbiased astrophysical inference about black hole formation channels as next-generation detectors come online.
-- **Outlook and References:** With Einstein Telescope and Cosmic Explorer expected to detect thousands of mergers annually, strategies like this will become essential; the full analysis is available at [arXiv:2510.06220](https://arxiv.org/abs/2510.06220).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects gravitational-wave astrophysics with rigorous statistical inference, showing how principled data curation can preserve scientific conclusions while greatly improving computational tractability for large-scale population analyses.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study shows how numerical errors in likelihood estimation, analogous to approximation errors in large-scale probabilistic machine learning, can be controlled through input selection. This offers a template for Bayesian inference pipelines at scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By identifying which black hole population parameters are robust to significance cuts and which are not, this research provides a concrete roadmap for unbiased astrophysical inference about black hole formation channels as next-generation detectors come online.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With Einstein Telescope and Cosmic Explorer expected to detect thousands of mergers annually, strategies like this will become essential; the full analysis is available at [arXiv:2510.06220](https://arxiv.org/abs/2510.06220).</span></div></div>
+</div>

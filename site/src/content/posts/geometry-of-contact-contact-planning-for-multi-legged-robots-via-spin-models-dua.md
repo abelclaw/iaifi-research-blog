@@ -52,7 +52,7 @@ published: '2023-02-06T18:57:04+00:00'
 theme: Theoretical Physics
 title: 'Geometry of contact: contact planning for multi-legged robots via spin models
   duality'
-wordCount: 1130
+wordCount: 1076
 ---
 
 ## The Big Picture
@@ -71,13 +71,13 @@ A team spanning Georgia Tech, MIT, and Harvard's IAIFI found an unexpected short
 
 The approach begins with **geometric mechanics**, a mathematical framework that describes how a robot's body moves as a consequence of its internal shape changes: the bending of joints, the swinging of limbs. The central object is the **local connection matrix** A(**r**), which encodes how a given pattern of ground contact translates joint-movement speed into whole-body displacement. Think of it as a gear ratio that depends on which feet are touching the ground.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2302_03019/figure_1.png)
 
 Once you fix the sequence of internal shape changes, the optimal contact sequence (which feet should be on the ground at each moment) can be derived directly from the geometry. That collapses one half of the problem entirely.
 
 The remaining half, finding the best internal shape sequence, is still a hard combinatorial search. But locomotion gaits have **spatio-temporal symmetry**: the pattern of motion repeats across legs and across gait cycles. The researchers exploited this structure by reformulating the search as a graph optimization problem. Each node represents a candidate sequence of joint movements; edges connect mutually compatible sequences. The goal is the combination with the lowest total cost.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2302_03019/figure_1.png)
 
 Then comes the physics trick. That graph optimization maps exactly onto special cases of **spin models**, mathematical models from statistical physics where variables (tiny atomic magnets) interact with neighbors and settle naturally into the lowest-energy arrangement. Finding the optimal gait is equivalent to finding the **ground state**, the lowest-energy configuration, of the spin system. These particular spin models can be solved exactly and efficiently, in polynomial time rather than exponential.
 
@@ -92,7 +92,7 @@ The full workflow:
 
 The team tested their framework on two robots. For a hexapod, they recovered known gaits like the **alternating tripod**, where three legs move together while the other three are planted, and discovered new sidewinding behaviors. Sidewinding is a motion mode typically associated with snakes, now adapted to a six-legged platform. For a **12-legged centipede robot**, they identified effective forward gaits in a regime where prior methods had no systematic approach at all.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2302_03019/figure_2.png)
 
 The predictions weren't just theoretical. The researchers built purpose-built test robots and ran them through the predicted gaits. Agreement between model predictions and actual robot behavior was strong, validating the entire pipeline from spin model to rolling machine.
 
@@ -104,9 +104,9 @@ The approach scales where prior methods fail. A hexapod already strains conventi
 
 > **Bottom Line:** The team turned a hard robotics problem into a solvable physics problem, mapping optimal gait design for multi-legged robots onto spin models. The result is globally optimal contact planning in polynomial time and new locomotion behaviors that brute-force methods couldn't find.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects statistical physics and robotics by showing that contact planning optimization for multi-legged locomotors is mathematically dual to spin model ground-state problems, a connection that produces both theoretical insight and practical algorithms.
-- **Impact on Artificial Intelligence:** The framework provides a principled, geometry-driven alternative to data-hungry reinforcement learning for robot locomotion, achieving globally optimal gait design without onboard sensing or real-time computation.
-- **Impact on Fundamental Interactions:** By applying geometric mechanics and spin model physics to locomotion, the work exposes structural connections between the symmetry of physical motion and the mathematical formalisms of condensed matter physics.
-- **Outlook and References:** Future work may extend this framework to adaptive terrain-aware locomotion and robots with even higher leg counts; the full paper is available at [arXiv:2302.03019](https://arxiv.org/abs/2302.03019).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects statistical physics and robotics by showing that contact planning optimization for multi-legged locomotors is mathematically dual to spin model ground-state problems, a connection that produces both theoretical insight and practical algorithms.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The framework provides a principled, geometry-driven alternative to data-hungry reinforcement learning for robot locomotion, achieving globally optimal gait design without onboard sensing or real-time computation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By applying geometric mechanics and spin model physics to locomotion, the work exposes structural connections between the symmetry of physical motion and the mathematical formalisms of condensed matter physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend this framework to adaptive terrain-aware locomotion and robots with even higher leg counts; the full paper is available at [arXiv:2302.03019](https://arxiv.org/abs/2302.03019).</span></div></div>
+</div>

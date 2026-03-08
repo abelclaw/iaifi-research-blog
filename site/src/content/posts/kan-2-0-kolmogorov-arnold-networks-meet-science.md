@@ -41,7 +41,7 @@ pdfUrl: https://arxiv.org/pdf/2408.10205v1
 published: '2024-08-19T17:59:04+00:00'
 theme: Foundational AI
 title: 'KAN 2.0: Kolmogorov-Arnold Networks Meet Science'
-wordCount: 967
+wordCount: 925
 ---
 
 ## The Big Picture
@@ -58,11 +58,11 @@ A team at MIT and Caltech, led by Ziming Liu and Max Tegmark, wants to close tha
 
 At the core is the **Kolmogorov-Arnold Network (KAN)**, a neural architecture that differs from standard deep learning in one important way. Ordinary networks place fixed mathematical rules (activation functions) at each node. KANs place *learnable* versions of those rules on the *connections* between nodes. The network learns one-dimensional transformations along each link, which can later be matched to known mathematical functions like sine, exponential, or power laws.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_10205/figure_1.png)
 
 KAN 2.0's first major addition is **MultKAN**, an upgraded architecture that explicitly includes multiplication nodes alongside standard summation nodes. The mathematical theorem underlying KANs technically only requires addition and single-input functions, but that encoding is inefficient and hard to read. Native multiplication nodes make the network far more concise when the underlying physics involves products, like kinetic energy (`½mv²`) or gravitational force (`GMm/r²`).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2408_10205/figure_2.png)
 
 The team built three interoperating tools around this architecture:
 
@@ -76,7 +76,7 @@ The system operates at three levels of explanation, from coarse to fine: identif
 
 The results speak for themselves. KAN 2.0 successfully rediscovers **conserved quantities** (like energy and momentum) from trajectory data, identifies **Lagrangians** (the elegant functions from which classical mechanics derives equations of motion), and uncovers **symmetries** in physical systems. It also discovers **constitutive laws**, the empirical relationships like Hooke's Law or Ohm's Law that characterize how materials respond to forces.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_10205/figure_3.png)
 
 The deeper point goes beyond any single application. Science has always alternated between two modes: the grinding work of collecting data and fitting curves, and the sudden leap of recognizing that those curves encode something universal. KAN 2.0 is an attempt to accelerate the second mode.
 
@@ -86,12 +86,9 @@ Open questions remain. Symbolic regression still relies on a predefined library 
 
 > **Bottom Line:** KAN 2.0 turns neural networks into two-way instruments for science. They are not just black-box predictors but interactive tools that can absorb prior knowledge and return interpretable physical laws.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work targets the fundamental tension between AI's connectionist foundations and science's symbolic language, proposing a unified approach that moves fluidly between data-driven learning and human-readable equations.
-
-- **Impact on Artificial Intelligence:** The MultKAN architecture, kanpiler compiler, and tree converter form a new toolkit for interpretable machine learning, enabling any neural network to be analyzed for its underlying compositional and symbolic structure.
-
-- **Impact on Fundamental Interactions:** KAN 2.0 automates the rediscovery of conserved quantities, Lagrangians, and symmetries, the core mathematical structures of fundamental physics, directly from observational data.
-
-- **Outlook and References:** Future work will focus on scaling KANs to larger scientific datasets and extending symbolic discovery to chemistry and biology; the paper is available at [arXiv:2408.10205](https://arxiv.org/abs/2408.10205) and the open-source `pykan` package can be installed via `pip install pykan`.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work targets the fundamental tension between AI's connectionist foundations and science's symbolic language, proposing a unified approach that moves fluidly between data-driven learning and human-readable equations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The MultKAN architecture, kanpiler compiler, and tree converter form a new toolkit for interpretable machine learning, enabling any neural network to be analyzed for its underlying compositional and symbolic structure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">KAN 2.0 automates the rediscovery of conserved quantities, Lagrangians, and symmetries, the core mathematical structures of fundamental physics, directly from observational data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on scaling KANs to larger scientific datasets and extending symbolic discovery to chemistry and biology; the paper is available at [arXiv:2408.10205](https://arxiv.org/abs/2408.10205) and the open-source `pykan` package can be installed via `pip install pykan`.</span></div></div>
+</div>

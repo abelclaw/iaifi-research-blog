@@ -66,7 +66,7 @@ A team of Harvard & Smithsonian astronomers, led by Sebastian Gomez and Edo Berg
 
 The team gathered brightness measurements in four color bands (optical filters labeled *g*, *r*, *i*, and *z*) using three telescopes: the 1.2-m FLWO and the 6.5-m Magellan and MMT observatories. These were supplemented by data from the **Zwicky Transient Facility (ZTF)**, the robotic sky survey that first spotted the transient on September 30, 2019.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2103_02611/figure_1.png)
 
 The light curve told an immediately puzzling story. The first peak hit an absolute magnitude of *M_r* = −20.0, already approaching **Type I superluminous supernovae (SLSNe)**, the rarest and brightest class of stellar explosions. Total radiated energy: approximately 2.5 × 10^50 erg. Then, instead of fading as nickel decays into cobalt and iron, SN 2019stc *brightened again* 80 days later, peaking at *M_r* = −19.2.
 
@@ -81,13 +81,13 @@ The better solution involved a **magnetar engine**, a newly-formed neutron star 
 
 This explained why the spectrum looked ordinary: the nickel content was actually normal. The magnetar was simply adding extra luminosity on top.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2103_02611/figure_2.png)
 
 The second peak still needed explaining. Neither radioactive decay nor magnetar spin-down naturally produces a delayed brightening of this magnitude. The team turned to a third mechanism: **circumstellar interaction (CSI)**, where debris blasted outward by the explosion slams into gas the dying star shed before it exploded. That collision converts kinetic energy into light, producing a second lamp weeks or months after the main event.
 
 The numbers line up. About 0.7 solar masses of hydrogen-free material sat roughly 400 AU from the progenitor. The ejecta, traveling at thousands of kilometers per second, took roughly 80 days to reach it. The collision produced a second peak nearly as bright as the first.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2103_02611/figure_3.png)
 
 Adding up all mass components, the team inferred a carbon-oxygen core mass of about 6.5 solar masses just before explosion. The host galaxy's **metallicity** (the abundance of elements heavier than hydrogen and helium) sits at ~0.26 solar metallicities: low for typical SNe Ic environments, but consistent with where SLSNe tend to occur.
 
@@ -99,12 +99,9 @@ SN 2019stc argues for the latter. The same progenitor, a stripped, moderately ma
 
 > **Bottom Line:** SN 2019stc required a magnetar, radioactive nickel, *and* circumstellar interaction to explain its double-peaked light curve. It is the clearest evidence yet that these explosion classes exist on a continuum rather than in separate bins.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work combines multi-facility observational astronomy with physical modeling to decode a complex, multi-mechanism transient. Neither the data nor the theory alone could have explained what was happening; the answer only emerged from fitting multiple models against coordinated observations across telescopes.
-
-- **Impact on Artificial Intelligence:** The FLEET program that flagged SN 2019stc for follow-up uses machine learning to identify luminous extragalactic transients in real time from ZTF data streams. Without that automated triage, this event might have gone unnoticed in the flood of nightly alerts.
-
-- **Impact on Fundamental Interactions:** SN 2019stc shows that magnetar formation, radioactive nucleosynthesis, and pre-explosion mass loss can all operate simultaneously in a single stellar death, constraining the physical conditions at the final stages of massive star evolution and the birth of neutron stars.
-
-- **Outlook and References:** Future time-domain surveys will likely uncover a population of similar transitional events; this paper provides the analytical framework for interpreting them. The full analysis is presented by Gomez et al. (2021) in *The Astrophysical Journal* ([arXiv:2103.02611](https://arxiv.org/abs/2103.02611)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines multi-facility observational astronomy with physical modeling to decode a complex, multi-mechanism transient. Neither the data nor the theory alone could have explained what was happening; the answer only emerged from fitting multiple models against coordinated observations across telescopes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The FLEET program that flagged SN 2019stc for follow-up uses machine learning to identify luminous extragalactic transients in real time from ZTF data streams. Without that automated triage, this event might have gone unnoticed in the flood of nightly alerts.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2019stc shows that magnetar formation, radioactive nucleosynthesis, and pre-explosion mass loss can all operate simultaneously in a single stellar death, constraining the physical conditions at the final stages of massive star evolution and the birth of neutron stars.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future time-domain surveys will likely uncover a population of similar transitional events; this paper provides the analytical framework for interpreting them. The full analysis is presented by Gomez et al. (2021) in *The Astrophysical Journal* ([arXiv:2103.02611](https://arxiv.org/abs/2103.02611)).</span></div></div>
+</div>

@@ -79,7 +79,7 @@ A team led by Enrique Paillas, including IAIFI's Carolina Cuesta-Lazaro, has pus
 
 The core innovation is conceptually elegant. Rather than treating all galaxies equally, the team first smoothed the galaxy density field and divided space into **quintiles**: five bins ranked by local galaxy density, from the emptiest voids to the most crowded clusters. Correlation functions measured in each environment carry distinct cosmological fingerprints.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2309_16541/figure_1.png)
 
 To make this practically useful, they needed a theoretical model that could predict density-split correlation functions for any set of cosmological parameters without running a full **N-body simulation** (a computer model tracking how millions of particles attract and clump under gravity over cosmic time) every single time. Their solution was to train **neural network emulators** on a library of high-fidelity mock galaxy catalogues. These emulators learn to interpolate across a vast parameter space, predicting clustering statistics in milliseconds rather than months.
 
@@ -93,7 +93,7 @@ The pipeline involves:
 
 The galaxy sample, BOSS DR12 CMASS, covers roughly 650,000 massive galaxies at redshifts z ≈ 0.43–0.70 and is one of the richest datasets available for this kind of analysis. The team pushed measurements down to scales of just 1 h⁻¹ Mpc, deep into the regime where gravity creates messy, nonlinear structure but where their emulators remain accurate.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2309_16541/figure_2.png)
 
 A critical part of the analysis was modeling **assembly bias**, the question of whether galaxies' tendency to occupy halos depends not just on halo mass but also on the surrounding environment. The team found genuine signatures: galaxies prefer halos that are more concentrated or differently shaped depending on local density. It's a subtle effect, but ignoring it would bias the cosmological results.
 
@@ -101,7 +101,7 @@ A critical part of the analysis was modeling **assembly bias**, the question of 
 
 The results land squarely in agreement with Planck 2018. The key numbers: ω_cdm = 0.1201 ± 0.0022 (cold dark matter density), σ_8 = 0.792 ± 0.034 (how clumpy matter is today), n_s = 0.970 ± 0.018 (the tilt of primordial fluctuations), and a growth rate fσ_8 = 0.462 ± 0.020 (how fast cosmic structure has been building). That agreement matters. The universe's growth rate, as traced by these massive galaxies, is consistent with predictions from the **CMB** (the faint thermal glow left over from the Big Bang), easing tensions that have plagued cosmology in recent years.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2309_16541/figure_3.png)
 
 The team also tested whether any physics beyond standard **ΛCDM** (the current best model of the universe, built from ordinary matter, cold dark matter, and a constant dark energy) was hiding in the data. They varied the running of the spectral index, the dark energy equation of state, and the density of relic neutrinos. None showed statistically compelling deviations from the base model. A clean null result, but one that still meaningfully constrains exotic physics.
 
@@ -109,12 +109,9 @@ The team validated their pipeline against mock catalogues 84 times larger than t
 
 > **Bottom Line:** Density-split clustering, powered by machine-learning emulators, extracts cosmological information from scales and environments that traditional two-point analyses ignore. The technique is already validated for the much larger galaxy surveys arriving in the next decade.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work ties together AI and cosmology by deploying neural network emulators, trained on N-body simulations, to perform Bayesian inference on one of the largest galaxy surveys ever assembled. What would otherwise be a computationally prohibitive problem becomes tractable.
-
-- **Impact on Artificial Intelligence:** The emulator framework shows how machine learning can replace expensive forward simulations in high-dimensional parameter inference, a technique applicable across any scientific domain that relies on simulation-based inference.
-
-- **Impact on Fundamental Interactions:** By probing galaxy clustering at nonlinear scales through environment-dependent statistics, the analysis delivers competitive constraints on dark matter density, the growth rate of cosmic structure, and extensions to ΛCDM including dark energy and neutrino physics.
-
-- **Outlook and References:** With DESI and Euclid already collecting data, this pipeline, validated at 84× the CMASS volume, is positioned to sharpen cosmological constraints in the near future; the paper is available at [arXiv:2309.16541](https://arxiv.org/abs/2309.16541).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work ties together AI and cosmology by deploying neural network emulators, trained on N-body simulations, to perform Bayesian inference on one of the largest galaxy surveys ever assembled. What would otherwise be a computationally prohibitive problem becomes tractable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The emulator framework shows how machine learning can replace expensive forward simulations in high-dimensional parameter inference, a technique applicable across any scientific domain that relies on simulation-based inference.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By probing galaxy clustering at nonlinear scales through environment-dependent statistics, the analysis delivers competitive constraints on dark matter density, the growth rate of cosmic structure, and extensions to ΛCDM including dark energy and neutrino physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With DESI and Euclid already collecting data, this pipeline, validated at 84× the CMASS volume, is positioned to sharpen cosmological constraints in the near future; the paper is available at [arXiv:2309.16541](https://arxiv.org/abs/2309.16541).</span></div></div>
+</div>

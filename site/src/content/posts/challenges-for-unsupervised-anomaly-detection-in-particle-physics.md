@@ -45,7 +45,7 @@ pdfUrl: https://arxiv.org/pdf/2110.06948v1
 published: '2021-10-13T18:00:04+00:00'
 theme: Experimental Physics
 title: Challenges for Unsupervised Anomaly Detection in Particle Physics
-wordCount: 1172
+wordCount: 1144
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ Train a VAE on background-only data and it learns the structure of normal events
 
 The team tested this on jets, the sprays of particles produced when quarks and gluons scatter at high energy. Their background consisted of ordinary QCD jets, the routine particle showers dominating most LHC collisions. Their signals were top quark jets and W boson jets, both with distinctive multi-pronged substructure compared to the smooth QCD baseline. Jets were represented as images: two-dimensional maps of energy deposits in the detector.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2110_06948/figure_1.png)
 
 Performance depends heavily on **hyperparameters**, tuning knobs set before training. These include the size of the **latent space** (the compressed internal representation, analogous to the small file in the photo analogy), the relative weight of the reconstruction loss versus the **KL divergence** (a penalty that keeps the compressed representation organized), and the distance metric used to measure reconstruction error. Systematic variation of these choices revealed:
 
@@ -80,13 +80,13 @@ For a tool that's supposed to be model-agnostic, this is a problem. If tuning fo
 
 While probing the VAE's internals, the researchers noticed something unexpected: distances between events in the latent space were strongly correlated with **Wasserstein distances** (also called **optimal transport distances**) between the original jet images. Wasserstein distance has a clean physical intuition. It measures how much "work" it takes to rearrange the energy deposits in one jet image to match another, treating energy as dirt that needs to be moved.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2110_06948/figure_2.png)
 
 This connection suggests the VAE is learning a compressed version of optimal transport geometry. That prompted a direct question: why use an autoencoder at all? The team developed an **event-to-ensemble distance** approach. Select a set of representative background events, then score each new event by its optimal transport distance to those representatives. No neural network training required, just a physically interpretable measure of deviation from typical background.
 
 The results matched the best VAE configurations in performance, and they illuminated the same fundamental tension: the set of representative events that best *describes* the background is not the set that best *separates* signal from background.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2110_06948/figure_3.png)
 
 This tracks with a deep statistical principle. The best density estimator concentrates resources on high-probability regions, the bulk of the background. But anomaly detection needs sensitivity at the edges, where rare signal events lurk. These goals pull in opposite directions.
 
@@ -102,12 +102,9 @@ The strongest takeaway is the case for **semi-supervised approaches**, methods t
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work builds a concrete mathematical link between VAE latent spaces and optimal transport geometry, connecting machine learning methodology with physically motivated jet metrics.
-
-- **Impact on Artificial Intelligence:** The study shows that VAE latent geometry under MSE training encodes Wasserstein-like distances, and that direct optimal transport scoring matches autoencoder performance, providing a more interpretable, training-free anomaly detection baseline.
-
-- **Impact on Fundamental Interactions:** By systematically mapping the failure modes of unsupervised anomaly detection for QCD jets, this work clarifies the theoretical foundations for model-agnostic new physics searches at the LHC and motivates more targeted semi-supervised strategies.
-
-- **Outlook and References:** Future work should explore semi-supervised and hybrid methods that better align training objectives with signal discovery goals; the full analysis is available at [arXiv:2110.06948](https://arxiv.org/abs/2110.06948).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work builds a concrete mathematical link between VAE latent spaces and optimal transport geometry, connecting machine learning methodology with physically motivated jet metrics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study shows that VAE latent geometry under MSE training encodes Wasserstein-like distances, and that direct optimal transport scoring matches autoencoder performance, providing a more interpretable, training-free anomaly detection baseline.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By systematically mapping the failure modes of unsupervised anomaly detection for QCD jets, this work clarifies the theoretical foundations for model-agnostic new physics searches at the LHC and motivates more targeted semi-supervised strategies.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should explore semi-supervised and hybrid methods that better align training objectives with signal discovery goals; the full analysis is available at [arXiv:2110.06948](https://arxiv.org/abs/2110.06948).</span></div></div>
+</div>

@@ -49,7 +49,7 @@ published: '2022-12-07T19:00:00+00:00'
 theme: Astrophysics
 title: 'Measuring the 8621 Å Diffuse Interstellar Band in Gaia DR3 RVS Spectra: Obtaining
   a Clean Catalog by Marginalizing over Stellar Types'
-wordCount: 1184
+wordCount: 1153
 ---
 
 ## The Big Picture
@@ -78,7 +78,7 @@ The conventional approach is intuitive but flawed: fit a stellar model, divide i
 
 Because all three components are modeled as Gaussians in the space of observed spectral bins, the posterior (the full probability distribution over all possible component values given the data) can be computed analytically. No sampling, no iterative fitting. Just matrix algebra. This makes MADGICS fast enough to run on millions of spectra while still providing complete uncertainty information.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2212_03879/figure_1.png)
 
 The stellar prior was built from Gaia DR3 RVS (Radial Velocity Spectrometer) spectra of stars with low dust extinction, where minimal interstellar material lies between the source and Earth. The prior therefore learns what real stars look like, undistorted by interstellar contamination.
 
@@ -90,13 +90,13 @@ The result is something rare in large-scale pipelines: uncertainty estimates tha
 
 Processing all 999,645 publicly available Gaia DR3 RVS spectra, the team produced a catalog with 7,789 high-quality DIB detections. That's far fewer than the Gaia team's own 50,787, but dramatically cleaner. The reduction isn't a failure; it's the method working as intended, requiring genuine freedom from stellar contamination rather than accepting borderline cases.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2212_03879/figure_2.png)
 
 The catalog delivers several headline results. The rest-frame wavelength of the 8621 Å DIB is pinned to 8623.14 ± 0.087 Å (vacuum), a precision enabled by marginalizing over stellar types. Toward the Local Bubble, the dust-free cavity surrounding our solar neighborhood, the team finds no significant DIB signal. Exactly as expected: no dust, no DIB carriers.
 
 Most striking is the agreement with CO maps. Carbon monoxide traces cold molecular gas, and its emission velocities reflect the kinematic structure of the Galaxy's spiral arms. The MADGICS catalog shows tight alignment with these features, resolving substructure that previous catalogs blurred over.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2212_03879/figure_3.png)
 
 Validation came from synthetic injection tests: artificially inserting DIB signals of known strength into real spectra, running MADGICS blind, and confirming that recovered measurements matched injected values within reported uncertainties. The error bars are honest.
 
@@ -110,12 +110,9 @@ The deeper question, *what molecule actually causes the 8621 Å DIB?*, remains o
 
 > **Bottom Line:** MADGICS turns a century-old data analysis headache into a tractable Bayesian inference problem, producing the cleanest large-scale catalog of the 8621 Å diffuse interstellar band to date and establishing a template for next-generation spectroscopic surveys.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work marries machine learning-style data-driven priors with rigorous Bayesian inference to solve a core problem in observational astrophysics, showing how statistical AI methods can directly unlock new science from large astronomical surveys.
-
-- **Impact on Artificial Intelligence:** MADGICS introduces an analytically tractable Gaussian component separation framework that scales to millions of high-dimensional data vectors, offering a general template for blind source separation in any domain with learned mixture models.
-
-- **Impact on Fundamental Interactions:** The resulting catalog maps the kinematic structure of the interstellar medium with new fidelity, advancing the use of DIBs as chemical and dynamical tracers of the Milky Way's spiral structure and the environments where dust and its associated molecules form.
-
-- **Outlook and References:** Future work will process the full 5.6 million Gaia RVS spectra, and the MADGICS framework is positioned to extend to other DIBs and atomic interstellar lines in upcoming large spectroscopic surveys; see [arXiv:2212.03879](https://arxiv.org/abs/2212.03879).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work marries machine learning-style data-driven priors with rigorous Bayesian inference to solve a core problem in observational astrophysics, showing how statistical AI methods can directly unlock new science from large astronomical surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">MADGICS introduces an analytically tractable Gaussian component separation framework that scales to millions of high-dimensional data vectors, offering a general template for blind source separation in any domain with learned mixture models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The resulting catalog maps the kinematic structure of the interstellar medium with new fidelity, advancing the use of DIBs as chemical and dynamical tracers of the Milky Way's spiral structure and the environments where dust and its associated molecules form.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will process the full 5.6 million Gaia RVS spectra, and the MADGICS framework is positioned to extend to other DIBs and atomic interstellar lines in upcoming large spectroscopic surveys; see [arXiv:2212.03879](https://arxiv.org/abs/2212.03879).</span></div></div>
+</div>

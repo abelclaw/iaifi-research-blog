@@ -48,7 +48,7 @@ published: '2022-10-28T04:34:48+00:00'
 theme: Astrophysics
 title: Deep Learning Detection and Classification of Gravitational Waves from Neutron
   Star-Black Hole Mergers
-wordCount: 1065
+wordCount: 1024
 ---
 
 ## The Big Picture
@@ -75,17 +75,17 @@ Into this real noise, they injected simulated signals across all three merger cl
 
 Roughly 500,000 labeled training samples went into a **convolutional neural network (CNN)**, the same class of architecture that powers image recognition. The "image" here is a **Q-transform spectrogram**: a visual map of how signal energy distributes across frequencies over time. The characteristic upward-sweeping chirp of a merger shows up as a recognizable shape, and the CNN learns to tell the subtle differences apart. A neutron star inspiral is slower and longer. A black hole inspiral is faster and more massive.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2210_15888/figure_1.png)
 
 The network outputs a four-class probability: BBH, BNS, NSBH, or noise. Training pushed the model toward high sensitivity across all four categories, preventing it from collapsing into simply labeling everything as the most common class.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2210_15888/figure_2.png)
 
 The real test came when the team turned the trained network loose on confirmed detections from GWTC-3, LIGO's third gravitational wave transient catalog. The CNN recovered both confirmed NSBH events, GW200105 and GW200115, along with both confirmed BNS mergers: GW170817 (the historic 2017 neutron star collision that produced a gamma-ray burst and kilonova) and GW190425. It also recovered roughly 90% of all BBH candidates in the catalog.
 
 These aren't injections. These are real signals buried in real noise, and the network found them.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2210_15888/figure_3.png)
 
 ## Why It Matters
 
@@ -97,12 +97,9 @@ There's a fundamental physics angle too. Neutron stars are nature's densest labo
 
 > **Bottom Line:** By training a CNN on half a million real-noise samples and validating it against every confirmed neutron star merger on record, this work shows that deep learning can replace or dramatically augment matched filtering for real-time gravitational wave classification, enabling rapid multi-messenger follow-up at the scale of millions of events per year.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies a computer vision architecture to real LIGO strain data, using deep learning to solve a classification problem that conventional physics-based methods cannot scale to meet.
-
-- **Impact on Artificial Intelligence:** Training CNNs on real, non-Gaussian, non-stationary detector noise and showing they generalize to unseen real events validates a strategy applicable to noisy time-series classification problems across scientific domains.
-
-- **Impact on Fundamental Interactions:** Recovering all confirmed neutron star merger events from GWTC-3 opens a path to rapid electromagnetic follow-up of BNS and NSBH events, the primary astrophysical probes of dense matter and the nuclear equation of state.
-
-- **Outlook and References:** Future work will focus on reducing detection latency toward real-time operation and extending the framework to next-generation detectors like Einstein Telescope and Cosmic Explorer; the full study is available at [arXiv:2210.15888](https://arxiv.org/abs/2210.15888).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies a computer vision architecture to real LIGO strain data, using deep learning to solve a classification problem that conventional physics-based methods cannot scale to meet.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Training CNNs on real, non-Gaussian, non-stationary detector noise and showing they generalize to unseen real events validates a strategy applicable to noisy time-series classification problems across scientific domains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Recovering all confirmed neutron star merger events from GWTC-3 opens a path to rapid electromagnetic follow-up of BNS and NSBH events, the primary astrophysical probes of dense matter and the nuclear equation of state.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on reducing detection latency toward real-time operation and extending the framework to next-generation detectors like Einstein Telescope and Cosmic Explorer; the full study is available at [arXiv:2210.15888](https://arxiv.org/abs/2210.15888).</span></div></div>
+</div>

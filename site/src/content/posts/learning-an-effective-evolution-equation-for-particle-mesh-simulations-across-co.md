@@ -71,7 +71,7 @@ The correction pipeline works in four steps:
 3. **Update particle positions and velocities** using the corrected forces.
 4. **Repeat** at each time step as the simulation evolves from redshift *z* = 127 (the early universe) to *z* = 0 (today).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_18017/figure_1.png)
 
 The network is small on purpose: five hidden layers of 64 neurons each, with sinusoidal activations. Its outputs are coefficients of a **B-spline**, a smooth mathematical curve that shapes how the correction varies across spatial scales. Inputs are minimal: the scale factor *a* (how expanded the universe is), the wavenumber |*k*| (which spatial scale is being corrected, where large |*k*| means small-scale structure), and two cosmological parameters, Ω_m (matter density) and σ₈ (amplitude of density fluctuations).
 
@@ -79,7 +79,7 @@ The network is **isotropic**, treating all spatial directions equally and respec
 
 The loss function was simple: just the **L2 distance** between corrected PM particle positions and velocities versus the reference N-body simulation. No power spectrum matching. No fancy statistics. Just: make the particles end up in the right place, moving at the right speed.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_18017/figure_1.png)
 
 ## Why It Matters
 
@@ -87,7 +87,7 @@ The payoff comes in two parts. First, the correction generalizes. Tested on cosm
 
 This is not obvious. Neural networks that learn corrections inside dynamical systems can easily overfit to specific training conditions. That this one doesn't suggests the network has learned something close to a true physical correction, not just a statistical patch.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2311_18017/figure_2.png)
 
 Second, the corrected simulations plug directly into **simulation-based inference (SBI)**, a modern approach to cosmological parameter estimation that bypasses writing down an explicit likelihood function. In practice, instead of compressing simulations into mathematical summaries, SBI uses the raw simulation outputs to ask which cosmological parameters best fit the data.
 
@@ -97,12 +97,9 @@ The broader lesson is architectural: by keeping the correction physically ground
 
 > **Bottom Line:** By learning a small but precise correction to how gravity is computed in fast cosmological simulations, this work makes cheap simulations nearly as accurate as expensive ones, and does it in a way that generalizes across cosmologies, opening the door to unbiased parameter inference at scale.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses differentiable N-body simulation, symmetry-guided neural network design, and simulation-based inference into a single pipeline, a product of collaboration between AI institutes (Mila, IAIFI) and astrophysics centers (Flatiron, CfA).
-
-- **Impact on Artificial Intelligence:** Physically motivated inductive biases (isotropy, Fourier-space operations, ODE-embedded training) allow a small network to generalize across dynamical regimes where purely data-driven approaches would fail.
-
-- **Impact on Fundamental Interactions:** Corrected particle-mesh simulations that accurately recover small-scale structure enable unbiased inference of fundamental cosmological parameters, supporting precision tests of the universe's composition and growth history.
-
-- **Outlook and References:** Future work could extend the correction to baryonic effects and larger simulation volumes. The paper appeared at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023 ([arXiv:2311.18017](https://arxiv.org/abs/2311.18017)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses differentiable N-body simulation, symmetry-guided neural network design, and simulation-based inference into a single pipeline, a product of collaboration between AI institutes (Mila, IAIFI) and astrophysics centers (Flatiron, CfA).</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Physically motivated inductive biases (isotropy, Fourier-space operations, ODE-embedded training) allow a small network to generalize across dynamical regimes where purely data-driven approaches would fail.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Corrected particle-mesh simulations that accurately recover small-scale structure enable unbiased inference of fundamental cosmological parameters, supporting precision tests of the universe's composition and growth history.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the correction to baryonic effects and larger simulation volumes. The paper appeared at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023 ([arXiv:2311.18017](https://arxiv.org/abs/2311.18017)).</span></div></div>
+</div>

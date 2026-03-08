@@ -60,7 +60,7 @@ The IceCube Collaboration has now done exactly that, combining 9.3 years of data
 
 The raw material is **atmospheric neutrinos**: particles born when cosmic rays slam into Earth's upper atmosphere. Muon neutrinos streaming downward arrive at IceCube nearly unaltered, while those traveling upward have traversed thousands of kilometers through Earth, enough time to oscillate into tau neutrinos. Comparing these populations lets physicists measure oscillation parameters directly.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_02163/figure_1.png)
 
 IceCube DeepCore detects neutrinos through **Cherenkov radiation**. When a neutrino interacts with ice, it produces a charged particle moving faster than light travels through ice (though not faster than light in vacuum). This generates a cone of blue photons that spreads outward and is caught by more than 5,000 optical sensors. The spatial and temporal pattern of these hits encodes the neutrino's energy, direction, and flavor.
 
@@ -74,11 +74,11 @@ Previous analyses used traditional likelihood-based methods, algorithms that sco
 
 The CNN processes raw photon hit data directly, learning to distinguish genuine neutrino interactions from muon contamination without being told exactly what to look for. Its output feeds into an oscillation analysis comparing 150,257 neutrino-candidate events, spanning 5 to 100 GeV, against detailed **Monte Carlo simulations** across a grid of oscillation parameter values. (Monte Carlo simulations are computer-generated synthetic datasets that statistically model every step of the physics.)
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_02163/figure_1.png)
 
 The results, assuming **normal neutrino mass ordering** (where the two lighter mass states are grouped together, rather than apart from the heaviest): Δm²₃₂ = 2.40 ⁺⁰·⁰⁵₋₀.₀₄ × 10⁻³ eV² and sin²θ₂₃ = 0.54 ⁺⁰·⁰⁴₋₀.₀₃. The CNN simultaneously boosted signal statistics and maintained high neutrino purity, a combination that traditional approaches typically cannot achieve without painful tradeoffs.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2405_02163/figure_2.png)
 
 The value sin²θ₂₃ = 0.54 is particularly telling. Exactly 0.5 would mean muon and tau neutrinos mix with perfect symmetry, or **maximal mixing**. IceCube's result nudges above 0.5, hinting at a preference for the upper **octant** (θ₂₃ > 45°), though the uncertainty still admits maximal mixing.
 
@@ -88,18 +88,15 @@ Neutrino physics sits at a frontier where precision measurements can expose phys
 
 The machine learning approach here points toward a shift in how experimental particle physics gets done. Traditional reconstruction algorithms encode human understanding of detector physics into hand-crafted likelihood functions. These are powerful but slow to develop and bounded by what humans can explicitly model. CNNs learn directly from simulated data, capturing correlations humans might miss.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2405_02163/figure_3.png)
 
 As detectors grow more complex and datasets larger, that advantage grows with them. The upcoming IceCube-Upgrade will add denser instrumentation to DeepCore, and these CNN techniques will scale with it, potentially reaching sub-percent precision on oscillation parameters from atmospheric neutrinos alone.
 
 > **Bottom Line:** IceCube DeepCore combined 9.3 years of Antarctic ice data with convolutional neural network reconstruction to deliver the most precise atmospheric neutrino oscillation measurement ever made: Δm²₃₂ = 2.40 × 10⁻³ eV² and sin²θ₂₃ = 0.54. Deep learning is transforming precision particle physics at kilometer-scale detectors.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of AI and fundamental physics, using convolutional neural networks inside a cubic-kilometer ice detector to push precision measurements of neutrino mass and mixing beyond what traditional algorithms could achieve.
-
-- **Impact on Artificial Intelligence:** The CNN-based event reconstruction framework shows that deep learning can simultaneously improve signal efficiency and background rejection in complex, high-dimensional particle physics datasets, a methodology applicable across many detector technologies.
-
-- **Impact on Fundamental Interactions:** The measurement of Δm²₃₂ = 2.40 ⁺⁰·⁰⁵₋₀.₀₄ × 10⁻³ eV² and sin²θ₂₃ = 0.54 ⁺⁰·⁰⁴₋₀.₀₃ is the world's most precise atmospheric neutrino oscillation result, providing essential constraints on the mass ordering and octant questions at the frontier of the Standard Model.
-
-- **Outlook and References:** These methods carry over directly to the IceCube-Upgrade and next-generation detectors, with the potential to resolve the neutrino mass ordering definitively. See [arXiv:2405.02163](https://arxiv.org/abs/2405.02163) for complete technical details.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of AI and fundamental physics, using convolutional neural networks inside a cubic-kilometer ice detector to push precision measurements of neutrino mass and mixing beyond what traditional algorithms could achieve.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The CNN-based event reconstruction framework shows that deep learning can simultaneously improve signal efficiency and background rejection in complex, high-dimensional particle physics datasets, a methodology applicable across many detector technologies.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The measurement of Δm²₃₂ = 2.40 ⁺⁰·⁰⁵₋₀.₀₄ × 10⁻³ eV² and sin²θ₂₃ = 0.54 ⁺⁰·⁰⁴₋₀.₀₃ is the world's most precise atmospheric neutrino oscillation result, providing essential constraints on the mass ordering and octant questions at the frontier of the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">These methods carry over directly to the IceCube-Upgrade and next-generation detectors, with the potential to resolve the neutrino mass ordering definitively. See [arXiv:2405.02163](https://arxiv.org/abs/2405.02163) for complete technical details.</span></div></div>
+</div>

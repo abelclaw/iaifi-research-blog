@@ -55,7 +55,7 @@ Researchers Nicholas Kamp, Carlos Argüelles, Albrecht Karle, Jennifer Thomas, a
 
 The geometry of the LHC campus is a gift. Neutrino beams from collider experiments are extraordinarily narrow, within about 10 meters of width even at distances of 10 kilometers. A modestly sized detector placed far away still intercepts most of the beam. The hard part is separating real neutrino interactions from cosmic-ray muons constantly raining down from above.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_08278/figure_1.png)
 
 The SINE concept (the **Surface-based Integrated Neutrino Experiment**) solves this by flipping the geometry. Neutrinos from the CMS detector travel 18 kilometers through solid bedrock before exiting Earth's surface near the French-Swiss border. SINE would place scintillator panels on the ground and look *upward* for muons produced by neutrino interactions in the rock just below. Upward-going muons can't be faked by cosmic rays, which only travel downward. The bedrock becomes the interaction target; the panels serve as the detection layer.
 
@@ -68,7 +68,7 @@ Using **Monte Carlo simulations** (statistical modeling that runs millions of vi
 - Constraints on **charm quark production**, which feeds directly into predictions for high-energy astrophysical neutrino backgrounds
 - Probes of **strangeness enhancement**, one proposed explanation for why air shower simulations consistently under-predict ground-level muon counts (the so-called muon puzzle)
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2501_08278/figure_1.png)
 
 The key advantage of the medium baseline is background suppression. Short-baseline detectors near the LHC must contend with intense beams of high-energy muons produced alongside neutrinos. At 10+ kilometers, those muons have long since shed their energy. What's left is the neutrino signal and manageable levels of cosmic-ray background.
 
@@ -82,12 +82,9 @@ If built, they would give the forward neutrino community more than one option be
 
 > **Bottom Line:** SINE and UNDINE show that natural geography around the LHC could deliver millions of TeV-energy neutrino interactions at low cost, from cross-section measurements to the cosmic-ray muon puzzle, without digging a single new tunnel.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects particle physics, astrophysics, and detector engineering by linking LHC collision data to the cosmic-ray muon puzzle, using lake water and bedrock geology as experimental infrastructure.
-
-- **Impact on Artificial Intelligence:** While primarily an experimental physics proposal, the Monte Carlo simulation framework developed here produces data-rich event samples that future machine learning analyses can use to extract physics signals from complex detector backgrounds.
-
-- **Impact on Fundamental Interactions:** SINE and UNDINE could deliver the first precision measurements of neutrino-nucleon cross sections in the multi-TeV regime and the first collider-based constraints on strangeness production relevant to cosmic-ray shower modeling.
-
-- **Outlook and References:** If approved, these detectors would operate during the HL-LHC era expected in the late 2020s; the full proposal is available at [arXiv:2501.08278](https://arxiv.org/abs/2501.08278).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects particle physics, astrophysics, and detector engineering by linking LHC collision data to the cosmic-ray muon puzzle, using lake water and bedrock geology as experimental infrastructure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">While primarily an experimental physics proposal, the Monte Carlo simulation framework developed here produces data-rich event samples that future machine learning analyses can use to extract physics signals from complex detector backgrounds.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SINE and UNDINE could deliver the first precision measurements of neutrino-nucleon cross sections in the multi-TeV regime and the first collider-based constraints on strangeness production relevant to cosmic-ray shower modeling.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">If approved, these detectors would operate during the HL-LHC era expected in the late 2020s; the full proposal is available at [arXiv:2501.08278](https://arxiv.org/abs/2501.08278).</span></div></div>
+</div>

@@ -63,7 +63,7 @@ Classical **optimal transport (OT)** measures the "distance" between two probabi
 
 Entropy regularization fixes this. The **entropy-regularized Wasserstein-2 cost** adds a penalty proportional to the **Kullback-Leibler divergence** between the transport plan and the baseline independent coupling. This seemingly small tweak has large consequences: it makes the problem parallelizable via the **Sinkhorn-Knopp algorithm** and the cost can be estimated from data at rates that *do not depend on dimension*. The **Sinkhorn divergence** is an unbiased variant that corrects for self-transport costs.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_07446/figure_1.png)
 
 The paper tackles two linked problems:
 
@@ -72,7 +72,7 @@ The paper tackles two linked problems:
 
 The core theoretical contribution is a fixed-point characterization of entropy-regularized barycenters. The researchers prove that a measure is a barycenter if and only if it is a fixed point of a weighted average of entropy-regularized **displacement maps**. Put differently, the barycenter is in equilibrium: let each reference optimally push mass toward it, take the weighted average of those pushes, and the barycenter doesn't move.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2501_07446/figure_2.png)
 
 This characterization leads to a striking practical result: when the target measure is itself a barycenter of the references, recovering its coefficients reduces to a finite-dimensional, convex **quadratic program**, a problem with a guaranteed unique global solution. No gradient descent, no iterative black-box optimization. Just a clean convex problem solvable to global optimality.
 
@@ -84,7 +84,7 @@ Point clouds (collections of 3D coordinates representing object surfaces) are ub
 
 The Tufts researchers applied their barycentric coefficient framework to corrupted point cloud classification and found a clear result: using coefficients as simple features fed into a standard classifier, their method outperformed neural network baselines in small training data regimes. With only a handful of labeled examples, the geometric structure captured by optimal transport provides stronger inductive bias than a network can learn from scratch.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2501_07446/figure_3.png)
 
 The reach extends beyond point clouds. Any domain where data is naturally modeled as distributions has something to gain here: particle physics (energy depositions in detectors), cosmology (galaxy surveys as point processes), materials science (atomic configurations). The dimension-free rates mean the framework scales to high-dimensional probability measures without the **curse of dimensionality** degrading performance.
 
@@ -94,12 +94,9 @@ Open questions remain. The analysis result currently requires knowing the target
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects mathematical analysis (optimal transport theory, convex optimization) with practical machine learning, providing a principled alternative to neural networks for data that naturally lives in the space of probability measures, including the geometric and field-theoretic data common in fundamental physics.
-
-- **Impact on Artificial Intelligence:** The paper establishes dimension-independent convergence guarantees and a convex quadratic formulation for the analysis problem, giving AI practitioners both theoretical foundations and efficient algorithms for distribution-valued feature extraction.
-
-- **Impact on Fundamental Interactions:** The framework's provable sample efficiency with high-dimensional probability measures gives particle physicists, cosmologists, and materials scientists a new tool for analyzing datasets that are naturally represented as distributions.
-
-- **Outlook and References:** Future work may extend robust barycentric analysis to approximate settings and learned reference sets; the paper appeared at AISTATS 2025, with code available at the authors' repository ([arXiv:2501.07446](https://arxiv.org/abs/2501.07446)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects mathematical analysis (optimal transport theory, convex optimization) with practical machine learning, providing a principled alternative to neural networks for data that naturally lives in the space of probability measures, including the geometric and field-theoretic data common in fundamental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper establishes dimension-independent convergence guarantees and a convex quadratic formulation for the analysis problem, giving AI practitioners both theoretical foundations and efficient algorithms for distribution-valued feature extraction.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework's provable sample efficiency with high-dimensional probability measures gives particle physicists, cosmologists, and materials scientists a new tool for analyzing datasets that are naturally represented as distributions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend robust barycentric analysis to approximate settings and learned reference sets; the paper appeared at AISTATS 2025, with code available at the authors' repository ([arXiv:2501.07446](https://arxiv.org/abs/2501.07446)).</span></div></div>
+</div>

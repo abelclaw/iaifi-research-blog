@@ -48,7 +48,7 @@ pdfUrl: https://arxiv.org/pdf/2210.10811v1
 published: '2022-10-19T18:01:43+00:00'
 theme: Astrophysics
 title: 'The First Two Years of FLEET: an Active Search for Superluminous Supernovae'
-wordCount: 1110
+wordCount: 1063
 ---
 
 ## The Big Picture
@@ -75,17 +75,17 @@ The system comes in three flavors for different operational needs:
 
 Each version outputs a single number: P(SLSN-I), the probability that the transient is a Type I superluminous supernova. Anything above 0.5 gets flagged for follow-up.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2210_10811/figure_1.png)
 
 After two years of live operation, FLEET 1.0 did better than predicted. The team had expected roughly 50% purity, meaning half the flagged targets would genuinely be SLSNe. The actual figure came in around 80%, likely because the joint light-curve and host-galaxy approach distinguishes SLSNe from impostors more effectively than anticipated. Completeness, the fraction of all real SLSNe that FLEET caught, landed at roughly 33%, close to the predicted 30%.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2210_10811/figure_2.png)
 
 FLEET 2.0 was retrained on 4,780 labeled transients, nearly three times the version 1.0 training set. The larger dataset doesn't dramatically shift purity, which stays high, but it boosts completeness to approximately 40%. One in ten SLSNe that would have slipped through the old system now gets caught.
 
 The team also checked whether FLEET introduces subtle bias into the scientific record. If the system preferentially recovers only the brightest SLSNe, or only those in certain host galaxies, studies built on FLEET-selected samples could reach skewed conclusions. Their analysis found FLEET-selected SLSNe are largely indistinguishable from the general population across physical and observational parameters, a reassuring sign that the algorithm isn't unknowingly sculpting the science.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2210_10811/figure_3.png)
 
 ## Why It Matters
 
@@ -97,12 +97,9 @@ FLEET reflects a broader shift in how astronomy handles the data firehose of mod
 
 > **Bottom Line:** FLEET achieved nearly twice its predicted purity in two years of live operation, classifying 42% of all superluminous supernovae found worldwide during that period. Version 2.0, trained on three times more data, improves coverage further while introducing no detectable bias into the recovered population.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies machine learning classification to one of observational astronomy's hardest triage problems, showing that random forest classifiers trained on combined light-curve and host-galaxy features can reliably identify rare transients at scale under real survey conditions.
-
-- **Impact on Artificial Intelligence:** FLEET 2.0 validates a practical lesson in applied ML: real-world performance can dramatically exceed cross-validated predictions when features are physically well-motivated. Expanding training sets from ~1,700 to ~4,800 labeled examples yielded meaningful gains in recall without sacrificing precision.
-
-- **Impact on Fundamental Interactions:** By enabling efficient spectroscopic follow-up of superluminous supernovae, likely powered by magnetar engines at the end of massive stellar evolution, FLEET accelerates the collection of samples needed to probe the universe's most luminous explosions.
-
-- **Outlook and References:** Future versions of FLEET are positioned to scale to Rubin Observatory data volumes; the full open-source package is available at github.com/gmzsebastian/FLEET, and the paper appears on arXiv as [arXiv:2210.10811](https://arxiv.org/abs/2210.10811).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies machine learning classification to one of observational astronomy's hardest triage problems, showing that random forest classifiers trained on combined light-curve and host-galaxy features can reliably identify rare transients at scale under real survey conditions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">FLEET 2.0 validates a practical lesson in applied ML: real-world performance can dramatically exceed cross-validated predictions when features are physically well-motivated. Expanding training sets from ~1,700 to ~4,800 labeled examples yielded meaningful gains in recall without sacrificing precision.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling efficient spectroscopic follow-up of superluminous supernovae, likely powered by magnetar engines at the end of massive stellar evolution, FLEET accelerates the collection of samples needed to probe the universe's most luminous explosions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future versions of FLEET are positioned to scale to Rubin Observatory data volumes; the full open-source package is available at github.com/gmzsebastian/FLEET, and the paper appears on arXiv as [arXiv:2210.10811](https://arxiv.org/abs/2210.10811).</span></div></div>
+</div>

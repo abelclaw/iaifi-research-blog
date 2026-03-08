@@ -60,7 +60,7 @@ That's exactly what this paper, published at ICLR 2025, investigates. By surgica
 
 The pruning strategy is simple. Rather than removing random layers or naively cutting from the end, the team developed a principled method to find which layers are most redundant.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2403_17887/figure_1.png)
 
 The core idea exploits the **residual stream** structure of transformers, the way each layer adds its output to a running "stream" of information rather than fully transforming it. If a layer's contribution is small, if the data coming out looks almost identical to the data going in, then removing that layer should cause minimal disruption.
 
@@ -77,7 +77,7 @@ The entire healing step runs on a single 40GB A100 GPU. Not exotic hardware, jus
 
 The angular distance maps tell a clear story: deeper layers consistently show smaller distances to their neighbors than shallower ones. The internal numerical encodings of text are barely changing as information flows through the final third of the network. This pattern led to an even simpler heuristic: just start removing layers from the deepest end. It works almost as well as the more sophisticated similarity search.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2403_17887/figure_1.png)
 
 For Llama-2-70B, the flagship result, performance on standard question-answering benchmarks like MMLU and BoolQ stays flat as layers are removed, until roughly the 40–50% pruning mark, where it falls off a cliff. The loss on the C4 language modeling benchmark degrades more gracefully, staying near baseline even at 80% pruning after healing. These are plateaus followed by sudden collapses, not gradual declines. That pattern looks like genuine redundancy, not graceful degradation.
 
@@ -95,12 +95,9 @@ Open questions remain. Does this apply to reasoning-focused models trained with 
 
 > **Bottom Line:** Half the layers of a 70B model can be removed with minimal performance loss, a discovery that challenges our assumptions about depth in neural networks and offers a practical path to dramatically cheaper AI inference.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies physicist-style probing (testing a system by removing parts and measuring what breaks) to study the internal structure of language models. It treats the question of where knowledge lives in a neural network as an empirical science problem.
-
-- **Impact on Artificial Intelligence:** The paper introduces a practical, single-GPU method for compressing large language models by up to 50% with minimal benchmark degradation, advancing efficient AI deployment and challenging assumptions about the necessity of deep architectures.
-
-- **Impact on Fundamental Interactions:** By framing layer pruning through residual stream dynamics and angular similarity, the work offers a new empirical handle on the representational geometry of neural networks, a question with deep connections to theoretical physics approaches to understanding learning systems.
-
-- **Outlook and References:** Future work should probe whether reasoning-intensive models exhibit the same redundancy and whether training objectives can be redesigned to use depth more effectively; the paper is available as [arXiv:2403.17887](https://arxiv.org/abs/2403.17887) and was published at ICLR 2025.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies physicist-style probing (testing a system by removing parts and measuring what breaks) to study the internal structure of language models. It treats the question of where knowledge lives in a neural network as an empirical science problem.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a practical, single-GPU method for compressing large language models by up to 50% with minimal benchmark degradation, advancing efficient AI deployment and challenging assumptions about the necessity of deep architectures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By framing layer pruning through residual stream dynamics and angular similarity, the work offers a new empirical handle on the representational geometry of neural networks, a question with deep connections to theoretical physics approaches to understanding learning systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should probe whether reasoning-intensive models exhibit the same redundancy and whether training objectives can be redesigned to use depth more effectively; the paper is available as [arXiv:2403.17887](https://arxiv.org/abs/2403.17887) and was published at ICLR 2025.</span></div></div>
+</div>

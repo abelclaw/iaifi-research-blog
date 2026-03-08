@@ -30,7 +30,7 @@ published: '2024-06-24T17:35:12+00:00'
 theme: Foundational AI
 title: 'Derived Moduli Spaces of Nonlinear PDEs II: Variational Tricomplex and BV
   Formalism'
-wordCount: 1119
+wordCount: 1174
 ---
 
 ## The Big Picture
@@ -53,7 +53,7 @@ In **derived geometry**, a modern extension that carefully tracks *why* and *how
 
 The authors' central construction, the **derived variational tricomplex**, emerges by applying techniques from derived algebraic geometry to the moduli space of solutions of a nonlinear PDE. Specifically, they use the theory of **D-prestacks**: geometric objects bundling algebraic structures with a compatible action of differential operators. The key object is a differentially structured **cotangent complex** $\mathbb{L}_Y$, a homotopy-invariant replacement for the usual space of differential forms that encodes infinitesimal variations of a solution even when the solution space is singular.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2406_16825/figure_1.png)
 
 The construction proceeds in three main moves:
 
@@ -79,18 +79,15 @@ Future directions include connecting the variational tricomplex to factorization
 
 > **Bottom Line:** Kryczka, Sheshmani, and Yau have built the first fully derived, homotopy-coherent generalization of the variational bicomplex. It gives mathematical physicists a new tool for studying nonlinear PDEs, their symmetries, and their quantization, including theories that classical formalisms cannot even describe.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects abstract derived algebraic geometry directly to the physics of gauge field theories, showing that homotopy-theoretic methods from algebraic geometry are not merely analogous to but structurally identical with the correct mathematical framework for field-theory quantization.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The derived geometric structures developed here, particularly variational factorization homology and D-geometric moduli spaces, provide mathematical foundations that could inform AI-assisted discovery in theoretical physics, where solution spaces of nonlinear PDEs remain computationally intractable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework handles non-Lagrangian gauge theories (Seiberg-Witten, Donaldson-Uhlenbeck-Yau, higher-spin theories) and provides an intrinsic treatment of BV boundary conditions, creating new mathematical avenues for understanding holography and topological aspects of quantum field theory.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The series continues with applications to enumerative invariants and non-perturbative quantization; the paper represents the second installment in an ongoing program by Kryczka, Sheshmani, and Yau on derived geometry of PDEs.
 
-- **Interdisciplinary Research Achievement:** This work connects abstract derived algebraic geometry directly to the physics of gauge field theories, showing that homotopy-theoretic methods from algebraic geometry are not merely analogous to but structurally identical with the correct mathematical framework for field-theory quantization.
-
-- **Impact on Artificial Intelligence:** The derived geometric structures developed here, particularly variational factorization homology and D-geometric moduli spaces, provide mathematical foundations that could inform AI-assisted discovery in theoretical physics, where solution spaces of nonlinear PDEs remain computationally intractable.
-
-- **Impact on Fundamental Interactions:** The framework handles non-Lagrangian gauge theories (Seiberg-Witten, Donaldson-Uhlenbeck-Yau, higher-spin theories) and provides an intrinsic treatment of BV boundary conditions, creating new mathematical avenues for understanding holography and topological aspects of quantum field theory.
-
-- **Outlook and References:** The series continues with applications to enumerative invariants and non-perturbative quantization; the paper represents the second installment in an ongoing program by Kryczka, Sheshmani, and Yau on derived geometry of PDEs.
-
-## Original Paper Details
-- **Title:** Derived Moduli Spaces of Nonlinear PDEs II: Variational Tricomplex and BV Formalism
-- **arXiv ID:** [arXiv:2406.16825](https://arxiv.org/abs/2406.16825)
-- **Authors:** Jacob Kryczka, Artan Sheshmani, Shing-Tung Yau
-- **Abstract:** This paper is the second in a series of works dedicated to studying non-linear partial differential equations via derived geometric methods. We study a natural derived enhancement of the de Rham complex of a non-linear PDE via algebro-geometric techniques and examine its consequences for the functional differential calculus on the space of solutions. Applications to the BV-formalism with and without boundary conditions are discussed.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Derived Moduli Spaces of Nonlinear PDEs II: Variational Tricomplex and BV Formalism</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2406.16825](https://arxiv.org/abs/2406.16825)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Jacob Kryczka, Artan Sheshmani, Shing-Tung Yau</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">This paper is the second in a series of works dedicated to studying non-linear partial differential equations via derived geometric methods. We study a natural derived enhancement of the de Rham complex of a non-linear PDE via algebro-geometric techniques and examine its consequences for the functional differential calculus on the space of solutions. Applications to the BV-formalism with and without boundary conditions are discussed.</span></div></div>
+</div>

@@ -55,7 +55,7 @@ published: '2024-08-13T18:00:01+00:00'
 theme: Astrophysics
 title: 'Improving Radial Velocities by Marginalizing over Stars and Sky: Achieving
   30 m/s RV Precision for APOGEE in the Plate Era'
-wordCount: 1085
+wordCount: 1092
 ---
 
 ## The Big Picture
@@ -78,7 +78,7 @@ The old approach had two weaknesses. First, **sky subtraction** (removing the at
 
 Second, the pipeline searched for the best-matching **stellar template** by scanning a grid of options and picking the winner. Grid searches discard information. They throw away all the "almost right" templates and commit to a single answer.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_07126/figure_1.png)
 
 Saydjari and colleagues replaced both steps with a unified probabilistic framework, implemented in a Julia package called `apMADGICS.jl`. Two innovations make it work:
 
@@ -87,13 +87,13 @@ Saydjari and colleagues replaced both steps with a unified probabilistic framewo
 
 The payoff is a much cleaner measurement. Residual sky contamination no longer systematically biases the answer. And the uncertainty estimates are properly calibrated: when the pipeline reports uncertainty X, it actually means it.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_07126/figure_2.png)
 
 ## Why It Matters
 
 The numbers tell the story. The previous APOGEE pipeline struggled to reach its theoretical limits. On the same fiber, the new catalog achieves noise-limited precision down to **30 m/s**, matching the theoretical floor. That's several times better than what surveys of comparable scale have managed. The closest competitor, the GALAH survey (R ~ 28,000), delivered ~140 m/s precision across ~340,000 stars. APOGEE DR17 covers ~730,000 stars, advancing on both precision and sample size at once.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2408_07126/figure_3.png)
 
 The team also uncovered something subtle: individual fibers in a **multi-object spectrograph** (an instrument that captures light from hundreds of stars through separate optical threads) introduce constant velocity offsets relative to each other. This fiber-to-fiber bias had been lurking in APOGEE data, quietly degrading the combined catalog. The new method characterizes and removes these offsets.
 
@@ -103,14 +103,14 @@ The methodological lesson applies well beyond APOGEE. Any spectroscopic survey c
 
 > **Bottom Line:** By replacing sequential pipeline steps with a unified probabilistic model, this work extracts 30 m/s radial velocity precision from APOGEE's 2.6 million stellar visits, all through software improvements alone.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies Bayesian probabilistic inference and marginalization, tools from machine learning and statistics, to precision stellar spectroscopy. It shows how modern computational methods can unlock untapped precision in existing astronomical datasets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The marginalization-over-templates approach replaces discrete grid search with principled probabilistic integration. It offers a generalizable template for how statistically grounded methods can replace heuristic pipeline steps in large-scale data reduction.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Achieving 30 m/s RV precision at survey scale opens new windows into Galactic archaeology, binary star demographics, and exoplanet population statistics, science that demands both the precision of dedicated instruments and the statistical power of hundreds of thousands of targets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors identify improved line spread function modeling as the critical next step for SDSS-V's fiber-unified catalog. The full dataset and code are publicly available ([arXiv:2408.07126](https://arxiv.org/abs/2408.07126)).
 
-- **Interdisciplinary Research Achievement:** This work applies Bayesian probabilistic inference and marginalization, tools from machine learning and statistics, to precision stellar spectroscopy. It shows how modern computational methods can unlock untapped precision in existing astronomical datasets.
-- **Impact on Artificial Intelligence:** The marginalization-over-templates approach replaces discrete grid search with principled probabilistic integration. It offers a generalizable template for how statistically grounded methods can replace heuristic pipeline steps in large-scale data reduction.
-- **Impact on Fundamental Interactions:** Achieving 30 m/s RV precision at survey scale opens new windows into Galactic archaeology, binary star demographics, and exoplanet population statistics, science that demands both the precision of dedicated instruments and the statistical power of hundreds of thousands of targets.
-- **Outlook and References:** The authors identify improved line spread function modeling as the critical next step for SDSS-V's fiber-unified catalog. The full dataset and code are publicly available ([arXiv:2408.07126](https://arxiv.org/abs/2408.07126)).
-
-## Original Paper Details
-- **Title:** Improving Radial Velocities by Marginalizing over Stars and Sky: Achieving 30 m/s RV Precision for APOGEE in the Plate Era
-- **arXiv ID:** [2408.07126](https://arxiv.org/abs/2408.07126)
-- **Authors:** Andrew K. Saydjari, Douglas P. Finkbeiner, Adam J. Wheeler, Jon A. Holtzman, John C. Wilson, Andrew R. Casey, Sophia Sánchez-Maes, Joel R. Brownstein, David W. Hogg, Michael R. Blanton
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Improving Radial Velocities by Marginalizing over Stars and Sky: Achieving 30 m/s RV Precision for APOGEE in the Plate Era</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2408.07126](https://arxiv.org/abs/2408.07126)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Andrew K. Saydjari, Douglas P. Finkbeiner, Adam J. Wheeler, Jon A. Holtzman, John C. Wilson, Andrew R. Casey, Sophia Sánchez-Maes, Joel R. Brownstein, David W. Hogg, Michael R. Blanton</span></div></div>
+</div>

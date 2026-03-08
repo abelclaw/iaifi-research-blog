@@ -67,7 +67,7 @@ published: '2024-09-04T18:00:00+00:00'
 theme: Astrophysics
 title: 'How DREAMS are made: Emulating Satellite Galaxy and Subhalo Populations with
   Diffusion Models and Point Clouds'
-wordCount: 1052
+wordCount: 1022
 ---
 
 ## The Big Picture
@@ -86,7 +86,7 @@ The traditional workhorse for placing galaxies in simulations is the **Halo Occu
 
 NeHOD sits between these extremes. It learns the mapping from dark matter halo properties to galaxy populations by training on 1,024 high-resolution **zoom-in simulations** from the **DREAMS project** (the TNG-Warm DM suite). Zoom-in simulations concentrate computing power on a single halo, and in this case they all model Milky Way-mass halos while varying two key parameters: warm dark matter particle mass and astrophysical feedback strength.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2409_02980/figure_1.png)
 
 The architecture has two interlocking pieces:
 
@@ -95,13 +95,13 @@ The architecture has two interlocking pieces:
 
 Treating galaxies as a **point cloud** (individual points in space rather than values on a fixed grid) lets NeHOD avoid the resolution limits that constrain grid-based approaches. It resolves spatial scales down to the simulation's native resolution, which is critical for studying small satellite galaxies orbiting close to their host.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2409_02980/figure_2.png)
 
 NeHOD correctly reproduces the key statistics of satellite galaxy populations: the **subhalo mass function**, the **stellar-to-halo mass relation**, the **concentration-mass relation**, and **spatial clustering statistics**, all as a function of the simulation parameters. When warm dark matter is lighter and suppresses small-scale structure, NeHOD generates fewer low-mass satellites. When feedback parameters change, it adjusts stellar masses accordingly.
 
 The model also captures correlations between properties that simpler models miss. In a real galaxy system, a satellite's position, velocity, mass, and concentration all co-evolved under the same gravitational and baryonic forces. The diffusion model learns these joint distributions implicitly, with no need for the researcher to specify them by hand.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2409_02980/figure_3.png)
 
 The computational payoff is large: populating a halo with NeHOD takes seconds on a GPU. The equivalent hydrodynamic simulation takes months on a supercomputer cluster.
 
@@ -115,9 +115,9 @@ There is a broader lesson here too. Point-cloud diffusion models, borrowed from 
 
 > **Bottom Line:** NeHOD delivers hydrodynamic-quality galaxy populations at HOD-level speed, unlocking fast, parameter-spanning exploration of dark matter physics and galaxy formation with a neural generative model trained on the DREAMS simulation suite.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work bridges modern deep learning (variational diffusion models and Transformers from computer vision and NLP) with astrophysical simulation, showing that point-cloud generative models can emulate complex hydrodynamic outputs with high fidelity.
-- **Impact on Artificial Intelligence:** NeHOD introduces a novel application of conditional variational diffusion models to scientific data, showing that the architecture can learn correlated, multi-property distributions over variable-size point sets conditioned on physical parameters.
-- **Impact on Fundamental Interactions:** By enabling fast, accurate emulation of satellite galaxy populations across warm dark matter and baryonic parameter spaces, this framework accelerates the search for observational signatures of dark matter's particle nature.
-- **Outlook and References:** Future extensions could apply NeHOD to larger cosmological volumes, additional dark matter models, or observational mock catalogs for upcoming surveys like Rubin LSST. The paper is available at [arXiv:2409.02980](https://arxiv.org/abs/2409.02980).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges modern deep learning (variational diffusion models and Transformers from computer vision and NLP) with astrophysical simulation, showing that point-cloud generative models can emulate complex hydrodynamic outputs with high fidelity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">NeHOD introduces a novel application of conditional variational diffusion models to scientific data, showing that the architecture can learn correlated, multi-property distributions over variable-size point sets conditioned on physical parameters.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling fast, accurate emulation of satellite galaxy populations across warm dark matter and baryonic parameter spaces, this framework accelerates the search for observational signatures of dark matter's particle nature.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could apply NeHOD to larger cosmological volumes, additional dark matter models, or observational mock catalogs for upcoming surveys like Rubin LSST. The paper is available at [arXiv:2409.02980](https://arxiv.org/abs/2409.02980).</span></div></div>
+</div>

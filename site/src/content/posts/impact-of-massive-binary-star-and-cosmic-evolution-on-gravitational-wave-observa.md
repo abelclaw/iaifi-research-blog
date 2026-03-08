@@ -58,7 +58,7 @@ published: '2021-12-10T19:00:00+00:00'
 theme: Astrophysics
 title: 'Impact of Massive Binary Star and Cosmic Evolution on Gravitational Wave Observations
   II: Double Compact Object Rates and Properties'
-wordCount: 1062
+wordCount: 1048
 ---
 
 ## The Big Picture
@@ -82,7 +82,7 @@ To map out the uncertainty, the team varied two interconnected sets of parameter
 - **Massive binary star evolution physics**: wind mass-loss rates; **common envelope evolution** (a dramatic phase where one star's outer layers balloon outward and engulf its companion, and the pair must then shed those layers or spiral into a single object); **natal kick velocities** (the recoil a neutron star receives at birth, which can break up a binary entirely); and **mass transfer stability criteria** (whether mass flowing between stars proceeds steadily or catastrophically)
 - **S(Z,z), the metallicity-dependent star formation rate density**: how star formation varied across cosmic time and chemical enrichment, which matters because low-metallicity stars lose less mass to winds and can form heavier black holes
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_05763/figure_1.png)
 
 Combining variations across both dimensions yielded 560 model realizations. For each, the team ran rapid **population synthesis** simulations (fast numerical codes tracking millions of binary systems using simplified mathematical recipes for each physical process) and calculated predicted rates and properties for three types of **double compact object (DCO)** mergers: black hole–black hole (BHBH), black hole–neutron star (BHNS), and neutron star–neutron star (NSNS).
 
@@ -90,13 +90,13 @@ The rate variations are staggering. Across 560 models, predicted merger rates sp
 
 Different merger types respond differently to different uncertainties. BHBH rates are primarily driven by S(Z,z), because black hole masses are exquisitely sensitive to how much mass stars shed, which depends heavily on metallicity. NSNS rates are dominated by stellar evolution physics, particularly supernova kicks that can disrupt fragile neutron star binaries. BHNS mergers feel both effects roughly equally.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_05763/figure_2.png)
 
 ## Why It Matters
 
 The real prize isn't just cataloging the uncertainty but identifying what remains predictable despite it. Scanning across all 560 models, the team found several persistent features in the mass distributions that hold regardless of physical assumptions. More than 95% of detected BHBH mergers should contain at least one black hole heavier than 8 solar masses, and their mass ratios should be less than 4:1. These aren't model-dependent predictions. They're constraints that survive every combination of assumptions the team explored.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_05763/figure_3.png)
 
 This has immediate practical value. As LIGO, Virgo, and KAGRA continue adding events to their catalogs, comparisons between observed distributions and theoretical predictions can progressively rule out corners of this vast model space. The team's 560 models are publicly available, giving the community a ready-made toolkit for exactly this kind of inference.
 
@@ -104,12 +104,9 @@ With larger observed samples, gravitational wave detectors become cosmic laborat
 
 > **Bottom Line:** Predicting gravitational wave merger rates from first principles requires simultaneously modeling uncertain stellar physics and uncertain cosmic star formation history. Getting both wrong can mislead you by a factor of 10,000. By mapping that entire range across 560 models, the team reveals which features of the merger population we can trust no matter which assumptions we make.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects computational astrophysics with observational gravitational wave science, using large-scale population synthesis to link fundamental stellar physics with the rapidly growing catalog of LIGO/Virgo detections.
-
-- **Impact on Artificial Intelligence:** The systematic approach of building 560 model realizations and identifying stable predictions across parameter space parallels modern machine learning practices for uncertainty quantification; the publicly released model grids provide a foundation for future AI-driven Bayesian inference on gravitational wave populations.
-
-- **Impact on Fundamental Interactions:** By disentangling how BHBH, BHNS, and NSNS merger rates each respond differently to stellar evolution versus cosmic star formation uncertainties, the analysis sharpens our ability to extract fundamental physics (compact object masses, supernova mechanisms, common envelope evolution) from gravitational wave observations.
-
-- **Outlook and References:** Future gravitational wave observing runs, combined with these 560 publicly available model realizations, will progressively constrain the currently unconstrained stages of massive binary star evolution; see [arXiv:2112.05763](https://arxiv.org/abs/2112.05763) for the full analysis.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects computational astrophysics with observational gravitational wave science, using large-scale population synthesis to link fundamental stellar physics with the rapidly growing catalog of LIGO/Virgo detections.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The systematic approach of building 560 model realizations and identifying stable predictions across parameter space parallels modern machine learning practices for uncertainty quantification; the publicly released model grids provide a foundation for future AI-driven Bayesian inference on gravitational wave populations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By disentangling how BHBH, BHNS, and NSNS merger rates each respond differently to stellar evolution versus cosmic star formation uncertainties, the analysis sharpens our ability to extract fundamental physics (compact object masses, supernova mechanisms, common envelope evolution) from gravitational wave observations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future gravitational wave observing runs, combined with these 560 publicly available model realizations, will progressively constrain the currently unconstrained stages of massive binary star evolution; see [arXiv:2112.05763](https://arxiv.org/abs/2112.05763) for the full analysis.</span></div></div>
+</div>

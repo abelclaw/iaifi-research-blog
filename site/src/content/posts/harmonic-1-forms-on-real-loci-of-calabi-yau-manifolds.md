@@ -39,7 +39,7 @@ pdfUrl: https://arxiv.org/pdf/2405.19402v2
 published: '2024-05-29T18:00:01+00:00'
 theme: Theoretical Physics
 title: Harmonic $1$-forms on real loci of Calabi-Yau manifolds
-wordCount: 1113
+wordCount: 1277
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ The four test cases span a range of topologies:
 - **Quintic**: b₁ = 1, so a harmonic 1-form exists in principle, but classical 3-manifold geometry guarantees it must vanish somewhere. Another control.
 - **CICY1 and CICY2**: complete intersections of a quadric and a quartic in ℙ⁵. Real loci are topologically S¹ × S², with b₁ = 1 and no topological obstruction to a nowhere-vanishing 1-form.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_19402/figure_1.png)
 
 The paper's **Corollary 3.8** provides the mathematical backbone: if a nowhere-vanishing 1-form exists for an *approximate* metric sufficiently close to solving Monge-Ampère, then a genuine nowhere-vanishing harmonic 1-form for the *true* metric must exist nearby. This transforms a numerical finding into a potential pathway toward a computer-assisted proof.
 
@@ -78,11 +78,11 @@ The results validate the approach on both controls. On the Fermat quintic and Qu
 
 CICY2 is where it gets interesting. The approximate harmonic 1-form turns out to be roughly constant along the S¹ direction and roughly zero along S². That is exactly the pattern you'd expect for a true nowhere-vanishing 1-form on S¹ × S², where the natural candidate is simply the differential of the S¹ coordinate.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_19402/figure_2.png)
 
 The authors also observe that the Calabi-Yau metric develops **long necks** near singular limits, regions where the geometry stretches thin as parameters vary. This behavior is analytically guaranteed for hypersurfaces by a 2019 theorem, but was previously unknown for higher-codimension manifolds like CICYs. The neural network simulations provide the first evidence it occurs there too.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_19402/figure_3.png)
 
 What makes this work unusual is its relationship to proof. The authors are explicit that their approximations are not yet accurate enough to complete a formal proof. But Corollary 3.8 already shows how to get there: push the approximation accuracy high enough and a rigorous computer-assisted proof follows.
 
@@ -90,18 +90,15 @@ As training improves (more compute, better architectures, higher-order polynomia
 
 > **Bottom Line:** Neural networks can probe Calabi-Yau geometry well enough to find new conjectural G₂-manifolds that classical methods cannot reach, and a rigorous mathematical theorem already shows that sufficiently accurate approximations could become genuine proofs.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together differential geometry, algebraic topology, and deep learning in a single computational framework, using neural networks trained on physical constraints to answer open questions in pure mathematics about G₂-manifolds.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper extends neural network approximation of Calabi-Yau metrics from hypersurfaces to complete intersections of higher codimension, and introduces a polynomial-basis network for computing harmonic differential forms on curved manifolds.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The results provide the second conjectural example in the literature of a Calabi-Yau manifold whose real locus supports a nowhere-vanishing harmonic 1-form, a key ingredient for constructing new seven-dimensional G₂-manifolds relevant to M-theory compactifications.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Higher-accuracy approximations could turn this numerical evidence into a computer-assisted proof via Corollary 3.8; see [arXiv:2405.19402](https://arxiv.org/abs/2405.19402) and the accompanying code at [github.com/yidiq7/MLHarmonic-1-form](https://github.com/yidiq7/MLHarmonic-1-form).
 
-- **Interdisciplinary Research Achievement:** This work brings together differential geometry, algebraic topology, and deep learning in a single computational framework, using neural networks trained on physical constraints to answer open questions in pure mathematics about G₂-manifolds.
-
-- **Impact on Artificial Intelligence:** The paper extends neural network approximation of Calabi-Yau metrics from hypersurfaces to complete intersections of higher codimension, and introduces a polynomial-basis network for computing harmonic differential forms on curved manifolds.
-
-- **Impact on Fundamental Interactions:** The results provide the second conjectural example in the literature of a Calabi-Yau manifold whose real locus supports a nowhere-vanishing harmonic 1-form, a key ingredient for constructing new seven-dimensional G₂-manifolds relevant to M-theory compactifications.
-
-- **Outlook and References:** Higher-accuracy approximations could turn this numerical evidence into a computer-assisted proof via Corollary 3.8; see [arXiv:2405.19402](https://arxiv.org/abs/2405.19402) and the accompanying code at [github.com/yidiq7/MLHarmonic-1-form](https://github.com/yidiq7/MLHarmonic-1-form).
-
-## Original Paper Details
-- **Title:** Harmonic $1$-forms on real loci of Calabi-Yau manifolds
-- **arXiv ID:** [2405.19402](https://arxiv.org/abs/2405.19402)
-- **Authors:** ["Michael R. Douglas", "Daniel Platt", "Yidi Qi", "Rodrigo Barbosa"]
-- **Abstract:** We numerically study whether there exist nowhere vanishing harmonic $1$-forms on the real locus of some carefully constructed examples of Calabi-Yau manifolds, which would then give rise to potentially new examples of $G_2$-manifolds and an explicit description of their metrics. We do this in two steps: first, we use a neural network to compute an approximate Calabi-Yau metric on each manifold. Second, we use another neural network to compute an approximately harmonic $1$-form with respect to the approximate metric, and then inspect the found solution. On two manifolds existence of a nowhere vanishing harmonic $1$-form can be ruled out using differential geometry. The real locus of a third manifold is diffeomorphic to $S^1 \times S^2$, and our numerics suggest that when the Calabi-Yau metric is close to a singular limit, then it admits a nowhere vanishing harmonic $1$-form. We explain how such an approximate solution could potentially be used in a numerically verified proof for the fact that our example manifold must admit a nowhere vanishing harmonic $1$-form.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Harmonic $1$-forms on real loci of Calabi-Yau manifolds</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2405.19402](https://arxiv.org/abs/2405.19402)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Michael R. Douglas", "Daniel Platt", "Yidi Qi", "Rodrigo Barbosa"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We numerically study whether there exist nowhere vanishing harmonic $1$-forms on the real locus of some carefully constructed examples of Calabi-Yau manifolds, which would then give rise to potentially new examples of $G_2$-manifolds and an explicit description of their metrics. We do this in two steps: first, we use a neural network to compute an approximate Calabi-Yau metric on each manifold. Second, we use another neural network to compute an approximately harmonic $1$-form with respect to the approximate metric, and then inspect the found solution. On two manifolds existence of a nowhere vanishing harmonic $1$-form can be ruled out using differential geometry. The real locus of a third manifold is diffeomorphic to $S^1 \times S^2$, and our numerics suggest that when the Calabi-Yau metric is close to a singular limit, then it admits a nowhere vanishing harmonic $1$-form. We explain how such an approximate solution could potentially be used in a numerically verified proof for the fact that our example manifold must admit a nowhere vanishing harmonic $1$-form.</span></div></div>
+</div>

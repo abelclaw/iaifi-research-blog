@@ -42,7 +42,7 @@ published: '2022-11-06T18:38:19+00:00'
 theme: Theoretical Physics
 title: Gauge Equivariant Neural Networks for 2+1D U(1) Gauge Theory Simulations in
   Hamiltonian Formulation
-wordCount: 1156
+wordCount: 1279
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ The team focused on the **Kogut-Susskind model**, a standard testing ground for 
 
 The lattice is a grid of vertices connected by edges. The gauge field lives on each edge as an angular variable θ ∈ [0, 2π), represented as the complex exponential e^(iθ). Two competing terms govern the system's energy: a kinetic term that wants the field to fluctuate, and a magnetic term that wants neighboring **plaquettes** (the square loops formed by four edges) to align.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_03198/figure_1.png)
 
 The core architectural challenge was building a neural network that transforms *equivariantly* under gauge transformations: when you apply a gauge transformation to the input field configuration, the hidden representations should transform in a consistent, predictable way, and the final output wave function should remain invariant. The team achieved this through a chain of nonlinear mappings:
 
@@ -71,7 +71,7 @@ The core architectural challenge was building a neural network that transforms *
 - **Gauge invariant blocks** pool the equivariant features into scalar quantities unchanged under any gauge transformation.
 - The full architecture stacks these blocks like a standard CNN, with every operation designed to respect the underlying symmetry group.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2211_03198/figure_1.png)
 
 This is a *continuous-variable* architecture, and that distinction matters. Previous neural network approaches to lattice gauge theory handled discrete gauge groups (like Z_N, the integers modulo N). The U(1) group is continuous: the angular variable can take any value in [0, 2π). That demands a fundamentally different treatment using complex-valued representations and Fourier-mode decompositions, a technique for breaking continuous signals into their component frequencies.
 
@@ -81,7 +81,7 @@ The wave function is optimized using **variational Monte Carlo (VMC)**: network 
 
 The benchmarks speak for themselves. In the **strong coupling regime** (large coupling constant g), where quantum fluctuations dominate and the field is wildly disordered, the gauge equivariant neural network outperforms the previous best approach (complex Gaussian wave functions) by a meaningful margin. In the **weak coupling regime**, where the field tends toward smooth configurations, performance is comparable. This asymmetry makes physical sense: the strong coupling regime demands the most expressive wave function, and the neural network's nonlinear depth delivers exactly there.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2211_03198/figure_2.png)
 
 U(1) gauge theory in 2+1D is a stepping stone. The same architectural principles, equivariant features, gauge-respecting convolutions, invariant readout, should generalize to **non-abelian** gauge groups like SU(2) and SU(3). These are groups where the order of transformations matters (unlike simple rotations on a circle), and they govern the weak and strong nuclear forces respectively.
 
@@ -89,22 +89,19 @@ Quantum hardware is another frontier. As quantum computers mature, they'll need 
 
 There's also a pure machine learning angle. The techniques developed here, building equivariant architectures for continuous symmetry groups acting on structured graph data, feed into the growing field of **geometric deep learning**, where symmetry principles guide network design rather than being treated as an afterthought.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2211_03198/figure_2.png)
 
 > **Bottom Line:** By embedding gauge symmetry directly into a neural network architecture, this work achieves more accurate ground state simulations of a foundational quantum field theory model and opens the door to tackling the continuous gauge groups that govern the actual forces of nature.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies geometric deep learning (gauge equivariant convolutional architectures) to a core problem in theoretical physics: finding the ground state of a continuous-variable quantum lattice gauge theory. Symmetry-respecting network design turns out to be a practical computational advantage, not just a physics-inspired metaphor.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper advances equivariant neural networks for continuous Lie groups acting on structured lattice data, contributing new architectural building blocks for geometric deep learning applicable to any domain with local symmetry constraints.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By achieving improved accuracy over state-of-the-art wave functions for the U(1) Kogut-Susskind model in the strong coupling regime, this work brings neural quantum states closer to viability as simulation tools for the gauge theories underpinning the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the approach to non-abelian gauge groups (SU(2), SU(3)) and coupling gauge fields to matter, which would make the method applicable to QCD-like theories. The paper appeared at the NeurIPS 2022 AI for Science Workshop ([arXiv:2211.03198](https://arxiv.org/abs/2211.03198)).
 
-- **Interdisciplinary Research Achievement:** This work applies geometric deep learning (gauge equivariant convolutional architectures) to a core problem in theoretical physics: finding the ground state of a continuous-variable quantum lattice gauge theory. Symmetry-respecting network design turns out to be a practical computational advantage, not just a physics-inspired metaphor.
-
-- **Impact on Artificial Intelligence:** The paper advances equivariant neural networks for continuous Lie groups acting on structured lattice data, contributing new architectural building blocks for geometric deep learning applicable to any domain with local symmetry constraints.
-
-- **Impact on Fundamental Interactions:** By achieving improved accuracy over state-of-the-art wave functions for the U(1) Kogut-Susskind model in the strong coupling regime, this work brings neural quantum states closer to viability as simulation tools for the gauge theories underpinning the Standard Model.
-
-- **Outlook and References:** Future directions include extending the approach to non-abelian gauge groups (SU(2), SU(3)) and coupling gauge fields to matter, which would make the method applicable to QCD-like theories. The paper appeared at the NeurIPS 2022 AI for Science Workshop ([arXiv:2211.03198](https://arxiv.org/abs/2211.03198)).
-
-## Original Paper Details
-- **Title:** Gauge Equivariant Neural Networks for 2+1D U(1) Gauge Theory Simulations in Hamiltonian Formulation
-- **arXiv ID:** [2211.03198](https://arxiv.org/abs/2211.03198)
-- **Authors:** Di Luo, Shunyue Yuan, James Stokes, Bryan K. Clark
-- **Abstract:** Gauge Theory plays a crucial role in many areas in science, including high energy physics, condensed matter physics and quantum information science. In quantum simulations of lattice gauge theory, an important step is to construct a wave function that obeys gauge symmetry. In this paper, we have developed gauge equivariant neural network wave function techniques for simulating continuous-variable quantum lattice gauge theories in the Hamiltonian formulation. We have applied the gauge equivariant neural network approach to find the ground state of 2+1-dimensional lattice gauge theory with U(1) gauge group using variational Monte Carlo. We have benchmarked our approach against the state-of-the-art complex Gaussian wave functions, demonstrating improved performance in the strong coupling regime and comparable results in the weak coupling regime.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Gauge Equivariant Neural Networks for 2+1D U(1) Gauge Theory Simulations in Hamiltonian Formulation</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2211.03198](https://arxiv.org/abs/2211.03198)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Di Luo, Shunyue Yuan, James Stokes, Bryan K. Clark</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Gauge Theory plays a crucial role in many areas in science, including high energy physics, condensed matter physics and quantum information science. In quantum simulations of lattice gauge theory, an important step is to construct a wave function that obeys gauge symmetry. In this paper, we have developed gauge equivariant neural network wave function techniques for simulating continuous-variable quantum lattice gauge theories in the Hamiltonian formulation. We have applied the gauge equivariant neural network approach to find the ground state of 2+1-dimensional lattice gauge theory with U(1) gauge group using variational Monte Carlo. We have benchmarked our approach against the state-of-the-art complex Gaussian wave functions, demonstrating improved performance in the strong coupling regime and comparable results in the weak coupling regime.</span></div></div>
+</div>

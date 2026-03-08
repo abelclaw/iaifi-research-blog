@@ -75,11 +75,11 @@ Dark matter makes this picture richer. When a dark matter particle decays into p
 
 Previous work averaged these effects over large volumes, assuming dark matter heats everything uniformly. DM21cm throws out that assumption. The team coupled `21cmFAST`, the standard simulator for 21-cm cosmology, with `DarkHistory`, a code that tracks energy deposition physics in the early universe. Together, these codes evolve gas temperature, ionization fraction, and the 21-cm signal jointly across a three-dimensional grid of the cosmos.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2312_11608/figure_1.png)
 
 The **lightcone** comparison in Figure 1 makes the difference plain. A lightcone maps properties across both space and cosmic time simultaneously, and here a 1 keV dark matter particle decaying to photons produces very different spatial patterns in the 21-cm **brightness temperature** (the strength of the radio signal as measured by astronomers) depending on whether you use the inhomogeneous treatment or the old homogenized approximation. In the inhomogeneous case, heating and ionization track the underlying dark matter distribution, creating spatial structure that the power spectrum can latch onto.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2312_11608/figure_1.png)
 
 ## Why It Matters
 
@@ -89,7 +89,7 @@ For decays to photons, projected HERA constraints surpass CMB bounds across a wi
 
 The spatial treatment matters quantitatively, not just visually. Different regions respond differently to dark matter energy injection, so the power spectrum carries additional information that the homogeneous approximation throws away. The full inhomogeneous calculation captures correlations between dark matter density, gas density, and ionization state, sharpening the predicted signal shape and breaking degeneracies with uncertain astrophysical parameters like the X-ray luminosity of early galaxies.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2312_11608/figure_2.png)
 
 What this really means is that 21-cm cosmology is growing into a precision dark matter probe. The CMB has long been the gold standard for early-universe constraints on exotic physics. These projections show that HERA, and eventually the **Square Kilometre Array (SKA)**, could become the dominant tool for probing dark matter in the sub-GeV mass range, where collider experiments lose sensitivity and direct detection faces fundamental background challenges.
 
@@ -97,12 +97,9 @@ The `DM21cm` code is publicly available and built for flexibility. It can accomm
 
 > **Bottom Line:** DM21cm delivers the first fully inhomogeneous treatment of dark matter energy injection in 21-cm simulations. The projected HERA constraints it forecasts would set unprecedented bounds on sub-GeV dark matter lifetimes, making radio cosmology one of our sharpest tools for hunting dark matter.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects computational cosmology, particle physics, and radio astronomy by coupling state-of-the-art simulation tools into a unified framework that translates microphysical dark matter models into observable radio signatures across cosmic time.
-
-- **Impact on Artificial Intelligence:** The DM21cm framework shows how combining physics-informed simulation codes can dramatically extend theoretical reach; the publicly released code enables rapid parameter-space exploration that would be computationally prohibitive with full hydrodynamic simulations.
-
-- **Impact on Fundamental Interactions:** By developing the first completely inhomogeneous treatment of exotic energy injection in 21-cm cosmology, this work produces projected constraints on dark matter lifetimes that exceed all existing bounds in the sub-GeV mass range, reaching lifetimes of ~10²⁸ seconds.
-
-- **Outlook and References:** HERA is already collecting data, making these forecasts immediately actionable, with the Square Kilometre Array promising even deeper reach in the coming decade; the full analysis and DM21cm code are described in [arXiv:2312.11608](https://arxiv.org/abs/2312.11608).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects computational cosmology, particle physics, and radio astronomy by coupling state-of-the-art simulation tools into a unified framework that translates microphysical dark matter models into observable radio signatures across cosmic time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The DM21cm framework shows how combining physics-informed simulation codes can dramatically extend theoretical reach; the publicly released code enables rapid parameter-space exploration that would be computationally prohibitive with full hydrodynamic simulations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By developing the first completely inhomogeneous treatment of exotic energy injection in 21-cm cosmology, this work produces projected constraints on dark matter lifetimes that exceed all existing bounds in the sub-GeV mass range, reaching lifetimes of ~10²⁸ seconds.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">HERA is already collecting data, making these forecasts immediately actionable, with the Square Kilometre Array promising even deeper reach in the coming decade; the full analysis and DM21cm code are described in [arXiv:2312.11608](https://arxiv.org/abs/2312.11608).</span></div></div>
+</div>

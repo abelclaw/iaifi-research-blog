@@ -44,7 +44,7 @@ pdfUrl: https://arxiv.org/pdf/2407.21097v1
 published: '2024-07-30T18:00:00+00:00'
 theme: Astrophysics
 title: A Generative Modeling Approach to Reconstructing 21-cm Tomographic Data
-wordCount: 1035
+wordCount: 1201
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ The reconstruction relies on **stochastic interpolants**, a mathematical framewo
 
 The core intuition: the 21-cm signal is highly **non-Gaussian**. Its statistical structure is rich and complex, shaped by the physics of reionization. Ionized bubbles create sharp edges, holes, and filamentary patterns that leave fingerprints in the signal components *outside* the wedge. A network trained on simulations can learn those fingerprints and use surviving data to guess, probabilistically, what the missing parts looked like.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_21097/figure_1.png)
 
 The pipeline works in three stages:
 
@@ -77,7 +77,7 @@ That last point marks the sharpest break from prior work. Earlier machine learni
 
 That's not a bug; it's the point. The universe is one realization of a random process, and any honest reconstruction method should represent its own uncertainty.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_21097/figure_1.png)
 
 The team also used **lightcones** rather than coeval boxes. A coeval box treats all data as coming from the same cosmic moment, a simplification no real telescope can achieve. A lightcone accounts for the fact that looking further away means looking further back in time, making reconstructed data directly comparable to actual measurements from instruments like HERA.
 
@@ -91,18 +91,15 @@ Future extensions could combine reconstructed 21-cm maps with other cosmic trace
 
 > **Bottom Line:** A generative AI model trained on simulated 21-cm lightcones can reconstruct the data destroyed by foreground filtering, and returns not one answer but a probabilistic distribution of answers, enabling rigorous uncertainty quantification in analyses of the early universe.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies stochastic interpolant flow matching, an advanced generative AI framework, to a core unsolved problem in observational cosmology. It shows that field-level reconstruction of the foreground-corrupted 21-cm signal is feasible with modern deep learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper extends stochastic interpolant frameworks to high-dimensional, non-Gaussian scientific datasets, showing that these generative models can learn physically meaningful conditional distributions over cosmological 3D fields.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering modes lost to wedge filtering, the method expands the usable information content of 21-cm observations, potentially sharpening constraints on the astrophysics of reionization and on cosmological parameters at high redshift.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include combining reconstructed 21-cm maps with galaxy surveys and CMB data for cross-correlation science, and extending the approach to real interferometric data from HERA. The paper and code are available on arXiv (public repository: github.com/NNSSA/Rec21).
 
-- **Interdisciplinary Research Achievement:** This work applies stochastic interpolant flow matching, an advanced generative AI framework, to a core unsolved problem in observational cosmology. It shows that field-level reconstruction of the foreground-corrupted 21-cm signal is feasible with modern deep learning.
-
-- **Impact on Artificial Intelligence:** The paper extends stochastic interpolant frameworks to high-dimensional, non-Gaussian scientific datasets, showing that these generative models can learn physically meaningful conditional distributions over cosmological 3D fields.
-
-- **Impact on Fundamental Interactions:** By recovering modes lost to wedge filtering, the method expands the usable information content of 21-cm observations, potentially sharpening constraints on the astrophysics of reionization and on cosmological parameters at high redshift.
-
-- **Outlook and References:** Future directions include combining reconstructed 21-cm maps with galaxy surveys and CMB data for cross-correlation science, and extending the approach to real interferometric data from HERA. The paper and code are available on arXiv (public repository: github.com/NNSSA/Rec21).
-
-## Original Paper Details
-- **Title:** A Generative Modeling Approach to Reconstructing 21-cm Tomographic Data
-- **arXiv ID:** 2407.21097
-- **Authors:** ["Nashwan Sabti", "Ram Reddy", "Julian B. Mu\u00f1oz", "Siddharth Mishra-Sharma", "Taewook Youn"]
-- **Abstract:** Analyses of the cosmic 21-cm signal are hampered by astrophysical foregrounds that are far stronger than the signal itself. These foregrounds, typically confined to a wedge-shaped region in Fourier space, often necessitate the removal of a vast majority of modes, thereby degrading the quality of the data anisotropically. To address this challenge, we introduce a novel deep generative model based on stochastic interpolants to reconstruct the 21-cm data lost to wedge filtering. Our method leverages the non-Gaussian nature of the 21-cm signal to effectively map wedge-filtered 3D lightcones to samples from the conditional distribution of wedge-recovered lightcones. We demonstrate how our method is able to restore spatial information effectively, considering both varying cosmological initial conditions and astrophysics. Furthermore, we discuss a number of future avenues where this approach could be applied in analyses of the 21-cm signal, potentially offering new opportunities to improve our understanding of the Universe during the epochs of cosmic dawn and reionization.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A Generative Modeling Approach to Reconstructing 21-cm Tomographic Data</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2407.21097</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Nashwan Sabti", "Ram Reddy", "Julian B. Mu\u00f1oz", "Siddharth Mishra-Sharma", "Taewook Youn"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Analyses of the cosmic 21-cm signal are hampered by astrophysical foregrounds that are far stronger than the signal itself. These foregrounds, typically confined to a wedge-shaped region in Fourier space, often necessitate the removal of a vast majority of modes, thereby degrading the quality of the data anisotropically. To address this challenge, we introduce a novel deep generative model based on stochastic interpolants to reconstruct the 21-cm data lost to wedge filtering. Our method leverages the non-Gaussian nature of the 21-cm signal to effectively map wedge-filtered 3D lightcones to samples from the conditional distribution of wedge-recovered lightcones. We demonstrate how our method is able to restore spatial information effectively, considering both varying cosmological initial conditions and astrophysics. Furthermore, we discuss a number of future avenues where this approach could be applied in analyses of the 21-cm signal, potentially offering new opportunities to improve our understanding of the Universe during the epochs of cosmic dawn and reionization.</span></div></div>
+</div>

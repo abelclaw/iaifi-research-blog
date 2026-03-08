@@ -70,7 +70,7 @@ The researchers work in a well-understood corner of string theory: **type IIB fl
 
 QCD lives on a stack of **D7-branes**, membrane-like objects in higher-dimensional space that wrap around a surface inside the Calabi-Yau, somewhat like a sheet of paper folded around a sphere. The QCD axion arises naturally from a four-form field integrated over that surface. The danger comes from **D-brane instantons**: brief quantum events in which Euclidean D3-branes wrap other surfaces in the geometry, generating tiny energy contributions that can shift the axion away from its CP-preserving minimum.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_04503/figure_1.png)
 
 Here's where the geometry saves the day. The strength of an instanton coupling depends on the *volume* of the cycle it wraps; larger cycles give exponentially smaller couplings. The researchers computed four-cycle volumes across their ensemble and tracked what happens as N, the total number of axions, grows.
 
@@ -82,7 +82,7 @@ As N increases:
 
 In every model with N > 17, D-brane instanton effects are negligible. The PQ mechanism works.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_04503/figure_1.png)
 
 The team also had to contend with **high-energy QCD instantons**, quantum tunneling events in the strong force occurring at energy scales above where Standard Model quarks acquire their masses.
 
@@ -90,7 +90,7 @@ Assuming supersymmetry (a theoretical extension that pairs each known particle w
 
 The same geometric data that characterizes the PQ mechanism also determines the cosmological fate of axions. Light axions can contribute to dark matter via the **misalignment mechanism**: axions start displaced from their energy minimum in the early universe, then oscillate and settle, gradually accumulating as dark matter. They also couple to photons in ways detectable by experiments like ADMX. Applying standard cosmological and astrophysical constraints to their ensemble, the researchers found that for models with 26 ≤ N ≤ 433, at least half survive every constraint simultaneously.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2112_04503/figure_2.png)
 
 ## Why It Matters
 
@@ -102,18 +102,15 @@ The predictions are concrete and near-term. If supersymmetry is broken at relati
 
 > **Bottom Line:** String theory doesn't just accommodate the Peccei-Quinn mechanism — its geometry actively enforces it, exponentially suppressing the dangerous corrections in models with N > 17 axions. The strong CP problem is largely solved across the string landscape.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines large-scale computational surveys of the string landscape, analyzing over 100,000 compactifications, with precision quantum field theory calculations to address one of particle physics' oldest puzzles.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The ensemble-based, data-driven approach to surveying string vacua mirrors how machine learning extracts patterns from large datasets. Future work could apply AI methods directly to accelerate exploration of the string landscape.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper is the first systematic, quantitative study showing that D-brane instanton corrections to the neutron electric dipole moment are exponentially suppressed across a vast class of string compactifications, putting the Peccei-Quinn mechanism on firm theoretical ground within quantum gravity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these results to count vectorlike matter pairs more carefully and compare with upcoming neutron EDM experiments; the paper is available at [arXiv:2112.04503](https://arxiv.org/abs/2112.04503).
 
-- **Interdisciplinary Research Achievement:** This work combines large-scale computational surveys of the string landscape, analyzing over 100,000 compactifications, with precision quantum field theory calculations to address one of particle physics' oldest puzzles.
-
-- **Impact on Artificial Intelligence:** The ensemble-based, data-driven approach to surveying string vacua mirrors how machine learning extracts patterns from large datasets. Future work could apply AI methods directly to accelerate exploration of the string landscape.
-
-- **Impact on Fundamental Interactions:** The paper is the first systematic, quantitative study showing that D-brane instanton corrections to the neutron electric dipole moment are exponentially suppressed across a vast class of string compactifications, putting the Peccei-Quinn mechanism on firm theoretical ground within quantum gravity.
-
-- **Outlook and References:** Future work will extend these results to count vectorlike matter pairs more carefully and compare with upcoming neutron EDM experiments; the paper is available at [arXiv:2112.04503](https://arxiv.org/abs/2112.04503).
-
-## Original Paper Details
-- **Title:** PQ Axiverse
-- **arXiv ID:** 2112.04503
-- **Authors:** ["Mehmet Demirtas", "Naomi Gendler", "Cody Long", "Liam McAllister", "Jakob Moritz"]
-- **Abstract:** We show that the strong CP problem is solved in a large class of compactifications of string theory. The Peccei-Quinn mechanism solves the strong CP problem if the CP-breaking effects of the ultraviolet completion of gravity and of QCD are small compared to the CP-preserving axion potential generated by low-energy QCD instantons. We characterize both classes of effects. To understand quantum gravitational effects, we consider an ensemble of flux compactifications of type IIB string theory on orientifolds of Calabi-Yau hypersurfaces in the geometric regime, taking a simple model of QCD on D7-branes. We show that the D-brane instanton contribution to the neutron electric dipole moment falls exponentially in $N^4$, with $N$ the number of axions. In particular, this contribution is negligible in all models in our ensemble with $N>17$. We interpret this result as a consequence of large $N$ effects in the geometry that create hierarchies in instanton actions and also suppress the ultraviolet cutoff. We also compute the CP breaking due to high-energy instantons in QCD. In the absence of vectorlike pairs, we find contributions to the neutron electric dipole moment that are not excluded, but that could be accessible to future experiments if the scale of supersymmetry breaking is sufficiently low. The existence of vectorlike pairs can lead to a larger dipole moment. Finally, we show that a significant fraction of models are allowed by standard cosmological and astrophysical constraints.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">PQ Axiverse</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2112.04503</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Mehmet Demirtas", "Naomi Gendler", "Cody Long", "Liam McAllister", "Jakob Moritz"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We show that the strong CP problem is solved in a large class of compactifications of string theory. The Peccei-Quinn mechanism solves the strong CP problem if the CP-breaking effects of the ultraviolet completion of gravity and of QCD are small compared to the CP-preserving axion potential generated by low-energy QCD instantons. We characterize both classes of effects. To understand quantum gravitational effects, we consider an ensemble of flux compactifications of type IIB string theory on orientifolds of Calabi-Yau hypersurfaces in the geometric regime, taking a simple model of QCD on D7-branes. We show that the D-brane instanton contribution to the neutron electric dipole moment falls exponentially in $N^4$, with $N$ the number of axions. In particular, this contribution is negligible in all models in our ensemble with $N>17$. We interpret this result as a consequence of large $N$ effects in the geometry that create hierarchies in instanton actions and also suppress the ultraviolet cutoff. We also compute the CP breaking due to high-energy instantons in QCD. In the absence of vectorlike pairs, we find contributions to the neutron electric dipole moment that are not excluded, but that could be accessible to future experiments if the scale of supersymmetry breaking is sufficiently low. The existence of vectorlike pairs can lead to a larger dipole moment. Finally, we show that a significant fraction of models are allowed by standard cosmological and astrophysical constraints.</span></div></div>
+</div>

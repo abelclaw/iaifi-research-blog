@@ -48,7 +48,7 @@ published: '2025-12-05T19:00:00+00:00'
 theme: Astrophysics
 title: 'SN 2024afav: A Superluminous Supernova with Multiple Light Curve Bumps and
   Spectroscopic Signatures of Circumstellar Interaction'
-wordCount: 1095
+wordCount: 1032
 ---
 
 ## The Big Picture
@@ -76,15 +76,15 @@ The team gathered spectra across 26 epochs spanning −14 to +160 days relative 
 - **Nebular [O III] emission**, light from doubly ionized oxygen, appeared unusually early, around +50 days. The ejecta were becoming transparent faster than normal because interaction with the CSM was heating and ionizing the oxygen-rich core prematurely.
 - **[O II] + [Ca II] emission** emerged at ~+110 days, building a broad emission complex. The explosion had punched deep into oxygen-dominated ejecta while outer CSM interaction continued feeding energy into the system.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_06067/figure_1.png)
 
 The timing is not a coincidence. Each spectral feature debuted when the light curve showed a new bump, a synchronicity that argues strongly for successive encounters between expanding ejecta and discrete shells of pre-ejected circumstellar material.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_06067/figure_2.png)
 
 The team compared SN 2024afav to three analogues with similarly bumpy light curves: PTF10hgi, SN 2017egm, and SN 2019hge. All four share the helium signature, the hydrogen absorption, and the early [O III]. In each case, a progenitor shed hydrogen-rich material into its immediate environment before dying as a stripped core. The ejecta-CSM collision then lit up the scene repeatedly as the expanding shock wave hit discrete shells.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_06067/figure_3.png)
 
 ## Why It Matters
 
@@ -98,9 +98,9 @@ Understanding this subclass could reshape how astronomers think about the most m
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work combines intensive multi-epoch spectroscopic monitoring with physical modeling to decode the signatures of stellar mass loss, connecting observational astrophysics and stellar evolution theory at extreme scales.
-- **Impact on Artificial Intelligence:** The spectroscopic framework developed here, correlating light curve morphology with spectral feature emergence, provides a labeled dataset that can train AI classifiers to automatically identify CSM-interacting SLSNe in large survey streams.
-- **Impact on Fundamental Interactions:** SN 2024afav provides direct evidence that hydrogen-poor superluminous supernovae can retain circumstellar hydrogen and helium shells, revising the progenitor picture for this class and constraining the physics of pre-supernova mass loss in massive stars.
-- **Outlook and References:** Future spectroscopic campaigns with next-generation observatories and systematic AI-driven classification of bumpy SLSNe will test whether CSM interaction is the universal driver of light curve variability; the full study is available at [arXiv:2512.06067](https://arxiv.org/abs/2512.06067).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines intensive multi-epoch spectroscopic monitoring with physical modeling to decode the signatures of stellar mass loss, connecting observational astrophysics and stellar evolution theory at extreme scales.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The spectroscopic framework developed here, correlating light curve morphology with spectral feature emergence, provides a labeled dataset that can train AI classifiers to automatically identify CSM-interacting SLSNe in large survey streams.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2024afav provides direct evidence that hydrogen-poor superluminous supernovae can retain circumstellar hydrogen and helium shells, revising the progenitor picture for this class and constraining the physics of pre-supernova mass loss in massive stars.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future spectroscopic campaigns with next-generation observatories and systematic AI-driven classification of bumpy SLSNe will test whether CSM interaction is the universal driver of light curve variability; the full study is available at [arXiv:2512.06067](https://arxiv.org/abs/2512.06067).</span></div></div>
+</div>

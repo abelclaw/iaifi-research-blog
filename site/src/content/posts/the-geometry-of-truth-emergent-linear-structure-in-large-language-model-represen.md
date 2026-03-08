@@ -66,19 +66,19 @@ With clean data in hand, they ran three types of experiments using models from t
 
 1. **PCA visualizations** — They extracted the model's activations when processing true and false statements, then projected them down to two dimensions using **Principal Component Analysis (PCA)**, a standard technique for finding the most important directions of variation in high-dimensional data. Think of it as flattening a complex 3D shape onto a 2D map while preserving key structure. The result: true statements clustered on one side, false statements on the other, with clean separation.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2310_06824/figure_1.png)
 
 2. **Transfer experiments** — They trained **linear probes** (simple classifiers that draw a straight line to separate categories) on activations from one dataset, then tested them on completely different datasets. A probe trained on city facts generalized to translation facts. One trained on size comparisons transferred to geography. If the probe were just learning "what city statements look like," it would fail on translation statements. It didn't.
 
 3. **Causal interventions** — This was the strongest evidence. The researchers performed **activation patching**, a technique that surgically replaces the internal signal pattern for one statement with that of another mid-computation. They swapped the internal signals for a false statement with those of a true one, and the model then *output* the opposite truth value. They weren't observing a correlation. They were directly manipulating the model's belief by editing its internals.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2310_06824/figure_1.png)
 
 The team also compared multiple probing techniques: logistic regression, PCA-based probes, and a simple **difference-in-means (DIM) probe** that computes the average activation difference between true and false examples. The DIM probe matched the classification accuracy of more sophisticated methods, but it identified a direction that was *more causally implicated* in the model's outputs. Complexity didn't win. The simplest geometry captured the most meaningful structure.
 
 Scale mattered. Smaller LLaMA-2 models showed weak or inconsistent truth structure. Larger models, particularly the 13B and 70B variants, showed strong, generalizable truth directions. The geometry of truth appears to be an **emergent property** that develops only as models grow large enough to represent abstract concepts rather than surface patterns.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2310_06824/figure_2.png)
 
 ## Why It Matters
 
@@ -90,9 +90,9 @@ Open questions remain. Does this linear structure persist in models fine-tuned o
 
 > **Bottom Line:** LLMs encode truth as a consistent linear direction in their internal activations, and you can flip what a model believes by editing that direction directly. This opens a concrete, geometric path toward detecting and correcting AI deception.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies tools from geometry and linear algebra, the mathematics of physics, to map the internal representational structure of neural networks. It brings the physicist's instinct for natural coordinates directly to AI interpretability.
-- **Impact on Artificial Intelligence:** The paper presents strong evidence that large language models linearly represent factual truth, and that simple geometric probes can causally intervene in model reasoning, advancing AI transparency and safety.
-- **Impact on Fundamental Interactions:** Abstract semantic properties like truth emerge as clean geometric structures at scale. This deepens our understanding of how meaning and knowledge organize themselves in learned representations.
-- **Outlook and References:** Future directions include testing whether truth directions survive instruction tuning and RLHF, and scaling causal interventions to more complex reasoning. The paper is available at [arXiv:2310.06824](https://arxiv.org/abs/2310.06824), with datasets and code at [github.com/saprmarks/geometry-of-truth](https://github.com/saprmarks/geometry-of-truth).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies tools from geometry and linear algebra, the mathematics of physics, to map the internal representational structure of neural networks. It brings the physicist's instinct for natural coordinates directly to AI interpretability.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper presents strong evidence that large language models linearly represent factual truth, and that simple geometric probes can causally intervene in model reasoning, advancing AI transparency and safety.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Abstract semantic properties like truth emerge as clean geometric structures at scale. This deepens our understanding of how meaning and knowledge organize themselves in learned representations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include testing whether truth directions survive instruction tuning and RLHF, and scaling causal interventions to more complex reasoning. The paper is available at [arXiv:2310.06824](https://arxiv.org/abs/2310.06824), with datasets and code at [github.com/saprmarks/geometry-of-truth](https://github.com/saprmarks/geometry-of-truth).</span></div></div>
+</div>

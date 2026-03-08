@@ -88,17 +88,17 @@ For each simulated galaxy, the researchers tracked four properties of the satell
 - **Inner slope of the dark matter density profile** — the steepness of the dark matter concentration at each satellite's core
 - **Stellar half-light radius** — how physically extended each satellite's stars are
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_02095/figure_1.png)
 
 The team compared these predictions against two benchmarks: the **SAGA Survey**, which observes satellite galaxies around 101 nearby Milky Way analogs in the real universe, and a companion set of N-body (dark matter-only) DREAMS simulations that strip away baryonic physics entirely. By stacking results across all 1,024 hosts and across all parameter variations, they could separate the signal of physics uncertainty from the noise of natural galaxy-to-galaxy variation.
 
 The results are telling. Plot the predicted satellite stellar mass function for different physics settings, and the curves pile nearly on top of one another. But the cloud of galaxy-to-galaxy variation engulfs them all. No matter how you tune the supernova model or cosmological parameters within observationally allowed ranges, the diversity of galaxy formation histories produces a far wider spread than the model uncertainty itself.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_02095/figure_2.png)
 
 There is one exception worth noting. Supernova wind energy, the total kinetic energy injected into surrounding gas when massive stars explode, does leave a measurable imprint. Cranking up wind energy suppresses satellite stellar masses and produces more spatially extended stellar distributions. The physics is intuitive: stronger winds push gas outward before it can collapse into stars, leaving satellites less centrally concentrated. Wind speed, by contrast, has only a minor effect. Parameters governing black holes, cosmic expansion, and other processes show essentially no measurable signal.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_02095/figure_3.png)
 
 ## Why It Matters
 
@@ -110,12 +110,9 @@ For computational cosmology more broadly, the finding suggests a shift in strate
 
 > **Bottom Line:** With 1,024 simulated Milky Way analogs, the DREAMS Project shows that satellite galaxy properties hold up well against uncertainty in baryonic physics. The cosmos's own diversity, not our model imprecision, is the main source of theoretical scatter when comparing simulations to observations.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** The DREAMS Project combines large-scale hydrodynamical simulation ensembles with systematic parameter sweeps across baryonic and cosmological uncertainties, connecting computational astrophysics and statistical inference to disentangle physical from cosmic variance in satellite galaxy populations.
-
-- **Impact on Artificial Intelligence:** The DREAMS framework provides a richly varied dataset of 1,024 host galaxies with controlled parameter variation, exactly the kind of large-scale simulation suite needed to train and validate machine learning emulators for cosmological inference.
-
-- **Impact on Fundamental Interactions:** By demonstrating that satellite galaxy properties are insensitive to baryonic physics modeling uncertainties, the results sharpen satellites as probes of dark matter physics, making them more reliable discriminators between standard cosmological predictions and alternative dark matter models.
-
-- **Outlook and References:** Future DREAMS analyses will extend to additional satellite observables and use the simulation suite for simulation-based inference on dark matter properties; the paper is available at [arXiv:2512.02095](https://arxiv.org/abs/2512.02095).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">The DREAMS Project combines large-scale hydrodynamical simulation ensembles with systematic parameter sweeps across baryonic and cosmological uncertainties, connecting computational astrophysics and statistical inference to disentangle physical from cosmic variance in satellite galaxy populations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The DREAMS framework provides a richly varied dataset of 1,024 host galaxies with controlled parameter variation, exactly the kind of large-scale simulation suite needed to train and validate machine learning emulators for cosmological inference.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By demonstrating that satellite galaxy properties are insensitive to baryonic physics modeling uncertainties, the results sharpen satellites as probes of dark matter physics, making them more reliable discriminators between standard cosmological predictions and alternative dark matter models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future DREAMS analyses will extend to additional satellite observables and use the simulation suite for simulation-based inference on dark matter properties; the paper is available at [arXiv:2512.02095](https://arxiv.org/abs/2512.02095).</span></div></div>
+</div>

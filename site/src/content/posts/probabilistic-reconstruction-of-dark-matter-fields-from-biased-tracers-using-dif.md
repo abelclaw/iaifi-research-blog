@@ -59,7 +59,7 @@ The core tool is a **diffusion generative model**, the same class of AI behind i
 
 Training data comes from **CAMELS** (Cosmology and Astrophysics with MachinE Learning Simulations), a suite of over 1,000 galaxy formation simulations. These simulations systematically vary both cosmological parameters (like Ω_m, the matter density of the universe, and σ_8, how clumpy matter is) and astrophysical parameters controlling supernova feedback and black hole jet strength. Training across this wide parameter space is what makes the approach work: the model learns to reconstruct dark matter fields without anchoring to any single set of physical assumptions.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_08558/figure_1.png)
 
 The reconstruction works in three stages:
 
@@ -71,7 +71,7 @@ The result is a **posterior distribution** p(x_DM | x_stars): the full probabili
 
 ## Why It Matters
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_08558/figure_1.png)
 
 The numbers hold up well. Comparing 100 sampled dark matter fields against ground truth from simulations, the model achieves cross-correlations consistently above 0.8. The generated fields closely track the true spatial clustering of dark matter across scales. Density histograms and power spectra match the true distributions with high fidelity, and the uncertainty estimates appear well-calibrated: confident where stellar structures directly constrain the dark matter, appropriately uncertain where galaxies provide weak information.
 
@@ -81,12 +81,9 @@ The approach also represents a broader methodological shift: using generative AI
 
 > **Bottom Line:** A diffusion model trained on 1,000+ cosmological simulations can reconstruct the invisible dark matter web from galaxy maps. Unlike previous approaches, it tells you not just what the dark matter probably looks like, but *how uncertain that answer is*, which may prove just as valuable.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects deep generative AI with observational cosmology, applying diffusion models to one of the most fundamental unmeasurable quantities in physics: the dark matter density field.
-
-- **Impact on Artificial Intelligence:** The paper shows that diffusion models trained across heterogeneous simulation suites can produce calibrated, physically meaningful posterior distributions, establishing a template for uncertainty-aware scientific inference with generative AI.
-
-- **Impact on Fundamental Interactions:** By simultaneously marginalizing over cosmological and astrophysical uncertainties, this approach removes a systematic bias in dark matter field reconstruction, bringing surveys closer to unbiased constraints on fundamental parameters like Ω_m.
-
-- **Outlook and References:** Future extensions could apply this framework to 3D reconstructions and real observational data from Euclid and LSST. The work appeared at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023 ([arXiv:2311.08558](https://arxiv.org/abs/2311.08558)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects deep generative AI with observational cosmology, applying diffusion models to one of the most fundamental unmeasurable quantities in physics: the dark matter density field.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows that diffusion models trained across heterogeneous simulation suites can produce calibrated, physically meaningful posterior distributions, establishing a template for uncertainty-aware scientific inference with generative AI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By simultaneously marginalizing over cosmological and astrophysical uncertainties, this approach removes a systematic bias in dark matter field reconstruction, bringing surveys closer to unbiased constraints on fundamental parameters like Ω_m.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could apply this framework to 3D reconstructions and real observational data from Euclid and LSST. The work appeared at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023 ([arXiv:2311.08558](https://arxiv.org/abs/2311.08558)).</span></div></div>
+</div>

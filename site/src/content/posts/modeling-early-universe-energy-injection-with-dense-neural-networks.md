@@ -36,7 +36,7 @@ pdfUrl: https://arxiv.org/pdf/2207.06425v1
 published: '2022-07-13T18:00:00+00:00'
 theme: Astrophysics
 title: Modeling early-universe energy injection with Dense Neural Networks
-wordCount: 1125
+wordCount: 1247
 ---
 
 ## The Big Picture
@@ -55,7 +55,7 @@ Yitian Sun and Tracy Slatyer at MIT found a smarter way to store all that inform
 
 The heart of `DarkHistory` is a set of **transfer functions**: mathematical objects that take an input bundle of particles (say, a burst of photons from annihilating dark matter) and output the secondary particles produced after one step of cosmic evolution. Think of them as detailed recipes. Given this mix of energetic particles at this moment in cosmic history, here's what you get after the universe expands a little further. The problem is storage: each transfer function table runs about 1.5 gigabytes, and a standard run needs 12 loaded simultaneously.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2207_06425/figure_1.png)
 
 Sun and Slatyer's approach is clean. Instead of storing a giant pre-computed matrix, they train a **Dense Neural Network (DNN)**, a standard multi-layer network where every unit connects to every unit in adjacent layers, to *learn* each transfer function as a smooth mathematical mapping.
 
@@ -71,7 +71,7 @@ The DNN-based `DarkHistory` reproduces the hydrogen ionization history and IGM t
 
 The approach also reproduces subtle distortions in the **CMB** (Cosmic Microwave Background, the faint glow of ancient light still detectable today), matching the original to within 10%. Current experimental uncertainties from CMB observations are themselves larger, so the approximation is more than adequate for real science.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2207_06425/figure_2.png)
 
 There's a bonus baked into the neural network approach: **automatic interpolation**. The original tables were defined on a fixed grid, and values between grid points required manual interpolation. DNNs are continuous functions. They return sensible values at any parameter combination within the training range. Future versions of `DarkHistory` could work with flexible binning schemes or sparse training data, opening doors that rigid lookup tables keep shut.
 
@@ -83,24 +83,21 @@ The original table-based approach has a fundamental flaw. Adding a new physical 
 
 Neural networks don't work that way. Adding a new input increases the network's complexity only modestly, roughly a constant-size increase in neurons regardless of how finely you sample the new parameter. That's the difference between a method that scales and one that hits a wall.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2207_06425/figure_3.png)
 
 This work fits into a broader wave of machine learning applications in theoretical physics, where neural networks increasingly stand in for expensive computations: full simulations of particle collisions, galaxy formation, and more. Sun and Slatyer aren't using AI to find new patterns in observations. They're compressing and generalizing hard-won physical knowledge so more scientists can use it. Future extensions of `DarkHistory`, from dark matter decaying into multiple channels to position-dependent energy injection, now have a clear computational path forward.
 
 > **Bottom Line:** By swapping 18 GB of lookup tables for a handful of compact neural networks, this work makes dark matter cosmology simulations far more accessible while laying the groundwork for a scalable `DarkHistory` that can handle more complex physics without exponentially growing storage demands.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects machine learning and early-universe cosmology, using Dense Neural Networks as physics emulators that compress complex particle-cascade physics into lightweight, portable models deployable on consumer hardware.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Simple fully-connected DNNs serve as accurate, continuously interpolating surrogates for high-dimensional physical lookup tables, a generalizable approach applicable to any simulation that relies on pre-computed transfer matrices.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By making `DarkHistory` accessible without heavy computing infrastructure, this work lowers the barrier to probing dark matter annihilation and decay constraints from the CMB and IGM temperature history, directly advancing the search for physics beyond the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the DNN transfer functions to include additional parametric dependencies, such as helium temperature or other IGM conditions, without the exponential storage costs of conventional tables; see [arXiv:2207.06425](https://arxiv.org/abs/2207.06425) for the full paper.
 
-- **Interdisciplinary Research Achievement:** This work connects machine learning and early-universe cosmology, using Dense Neural Networks as physics emulators that compress complex particle-cascade physics into lightweight, portable models deployable on consumer hardware.
-
-- **Impact on Artificial Intelligence:** Simple fully-connected DNNs serve as accurate, continuously interpolating surrogates for high-dimensional physical lookup tables, a generalizable approach applicable to any simulation that relies on pre-computed transfer matrices.
-
-- **Impact on Fundamental Interactions:** By making `DarkHistory` accessible without heavy computing infrastructure, this work lowers the barrier to probing dark matter annihilation and decay constraints from the CMB and IGM temperature history, directly advancing the search for physics beyond the Standard Model.
-
-- **Outlook and References:** Future work will extend the DNN transfer functions to include additional parametric dependencies, such as helium temperature or other IGM conditions, without the exponential storage costs of conventional tables; see [arXiv:2207.06425](https://arxiv.org/abs/2207.06425) for the full paper.
-
-## Original Paper Details
-- **Title:** Modeling early-universe energy injection with Dense Neural Networks
-- **arXiv ID:** 2207.06425
-- **Authors:** ["Yitian Sun", "Tracy R. Slatyer"]
-- **Abstract:** We show that Dense Neural Networks can be used to accurately model the cooling of high-energy particles in the early universe, in the context of the public code package DarkHistory. DarkHistory self-consistently computes the temperature and ionization history of the early universe in the presence of exotic energy injections, such as might arise from the annihilation or decay of dark matter. The original version of DarkHistory uses large pre-computed transfer function tables to evolve photon and electron spectra in redshift steps, which require a significant amount of memory and storage space. We present a light version of DarkHistory that makes use of simple Dense Neural Networks to store and interpolate the transfer functions, which performs well on small computers without heavy memory or storage usage. This method anticipates future expansion with additional parametric dependence in the transfer functions without requiring exponentially larger data tables.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Modeling early-universe energy injection with Dense Neural Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2207.06425</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Yitian Sun", "Tracy R. Slatyer"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We show that Dense Neural Networks can be used to accurately model the cooling of high-energy particles in the early universe, in the context of the public code package DarkHistory. DarkHistory self-consistently computes the temperature and ionization history of the early universe in the presence of exotic energy injections, such as might arise from the annihilation or decay of dark matter. The original version of DarkHistory uses large pre-computed transfer function tables to evolve photon and electron spectra in redshift steps, which require a significant amount of memory and storage space. We present a light version of DarkHistory that makes use of simple Dense Neural Networks to store and interpolate the transfer functions, which performs well on small computers without heavy memory or storage usage. This method anticipates future expansion with additional parametric dependence in the transfer functions without requiring exponentially larger data tables.</span></div></div>
+</div>

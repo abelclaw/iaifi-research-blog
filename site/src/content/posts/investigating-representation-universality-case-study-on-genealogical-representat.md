@@ -38,7 +38,7 @@ pdfUrl: https://arxiv.org/pdf/2410.08255v2
 published: '2024-10-10T16:23:42+00:00'
 theme: Foundational AI
 title: 'Investigating Representation Universality: Case Study on Genealogical Representations'
-wordCount: 1113
+wordCount: 1058
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ When you visualize the learned **embeddings**, the coordinates that place each n
 
 The researchers call this a **cone embedding**: node *j* is a descendant of node *i* if and only if *j*'s position falls inside a fixed cone emanating from *i*'s position.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_08255/figure_1.png)
 
 This cone structure emerged spontaneously across nine random seeds and two different tree shapes (balanced binary trees and irregular general trees). The network was never told to produce a geometric hierarchy. It discovered one anyway, because the two-dimensional constraint forced it to find the most compact encoding of all parent-child relationships at once.
 
@@ -83,16 +83,13 @@ The second question has longer-term implications. If representations are univers
 
 There are honest limitations. Genealogy is a clean, well-structured domain, arguably one of the easiest relationship-based problems imaginable. Real knowledge graphs (medical relationships, legal dependencies, physical causal chains) are vastly messier. The lack of ground-truth representations for arbitrary graphs makes it hard to move beyond case studies, and future work will need to test whether cone-like universality holds up in more complex, noisier relational structures.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_08255/figure_2.png)
 
 > **Bottom Line:** LLMs appear to converge on cone-shaped geometric encodings for tree-structured relationships, and these encodings are causally active, not merely correlational. This is early but real evidence that very different AI systems may share a common representational language.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies geometric and topological intuitions from mathematics to the black box of neural network internals, in line with IAIFI's mission to bring physics-style reasoning to AI systems.
-
-- **Impact on Artificial Intelligence:** The cone probe and model stitching methodology provide new interpretability tools that work across diverse architectures, advancing our ability to audit and correct what LLMs know and how they encode it.
-
-- **Impact on Fundamental Interactions:** By framing knowledge representation as a geometric structure problem, analogous to how physicists seek invariant descriptions of physical systems, the work points toward a more principled science of AI representations.
-
-- **Outlook and References:** Future work will extend these methods to more complex knowledge graphs and noisier relational domains; see the paper by Baek, Li, and Tegmark ([arXiv:2410.08255](https://arxiv.org/abs/2410.08255)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies geometric and topological intuitions from mathematics to the black box of neural network internals, in line with IAIFI's mission to bring physics-style reasoning to AI systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The cone probe and model stitching methodology provide new interpretability tools that work across diverse architectures, advancing our ability to audit and correct what LLMs know and how they encode it.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By framing knowledge representation as a geometric structure problem, analogous to how physicists seek invariant descriptions of physical systems, the work points toward a more principled science of AI representations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these methods to more complex knowledge graphs and noisier relational domains; see the paper by Baek, Li, and Tegmark ([arXiv:2410.08255](https://arxiv.org/abs/2410.08255)).</span></div></div>
+</div>

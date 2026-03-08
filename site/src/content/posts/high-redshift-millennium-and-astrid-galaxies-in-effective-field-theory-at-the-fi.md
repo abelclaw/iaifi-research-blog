@@ -55,7 +55,7 @@ published: '2025-05-06T15:23:09+00:00'
 theme: Astrophysics
 title: High-redshift Millennium and Astrid galaxies in effective field theory at the
   field level
-wordCount: 1109
+wordCount: 1067
 ---
 
 ## The Big Picture
@@ -77,25 +77,25 @@ The researchers focused on two galaxy populations that future surveys will obser
 - **Lyman-break galaxies (LBGs)**: Massive, luminous star-forming galaxies identified by a characteristic "dropout." They vanish in blue photometric bands because hydrogen absorbs light shortward of the Lyman-alpha line. The bright giants of the early universe.
 - **Lyman-alpha emitters (LAEs)**: Lower-mass galaxies that glow in a specific hydrogen emission line. Their physics is messier: observed properties depend on dust geometry, metallicity, and radiative transfer through the intergalactic medium.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2505_03626/figure_1.png)
 
 To measure how these galaxies trace the underlying dark matter, the team analyzed two **hydrodynamical simulations**, physics-based models that track gas, star formation, and black hole feedback across billions of virtual light-years: MillenniumTNG (MTNG) and Astrid. Both reproduce observed clustering and number densities of real LAE and LBG populations.
 
 The technical heart of the paper is the **field-level EFT forward model**. Rather than comparing statistical summaries like **power spectra** (measurements of how strongly galaxies cluster at different scales), this approach compares actual three-dimensional density fields, mode by mode. The payoff is **cosmic variance cancellation**: by comparing the same patch of simulated universe rather than independent realizations, measurement precision increases dramatically. Bias parameters come out pinned down to percent-level accuracy from a single simulation volume.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2505_03626/figure_1.png)
 
 EFT works by expanding the galaxy density field as a series of terms, each multiplied by a **bias parameter** encoding how a given galaxy population responds to its environment. The linear bias b₁ captures how much more clustered galaxies are than dark matter on large scales. Quadratic terms (b₂, b_𝒢₂) describe how galaxy formation responds to local curvature and tidal forces, the stretching and squeezing of the density distribution.
 
 The worry at high redshift was that estimates from the **peak-background split** model suggested bias parameters could grow large enough to make the series diverge. Instead, the measured quadratic parameters are broadly consistent with the **halo occupation distribution (HOD)** model, the standard framework describing how galaxies populate dark matter halos. No catastrophic enhancement. The theory's approximations remain self-consistent.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2505_03626/figure_2.png)
 
 One result stood out. **Fingers of God**, the elongated smearing of galaxy positions along the line of sight caused by random velocities within halos, are well-known to complicate galaxy surveys. For LBGs, these contributions are comparable to those of Luminous Red Galaxies, the workhorses of current low-redshift surveys. That's expected: LBGs live in massive halos with fast-moving satellites.
 
 LAEs tell a different story. Despite satellite fractions as high as ~30%, their Fingers of God signal is surprisingly small. The same processes (dust, gas geometry, Lyman-alpha radiative transfer) that make a galaxy visible as an LAE may preferentially select objects with lower internal velocity dispersions, suppressing the signal even when many satellites are present.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2505_03626/figure_2.png)
 
 ## Why It Matters
 
@@ -105,12 +105,9 @@ Beyond the validation itself, the paper delivers something arguably more valuabl
 
 > **Bottom Line:** High-redshift galaxies that seemed threatening to EFT's convergence turn out to be tractable. The theory holds well into the nonlinear regime, and the first simulation-based priors on EFT parameters for these galaxy types are now in hand, ready for use with upcoming surveys.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects advanced galaxy formation simulations with field-level statistical inference, combining hydrodynamical modeling with EFT to extract cosmologically useful information from the high-redshift universe.
-
-- **Impact on Artificial Intelligence:** The field-level EFT forward model shows how cosmic variance cancellation, analogous to paired-sample inference, can dramatically improve parameter measurement precision. The principle has broad applicability in simulation-based inference for scientific AI.
-
-- **Impact on Fundamental Interactions:** By validating EFT's perturbative expansion at z=3 and characterizing bias parameters for LBGs and LAEs, this work enables extraction of fundamental cosmological parameters (dark energy, neutrino masses, inflationary signatures) from next-generation galaxy surveys.
-
-- **Outlook and References:** Future work will extend these priors to full posterior analyses of survey data and refine HOD modeling for the complex LAE selection function; the paper is available at [arXiv:2505.03626](https://arxiv.org/abs/2505.03626).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects advanced galaxy formation simulations with field-level statistical inference, combining hydrodynamical modeling with EFT to extract cosmologically useful information from the high-redshift universe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The field-level EFT forward model shows how cosmic variance cancellation, analogous to paired-sample inference, can dramatically improve parameter measurement precision. The principle has broad applicability in simulation-based inference for scientific AI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By validating EFT's perturbative expansion at z=3 and characterizing bias parameters for LBGs and LAEs, this work enables extraction of fundamental cosmological parameters (dark energy, neutrino masses, inflationary signatures) from next-generation galaxy surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these priors to full posterior analyses of survey data and refine HOD modeling for the complex LAE selection function; the paper is available at [arXiv:2505.03626](https://arxiv.org/abs/2505.03626).</span></div></div>
+</div>

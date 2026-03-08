@@ -64,7 +64,7 @@ The authors show that ensemble averages of Rényi entanglement entropies (a fami
 
 As a concrete example, the team analyzes the Cos-net architecture, where the wavefunction is built from cosine activations with random weights. In the infinite-width limit, Cos-net's two-point correlation function takes a clean Gaussian form. Tuning one parameter (σ_w → ∞), the wavefunction ensemble approaches states exhibiting **volume-law entanglement**, where entanglement grows proportionally to system size. This is the richest possible entanglement structure, characteristic of the most complex quantum states.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_00723/figure_1.png)
 
 The team tested this prediction numerically using Cos-net networks at widths N = 400, 1000, and 4000. The Von Neumann entanglement entropy converges toward the Page value (the theoretical maximum for random states) as width increases, confirming the theory.
 
@@ -74,7 +74,7 @@ The second major contribution addresses training. The authors introduce the **qu
 
 In general, the QS-NTK depends on the current parameters and evolves during training, making it hard to analyze. At infinite width, though, the QS-NTK becomes deterministic and constant. It no longer changes as training progresses. This transforms gradient descent from a complex nonlinear system into a linear ordinary differential equation with an analytic solution.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_00723/figure_1.png)
 
 The practical payoff is clear. For quantum state supervised learning, where an NNQS is trained to match a target wavefunction, the authors prove that an ∞-NNQS with a well-behaved QS-NTK can *always* recover any target wavefunction exactly. No approximation, no guesswork: a provable guarantee.
 
@@ -82,11 +82,11 @@ The practical payoff is clear. For quantum state supervised learning, where an N
 - The QS-NTK computed at initialization accurately predicts training trajectories for *finite*-width networks, provided widths are large enough
 - The framework applies broadly: ground state optimization, quantum state tomography (reconstructing a quantum state from measurements), and supervised learning all fit within the same mathematical structure
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_00723/figure_2.png)
 
 The team validated these predictions on two canonical models: the transverse field Ising model (a paradigm of quantum phase transitions) and the Fermi Hubbard model (a cornerstone of condensed matter physics for strongly correlated electrons). In both cases, finite-width networks converged toward the infinite-width analytic predictions as width increased.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2112_00723/figure_2.png)
 
 ## Why It Matters
 
@@ -94,16 +94,13 @@ This work hits two targets at once. On the AI side, it extends the neural tangen
 
 On the physics side, analytically characterizing entanglement in NNQS ensembles opens the door to what you might call entanglement engineering. Physicists studying topological phases, quantum error correction, or many-body ground states could choose neural network architectures specifically to match desired entanglement patterns. Finite-width corrections introduce non-Gaussianities beyond the simple infinite limit, hinting at a rich variety of entanglement behaviors accessible by tuning architecture and width.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2112_00723/figure_3.png)
 
 > **Bottom Line:** Infinite neural network quantum states give physicists their first complete analytic handle on both the entanglement structure and training dynamics of NNQS, grounding a promising but poorly understood tool in rigorous, predictive theory.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work directly fuses neural tangent kernel theory from machine learning with entanglement entropy calculations from quantum physics, producing results neither field could have reached alone.
-
-- **Impact on Artificial Intelligence:** The QS-NTK extends deep learning theory to complex-valued, normalized function spaces, providing provable convergence guarantees for a fundamentally new class of learning problems.
-
-- **Impact on Fundamental Interactions:** Analytically characterizing volume-law entanglement in ∞-NNQS creates new theoretical directions for studying strongly correlated quantum matter and designing quantum representations with tailored entanglement.
-
-- **Outlook and References:** Future directions include applying ∞-NNQS to ground state optimization and exploring how finite-width non-Gaussianities shape entanglement in physically relevant systems; the full paper is available at [arXiv:2112.00723](https://arxiv.org/abs/2112.00723).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly fuses neural tangent kernel theory from machine learning with entanglement entropy calculations from quantum physics, producing results neither field could have reached alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The QS-NTK extends deep learning theory to complex-valued, normalized function spaces, providing provable convergence guarantees for a fundamentally new class of learning problems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Analytically characterizing volume-law entanglement in ∞-NNQS creates new theoretical directions for studying strongly correlated quantum matter and designing quantum representations with tailored entanglement.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include applying ∞-NNQS to ground state optimization and exploring how finite-width non-Gaussianities shape entanglement in physically relevant systems; the full paper is available at [arXiv:2112.00723](https://arxiv.org/abs/2112.00723).</span></div></div>
+</div>

@@ -43,7 +43,7 @@ pdfUrl: https://arxiv.org/pdf/2410.05379v3
 published: '2024-10-07T18:00:01+00:00'
 theme: Theoretical Physics
 title: 'SPECTER: Efficient Evaluation of the Spectral EMD'
-wordCount: 1053
+wordCount: 1017
 ---
 
 ## The Big Picture
@@ -64,7 +64,7 @@ The trick is a mathematical transformation. A standard collision event lives in 
 
 The SEMD sidesteps this entirely. Each event is converted into a **spectral function**, a one-dimensional summary that encodes all pairwise angles between particles, weighted by their energy products. Think of taking a 2D photograph and computing a 1D histogram of all pairwise pixel distances. You lose specific particle positions but retain the relational geometry. And one-dimensional distributions *do* have a natural ordering.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_05379/figure_1.png)
 
 In one dimension, the **Wasserstein-2 distance** (a standard measure of how different two distributions are) has a clean, exact formula: the integral of the squared difference of their **quantile functions**. Quantile functions describe each distribution by its percentile thresholds, putting both on a common scale. For the p=2 SEMD, this integral reduces to an explicit algebraic expression involving pairwise angle cosines between particles from both events. No optimization loop. Just plug in the numbers.
 
@@ -84,7 +84,7 @@ The SPECTER code implements the SEMD and a family of new observables in a parall
 
 Many of these also have exact, plug-in formulas. Computing event isotropy the old way required solving a full optimal transport problem. With SEMD, it's a formula you can write on a napkin.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2410_05379/figure_2.png)
 
 In benchmarks, SPECTER evaluates the SEMD up to 1,000 times faster than the POT (Python Optimal Transport) library evaluates the EMD. On a GPU, it reaches 1 million pairwise distance evaluations per second, compressing hours-long computations into seconds.
 
@@ -100,12 +100,9 @@ The SEMD and EMD aren't identical. Degeneracies in the spectral representation m
 
 > **Bottom Line:** SPECTER delivers the first exact, closed-form metric on particle collision events, implemented in a framework up to 1,000× faster than existing tools and potentially fast enough for real-time event shape analysis at the LHC.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies optimal transport theory from mathematics and machine learning to particle physics, deriving closed-form geometric observables that connect abstract measure theory with QCD phenomenology at the LHC.
-
-- **Impact on Artificial Intelligence:** The spectral transformation technique, converting 2D unordered point clouds to 1D ordered distributions to obtain closed-form distances, is a strategy applicable well beyond collider physics to geometric learning and set-based metric computations more broadly.
-
-- **Impact on Fundamental Interactions:** SPECTER enables practical computation of IRC-safe event shape observables at collider scale, making perturbative QCD calculations of metric-based observables feasible and potentially supporting real-time event classification at the LHC trigger level.
-
-- **Outlook and References:** Future directions include extending spectral observables to three-dimensional detectors, exploring SEMD-based machine learning for event classification, and computing perturbative QCD predictions for the new spectral shapes; the paper is available at [arXiv:2410.05379](https://arxiv.org/abs/2410.05379).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies optimal transport theory from mathematics and machine learning to particle physics, deriving closed-form geometric observables that connect abstract measure theory with QCD phenomenology at the LHC.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The spectral transformation technique, converting 2D unordered point clouds to 1D ordered distributions to obtain closed-form distances, is a strategy applicable well beyond collider physics to geometric learning and set-based metric computations more broadly.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SPECTER enables practical computation of IRC-safe event shape observables at collider scale, making perturbative QCD calculations of metric-based observables feasible and potentially supporting real-time event classification at the LHC trigger level.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending spectral observables to three-dimensional detectors, exploring SEMD-based machine learning for event classification, and computing perturbative QCD predictions for the new spectral shapes; the paper is available at [arXiv:2410.05379](https://arxiv.org/abs/2410.05379).</span></div></div>
+</div>

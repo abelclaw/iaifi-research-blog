@@ -36,7 +36,7 @@ pdfUrl: https://arxiv.org/pdf/2206.07713v1
 published: '2022-06-15T18:00:00+00:00'
 theme: Astrophysics
 title: A Stimulating Explanation of the Extragalactic Radio Background
-wordCount: 1173
+wordCount: 1127
 ---
 
 ## The Big Picture
@@ -55,7 +55,7 @@ Now, a team of theoretical physicists has proposed something new: the radio glow
 
 The proposed scenario rests on three interlocking ingredients:
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2206_07713/figure_1.png)
 
 1. **Dark matter decays slowly.** The model posits a long-lived dark matter particle *a*, stable for billions of years but not forever. It undergoes a two-body decay, producing a **dark photon** *A'*, a hypothetical particle like a regular photon but charged under a hidden "dark" electromagnetic force rather than the ordinary one. These dark photons carry energy but are invisible to our detectors.
 
@@ -63,13 +63,13 @@ The proposed scenario rests on three interlocking ingredients:
 
 3. **Dark photons convert to radio photons.** Dark photons and ordinary photons can mix through **kinetic mixing**, a subtle quantum effect allowing one particle type to spontaneously transform into the other, analogous to neutrino flavor oscillation. As dark photons propagate through the universe's plasma, there are specific moments in cosmic history, when the plasma frequency matches the dark photon mass, where resonant oscillation efficiently converts dark photons into real radio photons. This conversion happens at relatively low redshifts, which matters for the signal's spatial uniformity.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2206_07713/figure_2.png)
 
 Put all three steps together and you get a radio excess scaling as *T*_exc ∝ *ω*^(−5/2). The ARCADE 2 spectral index of −2.6 sits close to the theoretical −2.5. The researchers fit a concrete example (dark matter of a specific mass range decaying into dark photons with a particular kinetic mixing parameter) and show it matches both the normalization and slope of the ARCADE 2 excess simultaneously. No previous proposal had managed that.
 
 The mechanism also explains why the radio background is so spatially smooth. Because conversion happens in the diffuse intergalactic medium at moderate redshifts rather than in today's lumpy dark matter halos, the emission spreads uniformly across the sky. Radio observations had found fluctuations at only the ~1% level, a puzzle for dark matter annihilation models. The stimulated dark photon scenario sidesteps this problem entirely.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2206_07713/figure_3.png)
 
 ## Why It Matters
 
@@ -85,12 +85,9 @@ There is also the 21-cm cosmology angle. Experiments like EDGES, LEDA, and LOFAR
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research:** This work connects particle physics, cosmology, and astrophysics, using fundamental quantum field theory to resolve a decade-old puzzle in observational radio astronomy.
-
-- **Impact on Artificial Intelligence:** The systematic parameter fitting and constraint analysis in this study inform AI-driven inference frameworks being developed for cosmological survey data at IAIFI.
-
-- **Impact on Fundamental Interactions:** The paper introduces a new class of dark sector models where stimulated dark photon production and resonant conversion to ordinary photons explains both the magnitude and spectral index of the extragalactic radio background, the first proposal to do so without invoking implausibly large magnetic fields or exotic source populations.
-
-- **Outlook and References:** Future experiments including next-generation CMB spectral distortion probes and 21-cm surveys will test the key predictions of this model; see [arXiv:2206.07713](https://arxiv.org/abs/2206.07713) for the full analysis and parameter constraints.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Interdisciplinary Research</strong><br/><span style="color:#374151;">This work connects particle physics, cosmology, and astrophysics, using fundamental quantum field theory to resolve a decade-old puzzle in observational radio astronomy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The systematic parameter fitting and constraint analysis in this study inform AI-driven inference frameworks being developed for cosmological survey data at IAIFI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper introduces a new class of dark sector models where stimulated dark photon production and resonant conversion to ordinary photons explains both the magnitude and spectral index of the extragalactic radio background, the first proposal to do so without invoking implausibly large magnetic fields or exotic source populations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future experiments including next-generation CMB spectral distortion probes and 21-cm surveys will test the key predictions of this model; see [arXiv:2206.07713](https://arxiv.org/abs/2206.07713) for the full analysis and parameter constraints.</span></div></div>
+</div>

@@ -47,7 +47,7 @@ pdfUrl: https://arxiv.org/pdf/2302.12266v4
 published: '2023-02-23T19:00:00+00:00'
 theme: Theoretical Physics
 title: 'SHAPER: Can You Hear the Shape of a Jet?'
-wordCount: 1084
+wordCount: 1289
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ The foundation of SHAPER is the **Energy Mover's Distance (EMD)**. Think of each
 
 The authors prove something deeper than mere usefulness. The Wasserstein metric is the *unique* metric on collision events satisfying two physical requirements simultaneously. It must be continuous, so tiny momentum changes don't cause wild jumps in an observable. And it must be **geometrically faithful**, meaning distances between events respect the actual spatial layout of the detector. No other distance measure does both. The EMD kept showing up in collider physics not because anyone got lucky, but because it was inevitable.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2302_12266/figure_1.png)
 
 With this foundation, SHAPER defines a shape observable through a clean mathematical recipe:
 
@@ -83,11 +83,11 @@ SHAPER handles **infrared-and-collinear (IRC) safety** automatically. IRC safety
 
 The framework unlocks observables nobody could measure before. **N-Ringiness** asks how well a jet decomposes into N concentric rings. **N-Diskiness** measures how disk-like the energy deposit is. **N-Ellipsiness** extracts eccentricity and orientation event-by-event. In benchmarks on top quark versus QCD jets, top jets show measurably higher 2-Ringiness than QCD jets. That makes sense: three-body decay creates ring-like energy deposits around the jet core.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2302_12266/figure_2.png)
 
 One nice application adds a "pileup" term to the shape model. Instead of subtracting soft background radiation from other collisions, SHAPER just absorbs it into the fit and mitigates it automatically.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2302_12266/figure_3.png)
 
 ## Why It Matters
 
@@ -99,15 +99,15 @@ Open questions remain. The Sinkhorn regularization introduces a smoothing parame
 
 > **Bottom Line:** SHAPER proves that the Wasserstein metric is the mathematically natural language for comparing collider events, then delivers a computational framework that can measure *any* geometric structure within a jet, from rings to ellipses to arbitrary custom shapes, with built-in theoretical safety guarantees.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">SHAPER connects optimal transport theory from mathematics and computer vision with collider jet physics, showing that abstract Wasserstein geometry provides the rigorous foundation for a wide class of particle physics observables.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By proving the Wasserstein metric's uniqueness for structured data on geometric spaces, this work justifies its use in machine learning tasks where spatial faithfulness matters, and introduces a differentiable shape-fitting framework suitable for end-to-end neural network training.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SHAPER generalizes decades-old jet shape observables into a unified framework capable of measuring novel substructures like jet eccentricity and dynamic radii, opening new experimental handles for precision Standard Model tests and new physics searches at the LHC.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes extending shape manifolds to three-dimensional detector geometries and incorporating SHAPER observables as differentiable layers in jet tagging networks; the full framework is described in [arXiv:2302.12266](https://arxiv.org/abs/2302.12266).
 
-- **Interdisciplinary Research Achievement:** SHAPER connects optimal transport theory from mathematics and computer vision with collider jet physics, showing that abstract Wasserstein geometry provides the rigorous foundation for a wide class of particle physics observables.
-- **Impact on Artificial Intelligence:** By proving the Wasserstein metric's uniqueness for structured data on geometric spaces, this work justifies its use in machine learning tasks where spatial faithfulness matters, and introduces a differentiable shape-fitting framework suitable for end-to-end neural network training.
-- **Impact on Fundamental Interactions:** SHAPER generalizes decades-old jet shape observables into a unified framework capable of measuring novel substructures like jet eccentricity and dynamic radii, opening new experimental handles for precision Standard Model tests and new physics searches at the LHC.
-- **Outlook and References:** Future work includes extending shape manifolds to three-dimensional detector geometries and incorporating SHAPER observables as differentiable layers in jet tagging networks; the full framework is described in [arXiv:2302.12266](https://arxiv.org/abs/2302.12266).
-
-## Original Paper Details
-- **Title:** SHAPER: Can You Hear the Shape of a Jet?
-- **arXiv ID:** [2302.12266](https://arxiv.org/abs/2302.12266)
-- **Authors:** Demba Ba, Akshunna S. Dogra, Rikab Gambhir, Abiy Tasissa, Jesse Thaler
-- **Abstract:** The identification of interesting substructures within jets is an important tool for searching for new physics and probing the Standard Model at colliders. Many of these substructure tools have previously been shown to take the form of optimal transport problems, in particular the Energy Mover's Distance (EMD). In this work, we show that the EMD is in fact the natural structure for comparing collider events, which accounts for its recent success in understanding event and jet substructure. We then present a Shape Hunting Algorithm using Parameterized Energy Reconstruction (SHAPER), which is a general framework for defining and computing shape-based observables. SHAPER generalizes N-jettiness from point clusters to any extended, parametrizable shape. This is accomplished by efficiently minimizing the EMD between events and parameterized manifolds of energy flows representing idealized shapes, implemented using the dual-potential Sinkhorn approximation of the Wasserstein metric. We show how the geometric language of observables as manifolds can be used to define novel observables with built-in infrared-and-collinear safety. We demonstrate the efficacy of the SHAPER framework by performing empirical jet substructure studies using several examples of new shape-based observables.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">SHAPER: Can You Hear the Shape of a Jet?</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2302.12266](https://arxiv.org/abs/2302.12266)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Demba Ba, Akshunna S. Dogra, Rikab Gambhir, Abiy Tasissa, Jesse Thaler</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">The identification of interesting substructures within jets is an important tool for searching for new physics and probing the Standard Model at colliders. Many of these substructure tools have previously been shown to take the form of optimal transport problems, in particular the Energy Mover's Distance (EMD). In this work, we show that the EMD is in fact the natural structure for comparing collider events, which accounts for its recent success in understanding event and jet substructure. We then present a Shape Hunting Algorithm using Parameterized Energy Reconstruction (SHAPER), which is a general framework for defining and computing shape-based observables. SHAPER generalizes N-jettiness from point clusters to any extended, parametrizable shape. This is accomplished by efficiently minimizing the EMD between events and parameterized manifolds of energy flows representing idealized shapes, implemented using the dual-potential Sinkhorn approximation of the Wasserstein metric. We show how the geometric language of observables as manifolds can be used to define novel observables with built-in infrared-and-collinear safety. We demonstrate the efficacy of the SHAPER framework by performing empirical jet substructure studies using several examples of new shape-based observables.</span></div></div>
+</div>

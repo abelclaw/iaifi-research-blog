@@ -65,7 +65,7 @@ So researchers learned to avoid meaning-altering transformations altogether. A t
 
 DiffCSE borrows a concept from physics: **equivariance**. A function is equivariant to a transformation if applying that transformation to the input produces a predictable, structured change in the output. Not necessarily *no* change (that would be invariance), but a *trackable* one. Previous contrastive learning methods aimed purely for invariance: train the model so that small, safe perturbations don't change the embedding. DiffCSE asks a more nuanced question. What if some transformations *should* change the embedding, and we can learn from that?
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2204_10298/figure_1.png)
 
 The framework runs in two parallel streams. On one side sits a standard **SimCSE**-style contrastive learner, the previous leading approach for unsupervised sentence embeddings. Take a sentence, run it through an encoder network twice with slightly different random noise applied (a technique called **dropout**), and train the model to recognize those two noisy versions as more similar to each other than any other sentence in the batch. Dropout is the "insensitive" transformation: it introduces noise without changing meaning, so the model learns invariance to it.
 
@@ -86,7 +86,7 @@ During inference, the discriminator is thrown away. Only the sentence embedding 
 
 The gains here are large given how small the architectural change looks. On seven standard **Semantic Textual Similarity (STS)** benchmarks, which measure how well embeddings capture human judgments of sentence similarity, DiffCSE outperforms unsupervised SimCSE by 2.3 absolute percentage points. On STS-B, one of the most widely used benchmarks, DiffCSE achieves a Spearman correlation of 86.4 compared to SimCSE's 84.2.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2204_10298/figure_1.png)
 
 In a field where progress is often measured in decimal points, 2.3 points is a real jump. The improvement holds across both BERT-base and RoBERTa-base backbone models, which suggests the technique is model-agnostic rather than a lucky fit with one particular architecture.
 
@@ -100,12 +100,9 @@ DiffCSE also validates a broader principle: equivariance, a concept that physici
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies the mathematical concept of equivariance, central to physics and the study of symmetry, to improve how AI systems learn language representations. It is a concrete example of theoretical physics intuitions informing NLP engineering.
-
-- **Impact on Artificial Intelligence:** DiffCSE sets a new state-of-the-art for unsupervised sentence embeddings, outperforming SimCSE by 2.3 absolute points on STS benchmarks and offering a principled framework for designing augmentation strategies in contrastive learning.
-
-- **Impact on Fundamental Interactions:** The work formalizes and validates equivariant contrastive learning in the NLP domain, showing that the invariance/equivariance distinction, rooted in group theory and physics, governs which data transformations help or hurt representation learning.
-
-- **Outlook and References:** Future directions include extending equivariant contrastive learning to other modalities and exploring learned rather than hand-designed sensitive transformations; the full paper and pretrained models are available at [arXiv:2204.10298](https://arxiv.org/abs/2204.10298).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies the mathematical concept of equivariance, central to physics and the study of symmetry, to improve how AI systems learn language representations. It is a concrete example of theoretical physics intuitions informing NLP engineering.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">DiffCSE sets a new state-of-the-art for unsupervised sentence embeddings, outperforming SimCSE by 2.3 absolute points on STS benchmarks and offering a principled framework for designing augmentation strategies in contrastive learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The work formalizes and validates equivariant contrastive learning in the NLP domain, showing that the invariance/equivariance distinction, rooted in group theory and physics, governs which data transformations help or hurt representation learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending equivariant contrastive learning to other modalities and exploring learned rather than hand-designed sensitive transformations; the full paper and pretrained models are available at [arXiv:2204.10298](https://arxiv.org/abs/2204.10298).</span></div></div>
+</div>

@@ -51,7 +51,7 @@ published: '2024-07-04T17:41:49+00:00'
 theme: Astrophysics
 title: 'Find the haystacks, then look for needles: The rate of strongly lensed transients
   in galaxy-galaxy strong gravitational lenses'
-wordCount: 1063
+wordCount: 1012
 ---
 
 ## The Big Picture
@@ -70,7 +70,7 @@ A new study by Ana Sainz de Murieta and collaborators offers a smarter strategy:
 
 The team built a simulation pipeline to model the full population of discoverable **gravitationally lensed supernovae (glSNe)**. It incorporates realistic supernova rates, galaxy distributions, lens mass profiles, and the detection characteristics of both the **Vera C. Rubin Observatory's LSST** (Legacy Survey of Space and Time) and the **Euclid** space telescope.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_04080/figure_1.png)
 
 The core question: when LSST spots a lensed supernova, will that system already be catalogued as a known galaxy-galaxy lens? Answering this required modeling two populations independently, glSNe that LSST can detect and lens systems that Euclid can identify, then measuring their overlap.
 
@@ -80,13 +80,13 @@ The key steps:
 2. **Model the lensed host visibility**: Determine whether the host galaxy appears as a multiply-imaged arc, a distorted smear of light bent around the lens, which is critical for reconstructing lens geometry and measuring H₀ (the Hubble constant).
 3. **Cross-match with Euclid lens catalogs**: Apply Euclid's detection criteria to identify which lens systems would already be catalogued before a supernova appears.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_04080/figure_1.png)
 
 The numbers are worth paying attention to. LSST should discover roughly 88 glSNe per year, with ~30% uncertainty driven mostly by assumptions about unlensed supernova rates. Of those, 54% will have a multiply-imaged host galaxy, the kind that helps astronomers reconstruct lens geometry and pin down H₀. That fraction stays stable across different modeling assumptions.
 
 About 20 glSNe per year will occur in systems Euclid could plausibly have already catalogued as galaxy-galaxy lenses. These systems carry a built-in advantage: they tend to have longer time delays, making the delay measurements more precise.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2407_04080/figure_2.png)
 
 The team then defined a **golden sample**, events best suited for cosmology: Type Ia supernovae with time delays longer than 10 days, image separations larger than 0.8 arcseconds (roughly 1/4500 of a degree), and a multiply-imaged host. For this golden sample, 91% occur in systems already discoverable by Euclid as galaxy-galaxy lenses.
 
@@ -96,7 +96,7 @@ This result reframes how astronomers should approach the next decade of lensed-s
 
 The cosmological payoff is real. Each precisely measured time delay provides an independent H₀ measurement. With LSST operating for a decade, accumulating enough golden-sample events for percent-level precision on H₀ becomes plausible, potentially enough to determine whether the Hubble tension reflects systematic errors or genuinely new physics. Pre-identified lens catalogs make that accumulation tractable.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2407_04080/figure_3.png)
 
 Significant uncertainties remain. The ~30% rate uncertainty reflects genuine gaps in knowledge: how supernova rates evolve with **redshift** (a proxy for distance and look-back time, indicating how much the universe has expanded since the light was emitted), how lens galaxy populations change over cosmic time, and how well Euclid's actual performance matches simulations. As Euclid delivers its first lens catalogs and LSST comes online, these predictions will be tested in real time.
 
@@ -104,12 +104,9 @@ Significant uncertainties remain. The ~30% rate uncertainty reflects genuine gap
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects gravitational astrophysics and large-scale survey science, developing simulation frameworks that link lens population statistics to observational discovery strategies.
-
-- **Impact on Artificial Intelligence:** The results have direct implications for how AI-driven transient classifiers for LSST should be designed. Targeted monitoring of known lens systems cuts the false-positive burden compared to blind all-sky searches.
-
-- **Impact on Fundamental Interactions:** By quantifying the expected yield of cosmologically golden lensed supernovae, this work sets up independent H₀ measurements that could resolve the Hubble tension and point to physics beyond the standard cosmological model.
-
-- **Outlook and References:** With Euclid's lens catalogs now coming online and LSST first light approaching, these predictions will be tested within years; the paper is available at [arXiv:2407.04080](https://arxiv.org/abs/2407.04080).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects gravitational astrophysics and large-scale survey science, developing simulation frameworks that link lens population statistics to observational discovery strategies.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The results have direct implications for how AI-driven transient classifiers for LSST should be designed. Targeted monitoring of known lens systems cuts the false-positive burden compared to blind all-sky searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By quantifying the expected yield of cosmologically golden lensed supernovae, this work sets up independent H₀ measurements that could resolve the Hubble tension and point to physics beyond the standard cosmological model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With Euclid's lens catalogs now coming online and LSST first light approaching, these predictions will be tested within years; the paper is available at [arXiv:2407.04080](https://arxiv.org/abs/2407.04080).</span></div></div>
+</div>

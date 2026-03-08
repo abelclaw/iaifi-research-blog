@@ -42,7 +42,7 @@ published: '2025-08-07T18:00:09+00:00'
 theme: Astrophysics
 title: Detecting Model Misspecification in Cosmology with Scale-Dependent Normalizing
   Flows
-wordCount: 1116
+wordCount: 1270
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ Researchers Aizhan Akhmetzhanova, Carolina Cuesta-Lazaro, and Siddharth Mishra-S
 
 The framework has two interlocking pieces, each powered by neural networks, and both made scale-dependent by conditioning on a smoothing parameter.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2508_05744/figure_1.png)
 
 The first piece is a **neural data compressor**: a network that takes a high-dimensional cosmological field (a 3D density map of matter across a slice of the Universe, with millions of pixels) and squeezes it into a compact set of numbers called **neural summary statistics**. Raw cosmological fields are far too high-dimensional for direct statistical tests, so this compression step is essential. The compressor is trained to be maximally informative about cosmological parameters, ensuring no relevant information gets thrown away.
 
@@ -80,11 +80,11 @@ The training procedure:
 
 The team tested their framework using the **CAMELS** (Cosmology and Astrophysics with Machine Learning Simulations) suite, a dataset of thousands of simulations run with different **subgrid physics** implementations. Subgrid physics captures processes below simulation resolution: star formation, supernova feedback, black hole heating. Different simulation codes (IllustrisTNG, SIMBA, Astrid) make different assumptions about these processes, producing subtly different density fields even with identical cosmological parameters.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2508_05744/figure_2.png)
 
 Treating one simulation suite as the baseline and another as "observed" data, the scale-dependent evidence curves told a clear story. At large spatial scales, where gravity dominates and **baryonic feedback** (the way exploding stars and growing black holes push and heat surrounding gas) is relatively weak, different suites looked statistically consistent. As the smoothing scale decreased and finer structure came into view, evidence dropped sharply. Small scales are where the model breaks down.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2508_05744/figure_3.png)
 
 Gas density fields, more sensitive to baryonic physics than matter density, showed this breakdown at larger scales, exactly as physical intuition predicts.
 
@@ -94,18 +94,15 @@ The framework also fills a gap in **simulation-based inference**, the practice o
 
 > **Bottom Line:** This scale-dependent normalizing flow framework gives cosmologists a new diagnostic tool, one that automatically identifies at which spatial scales a theoretical model fails and enables more reliable inference from next-generation cosmic surveys.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together machine learning (normalizing flows and neural data compression) with cosmological forward modeling to create a diagnostic tool that neither field could have produced alone, a direct expression of IAIFI's mission.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The scale-conditioning strategy for simultaneously training neural density estimators and summary statistic networks across multiple spatial scales offers a broadly applicable template for out-of-distribution detection wherever data has natural multiscale structure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By providing a model-agnostic way to detect misspecification in cosmological simulations, this framework could help distinguish genuine new physics, such as evolving dark energy or modified gravity, from artifacts of poorly modeled baryonic processes at small scales.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could apply this framework to observed galaxy survey data and weak lensing maps, potentially clarifying current cosmological tensions. The full methodology and results are available at [arXiv:2508.05744](https://arxiv.org/abs/2508.05744).
 
-- **Interdisciplinary Research Achievement:** This work brings together machine learning (normalizing flows and neural data compression) with cosmological forward modeling to create a diagnostic tool that neither field could have produced alone, a direct expression of IAIFI's mission.
-
-- **Impact on Artificial Intelligence:** The scale-conditioning strategy for simultaneously training neural density estimators and summary statistic networks across multiple spatial scales offers a broadly applicable template for out-of-distribution detection wherever data has natural multiscale structure.
-
-- **Impact on Fundamental Interactions:** By providing a model-agnostic way to detect misspecification in cosmological simulations, this framework could help distinguish genuine new physics, such as evolving dark energy or modified gravity, from artifacts of poorly modeled baryonic processes at small scales.
-
-- **Outlook and References:** Future work could apply this framework to observed galaxy survey data and weak lensing maps, potentially clarifying current cosmological tensions. The full methodology and results are available at [arXiv:2508.05744](https://arxiv.org/abs/2508.05744).
-
-## Original Paper Details
-- **Title:** Detecting Model Misspecification in Cosmology with Scale-Dependent Normalizing Flows
-- **arXiv ID:** 2508.05744
-- **Authors:** ["Aizhan Akhmetzhanova", "Carolina Cuesta-Lazaro", "Siddharth Mishra-Sharma"]
-- **Abstract:** Current and upcoming cosmological surveys will produce unprecedented amounts of high-dimensional data, which require complex high-fidelity forward simulations to accurately model both physical processes and systematic effects which describe the data generation process. However, validating whether our theoretical models accurately describe the observed datasets remains a fundamental challenge. An additional complexity to this task comes from choosing appropriate representations of the data which retain all the relevant cosmological information, while reducing the dimensionality of the original dataset. In this work we present a novel framework combining scale-dependent neural summary statistics with normalizing flows to detect model misspecification in cosmological simulations through Bayesian evidence estimation. By conditioning our neural network models for data compression and evidence estimation on the smoothing scale, we systematically identify where theoretical models break down in a data-driven manner. We demonstrate a first application to our approach using matter and gas density fields from three CAMELS simulation suites with different subgrid physics implementations.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Detecting Model Misspecification in Cosmology with Scale-Dependent Normalizing Flows</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2508.05744</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Aizhan Akhmetzhanova", "Carolina Cuesta-Lazaro", "Siddharth Mishra-Sharma"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Current and upcoming cosmological surveys will produce unprecedented amounts of high-dimensional data, which require complex high-fidelity forward simulations to accurately model both physical processes and systematic effects which describe the data generation process. However, validating whether our theoretical models accurately describe the observed datasets remains a fundamental challenge. An additional complexity to this task comes from choosing appropriate representations of the data which retain all the relevant cosmological information, while reducing the dimensionality of the original dataset. In this work we present a novel framework combining scale-dependent neural summary statistics with normalizing flows to detect model misspecification in cosmological simulations through Bayesian evidence estimation. By conditioning our neural network models for data compression and evidence estimation on the smoothing scale, we systematically identify where theoretical models break down in a data-driven manner. We demonstrate a first application to our approach using matter and gas density fields from three CAMELS simulation suites with different subgrid physics implementations.</span></div></div>
+</div>

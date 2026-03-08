@@ -38,7 +38,7 @@ published: '2022-05-06T18:00:00+00:00'
 theme: Experimental Physics
 title: 'Learning Uncertainties the Frequentist Way: Calibration and Correlation in
   High Energy Physics'
-wordCount: 995
+wordCount: 966
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ This is the core of **MINE** (Mutual Information Neural Estimator). The new idea
 
 The result is a framework that delivers four things at once: a prior-independent maximum likelihood estimate z-hat(x) that doesn't depend on what distribution the training samples were drawn from, a Gaussian resolution σ(x) around that estimate, the log-likelihood ratio for hypothesis testing, and the **mutual information** I(X; Z) between measured and true quantities.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2205_03413/figure_1.png)
 
 The team tested this on jet energy calibration at the CMS detector. Rather than relying on the handful of standard jet-level variables used in nominal CMS calibrations, they fed the network the full high-dimensional feature space inside the jet: the detailed structure of **particle flow candidates** (composite particle signals built by combining information from multiple sub-detectors), their energies, positions, and types. The network learned to exploit subtle correlations invisible to simpler methods.
 
@@ -79,12 +79,9 @@ Any calibration problem in neutrino physics, gravitational wave astronomy, or me
 
 > **Bottom Line:** By pairing the MINE mutual information estimator with a physics-motivated Gaussian Ansatz, this framework delivers frequentist calibration with quantified uncertainties in a single training, free of prior dependence and post-hoc optimization, with a 15%+ gain in jet energy resolution at CMS.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects statistical learning theory and experimental particle physics, turning abstract information-theoretic tools (the Donsker-Varadhan representation and mutual information estimation) into a working calibration framework for LHC experiments.
-
-- **Impact on Artificial Intelligence:** The Gaussian Ansatz shows that physics-motivated architectural constraints can produce cleaner, more tractable inference than black-box approaches, offering a principled route to uncertainty quantification in neural networks.
-
-- **Impact on Fundamental Interactions:** Prior-independent jet energy calibration with quantified resolution is directly relevant to precision measurements at the LHC, from Higgs coupling measurements to searches for new particles decaying into jets.
-
-- **Outlook and References:** Future work could extend the Gaussian Ansatz to non-Gaussian likelihoods and higher-dimensional target variables, with applications across neutrino experiments and beyond. The paper is available at [arXiv:2205.03413](https://arxiv.org/abs/2205.03413).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects statistical learning theory and experimental particle physics, turning abstract information-theoretic tools (the Donsker-Varadhan representation and mutual information estimation) into a working calibration framework for LHC experiments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Gaussian Ansatz shows that physics-motivated architectural constraints can produce cleaner, more tractable inference than black-box approaches, offering a principled route to uncertainty quantification in neural networks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Prior-independent jet energy calibration with quantified resolution is directly relevant to precision measurements at the LHC, from Higgs coupling measurements to searches for new particles decaying into jets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the Gaussian Ansatz to non-Gaussian likelihoods and higher-dimensional target variables, with applications across neutrino experiments and beyond. The paper is available at [arXiv:2205.03413](https://arxiv.org/abs/2205.03413).</span></div></div>
+</div>

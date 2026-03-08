@@ -64,7 +64,7 @@ The foundation of PAPERCLIP is **CLIP** (Contrastive Language-Image Pre-training
 
 The problem is that CLIP was trained on everyday internet images, not on scientific telescope data. Hubble's observations look nothing like the photographs CLIP learned from. The solution: **fine-tuning**, where a pre-trained model gets additional training on domain-specific data to sharpen its skills for a new area.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2403_08851/figure_1.png)
 
 Here's where the dataset construction gets clever. Every successful Hubble observing proposal comes with an abstract, a concise scientific description of what the researchers want to observe and why. These abstracts are publicly available in the **Mikulski Archive for Space Telescopes (MAST)**, NASA's repository for Hubble data. By pairing each observation with the abstract of the proposal that generated it, the researchers assembled a natural training set: images linked to text, no hand-labeling required.
 
@@ -79,13 +79,13 @@ The training pipeline then works as follows:
 
 The team tested PAPERCLIP on two retrieval tasks. In **image retrieval**, they queried the model with a text description and asked it to find the most relevant Hubble observations from a large candidate pool. In **text retrieval**, they fed it an image and asked it to identify which astrophysical category ("spiral galaxy," "planetary nebula," "globular cluster") best describes it.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2403_08851/figure_1.png)
 
 PAPERCLIP substantially outperforms the base CLIP model on both tasks. Domain-specific fine-tuning clearly transfers real scientific knowledge into how the model interprets astronomical imagery. The version trained on LLM-summarized abstracts also consistently beat the version trained on raw abstracts, which supports the guided summarization approach.
 
 The practical results speak for themselves. When asked to search for "barred spiral galaxy," PAPERCLIP retrieves images that are recognizably barred spirals. When shown an image of a planetary nebula, it correctly identifies the object class and associated scientific context. The model has learned something genuinely meaningful about astronomical imagery, not just surface-level pattern matching.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2403_08851/figure_2.png)
 
 ## Why It Matters
 
@@ -97,18 +97,15 @@ Future work could apply the same approach to other telescopes, other wavelengths
 
 > **Bottom Line:** PAPERCLIP shows that fine-tuning a general-purpose vision-language model on astronomy's own existing documentation creates a practical search tool, and points toward a future where scientists interact with telescope archives using nothing more than natural language.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">PAPERCLIP sits squarely at the intersection of foundation model AI and observational astrophysics, repurposing observing proposal abstracts as a training signal to connect telescope images with human language. It's a creative reuse of existing scientific infrastructure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Guided LLM summarization measurably improves contrastive fine-tuning, a technique that generalizes to adapting vision-language models for other specialized scientific domains with limited labeled data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">A natural-language interface to Hubble's archive of over a million observations makes decades of astronomical data easier to search and discover, with clear benefits for research across astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend PAPERCLIP to multi-wavelength surveys, spectral data, and other telescope archives. The paper is available at [arXiv:2403.08851](https://arxiv.org/abs/2403.08851) and the code is open-source at github.com/smsharma/PAPERCLIP-Hubble.
 
-- **Interdisciplinary Research Achievement:** PAPERCLIP sits squarely at the intersection of foundation model AI and observational astrophysics, repurposing observing proposal abstracts as a training signal to connect telescope images with human language. It's a creative reuse of existing scientific infrastructure.
-
-- **Impact on Artificial Intelligence:** Guided LLM summarization measurably improves contrastive fine-tuning, a technique that generalizes to adapting vision-language models for other specialized scientific domains with limited labeled data.
-
-- **Impact on Fundamental Interactions:** A natural-language interface to Hubble's archive of over a million observations makes decades of astronomical data easier to search and discover, with clear benefits for research across astrophysics.
-
-- **Outlook and References:** Future work could extend PAPERCLIP to multi-wavelength surveys, spectral data, and other telescope archives. The paper is available at [arXiv:2403.08851](https://arxiv.org/abs/2403.08851) and the code is open-source at github.com/smsharma/PAPERCLIP-Hubble.
-
-## Original Paper Details
-- **Title:** PAPERCLIP: Associating Astronomical Observations and Natural Language with Multi-Modal Models
-- **arXiv ID:** [2403.08851](https://arxiv.org/abs/2403.08851)
-- **Authors:** ["Siddharth Mishra-Sharma", "Yiding Song", "Jesse Thaler"]
-- **Abstract:** We present PAPERCLIP (Proposal Abstracts Provide an Effective Representation for Contrastive Language-Image Pre-training), a method which associates astronomical observations imaged by telescopes with natural language using a neural network model. The model is fine-tuned from a pre-trained Contrastive Language-Image Pre-training (CLIP) model using successful observing proposal abstracts and corresponding downstream observations, with the abstracts optionally summarized via guided generation using large language models (LLMs). Using observations from the Hubble Space Telescope (HST) as an example, we show that the fine-tuned model embodies a meaningful joint representation between observations and natural language through tests targeting image retrieval (i.e., finding the most relevant observations using natural language queries) and description retrieval (i.e., querying for astrophysical object classes and use cases most relevant to a given observation). Our study demonstrates the potential for using generalist foundation models rather than task-specific models for interacting with astronomical data by leveraging text as an interface.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">PAPERCLIP: Associating Astronomical Observations and Natural Language with Multi-Modal Models</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2403.08851](https://arxiv.org/abs/2403.08851)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Siddharth Mishra-Sharma", "Yiding Song", "Jesse Thaler"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present PAPERCLIP (Proposal Abstracts Provide an Effective Representation for Contrastive Language-Image Pre-training), a method which associates astronomical observations imaged by telescopes with natural language using a neural network model. The model is fine-tuned from a pre-trained Contrastive Language-Image Pre-training (CLIP) model using successful observing proposal abstracts and corresponding downstream observations, with the abstracts optionally summarized via guided generation using large language models (LLMs). Using observations from the Hubble Space Telescope (HST) as an example, we show that the fine-tuned model embodies a meaningful joint representation between observations and natural language through tests targeting image retrieval (i.e., finding the most relevant observations using natural language queries) and description retrieval (i.e., querying for astrophysical object classes and use cases most relevant to a given observation). Our study demonstrates the potential for using generalist foundation models rather than task-specific models for interacting with astronomical data by leveraging text as an interface.</span></div></div>
+</div>

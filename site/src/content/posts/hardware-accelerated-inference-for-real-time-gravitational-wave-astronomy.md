@@ -54,7 +54,7 @@ pdfUrl: https://arxiv.org/pdf/2108.12430v1
 published: '2021-08-27T18:00:00+00:00'
 theme: Astrophysics
 title: Hardware-accelerated Inference for Real-Time Gravitational-Wave Astronomy
-wordCount: 1063
+wordCount: 1036
 ---
 
 ## The Big Picture
@@ -73,7 +73,7 @@ A team at MIT, the University of Minnesota, and Fermi National Accelerator Labor
 
 The core innovation is a shift in *how* the computing infrastructure is organized, not just how fast the chips run. Traditional gravitational-wave pipelines run neural networks directly on local CPU clusters. This team instead implemented an **Inference-as-a-Service (IaaS)** model. Think of it like a weather forecast API: instead of running weather models on your own computer, you send a request to a central server that does the heavy lifting and sends results back. Trained AI models live on a centralized server equipped with **GPUs** (graphics processors repurposed for AI) or **FPGAs** (programmable chips optimized for specific rapid calculations). Client software sends input data over HTTP or gRPC (standard network protocols, similar to how your browser requests a webpage), gets predictions back, and never has to manage the hardware directly.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2108_12430/figure_1.png)
 
 To test the system, the team ran two distinct deep learning models, each handling a different part of the detection problem:
 
@@ -82,7 +82,7 @@ To test the system, the team ran two distinct deep learning models, each handlin
 
 Running these models through the IaaS framework, the team measured end-to-end inference latency at the sub-millisecond scale. That's fast enough for real-time control loops inside the detectors themselves, something conventional CPU-based approaches struggle to match.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2108_12430/figure_2.png)
 
 The architecture also solves a practical headache: peak-load management. Gravitational-wave analyses are bursty. During a candidate event, multiple pipelines simultaneously demand heavy computation. With IaaS, a shared pool of GPU resources serves all of them asynchronously, absorbing spikes that would overwhelm a fixed local cluster. The same server can be a commercial cloud instance during a surge or a dedicated on-premises machine during normal operations; the client pipelines don't care either way.
 
@@ -94,16 +94,13 @@ The deeper impact is architectural. As detector networks grow and neural network
 
 Decoupling model development from pipeline infrastructure could speed up machine learning adoption across gravitational-wave astronomy the way **containerization** (software packaging that lets programs run consistently anywhere) transformed software deployment. The framework also has next-generation detectors in mind, where real-time ML-based control systems may be essential for keeping instruments operating stably at design sensitivity.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2108_12430/figure_3.png)
 
 > **Bottom Line:** Hardware-accelerated Inference-as-a-Service delivers sub-millisecond AI inference for gravitational-wave astronomy, providing a scalable, hardware-agnostic platform that could set the standard for how the next generation of detectors processes data in real time.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects modern AI infrastructure (GPU-accelerated deep learning served as a networked API) with the operational demands of kilometer-scale laser interferometers, showing that cloud-computing paradigms can meet the precision timing requirements of gravitational-wave physics.
-
-- **Impact on Artificial Intelligence:** The IaaS deployment model enables heterogeneous hardware acceleration and asynchronous inference at sub-millisecond latency. The same approach applies to any latency-sensitive scientific computing context where real-time ML inference is needed.
-
-- **Impact on Fundamental Interactions:** Faster, scalable processing of LIGO/Virgo data directly supports multi-messenger astronomy, the observational strategy most likely to reveal new physics in compact object mergers, from neutron star equations of state to tests of general relativity.
-
-- **Outlook and References:** Future work includes extending the IaaS framework to additional detector networks and next-generation instruments like the Einstein Telescope and Cosmic Explorer. The full paper is available at [arXiv:2108.12430](https://arxiv.org/abs/2108.12430).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects modern AI infrastructure (GPU-accelerated deep learning served as a networked API) with the operational demands of kilometer-scale laser interferometers, showing that cloud-computing paradigms can meet the precision timing requirements of gravitational-wave physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The IaaS deployment model enables heterogeneous hardware acceleration and asynchronous inference at sub-millisecond latency. The same approach applies to any latency-sensitive scientific computing context where real-time ML inference is needed.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Faster, scalable processing of LIGO/Virgo data directly supports multi-messenger astronomy, the observational strategy most likely to reveal new physics in compact object mergers, from neutron star equations of state to tests of general relativity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes extending the IaaS framework to additional detector networks and next-generation instruments like the Einstein Telescope and Cosmic Explorer. The full paper is available at [arXiv:2108.12430](https://arxiv.org/abs/2108.12430).</span></div></div>
+</div>

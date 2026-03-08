@@ -60,7 +60,7 @@ A team of researchers from MIT and IAIFI has done exactly that. By borrowing an 
 
 The story starts with a result from the dawn of computer science. In 1956, John von Neumann showed that you could build a reliable logical circuit from faulty gates, as long as each gate's failure probability *p* stays below some threshold *p₀*. His trick was the **repetition code**: copy your data three times, run majority voting, and even if one vote is wrong, the other two win. Apply this repeatedly, and errors stay bounded no matter how long the computation runs.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2202_12887/figure_1.png)
 
 That works for digital errors, where a gate either fails or it doesn't. But neurons don't fail digitally. They suffer from two messier problems:
 
@@ -73,13 +73,13 @@ In the entorhinal cortex, **grid cells** fire in hexagonal patterns as an animal
 
 The team adapted this biological code for computation. Instead of storing a continuous value in a single noisy neuron, it's encoded across a population using the grid code. When noise perturbs some neurons, the decoder reconstructs the original value from redundant information at multiple scales. The computations themselves, including the nonlinear operations that make neural networks powerful, are also performed *within* the encoded representation, using faulty neurons throughout.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2202_12887/figure_1.png)
 
 The formal result is what the authors call **Neural Network Fault-Tolerance**: any Boolean formula of *N* gates can be simulated by a faulty neural network using only *O*(*N* polylog(*N/ε*)) neurons to achieve error probability at most *ε*. The thresholds *p₀* for synaptic failure and *σ₀* for analog noise are both nonzero, so fault-tolerance is genuinely achievable, not just an unreachable theoretical limit.
 
 When the researchers estimated where real biological neurons fall on this map, noisy neurons in the brain land *below* the fault-tolerance threshold.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2202_12887/figure_2.png)
 
 Biology has, apparently, already solved this problem.
 
@@ -93,12 +93,9 @@ The paper also reframes a longstanding puzzle in neuroscience. Grid cells have b
 
 > **Bottom Line:** Neurons are noisy, but noise doesn't have to mean unreliability. The brain figured this out first. This paper proves that fault-tolerant neural computation is possible using the same error correction codes found in mammalian grid cells, connecting biological neural architecture to the theoretical foundations of reliable computation.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects theoretical computer science, neuroscience, and machine learning by proving that biologically-inspired analog error correction codes enable universal fault-tolerant neural networks.
-
-- **Impact on Artificial Intelligence:** The paper provides the first formal proof that analog neural networks can achieve fault-tolerant computation below a sharp noise threshold, opening a theoretical path for noise-resilient neuromorphic hardware and AI systems.
-
-- **Impact on Fundamental Interactions:** The discovery of a phase transition between faulty and fault-tolerant neural computation introduces physics-style critical phenomena into neural computation theory, with universal behavior analogous to phase transitions in physical systems.
-
-- **Outlook and References:** Future work can explore whether other biological neural codes exhibit similar fault-tolerance properties, and whether the grid-code construction can be practically implemented in neuromorphic chips; the paper is available at [arXiv:2202.12887](https://arxiv.org/abs/2202.12887).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects theoretical computer science, neuroscience, and machine learning by proving that biologically-inspired analog error correction codes enable universal fault-tolerant neural networks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides the first formal proof that analog neural networks can achieve fault-tolerant computation below a sharp noise threshold, opening a theoretical path for noise-resilient neuromorphic hardware and AI systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The discovery of a phase transition between faulty and fault-tolerant neural computation introduces physics-style critical phenomena into neural computation theory, with universal behavior analogous to phase transitions in physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work can explore whether other biological neural codes exhibit similar fault-tolerance properties, and whether the grid-code construction can be practically implemented in neuromorphic chips; the paper is available at [arXiv:2202.12887](https://arxiv.org/abs/2202.12887).</span></div></div>
+</div>

@@ -61,7 +61,7 @@ published: '2024-10-22T18:00:06+00:00'
 theme: Astrophysics
 title: 'Blast: a Web Application for Characterizing the Host Galaxies of Astrophysical
   Transients'
-wordCount: 989
+wordCount: 926
 ---
 
 ## The Big Picture
@@ -85,17 +85,17 @@ The pipeline starts the moment a new transient is reported. Blast monitors the *
 3. **SED fitting** — Those measurements define the galaxy's **spectral energy distribution (SED)**, a fingerprint of its light across wavelengths, which Blast feeds into a physical model to infer stellar mass, star formation rate, and metallicity.
 4. **Local photometry** — Blast also measures properties *within 2 kiloparsecs (roughly 6,500 light-years) of the transient's exact location*, not just the galaxy as a whole. That local neighborhood often matters more for understanding what kind of star exploded.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_17322/figure_1.png)
 
 The SED fitting step is where AI earns its place. Blast uses **Prospector**, a Bayesian inference framework that estimates the most probable physical explanation for observed data along with uncertainty ranges. But standard Prospector runs can take hours per galaxy. Far too slow for thousands of transients.
 
 To fix this, the team incorporated **simulation-based inference (SBI)**. A neural network is trained on a library of simulated galaxy SEDs and their corresponding physical parameters. Instead of running a costly sampler from scratch each time, the trained network estimates full probability distributions in seconds. The accuracy holds up. The speed gain changes everything.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_17322/figure_2.png)
 
 The system is built for scale. Blast uses an **asynchronous worker queue**, a task management architecture where jobs are distributed across multiple compute nodes and processed independently, so it absorbs sudden spikes in transient alerts without grinding to a halt. Users access results through a web browser or a programmatic **API**, making it easy to plug Blast's outputs into classification pipelines, cosmological analyses, or follow-up scheduling tools.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2410_17322/figure_3.png)
 
 ## Why It Matters
 
@@ -107,12 +107,9 @@ With Blast cataloging host properties for every newly reported transient, statis
 
 > Blast transforms host galaxy characterization from a labor-intensive afterthought into automated infrastructure, delivering physical galaxy properties for 6,000+ transients already and positioned to handle the coming flood from next-generation surveys.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** Blast directly connects machine learning and observational astrophysics by embedding simulation-based inference into an automated pipeline operating on live data streams from real sky surveys.
-
-- **Impact on Artificial Intelligence:** The application of simulation-based inference to accelerate Bayesian SED fitting shows how neural posterior estimators can replace computationally expensive samplers in scientific workflows without sacrificing inference quality.
-
-- **Impact on Fundamental Interactions:** By enabling systematic, unbiased host galaxy characterization at scale, Blast strengthens the statistical foundation for Type Ia supernova cosmology, supporting precision measurements of dark energy and the Hubble constant.
-
-- **Outlook and References:** With the Vera Rubin Observatory's LSST expected to deliver millions of transient alerts per year, Blast's architecture positions it as essential infrastructure for the next decade of time-domain astronomy; the paper is available at [arXiv:2410.17322](https://arxiv.org/abs/2410.17322).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Blast directly connects machine learning and observational astrophysics by embedding simulation-based inference into an automated pipeline operating on live data streams from real sky surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The application of simulation-based inference to accelerate Bayesian SED fitting shows how neural posterior estimators can replace computationally expensive samplers in scientific workflows without sacrificing inference quality.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling systematic, unbiased host galaxy characterization at scale, Blast strengthens the statistical foundation for Type Ia supernova cosmology, supporting precision measurements of dark energy and the Hubble constant.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">With the Vera Rubin Observatory's LSST expected to deliver millions of transient alerts per year, Blast's architecture positions it as essential infrastructure for the next decade of time-domain astronomy; the paper is available at [arXiv:2410.17322](https://arxiv.org/abs/2410.17322).</span></div></div>
+</div>

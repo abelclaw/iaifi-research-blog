@@ -52,7 +52,7 @@ published: '2024-11-11T19:00:01+00:00'
 theme: Astrophysics
 title: Type IIn Supernovae. I. Uniform Light Curve Characterization and a Bimodality
   in the Radiated Energy Distribution
-wordCount: 976
+wordCount: 920
 ---
 
 ## The Big Picture
@@ -73,7 +73,7 @@ The challenge was data quality. Supernova surveys produce light curves measured 
 
 The team solved this with **Gaussian process regression (GPR)**, a statistical technique that fits smooth, flexible curves through noisy, irregularly-sampled data without assuming a fixed functional form. Think of it as drawing the most natural-looking curve through a scatter of points while rigorously tracking uncertainty. Applied across all 487 events, GPR let the team reconstruct consistent **bolometric light curves** (total energy output across all wavelengths) and extract reliable measurements of peak luminosity, duration, and total radiated energy for each explosion.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2411_07287/figure_1.png)
 
 The sample spanned multiple surveys, reaching redshift z ≈ 0.8, or roughly 7 billion light-years, with the majority of events at z ≲ 0.3. Every candidate was spectroscopically verified: each explosion's light was broken into individual wavelengths and checked against the IIn fingerprint.
 
@@ -82,11 +82,11 @@ When plotted in peak luminosity versus timescale space, the 487 SNe IIn divided 
 - **Faint-fast events**: lower luminosity, shorter durations (~20–100 days at half-peak brightness)
 - **Luminous-slow events**: higher luminosity, longer durations often exceeding 100 days
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2411_07287/figure_1.png)
 
 This separation translates into a clear **bimodality in radiated energy**. The faint-fast group radiates roughly 10⁴⁹ ergs total; the luminous-slow group radiates about 2×10⁵⁰ ergs, twenty times more. The faint-fast group itself may split into two sub-branches with characteristic timescales of ~40 and ~70 days, hinting at three distinct flavors of Type IIn supernovae rather than just two.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2411_07287/figure_2.png)
 
 ## Why It Matters
 
@@ -98,12 +98,9 @@ The absence of any IIn events with timescales shorter than ~14 days is telling t
 
 > **Bottom Line:** The largest uniform survey of Type IIn supernovae reveals a bimodality in radiated energy. These explosions fall into at least two distinct groups, exposing hidden structure in one of astronomy's most chaotic categories of stellar death and pointing toward a small number of preferred progenitor channels.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** Statistical machine learning tools like Gaussian process regression, applied uniformly at scale, can pull physical structure out of messy, heterogeneous astronomical datasets, connecting data science methodology with open questions about stellar evolution.
-
-- **Impact on Artificial Intelligence:** GPR enabled principled interpolation and uncertainty quantification across 487 sparsely and irregularly sampled multi-band light curves, showing how probabilistic ML methods handle real-world scientific data at population scale.
-
-- **Impact on Fundamental Interactions:** The bimodal energy distribution in SNe IIn provides the clearest observational evidence to date that these explosions arise from distinct progenitor channels and circumstellar medium formation pathways, with direct implications for massive star physics and stellar mass loss.
-
-- **Outlook and References:** Future papers in this series will model individual events analytically, analyze CSM-shock interaction spectra, and study host galaxies to further constrain progenitor populations. The study is available at [arXiv:2411.07287](https://arxiv.org/abs/2411.07287).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Statistical machine learning tools like Gaussian process regression, applied uniformly at scale, can pull physical structure out of messy, heterogeneous astronomical datasets, connecting data science methodology with open questions about stellar evolution.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">GPR enabled principled interpolation and uncertainty quantification across 487 sparsely and irregularly sampled multi-band light curves, showing how probabilistic ML methods handle real-world scientific data at population scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The bimodal energy distribution in SNe IIn provides the clearest observational evidence to date that these explosions arise from distinct progenitor channels and circumstellar medium formation pathways, with direct implications for massive star physics and stellar mass loss.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future papers in this series will model individual events analytically, analyze CSM-shock interaction spectra, and study host galaxies to further constrain progenitor populations. The study is available at [arXiv:2411.07287](https://arxiv.org/abs/2411.07287).</span></div></div>
+</div>

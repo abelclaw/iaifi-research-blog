@@ -59,7 +59,7 @@ A team including researchers from MIT and Fermilab has now shown that machine le
 
 The trick exploits a beautiful result from complex analysis. **Cauchy's integral theorem** guarantees that if you deform the contour of integration through a region where the integrand is complex-differentiable, the integral's value doesn't change. Think of it like routing water through a valley: you can change the path, but the same total volume flows through.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2101_12668/figure_1.png)
 
 The researchers apply this idea to **SU(N) lattice gauge theory**, a mathematical framework describing how force-carrying gluons interact on a grid-like representation of spacetime. The fundamental variables are abstract group elements on each lattice link. The key construction is a family of **contour deformations**: explicit mappings that push these variables into a "complexified" space where values can have both real and imaginary parts.
 
@@ -75,7 +75,7 @@ Here's the workflow:
 4. Reweight the observable using the Jacobian of the deformation
 5. Train the network to minimize the variance of the resulting estimator
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2101_12668/figure_1.png)
 
 The neural network learns the optimal deformation by gradient descent, tuning its parameters to squeeze out as much variance as possible. Cauchy's theorem guarantees the expectation value stays exact throughout.
 
@@ -83,19 +83,19 @@ The neural network learns the optimal deformation by gradient descent, tuning it
 
 The team tested their approach on Wilson loops in (1+1)-dimensional SU(2) and SU(3) gauge theories, two-dimensional versions of full four-dimensional QCD. They studied loops spanning up to 64 plaquettes (elementary squares of the lattice), where the StN problem is most severe.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2101_12668/figure_2.png)
 
 The results speak for themselves. For the largest loops at the finest lattice spacings, variance dropped by factors between 1,000 and 10,000. To put that in perspective: a 10,000-fold variance reduction means you need 10,000 times fewer Monte Carlo samples to hit the same statistical precision. That's the difference between a calculation that takes years and one that finishes in hours.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2101_12668/figure_2.png)
 
 Because the Jacobian computation scales linearly, the technique doesn't become exponentially more expensive as the system grows. That's a hard requirement for any method that hopes to work on realistic lattice sizes.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2101_12668/figure_3.png)
 
 The researchers also derived exact analytical results for variances in (1+1)D gauge theory, giving them a precise benchmark. In several cases, the optimized deformations essentially saturated the theoretical limit for variance reduction.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2101_12668/figure_3.png)
 
 The sign and signal-to-noise problems aren't mere technical inconveniences. They block calculations of nuclear binding energies, neutron matter properties, and dense-matter behavior in heavy-ion collisions. Without solutions, entire regimes of the Standard Model stay computationally out of reach.
 
@@ -103,9 +103,9 @@ What sets this approach apart from other ML-for-lattice-QCD work is its target. 
 
 > **Bottom Line:** Machine-learned path integral contour deformations achieve up to 10,000-fold variance reduction for Wilson loops in SU(N) gauge theory, opening a practical route toward solving the sign and signal-to-noise problems that have long blocked precision calculations in nuclear and particle physics.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Achievement:** This work connects machine learning optimization with open problems in quantum field theory, using neural networks to discover optimal contour deformations that Cauchy's theorem analytically guarantees will preserve physical predictions.
-- **Impact on AI:** The approach shows a principled use of ML where the network learns geometrical deformations subject to an exact mathematical constraint, a model for integrating deep learning into rigorous scientific computation.
-- **Impact on Fundamental Interactions:** Variance reductions of up to four orders of magnitude for Wilson loops in SU(2) and SU(3) gauge theory mark real progress on the signal-to-noise problem that has long limited lattice QCD calculations of nuclear systems and dense matter.
-- **Outlook:** Future work targets extending contour deformations to full (3+1)-dimensional lattice QCD, where the linear-scaling Jacobian computation makes the approach viable at realistic system sizes. The preprint is available at [arXiv:2101.12668](https://arxiv.org/abs/2101.12668).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Interdisciplinary Achievement</strong><br/><span style="color:#374151;">This work connects machine learning optimization with open problems in quantum field theory, using neural networks to discover optimal contour deformations that Cauchy's theorem analytically guarantees will preserve physical predictions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Impact on AI</strong><br/><span style="color:#374151;">The approach shows a principled use of ML where the network learns geometrical deformations subject to an exact mathematical constraint, a model for integrating deep learning into rigorous scientific computation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Variance reductions of up to four orders of magnitude for Wilson loops in SU(2) and SU(3) gauge theory mark real progress on the signal-to-noise problem that has long limited lattice QCD calculations of nuclear systems and dense matter.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Outlook</strong><br/><span style="color:#374151;">Future work targets extending contour deformations to full (3+1)-dimensional lattice QCD, where the linear-scaling Jacobian computation makes the approach viable at realistic system sizes. The preprint is available at [arXiv:2101.12668](https://arxiv.org/abs/2101.12668).</span></div></div>
+</div>

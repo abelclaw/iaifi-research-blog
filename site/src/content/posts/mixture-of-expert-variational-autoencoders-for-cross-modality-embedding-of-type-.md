@@ -39,7 +39,7 @@ published: '2025-07-22T17:59:59+00:00'
 theme: Astrophysics
 title: Mixture-of-Expert Variational Autoencoders for Cross-Modality Embedding of
   Type Ia Supernova Data
-wordCount: 962
+wordCount: 930
 ---
 
 ## The Big Picture
@@ -67,13 +67,13 @@ The encoding works like this:
 - **Photometry:** Each observation gets a time encoding (a mathematical tag for when it was taken), a filter-identity tag, and a projected magnitude. These three components sum into a single per-observation representation.
 - **Spectroscopy:** Wavelengths and flux values are embedded separately and summed. The phase (timing relative to peak brightness) is appended as a special token, letting the model route phase information through cross-attention rather than baking it into every element.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2507_16817/figure_1.png)
 
 Then comes the **MMVAE**, a **mixture-of-expert variational autoencoder** that learns a compact internal space shared across data types and uses it to reconstruct or generate outputs. Standard VAEs compress data into a smooth latent space and reconstruct it. MMVAEs extend this to multiple modalities by modeling the shared space as a *mixture* of distributions, one from photometry, one from spectroscopy.
 
 During training, both data types are available. At inference, you feed in only a light curve and sample from a latent representation that predicts what the spectrum should look like.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2507_16817/figure_2.png)
 
 The model trains on **SEDONA** radiative transfer simulations, physically grounded models of supernova explosions that generate paired light curves and spectra. These let the model learn the correlations between how a supernova evolves photometrically and how its chemical composition changes over time.
 
@@ -83,7 +83,7 @@ The benchmark comparison is telling. The researchers pitted their MMVAE against 
 
 Contrastive embeddings are good for retrieval but not for generation: they can find the closest matching spectrum in a database, but can't *synthesize* a new one. The MMVAE outperforms this nearest-neighbor approach on cross-modality reconstruction, suggesting the generative model captures richer structure in the physics linking photometry to spectra.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2507_16817/figure_3.png)
 
 This matters beyond supernovae. Astronomy is increasingly multi-modal, spanning radio, optical, infrared, and X-ray observations of the same objects, yet only a subset of data types exists for most targets. The MMVAE framework, with its Perceiver backbone for handling irregular inputs, offers a template for multi-modal representation learning across heterogeneous astronomical datasets.
 
@@ -91,12 +91,9 @@ How well does this scale to real observations, with all their noise, calibration
 
 > **Bottom Line:** Shen and Gagliano's MMVAE reconstructs supernova spectra from photometry alone, outperforming contrastive baselines and offering a principled framework for multi-modal learning in the era of LSST's photometric flood.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies recent machine learning architectures (Perceiver-IO, MMVAEs) to a fundamental problem in observational cosmology, connecting photometric abundance to spectroscopic scarcity for Type Ia supernovae.
-
-- **Impact on Artificial Intelligence:** The transceiver architecture shows how cross-attention mechanisms can handle irregularly sampled, variable-length scientific time series, an approach that generalizes well beyond astronomy.
-
-- **Impact on Fundamental Interactions:** By enabling spectral inference from light curves alone, this model could make physical parameter estimation (temperatures, velocities, chemical compositions) possible for millions of supernovae LSST will discover but never spectroscopically observe.
-
-- **Outlook and References:** Future work will focus on validation against real observed supernova data and scaling to the full LSST photometric stream. See the full paper: [arXiv:2507.16817](https://arxiv.org/abs/2507.16817).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies recent machine learning architectures (Perceiver-IO, MMVAEs) to a fundamental problem in observational cosmology, connecting photometric abundance to spectroscopic scarcity for Type Ia supernovae.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The transceiver architecture shows how cross-attention mechanisms can handle irregularly sampled, variable-length scientific time series, an approach that generalizes well beyond astronomy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling spectral inference from light curves alone, this model could make physical parameter estimation (temperatures, velocities, chemical compositions) possible for millions of supernovae LSST will discover but never spectroscopically observe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on validation against real observed supernova data and scaling to the full LSST photometric stream. See the full paper: [arXiv:2507.16817](https://arxiv.org/abs/2507.16817).</span></div></div>
+</div>

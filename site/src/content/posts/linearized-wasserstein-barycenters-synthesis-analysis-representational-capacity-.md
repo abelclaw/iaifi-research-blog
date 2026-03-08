@@ -40,7 +40,7 @@ published: '2024-10-31T03:36:12+00:00'
 theme: Foundational AI
 title: 'Linearized Wasserstein Barycenters: Synthesis, Analysis, Representational
   Capacity, and Applications'
-wordCount: 1080
+wordCount: 1040
 ---
 
 ## The Big Picture
@@ -70,7 +70,7 @@ $$\mu_\lambda = \left(\sum_i \lambda_i T^{\mu_i}_{\mu_0}\right)_\# \mu_0$$
 
 The analysis problem reduces to a **quadratic program**, an optimization with a single guaranteed best answer. It's solvable in milliseconds, unlike full Wasserstein barycenter methods that require expensive iteration.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_23602/figure_1.png)
 
 The team also proves finite-sample error rates using results on entropy-regularized optimal transport. When you only have samples rather than exact distributions (the common real-world case) estimation error decays at provable rates as sample size grows.
 
@@ -78,7 +78,7 @@ The team also proves finite-sample error rates using results on entropy-regulari
 
 In one dimension: yes, completely. Theorem 4 shows that reference measures supported on just two points $\{a, b\}$, with the uniform measure on $[a,b]$ as the base, make the LBCM **dense in the space of all probability measures on $[a,b]$**. Two endpoints suffice to span all of distribution space.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_23602/figure_2.png)
 
 In two dimensions: this fails. Theorem 5 proves the natural generalization, measures on the four corners of a square, cannot approximate all distributions on the square. The intuition is geometric: in 1D, transport maps are monotone rearrangements, a tractable class. In higher dimensions, they must satisfy a curl-free condition, severely restricting what any finite linear span can express. The correct 2D generalization remains an open problem, one the authors explicitly flag as unresolved.
 
@@ -88,7 +88,7 @@ The team validates LBCM on two concrete tasks. For **covariance estimation**, th
 
 For **data imputation**, they test image reconstruction from partial data. LBCM achieves quality comparable to full Wasserstein barycenter methods while running significantly faster, since the closed-form synthesis replaces iterative solvers.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2410_23602/figure_3.png)
 
 The experiments also reveal that base measure choice matters. A well-chosen base improves reconstruction; a poor one degrades it. This sensitivity is a practical consideration, but it also gives practitioners a tunable knob for improving performance without changing the model architecture.
 
@@ -100,9 +100,9 @@ The open question in higher dimensions matters. Solving it would extend LBCM to 
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** LBCM tackles the general problem of blending and comparing probability distributions, with potential applications to high-energy physics event comparison and other measurement-intensive fields where distributions are the natural data format.
-- **Impact on Artificial Intelligence:** Closed-form synthesis and quadratic-program analysis reduce Wasserstein barycenter computation from expensive iterative methods to fast linear algebra, with provable finite-sample statistical guarantees.
-- **Impact on Fundamental Interactions:** By linearizing the geometry of probability space, LBCM gives physicists scalable tools for comparing and averaging complex event distributions in settings where each observation is itself a distribution over measured quantities.
-- **Outlook and References:** The open problem of identifying the correct 2D universality construction is a direct path to extending LBCM to images and point clouds; the full paper is available at [arXiv:2410.23602](https://arxiv.org/abs/2410.23602).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">LBCM tackles the general problem of blending and comparing probability distributions, with potential applications to high-energy physics event comparison and other measurement-intensive fields where distributions are the natural data format.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Closed-form synthesis and quadratic-program analysis reduce Wasserstein barycenter computation from expensive iterative methods to fast linear algebra, with provable finite-sample statistical guarantees.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By linearizing the geometry of probability space, LBCM gives physicists scalable tools for comparing and averaging complex event distributions in settings where each observation is itself a distribution over measured quantities.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The open problem of identifying the correct 2D universality construction is a direct path to extending LBCM to images and point clouds; the full paper is available at [arXiv:2410.23602](https://arxiv.org/abs/2410.23602).</span></div></div>
+</div>

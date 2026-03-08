@@ -68,7 +68,7 @@ The standard approach to the **Information Bottleneck** (and its deterministic v
 
 The Lagrangian approach only finds solutions on the **convex hull** of the feasible solution space. Picture the outermost skin stretched tightly around all possible solutions. Everything tucked inside is missed. In discrete problems, where encodings are hard assignments of inputs to clusters, many optimal solutions live *inside* the convex hull, geometrically unreachable by any choice of β. These solutions are Pareto optimal (you can't improve one objective without sacrificing the other) but no Lagrangian scan will ever find them.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2204_02489/figure_1.png)
 
 The figure above makes this concrete. On the left, the Lagrangian DIB frontier looks sparse and smooth. On the right, the primal DIB frontier, solved directly, exposes a staircase of discrete optimal clusterings. Most of these lie inside the convex hull and are completely invisible to the Lagrangian approach.
 
@@ -82,7 +82,7 @@ So the authors tackle the **primal DIB problem** head-on: instead of combining o
 
 The ε parameter controls exploration. High ε chases leads far from the current frontier, useful when sampling noise is significant. Low ε keeps the search tight. The result is an approximate Pareto frontier discovered in polynomial time, despite a super-exponential search space.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2204_02489/figure_1.png)
 
 ## Why It Matters
 
@@ -96,12 +96,9 @@ There's also a clean theoretical result: Pareto-optimal frontiers are **logarith
 
 > **Bottom Line:** Tackling the Pareto frontier of clustering directly, rather than through convex relaxation, unlocks a richer map of the compression-information trade-off and provides a principled new toolkit for model selection in machine learning.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies information-theoretic tools from physics (entropy, mutual information, rate-distortion theory) directly to machine learning clustering. Concepts central to statistical mechanics turn out to illuminate the structure of learning algorithms.
-
-- **Impact on Artificial Intelligence:** Pareto Mapper gives a computationally efficient method for discovering the full frontier of any two-objective hard clustering problem. It surfaces optimal solutions that standard Lagrangian approaches miss entirely, enabling better-informed model selection.
-
-- **Impact on Fundamental Interactions:** The structure of learned representations, even for abstract tasks like alphabet compression, reflects deep information-theoretic principles. This points toward a more fundamental understanding of what makes representations meaningful.
-
-- **Outlook and References:** Future directions include extending primal DIB analysis to soft clusterings and higher-dimensional objective spaces. The full paper is available at [arXiv:2204.02489](https://arxiv.org/abs/2204.02489).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies information-theoretic tools from physics (entropy, mutual information, rate-distortion theory) directly to machine learning clustering. Concepts central to statistical mechanics turn out to illuminate the structure of learning algorithms.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Pareto Mapper gives a computationally efficient method for discovering the full frontier of any two-objective hard clustering problem. It surfaces optimal solutions that standard Lagrangian approaches miss entirely, enabling better-informed model selection.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The structure of learned representations, even for abstract tasks like alphabet compression, reflects deep information-theoretic principles. This points toward a more fundamental understanding of what makes representations meaningful.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending primal DIB analysis to soft clusterings and higher-dimensional objective spaces. The full paper is available at [arXiv:2204.02489](https://arxiv.org/abs/2204.02489).</span></div></div>
+</div>

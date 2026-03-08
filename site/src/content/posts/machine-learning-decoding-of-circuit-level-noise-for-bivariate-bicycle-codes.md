@@ -65,7 +65,7 @@ A team at MIT has trained a recurrent, transformer-based neural network to decod
 
 After each round of **syndrome extraction** (measuring special operators on groups of qubits to detect errors without directly reading the qubits themselves), the decoder receives a string of 0s and 1s called a **syndrome**. Think of it as a fault report: it tells you *that* something went wrong, but not exactly *what*. The decoder must infer which combination of physical errors most likely produced that syndrome, then output a correction. Get it wrong and you corrupt the logical qubit. Do it too slowly and the error backlog grows exponentially.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2504_13043/figure_1.png)
 
 The state-of-the-art classical decoder for QLDPC codes is **BP-OSD** (Belief Propagation with Ordered Statistics Decoding), a sophisticated algorithm that propagates probability estimates across the code's structure to identify the most likely errors. BP-OSD is powerful but has a fatal flaw: its runtime is wildly variable. Some syndromes decode in microseconds; others trigger worst-case cubic-time computations. For a quantum computer that needs corrections every clock cycle, unpredictable latency is a dealbreaker.
 
@@ -77,11 +77,11 @@ The MIT team's approach combines three ideas:
 
 - **Autoregressive output:** Instead of predicting a single correction from an exponentially large set of possibilities, the model outputs a **conditional probability distribution** over logical errors, predicting each error type sequentially based on prior predictions. This approximates a **maximum-likelihood decoder** without requiring exponentially many output classes.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2504_13043/figure_1.png)
 
 The decoder was trained and tested on two BB codes: the [[72,12,6]] code (72 physical qubits encoding 12 logical qubits with distance 6) and the larger [[144,12,12]] code. Training used **circuit-level noise**, the most realistic and challenging noise model. It includes faulty measurements, gate errors, and error propagation between qubits during syndrome extraction.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2504_13043/figure_2.png)
 
 At a physical error rate of $p = 0.1\%$ on the [[72,12,6]] code, the ML decoder achieved a logical error rate nearly **5 times lower** than BP-OSD. The speed story is just as important. BP-OSD's runtime has heavy tails, with occasional slow cases that could bottleneck a real quantum processor. The ML decoder runs in consistent, predictable time and is **an order of magnitude faster** than BP-OSD's worst-case runtimes.
 
@@ -97,12 +97,9 @@ The results are not yet definitive at all code sizes. On the [[144,12,12]] code,
 
 > **Bottom Line:** MIT researchers have built the first ML decoder to outperform BP-OSD on QLDPC codes in a practically relevant regime, achieving 5× lower logical error rates and 10× faster worst-case runtimes on the [[72,12,6]] Bivariate Bicycle code. This is a significant step toward real-time decoding for next-generation quantum processors.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses quantum information theory, modern deep learning architecture design, and classical coding theory. Transformer self-attention, guided by the algebraic structure of quantum error-correcting codes, solves a problem at the heart of fault-tolerant quantum computing.
-
-- **Impact on Artificial Intelligence:** The paper introduces code-aware self-attention for quantum codes and shows that recurrent transformer architectures can generalize to QLDPC codes, pushing ML-based decoding well beyond the surface code where prior work has been concentrated.
-
-- **Impact on Fundamental Interactions:** By delivering a practical, fast decoder for Bivariate Bicycle codes (the leading candidates for resource-efficient fault-tolerant quantum computation), this work addresses a key bottleneck on the path to quantum computers capable of simulating complex physical systems relevant to fundamental physics.
-
-- **Outlook and References:** Future work will need to extend these results to larger code distances and lower physical error rates, and to explore whether the ML decoder can run on quantum-compatible hardware accelerators. The paper is available at [arXiv:2504.13043](https://arxiv.org/abs/2504.13043) (Blue, Avlani, He, Ziyin, Chuang, MIT, 2025).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses quantum information theory, modern deep learning architecture design, and classical coding theory. Transformer self-attention, guided by the algebraic structure of quantum error-correcting codes, solves a problem at the heart of fault-tolerant quantum computing.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces code-aware self-attention for quantum codes and shows that recurrent transformer architectures can generalize to QLDPC codes, pushing ML-based decoding well beyond the surface code where prior work has been concentrated.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By delivering a practical, fast decoder for Bivariate Bicycle codes (the leading candidates for resource-efficient fault-tolerant quantum computation), this work addresses a key bottleneck on the path to quantum computers capable of simulating complex physical systems relevant to fundamental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will need to extend these results to larger code distances and lower physical error rates, and to explore whether the ML decoder can run on quantum-compatible hardware accelerators. The paper is available at [arXiv:2504.13043](https://arxiv.org/abs/2504.13043) (Blue, Avlani, He, Ziyin, Chuang, MIT, 2025).</span></div></div>
+</div>

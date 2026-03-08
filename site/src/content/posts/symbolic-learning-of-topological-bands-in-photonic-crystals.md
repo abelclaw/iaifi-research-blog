@@ -71,13 +71,13 @@ The team focused on two-dimensional photonic crystals with **C₂ symmetry**, me
 
 At each of these landmark points, every light mode picks up a label of +1 or −1, depending on how it transforms under that rotation. The pattern of labels determines whether the crystal's lowest energy band is topologically ordinary or **topologically nontrivial**, hosting protected features like **Dirac points** (where two energy bands touch and light behaves like a massless particle) or edge states that survive small imperfections.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2505_10485/figure_1.png)
 
 Each crystal's geometry enters through the **dielectric function** ε(r), a map describing how strongly each point in the repeating unit cell interacts with light. The trick is to represent this map as a **Fourier series**: a sum of sinusoidal waves at different spatial scales, each with its own amplitude. Instead of feeding a raw image of the crystal into a neural network, each crystal is described by its Fourier coefficients, a compact, physics-informed fingerprint that captures what actually matters about the geometry.
 
 Rather than a standard deep neural network, the researchers chose **Kolmogorov-Arnold Networks (KANs)**, a recently developed architecture that replaces fixed activation functions at neurons with learnable functions on connections. The payoff: KANs are naturally suited to **symbolic regression**, meaning they can be "read" after training to yield algebraic expressions rather than an opaque grid of weights. The team trained a single-hidden-layer KAN on C₂-symmetric unit cells, augmenting the dataset fourfold by exploiting shifts between **Wyckoff positions**, the special high-symmetry sites defined by a crystal's repeating structure.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2505_10485/figure_1.png)
 
 The KAN achieved greater than 99% accuracy in classifying topological classes. But the real prize came from symbolic regression on the trained network, which revealed something clean: **only the smallest Fourier components, the lowest-frequency spatial harmonics, actually determine band topology**. Higher Fourier modes are essentially irrelevant. This is consistent with degenerate perturbation theory, a standard technique for predicting how symmetry-related changes shift energy levels, now confirmed and quantified by machine learning on real crystallographic data.
 
@@ -89,7 +89,7 @@ From these extracted formulas, the team built an inverse design pipeline:
 
 The formulas work even for high-contrast, two-tone photonic crystals outside the training distribution, structures directly realizable with standard fabrication techniques.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2505_10485/figure_2.png)
 
 ## Why It Matters
 
@@ -99,16 +99,13 @@ The combination of KANs with topological band theory creates a template that rea
 
 That the formulas generalize beyond the training domain is the part worth paying attention to. The model didn't memorize; it found the underlying physics.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2505_10485/figure_2.png)
 
 > **Bottom Line:** KANs don't just predict which photonic crystals are topological — they hand you the formula to design them, achieving deterministic inverse design of experimentally realizable structures with over 99% accuracy and interpretable algebraic rules.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses topological condensed matter theory, photonic crystal engineering, and interpretable machine learning, using IAIFI's blend of AI and fundamental physics to extract human-readable laws from complex physical systems.
-
-- **Impact on Artificial Intelligence:** The paper shows that Kolmogorov-Arnold Networks can perform symbolic regression on real physics datasets to yield compact, generalizable algebraic formulas, making the case for interpretable AI as a genuine scientific discovery tool and not just a prediction engine.
-
-- **Impact on Fundamental Interactions:** By uncovering that only the lowest Fourier harmonics of the dielectric function govern band topology, the work establishes new analytical design principles for topological photonic systems, allowing deterministic engineering of disorder-resistant light transport.
-
-- **Outlook and References:** Future directions include extending the KAN-based symbolic approach to higher-symmetry photonic crystals and to electronic topological materials; the work is available at [arXiv:2505.10485](https://arxiv.org/abs/2505.10485).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses topological condensed matter theory, photonic crystal engineering, and interpretable machine learning, using IAIFI's blend of AI and fundamental physics to extract human-readable laws from complex physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows that Kolmogorov-Arnold Networks can perform symbolic regression on real physics datasets to yield compact, generalizable algebraic formulas, making the case for interpretable AI as a genuine scientific discovery tool and not just a prediction engine.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By uncovering that only the lowest Fourier harmonics of the dielectric function govern band topology, the work establishes new analytical design principles for topological photonic systems, allowing deterministic engineering of disorder-resistant light transport.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the KAN-based symbolic approach to higher-symmetry photonic crystals and to electronic topological materials; the work is available at [arXiv:2505.10485](https://arxiv.org/abs/2505.10485).</span></div></div>
+</div>

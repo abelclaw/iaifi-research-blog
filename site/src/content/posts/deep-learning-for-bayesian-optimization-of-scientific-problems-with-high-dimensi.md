@@ -70,7 +70,7 @@ At the heart of any Bayesian optimization loop is the **surrogate model**: a lea
 
 Traditional GPs compute uncertainty analytically, but at steep cost. Computation scales with the cube of the number of data points. A few hundred experiments? Manageable. A few thousand? Painful. And when inputs are images or molecular graphs rather than simple numerical vectors, you need to hand-engineer a custom kernel function for every new domain.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2104_11667/figure_1.png)
 
 The team instead turns to **Bayesian neural networks (BNNs)**, which approximate uncertainty through **Monte Carlo dropout**: randomly disabling neurons during prediction to produce a spread of possible answers that collectively stand in for uncertainty. The key advantage is that any neural network architecture can serve as the surrogate. Convolutional neural networks for image-like inputs, graph neural networks for molecules. The architecture naturally encodes the structure of the problem.
 
@@ -79,13 +79,13 @@ The framework tackles two especially important scenarios:
 - **High-dimensional observations:** When an experiment produces rich output (like the full optical scattering spectrum of a nanoparticle across hundreds of wavelengths) the BNN predicts the entire spectrum, then computes the optimization target from it. This auxiliary information sharply improves accuracy compared to predicting a single number.
 - **Structured input spaces:** For photonic crystal design, the input is a binary image, so a convolutional neural network processes it naturally. For molecular design, each molecule is a graph of atoms and bonds, which is exactly what graph neural networks are built to handle.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2104_11667/figure_1.png)
 
 On the photonic crystal task, the goal was to maximize the photonic bandgap, the range of light frequencies the material blocks. The GP surrogate, faced with an image-like input, performed poorly. The CNN-based BNN found much better crystal designs in the same number of evaluations.
 
 For molecule optimization, the team worked with the **QM9 dataset**, a widely used reference library of small organic molecules with precisely calculated physical and chemical properties. A graph neural network surrogate let the BNN-based optimizer find higher-quality molecules faster than the GP baseline, at a fraction of the computational cost.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2104_11667/figure_2.png)
 
 ## Why It Matters
 
@@ -95,9 +95,9 @@ The deep learning revolution isn't just about making predictions; it's about mak
 
 > **Bottom Line:** Replacing Gaussian Processes with domain-aware Bayesian neural networks opens up Bayesian optimization for the complex, high-dimensional, structured problems that arise in real science, while running faster and finding better solutions.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** The work brings modern deep learning architectures to bear on practical scientific discovery, applying graph and convolutional neural networks to real optimization tasks in photonics and quantum chemistry.
-- **Impact on Artificial Intelligence:** The research extends Bayesian optimization to high-dimensional structured domains by using BNNs as flexible, scalable surrogates that encode inductive biases inaccessible to traditional Gaussian Processes.
-- **Impact on Fundamental Interactions:** Efficient topology optimization of photonic crystals and quantum chemistry property optimization let researchers explore materials and molecules with specific, physically meaningful properties much faster.
-- **Outlook and References:** Future extensions could integrate equivariant architectures or multi-objective acquisition functions across computational science; the paper is available at [arXiv:2104.11667](https://arxiv.org/abs/2104.11667).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">The work brings modern deep learning architectures to bear on practical scientific discovery, applying graph and convolutional neural networks to real optimization tasks in photonics and quantum chemistry.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The research extends Bayesian optimization to high-dimensional structured domains by using BNNs as flexible, scalable surrogates that encode inductive biases inaccessible to traditional Gaussian Processes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Efficient topology optimization of photonic crystals and quantum chemistry property optimization let researchers explore materials and molecules with specific, physically meaningful properties much faster.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could integrate equivariant architectures or multi-objective acquisition functions across computational science; the paper is available at [arXiv:2104.11667](https://arxiv.org/abs/2104.11667).</span></div></div>
+</div>

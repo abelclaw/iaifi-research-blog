@@ -80,7 +80,7 @@ pdfUrl: https://arxiv.org/pdf/2511.03926v2
 published: '2025-11-06T00:04:23+00:00'
 theme: Astrophysics
 title: Spectral Diversity in Type Ibn Supernovae and the Large Host Offset of SN2024acyl
-wordCount: 989
+wordCount: 911
 ---
 
 ## The Big Picture
@@ -97,7 +97,7 @@ A team led by Yize Dong and V. Ashley Villar at the Center for Astrophysics | Ha
 
 The analysis started with SN 2024acyl itself. The team gathered photometric and spectroscopic observations over weeks following discovery. Its spectra looked like a typical Type Ibn event, with **He I emission lines** produced when fast-moving explosion debris slams into slower-moving surrounding gas. The location was the strange part.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2511_03926/figure_1.png)
 
 Measuring the projected offset from the host galaxy, the researchers found SN 2024acyl sat roughly 35 kiloparsecs away, about 114,000 light-years. Massive stars live fast and die young; they don't travel far from where they formed. A star reaching that distance would have needed a powerful kick from a previous explosion in a binary system, or an extraordinarily long lifetime. The **star-formation rate** at the explosion site (a proxy for how actively new stars are being born) was almost zero. Quiet, empty space. Hard to reconcile with a massive progenitor.
 
@@ -110,7 +110,7 @@ Two clusters emerged:
 
 This isn't a subtle statistical trend. The separation persists: Group I events at peak remain Group I at 20–35 days and even beyond 80 days. The diversity is baked in from early on, not a transient artifact of explosion dynamics.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2511_03926/figure_2.png)
 
 SN 2024acyl, with its broader He I lines and redder color, falls squarely into Group II. Neither host galaxy properties nor known pre-explosion outbursts showed any clear connection to the groupings.
 
@@ -120,7 +120,7 @@ The standard picture involves a **helium star** (the stripped-down remnant of a 
 
 Group I's narrower lines and brighter peaks may point to a different geometry of **circumstellar material (CSM)**, perhaps more compact or symmetric. Group II's broader, redder signatures may reflect more energetic explosions, more extended CSM, or a different range of helium star masses.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2511_03926/figure_3.png)
 
 SN 2024acyl adds another wrinkle. A progenitor found 114,000 light-years from any star-forming region might not be a massive star at all. It could be a **white dwarf** accreting helium from a companion until it triggers a **thermonuclear explosion**, a runaway nuclear reaction fundamentally different from the gravitational implosion that ends a massive star's life. That would make some Type Ibn supernovae different beasts entirely from others, even while looking superficially similar at peak. Whether the two spectral groups represent a continuous distribution or discrete progenitor populations remains open; answering it will require larger samples and systematic multi-epoch follow-up.
 
@@ -128,9 +128,9 @@ SN 2024acyl adds another wrinkle. A progenitor found 114,000 light-years from an
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** Systematic observational classification applied to a rare class of stellar explosions reveals hidden population structure, connecting stellar evolution theory with the large survey datasets now becoming available.
-- **Impact on Artificial Intelligence:** Upcoming sky surveys like LSST/Rubin will discover hundreds of Type Ibn events. The spectral classification criteria established here provide labeled training sets for AI classifiers that will need to identify and prioritize these transients in real time.
-- **Impact on Fundamental Interactions:** The discovery that Type Ibn supernovae split into two spectral groups undermines the single-progenitor model and points toward connections between circumstellar material properties, binary stellar physics, and observable explosion signatures.
-- **Outlook and References:** Larger samples and multi-epoch spectroscopy will test whether the two groups reflect a continuous distribution or truly discrete progenitor populations. The paper is available at [arXiv:2511.03926](https://arxiv.org/abs/2511.03926).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Systematic observational classification applied to a rare class of stellar explosions reveals hidden population structure, connecting stellar evolution theory with the large survey datasets now becoming available.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Upcoming sky surveys like LSST/Rubin will discover hundreds of Type Ibn events. The spectral classification criteria established here provide labeled training sets for AI classifiers that will need to identify and prioritize these transients in real time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The discovery that Type Ibn supernovae split into two spectral groups undermines the single-progenitor model and points toward connections between circumstellar material properties, binary stellar physics, and observable explosion signatures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Larger samples and multi-epoch spectroscopy will test whether the two groups reflect a continuous distribution or truly discrete progenitor populations. The paper is available at [arXiv:2511.03926](https://arxiv.org/abs/2511.03926).</span></div></div>
+</div>

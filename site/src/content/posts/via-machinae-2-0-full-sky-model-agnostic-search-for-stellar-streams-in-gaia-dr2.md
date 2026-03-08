@@ -65,7 +65,7 @@ The core technique is **ANODE** (a normalizing flow-based anomaly detector), a m
 
 ANODE was designed to hunt for new particles at the LHC by spotting bumps in data distributions. It uses **normalizing flows**, neural networks that learn to model how data is distributed across many dimensions, to estimate how "normal" any given star looks in its local neighborhood.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2303_01529/figure_1.png)
 
 The VM2 pipeline runs in four stages:
 
@@ -74,7 +74,7 @@ The VM2 pipeline runs in four stages:
 3. **Anomaly scoring:** ANODE compares each star's local density in the search region against the background density from flanking "control regions." Stars overdense relative to background receive a high anomaly score: R(x) = p_SR(x) / p_bg(x). Each star appears in many overlapping patches, providing multiple quasi-independent tests that combine for robustness.
 4. **Stream reconstruction:** High-scoring stars are clustered spatially and filtered to resemble real streams: localized in proper motion, linear on the sky, and with colors consistent with old, **metal-poor** stellar populations (stars low in heavy elements, a signature of ancient clusters).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2303_01529/figure_1.png)
 
 The team also ran the algorithm on **Galaxia**, a synthetic Milky Way model containing no streams. Any "detections" in that simulation are pure false positives, giving a concrete estimate of the noise floor. The original Via Machinae had no such calibration.
 
@@ -82,7 +82,7 @@ The team also ran the algorithm on **Galaxia**, a synthetic Milky Way model cont
 
 The result, 102 stream candidates with roughly 90 expected to be genuine, vastly expands the known stellar stream census. Before Gaia, astronomers knew of only a handful of streams. With the right tools, it turns out we are swimming in them.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2303_01529/figure_2.png)
 
 Each new stream is a potential scientific goldmine. Dense, narrow streams like GD-1 are sensitive enough to detect dark matter substructure at the level of individual clumps, effectively turning stellar ribbons into cosmic seismometers for otherwise invisible mass. Ninety new streams greatly enlarges the sample available for dark matter searches and for mapping the Milky Way's gravitational potential.
 
@@ -90,9 +90,9 @@ The catalog also tells us about the galaxy's **accretion history**, the full rec
 
 > **Bottom Line:** Via Machinae 2.0 conducts the first full-sky, model-agnostic stellar stream search and identifies 102 candidates, roughly 90 of them likely real, showing that LHC-inspired machine learning can unlock discoveries hiding in plain sight within the Gaia catalog.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work imports unsupervised anomaly detection from particle physics into astrophysics, showing that tools built to find new fundamental particles can also map the large-scale structure and merger history of our galaxy.
-- **Impact on Artificial Intelligence:** Via Machinae 2.0 shows how normalizing flow-based density estimation scales to full-sky surveys of over a billion stars, paired with a false positive calibration framework that raises the bar for trustworthy ML-driven discovery in astronomy.
-- **Impact on Fundamental Interactions:** The 92 newly discovered stream candidates provide a much larger sample for probing the Milky Way's dark matter substructure, gravitational potential, and accretion history, all without requiring model assumptions about galactic dynamics.
-- **Outlook and References:** Follow-up spectroscopic observations will be needed to confirm the candidates, and future versions may incorporate Gaia DR3's expanded radial velocity catalog; the paper is available at [arXiv:2303.01529](https://arxiv.org/abs/2303.01529) (Shih, Buckley & Necib, 2023).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports unsupervised anomaly detection from particle physics into astrophysics, showing that tools built to find new fundamental particles can also map the large-scale structure and merger history of our galaxy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Via Machinae 2.0 shows how normalizing flow-based density estimation scales to full-sky surveys of over a billion stars, paired with a false positive calibration framework that raises the bar for trustworthy ML-driven discovery in astronomy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The 92 newly discovered stream candidates provide a much larger sample for probing the Milky Way's dark matter substructure, gravitational potential, and accretion history, all without requiring model assumptions about galactic dynamics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Follow-up spectroscopic observations will be needed to confirm the candidates, and future versions may incorporate Gaia DR3's expanded radial velocity catalog; the paper is available at [arXiv:2303.01529](https://arxiv.org/abs/2303.01529) (Shih, Buckley & Necib, 2023).</span></div></div>
+</div>

@@ -65,7 +65,7 @@ Researchers at Harvard and Kyoto University have now built a model that does wha
 
 The core idea is deceptively simple: train a small model to understand tiny image patches, then let the pieces talk to each other.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_14530/figure_1.png)
 
 The team trained a **denoising diffusion process** on 16×16 pixel crops from synthetic images of matte objects. The model predicts **surface normal fields**, which encode the 3D orientation of each surface point as a vector perpendicular to the surface. Training on patches rather than whole images keeps the model compact (just 10MB of weights) and forces it to learn local shading relationships without baking in global scene biases.
 
@@ -77,7 +77,7 @@ During inference, the approach unfolds in three stages:
 
 Lighting gets a pragmatic treatment. Instead of estimating a precise global light source (ill-posed given real-world complications like interreflections and ambient occlusion), each patch nominates a dominant light direction. When the model detects a global convex/concave ambiguity, all patches flip their interpretations in concert via a **global flip mechanism**.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_14530/figure_1.png)
 
 The results speak for themselves. For images that humans flip between, like the golf ball, the model produces genuinely multimodal output: distinct samples corresponding to concave and convex interpretations. For ordinary objects with clear occluding contours, it converges on a single accurate estimate. No special rule governs when to be certain versus uncertain. That behavior fell out of the architecture on its own.
 
@@ -91,12 +91,9 @@ Future work could extend the framework to non-Lambertian surfaces (shiny or tran
 
 > **Bottom Line:** A tiny patch-based diffusion model trained only on local image regions spontaneously learns to perceive 3D shape the way humans do, holding multiple conflicting interpretations simultaneously. Efficient, ambiguity-aware 3D perception doesn't require massive models or global scene understanding.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects computational vision, perceptual psychology, and generative AI by building a mathematical model of multistable shape perception, a phenomenon studied for decades in human vision science, using modern diffusion architectures.
-
-- **Impact on Artificial Intelligence:** A 10MB patch-based diffusion model matches or outperforms gigabyte-scale models on shape estimation while also capturing perceptual ambiguity, pointing toward efficient, uncertainty-aware 3D perception systems.
-
-- **Impact on Fundamental Interactions:** By formalizing the mathematical ambiguities of Lambertian shading (including bas-relief transformations and global convex/concave flips) and encoding them as a learned generative distribution, the work ties physical light-transport laws directly to perceptual phenomena.
-
-- **Outlook and References:** Future directions include extending the framework to non-Lambertian surfaces and incorporating sparse depth cues for selective disambiguation; the paper appeared at NeurIPS 2024 ([arXiv:2405.14530](https://arxiv.org/abs/2405.14530) by Han, Zickler, and Nishino).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects computational vision, perceptual psychology, and generative AI by building a mathematical model of multistable shape perception, a phenomenon studied for decades in human vision science, using modern diffusion architectures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">A 10MB patch-based diffusion model matches or outperforms gigabyte-scale models on shape estimation while also capturing perceptual ambiguity, pointing toward efficient, uncertainty-aware 3D perception systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By formalizing the mathematical ambiguities of Lambertian shading (including bas-relief transformations and global convex/concave flips) and encoding them as a learned generative distribution, the work ties physical light-transport laws directly to perceptual phenomena.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the framework to non-Lambertian surfaces and incorporating sparse depth cues for selective disambiguation; the paper appeared at NeurIPS 2024 ([arXiv:2405.14530](https://arxiv.org/abs/2405.14530) by Han, Zickler, and Nishino).</span></div></div>
+</div>

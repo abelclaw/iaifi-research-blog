@@ -66,7 +66,7 @@ Their alternative, the **Linear Mapping Number** (LMN), builds on a geometric in
 
 Think of it like origami: you fold a flat sheet repeatedly and end up with a complex 3D shape. The number of flat facets is the number of linear regions, a direct measure of complexity.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2310_05918/figure_1.png)
 
 LMN generalizes this idea to networks with *any* **activation function** (the internal switching mechanism that determines how each neuron responds to its inputs), not just ReLU. The trick: pick two input samples and draw a straight line between them, then watch what happens to that line after it passes through the network. If it stays straight, both samples are processed by the same internal rule. If it curves, they're not.
 
@@ -84,7 +84,7 @@ The researchers tested LMN on three classic algorithmic tasks where grokking is 
 
 After a network finishes memorizing but before it generalizes, LMN drops steadily, and it drops in a straight line with the test loss. The network is literally becoming simpler, computation by computation, as it discovers the underlying rule. L2 norm shows a correlation too, but a messy, nonlinear one.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2310_05918/figure_1.png)
 
 The XOR experiment turned up something unexpected. After grokking, instead of leveling off at a stable low value, LMN showed a *double-descent*: dropping, rising, then dropping again. XOR admits two different generalization algorithms of nearly equal efficiency, and the network oscillates between them. LMN made this invisible phenomenon visible. L2 norm showed nothing.
 
@@ -94,18 +94,15 @@ The connection to physics runs deeper than the institutional affiliation. Tegmar
 
 > **Bottom Line:** LMN provides the first complexity metric that tracks neural network generalization cleanly and linearly, revealing that grokking is compression and pointing toward a practical, physically interpretable version of Kolmogorov complexity for modern AI.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies Von Neumann entropy, a concept from quantum information theory, to characterize neural network complexity. It's a clean example of what IAIFI does best: moving ideas between physics and AI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">LMN provides a new, interpretable complexity measure that outperforms the widely-used L2 norm for tracking generalization dynamics, with potential applications to regularization and model selection beyond grokking.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By connecting neural network compression to Kolmogorov complexity, this work reinforces the idea that learning is fundamentally about information compression, tying machine intelligence back to core principles of information theory.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend LMN to larger transformer architectures and use it as a training signal for improving generalization. The paper is available as [arXiv:2310.05918](https://arxiv.org/abs/2310.05918).
 
-- **Interdisciplinary Research Achievement:** This work applies Von Neumann entropy, a concept from quantum information theory, to characterize neural network complexity. It's a clean example of what IAIFI does best: moving ideas between physics and AI.
-
-- **Impact on Artificial Intelligence:** LMN provides a new, interpretable complexity measure that outperforms the widely-used L2 norm for tracking generalization dynamics, with potential applications to regularization and model selection beyond grokking.
-
-- **Impact on Fundamental Interactions:** By connecting neural network compression to Kolmogorov complexity, this work reinforces the idea that learning is fundamentally about information compression, tying machine intelligence back to core principles of information theory.
-
-- **Outlook and References:** Future work may extend LMN to larger transformer architectures and use it as a training signal for improving generalization. The paper is available as [arXiv:2310.05918](https://arxiv.org/abs/2310.05918).
-
-## Original Paper Details
-- **Title:** Grokking as Compression: A Nonlinear Complexity Perspective
-- **arXiv ID:** [2310.05918](https://arxiv.org/abs/2310.05918)
-- **Authors:** Ziming Liu, Ziqian Zhong, Max Tegmark
-- **Abstract:** We attribute grokking, the phenomenon where generalization is much delayed after memorization, to compression. To do so, we define linear mapping number (LMN) to measure network complexity, which is a generalized version of linear region number for ReLU networks. LMN can nicely characterize neural network compression before generalization. Although the $L_2$ norm has been a popular choice for characterizing model complexity, we argue in favor of LMN for a number of reasons: (1) LMN can be naturally interpreted as information/computation, while $L_2$ cannot. (2) In the compression phase, LMN has linear relations with test losses, while $L_2$ is correlated with test losses in a complicated nonlinear way. (3) LMN also reveals an intriguing phenomenon of the XOR network switching between two generalization solutions, while $L_2$ does not. Besides explaining grokking, we argue that LMN is a promising candidate as the neural network version of the Kolmogorov complexity since it explicitly considers local or conditioned linear computations aligned with the nature of modern artificial neural networks.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Grokking as Compression: A Nonlinear Complexity Perspective</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2310.05918](https://arxiv.org/abs/2310.05918)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Ziming Liu, Ziqian Zhong, Max Tegmark</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We attribute grokking, the phenomenon where generalization is much delayed after memorization, to compression. To do so, we define linear mapping number (LMN) to measure network complexity, which is a generalized version of linear region number for ReLU networks. LMN can nicely characterize neural network compression before generalization. Although the $L_2$ norm has been a popular choice for characterizing model complexity, we argue in favor of LMN for a number of reasons: (1) LMN can be naturally interpreted as information/computation, while $L_2$ cannot. (2) In the compression phase, LMN has linear relations with test losses, while $L_2$ is correlated with test losses in a complicated nonlinear way. (3) LMN also reveals an intriguing phenomenon of the XOR network switching between two generalization solutions, while $L_2$ does not. Besides explaining grokking, we argue that LMN is a promising candidate as the neural network version of the Kolmogorov complexity since it explicitly considers local or conditioned linear computations aligned with the nature of modern artificial neural networks.</span></div></div>
+</div>

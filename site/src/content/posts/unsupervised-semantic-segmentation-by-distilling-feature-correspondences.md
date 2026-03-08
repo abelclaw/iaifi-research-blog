@@ -65,7 +65,7 @@ The central observation driving STEGO is almost embarrassingly simple. Recent **
 
 The backbone behind STEGO is **DINO**, a **Vision Transformer (ViT)** trained without labels using self-distillation. A ViT processes an image as a grid of tiles and learns relationships between them, in much the same way a language model processes sequences of words.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2203_08414/figure_1.png)
 
 So the heavy lifting of semantic understanding is already done. The remaining challenge is **cluster compactification**: taking soft, continuous feature correlations and sharpening them into the hard, discrete assignments that segmentation requires. Previous methods tried to do both tasks at once in a single end-to-end framework, forcing awkward tradeoffs. STEGO does them in sequence.
 
@@ -75,7 +75,7 @@ The pipeline has two stages:
 
 2. **Distillation via contrastive loss:** A small network trains on top of those frozen features using a novel **energy-based graph optimization** loss. For any two images, the system identifies corresponding patches (pairs the pretrained features already consider similar) and trains the segmentation head to assign them consistent cluster labels. The loss preserves the *relational structure* of the original feature space, which prevents all pixels from collapsing into one giant blob.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2203_08414/figure_1.png)
 
 The **contrastive objective** works by comparing pairs of patches and asking "should these belong to the same group?" It samples three types of positive correspondences: patches within the same image that are already similar (self-correspondences), patches from a nearest-neighbor image in the dataset (cross-image correspondences), and random spatial samples used as a regularizer. Each pairing nudges the learned labels toward consistency across the dataset. No human-defined category system is consulted at any point.
 
@@ -85,7 +85,7 @@ A **linear probe** or **CRF** post-processing step sharpens spatial edges. CRF s
 
 The numbers tell a clear story: STEGO improves over the previous best unsupervised method by **+14 mIoU on CocoStuff** and **+9 mIoU on Cityscapes**. **mIoU** (mean Intersection over Union) measures how accurately predicted segments overlap with the true ones, where 100 is perfect. Both CocoStuff and Cityscapes are large-scale benchmarks with dozens of semantic categories. This is not an incremental improvement. It narrows the gap with fully supervised systems by a wide margin.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2203_08414/figure_2.png)
 
 The deeper implication is architectural. By decoupling feature learning from label discovery, STEGO becomes **modular**: as self-supervised feature extractors improve (and they're improving fast), STEGO can plug in better backbones and inherit the gains for free. That's a design philosophy, not just a method. The path to powerful unsupervised perception may not require rethinking everything from scratch. It may be enough to organize the semantic knowledge that modern self-supervised models already encode implicitly.
 
@@ -93,12 +93,9 @@ Any domain where annotation is expensive or impossible can use this. Histopathol
 
 > **Bottom Line:** Self-supervised features already contain rich semantic structure. STEGO provides a targeted distillation framework that turns those latent correspondences into state-of-the-art segmentation maps, no human labels required.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** Transformer architectures originally developed for NLP, combined with self-supervised learning principles, can solve dense spatial reasoning problems relevant to scientific imaging, including astrophysics domains where ground-truth labels are unknown or ill-defined.
-
-- **Impact on Artificial Intelligence:** STEGO advances unsupervised computer vision with +14 mIoU and +9 mIoU gains over prior state of the art on CocoStuff and Cityscapes, establishing a new paradigm of separating feature learning from cluster compactification.
-
-- **Impact on Fundamental Interactions:** Unsupervised segmentation tools like STEGO create new possibilities for automated structure discovery in scientific images, from galaxy morphology to particle collision events, where human annotation is prohibitively costly or expert categories are contested.
-
-- **Outlook and References:** Future directions include applying STEGO's distillation framework to domain-specific scientific datasets and integrating stronger ViT backbones as the self-supervised learning field advances. See [arXiv:2203.08414](https://arxiv.org/abs/2203.08414).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Transformer architectures originally developed for NLP, combined with self-supervised learning principles, can solve dense spatial reasoning problems relevant to scientific imaging, including astrophysics domains where ground-truth labels are unknown or ill-defined.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">STEGO advances unsupervised computer vision with +14 mIoU and +9 mIoU gains over prior state of the art on CocoStuff and Cityscapes, establishing a new paradigm of separating feature learning from cluster compactification.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Unsupervised segmentation tools like STEGO create new possibilities for automated structure discovery in scientific images, from galaxy morphology to particle collision events, where human annotation is prohibitively costly or expert categories are contested.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include applying STEGO's distillation framework to domain-specific scientific datasets and integrating stronger ViT backbones as the self-supervised learning field advances. See [arXiv:2203.08414](https://arxiv.org/abs/2203.08414).</span></div></div>
+</div>

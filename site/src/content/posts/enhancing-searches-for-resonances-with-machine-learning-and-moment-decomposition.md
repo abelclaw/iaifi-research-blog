@@ -37,7 +37,7 @@ pdfUrl: https://arxiv.org/pdf/2010.09745v2
 published: '2020-10-19T18:00:18+00:00'
 theme: Experimental Physics
 title: Enhancing searches for resonances with machine learning and moment decomposition
-wordCount: 967
+wordCount: 936
 ---
 
 ## The Big Picture
@@ -60,7 +60,7 @@ By demanding complete independence, decorrelation handicaps the classifier. It c
 
 MoDe's central insight is that this restriction is too strong. A classifier with a perfectly *linear* dependence on mass creates a sloped background after selection, but no localized bump. A bump hunt cares about bumps, not slopes. The researchers formalized this with a **moment loss function**, a training penalty that suppresses only the mass-dependent patterns that actually cause sculpting.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2010_09745/figure_1.png)
 
 Here's the machinery. The classifier output is expanded in terms of its **Legendre polynomial moments**, mathematical basis functions that decompose a distribution into constant, linear, quadratic, and higher-order components (like breaking a complex curve into simple building blocks). The loss function then selectively penalizes only those components that would sculpt the background:
 
@@ -70,13 +70,13 @@ Here's the machinery. The classifier output is expanded in terms of its **Legend
 
 Analysts can add further constraints: bound the slope of linear dependence, or restrict quadratic terms to be monotonic. These prevent dangerous background curvature even when the classifier exploits mass information.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2010_09745/figure_2.png)
 
 The team validated MoDe on two test cases. The first was a synthetic model designed to cleanly illustrate each method's behavior. The second was **boosted hadronic W tagging**, identifying highly energetic W bosons (force carriers of the weak nuclear interaction) decaying to quark pairs, distinguished from the overwhelming flood of jets produced by the strong force. This is the kind of analysis that matters for heavy-resonance searches at the LHC, where both ATLAS and CMS have deployed ML-based W taggers.
 
 In both cases, MoDe-1 and MoDe-2 achieved better signal-to-background discrimination than fully decorrelated methods. Background distributions in the **sideband regions** (the portions of the mass spectrum away from a signal, used to estimate the background shape) remained smooth and usable throughout.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2010_09745/figure_3.png)
 
 ## Why It Matters
 
@@ -86,9 +86,9 @@ The payoff extends well beyond W tagging. Any bump hunt combining ML-enhanced se
 
 > **Bottom Line:** MoDe gives particle physicists a sharper tool for new-physics searches by replacing an overly conservative independence requirement with a precisely calibrated tolerance for controlled mass dependence. More flexibility, same safety guarantee.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies modern statistical learning theory (moment decomposition and constrained loss functions) to one of collider physics' most fundamental search strategies, building a concrete bridge between ML methodology and experimental phenomenology.
-- **Impact on Artificial Intelligence:** MoDe introduces a new class of differentiable loss functions that enforce structured, bounded dependencies between a classifier and a protected attribute, pushing constrained ML beyond simple independence requirements.
-- **Impact on Fundamental Interactions:** By boosting the sensitivity of bump hunts without degrading background estimation, MoDe extends the discovery reach for new particles and forces at the LHC and future colliders.
-- **Outlook and References:** Future extensions include higher-order moment constraints, multi-dimensional resonant features, and deployment in ongoing LHC analyses; full details are in [arXiv:2010.09745](https://arxiv.org/abs/2010.09745).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies modern statistical learning theory (moment decomposition and constrained loss functions) to one of collider physics' most fundamental search strategies, building a concrete bridge between ML methodology and experimental phenomenology.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">MoDe introduces a new class of differentiable loss functions that enforce structured, bounded dependencies between a classifier and a protected attribute, pushing constrained ML beyond simple independence requirements.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By boosting the sensitivity of bump hunts without degrading background estimation, MoDe extends the discovery reach for new particles and forces at the LHC and future colliders.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions include higher-order moment constraints, multi-dimensional resonant features, and deployment in ongoing LHC analyses; full details are in [arXiv:2010.09745](https://arxiv.org/abs/2010.09745).</span></div></div>
+</div>

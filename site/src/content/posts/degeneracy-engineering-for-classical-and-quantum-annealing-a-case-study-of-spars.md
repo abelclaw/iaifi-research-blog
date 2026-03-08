@@ -44,7 +44,7 @@ published: '2022-05-20T18:00:00+00:00'
 theme: Theoretical Physics
 title: 'Degeneracy Engineering for Classical and Quantum Annealing: A Case Study of
   Sparse Linear Regression in Collider Physics'
-wordCount: 964
+wordCount: 1121
 ---
 
 ## The Big Picture
@@ -70,15 +70,15 @@ Two encoding strategies behave very differently in practice:
 
 This degeneracy is the whole point. The relative degeneracy, meaning correct-solution configuration count divided by first-excited-state configuration count, grows substantially when one extra ancilla is added. When an annealing algorithm explores the solution space, a more degenerate ground state is a bigger target. The algorithm doesn't need to find one specific needle; any one of many equivalent needles will do. Mathematically, this enlarges the energy gap between the correct solution and all nearby wrong ones, a property both classical and quantum annealing exploit to converge reliably.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2205_10375/figure_1.png)
 
 To stress-test degeneracy engineering, the team used **Energy Flow Polynomials (EFPs)**, a rich linear basis for describing particle jets. Jets are the sprays of particles produced when protons collide at experiments like the Large Hadron Collider. EFPs are indexed by graph topologies, each encoding a specific pattern of energy correlations among particles in a jet. Certain linear relations among EFPs are known analytically (for example, the square of a degree-1 EFP exactly equals a specific degree-2 EFP), which means regression problems can be constructed with known ground truth. That gives an absolute benchmark most optimization test cases lack.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2205_10375/figure_1.png)
 
 The results were unambiguous. The single-ancilla encoding performed poorly; the annealer consistently missed the known optimal solution. The double-ancilla encoding found the correct sparse solution far more reliably across all tested problems. The paper also introduces two "refined regression" heuristics that warm-start annealing from classical ℓ₁ or ℓ₂ solutions, using fast classical methods to identify a promising region and then annealing to refine. These hybrid approaches point toward practical strategies for near-term quantum hardware.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2205_10375/figure_2.png)
 
 ## Why It Matters
 
@@ -90,15 +90,15 @@ Open questions remain. The simulations used PIMC (Path Integral Monte Carlo) as 
 
 > **Bottom Line:** Degeneracy engineering, deliberately adding redundant bits to make the correct answer a bigger target in solution space, substantially improves annealing performance on hard optimization problems. The authors demonstrate this concretely on sparse regression tasks in collider physics.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects quantum computing algorithm design with high-energy collider physics, using analytically known EFP relations to rigorously benchmark a novel optimization technique applicable across both fields.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Degeneracy engineering provides a general tool for formulating hard combinatorial optimization problems as QUBOs, with demonstrated improvements in annealing performance for NP-hard sparse regression.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Sparse ℓ₀-norm regression over Energy Flow Polynomials offers a computationally tractable path to identifying minimal, interpretable sets of collider observables for jet classification and reconstruction tasks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will target implementation on physical quantum annealing hardware and extension to larger EFP bases; the full paper is available at [arXiv:2205.10375](https://arxiv.org/abs/2205.10375).
 
-- **Interdisciplinary Research Achievement:** This work connects quantum computing algorithm design with high-energy collider physics, using analytically known EFP relations to rigorously benchmark a novel optimization technique applicable across both fields.
-- **Impact on Artificial Intelligence:** Degeneracy engineering provides a general tool for formulating hard combinatorial optimization problems as QUBOs, with demonstrated improvements in annealing performance for NP-hard sparse regression.
-- **Impact on Fundamental Interactions:** Sparse ℓ₀-norm regression over Energy Flow Polynomials offers a computationally tractable path to identifying minimal, interpretable sets of collider observables for jet classification and reconstruction tasks.
-- **Outlook and References:** Future work will target implementation on physical quantum annealing hardware and extension to larger EFP bases; the full paper is available at [arXiv:2205.10375](https://arxiv.org/abs/2205.10375).
-
-## Original Paper Details
-- **Title:** Degeneracy Engineering for Classical and Quantum Annealing: A Case Study of Sparse Linear Regression in Collider Physics
-- **arXiv ID:** 2205.10375
-- **Authors:** ["Eric R. Anschuetz", "Lena Funcke", "Patrick T. Komiske", "Serhii Kryhin", "Jesse Thaler"]
-- **Abstract:** Classical and quantum annealing are computing paradigms that have been proposed to solve a wide range of optimization problems. In this paper, we aim to enhance the performance of annealing algorithms by introducing the technique of degeneracy engineering, through which the relative degeneracy of the ground state is increased by modifying a subset of terms in the objective Hamiltonian. We illustrate this novel approach by applying it to the example of $\ell_0$-norm regularization for sparse linear regression, which is in general an NP-hard optimization problem. Specifically, we show how to cast $\ell_0$-norm regularization as a quadratic unconstrained binary optimization (QUBO) problem, suitable for implementation on annealing platforms. As a case study, we apply this QUBO formulation to energy flow polynomials in high-energy collider physics, finding that degeneracy engineering substantially improves the annealing performance. Our results motivate the application of degeneracy engineering to a variety of regularized optimization problems.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Degeneracy Engineering for Classical and Quantum Annealing: A Case Study of Sparse Linear Regression in Collider Physics</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2205.10375</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Eric R. Anschuetz", "Lena Funcke", "Patrick T. Komiske", "Serhii Kryhin", "Jesse Thaler"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Classical and quantum annealing are computing paradigms that have been proposed to solve a wide range of optimization problems. In this paper, we aim to enhance the performance of annealing algorithms by introducing the technique of degeneracy engineering, through which the relative degeneracy of the ground state is increased by modifying a subset of terms in the objective Hamiltonian. We illustrate this novel approach by applying it to the example of $\ell_0$-norm regularization for sparse linear regression, which is in general an NP-hard optimization problem. Specifically, we show how to cast $\ell_0$-norm regularization as a quadratic unconstrained binary optimization (QUBO) problem, suitable for implementation on annealing platforms. As a case study, we apply this QUBO formulation to energy flow polynomials in high-energy collider physics, finding that degeneracy engineering substantially improves the annealing performance. Our results motivate the application of degeneracy engineering to a variety of regularized optimization problems.</span></div></div>
+</div>

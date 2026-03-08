@@ -57,7 +57,7 @@ published: '2025-12-06T06:38:05+00:00'
 theme: Astrophysics
 title: 'A Fully Photometric Approach to Type Ia Supernova Cosmology in the LSST Era:
   Host Galaxy Redshifts and Supernova Classification'
-wordCount: 1086
+wordCount: 1309
 ---
 
 ## The Big Picture
@@ -76,7 +76,7 @@ A new study from Mitra et al. develops and tests a fully photometric pipeline, o
 
 The team built their analysis on a simulation framework called **ELAsTiCC** (Extended LSST Astronomical Time Series Classification Challenge), which generates realistic mock observations mimicking what LSST will actually see. This isn't a clean theoretical exercise. The simulations include contamination from other types of exploding stars, incorrect host galaxy associations, and the full complexity of photometric redshift errors.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_06319/figure_1.png)
 
 The pipeline proceeds in four steps:
 
@@ -87,7 +87,7 @@ The pipeline proceeds in four steps:
 
 The combined dataset covers two survey strategies: deep, narrow Deep Drilling Fields (DDF) reaching to high redshift, and the broader Wide Fast Deep (WFD) survey, which contributes a spectroscopically confirmed low-redshift anchor sample. Together, they yield roughly 6,000 simulated events for cosmological analysis.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_06319/figure_2.png)
 
 ## Why It Matters
 
@@ -95,7 +95,7 @@ The headline number: fitting the **wCDM model**, where dark energy has a constan
 
 For comparison, the DES-SN5YR analysis, currently among the most powerful supernova cosmology datasets ever published, achieved an FoM of 54. LSST, analyzed with fully photometric methods, could be nearly three times more constraining.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_06319/figure_3.png)
 
 The team isn't declaring victory, though. Averaging cosmological parameter fits across 25 independent simulation realizations, they find small but statistically significant biases: the recovered dark energy parameters don't perfectly match the true values baked into the simulations.
 
@@ -107,18 +107,15 @@ The **CPL w0wa model**, which allows dark energy to evolve in time, also shows c
 
 > **Bottom Line:** LSST can achieve world-leading dark energy constraints using a fully photometric analysis, no spectra required, while the identified systematic biases set a clear agenda for what must be solved before the method is ready for real data.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">The work deploys neural network classifiers and Bayesian statistical frameworks to tackle one of observational cosmology's central challenges: extracting dark energy science from an unprecedented photometric supernova survey.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The SCONE neural network classifier shows that deep learning can reliably separate Type Ia supernovae from contaminants using multi-band light curves alone, making photometric classification a viable replacement for spectroscopic confirmation at LSST scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">With a projected dark energy Figure of Merit of ~150, nearly three times the DES-SN5YR result, LSST's photometric supernova sample has the statistical power to detect or rule out dynamical dark energy at high significance.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The identified parameter biases set the agenda for the next phase of LSST supernova cosmology pipeline development; the full framework will be validated against early LSST data as the survey comes online. See [arXiv:2512.06319](https://arxiv.org/abs/2512.06319) for details.
 
-- **Interdisciplinary Research Achievement:** The work deploys neural network classifiers and Bayesian statistical frameworks to tackle one of observational cosmology's central challenges: extracting dark energy science from an unprecedented photometric supernova survey.
-
-- **Impact on Artificial Intelligence:** The SCONE neural network classifier shows that deep learning can reliably separate Type Ia supernovae from contaminants using multi-band light curves alone, making photometric classification a viable replacement for spectroscopic confirmation at LSST scale.
-
-- **Impact on Fundamental Interactions:** With a projected dark energy Figure of Merit of ~150, nearly three times the DES-SN5YR result, LSST's photometric supernova sample has the statistical power to detect or rule out dynamical dark energy at high significance.
-
-- **Outlook and References:** The identified parameter biases set the agenda for the next phase of LSST supernova cosmology pipeline development; the full framework will be validated against early LSST data as the survey comes online. See [arXiv:2512.06319](https://arxiv.org/abs/2512.06319) for details.
-
-## Original Paper Details
-- **Title:** A Fully Photometric Approach to Type Ia Supernova Cosmology in the LSST Era: Host Galaxy Redshifts and Supernova Classification
-- **arXiv ID:** 2512.06319
-- **Authors:** ["Ayan Mitra", "Richard Kessler", "Rebecca C. Chen", "Alex Gagliano", "Matthew Grayling", "Surhud More", "Gautham Narayan", "Helen Qu", "Srinivasan Raghunathan", "Alex I. Malz", "Michelle Lochner", "The LSST Dark Energy Science Collaboration"]
-- **Abstract:** The upcoming Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) is expected to discover nearly a million Type Ia supernovae (SNeIa), offering an unprecedented opportunity to constrain dark energy. The vast majority of these events will lack spectroscopic classification and redshifts, necessitating a fully photometric approach to maximize cosmology constraining power. We present detailed simulations based on the Extended LSST Astronomical Time Series Classification Challenge (ELAsTiCC), and a cosmological analysis using photometrically classified SNeIa with host galaxy photometric redshifts. This dataset features realistic multi-band light curves, non-SNIa contamination, host mis-associations, and transient-host correlations across the high-redshift Deep Drilling Fields (DDF) (~ 50 deg^2). We also include a spectroscopically confirmed low-redshift sample based on the Wide Fast Deep (WFD) fields. We employ a joint SN+host photometric redshift fit, a neural network based photometric classifier (SCONE), and BEAMS with Bias Corrections (BBC) methodology to construct a bias-corrected Hubble diagram. We produce statistical + systematic covariance matrices, and perform cosmology fitting with a prior using Cosmic Microwave Background constraints. We fit and present results for the wCDM dark energy model, and the more general Chevallier-Polarski-Linder (CPL) w0wa model. With a simulated sample of ~6000 events, we achieve a Figure of Merit (FoM) value of about 150, which is significantly larger than the DESVYR FoM of 54. Averaging analysis results over 25 independent samples, we find small but significant biases indicating a need for further analysis testing and development.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A Fully Photometric Approach to Type Ia Supernova Cosmology in the LSST Era: Host Galaxy Redshifts and Supernova Classification</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2512.06319</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ayan Mitra", "Richard Kessler", "Rebecca C. Chen", "Alex Gagliano", "Matthew Grayling", "Surhud More", "Gautham Narayan", "Helen Qu", "Srinivasan Raghunathan", "Alex I. Malz", "Michelle Lochner", "The LSST Dark Energy Science Collaboration"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">The upcoming Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) is expected to discover nearly a million Type Ia supernovae (SNeIa), offering an unprecedented opportunity to constrain dark energy. The vast majority of these events will lack spectroscopic classification and redshifts, necessitating a fully photometric approach to maximize cosmology constraining power. We present detailed simulations based on the Extended LSST Astronomical Time Series Classification Challenge (ELAsTiCC), and a cosmological analysis using photometrically classified SNeIa with host galaxy photometric redshifts. This dataset features realistic multi-band light curves, non-SNIa contamination, host mis-associations, and transient-host correlations across the high-redshift Deep Drilling Fields (DDF) (~ 50 deg^2). We also include a spectroscopically confirmed low-redshift sample based on the Wide Fast Deep (WFD) fields. We employ a joint SN+host photometric redshift fit, a neural network based photometric classifier (SCONE), and BEAMS with Bias Corrections (BBC) methodology to construct a bias-corrected Hubble diagram. We produce statistical + systematic covariance matrices, and perform cosmology fitting with a prior using Cosmic Microwave Background constraints. We fit and present results for the wCDM dark energy model, and the more general Chevallier-Polarski-Linder (CPL) w0wa model. With a simulated sample of ~6000 events, we achieve a Figure of Merit (FoM) value of about 150, which is significantly larger than the DESVYR FoM of 54. Averaging analysis results over 25 independent samples, we find small but significant biases indicating a need for further analysis testing and development.</span></div></div>
+</div>

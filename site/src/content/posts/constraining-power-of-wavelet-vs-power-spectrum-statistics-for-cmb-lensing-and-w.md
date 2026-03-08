@@ -46,7 +46,7 @@ published: '2025-10-15T18:00:14+00:00'
 theme: Astrophysics
 title: Constraining Power of Wavelet vs. Power Spectrum Statistics for CMB Lensing
   and Weak Lensing with Learned Binning
-wordCount: 1201
+wordCount: 1391
 ---
 
 ## The Big Picture
@@ -72,7 +72,7 @@ The researchers used the `ULAGAM` suite of 2,000 N-body simulations, numerical e
 
 Rather than asking which statistic extracts the most information in general, the team focused on two cosmological parameters: **Ω_m** (the total matter density) and **σ_8** (the amplitude of matter density fluctuations at a scale of 8 h⁻¹ Mpc). These are the parameters weak lensing is most sensitive to.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2510_13968/figure_1.png)
 
 A traditional power spectrum (C_ℓ) asks: how much power exists at each angular frequency? It's a global, rotation-invariant measure.
 
@@ -84,11 +84,11 @@ A key methodological contribution is **learned binning**, a compression scheme t
 
 For the cross-correlation between CMB lensing and Euclid weak lensing, WPH outperforms cross-power spectra by factors between 2.2 and 3.4 for individual parameter constraints. That's not a modest improvement. It's equivalent to running an experiment two to three times longer, or covering several times more sky, just by changing the statistic.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2510_13968/figure_2.png)
 
 The story changes for CMB lensing alone. When analyzing κ_CMB in isolation, WST and standard C_ℓ's yield comparable constraints. The gain from wavelets emerges specifically in the cross-correlation regime, where non-Gaussian structure in the lower-redshift galaxy lensing maps hasn't been erased by projection effects. This makes physical sense: galaxy weak lensing probes structure closer to us, where nonlinear evolution is most advanced and the crumpled-paper creases are most pronounced.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2510_13968/figure_3.png)
 
 Learned binning carries a broader lesson. Cosmological analyses face a growing pile of summary statistic choices: how many ℓ-bins for a power spectrum, which angular separations for a bispectrum (a statistic capturing three-point correlations beyond what a two-point power spectrum can see), which wavelet scales to include. Learned binning gives an interpretable way to compress any statistic to a fixed dimensionality while maximizing information content.
 
@@ -100,18 +100,15 @@ What comes next is applying WPH to real Euclid data. The mission is currently su
 
 ---
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings machine learning compression techniques together with traditional cosmological statistics, applying wavelet methods from signal processing to CMB and galaxy lensing maps for the first time. The Fisher-optimized binning scheme is general enough to apply to any summary statistic in any field.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The learned binning method offers an interpretable alternative to black-box neural network compression, using Fisher information maximization on held-out data to produce compact, overfitting-resistant statistics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Wavelet phase harmonics outperform power spectra by factors of 2.2–3.4 for cross-lensing statistics, pointing toward tighter constraints on Ω_m and σ_8 from upcoming surveys like Euclid and the Simons Observatory.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will apply these methods to real Euclid and CMB data, where baryonic systematics and noise must be carefully modeled; the paper is available at [arXiv:2510.13968](https://arxiv.org/abs/2510.13968).
 
-- **Interdisciplinary Research Achievement:** This work brings machine learning compression techniques together with traditional cosmological statistics, applying wavelet methods from signal processing to CMB and galaxy lensing maps for the first time. The Fisher-optimized binning scheme is general enough to apply to any summary statistic in any field.
-
-- **Impact on Artificial Intelligence:** The learned binning method offers an interpretable alternative to black-box neural network compression, using Fisher information maximization on held-out data to produce compact, overfitting-resistant statistics.
-
-- **Impact on Fundamental Interactions:** Wavelet phase harmonics outperform power spectra by factors of 2.2–3.4 for cross-lensing statistics, pointing toward tighter constraints on Ω_m and σ_8 from upcoming surveys like Euclid and the Simons Observatory.
-
-- **Outlook and References:** Future work will apply these methods to real Euclid and CMB data, where baryonic systematics and noise must be carefully modeled; the paper is available at [arXiv:2510.13968](https://arxiv.org/abs/2510.13968).
-
-## Original Paper Details
-- **Title:** Constraining Power of Wavelet vs. Power Spectrum Statistics for CMB Lensing and Weak Lensing with Learned Binning
-- **arXiv ID:** 2510.13968
-- **Authors:** ["Kyle Boone", "Georgios Valogiannis", "Marco Gatti", "Cora Dvorkin"]
-- **Abstract:** We present forecasts for constraints on the matter density ($Ω_m$) and the amplitude of matter density fluctuations at 8h$^{-1}$Mpc ($σ_8$) from CMB lensing convergence maps and galaxy weak lensing convergence maps. For CMB lensing convergence auto statistics, we compare the angular power spectra ($C_\ell$'s) to the wavelet scattering transform (WST) coefficients. For CMB lensing convergence $\times$ galaxy weak lensing convergence statistics, we compare the cross angular power spectra to wavelet phase harmonics (WPH). This work also serves as the first application of WST and WPH to these probes. For CMB lensing convergence, we find that WST and $C_\ell$'s yield similar constraints in forecasts for all surveys considered in this work. When CMB lensing convergence is crossed with galaxy weak lensing convergence projected from $\textit{Euclid}$ Data Release 2 (DR2), we find that WPH outperforms cross-$C_\ell$'s by factors between $2.2$ and $3.4$ for individual parameter constraints. To compare these different summary statistics, we develop a novel learned binning approach. This method compresses summary statistics while maintaining interpretability. We find this leads to improved constraints compared to more naive binning schemes for our wavelet-based statistics, but not for $C_\ell$'s. By learning the binning and measuring constraints on distinct data sets, our method is robust to overfitting by construction.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Constraining Power of Wavelet vs. Power Spectrum Statistics for CMB Lensing and Weak Lensing with Learned Binning</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2510.13968</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Kyle Boone", "Georgios Valogiannis", "Marco Gatti", "Cora Dvorkin"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present forecasts for constraints on the matter density ($Ω_m$) and the amplitude of matter density fluctuations at 8h$^{-1}$Mpc ($σ_8$) from CMB lensing convergence maps and galaxy weak lensing convergence maps. For CMB lensing convergence auto statistics, we compare the angular power spectra ($C_\ell$'s) to the wavelet scattering transform (WST) coefficients. For CMB lensing convergence $\times$ galaxy weak lensing convergence statistics, we compare the cross angular power spectra to wavelet phase harmonics (WPH). This work also serves as the first application of WST and WPH to these probes. For CMB lensing convergence, we find that WST and $C_\ell$'s yield similar constraints in forecasts for all surveys considered in this work. When CMB lensing convergence is crossed with galaxy weak lensing convergence projected from $\textit{Euclid}$ Data Release 2 (DR2), we find that WPH outperforms cross-$C_\ell$'s by factors between $2.2$ and $3.4$ for individual parameter constraints. To compare these different summary statistics, we develop a novel learned binning approach. This method compresses summary statistics while maintaining interpretability. We find this leads to improved constraints compared to more naive binning schemes for our wavelet-based statistics, but not for $C_\ell$'s. By learning the binning and measuring constraints on distinct data sets, our method is robust to overfitting by construction.</span></div></div>
+</div>

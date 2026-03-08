@@ -41,7 +41,7 @@ published: '2022-08-26T18:00:04+00:00'
 theme: Astrophysics
 title: Uncovering dark matter density profiles in dwarf galaxies with graph neural
   networks
-wordCount: 1014
+wordCount: 956
 ---
 
 ## The Big Picture
@@ -70,11 +70,11 @@ The new approach learns directly from simulated data in three stages:
 
 3. **Simulation-based inference:** The compressed graph features feed into a **neural posterior estimator**, a neural network that maps observations to a full probability distribution over model parameters. No explicit likelihood function is required. The simulator itself encodes all the physics.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2208_12825/figure_1.png)
 
 Given observed stellar positions and **line-of-sight velocities** (how fast each star is moving toward or away from Earth), the pipeline returns a full posterior distribution over the five dark matter profile parameters, including the slope γ that distinguishes cusps from cores.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2208_12825/figure_2.png)
 
 On test simulations, the GNN-based method consistently outperforms Jeans modeling. The posteriors are narrower, meaning tighter constraints on γ, and remain well-calibrated. Posterior estimation for a new observation takes seconds rather than hours.
 
@@ -82,7 +82,7 @@ On test simulations, the GNN-based method consistently outperforms Jeans modelin
 
 The core-cusp discrepancy has nagged at cosmologists for decades. If halos are genuinely cored, it could mean dark matter self-interacts, or that baryonic feedback from supernovae and stellar winds reshapes halos in ways current simulations don't capture. Getting a definitive answer requires measurements precise enough to distinguish profiles that differ mainly in their innermost regions, where data is sparse.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2208_12825/figure_3.png)
 
 The machine learning approach here delivers that extra precision. The GNN uses the full spatial and kinematic picture of the stars, not just velocity dispersions, picking up information that Jeans modeling leaves on the table. As observational datasets grow (future surveys like the Vera Rubin Observatory will discover hundreds of new Milky Way satellites), methods like this become essential tools.
 
@@ -90,12 +90,9 @@ The current proof-of-concept assumes idealized, spherically symmetric, equilibri
 
 > **Bottom Line:** Graph neural networks trained on simulated dwarf galaxies can infer dark matter density profiles with sharper constraints than classical Jeans modeling, bringing the resolution of the core-cusp puzzle measurably closer.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of simulation-based astrophysics and modern deep learning, replacing analytic summary statistics with learned graph representations to tackle one of cosmology's enduring puzzles.
-
-- **Impact on Artificial Intelligence:** The approach shows how graph neural networks and neural posterior estimators can jointly handle variable-size, unordered point-cloud datasets in a principled Bayesian inference framework.
-
-- **Impact on Fundamental Interactions:** Tighter constraints on dark matter density profiles in dwarf galaxies strengthen the search for non-gravitational dark matter interactions and help discriminate between competing cosmological models.
-
-- **Outlook and References:** Future extensions will incorporate non-equilibrium dynamics, proper motion data, and real observational uncertainties. The work is available at [arXiv:2208.12825](https://arxiv.org/abs/2208.12825).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of simulation-based astrophysics and modern deep learning, replacing analytic summary statistics with learned graph representations to tackle one of cosmology's enduring puzzles.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The approach shows how graph neural networks and neural posterior estimators can jointly handle variable-size, unordered point-cloud datasets in a principled Bayesian inference framework.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Tighter constraints on dark matter density profiles in dwarf galaxies strengthen the search for non-gravitational dark matter interactions and help discriminate between competing cosmological models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions will incorporate non-equilibrium dynamics, proper motion data, and real observational uncertainties. The work is available at [arXiv:2208.12825](https://arxiv.org/abs/2208.12825).</span></div></div>
+</div>

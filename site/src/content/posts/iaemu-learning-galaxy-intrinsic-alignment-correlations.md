@@ -74,13 +74,13 @@ From those catalogs, the team measured three correlation functions:
 - **ω (omega)**: position-orientation, capturing how galaxy orientations correlate with nearby galaxy positions
 - **η (eta)**: orientation-orientation, capturing how the shapes of two galaxies point toward or away from each other
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2504_05235/figure_1.png)
 
 IAEmu is a neural network trained to map HOD parameters directly to these three correlation functions, bypassing simulation entirely. The architecture outputs two types of uncertainty: aleatoric uncertainty, which captures irreducible noise like the intrinsic randomness of galaxy shapes, and epistemic uncertainty, which reflects the model's confidence based on how well its training data covered a given region of parameter space. Together, these tell users when to trust the emulator and when to be cautious.
 
 Training used thousands of HOD mock catalogs spanning a wide parameter space. IAEmu hits roughly 3% average error on ξ and 5% on ω compared to simulated ground truth. For η, the noisiest of the three and dominated by shape noise, the model avoids overfitting and instead captures mean behavior across many realizations.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2504_05235/figure_2.png)
 
 Because IAEmu is fully differentiable and deployable on GPUs, it can be queried almost instantaneously. The team measured an approximately 10,000× speedup over CPU-based HOD simulations: the difference between waiting days and getting answers in seconds.
 
@@ -90,7 +90,7 @@ The speed gain isn't just convenient. It opens up a new mode of scientific inqui
 
 With IAEmu, gradient-based sampling algorithms like Hamiltonian Monte Carlo can query the emulator directly. HMC navigates parameter space by following mathematical gradients, much like water finding the fastest route downhill, and the differentiable emulator makes this natural. The team shows this explicitly: IAEmu supports efficient parameter recovery via differentiable sampling, cutting the cost of pinning down model parameters by orders of magnitude.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2504_05235/figure_3.png)
 
 IAEmu also generalizes beyond the HOD sandbox it was trained on. The researchers tested it by fitting IA parameters to data from the IllustrisTNG300 hydrodynamical simulation, a physically richer model that includes gas, star formation, and feedback processes that HOD models don't capture. IAEmu adapted, showing that its learned representations transfer beyond its training distribution.
 
@@ -98,12 +98,9 @@ This is a big deal for real surveys, where the true galaxy formation physics wil
 
 > **Bottom Line:** IAEmu makes it practical to model galaxy intrinsic alignments at the precision demanded by next-generation cosmic surveys, delivering simulation-quality predictions 10,000 times faster, with built-in uncertainty quantification and gradient-based inference support.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of machine learning and observational cosmology, using neural network emulation to tackle intrinsic alignment contamination, a core obstacle between current telescope capabilities and fundamental discoveries about dark matter and dark energy.
-
-- **Impact on Artificial Intelligence:** IAEmu combines aleatoric and epistemic uncertainty estimates in a differentiable architecture that supports gradient-based inverse modeling, an approach applicable to scientific surrogate modeling well beyond astrophysics.
-
-- **Impact on Fundamental Interactions:** By making accurate IA modeling computationally tractable, IAEmu supports more reliable cosmological inference from weak lensing surveys, tightening constraints on theories of gravity, dark energy, and large-scale structure.
-
-- **Outlook and References:** IAEmu is positioned as a core tool for Stage IV surveys including LSST, Roman, and Euclid. Future work will extend the emulator to varying cosmological parameters and full likelihood pipelines. The paper is available at [arXiv:2504.05235](https://arxiv.org/abs/2504.05235).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of machine learning and observational cosmology, using neural network emulation to tackle intrinsic alignment contamination, a core obstacle between current telescope capabilities and fundamental discoveries about dark matter and dark energy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">IAEmu combines aleatoric and epistemic uncertainty estimates in a differentiable architecture that supports gradient-based inverse modeling, an approach applicable to scientific surrogate modeling well beyond astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By making accurate IA modeling computationally tractable, IAEmu supports more reliable cosmological inference from weak lensing surveys, tightening constraints on theories of gravity, dark energy, and large-scale structure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">IAEmu is positioned as a core tool for Stage IV surveys including LSST, Roman, and Euclid. Future work will extend the emulator to varying cosmological parameters and full likelihood pipelines. The paper is available at [arXiv:2504.05235](https://arxiv.org/abs/2504.05235).</span></div></div>
+</div>

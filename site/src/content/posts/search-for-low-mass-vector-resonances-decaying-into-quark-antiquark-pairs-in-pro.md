@@ -40,7 +40,7 @@ published: '2019-09-09T19:24:17+00:00'
 theme: Experimental Physics
 title: Search for low mass vector resonances decaying into quark-antiquark pairs in
   proton-proton collisions at $\sqrt{s} =$ 13 TeV
-wordCount: 1144
+wordCount: 1315
 ---
 
 ## The Big Picture
@@ -65,7 +65,7 @@ The CMS team found an elegant workaround: look for events where the new resonanc
 
 When a hypothetical Z' boson (the stand-in model for these resonances) decays into a quark-antiquark pair at high momentum, the two daughter quarks get swept together by the boost. Instead of flying apart into two well-separated jets, they merge into a single fat jet with distinctive **two-pronged substructure**, like a snowball that, on closer inspection, turns out to be two smaller snowballs stuck together.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/1909_04114/figure_1.png)
 
 The team used two wide-jet algorithms to catch these merged decays across the full mass range:
 - **AK8 jets** (anti-kT algorithm, radius R = 0.8): efficient for resonance masses below ~200 GeV where decay products are tightly collimated
@@ -73,11 +73,11 @@ The team used two wide-jet algorithms to catch these merged decays across the fu
 
 To separate signal from QCD background, they applied a jet substructure tagger called **N-subjettiness**. This variable quantifies how well a jet's radiation pattern matches two prongs versus one: signal jets from Z' decay score high on "two-pronginess," while ordinary QCD jets tend to be more diffuse.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/1909_04114/figure_2.png)
 
 After selecting substructure-tagged candidates, the analysis looked for a narrow bump in the **invariant jet mass spectrum**, the distribution of masses reconstructed from all particles inside the fat jet. QCD background falls smoothly as a function of mass; a new resonance would appear as a localized excess on top. The search covered masses from 50 to 450 GeV, with the 2017 dataset extending earlier work into the previously unexplored 300–450 GeV range.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/1909_04114/figure_3.png)
 
 No bump turned up. The collaboration used this absence to set **upper limits at 95% confidence level** on the coupling strength of such resonances to quarks, drawing a boundary on how strongly these hypothetical particles could interact and still have gone undetected. For masses between 50 and 300 GeV, these are the most sensitive constraints ever placed on leptophobic vector resonances. The 300–450 GeV window is completely new territory for jet substructure-based searches.
 
@@ -89,15 +89,15 @@ The jet substructure techniques refined here have reach well beyond this particu
 
 > **Bottom Line:** CMS found no new particles between 50 and 450 GeV using an ISR-boosted jet substructure strategy, but set the world's most stringent limits on hidden quark-coupling resonances across most of that range, a significant step in mapping the boundaries of physics beyond the Standard Model.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines advanced detector physics with jet substructure algorithms, using variables like N-subjettiness to extract faint signals from an overwhelming QCD background.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The jet substructure and N-subjettiness techniques developed here are building blocks for machine learning-based jet taggers now used in next-generation LHC analyses.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By setting the most sensitive limits to date on leptophobic vector resonances in the 50–300 GeV range and opening the 300–450 GeV window for the first time with substructure methods, this search directly constrains models of new gauge symmetries and dark matter mediators.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future high-luminosity LHC runs and AI-powered anomaly detection will push these limits further; the full analysis is available at [arXiv:1909.04114](https://arxiv.org/abs/1909.04114), published in Physical Review D (doi:10.1103/PhysRevD.100.112007).
 
-- **Interdisciplinary Research Achievement:** This work combines advanced detector physics with jet substructure algorithms, using variables like N-subjettiness to extract faint signals from an overwhelming QCD background.
-- **Impact on Artificial Intelligence:** The jet substructure and N-subjettiness techniques developed here are building blocks for machine learning-based jet taggers now used in next-generation LHC analyses.
-- **Impact on Fundamental Interactions:** By setting the most sensitive limits to date on leptophobic vector resonances in the 50–300 GeV range and opening the 300–450 GeV window for the first time with substructure methods, this search directly constrains models of new gauge symmetries and dark matter mediators.
-- **Outlook and References:** Future high-luminosity LHC runs and AI-powered anomaly detection will push these limits further; the full analysis is available at [arXiv:1909.04114](https://arxiv.org/abs/1909.04114), published in Physical Review D (doi:10.1103/PhysRevD.100.112007).
-
-## Original Paper Details
-- **Title:** Search for low mass vector resonances decaying into quark-antiquark pairs in proton-proton collisions at $\sqrt{s} =$ 13 TeV
-- **arXiv ID:** 1909.04114
-- **Authors:** ["CMS Collaboration"]
-- **Abstract:** A search for low mass narrow vector resonances decaying into quark-antiquark pairs is presented. The analysis is based on data collected in 2017 with the CMS detector at the LHC in proton-proton collisions at a center-of-mass energy of 13 TeV, corresponding to an integrated luminosity of 41.1 fb$^{-1}$. The results of this analysis are combined with those of an earlier analysis based on data collected at the same collision energy in 2016, corresponding to 35.9 fb$^{-1}$. Signal candidates will be recoiling against initial state radiation and are identified as energetic, large-radius jets with two pronged substructure. The invariant jet mass spectrum is probed for a potential narrow peaking signal over a smoothly falling background. No evidence for such resonances is observed within the mass range of 50-450 GeV. Upper limits at the 95% confidence level are set on the coupling of narrow resonances to quarks, as a function of the resonance mass. For masses between 50 and 300 GeV these are the most sensitive limits to date. This analysis extends the earlier search to a mass range of 300-450 GeV, which is probed for the first time with jet substructure techniques.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Search for low mass vector resonances decaying into quark-antiquark pairs in proton-proton collisions at $\sqrt{s} =$ 13 TeV</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">1909.04114</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["CMS Collaboration"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">A search for low mass narrow vector resonances decaying into quark-antiquark pairs is presented. The analysis is based on data collected in 2017 with the CMS detector at the LHC in proton-proton collisions at a center-of-mass energy of 13 TeV, corresponding to an integrated luminosity of 41.1 fb$^{-1}$. The results of this analysis are combined with those of an earlier analysis based on data collected at the same collision energy in 2016, corresponding to 35.9 fb$^{-1}$. Signal candidates will be recoiling against initial state radiation and are identified as energetic, large-radius jets with two pronged substructure. The invariant jet mass spectrum is probed for a potential narrow peaking signal over a smoothly falling background. No evidence for such resonances is observed within the mass range of 50-450 GeV. Upper limits at the 95% confidence level are set on the coupling of narrow resonances to quarks, as a function of the resonance mass. For masses between 50 and 300 GeV these are the most sensitive limits to date. This analysis extends the earlier search to a mass range of 300-450 GeV, which is probed for the first time with jet substructure techniques.</span></div></div>
+</div>

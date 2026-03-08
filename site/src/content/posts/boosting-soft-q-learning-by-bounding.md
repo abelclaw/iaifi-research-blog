@@ -32,7 +32,7 @@ pdfUrl: https://arxiv.org/pdf/2406.18033v1
 published: '2024-06-26T03:02:22+00:00'
 theme: Foundational AI
 title: Boosting Soft Q-Learning by Bounding
-wordCount: 1013
+wordCount: 915
 ---
 
 ## The Big Picture
@@ -53,7 +53,7 @@ This work lives in the world of **entropy-regularized RL**, sometimes called **s
 
 The exploration bonus makes the math more tractable and the resulting strategies harder to exploit. The central object is the **soft Q-function**, Q\*(s,a): a score measuring how valuable it is to take action *a* in state *s* when following the optimal soft strategy thereafter.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2406_18033/figure_1.png)
 
 The bounding framework works in three steps:
 
@@ -77,12 +77,9 @@ The bounding results extend to continuous state-action spaces, connecting clean 
 
 > **Bottom Line:** Reframing a prior Q-function estimate as a source of structural constraints, rather than just an initial guess, gives us a principled way to squeeze more performance out of existing RL infrastructure. It's a rigorous answer to how agents should build on what they already know.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work draws on the mathematical structure of entropy-regularized RL, a framework rooted in statistical physics and free energy principles, to derive new algorithmic guarantees. It's a clear case of physics intuition producing concrete advances in machine learning theory.
-
-- **Impact on Artificial Intelligence:** The bounding framework provides a general method for improving soft Q-learning using any available prior estimate, with demonstrated gains in tabular settings and theoretical extensions to deep RL.
-
-- **Impact on Fundamental Interactions:** By extending exact analytical results for soft Q-functions to continuous state-action spaces, the work tightens the mathematical connection between entropy-regularized control theory and the physics of stochastic systems.
-
-- **Outlook and References:** Future work will focus on scaling the soft clip loss approach to high-dimensional deep RL benchmarks and exploring compositional task settings. The paper appeared at RLC 2024 and code is available at [github.com/JacobHA/RLC-SoftQBounding](https://github.com/JacobHA/RLC-SoftQBounding).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work draws on the mathematical structure of entropy-regularized RL, a framework rooted in statistical physics and free energy principles, to derive new algorithmic guarantees. It's a clear case of physics intuition producing concrete advances in machine learning theory.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The bounding framework provides a general method for improving soft Q-learning using any available prior estimate, with demonstrated gains in tabular settings and theoretical extensions to deep RL.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By extending exact analytical results for soft Q-functions to continuous state-action spaces, the work tightens the mathematical connection between entropy-regularized control theory and the physics of stochastic systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on scaling the soft clip loss approach to high-dimensional deep RL benchmarks and exploring compositional task settings. The paper appeared at RLC 2024 and code is available at [github.com/JacobHA/RLC-SoftQBounding](https://github.com/JacobHA/RLC-SoftQBounding).</span></div></div>
+</div>

@@ -65,7 +65,7 @@ A team from TTIC, MIT CSAIL, and IAIFI offers a different answer: don't try to a
 
 When a trained neural network encounters images from a new visual domain (different lighting, a cluttered background, a shifted camera) its internal **latent features**, the compressed numerical summaries the network builds from each image, shift accordingly. The pixel values change, those summaries change, and the policy misfires. ILA's goal is to undo that shift in latent space, after training, without touching the policy itself.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_08526/figure_1.png)
 
 Here's the process:
 
@@ -79,7 +79,7 @@ Here's the process:
 
 What separates this from pixel-level approaches like CycADA is *where* adaptation happens. Working in compact latent space is faster and, as the experiments confirm, more effective for control tasks.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_08526/figure_1.png)
 
 ## Why It Matters
 
@@ -87,7 +87,7 @@ The team tested ILA on the **Distractor Control Suite**, a standard benchmark th
 
 ILA outperformed data augmentation baselines across all tested conditions. It succeeded where augmentation fails entirely, particularly with camera pose shifts. Augmentation can't fix those because the geometric relationship between pixels fundamentally changes. The method also transferred to a physical robot in a sim-to-real setup.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_08526/figure_2.png)
 
 What stands out is that simple adversarial distribution matching in latent space proved sufficient to handle diverse, unpredictable visual perturbations that careful training-time engineering could not anticipate.
 
@@ -99,12 +99,9 @@ The open question: what happens when the deployment environment isn't just *visu
 
 > **Bottom Line:** ILA lets robots adapt to unknown visual changes at deployment time by aligning internal representations, with no labels, no rewards, and no prior knowledge of what will change. It achieves strong results across lighting, background, and camera shifts that standard training-time augmentation cannot cover.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of reinforcement learning and unsupervised domain adaptation, applying distribution-matching techniques from machine learning theory to the practical problem of deploying physical robots in uncontrolled environments.
-
-- **Impact on Artificial Intelligence:** ILA shows that test-time adaptation in latent space can outperform training-time augmentation for visuomotor control. This opens a new direction for perception systems that generalize without prior knowledge of deployment conditions.
-
-- **Impact on Fundamental Interactions:** Enabling robots to adapt to unknown perceptual shifts without supervision pushes forward the foundations of embodied AI, a capability that matters wherever intelligent systems operate in conditions that can't be perfectly controlled.
-
-- **Outlook and References:** Future work will explore how latent alignment scales to more complex structural distribution shifts and multi-task settings. The paper is available at [arXiv:2112.08526](https://arxiv.org/abs/2112.08526), with code and videos at the project website.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of reinforcement learning and unsupervised domain adaptation, applying distribution-matching techniques from machine learning theory to the practical problem of deploying physical robots in uncontrolled environments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">ILA shows that test-time adaptation in latent space can outperform training-time augmentation for visuomotor control. This opens a new direction for perception systems that generalize without prior knowledge of deployment conditions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Enabling robots to adapt to unknown perceptual shifts without supervision pushes forward the foundations of embodied AI, a capability that matters wherever intelligent systems operate in conditions that can't be perfectly controlled.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore how latent alignment scales to more complex structural distribution shifts and multi-task settings. The paper is available at [arXiv:2112.08526](https://arxiv.org/abs/2112.08526), with code and videos at the project website.</span></div></div>
+</div>

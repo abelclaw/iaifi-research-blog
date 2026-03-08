@@ -65,7 +65,7 @@ The foundation is a **denoising diffusion probabilistic model (DDPM)**, the same
 
 Training data comes from the CAMELS Multifield Dataset, drawn from IllustrisTNG simulations. Each simulation tracks 256³ dark matter particles over a 25 Mpc/h volume. The team trained on 10,500 two-dimensional field slices spanning 700 cosmologies, using a U-Net with **circular convolutions** to respect the periodic boundary conditions of cosmological simulations.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_05255/figure_1.png)
 
 Once trained, the model fills two roles:
 
@@ -74,13 +74,13 @@ Once trained, the model fills two roles:
 
 The inference step uses **Hamiltonian Monte Carlo (HMC)**, a sampling method borrowed from physics. Think of a ball rolling across a hilly landscape where valleys mark likely parameter combinations. HMC uses gradient information to explore efficiently. The gradients come from the diffusion model itself: by tracking how reconstruction error changes as Ω_m and σ_8 are varied, the team extracts a differentiable approximate likelihood and uses HMC to walk through it, building a full **posterior distribution**.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_05255/figure_2.png)
 
 The result is not just a best-fit cosmology but a complete picture of consistent values and their trade-offs. The method also holds up under noise. When the researchers added Gaussian noise to test fields and compared Diffusion-HMC against a standard discriminative CNN, the CNN's performance degraded noticeably. The diffusion model, trained to denoise fields at every corruption level, retained structural knowledge of the signal even when noise intruded.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2405_05255/figure_3.png)
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2405_05255/figure_3.png)
 
 ## Why It Matters
 
@@ -94,9 +94,9 @@ The current model is conditioned only on Ω_m and σ_8. Extending it to the full
 
 > **Bottom Line:** A single diffusion model trained on dark matter simulations can both generate realistic cosmic fields and constrain cosmological parameters. HMC-based inference proves more noise-robust than discriminative neural network baselines, opening a new path toward field-level cosmological analysis with upcoming surveys.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses score-based generative modeling from machine learning with Hamiltonian Monte Carlo from statistical physics. A model built for synthesis doubles as a precision measurement tool for cosmological inference.
-- **Impact on Artificial Intelligence:** The paper shows a dual use of diffusion models as both generative emulators and approximate likelihood engines, creating a template for deploying generative AI in scientific inverse problems beyond image synthesis.
-- **Impact on Fundamental Interactions:** Full-field inference on dark matter density maps extracts cosmological constraints beyond power-spectrum summaries, probing non-Gaussian structure that encodes information about matter clustering and fundamental cosmological parameters.
-- **Outlook and References:** Future work could extend the framework to real observed fields and the full CAMELS parameter space; the paper is available at [arXiv:2405.05255](https://arxiv.org/abs/2405.05255).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses score-based generative modeling from machine learning with Hamiltonian Monte Carlo from statistical physics. A model built for synthesis doubles as a precision measurement tool for cosmological inference.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows a dual use of diffusion models as both generative emulators and approximate likelihood engines, creating a template for deploying generative AI in scientific inverse problems beyond image synthesis.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Full-field inference on dark matter density maps extracts cosmological constraints beyond power-spectrum summaries, probing non-Gaussian structure that encodes information about matter clustering and fundamental cosmological parameters.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the framework to real observed fields and the full CAMELS parameter space; the paper is available at [arXiv:2405.05255](https://arxiv.org/abs/2405.05255).</span></div></div>
+</div>

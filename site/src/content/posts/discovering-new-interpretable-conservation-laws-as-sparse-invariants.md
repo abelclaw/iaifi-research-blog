@@ -59,7 +59,7 @@ A team from MIT and collaborators built the **Sparse Invariant Detector**, or SI
 
 A conserved quantity *H(x)* must satisfy one condition: as the system evolves, *H* cannot change. In math: ∇*H* · f(x) = 0. This is not a new observation. What SID does is exploit it cleverly.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2305_19525/figure_1.png)
 
 Rather than training a neural network, SID expresses *H* as a **linear combination of basis functions**, mathematical building blocks like polynomials or trigonometric terms that domain experts suspect might appear in the answer. With that assumption, the conservation condition becomes a system of linear equations. Computers solve linear equations exactly, without risk of getting stuck at imperfect solutions.
 
@@ -72,7 +72,7 @@ The workflow:
 
 The result is a complete, independent, and interpretable set of conserved quantities. Prior methods struggled to guarantee all three at once.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2305_19525/figure_1.png)
 
 ## Why It Matters
 
@@ -80,33 +80,33 @@ SID's sharpest results come from outside pure physics.
 
 In 2D and 3D fluid mechanics, SID analyzed the vorticity equations governing how rotation in a fluid evolves. Domain experts knew of 12 conserved quantities for 3D flow. SID found 14.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2305_19525/figure_2.png)
 
 The two new ones weren't exotic. In hindsight, experts called them "somewhat expected." But finding them by hand would have taken months. SID found them in seconds.
 
 The atmospheric chemistry case is even more revealing. Applied to a simplified chemical network modeling atmospheric reactions, SID found 3 conserved quantities where experts knew of 2. The third was unintended by the model designers: an accidental algebraic structure in how the equations were written, a hidden constraint nobody had searched for because nobody thought to look.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2305_19525/figure_2.png)
 
 This has practical consequences. If you're simulating a system numerically and don't know it has an extra conserved quantity, your simulation may drift in ways you can't explain. SID catches these hidden structures automatically.
 
 The approach deliberately restricts itself to linear methods, plus one sparsification step, because that limitation makes its outputs trustworthy. Every result is a formula. Every formula can be checked by hand.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2305_19525/figure_3.png)
 
 Scientists still bring domain knowledge: choosing basis functions, formulating the hypothesis space, interpreting results. SID handles the exhaustive symbolic search, which is exactly the kind of tedious, systematic work where computers outperform humans.
 
 SID currently works in what the authors call the "theorist" setup, where the governing equations are already known. Extending it toward a data-only setting, where you have observations but no equations, remains open. Hybrid approaches that use neural networks to learn equations first, then feed them to SID, are a natural next step. There's also the deeper question of Noether's theorem, which links every conservation law to an underlying symmetry of nature. Could SID's discoveries reverse-engineer hidden symmetries in physical systems?
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2305_19525/figure_3.png)
 
 > **Bottom Line:** SID is a simple, linear-algebraic algorithm that discovers conservation laws guaranteed to be complete, independent, and interpretable. It already found new conserved quantities in fluid mechanics and atmospheric chemistry that experts had missed.
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings together symbolic AI, linear algebra, and physics by turning conservation law discovery into a sparse null-space problem, showing that mathematical rigor and machine automation can work hand in hand across fluid mechanics and atmospheric chemistry.
-- **Impact on Artificial Intelligence:** SID shows that deliberately simple, interpretable algorithms can outperform black-box neural networks for structured scientific discovery tasks, offering a template for trustworthy AI in high-stakes research settings.
-- **Impact on Fundamental Interactions:** By discovering previously unknown conserved quantities in real physical and chemical systems, SID provides a new automated tool for probing the deep mathematical structure of dynamical systems in physics and beyond.
-- **Outlook and References:** Future work may extend SID toward data-driven settings and connect its discoveries to Noether's theorem and hidden symmetry detection; the full paper is available at [arXiv:2305.19525](https://arxiv.org/abs/2305.19525).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together symbolic AI, linear algebra, and physics by turning conservation law discovery into a sparse null-space problem, showing that mathematical rigor and machine automation can work hand in hand across fluid mechanics and atmospheric chemistry.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">SID shows that deliberately simple, interpretable algorithms can outperform black-box neural networks for structured scientific discovery tasks, offering a template for trustworthy AI in high-stakes research settings.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By discovering previously unknown conserved quantities in real physical and chemical systems, SID provides a new automated tool for probing the deep mathematical structure of dynamical systems in physics and beyond.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend SID toward data-driven settings and connect its discoveries to Noether's theorem and hidden symmetry detection; the full paper is available at [arXiv:2305.19525](https://arxiv.org/abs/2305.19525).</span></div></div>
+</div>

@@ -65,7 +65,7 @@ The underlying process is Poisson: each photon arrives unpredictably, but the av
 
 PPAD takes a different path. At its heart is a **neural field**, a neural network that represents a continuous, smooth function rather than a discrete lookup table. Instead of counting photons per bin, PPAD learns a smooth function that, given any moment in time and any energy band, outputs the expected photon arrival rate. The model captures fine structure in source variability without committing to any particular time resolution.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2502_01627/figure_1.png)
 
 The learning architecture uses an **autodecoder**, a twist on the familiar autoencoder worth understanding. In a standard autoencoder, an encoder compresses input data into a **latent vector** (a compact list of numbers that acts as a fingerprint for the input), and a decoder reconstructs the data from that fingerprint. PPAD drops the encoder entirely. Each X-ray source gets its own learnable latent vector that starts random and gets refined during training.
 
@@ -73,7 +73,7 @@ A single shared decoder network takes these latent vectors and tries to reproduc
 
 The loss function is what makes this physically principled. Rather than mean squared error (which assumes Gaussian noise), PPAD uses a **Poisson log-likelihood**, the statistically correct way to score predictions for count data. A **total variation penalty** encourages the reconstructed rate functions to be smooth rather than artificially spiky.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2502_01627/figure_1.png)
 
 Results on the Chandra Source Catalog hold up across multiple tasks:
 
@@ -82,7 +82,7 @@ Results on the Chandra Source Catalog hold up across multiple tasks:
 - **Classification:** When tested on sources with known types, the latent vectors cluster meaningfully, allowing simple classifiers to distinguish source classes with competitive accuracy.
 - **Anomaly detection:** Unusual sources whose photon arrival patterns don't fit the general population register as outliers in latent space, enabling automated flagging.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2502_01627/figure_2.png)
 
 ## Why It Matters
 
@@ -92,7 +92,7 @@ The framework is especially useful for rare or surprising objects, the serendipi
 
 For the machine learning side, PPAD shows how matching your statistical model to the data-generating process can dramatically improve learned representations. The Poisson likelihood isn't a physics-specific trick; it's the right tool whenever your data consists of event counts, whether that's click-stream analysis, neuroscience spike trains, or particle physics detections. The autodecoder architecture also offers a useful alternative to encoder-based approaches when the input data lacks fixed structure.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2502_01627/figure_2.png)
 
 Open questions remain. The current work focuses on the Chandra Source Catalog; extending PPAD to the larger eROSITA dataset, or to multi-telescope joint observations, is an obvious next step. Adding multi-wavelength data (optical, radio, infrared) could yield richer representations still. And as the next generation of X-ray facilities comes online, the need for exactly this kind of scalable, principled automated analysis will only grow.
 
@@ -100,12 +100,9 @@ Open questions remain. The current work focuses on the Chandra Source Catalog; e
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects neural field methods from computer vision with Poisson statistics from physics, producing a tool that respects the quantum nature of light detection while deploying modern representation learning techniques.
-
-- **Impact on Artificial Intelligence:** PPAD shows that replacing generic loss functions with domain-appropriate likelihoods substantially improves learned representations, an approach applicable to any count-data domain well beyond astrophysics.
-
-- **Impact on Fundamental Interactions:** By enabling scalable, label-free analysis of millions of X-ray sources, PPAD accelerates discovery at major observatories and lowers the barrier to identifying new classes of high-energy astrophysical phenomena.
-
-- **Outlook and References:** Future extensions to multi-telescope and multi-wavelength datasets could make PPAD a standard tool for next-generation X-ray astronomy; the paper is available at [arXiv:2502.01627](https://arxiv.org/abs/2502.01627).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects neural field methods from computer vision with Poisson statistics from physics, producing a tool that respects the quantum nature of light detection while deploying modern representation learning techniques.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">PPAD shows that replacing generic loss functions with domain-appropriate likelihoods substantially improves learned representations, an approach applicable to any count-data domain well beyond astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling scalable, label-free analysis of millions of X-ray sources, PPAD accelerates discovery at major observatories and lowers the barrier to identifying new classes of high-energy astrophysical phenomena.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions to multi-telescope and multi-wavelength datasets could make PPAD a standard tool for next-generation X-ray astronomy; the paper is available at [arXiv:2502.01627](https://arxiv.org/abs/2502.01627).</span></div></div>
+</div>

@@ -79,11 +79,11 @@ Training the visual student was the biggest bottleneck. Naive rendering of photo
 
 This cuts training time by about 5×, turning an impractical timeline into a workable one.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_11744/figure_1.png)
 
 Then there's the hand configuration. The robot grasps objects from above, fingers pointing down, meaning gravity constantly tries to pull the object free. Most prior work used upward-facing hands, where gravity pins the object helpfully into the palm. The downward configuration is dramatically harder but far more practical. A robot arm reaching across a table to grab a hammer doesn't get to choose its hand orientation.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2211_11744/figure_1.png)
 
 ## Why It Matters
 
@@ -91,22 +91,19 @@ The benchmark results tell a story of real progress alongside honest remaining g
 
 On familiar objects, the system performs well, with a median reorientation time close to seven seconds. The hardest test was a duck-shaped object with irregular geometry the network had never seen during training. The robot dropped it 56% of the time. But when it held on, it hit the target orientation within 23 degrees in 75% of attempts. Imperfect, but a controller generalizing to a shape it has never touched is something new.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2211_11744/figure_2.png)
 
 The bigger deal is the collapse of the "lab-only" barrier. Each constraint that prior systems required (specialized tactile sensors, multiple cameras, upward-facing hands, extremely slow motion, known object geometry) was a reason the technology couldn't leave controlled environments. This system runs on open-source hardware under $5,000, uses a single commodity depth sensor, and handles objects it has never seen. Not plug-and-play for deployment yet, but the path from lab to world looks navigable for the first time.
 
 Where does it go from here? Can the drop rate on novel objects come down? Can the approach scale to multi-step tool-use tasks, like picking up a screwdriver, reorienting it, and driving the screw? How does performance hold when the environment itself changes, not just the object shape? Each question points toward a generation of follow-on work.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2211_11744/figure_2.png)
 
 > **Bottom Line:** A single depth camera, the right neural architecture, and a cleverly staged simulation pipeline can unlock general-purpose in-hand reorientation, bringing dexterous robotic manipulation closer to real-world deployment.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of deep reinforcement learning, 3D computer vision, and robotics control. Simulation-trained neural policies can now bridge to physical dexterity that previously required hand-engineered solutions or expensive sensor suites.
-
-- **Impact on Artificial Intelligence:** The two-stage teacher-student pipeline, with its synthetic-to-rendered point cloud training, offers a broadly applicable template for accelerating sim-to-real transfer in visual policy learning. The 5× training speedup over naive rendering makes the approach practical at scale.
-
-- **Impact on Fundamental Interactions:** By enabling manipulation of arbitrary object geometries in gravitationally challenging configurations, this research pushes AI systems toward engaging with the full complexity of the physical world rather than a curated subset.
-
-- **Outlook and References:** Future work targets improved generalization to extreme object geometries, integration with downstream tool-use tasks, and further reduction of the sim-to-real gap. Full results are available at [arXiv:2211.11744](https://arxiv.org/abs/2211.11744).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of deep reinforcement learning, 3D computer vision, and robotics control. Simulation-trained neural policies can now bridge to physical dexterity that previously required hand-engineered solutions or expensive sensor suites.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The two-stage teacher-student pipeline, with its synthetic-to-rendered point cloud training, offers a broadly applicable template for accelerating sim-to-real transfer in visual policy learning. The 5× training speedup over naive rendering makes the approach practical at scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling manipulation of arbitrary object geometries in gravitationally challenging configurations, this research pushes AI systems toward engaging with the full complexity of the physical world rather than a curated subset.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets improved generalization to extreme object geometries, integration with downstream tool-use tasks, and further reduction of the sim-to-real gap. Full results are available at [arXiv:2211.11744](https://arxiv.org/abs/2211.11744).</span></div></div>
+</div>

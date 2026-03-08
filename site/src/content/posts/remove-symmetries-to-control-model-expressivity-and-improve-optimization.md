@@ -36,7 +36,7 @@ pdfUrl: https://arxiv.org/pdf/2408.15495v4
 published: '2024-08-28T02:45:41+00:00'
 theme: Foundational AI
 title: Remove Symmetries to Control Model Expressivity and Improve Optimization
-wordCount: 1076
+wordCount: 1008
 ---
 
 ## The Big Picture
@@ -55,7 +55,7 @@ Now, researchers at MIT and EPFL have done both. Liu Ziyin, Yizhou Xu, and Isaac
 
 The starting point is a mathematical observation that's both elegant and unsettling. Many standard training practices (adding weight decay, using certain architectures, designing particular loss functions) introduce **reflection symmetries** into the loss landscape. These are mirror-image patterns where the training landscape looks identical from two opposite sides. Formally, if you apply a transformation $(I - 2P)\theta$, a reflection through a subspace defined by projection matrix $P$, the loss doesn't change.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_15495/figure_1.png)
 
 That sounds harmless. It isn't. The researchers prove two distinct mechanisms through which these symmetries damage training:
 
@@ -68,7 +68,7 @@ The proposed fix, **syre** (SYmmetry REmoval), is almost disarmingly simple. Rat
 
 Specifically, it adds a term of the form $\lambda \|\theta - \theta_0\|^2_D$, where $D$ is a random positive definite matrix. Because $D$ is random and asymmetric, it shatters every reflection symmetry simultaneously. The proof is rigorous: with probability one, a random $D$ breaks all reflection symmetries, including ones the practitioner doesn't know about.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2408_15495/figure_2.png)
 
 You don't need to understand your network's symmetry structure. You don't need to audit the architecture or the loss function. Add one term, sample a random matrix, and the theoretical guarantees handle the rest.
 
@@ -76,7 +76,7 @@ You don't need to understand your network's symmetry structure. You don't need t
 
 Collapse is not a niche problem. It afflicts self-supervised methods, degrades transformers trained with weight decay, and limits physics-informed neural networks that encode symmetries as built-in assumptions. Each of these settings is now, in principle, addressable with a fix that works regardless of model type or the specific symmetries involved.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_15495/figure_3.png)
 
 For physics applications, this work cuts close to something fundamental. Physicists love symmetry and encode it into models deliberately, as a form of domain knowledge. But there's a tension: baking too much symmetry into a neural network can inadvertently create the very traps this paper describes. The syre framework offers a way to navigate that tension. Use physics-informed symmetries where they help, but selectively break the ones that threaten training stability.
 
@@ -86,12 +86,9 @@ The open questions are just as interesting. Can syre be extended to continuous s
 
 > **Bottom Line:** By proving that symmetry-induced collapse is both mechanistically inevitable and mathematically preventable, this work gives the field its first clean, principled handle on one of deep learning's most persistent failure modes. The fix is a single line of code.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies the physicist's language of symmetry (reflection groups, invariant transformations, projection operators) to diagnose and cure a core failure mode in deep learning. Fundamental physics concepts turn out to have direct, actionable consequences for AI optimization.
-
-- **Impact on Artificial Intelligence:** The syre algorithm is the first provably correct, model-agnostic method for breaking symmetry-induced collapse in neural networks, with improvements shown across self-supervised learning, language model fine-tuning, and graph neural networks.
-
-- **Impact on Fundamental Interactions:** By formalizing how symmetry governs the capacity and dynamics of learned representations, this work strengthens the theoretical connection between symmetry principles in physics and the geometry of neural network loss landscapes.
-
-- **Outlook and References:** Future directions include extending the framework to continuous and Lie-group symmetries common in physics-informed networks. The paper by Liu Ziyin, Yizhou Xu, and Isaac Chuang (MIT and EPFL) was published at ICLR 2025. [arXiv:2408.15495](https://arxiv.org/abs/2408.15495)
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies the physicist's language of symmetry (reflection groups, invariant transformations, projection operators) to diagnose and cure a core failure mode in deep learning. Fundamental physics concepts turn out to have direct, actionable consequences for AI optimization.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The syre algorithm is the first provably correct, model-agnostic method for breaking symmetry-induced collapse in neural networks, with improvements shown across self-supervised learning, language model fine-tuning, and graph neural networks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By formalizing how symmetry governs the capacity and dynamics of learned representations, this work strengthens the theoretical connection between symmetry principles in physics and the geometry of neural network loss landscapes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the framework to continuous and Lie-group symmetries common in physics-informed networks. The paper by Liu Ziyin, Yizhou Xu, and Isaac Chuang (MIT and EPFL) was published at ICLR 2025. [arXiv:2408.15495](https://arxiv.org/abs/2408.15495)</span></div></div>
+</div>

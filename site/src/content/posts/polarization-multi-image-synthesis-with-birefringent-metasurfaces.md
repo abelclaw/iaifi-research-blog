@@ -66,7 +66,7 @@ The system has two core components. The first is a **birefringent metasurface**,
 
 Each nanofin acts as a tiny polarization prism, delaying light oscillating in one direction by a different amount than the other. By controlling each nanofin's width parameters (*wx* and *wy*), engineers sculpt how light from any scene point fans out across the sensor (the **point spread function**, or PSF) and make that spreading pattern differ by polarization.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2307_08106/figure_1.png)
 
 The second component is a **polarization-mosaicked photosensor**, a camera sensor tiled with tiny polarization filters, analogous to how a Bayer RGB sensor tiles red, green, and blue filters across pixels. Four linear polarization orientations (0°, 45°, 90°, 135°) cover the pixel array. When light passes through the metasurface and lands on this sensor, each of the four polarization channels records a differently-coded version of the scene. The coding is baked into the optics: the metasurface's nanofin geometry determines the four PSFs.
 
@@ -78,7 +78,7 @@ Here's the elegant part. Any target spatial filter can be approximated as a line
 
 No digital convolution. No sliding a filter template pixel by pixel across an image. Filter size doesn't matter computationally because physics handles it. And by changing only the weights after capture, you select any filter from a continuous family that the metasurface was designed to span.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2307_08106/figure_1.png)
 
 Designing the metasurface is a non-trivial inverse problem: working backwards from desired filters to precise nanofin shapes. The team solves it with **gradient descent**, iteratively nudging the design toward better solutions. They introduce a novel **regularizer** (a penalty term that discourages theoretically valid but practically useless solutions) to steer the optimizer away from designs that are too dim or too noisy for real imaging conditions.
 
@@ -92,21 +92,18 @@ Spatial filtering is foundational in computer vision, scientific imaging, and ma
 
 Where computational power is scarce (embedded sensors, satellite imagers, real-time robotics), moving filtering into optics could make a serious difference. The team also releases **D-Flat**, an open-source package for end-to-end metasurface design, making it easier for other groups to build on this foundation.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2307_08106/figure_2.png)
 
 > **Bottom Line:** A metasurface thinner than a wavelength of light, paired with a polarization sensor and a weighted sum, can replace large digital convolutions entirely, and do so for an infinite family of filters from a single snapshot.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of nanophotonic engineering, computational imaging, and machine learning optimization. The team uses gradient-based methods from AI to solve an inverse optics problem, determining nanostructure geometry at the sub-wavelength scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The approach shows that AI-inspired optimization (gradient descent with task-specific regularization) can design physical systems that move computational workloads from software to hardware, pointing toward a new class of physics-accelerated inference pipelines.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By engineering the polarization-dependent interaction of light with precisely patterned nanostructures, the work deepens our understanding of how birefringent metasurfaces can independently manipulate orthogonal polarization states to encode information optically.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the filter family to higher-dimensional spans and integrating D-Flat for automated metasurface co-design. The work was presented at the 2023 IEEE International Conference on Computational Photography ([arXiv:2307.08106](https://arxiv.org/abs/2307.08106)), with the project page at https://deanhazineh.github.io/publications/Multi_Image_Synthesis/MIS_Home.html.
 
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of nanophotonic engineering, computational imaging, and machine learning optimization. The team uses gradient-based methods from AI to solve an inverse optics problem, determining nanostructure geometry at the sub-wavelength scale.
-
-- **Impact on Artificial Intelligence:** The approach shows that AI-inspired optimization (gradient descent with task-specific regularization) can design physical systems that move computational workloads from software to hardware, pointing toward a new class of physics-accelerated inference pipelines.
-
-- **Impact on Fundamental Interactions:** By engineering the polarization-dependent interaction of light with precisely patterned nanostructures, the work deepens our understanding of how birefringent metasurfaces can independently manipulate orthogonal polarization states to encode information optically.
-
-- **Outlook and References:** Future directions include extending the filter family to higher-dimensional spans and integrating D-Flat for automated metasurface co-design. The work was presented at the 2023 IEEE International Conference on Computational Photography ([arXiv:2307.08106](https://arxiv.org/abs/2307.08106)), with the project page at https://deanhazineh.github.io/publications/Multi_Image_Synthesis/MIS_Home.html.
-
-## Original Paper Details
-- **Title:** Polarization Multi-Image Synthesis with Birefringent Metasurfaces
-- **arXiv ID:** [2307.08106](https://arxiv.org/abs/2307.08106)
-- **Authors:** Dean Hazineh, Soon Wei Daniel Lim, Qi Guo, Federico Capasso, Todd Zickler
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Polarization Multi-Image Synthesis with Birefringent Metasurfaces</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2307.08106](https://arxiv.org/abs/2307.08106)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Dean Hazineh, Soon Wei Daniel Lim, Qi Guo, Federico Capasso, Todd Zickler</span></div></div>
+</div>

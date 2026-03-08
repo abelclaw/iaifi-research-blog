@@ -38,7 +38,7 @@ published: '2025-05-12T18:00:41+00:00'
 theme: Foundational AI
 title: Symbolic Regression with Multimodal Large Language Models and Kolmogorov Arnold
   Networks
-wordCount: 1124
+wordCount: 1088
 ---
 
 ## The Big Picture
@@ -55,7 +55,7 @@ Now, a team from MIT, Northeastern, and Oxford has found a way to give computers
 
 The core idea is simple. Show a **multimodal LLM** (an AI that processes both text and images; here, `gpt-4o`) a plot of a mathematical function, and ask it to suggest an **ansatz**: a candidate formula with free parameters like `a`, `b`, `c`. Then use a standard numerical optimizer to fit those parameters to the actual data.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2505_07956/figure_1.png)
 
 The first example in the paper makes the case immediately. Given a plot of y = e^(−10x²) sin(2x), an oscillating, decaying wave, Mathematica's `FindFormula` returns a grotesque 19th-degree polynomial. The LLM, shown the same graph, proposes:
 
@@ -79,13 +79,13 @@ Unlike most symbolic regression methods, this approach requires no predefined li
 
 Real physics problems are rarely univariate. A formula describing particle interactions might depend on dozens of variables simultaneously. The researchers extended their method using the **Kolmogorov–Arnold representation theorem**, which guarantees that any continuous multivariate function can be decomposed into sums and compositions of univariate functions.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2505_07956/figure_2.png)
 
 Their combined system, **KAN-LEx**, trains a **Kolmogorov–Arnold Network (KAN)** on the dataset. A trained KAN represents its function as a graph where each edge carries a learned univariate transformation. The image-based symbolic regression method then identifies each edge separately, and a final LLM pass assembles and simplifies the full expression.
 
 "Univariate is all you need" captures the philosophy. Reduce a hard multivariate problem to a collection of easy univariate problems, then solve each with the same image-based approach.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2505_07956/figure_3.png)
 
 Benchmarking against methods like `gplearn` showed KAN-LEx is competitive, and sometimes better, particularly for functions with structure that resists purely syntactic search. The entire initial implementation fit in roughly 100 lines of Python.
 
@@ -99,17 +99,14 @@ Open questions remain. How does performance scale with function complexity? How 
 
 > **Bottom Line:** Teaching an AI to look at a graph and guess the equation, then evolving those guesses like organisms, produces a symbolic regression tool that's both accurate and unusually flexible. The full method is described in [arXiv:2505.07956](https://arxiv.org/abs/2505.07956).
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses computer vision, large language model reasoning, and the Kolmogorov–Arnold representation theorem into a new symbolic regression pipeline, connecting deep learning architectures with a core problem in mathematical physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">LLM-LEx shows that multimodal LLMs can perform structured mathematical reasoning from visual input, enabling steerable, assumption-free function discovery in roughly 100 lines of code.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By making symbolic regression flexible and physics-aware through prompt engineering, this method lowers the bar for discovering compact, interpretable equations in theoretical and experimental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes scaling KAN-LEx to higher-dimensional problems and improving open-model performance; the paper and code are publicly available at [arXiv:2505.07956](https://arxiv.org/abs/2505.07956).
 
-- **Interdisciplinary Research Achievement:** This work fuses computer vision, large language model reasoning, and the Kolmogorov–Arnold representation theorem into a new symbolic regression pipeline, connecting deep learning architectures with a core problem in mathematical physics.
-
-- **Impact on Artificial Intelligence:** LLM-LEx shows that multimodal LLMs can perform structured mathematical reasoning from visual input, enabling steerable, assumption-free function discovery in roughly 100 lines of code.
-
-- **Impact on Fundamental Interactions:** By making symbolic regression flexible and physics-aware through prompt engineering, this method lowers the bar for discovering compact, interpretable equations in theoretical and experimental physics.
-
-- **Outlook and References:** Future work includes scaling KAN-LEx to higher-dimensional problems and improving open-model performance; the paper and code are publicly available at [arXiv:2505.07956](https://arxiv.org/abs/2505.07956).
-
-## Original Paper Details
-- **Title:** Symbolic Regression with Multimodal Large Language Models and Kolmogorov Arnold Networks
-- **arXiv ID:** [2505.07956](https://arxiv.org/abs/2505.07956)
-- **Authors:** Thomas R. Harvey, Fabian Ruehle, Kit Fraser-Taliente, James Halverson
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Symbolic Regression with Multimodal Large Language Models and Kolmogorov Arnold Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2505.07956](https://arxiv.org/abs/2505.07956)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Thomas R. Harvey, Fabian Ruehle, Kit Fraser-Taliente, James Halverson</span></div></div>
+</div>

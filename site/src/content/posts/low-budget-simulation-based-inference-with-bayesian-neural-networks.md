@@ -42,7 +42,7 @@ pdfUrl: https://arxiv.org/pdf/2408.15136v1
 published: '2024-08-27T15:19:07+00:00'
 theme: Foundational AI
 title: Low-Budget Simulation-Based Inference with Bayesian Neural Networks
-wordCount: 1036
+wordCount: 1201
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ Researchers at the University of Liège and MIT's IAIFI have a principled fix: e
 
 The idea builds on **Bayesian deep learning**, a framework that replaces the usual single "best-fit" set of network weights with a full probability distribution over all plausible weight configurations. Instead of asking "what are the right weights?", a **Bayesian neural network (BNN)** asks "given our data, how confident are we about any particular set of weights?" When making predictions, it averages over all plausible networks, a procedure called **Bayesian model averaging**, rather than committing to just one.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_15136/figure_1.png)
 
 The ingredient that makes this work, and where the paper makes its main contribution, is the **prior** over neural network weights. A prior encodes beliefs about the weights before seeing any training data. Most BNN applications use vague, generic priors: Gaussians centered at zero, chosen for mathematical convenience. But this choice matters enormously when data is limited.
 
@@ -79,30 +79,27 @@ What do they find?
 
 ## Why It Matters
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2408_15136/figure_2.png)
 
 The cosmology application makes the stakes concrete. A single simulation of large-scale structure, modeling how galaxies and dark matter are distributed across the cosmos, can require substantial compute. Running thousands of such simulations to train a standard inference network isn't practical. Running a few hundred might be feasible. The authors show their BNN approach produces informative, well-calibrated posterior estimates of cosmological parameters with only a few hundred simulations.
 
 The work also matters for how the field handles uncertainty in machine learning-based science more broadly. The distinction between **aleatoric uncertainty** (genuine randomness in the data) and **epistemic uncertainty** (ignorance due to limited training data) is often glossed over in applied ML. In scientific inference, where the goal is to make reliable claims about nature, conflating the two can be catastrophic. The BNN framework here offers a template for handling epistemic uncertainty honestly, not just in cosmology but wherever simulations are expensive: particle physics, climate modeling, drug discovery, materials science.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_15136/figure_3.png)
 
 Open questions remain. Sampling from a BNN's weight posterior costs more than training a standard network, and scaling these methods to very high-dimensional parameter spaces is an active area of research. Optimal prior design for different problem structures also needs more work. But the core point holds: acknowledging what a network doesn't know is just as important as what it does know.
 
 > **Bottom Line:** Bayesian neural networks with inference-tailored priors can perform reliable simulation-based inference with as few as ten simulations, making rigorous scientific inference feasible for problems where running the simulator is genuinely expensive.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects Bayesian statistics, deep learning theory, and observational cosmology, developing principled ML tools motivated by and validated on real problems in fundamental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides a theoretically grounded framework for designing BNN priors that enforce calibration by construction, advancing uncertainty quantification in neural density estimation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling reliable inference with only hundreds of cosmological simulations, this method makes Bayesian parameter estimation tractable for computationally expensive simulators of large-scale structure and other physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work includes scaling to higher-dimensional problems and more complex simulators. The paper is available at [arXiv:2408.15136](https://arxiv.org/abs/2408.15136) and code is open-sourced at github.com/ADelau/low_budget_sbi_with_bnn.
 
-- **Interdisciplinary Research Achievement:** This work connects Bayesian statistics, deep learning theory, and observational cosmology, developing principled ML tools motivated by and validated on real problems in fundamental physics.
-
-- **Impact on Artificial Intelligence:** The paper provides a theoretically grounded framework for designing BNN priors that enforce calibration by construction, advancing uncertainty quantification in neural density estimation.
-
-- **Impact on Fundamental Interactions:** By enabling reliable inference with only hundreds of cosmological simulations, this method makes Bayesian parameter estimation tractable for computationally expensive simulators of large-scale structure and other physical systems.
-
-- **Outlook and References:** Future work includes scaling to higher-dimensional problems and more complex simulators. The paper is available at [arXiv:2408.15136](https://arxiv.org/abs/2408.15136) and code is open-sourced at github.com/ADelau/low_budget_sbi_with_bnn.
-
-## Original Paper Details
-- **Title:** Low-Budget Simulation-Based Inference with Bayesian Neural Networks
-- **arXiv ID:** 2408.15136
-- **Authors:** ["Arnaud Delaunoy", "Maxence de la Brassinne Bonardeaux", "Siddharth Mishra-Sharma", "Gilles Louppe"]
-- **Abstract:** Simulation-based inference methods have been shown to be inaccurate in the data-poor regime, when training simulations are limited or expensive. Under these circumstances, the inference network is particularly prone to overfitting, and using it without accounting for the computational uncertainty arising from the lack of identifiability of the network weights can lead to unreliable results. To address this issue, we propose using Bayesian neural networks in low-budget simulation-based inference, thereby explicitly accounting for the computational uncertainty of the posterior approximation. We design a family of Bayesian neural network priors that are tailored for inference and show that they lead to well-calibrated posteriors on tested benchmarks, even when as few as $O(10)$ simulations are available. This opens up the possibility of performing reliable simulation-based inference using very expensive simulators, as we demonstrate on a problem from the field of cosmology where single simulations are computationally expensive. We show that Bayesian neural networks produce informative and well-calibrated posterior estimates with only a few hundred simulations.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Low-Budget Simulation-Based Inference with Bayesian Neural Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2408.15136</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Arnaud Delaunoy", "Maxence de la Brassinne Bonardeaux", "Siddharth Mishra-Sharma", "Gilles Louppe"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Simulation-based inference methods have been shown to be inaccurate in the data-poor regime, when training simulations are limited or expensive. Under these circumstances, the inference network is particularly prone to overfitting, and using it without accounting for the computational uncertainty arising from the lack of identifiability of the network weights can lead to unreliable results. To address this issue, we propose using Bayesian neural networks in low-budget simulation-based inference, thereby explicitly accounting for the computational uncertainty of the posterior approximation. We design a family of Bayesian neural network priors that are tailored for inference and show that they lead to well-calibrated posteriors on tested benchmarks, even when as few as $O(10)$ simulations are available. This opens up the possibility of performing reliable simulation-based inference using very expensive simulators, as we demonstrate on a problem from the field of cosmology where single simulations are computationally expensive. We show that Bayesian neural networks produce informative and well-calibrated posterior estimates with only a few hundred simulations.</span></div></div>
+</div>

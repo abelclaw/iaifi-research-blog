@@ -37,7 +37,7 @@ published: '2022-11-22T17:54:47+00:00'
 theme: Astrophysics
 title: Can denoising diffusion probabilistic models generate realistic astrophysical
   fields?
-wordCount: 939
+wordCount: 924
 ---
 
 ## The Big Picture
@@ -54,7 +54,7 @@ What they deliver is a proof of concept: AI-generated astrophysical fields that 
 
 The core idea is intuitive. Start with a real image and gradually bury it in noise over hundreds of steps until it's pure static. Then train a neural network to reverse that process, denoising one small step at a time, learning the underlying structure of the data. To generate something new, start with random noise and let the network walk it backward into a plausible image.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_12444/figure_1.png)
 
 Mudur and Finkbeiner trained two separate models. One learned from **cold dark matter mass density fields**, maps showing how dark matter is distributed across a simulated patch of the universe, drawn from the CAMELS simulation suite. The other learned from patches of an interstellar dust map. For the dark matter application, they used log-transformed density fields at two resolutions (64×64 and 128×128 pixels) spanning a wide range of cosmological and astrophysical parameters across 1,000 simulations.
 
@@ -66,7 +66,7 @@ The real question: do the generated fields actually *look* like the real ones, s
 - **Pixel intensity histograms**: whether the distribution of density values matches the real data
 - **Minkowski functionals**: topological descriptors sensitive to non-Gaussian structure, capturing the connectivity and curvature of dense regions that simpler statistics miss
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2211_12444/figure_2.png)
 
 ## Why It Matters
 
@@ -78,17 +78,14 @@ The path to full scientific utility runs through conditional generation. Right n
 
 > **Bottom Line:** Diffusion models can generate astrophysical fields with realistic statistics and double as scientifically useful denoisers. This is a credible first step toward AI emulators that could make expensive cosmological simulations far more accessible.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects the diffusion model framework behind modern text-to-image systems to cosmological science, benchmarking AI-generated fields against physical statistics including Minkowski functionals and power spectra.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides one of the first systematic evaluations of diffusion models on scientific data distributions, going beyond visual fidelity to measure statistical and topological consistency, a standard that matters when AI tools are used for physical inference.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that diffusion models can reproduce the statistical properties of dark matter density fields, this work points toward fast AI emulators for cosmological parameter inference and improved dust foreground models for CMB polarization searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on conditional generation tied to specific cosmological parameter vectors, unlocking the emulator potential of this approach. The paper is available at [arXiv:2211.12444](https://arxiv.org/abs/2211.12444).
 
-- **Interdisciplinary Research Achievement:** This work connects the diffusion model framework behind modern text-to-image systems to cosmological science, benchmarking AI-generated fields against physical statistics including Minkowski functionals and power spectra.
-
-- **Impact on Artificial Intelligence:** The paper provides one of the first systematic evaluations of diffusion models on scientific data distributions, going beyond visual fidelity to measure statistical and topological consistency, a standard that matters when AI tools are used for physical inference.
-
-- **Impact on Fundamental Interactions:** By showing that diffusion models can reproduce the statistical properties of dark matter density fields, this work points toward fast AI emulators for cosmological parameter inference and improved dust foreground models for CMB polarization searches.
-
-- **Outlook and References:** Future work will focus on conditional generation tied to specific cosmological parameter vectors, unlocking the emulator potential of this approach. The paper is available at [arXiv:2211.12444](https://arxiv.org/abs/2211.12444).
-
-## Original Paper Details
-- **Title:** Can denoising diffusion probabilistic models generate realistic astrophysical fields?
-- **arXiv ID:** [2211.12444](https://arxiv.org/abs/2211.12444)
-- **Authors:** Nayantara Mudur, Douglas P. Finkbeiner
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Can denoising diffusion probabilistic models generate realistic astrophysical fields?</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2211.12444](https://arxiv.org/abs/2211.12444)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Nayantara Mudur, Douglas P. Finkbeiner</span></div></div>
+</div>

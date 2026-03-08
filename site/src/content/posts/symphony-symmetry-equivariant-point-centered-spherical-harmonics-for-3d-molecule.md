@@ -57,7 +57,7 @@ Researchers at MIT and NVIDIA developed **Symphony**, a generative model that bu
 
 Symphony builds molecules sequentially: start with a single atom, then repeatedly ask "where should the next atom go?" until the molecule is complete. This **autoregressive** approach (predicting one piece at a time based on everything placed so far) is the same strategy behind language models that generate text word by word.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_16199/figure_1.png)
 
 But molecules aren't sentences. Each new atom's position isn't a single number or a category. It's a point in continuous 3D space, requiring a probability distribution over all of that space.
 
@@ -74,7 +74,7 @@ At each generation step, Symphony:
 
 **Spherical harmonics** are worth pausing on. They're the same mathematical objects used in quantum mechanics to describe electron orbitals. The s, p, and d orbital shapes from chemistry class are literally spherical harmonics. They form a complete basis for functions on a sphere, so any angular distribution can be represented exactly given enough terms. Symphony uses harmonics up to degree *l* = 5, capturing features from broad blobs down to detailed directional lobes.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_16199/figure_1.png)
 
 Because the spherical harmonic coefficients are themselves equivariant features, rotating the molecule rotates the predicted distribution with it, exactly as physics demands. Symphony doesn't need to laboriously learn that a carbon-hydrogen bond pointing left is the same as one pointing right. It knows by construction.
 
@@ -88,18 +88,15 @@ The spherical harmonic framework could scale to protein design, crystal structur
 
 > **Bottom Line:** Baking 3D symmetry deeply into a model's mathematical language, rather than engineering it out, pays off in both accuracy and generalization. Symphony charts a new direction for AI-driven molecular design.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Symphony imports mathematical tools from quantum mechanics (spherical harmonics, group-theoretic equivariance) into deep learning architecture, building AI systems grounded in the symmetry principles of physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By representing probability distributions over 3D space using spherical harmonic signals, Symphony outperforms prior autoregressive baselines and rivals diffusion models on QM9, establishing a new approach to geometry-aware generative modeling.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The model's ability to capture precise 3D molecular geometry, including correct local chemical environments verified via bispectrum analysis, advances machine learning for quantum chemistry and materials discovery.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend Symphony's fragment-based autoregressive framework to larger molecular systems, proteins, and crystalline materials; the paper is available at [arXiv:2311.16199](https://arxiv.org/abs/2311.16199) and was published at ICLR 2024.
 
-- **Interdisciplinary Research Achievement:** Symphony imports mathematical tools from quantum mechanics (spherical harmonics, group-theoretic equivariance) into deep learning architecture, building AI systems grounded in the symmetry principles of physics.
-
-- **Impact on Artificial Intelligence:** By representing probability distributions over 3D space using spherical harmonic signals, Symphony outperforms prior autoregressive baselines and rivals diffusion models on QM9, establishing a new approach to geometry-aware generative modeling.
-
-- **Impact on Fundamental Interactions:** The model's ability to capture precise 3D molecular geometry, including correct local chemical environments verified via bispectrum analysis, advances machine learning for quantum chemistry and materials discovery.
-
-- **Outlook and References:** Future work may extend Symphony's fragment-based autoregressive framework to larger molecular systems, proteins, and crystalline materials; the paper is available at [arXiv:2311.16199](https://arxiv.org/abs/2311.16199) and was published at ICLR 2024.
-
-## Original Paper Details
-- **Title:** Symphony: Symmetry-Equivariant Point-Centered Spherical Harmonics for 3D Molecule Generation
-- **arXiv ID:** 2311.16199
-- **Authors:** ["Ameya Daigavane", "Song Kim", "Mario Geiger", "Tess Smidt"]
-- **Abstract:** We present Symphony, an $E(3)$-equivariant autoregressive generative model for 3D molecular geometries that iteratively builds a molecule from molecular fragments. Existing autoregressive models such as G-SchNet and G-SphereNet for molecules utilize rotationally invariant features to respect the 3D symmetries of molecules. In contrast, Symphony uses message-passing with higher-degree $E(3)$-equivariant features. This allows a novel representation of probability distributions via spherical harmonic signals to efficiently model the 3D geometry of molecules. We show that Symphony is able to accurately generate small molecules from the QM9 dataset, outperforming existing autoregressive models and approaching the performance of diffusion models.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Symphony: Symmetry-Equivariant Point-Centered Spherical Harmonics for 3D Molecule Generation</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2311.16199</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ameya Daigavane", "Song Kim", "Mario Geiger", "Tess Smidt"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present Symphony, an $E(3)$-equivariant autoregressive generative model for 3D molecular geometries that iteratively builds a molecule from molecular fragments. Existing autoregressive models such as G-SchNet and G-SphereNet for molecules utilize rotationally invariant features to respect the 3D symmetries of molecules. In contrast, Symphony uses message-passing with higher-degree $E(3)$-equivariant features. This allows a novel representation of probability distributions via spherical harmonic signals to efficiently model the 3D geometry of molecules. We show that Symphony is able to accurately generate small molecules from the QM9 dataset, outperforming existing autoregressive models and approaching the performance of diffusion models.</span></div></div>
+</div>

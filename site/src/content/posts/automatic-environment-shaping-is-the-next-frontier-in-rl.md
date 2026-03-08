@@ -36,7 +36,7 @@ pdfUrl: https://arxiv.org/pdf/2407.16186v1
 published: '2024-07-23T05:22:29+00:00'
 theme: Foundational AI
 title: Automatic Environment Shaping is the Next Frontier in RL
-wordCount: 1001
+wordCount: 980
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ The MIT team studies **reinforcement learning (RL)**, a method where a robot lea
 3. **RL training** — running the algorithm inside the shaped simulator
 4. **Outer feedback loop** — evaluating the learned behavior and iterating
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_16186/figure_1.png)
 
 Most research attention flows to stage three. But the paper argues that practitioners almost never tune the algorithm. They tune the environment.
 
@@ -66,7 +66,7 @@ A roboticist wrestling with a four-legged robot (a "quadruped") that won't learn
 
 The paper defines environment shaping precisely: every design choice made to make training tractable that isn't strictly required to model the physics of the task. A reward function that penalizes falling is environment shaping. So is giving the robot access to its own joint velocities. So is starting training on flat ground before introducing stairs. None of these choices flow automatically from "teach the robot to walk." A human expert has to invent them.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_16186/figure_2.png)
 
 The dishwasher example is instructive. Modeling the true distribution of real-world dishwashers (every brand, loading configuration, water pressure, soap residue) is intractable. So you pick a representative sample, call it a **reference environment**, and design your shaping choices to work on that. The problem: every new robot and every new task requires re-inventing these choices from scratch, with no principled way to transfer expertise across problems.
 
@@ -84,12 +84,9 @@ Each of these is a research direction on its own. The paper is a call to organiz
 
 > **Bottom Line:** The next breakthrough in robotics won't come from better RL algorithms. It'll come from automating the unglamorous work of environment design that currently requires expert human labor for every new task. This paper names that problem and makes the case that solving it is the field's most urgent priority.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects theoretical RL research with practical robotics deployment, identifying the human-in-the-loop bottleneck that prevents AI systems from autonomously acquiring physical skills at scale.
-
-- **Impact on Artificial Intelligence:** The paper reframes a longstanding assumption in RL research, that algorithmic advances are the primary lever, and argues that meta-level automation of training environment design is the more impactful frontier.
-
-- **Impact on Fundamental Interactions:** By targeting the scalability of sim-to-real transfer, this work addresses a core obstacle to deploying intelligent physical agents that interact with the messy, variable structure of the real world.
-
-- **Outlook and References:** The paper calls for systematic research into automated reward design, curriculum generation, and observation/action space optimization; the full position paper is available via ICML 2024 proceedings ([arXiv:2407.16186](https://arxiv.org/abs/2407.16186), PMLR 235, 2024).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects theoretical RL research with practical robotics deployment, identifying the human-in-the-loop bottleneck that prevents AI systems from autonomously acquiring physical skills at scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper reframes a longstanding assumption in RL research, that algorithmic advances are the primary lever, and argues that meta-level automation of training environment design is the more impactful frontier.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By targeting the scalability of sim-to-real transfer, this work addresses a core obstacle to deploying intelligent physical agents that interact with the messy, variable structure of the real world.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The paper calls for systematic research into automated reward design, curriculum generation, and observation/action space optimization; the full position paper is available via ICML 2024 proceedings ([arXiv:2407.16186](https://arxiv.org/abs/2407.16186), PMLR 235, 2024).</span></div></div>
+</div>

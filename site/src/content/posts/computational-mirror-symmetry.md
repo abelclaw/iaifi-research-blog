@@ -35,7 +35,7 @@ pdfUrl: https://arxiv.org/pdf/2303.00757v2
 published: '2023-03-01T19:00:00+00:00'
 theme: Theoretical Physics
 title: Computational Mirror Symmetry
-wordCount: 1147
+wordCount: 1189
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ The core goal is to compute the **prepotential**, a single mathematical function
 
 Mirror symmetry converts this quantum problem into a classical one. On the mirror Calabi-Yau, the prepotential can be read off from **periods**, integrals of a special geometric quantity over a set of three-dimensional surfaces within the space. These are classical geometric quantities, governed by differential equations called the **Picard-Fuchs system**. The strategy: solve those equations, extract the periods, apply the mirror map (the translation between the two geometries), and decode the GV invariants from the resulting expansion.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2303_00757/figure_1.png)
 
 Three obstacles have historically blocked this approach for large Calabi-Yau spaces:
 
@@ -66,7 +66,7 @@ Three obstacles have historically blocked this approach for large Calabi-Yau spa
 2. **Non-simplicial Mori cones**: the standard HKTY method, a classical algorithm for connecting a Calabi-Yau to its mirror, requires the Mori cone (the space of effective curve classes) to be *simplicial*, meaning it has as many generating directions as its dimension. This condition almost never holds when the number of moduli is large. The authors solve this by generalizing the HKTY construction to arbitrary Mori cones.
 3. **Exponential lattice sums**: extracting GV invariants requires scanning lattice points in the Mori cone, and the number of such points grows exponentially with the number of moduli. The authors develop a consistent truncation strategy, proving that contributions from curve classes above a certain degree threshold can be safely ignored. This makes the sum finite and manageable.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2303_00757/figure_2.png)
 
 The truncation idea is especially clean. Rather than summing infinitely many contributions, the authors show that GV invariants for curves that are "too big" cannot contribute to the prepotential at any given order in the expansion. This lets them prune the search space systematically and dramatically.
 
@@ -76,7 +76,7 @@ For Calabi-Yau geometries with non-simplicial Mori cones, the team introduces an
 
 The string landscape, the vast space of possible extra-dimensional geometries, contains an astronomically large number of Calabi-Yau threefolds, most of them with large numbers of moduli. Computing GV invariants in these spaces isn't just a mathematical exercise. These invariants feed into our understanding of how quantum corrections shape the effective physical theories derived from string compactifications, including potential connections to particle physics and cosmology. Without tools like this, the landscape remains largely opaque.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2303_00757/figure_3.png)
 
 Mirror symmetry also sits at a crossroads of physics, mathematics, and computation. The GV invariants computed here are objects of pure mathematics (enumerative invariants studied by algebraic geometers), but they are most efficiently computed using physics-inspired methods. This work extends those methods into previously inaccessible territory, opening a new computational frontier in enumerative geometry.
 
@@ -84,15 +84,15 @@ Future directions include extending the algorithm to complete intersection Calab
 
 > This paper delivers the first algorithm capable of computing Gopakumar-Vafa invariants in compact Calabi-Yau threefolds with hundreds of moduli, a computational milestone that makes a vast swath of the string landscape newly accessible to quantitative analysis.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects algebraic geometry, string theory, and computational mathematics, turning abstract mirror symmetry into a practical algorithm that runs on a laptop for spaces previously considered computationally intractable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">While not directly an AI paper, the efficient lattice enumeration and symbolic period computation developed here are the kind of algorithmic advances that AI-physics collaborations at IAIFI work to systematize and accelerate.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The algorithm enables the first systematic calculation of genus-zero Gopakumar-Vafa invariants in compact Calabi-Yau threefolds with up to 491 vector multiplets, making quantitative study of quantum corrections across the string landscape possible for the first time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these methods to higher-genus invariants and more general Calabi-Yau geometries, with direct applications to string landscape surveys; the paper is available at [arXiv:2303.00757](https://arxiv.org/abs/2303.00757).
 
-- **Interdisciplinary Research Achievement:** This work connects algebraic geometry, string theory, and computational mathematics, turning abstract mirror symmetry into a practical algorithm that runs on a laptop for spaces previously considered computationally intractable.
-- **Impact on Artificial Intelligence:** While not directly an AI paper, the efficient lattice enumeration and symbolic period computation developed here are the kind of algorithmic advances that AI-physics collaborations at IAIFI work to systematize and accelerate.
-- **Impact on Fundamental Interactions:** The algorithm enables the first systematic calculation of genus-zero Gopakumar-Vafa invariants in compact Calabi-Yau threefolds with up to 491 vector multiplets, making quantitative study of quantum corrections across the string landscape possible for the first time.
-- **Outlook and References:** Future work will extend these methods to higher-genus invariants and more general Calabi-Yau geometries, with direct applications to string landscape surveys; the paper is available at [arXiv:2303.00757](https://arxiv.org/abs/2303.00757).
-
-## Original Paper Details
-- **Title:** Computational Mirror Symmetry
-- **arXiv ID:** 2303.00757
-- **Authors:** ["Mehmet Demirtas", "Manki Kim", "Liam McAllister", "Jakob Moritz", "Andres Rios-Tascon"]
-- **Abstract:** We present an efficient algorithm for computing the prepotential in compactifications of type II string theory on mirror pairs of Calabi-Yau threefolds in toric varieties. Applying this method, we exhibit the first systematic computation of genus-zero Gopakumar-Vafa invariants in compact threefolds with many moduli, including examples with up to 491 vector multiplets.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Computational Mirror Symmetry</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2303.00757</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Mehmet Demirtas", "Manki Kim", "Liam McAllister", "Jakob Moritz", "Andres Rios-Tascon"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present an efficient algorithm for computing the prepotential in compactifications of type II string theory on mirror pairs of Calabi-Yau threefolds in toric varieties. Applying this method, we exhibit the first systematic computation of genus-zero Gopakumar-Vafa invariants in compact threefolds with many moduli, including examples with up to 491 vector multiplets.</span></div></div>
+</div>

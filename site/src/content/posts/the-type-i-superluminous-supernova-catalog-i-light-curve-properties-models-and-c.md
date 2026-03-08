@@ -78,7 +78,7 @@ published: '2024-07-10T18:00:03+00:00'
 theme: Astrophysics
 title: 'The Type I Superluminous Supernova Catalog I: Light Curve Properties, Models,
   and Catalog Description'
-wordCount: 994
+wordCount: 954
 ---
 
 ## The Big Picture
@@ -97,7 +97,7 @@ The team hunted down every confirmed Type I SLSN reported in the scientific lite
 
 Then came the **photometry**, systematic brightness measurements over time. The team aggregated data across ultraviolet, optical, and infrared wavelengths from public archives and supplemented it with their own FLEET observational program. The result: 30,000+ data points tracing how each explosion brightened and faded.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_07946/figure_1.png)
 
 From that data, they extracted a suite of observational quantities for each event:
 - **Peak absolute magnitude**: how intrinsically bright did it get at maximum?
@@ -107,7 +107,7 @@ From that data, they extracted a suite of observational quantities for each even
 
 The real analytical muscle came from fitting every **light curve** (a graph tracking how brightness changes over time) with a hybrid physical model combining two power sources: a **magnetar central engine**, a rapidly spinning, highly magnetized neutron star that bleeds rotational energy into surrounding gas, and radioactive nickel-56 decay. Think of it like fitting a battery model to 262 different electronic devices. Same underlying physics, different specs for each.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_07946/figure_1.png)
 
 The fitting returned physical parameters for every event: the magnetar's initial spin period, its magnetic field strength, the mass of ejected material, and nickel yield. All of this was done consistently across the entire sample, with no cherry-picking and no case-by-case special treatment.
 
@@ -115,7 +115,7 @@ The fitting returned physical parameters for every event: the magnetar's initial
 
 The results paint a coherent picture. The team recovered a previously suspected relationship between ejected mass and magnetar spin rate: faster-spinning magnetars correspond to less ejected material, suggesting a real physical link between the spinning remnant and the explosion dynamics. The inferred progenitor stars cluster around 6.5 solar masses at the time of explosion, pointing to a specific class of massive star that had shed its outer layers before detonating.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2407_07946/figure_2.png)
 
 What they *didn't* find may be just as important. Despite scanning 262 events across a wide range of cosmic distances, the team found no significant variation with distance. These explosions look the same whether they happened nearby or billions of light-years ago, meaning their properties haven't evolved across vast stretches of cosmic time.
 
@@ -123,16 +123,13 @@ They also found no evidence for distinct sub-types within the SLSN population, d
 
 The catalog also delivers practical infrastructure for the next generation of sky surveys. The team built analytical functions that let anyone simulate a typical SLSN light curve at any wavelength and any phase. As Rubin Observatory's Legacy Survey of Space and Time comes online and discovers SLSNe by the thousands, calibrated templates and a clean reference sample become essential. The entire catalog (all photometry, model fits, and derived parameters) is publicly available on GitHub.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2407_07946/figure_3.png)
 
 > **Bottom Line:** The SLSN Catalog establishes magnetar spin-down as the dominant power source for these record-breaking explosions, delivers a population-level view of their progenitor stars, and provides open-source tools that will anchor superluminous supernova science for years to come.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies large-scale statistical analysis and uniform physical modeling to one of astrophysics' most extreme phenomena, connecting observational survey methodology with fundamental questions about neutron star physics and stellar evolution.
-
-- **Impact on Artificial Intelligence:** The catalog's standardized light curve templates and analytical tools provide machine-learning-ready training data for automated transient classifiers operating on surveys like Rubin/LSST.
-
-- **Impact on Fundamental Interactions:** By confirming magnetar central engines as the near-universal power source across 262 events and a wide redshift range, this work constrains the physics of extreme magnetic fields and neutron star formation at the moment of core collapse.
-
-- **Outlook and References:** Future work will extend the catalog to host galaxy properties and environmental studies. The open-source release on GitHub invites community contributions, and the paper is available at [arXiv:2407.07946](https://arxiv.org/abs/2407.07946).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies large-scale statistical analysis and uniform physical modeling to one of astrophysics' most extreme phenomena, connecting observational survey methodology with fundamental questions about neutron star physics and stellar evolution.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The catalog's standardized light curve templates and analytical tools provide machine-learning-ready training data for automated transient classifiers operating on surveys like Rubin/LSST.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By confirming magnetar central engines as the near-universal power source across 262 events and a wide redshift range, this work constrains the physics of extreme magnetic fields and neutron star formation at the moment of core collapse.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the catalog to host galaxy properties and environmental studies. The open-source release on GitHub invites community contributions, and the paper is available at [arXiv:2407.07946](https://arxiv.org/abs/2407.07946).</span></div></div>
+</div>

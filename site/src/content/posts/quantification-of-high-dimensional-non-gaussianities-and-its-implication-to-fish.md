@@ -48,7 +48,7 @@ published: '2022-04-11T23:09:27+00:00'
 theme: Astrophysics
 title: Quantification of high dimensional non-Gaussianities and its implication to
   Fisher analysis in cosmology
-wordCount: 1024
+wordCount: 1266
 ---
 
 ## The Big Picture
@@ -78,17 +78,17 @@ To test this, they used the **Quijote simulations**, a suite of 44,100 gravity-o
 
 For each statistic, they applied two Gaussianity tests (following Sellentin & Heavens 2017) that quantify whether the distribution of a statistic across many simulations actually looks like a bell curve in high dimensions. Even the humble power spectrum fails, and more exotic statistics can fail harder.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2204_05435/figure_1.png)
 
 They then developed a procedure to Gaussianize the statistics: identify the mathematical directions in which the data varies in a skewed or irregular way, then remove them. What remains is a cleaned, bell-curve-safe version. They reran Fisher matrix calculations on both raw and Gaussianized versions and compared the results.
 
 The differences are substantial. For some statistics and cosmological parameters, constraints shift by roughly a factor of two. The non-Gaussian dimensions were quietly inflating or deflating the apparent information content, and the Fisher matrix couldn't tell the difference.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2204_05435/figure_2.png)
 
 A toy example drives the point home. Apply a monotonic transformation to a statistic that carries *zero* new cosmological information, and the Fisher matrix still produces different, often tighter, constraints. A statistic shouldn't get credit for information it doesn't have just because its probability distribution has a funny shape.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2204_05435/figure_3.png)
 
 The released code, which runs on both CPUs and GPUs, computes power spectra, bispectra, and WST, making these non-Gaussianity tests available to the broader cosmology community.
 
@@ -100,15 +100,15 @@ None of this means the new statistics are useless. It means the process of *eval
 
 > **Bottom Line:** Fisher matrix forecasts can overestimate or underestimate parameter constraints by up to a factor of two when the underlying statistics aren't Gaussian. This paper provides the tools to catch and correct that error before it misleads survey design.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects machine-learning-inspired statistics, like the Wavelet Scattering Transform drawn from deep learning, with classical cosmological inference tools, stress-testing AI-adjacent methods against the statistical assumptions embedded in physics pipelines.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">High-dimensional non-Gaussianity tests turn out to be essential for validating any data-driven statistic used in scientific inference, a lesson that applies directly to AI/ML methods being imported into cosmology and beyond.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By exposing and correcting a systematic bias in Fisher matrix forecasts, this work sharpens our ability to extract reliable measurements of fundamental cosmological parameters, including neutrino masses and dark energy properties, from large-scale structure surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should apply these Gaussianity audits to field-level inference methods and neural compression schemes as they enter the cosmological toolkit; the paper and its GPU-accelerated code are available at [arXiv:2204.05435](https://arxiv.org/abs/2204.05435).
 
-- **Interdisciplinary Research Achievement:** This work connects machine-learning-inspired statistics, like the Wavelet Scattering Transform drawn from deep learning, with classical cosmological inference tools, stress-testing AI-adjacent methods against the statistical assumptions embedded in physics pipelines.
-- **Impact on Artificial Intelligence:** High-dimensional non-Gaussianity tests turn out to be essential for validating any data-driven statistic used in scientific inference, a lesson that applies directly to AI/ML methods being imported into cosmology and beyond.
-- **Impact on Fundamental Interactions:** By exposing and correcting a systematic bias in Fisher matrix forecasts, this work sharpens our ability to extract reliable measurements of fundamental cosmological parameters, including neutrino masses and dark energy properties, from large-scale structure surveys.
-- **Outlook and References:** Future work should apply these Gaussianity audits to field-level inference methods and neural compression schemes as they enter the cosmological toolkit; the paper and its GPU-accelerated code are available at [arXiv:2204.05435](https://arxiv.org/abs/2204.05435).
-
-## Original Paper Details
-- **Title:** Quantification of high dimensional non-Gaussianities and its implication to Fisher analysis in cosmology
-- **arXiv ID:** 2204.05435
-- **Authors:** ["Core Francisco Park", "Erwan Allys", "Francisco Villaescusa-Navarro", "Douglas P. Finkbeiner"]
-- **Abstract:** It is well known that the power spectrum is not able to fully characterize the statistical properties of non-Gaussian density fields. Recently, many different statistics have been proposed to extract information from non-Gaussian cosmological fields that perform better than the power spectrum. The Fisher matrix formalism is commonly used to quantify the accuracy with which a given statistic can constrain the value of the cosmological parameters. However, these calculations typically rely on the assumption that the likelihood of the considered statistic follows a multivariate Gaussian distribution. In this work we follow Sellentin & Heavens (2017) and use two different statistical tests to identify non-Gaussianities in different statistics such as the power spectrum, bispectrum, marked power spectrum, and wavelet scatering transform (WST). We remove the non-Gaussian components of the different statistics and perform Fisher matrix calculations with the \textit{Gaussianized} statistics using Quijote simulations. We show that constraints on the parameters can change by a factor of $\sim 2$ in some cases. We show with simple examples how statistics that do not follow a multivariate Gaussian distribution can achieve artificially tight bounds on the cosmological parameters when using the Fisher matrix formalism. We think that the non-Gaussian tests used in this work represent a powerful tool to quantify the robustness of Fisher matrix calculations and their underlying assumptions. We release the code used to compute the power spectra, bispectra, and WST that can be run on both CPUs and GPUs.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Quantification of high dimensional non-Gaussianities and its implication to Fisher analysis in cosmology</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2204.05435</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Core Francisco Park", "Erwan Allys", "Francisco Villaescusa-Navarro", "Douglas P. Finkbeiner"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">It is well known that the power spectrum is not able to fully characterize the statistical properties of non-Gaussian density fields. Recently, many different statistics have been proposed to extract information from non-Gaussian cosmological fields that perform better than the power spectrum. The Fisher matrix formalism is commonly used to quantify the accuracy with which a given statistic can constrain the value of the cosmological parameters. However, these calculations typically rely on the assumption that the likelihood of the considered statistic follows a multivariate Gaussian distribution. In this work we follow Sellentin & Heavens (2017) and use two different statistical tests to identify non-Gaussianities in different statistics such as the power spectrum, bispectrum, marked power spectrum, and wavelet scatering transform (WST). We remove the non-Gaussian components of the different statistics and perform Fisher matrix calculations with the \textit{Gaussianized} statistics using Quijote simulations. We show that constraints on the parameters can change by a factor of $\sim 2$ in some cases. We show with simple examples how statistics that do not follow a multivariate Gaussian distribution can achieve artificially tight bounds on the cosmological parameters when using the Fisher matrix formalism. We think that the non-Gaussian tests used in this work represent a powerful tool to quantify the robustness of Fisher matrix calculations and their underlying assumptions. We release the code used to compute the power spectra, bispectra, and WST that can be run on both CPUs and GPUs.</span></div></div>
+</div>

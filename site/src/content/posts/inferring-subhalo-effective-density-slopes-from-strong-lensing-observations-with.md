@@ -41,7 +41,7 @@ published: '2022-08-29T18:00:01+00:00'
 theme: Astrophysics
 title: Inferring subhalo effective density slopes from strong lensing observations
   with neural likelihood-ratio estimation
-wordCount: 949
+wordCount: 900
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ The problem: existing methods are either imprecise or grind to a halt computatio
 
 Most previous studies measured the **subhalo mass function**, a census of subhalo masses, but doing so requires assumptions about internal density profiles in regions not directly observed. That introduces systematic errors. The team instead focused on the **effective density slope**: how steeply a subhalo's density falls off from its center, measured at the scale where lensing is most sensitive. This slope can be extracted directly from lensing data without assuming any particular profile shape. It's cleaner and encodes complementary information about dark matter physics that pure mass measurements miss.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2208_13796/figure_1.png)
 
 The forward model works like this:
 
@@ -67,7 +67,7 @@ The forward model works like this:
 3. **Train a neural network**: The network learns to estimate the **likelihood ratio** between two hypotheses: that an image came from a population with slope θ₁ versus slope θ₂.
 4. **Deploy across many images**: After training, the network processes new lensing images rapidly, combining evidence from each without multiplying computational cost.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2208_13796/figure_2.png)
 
 A lensing image contains enormous variation in individual subhalo details: exact masses, positions, individual slopes. None of that directly reveals the population-level pattern. The network's key trick is that it bypasses measuring any of those individual properties. It learns to extract only the signal that distinguishes one dark matter population from another. This is **simulation-based inference** at its most powerful: train on realistic simulations, then deploy the trained network on new observations.
 
@@ -75,7 +75,7 @@ A lensing image contains enormous variation in individual subhalo details: exact
 
 The timing here is no coincidence. Upcoming sky surveys from the Euclid space telescope and the Rubin Observatory's Legacy Survey of Space and Time are expected to increase known strong lensing systems from the current few hundred to potentially hundreds of thousands. Each system contains information about dark matter substructure. Without a computationally efficient analysis method, that information just sits there.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2208_13796/figure_3.png)
 
 Traditional Markov chain Monte Carlo sampling works by randomly exploring all possible explanations until it homes in on the ones that best fit the data. It scales badly with both the number of subhalos per image and the number of images per dataset. The neural likelihood-ratio approach pays a one-time training cost, then processes each new image in a fraction of a second. That's the difference between a method that handles a handful of systems and one that operates at survey scale.
 
@@ -83,12 +83,9 @@ Beyond the immediate application, the work shows how simulation-based inference 
 
 > **Bottom Line:** By combining a carefully chosen dark matter observable with neural likelihood-ratio estimation, this method opens up population-level dark matter science from strong gravitational lensing, and it grows more powerful with every new lensing system future surveys discover.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of modern machine learning and fundamental astrophysics, using simulation-based inference and neural likelihood-ratio estimation to extract population-level dark matter constraints from gravitational lensing data.
-
-- **Impact on Artificial Intelligence:** The neural likelihood-ratio estimator handles high-dimensional astrophysical data with large latent spaces, offering a scalable alternative to traditional sampling that generalizes to population-level inference across scientific domains.
-
-- **Impact on Fundamental Interactions:** By measuring the subhalo effective density slope across populations without assuming a particular density profile, this method provides a new, assumption-independent probe of dark matter's fundamental properties at sub-galactic scales.
-
-- **Outlook and References:** Future work could extend this approach to real observational data and incorporate additional systematics such as line-of-sight perturbers; the paper is available at [arXiv:2208.13796](https://arxiv.org/abs/2208.13796).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of modern machine learning and fundamental astrophysics, using simulation-based inference and neural likelihood-ratio estimation to extract population-level dark matter constraints from gravitational lensing data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The neural likelihood-ratio estimator handles high-dimensional astrophysical data with large latent spaces, offering a scalable alternative to traditional sampling that generalizes to population-level inference across scientific domains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By measuring the subhalo effective density slope across populations without assuming a particular density profile, this method provides a new, assumption-independent probe of dark matter's fundamental properties at sub-galactic scales.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this approach to real observational data and incorporate additional systematics such as line-of-sight perturbers; the paper is available at [arXiv:2208.13796](https://arxiv.org/abs/2208.13796).</span></div></div>
+</div>

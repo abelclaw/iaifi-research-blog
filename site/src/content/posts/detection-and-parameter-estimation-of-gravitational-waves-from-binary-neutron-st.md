@@ -49,7 +49,7 @@ published: '2020-12-24T04:55:17+00:00'
 theme: Astrophysics
 title: Detection and Parameter Estimation of Gravitational Waves from Binary Neutron-Star
   Mergers in Real LIGO Data using Deep Learning
-wordCount: 981
+wordCount: 1239
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ The researchers built a **Convolutional Neural Network (CNN)**, an architecture 
 
 Training on simulated noise is easy. Training to survive real LIGO noise is the hard part. Real detector data is non-stationary and non-Gaussian, full of glitches, instrumental artifacts, and environmental disturbances that no textbook noise model anticipates. What makes this work different is that the team trained on **real LIGO background noise**, not idealized approximations, forcing the network to learn the actual character of the instrument.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2012_13101/figure_1.png)
 
 The pipeline works in three stages:
 
@@ -76,11 +76,11 @@ The pipeline works in three stages:
 2. **Localization in time:** Once a candidate event is flagged, the network pinpoints the merger time within the data segment.
 3. **Parameter estimation:** A second network component maps the detected signal directly to source parameters (specifically component masses) without running a single **Bayesian sampler**, the traditional statistical machinery that exhaustively explores all possible source properties to find the best fit.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2012_13101/figure_2.png)
 
 The proof-of-concept result is striking. The framework correctly classified every event in GWTC-1: ten BBH mergers and the single BNS event, GW170817. That's the real-world validation that prior deep learning papers couldn't claim, since those earlier networks were tested on synthetic noise, not the instrument itself.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2012_13101/figure_3.png)
 
 The network's sensitivity scales well too. By training on injected signals spanning a range of signal-to-noise ratios, the model learns to detect faint events near the detection threshold, exactly the regime where prompt follow-up matters most.
 
@@ -96,18 +96,15 @@ Open questions remain. The network must generalize to a much larger catalog as O
 
 > **Bottom Line:** A convolutional neural network trained on real LIGO noise can detect and characterize binary neutron-star mergers in seconds, validating against every event in GWTC-1 and opening a credible path to real-time gravitational-wave alerts for multi-messenger follow-up.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of modern deep learning and observational gravitational-wave physics, showing that CNN architectures developed for image recognition can function as real-time astrophysical instruments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The CNNs here generalize from simulated training environments to real, non-Gaussian, non-stationary sensor data, a transferability result with implications well beyond astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Rapid parameter estimation of binary neutron-star mergers accelerates multi-messenger observations that probe nuclear matter at extreme densities and test General Relativity in the strong-field regime.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the approach to the full 9-dimensional compact binary parameter space and incorporate data from additional detectors like KAGRA; the preprint is available at [arXiv:2012.13101](https://arxiv.org/abs/2012.13101).
 
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of modern deep learning and observational gravitational-wave physics, showing that CNN architectures developed for image recognition can function as real-time astrophysical instruments.
-
-- **Impact on Artificial Intelligence:** The CNNs here generalize from simulated training environments to real, non-Gaussian, non-stationary sensor data, a transferability result with implications well beyond astrophysics.
-
-- **Impact on Fundamental Interactions:** Rapid parameter estimation of binary neutron-star mergers accelerates multi-messenger observations that probe nuclear matter at extreme densities and test General Relativity in the strong-field regime.
-
-- **Outlook and References:** Future work will extend the approach to the full 9-dimensional compact binary parameter space and incorporate data from additional detectors like KAGRA; the preprint is available at [arXiv:2012.13101](https://arxiv.org/abs/2012.13101).
-
-## Original Paper Details
-- **Title:** Detection and Parameter Estimation of Gravitational Waves from Binary Neutron-Star Mergers in Real LIGO Data using Deep Learning
-- **arXiv ID:** 2012.13101
-- **Authors:** ["Plamen G. Krastev", "Kiranjyot Gill", "V. Ashley Villar", "Edo Berger"]
-- **Abstract:** One of the key challenges of real-time detection and parameter estimation of gravitational waves from compact binary mergers is the computational cost of conventional matched-filtering and Bayesian inference approaches. In particular, the application of these methods to the full signal parameter space available to the gravitational-wave detectors, and/or real-time parameter estimation is computationally prohibitive. On the other hand, rapid detection and inference are critical for prompt follow-up of the electromagnetic and astro-particle counterparts accompanying important transients, such as binary neutron-star and black-hole neutron-star mergers. Training deep neural networks to identify specific signals and learn a computationally efficient representation of the mapping between gravitational-wave signals and their parameters allows both detection and inference to be done quickly and reliably, with high sensitivity and accuracy. In this work we apply a deep-learning approach to rapidly identify and characterize transient gravitational-wave signals from binary neutron-star mergers in real LIGO data. We show for the first time that artificial neural networks can promptly detect and characterize binary neutron star gravitational-wave signals in real LIGO data, and distinguish them from noise and signals from coalescing black-hole binaries. We illustrate this key result by demonstrating that our deep-learning framework classifies correctly all gravitational-wave events from the Gravitational-Wave Transient Catalog, GWTC-1 [Phys. Rev. X 9 (2019), 031040]. These results emphasize the importance of using realistic gravitational-wave detector data in machine learning approaches, and represent a step towards achieving real-time detection and inference of gravitational waves.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Detection and Parameter Estimation of Gravitational Waves from Binary Neutron-Star Mergers in Real LIGO Data using Deep Learning</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2012.13101</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Plamen G. Krastev", "Kiranjyot Gill", "V. Ashley Villar", "Edo Berger"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">One of the key challenges of real-time detection and parameter estimation of gravitational waves from compact binary mergers is the computational cost of conventional matched-filtering and Bayesian inference approaches. In particular, the application of these methods to the full signal parameter space available to the gravitational-wave detectors, and/or real-time parameter estimation is computationally prohibitive. On the other hand, rapid detection and inference are critical for prompt follow-up of the electromagnetic and astro-particle counterparts accompanying important transients, such as binary neutron-star and black-hole neutron-star mergers. Training deep neural networks to identify specific signals and learn a computationally efficient representation of the mapping between gravitational-wave signals and their parameters allows both detection and inference to be done quickly and reliably, with high sensitivity and accuracy. In this work we apply a deep-learning approach to rapidly identify and characterize transient gravitational-wave signals from binary neutron-star mergers in real LIGO data. We show for the first time that artificial neural networks can promptly detect and characterize binary neutron star gravitational-wave signals in real LIGO data, and distinguish them from noise and signals from coalescing black-hole binaries. We illustrate this key result by demonstrating that our deep-learning framework classifies correctly all gravitational-wave events from the Gravitational-Wave Transient Catalog, GWTC-1 [Phys. Rev. X 9 (2019), 031040]. These results emphasize the importance of using realistic gravitational-wave detector data in machine learning approaches, and represent a step towards achieving real-time detection and inference of gravitational waves.</span></div></div>
+</div>

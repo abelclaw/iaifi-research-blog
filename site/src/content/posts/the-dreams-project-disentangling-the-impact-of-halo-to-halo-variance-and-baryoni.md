@@ -59,7 +59,7 @@ published: '2025-12-03T19:00:01+00:00'
 theme: Astrophysics
 title: 'The DREAMS Project: Disentangling the Impact of Halo-to-Halo Variance and
   Baryonic Feedback on Milky Way Dark Matter Speed Distributions'
-wordCount: 1066
+wordCount: 1308
 ---
 
 ## The Big Picture
@@ -80,7 +80,7 @@ The researchers built their analysis on the **DREAMS simulation suite**: 1,024 c
 
 Each simulation tracks not just dark matter but also **baryonic feedback**, the physics of ordinary matter like gas and stars. When massive stars explode as supernovae, they blast gas outward. When supermassive black holes devour surrounding material, they release energy that reshapes the galaxy. These processes redistribute gas and, indirectly, dark matter. The DREAMS suite varies the strength of these mechanisms, drawing parameters from the **IllustrisTNG** model.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_04157/figure_1.png)
 
 Simulating 1,024 galaxies creates a practical challenge: how do you extract a smooth, well-characterized speed distribution from each one? The team trained a **normalizing flows** emulator on the simulation outputs. This type of neural network learns to transform simple probability distributions into complex ones, efficiently filling in gaps without running thousands of additional simulations.
 
@@ -92,13 +92,13 @@ The key question: which source of uncertainty matters most?
 
 The answer was unambiguous: halo-to-halo variance dominates. The spread between individual simulated galaxies swamps any effect from tweaking feedback physics. Host halo mass matters secondarily. Supernova and black hole feedback uncertainties? Negligible.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_04157/figure_2.png)
 
 On the reassuring side, imperfect models of stellar feedback won't dramatically bias dark matter detection predictions. But there's a harder problem: the Milky Way's particular formation history, something we can only partially reconstruct, introduces an irreducible uncertainty that no improvement in feedback physics can resolve.
 
 The team also combined results across all 1,024 halos to produce a new prediction for the Milky Way's dark matter speed distribution. The Standard Halo Model falls within the uncertainty range, but that doesn't mean the SHM is right for any specific galaxy. Many individual simulated galaxies deviate significantly. The SHM survives as a statistical average, not a reliable description of any particular galaxy.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_04157/figure_3.png)
 
 ## Why It Matters
 
@@ -112,18 +112,15 @@ Next-generation detectors like XENONnT and LUX-ZEPLIN will need even more precis
 
 > **Bottom Line:** With 1,024 simulated Milky Ways and a machine learning emulator, the DREAMS project shows that the biggest wildcard in dark matter detection is the unique cosmic history of our own galaxy, not the physics of exploding stars, and that this astrophysical uncertainty is now large enough to matter for real experiments.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects cosmological simulation, machine learning, and particle physics, using a normalizing flows neural network to extract statistical predictions from 1,024 galaxy simulations and apply them directly to dark matter detector constraints.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The normalizing flows emulator shows how generative machine learning models can characterize complex, high-dimensional probability distributions across large simulation suites, making astrophysical inference possible at a scale that brute-force simulation alone could not reach.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By establishing that halo-to-halo variance dominates local dark matter speed uncertainty, DREAMS provides the most rigorous astrophysical input to date for interpreting direct detection experiments like XENON1T and its successors.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will incorporate observational constraints to identify which simulated halos best match the Milky Way, potentially sharpening predictions for next-generation detectors; the paper is available at [arXiv:2512.04157](https://arxiv.org/abs/2512.04157).
 
-- **Interdisciplinary Research Achievement:** This work connects cosmological simulation, machine learning, and particle physics, using a normalizing flows neural network to extract statistical predictions from 1,024 galaxy simulations and apply them directly to dark matter detector constraints.
-
-- **Impact on Artificial Intelligence:** The normalizing flows emulator shows how generative machine learning models can characterize complex, high-dimensional probability distributions across large simulation suites, making astrophysical inference possible at a scale that brute-force simulation alone could not reach.
-
-- **Impact on Fundamental Interactions:** By establishing that halo-to-halo variance dominates local dark matter speed uncertainty, DREAMS provides the most rigorous astrophysical input to date for interpreting direct detection experiments like XENON1T and its successors.
-
-- **Outlook and References:** Future work will incorporate observational constraints to identify which simulated halos best match the Milky Way, potentially sharpening predictions for next-generation detectors; the paper is available at [arXiv:2512.04157](https://arxiv.org/abs/2512.04157).
-
-## Original Paper Details
-- **Title:** The DREAMS Project: Disentangling the Impact of Halo-to-Halo Variance and Baryonic Feedback on Milky Way Dark Matter Speed Distributions
-- **arXiv ID:** 2512.04157
-- **Authors:** ["Ethan Lilie", "Jonah C. Rose", "Mariangela Lisanti", "Alex M. Garcia", "Paul Torrey", "Kassidy E. Kollmann", "Jiaxuan Li", "Olivia Mostow", "Bonny Y. Wang", "Stephanie O'Neil", "Xuejian Shen", "Alyson M. Brooks", "Arya Farahi", "Nitya Kallivayalil", "Lina Necib", "Andrew B. Pace", "Mark Vogelsberger"]
-- **Abstract:** Direct detection experiments require information about the local dark matter speed distribution to produce constraints on dark matter candidates, or infer their properties in the event of a discovery. In this paper, we analyze how the uncertainty in the dark matter speed distribution near the Sun is affected by baryonic feedback, halo-to-halo variance, and halo mass. To do so, we harness the statistical power of the new DREAMS Cold Dark Matter simulation suite, which is comprised of 1024 zoom-in Milky Way-mass halos with varied initial conditions as well as cosmological and astrophysical parameters. Applying a normalizing flows emulator to these simulations, we find that the uncertainty in the local DM speed distribution is dominated by halo-to-halo variance and, to a lesser extent, uncertainty in host halo mass. Uncertainties in supernova and black hole feedback (from the IllustrisTNG model in this case) are negligible in comparison. Using the DREAMS suite, we present a state-of-the-art prediction for the DM speed distribution in the Milky Way. Although the Standard Halo Model is contained within the uncertainty of this prediction, individual galaxies may have distributions that differ from it. Lastly, we apply our DREAMS results to the XENON1T experiment and demonstrate that the astrophysical uncertainties are comparable to the experimental ones, solidifying previous results in the literature obtained with a smaller sample of simulated Milky Way-mass halos.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">The DREAMS Project: Disentangling the Impact of Halo-to-Halo Variance and Baryonic Feedback on Milky Way Dark Matter Speed Distributions</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2512.04157</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ethan Lilie", "Jonah C. Rose", "Mariangela Lisanti", "Alex M. Garcia", "Paul Torrey", "Kassidy E. Kollmann", "Jiaxuan Li", "Olivia Mostow", "Bonny Y. Wang", "Stephanie O'Neil", "Xuejian Shen", "Alyson M. Brooks", "Arya Farahi", "Nitya Kallivayalil", "Lina Necib", "Andrew B. Pace", "Mark Vogelsberger"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Direct detection experiments require information about the local dark matter speed distribution to produce constraints on dark matter candidates, or infer their properties in the event of a discovery. In this paper, we analyze how the uncertainty in the dark matter speed distribution near the Sun is affected by baryonic feedback, halo-to-halo variance, and halo mass. To do so, we harness the statistical power of the new DREAMS Cold Dark Matter simulation suite, which is comprised of 1024 zoom-in Milky Way-mass halos with varied initial conditions as well as cosmological and astrophysical parameters. Applying a normalizing flows emulator to these simulations, we find that the uncertainty in the local DM speed distribution is dominated by halo-to-halo variance and, to a lesser extent, uncertainty in host halo mass. Uncertainties in supernova and black hole feedback (from the IllustrisTNG model in this case) are negligible in comparison. Using the DREAMS suite, we present a state-of-the-art prediction for the DM speed distribution in the Milky Way. Although the Standard Halo Model is contained within the uncertainty of this prediction, individual galaxies may have distributions that differ from it. Lastly, we apply our DREAMS results to the XENON1T experiment and demonstrate that the astrophysical uncertainties are comparable to the experimental ones, solidifying previous results in the literature obtained with a smaller sample of simulated Milky Way-mass halos.</span></div></div>
+</div>

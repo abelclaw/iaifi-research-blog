@@ -59,7 +59,7 @@ But point it at a glossy teapot or a shiny car, and the results look haunted: br
 
 The root of NeRF's glossiness problem is subtle but worth understanding. When NeRF models how a surface looks from different angles, it takes the raw *viewing direction* as input to its neural network. For a glossy surface, the brightness you see depends on whether that angle aligns with a specular highlight, and highlights move *fast* as the viewing angle changes. The function NeRF has to learn is therefore jagged and complicated. Filling in the gaps between training photos produces the uncanny flickering artifacts that plague glossy renderings.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_03907/figure_1.png)
 
 Ref-NeRF's first move: instead of feeding the viewing direction into the network, feed in the *reflected* direction, the viewing vector mirrored about the surface's local normal vector. This is exactly how a mirror works. If you're looking at a mirror ball and move your head, the reflection you see is the portion of the environment in the reflected direction. That reflected radiance function is far smoother and easier to interpolate, because it doesn't depend on the viewer's absolute position, only on the surface orientation and the environment lighting.
 
@@ -71,7 +71,7 @@ The second contribution is **Integrated Directional Encoding (IDE)**, a mathemat
 
 This decomposition means the network never confuses "this surface is red" with "this surface is shiny," keeping each component smooth and learnable.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_03907/figure_1.png)
 
 There's a catch. To compute the reflection direction at any point, you need an accurate surface normal, the perpendicular to the surface at that location. NeRF's volumetric geometry is famously "foggy," with density smeared out around surfaces rather than concentrated at them. Normals derived from such geometry are noisy and unreliable.
 
@@ -79,7 +79,7 @@ Ref-NeRF addresses this with a **normal vector regularizer**, a penalty that pus
 
 ## Why It Matters
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_03907/figure_2.png)
 
 The improvements are immediately visible. On benchmark scenes with highly specular objects, Ref-NeRF substantially outperforms previous methods, including mip-NeRF, the variant of NeRF it builds on. Specular highlights now move across surfaces smoothly as the camera translates, rather than blinking in and out. Objects look solid rather than surrounded by ghostly halos.
 
@@ -91,18 +91,15 @@ The approach also matters for the broader NeRF ecosystem. NeRF has spawned hundr
 
 > **Bottom Line:** By replacing an awkward view-direction parameterization with a physically motivated reflected-direction representation, Ref-NeRF makes glossy surfaces tractable for neural scene reconstruction and delivers interpretable, editable 3D representations as a bonus.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Ref-NeRF encodes the geometry of specular reflection, a concept rooted in classical optics, directly into a neural network's structure. It shows concretely how domain knowledge from physics can reshape AI model design rather than just inform training data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work shows that parameterization choices profoundly affect a network's ability to interpolate. The Integrated Directional Encoding and diffuse/specular decomposition provide a reusable template for handling view-dependent effects in future neural rendering systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By representing normals, roughness, and specular tint with physically grounded parameters, Ref-NeRF moves neural rendering closer to genuine physically-based simulation, a step toward AI systems that capture light-matter interaction with real fidelity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend Ref-NeRF's reflection framework to handle interreflections, subsurface scattering, and dynamic lighting, enabling fully relightable neural scene representations; the paper is available at [arXiv:2112.03907](https://arxiv.org/abs/2112.03907).
 
-- **Interdisciplinary Research Achievement:** Ref-NeRF encodes the geometry of specular reflection, a concept rooted in classical optics, directly into a neural network's structure. It shows concretely how domain knowledge from physics can reshape AI model design rather than just inform training data.
-
-- **Impact on Artificial Intelligence:** The work shows that parameterization choices profoundly affect a network's ability to interpolate. The Integrated Directional Encoding and diffuse/specular decomposition provide a reusable template for handling view-dependent effects in future neural rendering systems.
-
-- **Impact on Fundamental Interactions:** By representing normals, roughness, and specular tint with physically grounded parameters, Ref-NeRF moves neural rendering closer to genuine physically-based simulation, a step toward AI systems that capture light-matter interaction with real fidelity.
-
-- **Outlook and References:** Future work may extend Ref-NeRF's reflection framework to handle interreflections, subsurface scattering, and dynamic lighting, enabling fully relightable neural scene representations; the paper is available at [arXiv:2112.03907](https://arxiv.org/abs/2112.03907).
-
-## Original Paper Details
-- **Title:** Ref-NeRF: Structured View-Dependent Appearance for Neural Radiance Fields
-- **arXiv ID:** 2112.03907
-- **Authors:** ["Dor Verbin", "Peter Hedman", "Ben Mildenhall", "Todd Zickler", "Jonathan T. Barron", "Pratul P. Srinivasan"]
-- **Abstract:** Neural Radiance Fields (NeRF) is a popular view synthesis technique that represents a scene as a continuous volumetric function, parameterized by multilayer perceptrons that provide the volume density and view-dependent emitted radiance at each location. While NeRF-based techniques excel at representing fine geometric structures with smoothly varying view-dependent appearance, they often fail to accurately capture and reproduce the appearance of glossy surfaces. We address this limitation by introducing Ref-NeRF, which replaces NeRF's parameterization of view-dependent outgoing radiance with a representation of reflected radiance and structures this function using a collection of spatially-varying scene properties. We show that together with a regularizer on normal vectors, our model significantly improves the realism and accuracy of specular reflections. Furthermore, we show that our model's internal representation of outgoing radiance is interpretable and useful for scene editing.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Ref-NeRF: Structured View-Dependent Appearance for Neural Radiance Fields</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2112.03907</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Dor Verbin", "Peter Hedman", "Ben Mildenhall", "Todd Zickler", "Jonathan T. Barron", "Pratul P. Srinivasan"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Neural Radiance Fields (NeRF) is a popular view synthesis technique that represents a scene as a continuous volumetric function, parameterized by multilayer perceptrons that provide the volume density and view-dependent emitted radiance at each location. While NeRF-based techniques excel at representing fine geometric structures with smoothly varying view-dependent appearance, they often fail to accurately capture and reproduce the appearance of glossy surfaces. We address this limitation by introducing Ref-NeRF, which replaces NeRF's parameterization of view-dependent outgoing radiance with a representation of reflected radiance and structures this function using a collection of spatially-varying scene properties. We show that together with a regularizer on normal vectors, our model significantly improves the realism and accuracy of specular reflections. Furthermore, we show that our model's internal representation of outgoing radiance is interpretable and useful for scene editing.</span></div></div>
+</div>

@@ -93,13 +93,13 @@ A large international team led by W. V. Jacobson-Galán used rapid follow-up obs
 
 The technique behind this discovery is **flash spectroscopy**: grabbing a spectrum of a supernova within hours of discovery, before the initial radiation burst fades. When the explosion's leading edge first tears free of the star (an event called **shock breakout**, or SBO), it floods surrounding material with X-rays and ultraviolet light. For a brief window, that material glows with distinctive emission lines, a chemical fingerprint of what the star shed before dying.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2404_19006/figure_1.png)
 
 Within 0.8 days of discovery, the team detected emission lines of hydrogen, helium, carbon, and nitrogen, all characteristic of **circumstellar material (CSM)**: the gas cloud the star had shed into surrounding space. These lines had a distinctive shape, a narrow core with broad, symmetric wings produced by electron scattering. Astronomers call this profile "IIn-like."
 
 Then came the surprise. By 1.5 days, less than 17 hours later, the spectrum had transformed. New, higher-ionization lines appeared: He II, C IV, N IV/V, and O V. These are highly energized forms of helium, carbon, nitrogen, and oxygen, each stripped of more electrons than before. Creating these ions requires more energetic photons, signaling that the gas had been hit by an even more intense radiation burst.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2404_19006/figure_1.png)
 
 The team interprets this rising ionization as evidence that the shockwave broke out not from the star's surface, but from deep within an extended, dense CSM cloud. The explosion had to punch through extra material before light could escape freely.
 
@@ -112,11 +112,11 @@ To extract physical parameters, the team ran a grid of **radiation hydrodynamics
 - CSM confined within ~5 × 10¹⁴ cm (~33 astronomical units, roughly Neptune's orbital distance) of the star's center
 - Enhanced mass loss beginning roughly 3 years before explosion
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2404_19006/figure_2.png)
 
 SN 2024ggi peaked at absolute magnitude −18.7 in the ultraviolet and −18.1 in the optical, consistent with the broader population of CSM-interacting Type II supernovae.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2404_19006/figure_2.png)
 
 ## Why It Matters
 
@@ -126,16 +126,13 @@ The proximity of SN 2024ggi (23 million light-years), combined with its rapid di
 
 Wide-field survey telescopes coming online soon, along with automated alert systems and machine-learning classifiers that flag young transients (newly exploded stars) in real time, will be essential for catching these critical early moments. Why massive stars convulse so violently just before core collapse remains an open question, one with implications for stellar feedback, galaxy evolution, and the neutron stars and black holes supernovae leave behind.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2404_19006/figure_3.png)
 
 > **Bottom Line:** SN 2024ggi gave astronomers a rare, real-time window into a star's death throes, revealing furious mass loss in the progenitor's final years that challenges standard stellar models and points toward a violent, still-unexplained instability at the end of massive stellar evolution.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects observational astronomy, stellar physics, and high-performance computational modeling, using nLTE radiative-transfer simulations alongside multi-wavelength photometric and spectroscopic data to decode the final years of a massive star's life.
-
-- **Impact on Artificial Intelligence:** SN 2024ggi's discovery relied on automated transient-detection pipelines and rapid-classification tools that increasingly incorporate machine learning. AI-assisted survey astronomy is becoming essential for time-critical science on timescales of hours.
-
-- **Impact on Fundamental Interactions:** By measuring the progenitor's mass-loss rate, wind velocity, and CSM geometry from first principles, this study provides direct empirical constraints on the poorly understood physics driving enhanced mass loss in red supergiants immediately before core collapse.
-
-- **Outlook and References:** Future facilities and real-time ML classifiers promise to catch more supernovae within minutes of shock breakout, further unlocking fleeting ionization signatures; the full study is available at [arXiv:2404.19006](https://arxiv.org/abs/2404.19006) (Jacobson-Galán et al. 2024).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects observational astronomy, stellar physics, and high-performance computational modeling, using nLTE radiative-transfer simulations alongside multi-wavelength photometric and spectroscopic data to decode the final years of a massive star's life.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">SN 2024ggi's discovery relied on automated transient-detection pipelines and rapid-classification tools that increasingly incorporate machine learning. AI-assisted survey astronomy is becoming essential for time-critical science on timescales of hours.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By measuring the progenitor's mass-loss rate, wind velocity, and CSM geometry from first principles, this study provides direct empirical constraints on the poorly understood physics driving enhanced mass loss in red supergiants immediately before core collapse.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future facilities and real-time ML classifiers promise to catch more supernovae within minutes of shock breakout, further unlocking fleeting ionization signatures; the full study is available at [arXiv:2404.19006](https://arxiv.org/abs/2404.19006) (Jacobson-Galán et al. 2024).</span></div></div>
+</div>

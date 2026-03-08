@@ -66,7 +66,7 @@ When you tell a robot to maximize the distance of a thrown ball, its learned str
 
 The standard fix is to add extra penalty terms and tracking objectives. But that brings you right back to the imitation problem.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2502_10894/figure_1.png)
 
 The MIT team's first innovation addresses the simulation problem directly. They introduce the **Unsupervised Actuator Net (UAN)**, a learned corrective model for actuator dynamics: a neural network that teaches the simulator how the real robot's motors actually behave.
 
@@ -76,7 +76,7 @@ Previous approaches required torque sensors (devices that measure the twisting f
 
 The UAN runs as an RL agent inside the simulator, minimizing the mismatch between simulated and real transition dynamics. The result: a simulator that behaves like the actual hardware, without a single torque sensor.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2502_10894/figure_2.png)
 
 A better simulator is only half the battle. The team's second challenge: **guided exploration**. Pure task rewards give the robot enormous freedom but almost no direction. The solution is to use reference trajectories not as strict commands, but as *hints* that warm-start exploration.
 
@@ -87,7 +87,7 @@ Training unfolds in two sub-phases:
 
 The reference trajectory isn't a leash. It's a suggestion. The robot uses it to bootstrap, then discards or modifies whatever parts it finds suboptimal.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2502_10894/figure_3.png)
 
 The robot is a Unitree B2 quadruped (65 centimeters tall, 60 kilograms) carrying a modified Unitree Z1 Pro arm with 6 degrees of freedom (six independent ways the arm can rotate and extend). All 19 actuated joints must coordinate simultaneously during tasks like a dumbbell snatch, where the legs drive into the ground while the arm explosively lifts a weight overhead. That's a coordination problem that would challenge most robots running conventional controllers.
 
@@ -103,12 +103,9 @@ Open questions remain. UAN currently learns a single corrective model per robot;
 
 > **Bottom Line:** By learning to close the simulation-reality gap for complex actuators (without torque sensors) and treating reference motions as hints rather than mandates, this approach lets robots discover genuinely athletic behaviors that transfer reliably from simulation to the real world.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects reinforcement learning and physical robotics through data-driven actuator modeling, tackling a problem at the intersection of machine learning, control theory, and actuator mechanics.
-
-- **Impact on Artificial Intelligence:** UAN shows that learning corrective dynamics models from encoder data alone, with no torque sensing required, can enable sim-to-real transfer for high-dimensional, contact-rich control tasks.
-
-- **Impact on Fundamental Interactions:** By accurately modeling non-linear friction, hysteresis, and lag in harmonic drive actuators, this research advances our understanding of how physical transmission mechanisms can be faithfully represented in learned simulation environments.
-
-- **Outlook and References:** Future directions include extending UAN to cross-platform generalization and automating reference trajectory generation. The full paper is available at [arXiv:2502.10894](https://arxiv.org/abs/2502.10894).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects reinforcement learning and physical robotics through data-driven actuator modeling, tackling a problem at the intersection of machine learning, control theory, and actuator mechanics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">UAN shows that learning corrective dynamics models from encoder data alone, with no torque sensing required, can enable sim-to-real transfer for high-dimensional, contact-rich control tasks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By accurately modeling non-linear friction, hysteresis, and lag in harmonic drive actuators, this research advances our understanding of how physical transmission mechanisms can be faithfully represented in learned simulation environments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending UAN to cross-platform generalization and automating reference trajectory generation. The full paper is available at [arXiv:2502.10894](https://arxiv.org/abs/2502.10894).</span></div></div>
+</div>

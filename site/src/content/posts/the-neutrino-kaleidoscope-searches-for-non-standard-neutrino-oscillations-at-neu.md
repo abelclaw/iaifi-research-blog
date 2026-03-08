@@ -58,7 +58,7 @@ The proposal pairs two emerging technologies, **muon accelerators** (next-genera
 
 A happy coincidence of scales makes the whole thing work. Future muon accelerators circulating muons at energies around 5–10 TeV (one TeV is roughly a thousand times the energy stored in a stationary proton) produce neutrinos as a natural byproduct. When muons decay, they emit two types of neutrinos in a tight, focused beam. At 5 TeV, that beam's angular spread is just 0.02 milliradians, so narrow that after traveling thousands of kilometers, it still fits inside a detector only hundreds of meters across.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2508_09249/figure_1.png)
 
 The second piece: neutrino telescopes like IceCube instrument roughly a cubic kilometer of ice, about a gigaton of active mass. At TeV energies, roughly 1 in 10 beam neutrinos interact inside a gigaton detector. That interaction rate, combined with the collimated beam, means the kaleidoscope accumulates statistics far exceeding what atmospheric neutrinos can provide. And because the beam composition is precisely known, the systematics are far better controlled.
 
@@ -68,17 +68,17 @@ The authors consider three baselines, each probing a different layer of Earth's 
 - **Fermilab → KM3NeT** (Mediterranean): ~8,600 km, through the mantle
 - **Fermilab → IceCube** (South Pole): ~12,900 km, through the core
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2508_09249/figure_1.png)
 
 The oscillation search compares the flavor composition (the mix of neutrino types) at the source against what arrives at the detector. Standard neutrino oscillations are well understood: neutrinos quantum-mechanically morph between their three flavors (electron, muon, and tau) as they travel. New physics would show up as deviations from the expected pattern. The beam's angular spread also provides a useful trick: sampling different off-axis angles effectively samples different neutrino energies, sharpening sensitivity to oscillation signals through what's known as the PRISM effect.
 
 The physics reach is worth spelling out. For **sterile neutrinos** (hypothetical particles that don't interact via the weak force), the kaleidoscope could probe mixing with ordinary neutrinos at mass splittings around 1 eV², with sensitivity orders of magnitude beyond existing terrestrial experiments.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2508_09249/figure_2.png)
 
 The reach for **Lorentz invariance violation** is even more dramatic. Some quantum gravity theories predict tiny departures from Einstein's special relativity. These effects accumulate over long baselines and become measurable at TeV energies. The kaleidoscope could probe violations suppressed by the Planck scale (~10¹⁹ GeV), equivalent to detecting a wrinkle in the fabric of spacetime itself.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2508_09249/figure_2.png)
 
 ## Why It Matters
 
@@ -90,9 +90,9 @@ Open questions remain. Can a muon accelerator ring be engineered with a straight
 
 > **Bottom Line:** The Neutrino Kaleidoscope would turn a future muon collider into a dual-purpose physics machine, probing quantum gravity signatures and exotic sterile neutrinos with sensitivity orders of magnitude beyond today's experiments, simply by pointing its neutrino beam at detectors that already exist.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects accelerator physics, neutrino astrophysics, and quantum gravity phenomenology by repurposing future collider infrastructure as a long-baseline neutrino oscillation experiment, using Earth itself as the medium.
-- **Impact on Artificial Intelligence:** The data analysis challenges posed by neutrino kaleidoscope searches (disentangling rare oscillation signals from TeV-scale backgrounds) will likely push development of machine learning methods for neutrino event reconstruction and classification in experiments like IceCube.
-- **Impact on Fundamental Interactions:** The proposal offers sensitivity to Lorentz invariance violation at the Planck scale and sterile neutrino mixing orders of magnitude beyond current terrestrial limits, probing physics well beyond the Standard Model.
-- **Outlook and References:** Future work will focus on detector optimization, beam engineering constraints, and near-detector physics; the full analysis framework is detailed in [arXiv:2508.09249](https://arxiv.org/abs/2508.09249).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects accelerator physics, neutrino astrophysics, and quantum gravity phenomenology by repurposing future collider infrastructure as a long-baseline neutrino oscillation experiment, using Earth itself as the medium.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The data analysis challenges posed by neutrino kaleidoscope searches (disentangling rare oscillation signals from TeV-scale backgrounds) will likely push development of machine learning methods for neutrino event reconstruction and classification in experiments like IceCube.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The proposal offers sensitivity to Lorentz invariance violation at the Planck scale and sterile neutrino mixing orders of magnitude beyond current terrestrial limits, probing physics well beyond the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will focus on detector optimization, beam engineering constraints, and near-detector physics; the full analysis framework is detailed in [arXiv:2508.09249](https://arxiv.org/abs/2508.09249).</span></div></div>
+</div>

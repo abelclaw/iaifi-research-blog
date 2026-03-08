@@ -33,7 +33,7 @@ published: '2023-09-01T17:42:32+00:00'
 theme: Theoretical Physics
 title: Signal-to-noise improvement through neural network contour deformations for
   3D $SU(2)$ lattice gauge theory
-wordCount: 1088
+wordCount: 1181
 ---
 
 ## The Big Picture
@@ -65,7 +65,7 @@ The new approach works directly on the gauge link degrees of freedom, using two 
 
 The SU(2) gauge links are matrices encoding the symmetry of the strong force, expressed using the **Bronzan parametrization**: each matrix written in terms of three angles. Allowing those angles to become complex is what moves the calculation into the complex plane. The network outputs small shifts to these angles, producing deformed configurations that integrate to the correct expectation value but with far less variance.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2309_00600/figure_1.png)
 
 Training proceeds by gradient descent: the loss function is the variance of the deformed estimator, and the network learns to push the integration contour toward regions where noise is suppressed. Because the **Jacobian** of the map (a factor correcting for how volumes stretch and compress under the change of variables) can be computed exactly, there is no approximation anywhere in the pipeline.
 
@@ -79,18 +79,15 @@ The neural network isn't approximating the physics. It's finding the best possib
 
 > **Bottom Line:** Neural networks can now guide physicists through the complex plane to dramatically quieter measurements, achieving 1000x noise reduction for Wilson loops in 3D SU(2) gauge theory, with a clear path to the 4D theories that describe the real world.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses lattice field theory with modern machine learning, using neural networks not to approximate physics but to optimize the mathematical contour of exact path integral calculations in higher-dimensional gauge theories.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The neural networks here act as variational optimizers for integration contours in complex mathematical spaces, opening a new class of problems where learned maps reduce Monte Carlo variance without introducing bias.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By extending complex contour deformation to 3D SU(2) gauge theory with periodic boundary conditions, this work provides a scalable route toward solving the signal-to-noise problem in lattice QCD, a key obstacle to first-principles calculations of nuclear and hadronic physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors identify 4D SU(N) theories and full QCD as the natural next step; the work was presented at Lattice 2023 and is available as [arXiv:2309.00600](https://arxiv.org/abs/2309.00600).
 
-- **Interdisciplinary Research Achievement:** This work fuses lattice field theory with modern machine learning, using neural networks not to approximate physics but to optimize the mathematical contour of exact path integral calculations in higher-dimensional gauge theories.
-
-- **Impact on Artificial Intelligence:** The neural networks here act as variational optimizers for integration contours in complex mathematical spaces, opening a new class of problems where learned maps reduce Monte Carlo variance without introducing bias.
-
-- **Impact on Fundamental Interactions:** By extending complex contour deformation to 3D SU(2) gauge theory with periodic boundary conditions, this work provides a scalable route toward solving the signal-to-noise problem in lattice QCD, a key obstacle to first-principles calculations of nuclear and hadronic physics.
-
-- **Outlook and References:** The authors identify 4D SU(N) theories and full QCD as the natural next step; the work was presented at Lattice 2023 and is available as [arXiv:2309.00600](https://arxiv.org/abs/2309.00600).
-
-## Original Paper Details
-- **Title:** Signal-to-noise improvement through neural network contour deformations for 3D $SU(2)$ lattice gauge theory
-- **arXiv ID:** 2309.00600
-- **Authors:** ["William Detmold", "Gurtej Kanwar", "Yin Lin", "Phiala E. Shanahan", "Michael L. Wagman"]
-- **Abstract:** Complex contour deformations of the path integral have been demonstrated to significantly improve the signal-to-noise ratio of observables in previous studies of two-dimensional gauge theories with open boundary conditions. In this work, new developments based on gauge fixing and a neural network definition of the deformation are introduced, which enable an effective application to theories in higher dimensions and with generic boundary conditions. Improvements of the signal-to-noise ratio by up to three orders of magnitude for Wilson loop measurements are shown in $SU(2)$ lattice gauge theory in three spacetime dimensions.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Signal-to-noise improvement through neural network contour deformations for 3D $SU(2)$ lattice gauge theory</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2309.00600</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["William Detmold", "Gurtej Kanwar", "Yin Lin", "Phiala E. Shanahan", "Michael L. Wagman"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Complex contour deformations of the path integral have been demonstrated to significantly improve the signal-to-noise ratio of observables in previous studies of two-dimensional gauge theories with open boundary conditions. In this work, new developments based on gauge fixing and a neural network definition of the deformation are introduced, which enable an effective application to theories in higher dimensions and with generic boundary conditions. Improvements of the signal-to-noise ratio by up to three orders of magnitude for Wilson loop measurements are shown in $SU(2)$ lattice gauge theory in three spacetime dimensions.</span></div></div>
+</div>

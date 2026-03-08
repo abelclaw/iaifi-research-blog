@@ -51,7 +51,7 @@ Rather than attacking a nonlinear equation head-on, the team embeds it inside a 
 
 The central technical tool is the **derived loop stack** $\mathcal{L}X$, the space of closed paths in $X$, equipped with a natural $S^1$-rotational symmetry. Functions on $\mathcal{L}X$ give precisely the algebraic structure needed to see a nonlinear PDE's linearization as a module, making the connection between nonlinear and linear geometry both precise and functorial.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2312_05226/figure_1.png)
 
 The approach proceeds in stages:
 
@@ -67,7 +67,7 @@ The approach proceeds in stages:
 
 The payoff is Theorem A: for D-finitary derived PDEs admitting deformation theory, the linearization sheaf is locally constant in non-characteristic directions. This is the derived, nonlinear analog of the classical result that solutions propagate smoothly away from characteristic directions. It holds on singular, derived, and non-archimedean spaces alike.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2312_05226/figure_1.png)
 
 Theorems B and C generalize the classical Cauchy-Kowalevski-Kashiwara theorem to this nonlinear derived setting. If the initial data surface avoids the dangerous directions, the singular nonlinear Cauchy problem is globally well-posed: given appropriate starting conditions, the equation has a unique, globally-controlled solution.
 
@@ -81,12 +81,9 @@ For physics, the implications run deep. The equations of quantum gravity, string
 
 > **Bottom Line:** By recasting nonlinear PDEs as derived geometric objects and micro-linearizing them through loop stacks and Hodge deformations, Kryczka, Sheshmani, and Yau prove that solution singularities propagate along characteristic directions on even the most exotic spaces physics demands, giving mathematicians and physicists a new handle on some of the hardest equations in science.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work unifies derived algebraic geometry, microlocal analysis, and D-module theory to attack nonlinear PDE problems at the interface of pure mathematics and theoretical physics.
-
-- **Impact on Artificial Intelligence:** The derived moduli framework gives a rigorous foundation for studying solution spaces of complex nonlinear systems. This mathematical infrastructure connects to the geometry of loss surfaces and solution manifolds in machine learning.
-
-- **Impact on Fundamental Interactions:** The global propagation-of-singularities theorems apply directly to the NLPDEs of general relativity and gauge theory, offering new tools to analyze singularity formation and well-posedness in the equations governing fundamental forces.
-
-- **Outlook and References:** This paper ([arXiv:2312.05226](https://arxiv.org/abs/2312.05226)) is the first in a multi-part series; upcoming work will develop derived tricomplexes and nonlinear index theory with direct applications to mathematical physics.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work unifies derived algebraic geometry, microlocal analysis, and D-module theory to attack nonlinear PDE problems at the interface of pure mathematics and theoretical physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The derived moduli framework gives a rigorous foundation for studying solution spaces of complex nonlinear systems. This mathematical infrastructure connects to the geometry of loss surfaces and solution manifolds in machine learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The global propagation-of-singularities theorems apply directly to the NLPDEs of general relativity and gauge theory, offering new tools to analyze singularity formation and well-posedness in the equations governing fundamental forces.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">This paper ([arXiv:2312.05226](https://arxiv.org/abs/2312.05226)) is the first in a multi-part series; upcoming work will develop derived tricomplexes and nonlinear index theory with direct applications to mathematical physics.</span></div></div>
+</div>

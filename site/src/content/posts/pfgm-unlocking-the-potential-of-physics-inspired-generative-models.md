@@ -68,7 +68,7 @@ The trick lies in dimensionality. In standard PFGM, you take your *N*-dimensiona
 
 PFGM++ generalizes this by adding not one, but *D* extra dimensions. Every data point receives a *D*-dimensional augmentation vector: a list of *D* extra numbers appended to its coordinates.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2302_04265/figure_1.png)
 
 A key symmetry makes this tractable. The physics is invariant under rotations in the augmented space, so you don't need to track all *D* extra numbers independently. Everything that matters collapses to a single number: the norm *r = ‖z‖*, the total length of the augmentation vector. This reduction transforms a potentially intractable high-dimensional problem back into a manageable one.
 
@@ -80,7 +80,7 @@ The result is a family of models parameterized entirely by *D*:
 
 The team also replaced PFGM's original training objective with a cleaner one. The original required estimating electric field targets using very large batches, which introduced bias and computational overhead. PFGM++ instead derives a perturbation-based training objective: it teaches the model by asking it to "undo" small, controlled corruptions added to training examples, mathematically analogous to denoising score matching in diffusion models. The result is unbiased, efficient, and naturally compatible with conditional generation.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2302_04265/figure_1.png)
 
 To make exploring different values of *D* practical, the researchers developed a direct alignment method. This procedure automatically transfers well-tuned hyperparameters (the configuration knobs governing how training runs) from a trained diffusion model (D→∞) to any finite *D*. Practitioners don't have to start from scratch. They can borrow the hard-won intuitions from years of diffusion model tuning.
 
@@ -88,22 +88,19 @@ To make exploring different values of *D* practical, the researchers developed a
 
 On CIFAR-10, a standard image generation benchmark, PFGM++ with D=2048 achieves an FID score of 1.74 in the class-conditional setting. FID measures image quality; lower is better. On the FFHQ 64×64 face dataset, D=128 reaches an FID of 2.43. Both results beat the previous best diffusion models at their own game.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2302_04265/figure_2.png)
 
 Raw performance isn't the whole story, though. Smaller *D* values produce models that degrade more gracefully when things go wrong. The researchers tested three distinct failure modes: injecting controlled noise into network outputs during sampling, using large step sizes that accumulate rounding errors, and applying post-training quantization (compressing model weights to save memory at the cost of some precision). In every case, models with smaller *D* held up better. The reason is baked into the physics: a small *D* widens the distribution of noisy training sample norms, giving the model a broader tolerance band for imperfect predictions.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2302_04265/figure_2.png)
 
 This unification opens up a real new axis of design. Rather than choosing between two fixed frameworks, researchers can now navigate a continuous spectrum, selecting the *D* that best matches their task difficulty, architecture quality, and tolerance for error. It also raises worthwhile theoretical questions: why does intermediate *D* outperform both extremes? What is it about finite-dimensional augmentation that unlocks extra generative capacity?
 
 > **Bottom Line:** PFGM++ doesn't just improve state-of-the-art image generation. It reveals that diffusion models and Poisson flow models were always two faces of a single physical principle, and that the unexplored middle ground between them holds real scientific value.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** PFGM++ unifies two physically-motivated generative frameworks, one rooted in thermodynamics and the other in electrostatics, by generalizing the augmentation dimension *D*. The result exposes a deeper mathematical structure connecting both approaches.
-
-- **Impact on Artificial Intelligence:** The framework achieves state-of-the-art FID scores of 1.74 on CIFAR-10 and 2.43 on FFHQ 64×64 while providing a principled, tunable tradeoff between resilience and performance that practitioners can exploit across diverse generation tasks.
-
-- **Impact on Fundamental Interactions:** Symmetry principles from classical field theory (rotational invariance of electric fields in augmented dimensions) directly simplify and power the machine learning here, showing how physics intuition can actively guide AI architecture design.
-
-- **Outlook and References:** Future directions include applying PFGM++ to scientific domains like protein structure and cosmological field generation, where tolerance to model error is especially valuable. The paper is available as [arXiv:2302.04265](https://arxiv.org/abs/2302.04265), with code at github.com/Newbeeer/pfgmpp.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">PFGM++ unifies two physically-motivated generative frameworks, one rooted in thermodynamics and the other in electrostatics, by generalizing the augmentation dimension *D*. The result exposes a deeper mathematical structure connecting both approaches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The framework achieves state-of-the-art FID scores of 1.74 on CIFAR-10 and 2.43 on FFHQ 64×64 while providing a principled, tunable tradeoff between resilience and performance that practitioners can exploit across diverse generation tasks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Symmetry principles from classical field theory (rotational invariance of electric fields in augmented dimensions) directly simplify and power the machine learning here, showing how physics intuition can actively guide AI architecture design.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include applying PFGM++ to scientific domains like protein structure and cosmological field generation, where tolerance to model error is especially valuable. The paper is available as [arXiv:2302.04265](https://arxiv.org/abs/2302.04265), with code at github.com/Newbeeer/pfgmpp.</span></div></div>
+</div>

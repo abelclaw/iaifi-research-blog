@@ -68,13 +68,13 @@ The task sounds simple: given two numbers *a* and *b*, compute *(a + b) mod p*, 
 
 Because the embedding is randomly initialized, every frequency starts with a roughly equal shot. The network could use any of the (p−1)/2 possible circular frequencies. But it doesn't use them all. It ends up using only a handful.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_17420/figure_1.png)
 
 The researchers tracked all these frequencies throughout training by computing **Fourier signals**, measuring how strongly each circular pattern appears in the network's internal state at each step. Early in training, a few frequencies begin amplifying rapidly, their signals separating from the pack on a logarithmic scale.
 
 The rest collapse toward zero. The survivors stabilize into crisp circles visible in the embedding space. The losers dissolve into noise.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_17420/figure_2.png)
 
 Two factors determine who survives:
 
@@ -91,7 +91,7 @@ This means you can characterize any two frequencies as either **collaborative** 
 
 The researchers also varied the embedding dimension, the total space available inside the network. With a larger embedding, more circles survive. With a tighter one, fewer do. The parallel to ecological resource partitioning is direct: a richer environment supports greater biodiversity.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_17420/figure_3.png)
 
 ## Why It Matters
 
@@ -107,12 +107,9 @@ Open questions remain. Does the Lotka-Volterra analogy hold in deeper networks? 
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work imports a foundational model from theoretical ecology, the Lotka-Volterra equations, to describe neural network training dynamics, building a quantitative bridge between population biology and deep learning theory.
-
-- **Impact on Artificial Intelligence:** The paper advances mechanistic interpretability by decomposing training dynamics into competing low-dimensional representations with measurable interactions, offering a new lens for understanding *why* networks converge to particular solutions.
-
-- **Impact on Fundamental Interactions:** By applying tools from mathematical physics (Fourier analysis, differential equations, sparse regression) to representation learning, the work shows that abstract physical modeling frameworks can yield genuine insight into artificial neural systems.
-
-- **Outlook and References:** Future work may extend this competition framework to real-world architectures and explore whether "fitness engineering" at initialization can reliably guide networks toward desired algorithms. The paper is available at [arXiv:2405.17420](https://arxiv.org/abs/2405.17420) and code is public at github.com/carlguo866/circle-survival.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports a foundational model from theoretical ecology, the Lotka-Volterra equations, to describe neural network training dynamics, building a quantitative bridge between population biology and deep learning theory.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper advances mechanistic interpretability by decomposing training dynamics into competing low-dimensional representations with measurable interactions, offering a new lens for understanding *why* networks converge to particular solutions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By applying tools from mathematical physics (Fourier analysis, differential equations, sparse regression) to representation learning, the work shows that abstract physical modeling frameworks can yield genuine insight into artificial neural systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend this competition framework to real-world architectures and explore whether "fitness engineering" at initialization can reliably guide networks toward desired algorithms. The paper is available at [arXiv:2405.17420](https://arxiv.org/abs/2405.17420) and code is public at github.com/carlguo866/circle-survival.</span></div></div>
+</div>

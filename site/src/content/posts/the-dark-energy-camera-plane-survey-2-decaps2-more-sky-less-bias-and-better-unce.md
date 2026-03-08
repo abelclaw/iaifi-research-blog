@@ -53,7 +53,7 @@ published: '2022-06-23T18:00:01+00:00'
 theme: Astrophysics
 title: 'The Dark Energy Camera Plane Survey 2 (DECaPS2): More Sky, Less Bias, and
   Better Uncertainties'
-wordCount: 1023
+wordCount: 1264
 ---
 
 ## The Big Picture
@@ -74,9 +74,9 @@ Processing those exposures required a pipeline built for extremes, centered on t
 - **`CloudCovErr.jl`**: A post-processing module applied to every detection in the survey. Standard pipelines model image backgrounds as smooth, gradually varying surfaces, which works fine in sparse regions but falls apart when the "background" has sharp filaments and gradients at the same spatial scale as the stars being measured. For each source, `CloudCovErr.jl` estimates the local background covariance and uses that structure to correct measured brightness and recalculate realistic uncertainties.
 - **Detection bias correction**: Faint objects near the detection threshold are systematically measured too bright, because you only catch them when random noise pushes them above the cutoff. The team derived a clean mathematical description of this bias and validated it with **synthetic source injection tests**: fake stars of known brightness were planted across the entire survey footprint, the pipeline was run on them, and recovery was measured directly.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2206_11909/figure_1.png)
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2206_11909/figure_2.png)
 
 **Photometric calibration** converts raw pixel counts into standardized brightness measurements comparable across instruments. Using reference data from Pan-STARRS1 and Gaia, combined with injection test results, the team characterized depth, completeness, and positional accuracy across wildly varying conditions, from sparse outer-disk fields to the blazing stellar density of the inner Galaxy.
 
@@ -84,7 +84,7 @@ Processing those exposures required a pipeline built for extremes, centered on t
 
 The Milky Way is our home galaxy, but also the one we understand least. We're embedded in it, looking through layers of dust that block our view toward the center. Surveys like DECaPS2 are the backbone of nearly every branch of Galactic astronomy: mapping the three-dimensional dust distribution, measuring stellar populations across ages and compositions, hunting for variable stars and transients, and building training sets for machine learning classifiers that must sort billions of sources automatically.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2206_11909/figure_3.png)
 
 The survey's overlap with Pan-STARRS1 matters, too. PS1 covers the northern and equatorial sky well, but the southern Galactic plane, where the inner disk and bulge are most visible from Earth's southern hemisphere, was its blind spot. DECaPS2 fills that hole with comparable depth and better-understood systematics.
 
@@ -94,18 +94,15 @@ The improvements in uncertainty estimation have real consequences for science. *
 
 > **Bottom Line:** DECaPS2 maps 3.32 billion objects across the most complex part of the sky, with systematic biases explicitly measured and corrected, giving astronomers a trustworthy foundation for understanding the structure, stellar populations, and dust of our own Galaxy.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">DECaPS2 shows how algorithmic advances from statistics and signal processing (covariance-aware background modeling, injection-test validation, bias-corrected detection statistics) can open up new astrophysical science in large-scale astronomical surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The survey's synthetic source injection framework gives astronomers a way to rigorously test photometric pipelines against ground truth, offering a template for benchmarking machine learning classifiers and regression models at population scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">A 3.32-billion-object catalog of the Galactic plane with well-characterized uncertainties enables precision measurements of the three-dimensional dust distribution and stellar populations needed to understand Galactic structure and evolution.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend photometric and astrometric comparisons with Rubin/LSST and Roman Space Telescope observations. The full catalog and images are publicly available, and the paper is posted as [arXiv:2206.11909](https://arxiv.org/abs/2206.11909).
 
-- **Interdisciplinary Research Achievement:** DECaPS2 shows how algorithmic advances from statistics and signal processing (covariance-aware background modeling, injection-test validation, bias-corrected detection statistics) can open up new astrophysical science in large-scale astronomical surveys.
-
-- **Impact on Artificial Intelligence:** The survey's synthetic source injection framework gives astronomers a way to rigorously test photometric pipelines against ground truth, offering a template for benchmarking machine learning classifiers and regression models at population scale.
-
-- **Impact on Fundamental Interactions:** A 3.32-billion-object catalog of the Galactic plane with well-characterized uncertainties enables precision measurements of the three-dimensional dust distribution and stellar populations needed to understand Galactic structure and evolution.
-
-- **Outlook and References:** Future work will extend photometric and astrometric comparisons with Rubin/LSST and Roman Space Telescope observations. The full catalog and images are publicly available, and the paper is posted as [arXiv:2206.11909](https://arxiv.org/abs/2206.11909).
-
-## Original Paper Details
-- **Title:** The Dark Energy Camera Plane Survey 2 (DECaPS2): More Sky, Less Bias, and Better Uncertainties
-- **arXiv ID:** [2206.11909](https://arxiv.org/abs/2206.11909)
-- **Authors:** A. K. Saydjari, E. F. Schlafly, D. Lang, A. M. Meisner, G. M. Green, C. Zucker, I. Zelko, J. S. Speagle, T. Daylan, A. Lee, F. Valdes, D. Schlegel, D. P. Finkbeiner
-- **Abstract:** Deep optical and near-infrared imaging of the entire Galactic plane is essential for understanding our Galaxy's stars, gas, and dust. The second data release of the DECam Plane Survey (DECaPS2) extends the five-band optical and near-infrared survey of the southern Galactic plane to cover 6.5% of the sky, |b| < 10° and 6° > l > -124°, complementary to coverage by Pan-STARRS1. Typical single-exposure effective depths, including crowding effects and other complications, are 23.5, 22.6, 22.1, 21.6, and 20.8 mag in g, r, i, z, and Y bands, respectively, with around 1 arcsecond seeing. The survey comprises 3.32 billion objects built from 34 billion detections in 21.4 thousand exposures, totaling 260 hours open shutter time on the Dark Energy Camera (DECam) at Cerro Tololo. The data reduction pipeline features several improvements, including the addition of synthetic source injection tests to validate photometric solutions across the entire survey footprint. A convenient functional form for the detection bias in the faint limit was derived and used to characterize the photometric pipeline performance. A new post-processing technique was applied to every detection to de-bias and improve uncertainty estimates of the flux in the presence of structured backgrounds, specifically targeting nebulosity. The images and source catalogs are publicly available at http://decaps.skymaps.info/.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">The Dark Energy Camera Plane Survey 2 (DECaPS2): More Sky, Less Bias, and Better Uncertainties</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2206.11909](https://arxiv.org/abs/2206.11909)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">A. K. Saydjari, E. F. Schlafly, D. Lang, A. M. Meisner, G. M. Green, C. Zucker, I. Zelko, J. S. Speagle, T. Daylan, A. Lee, F. Valdes, D. Schlegel, D. P. Finkbeiner</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Deep optical and near-infrared imaging of the entire Galactic plane is essential for understanding our Galaxy's stars, gas, and dust. The second data release of the DECam Plane Survey (DECaPS2) extends the five-band optical and near-infrared survey of the southern Galactic plane to cover 6.5% of the sky, |b| < 10° and 6° > l > -124°, complementary to coverage by Pan-STARRS1. Typical single-exposure effective depths, including crowding effects and other complications, are 23.5, 22.6, 22.1, 21.6, and 20.8 mag in g, r, i, z, and Y bands, respectively, with around 1 arcsecond seeing. The survey comprises 3.32 billion objects built from 34 billion detections in 21.4 thousand exposures, totaling 260 hours open shutter time on the Dark Energy Camera (DECam) at Cerro Tololo. The data reduction pipeline features several improvements, including the addition of synthetic source injection tests to validate photometric solutions across the entire survey footprint. A convenient functional form for the detection bias in the faint limit was derived and used to characterize the photometric pipeline performance. A new post-processing technique was applied to every detection to de-bias and improve uncertainty estimates of the flux in the presence of structured backgrounds, specifically targeting nebulosity. The images and source catalogs are publicly available at http://decaps.skymaps.info/.</span></div></div>
+</div>

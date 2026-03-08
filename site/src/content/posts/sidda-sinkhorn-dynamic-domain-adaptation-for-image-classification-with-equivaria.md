@@ -77,7 +77,7 @@ Raw OT is expensive. SIDDA uses the **Sinkhorn divergence**, an efficient approx
 
 The key innovation is making this divergence *dynamic*: rather than computing alignment once at the start of training, SIDDA continuously updates the domain alignment loss throughout training. The network learns domain-invariant features progressively, rather than solving a rigid optimization problem upfront.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_14048/figure_1.png)
 
 The training loop works as follows:
 
@@ -91,7 +91,7 @@ The λ weight is the one adjustable setting that matters, and it proves remarkab
 
 SIDDA's second distinguishing feature is its synergy with **equivariant neural networks (ENNs)**, networks that mathematically enforce symmetry rather than learning it approximately from data. Standard convolutional networks learn approximate symmetries from data; ENNs bake them in. For galaxy images and other rotationally symmetric objects, this matters enormously.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2501_14048/figure_2.png)
 
 The authors test ENNs with dihedral group symmetry $D_N$ (rotational and reflection symmetry at $N$ discrete angles) and find a clean result: the higher the degree of equivariance, the better SIDDA performs. Symmetry and domain adaptation reinforce each other.
 
@@ -107,16 +107,13 @@ Any setting where models are trained in one environment and deployed in another 
 
 Open questions remain. The current framework is **unsupervised** on the target side, assuming no labeled target data at all. Semi-supervised extensions, where even a handful of target labels are available, could push accuracy higher still. And while the paper studies dihedral symmetry groups, the interaction between continuous symmetry groups and Sinkhorn alignment is largely unexplored territory.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2501_14048/figure_3.png)
 
 > **Bottom Line:** SIDDA achieves up to ~40% classification accuracy gains and over an order of magnitude improvement in calibration error on unlabeled target data, with almost no hyperparameter tuning, making reliable and generalizable neural networks practical for astronomy and beyond.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work bridges optimal transport theory from mathematics with equivariant neural network architectures from physics-informed machine learning, solving a critical bottleneck in deploying simulation-trained models on real astronomical data.
-
-- **Impact on Artificial Intelligence:** SIDDA introduces a dynamic, nearly hyperparameter-free domain adaptation algorithm that outperforms existing methods across diverse image datasets, with the added finding that higher-order equivariance systematically improves adaptation performance.
-
-- **Impact on Fundamental Interactions:** By enabling models trained on simulated universes to generalize reliably to real telescope data, SIDDA accelerates the science pipeline for next-generation surveys like LSST and Euclid that will probe dark energy, gravitational lensing, and galaxy evolution at unprecedented scale.
-
-- **Outlook and References:** The SIDDA codebase is open-source and available for broad use across multi-dataset scientific studies; the full paper is available at [arXiv:2501.14048](https://arxiv.org/abs/2501.14048).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges optimal transport theory from mathematics with equivariant neural network architectures from physics-informed machine learning, solving a critical bottleneck in deploying simulation-trained models on real astronomical data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">SIDDA introduces a dynamic, nearly hyperparameter-free domain adaptation algorithm that outperforms existing methods across diverse image datasets, with the added finding that higher-order equivariance systematically improves adaptation performance.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling models trained on simulated universes to generalize reliably to real telescope data, SIDDA accelerates the science pipeline for next-generation surveys like LSST and Euclid that will probe dark energy, gravitational lensing, and galaxy evolution at unprecedented scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The SIDDA codebase is open-source and available for broad use across multi-dataset scientific studies; the full paper is available at [arXiv:2501.14048](https://arxiv.org/abs/2501.14048).</span></div></div>
+</div>

@@ -69,7 +69,7 @@ Researchers from MIT, Caltech, Northwestern, and the University of Toronto have 
 
 The central idea borrows from a shift in computer vision: differentiable rendering, where you build a mathematical model of image formation precise enough to run gradients through it and optimize parameters directly. In computer graphics, this lets artists tune lighting, geometry, and materials to match a target image. Here, the "scene" is a coronagraphic telescope, and the goal is to precisely reconstruct the star's contribution to every pixel so it can be subtracted.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_01912/figure_1.png)
 
 The pipeline has three connected stages:
 
@@ -79,7 +79,7 @@ The pipeline has three connected stages:
 
 3. **Gradient-based optimization.** Given the predicted PSF and the actual science image, the optimizer iteratively adjusts the wavefront model to minimize residuals. Because the renderer accounts for physics that empirical methods ignore (how a specific wavefront shape produces a specific speckle at a specific location), it achieves tighter starlight subtraction than statistical post-processing approaches like PCA. Those methods treat the PSF as a pattern to be learned from data rather than physics to be modeled directly.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2501_01912/figure_1.png)
 
 One technical wrinkle: wavefront aberrations aren't static. They evolve on multiple timescales as the telescope drifts thermally or mechanically between exposures. The method handles this by treating each exposure's wavefront state as a separate variable to be estimated, while sharing learned parameters (like telescope mirror properties) across the full sequence. This temporal structure lets the model track how speckles evolve rather than assuming they're frozen.
 
@@ -87,7 +87,7 @@ One technical wrinkle: wavefront aberrations aren't static. They evolve on multi
 
 The significance here goes beyond a better algorithm for one telescope. Differentiable rendering is already reshaping fields from medical imaging to autonomous driving by enabling physics-aware optimization that purely data-driven models can't match. This work brings that toolkit to astronomy, and the timing matters. JWST is actively collecting coronagraphic data, the Roman Space Telescope is approaching launch, and the proposed Habitable Worlds Observatory targets exactly the problem this technique addresses: detecting Earth-like planets in habitable zones.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2501_01912/figure_2.png)
 
 The approach also recasts wavefront sensing data, already collected at every major observatory, as a scientific asset rather than an engineering byproduct. If wavefront telemetry that would otherwise be discarded can feed a differentiable post-processing pipeline, it represents an enormous untapped resource. Future work could extend the approach to ground-based adaptive optics systems, where wavefront sensing runs at kilohertz rates and produces a continuous stream of atmospheric information that current post-processing methods completely ignore.
 
@@ -95,12 +95,9 @@ Open questions remain. The current simulations use JWST-like configurations, and
 
 > **Bottom Line:** By applying differentiable rendering to wavefront sensing data that telescopes already collect, this work achieves substantially better starlight subtraction than conventional methods, potentially expanding the range of directly detectable exoplanets without spending a single additional minute on reference stars.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work embeds wave-optics physics directly into a differentiable computational graph, letting machine learning optimization tackle a fundamental astronomical measurement problem. It's AI-physics integration at its most concrete.
-
-- **Impact on Artificial Intelligence:** The research extends differentiable rendering from computer vision into high-contrast astronomical imaging, showing that physics-informed gradient-based optimization can outperform statistical post-processing on scientific imaging problems.
-
-- **Impact on Fundamental Interactions:** Better exoplanet detection directly advances the search for potentially habitable worlds. The approach has been validated on JWST-configuration simulations and is applicable to the next generation of large space and ground telescopes targeting Earth-like planets.
-
-- **Outlook and References:** Future directions include extension to real on-sky data, chromatic aberration modeling, and ground-based adaptive optics. The work is available as [arXiv:2501.01912](https://arxiv.org/abs/2501.01912).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work embeds wave-optics physics directly into a differentiable computational graph, letting machine learning optimization tackle a fundamental astronomical measurement problem. It's AI-physics integration at its most concrete.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The research extends differentiable rendering from computer vision into high-contrast astronomical imaging, showing that physics-informed gradient-based optimization can outperform statistical post-processing on scientific imaging problems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Better exoplanet detection directly advances the search for potentially habitable worlds. The approach has been validated on JWST-configuration simulations and is applicable to the next generation of large space and ground telescopes targeting Earth-like planets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extension to real on-sky data, chromatic aberration modeling, and ground-based adaptive optics. The work is available as [arXiv:2501.01912](https://arxiv.org/abs/2501.01912).</span></div></div>
+</div>

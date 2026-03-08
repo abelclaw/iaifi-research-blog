@@ -56,7 +56,7 @@ The trouble is that the space of possible mathematical expressions grows exponen
 
 The core observation driving AI Feynman is that the equations physicists care about aren't random. They have structure. They respect units. They decompose into simpler pieces. They exhibit symmetry. AI Feynman encodes six such properties into a recursive algorithm that chips away at complex equations by exploiting whichever simplifications apply.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/1905_11481/figure_1.png)
 
 The algorithm works like this:
 
@@ -72,7 +72,7 @@ The algorithm works like this:
 
 6. **Brute-force symbolic search** is the last resort for small, simple sub-expressions: try all formulas up to some length using a library of elementary functions.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/1905_11481/figure_1.png)
 
 Newton's gravitational law illustrates how these steps chain together. Starting with 9 variables, dimensional analysis reduces the problem to 6 unit-free combinations. The neural network then detects two translational symmetries (the force depends only on differences of coordinates, not absolute positions), dropping the count to 4 variables. Multiplicative separability splits the 4-variable problem into two smaller ones. Each gets solved independently, one by polynomial fitting after a simple inversion. The original 9-variable problem is cracked without ever searching through formulas with 9 arguments.
 
@@ -88,17 +88,14 @@ The same idea could apply wherever underlying laws might be compact and structur
 
 > **Bottom Line:** AI Feynman doesn't just fit data better. It uses physics-inspired tricks to recursively decompose hard symbolic regression problems into solvable pieces, achieving a 6x improvement over previous methods on challenging benchmarks.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">AI Feynman sits squarely at the intersection of machine learning and theoretical physics, encoding symmetry, dimensional analysis, and separability into a neural network-guided symbolic regression engine that recovers real physics equations from data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work resets expectations for symbolic regression, improving success rates from 15% to 90% on hard benchmarks by replacing brute-force search with physics-inspired recursive decomposition guided by neural network probes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By automatically rediscovering equations from the Feynman Lectures, including multi-variable laws like Newton's gravitation, the method opens a concrete path toward machine-assisted discovery of physical laws from experimental data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions include handling noisy data, larger equation spaces, and applications to open problems where governing equations remain unknown. The work was published in *Science Advances* (2020) and the AI Feynman benchmark dataset is publicly available. See [arXiv:1905.11481](https://arxiv.org/abs/1905.11481).
 
-- **Interdisciplinary Research Achievement:** AI Feynman sits squarely at the intersection of machine learning and theoretical physics, encoding symmetry, dimensional analysis, and separability into a neural network-guided symbolic regression engine that recovers real physics equations from data.
-
-- **Impact on Artificial Intelligence:** The work resets expectations for symbolic regression, improving success rates from 15% to 90% on hard benchmarks by replacing brute-force search with physics-inspired recursive decomposition guided by neural network probes.
-
-- **Impact on Fundamental Interactions:** By automatically rediscovering equations from the Feynman Lectures, including multi-variable laws like Newton's gravitation, the method opens a concrete path toward machine-assisted discovery of physical laws from experimental data.
-
-- **Outlook and References:** Future extensions include handling noisy data, larger equation spaces, and applications to open problems where governing equations remain unknown. The work was published in *Science Advances* (2020) and the AI Feynman benchmark dataset is publicly available. See [arXiv:1905.11481](https://arxiv.org/abs/1905.11481).
-
-## Original Paper Details
-- **Title:** AI Feynman: a Physics-Inspired Method for Symbolic Regression
-- **arXiv ID:** [1905.11481](https://arxiv.org/abs/1905.11481)
-- **Authors:** Silviu-Marian Udrescu, Max Tegmark
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">AI Feynman: a Physics-Inspired Method for Symbolic Regression</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[1905.11481](https://arxiv.org/abs/1905.11481)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Silviu-Marian Udrescu, Max Tegmark</span></div></div>
+</div>

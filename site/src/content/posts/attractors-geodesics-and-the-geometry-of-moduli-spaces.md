@@ -31,7 +31,7 @@ pdfUrl: https://arxiv.org/pdf/2408.00830v1
 published: '2024-08-01T18:00:01+00:00'
 theme: Theoretical Physics
 title: Attractors, Geodesics, and the Geometry of Moduli Spaces
-wordCount: 1232
+wordCount: 1292
 ---
 
 ## The Big Picture
@@ -50,7 +50,7 @@ The central technical move is elegant. In string theory and supergravity, a **BP
 
 Here's the key step. Using a recently proved theorem, Ruehle and Sung show that any gradient flow whose slope has constant steepness automatically satisfies the geodesic equation. Attractor flows have exactly this property (the gradient of $|Z|$ has constant norm along the flow), so every attractor trajectory is a geodesic on the **Weil-Petersson metric** of moduli space, the natural geometric ruler for measuring distances between different extra-dimensional shapes. A first-order equation and a second-order one turn out to describe the same object.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_00830/figure_1.png)
 
 With this identification in hand, the paper explores three consequences:
 
@@ -74,18 +74,15 @@ The connection between Laplacian eigenvalues and attractor points, proved rigoro
 
 > **Bottom Line:** Identifying attractor flows as geodesics unifies three separate swampland research programs and delivers new geometric evidence for the Raman-Vafa uniqueness conjecture, a step toward understanding which universes quantum gravity permits.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects pure mathematics (differential geometry of moduli spaces, spectral theory of the Laplacian) with theoretical physics (string compactifications, black hole attractor mechanisms) through a correspondence between gradient flows and geodesics that had not been recognized before.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The geometric structures uncovered here, including Laplacian eigenvalues on Calabi-Yau manifolds, attractor loci, and Weil-Petersson metrics, are natural targets for machine learning approaches to swampland exploration. Numerical methods could test these conjectures across large families of compactifications.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper provides new evidence for the Raman-Vafa uniqueness conjecture, with explicit verification in M-theory compactifications and the quintic Calabi-Yau family, tightening constraints on consistent quantum gravity theories.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the Laplacian eigenvalue/attractor point correspondence beyond tori to general Calabi-Yau manifolds, and testing whether attractor flow lines can intersect in ways that challenge the strong uniqueness conjecture. See [arXiv:2408.00830](https://arxiv.org/abs/2408.00830).
 
-- **Interdisciplinary Research Achievement:** This work connects pure mathematics (differential geometry of moduli spaces, spectral theory of the Laplacian) with theoretical physics (string compactifications, black hole attractor mechanisms) through a correspondence between gradient flows and geodesics that had not been recognized before.
-
-- **Impact on Artificial Intelligence:** The geometric structures uncovered here, including Laplacian eigenvalues on Calabi-Yau manifolds, attractor loci, and Weil-Petersson metrics, are natural targets for machine learning approaches to swampland exploration. Numerical methods could test these conjectures across large families of compactifications.
-
-- **Impact on Fundamental Interactions:** The paper provides new evidence for the Raman-Vafa uniqueness conjecture, with explicit verification in M-theory compactifications and the quintic Calabi-Yau family, tightening constraints on consistent quantum gravity theories.
-
-- **Outlook and References:** Future directions include extending the Laplacian eigenvalue/attractor point correspondence beyond tori to general Calabi-Yau manifolds, and testing whether attractor flow lines can intersect in ways that challenge the strong uniqueness conjecture. See [arXiv:2408.00830](https://arxiv.org/abs/2408.00830).
-
-## Original Paper Details
-- **Title:** Attractors, Geodesics, and the Geometry of Moduli Spaces
-- **arXiv ID:** [2408.00830](https://arxiv.org/abs/2408.00830)
-- **Authors:** ["Fabian Ruehle", "Benjamin Sung"]
-- **Abstract:** We connect recent conjectures and observations pertaining to geodesics, attractor flows, Laplacian eigenvalues and the geometry of moduli spaces by using that attractor flows are geodesics. For toroidal compactifications, attractor points are related to (degenerate) masses of the Laplacian on the target space, and also to the Laplacian on the moduli space. We also explore compactifications of M-Theory to $5$D on a Calabi-Yau threefold and argue that geodesics are unique in a special set of classes, providing further evidence for a recent conjecture by Raman and Vafa. Finally, we describe the role of the marked moduli space in $4$d $\mathcal{N} = 2$ compactifications. We study split attractor flows in an explicit example of the one-parameter family of quintics and discuss setups where flops to isomorphic Calabi-Yau manifolds exist.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Attractors, Geodesics, and the Geometry of Moduli Spaces</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2408.00830](https://arxiv.org/abs/2408.00830)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Fabian Ruehle", "Benjamin Sung"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We connect recent conjectures and observations pertaining to geodesics, attractor flows, Laplacian eigenvalues and the geometry of moduli spaces by using that attractor flows are geodesics. For toroidal compactifications, attractor points are related to (degenerate) masses of the Laplacian on the target space, and also to the Laplacian on the moduli space. We also explore compactifications of M-Theory to $5$D on a Calabi-Yau threefold and argue that geodesics are unique in a special set of classes, providing further evidence for a recent conjecture by Raman and Vafa. Finally, we describe the role of the marked moduli space in $4$d $\mathcal{N} = 2$ compactifications. We study split attractor flows in an explicit example of the one-parameter family of quintics and discuss setups where flops to isomorphic Calabi-Yau manifolds exist.</span></div></div>
+</div>

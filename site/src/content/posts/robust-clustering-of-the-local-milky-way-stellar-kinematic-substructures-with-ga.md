@@ -49,7 +49,7 @@ published: '2022-08-01T18:00:08+00:00'
 theme: Astrophysics
 title: Robust Clustering of the Local Milky Way Stellar Kinematic Substructures with
   Gaia eDR3
-wordCount: 1088
+wordCount: 1077
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ Xiaowei Ou, Lina Necib, and Anna Frebel at MIT applied a machine learning cluste
 
 The team used data from **Gaia**, the European Space Agency's stellar survey, combining early third data release (eDR3) positional and motion measurements with second data release (DR2) radial velocity measurements, i.e., each star's speed toward or away from Earth. The result: 5.5 million stars in the solar neighborhood, each with full 6D phase-space information (three position coordinates, three velocity components).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2208_01056/figure_1.png)
 
 They applied **HDBSCAN** (Hierarchical Density-Based Spatial Clustering of Applications with Noise), an algorithm that finds clusters of arbitrary shape in high-dimensional data without requiring you to specify how many clusters exist in advance. Unlike simpler algorithms that force every data point into a group, HDBSCAN explicitly labels ambiguous points as "noise," which matters a lot when hunting for rare stellar streams amid millions of disk stars.
 
@@ -81,11 +81,11 @@ The most original contribution is the treatment of **error propagation**. Gaia's
 
 The stability test returned a clear-eyed result: **23 stable clusters in velocity space** (1,405 stars) and **6 stable clusters in action-angle space** (497 stars).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2208_01056/figure_2.png)
 
 Several well-known structures emerged. The **Gaia Sausage-Enceladus (GSE)**, remnant of the Milky Way's most recent major merger, appeared prominently in both spaces, as did the **Helmi Stream**, ancient tidal debris from a disrupted dwarf galaxy. Globular cluster **NGC 3201** showed up in both spaces; **NGC 104** appeared only in velocity space; retrograde structure **Sequoia** only in action-angle space.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2208_01056/figure_3.png)
 
 The researchers claimed no new discoveries. That restraint is itself scientifically significant. Previous studies using similar data but without careful uncertainty propagation have occasionally reported structures that may reflect algorithmic artifacts rather than genuine mergers. By demanding consistency across resampled datasets, Ou, Necib, and Frebel effectively publish a vetted catalog of structures you can trust.
 
@@ -99,12 +99,9 @@ The approach also sets a methodological precedent. As Gaia continues releasing d
 
 > **Bottom Line:** By stress-testing their clustering algorithm against measurement uncertainties, the MIT team delivers the most carefully validated catalog of local stellar kinematic substructures to date and poses a simple challenge to the field: always propagate your errors, or risk confusing noise for cosmic history.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects machine learning and astrophysics, applying the HDBSCAN clustering algorithm to 5.5 million Gaia stars to map the Milky Way's merger history and constrain the local dark matter velocity distribution relevant for particle physics experiments.
-
-- **Impact on Artificial Intelligence:** The study introduces a Monte Carlo approach to validating unsupervised clustering outputs under observational uncertainty, a methodology applicable to any domain where ML-identified clusters must be distinguished from noise.
-
-- **Impact on Fundamental Interactions:** The uncertainty-validated catalog of local stellar kinematic substructures provides the most reliable empirical input yet for modeling the dark matter phase-space distribution in the solar neighborhood, directly informing direct detection experiments.
-
-- **Outlook and References:** Future Gaia data releases and next-generation spectroscopic surveys will expand the stellar sample dramatically, making careful uncertainty propagation even more important; the full analysis is available at [arXiv:2208.01056](https://arxiv.org/abs/2208.01056).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects machine learning and astrophysics, applying the HDBSCAN clustering algorithm to 5.5 million Gaia stars to map the Milky Way's merger history and constrain the local dark matter velocity distribution relevant for particle physics experiments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study introduces a Monte Carlo approach to validating unsupervised clustering outputs under observational uncertainty, a methodology applicable to any domain where ML-identified clusters must be distinguished from noise.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The uncertainty-validated catalog of local stellar kinematic substructures provides the most reliable empirical input yet for modeling the dark matter phase-space distribution in the solar neighborhood, directly informing direct detection experiments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future Gaia data releases and next-generation spectroscopic surveys will expand the stellar sample dramatically, making careful uncertainty propagation even more important; the full analysis is available at [arXiv:2208.01056](https://arxiv.org/abs/2208.01056).</span></div></div>
+</div>

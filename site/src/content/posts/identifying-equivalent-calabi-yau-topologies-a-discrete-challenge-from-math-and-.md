@@ -53,19 +53,19 @@ The **topology** of a Calabi-Yau threefold (the study of properties preserved un
 - **Triple intersection numbers** C_{ijk}: a symmetric three-index tensor recording how divisors (complex codimension-one slices of the geometry) intersect each other
 - **First Pontryagin class**: an integer-valued quantity encoding how the geometry curves on itself
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2202_07590/figure_1.png)
 
 Two geometries are topologically equivalent if there exists an integer matrix Λ in SL(N,ℤ), the group of N×N integer matrices with determinant 1, that transforms one set of triple intersection numbers into the other via C'_{ijk} = Λ_{il} Λ_{jm} Λ_{kn} C_{lmn}. The problem is that SL(N,ℤ) is *infinite*. No finite-time algorithm is known. Some **topological invariants** exist (quantities unchanged under any such rearrangement, like the greatest common divisor of all C_{ijk} entries), but they're incomplete: matching invariants don't guarantee equivalence.
 
 To test whether ML can make progress, the authors study a mathematically analogous but tractable problem: **unitary equivalence of complex matrices**. Two matrices A and B are unitarily equivalent if B = ΛAΛ† for some unitary Λ, a rotation-like transformation preserving lengths and angles. **Specht's theorem** gives a complete answer here: two matrices are equivalent if and only if all "word traces" Tr W(A, A†) agree, where W ranges over combinations built from A and its **adjoint** (the conjugate transpose, obtained by flipping across the diagonal and taking complex conjugates). For N×N matrices, only finitely many such combinations need checking.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2202_07590/figure_1.png)
 
 The team trained neural networks to predict whether matrix pairs are unitarily equivalent. The real question was whether the networks would learn Specht invariants or find something else entirely.
 
 Networks distinguish equivalent from non-equivalent pairs with high accuracy. Probing what they actually compute reveals they are implicitly capturing the trace invariants that Specht's theorem prescribes. The ML system rediscovers the known mathematical structure from data alone.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2202_07590/figure_2.png)
 
 ## Why It Matters
 
@@ -75,22 +75,19 @@ There is a broader ML lesson here too. Discrete mathematics problems where the s
 
 The paper makes the case that this class of problems needs dedicated attention: not just applying existing architectures, but developing methods that can *discover* new algebraic invariants from data, the way mathematicians discovered Specht's theorem by hand. The analogy between matrix and tensor equivalence suggests a systematic ladder of increasingly hard problems that ML can climb toward the full Calabi-Yau case.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2202_07590/figure_2.png)
 
 > **Bottom Line:** Machine learning can detect topological equivalence in structured mathematical problems, and in the tractable matrix case it recovers known invariants from scratch. The full Calabi-Yau equivalence problem remains open, one of the hardest mathematical challenges the field can put in front of AI.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects algebraic geometry and machine learning by framing a long-standing unsolved problem in string theory compactification as a concrete ML benchmark, with rigorous mathematical grounding on both sides.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a well-posed discrete equivalence problem, with known ground truth in the matrix case, as a demanding testbed for ML methods that go beyond continuous optimization and pattern matching.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Solving the Calabi-Yau equivalence problem would directly reduce overcounting in the string landscape, clarifying which four-dimensional physical theories can genuinely arise from string compactification.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors call for ML approaches capable of discovering new algebraic invariants, not just classifying known equivalences. The work appears as [arXiv:2202.07590](https://arxiv.org/abs/2202.07590) and points toward a systematic ML attack on the full Kreuzer-Skarke database.
 
-- **Interdisciplinary Research Achievement:** This work connects algebraic geometry and machine learning by framing a long-standing unsolved problem in string theory compactification as a concrete ML benchmark, with rigorous mathematical grounding on both sides.
-
-- **Impact on Artificial Intelligence:** The paper introduces a well-posed discrete equivalence problem, with known ground truth in the matrix case, as a demanding testbed for ML methods that go beyond continuous optimization and pattern matching.
-
-- **Impact on Fundamental Interactions:** Solving the Calabi-Yau equivalence problem would directly reduce overcounting in the string landscape, clarifying which four-dimensional physical theories can genuinely arise from string compactification.
-
-- **Outlook and References:** The authors call for ML approaches capable of discovering new algebraic invariants, not just classifying known equivalences. The work appears as [arXiv:2202.07590](https://arxiv.org/abs/2202.07590) and points toward a systematic ML attack on the full Kreuzer-Skarke database.
-
-## Original Paper Details
-- **Title:** Identifying equivalent Calabi--Yau topologies: A discrete challenge from math and physics for machine learning
-- **arXiv ID:** 2202.07590
-- **Authors:** ["Vishnu Jejjala", "Washington Taylor", "Andrew Turner"]
-- **Abstract:** We review briefly the characteristic topological data of Calabi--Yau threefolds and focus on the question of when two threefolds are equivalent through related topological data. This provides an interesting test case for machine learning methodology in discrete mathematics problems motivated by physics.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Identifying equivalent Calabi--Yau topologies: A discrete challenge from math and physics for machine learning</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2202.07590</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Vishnu Jejjala", "Washington Taylor", "Andrew Turner"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We review briefly the characteristic topological data of Calabi--Yau threefolds and focus on the question of when two threefolds are equivalent through related topological data. This provides an interesting test case for machine learning methodology in discrete mathematics problems motivated by physics.</span></div></div>
+</div>

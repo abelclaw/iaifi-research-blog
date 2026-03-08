@@ -70,7 +70,7 @@ The core idea rests on **equivariance**: when you transform an input, the repres
 
 The researchers started with a diagnostic experiment. They took SimCLR, a popular invariant SSL method, and tested what happened when they made it either invariant or sensitive to a second transformation on top of standard random cropping.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2111_00899/figure_1.png)
 
 The results split cleanly. For **horizontal flips** and **grayscale**, invariance helped. But for **four-fold rotations**, **vertical flips**, **2×2 jigsaws**, **four-fold Gaussian blurs**, and **color inversions**, invariance actively hurt, while sensitivity to those same transformations improved performance. The pattern: if invariance to a transformation is harmful, equivariance to it tends to help.
 
@@ -81,7 +81,7 @@ E-SSL captures this with a two-part training objective:
 
 No architectural overhaul required. The prediction head is a simple classifier over discrete transformation classes, such as which of four rotation angles was applied. Minimal overhead; significant impact on what the encoder learns.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2111_00899/figure_1.png)
 
 The team applied E-SSL to four popular SSL methods (SimCLR, BYOL, Barlow Twins, and VICReg) and found consistent gains. On **ImageNet**, a standard large-scale image classification benchmark, evaluated with a **linear probe** (a frozen representation tested with a single trainable layer on top), E-SSL pushed SimCLR to **72.5%** accuracy. In a field where gains come slowly, that's a meaningful improvement.
 
@@ -89,7 +89,7 @@ The team applied E-SSL to four popular SSL methods (SimCLR, BYOL, Barlow Twins, 
 
 The deeper claim here is that human knowledge about transformations shouldn't just specify what to ignore; it should actively shape the structure of learned representations. The symmetries and near-symmetries of a problem are often its most informative features. E-SSL turns that intuition into a training signal.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2111_00899/figure_2.png)
 
 The photonics application makes this concrete. The team applied E-SSL to regression tasks in photonics science, predicting physical properties of materials from simulation data. Domain knowledge tells you which transformations preserve or predictably alter the output. Encoding those as equivariance targets rather than invariances improved regression performance. The framework transfers to scientific domains where labeled data is scarce and structure is rich.
 
@@ -97,12 +97,9 @@ Many scientific problems involve data with known symmetries, whether rotational,
 
 > **Bottom Line:** E-SSL shows that the best self-supervised representations come not from maximally ignoring transformations, but from being selective: staying blind to some while staying sharp on others. A simple idea with significant empirical payoff and a clear path into physics.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** E-SSL connects representation learning theory to physics by applying equivariance, a concept central to fundamental physics, as a practical SSL training objective, with direct demonstrations on photonics regression tasks.
-
-- **Impact on Artificial Intelligence:** By generalizing invariant SSL to an equivariant framework, E-SSL improves linear probe accuracy on ImageNet and consistently boosts SimCLR, BYOL, Barlow Twins, and VICReg with minimal architectural changes.
-
-- **Impact on Fundamental Interactions:** Domain-specific transformation knowledge in photonics science can be encoded as equivariance targets, improving sample efficiency and prediction accuracy for physical property regression from simulation data.
-
-- **Outlook and References:** Future directions include extending E-SSL to continuous transformation groups and other scientific domains with known symmetry structure; the paper appeared at ICLR 2022 with code and pretrained models available at github.com/rdangovs/essl.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">E-SSL connects representation learning theory to physics by applying equivariance, a concept central to fundamental physics, as a practical SSL training objective, with direct demonstrations on photonics regression tasks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">By generalizing invariant SSL to an equivariant framework, E-SSL improves linear probe accuracy on ImageNet and consistently boosts SimCLR, BYOL, Barlow Twins, and VICReg with minimal architectural changes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Domain-specific transformation knowledge in photonics science can be encoded as equivariance targets, improving sample efficiency and prediction accuracy for physical property regression from simulation data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending E-SSL to continuous transformation groups and other scientific domains with known symmetry structure; the paper appeared at ICLR 2022 with code and pretrained models available at github.com/rdangovs/essl.</span></div></div>
+</div>

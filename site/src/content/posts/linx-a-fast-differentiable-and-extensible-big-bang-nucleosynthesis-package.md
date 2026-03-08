@@ -39,7 +39,7 @@ pdfUrl: https://arxiv.org/pdf/2408.14538v2
 published: '2024-08-26T18:00:02+00:00'
 theme: Astrophysics
 title: 'LINX: A Fast, Differentiable, and Extensible Big Bang Nucleosynthesis Package'
-wordCount: 1038
+wordCount: 1126
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ A team led by researchers at NYU, Princeton, MIT, and IAIFI has built a new BBN 
 
 The core innovation in LINX is its foundation in **JAX**, Google's numerical computing library. JAX compiles Python to fast machine instructions and can automatically compute derivatives of any function. This isn't just a software engineering detail; it changes what cosmologists can actually do with a BBN code.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_14538/figure_1.png)
 
 Traditional BBN codes solve a coupled system of nuclear reaction network equations: differential equations tracking how abundances of hydrogen, deuterium, helium-3, helium-4, lithium-7, and other light isotopes evolve as the universe cools. LINX implements the same physics, but keeps every step differentiable end-to-end:
 
@@ -71,7 +71,7 @@ Differentiability means users can compute *gradients*, precise measures of how f
 
 This is what makes **Hamiltonian Monte Carlo (HMC)** and **variational inference** possible. These gradient-based statistical methods navigate parameter space by following mathematical slopes rather than wandering randomly, and they are exponentially more efficient than the random-walk samplers BBN codes have historically been stuck with.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_14538/figure_2.png)
 
 In validation tests, LINX matches the established code PRIMAT to better than 0.1% for helium-4 abundance and within a few percent for deuterium and lithium-7, well within current observational uncertainties. A single evaluation takes milliseconds on a standard laptop. After JIT compilation, full parameter scans run orders of magnitude faster than comparable legacy codes.
 
@@ -79,7 +79,7 @@ In validation tests, LINX matches the established code PRIMAT to better than 0.1
 
 Cosmology is entering an era of extraordinary precision. Experiments like the Simons Observatory and CMB-S4 will deliver exquisite measurements of the cosmic microwave background that demand equally precise theoretical predictions. The angular pattern of temperature fluctuations in the CMB depends on the primordial helium abundance, which a BBN code must compute before a CMB simulation code can even begin. BBN sits at a chokepoint in the analysis pipelines for these next-generation experiments.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2408_14538/figure_3.png)
 
 LINX removes that chokepoint. By combining LINX with differentiable CMB emulators like CosmoPower, the team built a fully-differentiable joint CMB+BBN pipeline that constrains the baryon density and effective number of neutrino species simultaneously, all on personal hardware. No supercomputer required. This makes richer searches for new physics practical: light dark matter species, non-standard neutrino interactions, exotic particle decays during BBN. Analyses that previously required weeks of cluster time become afternoon projects.
 
@@ -87,18 +87,15 @@ LINX is also built to grow. Written in high-level Python with JAX, adding new ph
 
 > LINX makes the cosmic chemical record of the Big Bang accessible to the full toolkit of modern differentiable programming, applied to one of cosmology's oldest and most powerful observational probes.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">LINX applies differentiable programming techniques from modern AI infrastructure (JAX) to Big Bang Nucleosynthesis, making gradient-based inference methods available to BBN analyses for the first time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work establishes a concrete template for integrating JAX-based differentiable physics simulators with probabilistic inference tools like HMC and variational inference, a pattern applicable across simulation-based inference problems in physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">LINX enables self-consistent joint constraints on early-universe cosmological parameters from BBN and CMB data simultaneously, sharpening tests of the Standard Model and sensitivity to new physics from the first minutes of cosmic time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend LINX to a broader range of new-physics scenarios and integration with next-generation CMB experiments; the code and companion analysis paper are available at [arXiv:2408.14538](https://arxiv.org/abs/2408.14538) and at https://github.com/cgiovanetti/LINX.
 
-- **Interdisciplinary Research Achievement:** LINX applies differentiable programming techniques from modern AI infrastructure (JAX) to Big Bang Nucleosynthesis, making gradient-based inference methods available to BBN analyses for the first time.
-
-- **Impact on Artificial Intelligence:** The work establishes a concrete template for integrating JAX-based differentiable physics simulators with probabilistic inference tools like HMC and variational inference, a pattern applicable across simulation-based inference problems in physics.
-
-- **Impact on Fundamental Interactions:** LINX enables self-consistent joint constraints on early-universe cosmological parameters from BBN and CMB data simultaneously, sharpening tests of the Standard Model and sensitivity to new physics from the first minutes of cosmic time.
-
-- **Outlook and References:** Future work will extend LINX to a broader range of new-physics scenarios and integration with next-generation CMB experiments; the code and companion analysis paper are available at [arXiv:2408.14538](https://arxiv.org/abs/2408.14538) and at https://github.com/cgiovanetti/LINX.
-
-## Original Paper Details
-- **Title:** LINX: A Fast, Differentiable, and Extensible Big Bang Nucleosynthesis Package
-- **arXiv ID:** 2408.14538
-- **Authors:** ["Cara Giovanetti", "Mariangela Lisanti", "Hongwan Liu", "Siddharth Mishra-Sharma", "Joshua T. Ruderman"]
-- **Abstract:** We introduce LINX (Light Isotope Nucleosynthesis with JAX), a new differentiable public Big Bang Nucleosynthesis (BBN) code designed for fast parameter estimation. By leveraging JAX, LINX achieves both speed and differentiability, enabling the use of Bayesian inference, including gradient-based methods. We discuss the formalism used in LINX for rapid primordial elemental abundance predictions and give examples of how LINX can be used. When combined with differentiable Cosmic Microwave Background (CMB) power spectrum emulators, LINX can be used for joint CMB and BBN analyses without requiring extensive computational resources, including on personal hardware.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">LINX: A Fast, Differentiable, and Extensible Big Bang Nucleosynthesis Package</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2408.14538</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Cara Giovanetti", "Mariangela Lisanti", "Hongwan Liu", "Siddharth Mishra-Sharma", "Joshua T. Ruderman"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We introduce LINX (Light Isotope Nucleosynthesis with JAX), a new differentiable public Big Bang Nucleosynthesis (BBN) code designed for fast parameter estimation. By leveraging JAX, LINX achieves both speed and differentiability, enabling the use of Bayesian inference, including gradient-based methods. We discuss the formalism used in LINX for rapid primordial elemental abundance predictions and give examples of how LINX can be used. When combined with differentiable Cosmic Microwave Background (CMB) power spectrum emulators, LINX can be used for joint CMB and BBN analyses without requiring extensive computational resources, including on personal hardware.</span></div></div>
+</div>

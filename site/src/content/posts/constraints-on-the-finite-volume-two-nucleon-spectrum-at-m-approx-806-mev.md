@@ -61,7 +61,7 @@ A team from MIT, Fermilab, and the University of Barcelona has now confronted on
 
 Lattice QCD discretizes spacetime into a grid and numerically computes how quarks and gluons behave. To study two-nucleon systems, physicists extract **energy eigenvalues**, the discrete energy levels a proton-neutron or neutron-neutron pair can occupy when confined in a finite computational box. From those levels, they infer scattering properties using the **Lüscher method**, a mathematical bridge between the finite-volume spectrum and the infinite-volume physics we actually care about.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2404_12039/figure_1.png)
 
 The catch is that energy levels cannot be measured directly. Physicists instead construct **interpolating operators**, mathematical objects designed to "look like" the two-nucleon state of interest, and then measure how signals built from these operators decay over a computational analog of time. The rate of decay encodes the energy.
 
@@ -74,7 +74,7 @@ The researchers tested several distinct operator families:
 
 The calculation used a lattice with spatial side-length *L* ≈ 3.4 fm and an artificially heavy pion mass of *m*π ≈ 806 MeV, about six times the physical value. Heavier quarks reduce computational cost and sharpen the signal, making this a controlled testbed for method development.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2404_12039/figure_1.png)
 
 Both the **isosinglet channel** (*I* = 0, proton-neutron with spin 1, analogous to the deuteron) and the **isotriplet channel** (*I* = 1, two identical nucleons, analogous to the dineutron) were studied. These quantum labels classify how the two nucleons' identity numbers combine. For each channel, the team tested many operator subsets, including bases with as many as 46 operators at once.
 
@@ -82,29 +82,29 @@ Both the **isosinglet channel** (*I* = 0, proton-neutron with spin 1, analogous 
 
 The central result is clean. Operator bases dominated by **hexaquark-only** operators, or built exclusively from **negative-parity nucleon operators**, produced variational bounds that were noticeably *weaker*. Those sets failed to capture the low-energy physics efficiently.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2404_12039/figure_2.png)
 
 All other combinations (plane-wave dibaryon operators, quasi-local operators, and mixtures) produced bounds that agreed within statistical uncertainties. That consistency points toward convergence on a stable description of the spectrum, rather than artifacts from a poor operator choice.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2404_12039/figure_2.png)
 
 Do bound two-nucleon states exist at this heavy quark mass? The variational method can only deliver upper bounds, and the results show no evidence for a bound state in either channel. They cannot rule one out, either. But what the study accomplishes may matter more in the long run: it sorts out which operator strategies are trustworthy and which introduce misleading artifacts.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2404_12039/figure_3.png)
 
 Getting the two-body problem right is a prerequisite for everything else. The long-term goal of computing precise nuclear matrix elements from QCD, needed to interpret dark matter searches and neutrino oscillation experiments, starts here.
 
 The paper also delivers a clear warning. Not all operator bases are created equal. The fact that hexaquark-only results are weaker is not a curiosity; it signals that operator sets with poor overlap onto the physical states of interest can lead you astray. Future LQCD calculations of two-nucleon systems should include diverse, physically motivated operator families and verify consistency across choices. That discipline, more than any single number, is the most lasting contribution of this work.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2404_12039/figure_3.png)
 
 Open questions remain. The calculation used an unphysical quark mass, and extrapolating to the physical value *m*π ≈ 140 MeV is computationally daunting but necessary. Whether bound dineutron and deuteron states appear at large quark masses, and what that would imply about how nuclear binding varies with quark mass, is still unresolved. The role of negative-parity operators in larger variational bases also deserves further study.
 
 > **Bottom Line:** By stress-testing a wide variety of operator choices in lattice QCD calculations of two-nucleon systems, this work sorts out which computational strategies produce reliable energy bounds and which do not, a necessary step toward trustworthy first-principles nuclear physics.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies variational algorithms from quantum information science to lattice QCD calculations of nuclear systems, connecting AI-adjacent computational methodology with fundamental nuclear physics.
-- **Impact on Artificial Intelligence:** The systematic study of how operator choice affects variational eigenvalue extraction offers concrete lessons for machine-learning-guided basis selection in quantum many-body problems, a rapidly growing area of AI-for-physics research.
-- **Impact on Fundamental Interactions:** By rigorously benchmarking interpolating-operator strategies in the two-nucleon sector, this work advances the long-term goal of computing nuclear matrix elements from QCD, needed as inputs for dark matter and neutrino physics experiments.
-- **Outlook and References:** Future work will extend these variational methods toward physical quark masses and larger volumes. The paper is available at [arXiv:2404.12039](https://arxiv.org/abs/2404.12039) from the NPLQCD collaboration, with MIT and IAIFI affiliates among the lead authors.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies variational algorithms from quantum information science to lattice QCD calculations of nuclear systems, connecting AI-adjacent computational methodology with fundamental nuclear physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The systematic study of how operator choice affects variational eigenvalue extraction offers concrete lessons for machine-learning-guided basis selection in quantum many-body problems, a rapidly growing area of AI-for-physics research.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By rigorously benchmarking interpolating-operator strategies in the two-nucleon sector, this work advances the long-term goal of computing nuclear matrix elements from QCD, needed as inputs for dark matter and neutrino physics experiments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend these variational methods toward physical quark masses and larger volumes. The paper is available at [arXiv:2404.12039](https://arxiv.org/abs/2404.12039) from the NPLQCD collaboration, with MIT and IAIFI affiliates among the lead authors.</span></div></div>
+</div>

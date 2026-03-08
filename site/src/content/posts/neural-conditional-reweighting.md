@@ -39,7 +39,7 @@ pdfUrl: https://arxiv.org/pdf/2107.08979v2
 published: '2021-07-19T15:55:41+00:00'
 theme: Experimental Physics
 title: Neural Conditional Reweighting
-wordCount: 1082
+wordCount: 1248
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ Until now, those corrections treated the physics model and the detector model as
 
 The standard approach, **marginal reweighting**, trains a neural network to distinguish events from two simulation samples. The optimal classifier is mathematically equivalent to the **likelihood ratio**, a measure of how much more probable one distribution is than the other at any given point, so its output directly gives the reweighting function. Simple and powerful. But it averages over everything you're not explicitly modeling. Apply a correction derived from jets (collimated sprays of particles) peaked at 500 GeV to a sample peaked at 1 TeV, and you've baked in an energy-dependence you can't separate.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2107_08979/figure_1.png)
 
 Conditional reweighting instead computes the ratio of conditional probability densities: *q(x|x′) / p(x|x′)*. Here:
 
@@ -74,13 +74,13 @@ The real payoff shows up when handling **phase space holes**, regions of paramet
 
 **Validation on Gaussians and Jets.** On controlled Gaussian examples with overlapping distributions, the conditional reweighter recovers the correct weight function without bias. In an interpolation test where training data exists only at discrete energies (100 GeV and 200 GeV), the model correctly interpolates the detector correction at 150 GeV, a region it never saw during training.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2107_08979/figure_2.png)
 
 The flagship application targets jet energy response. Jet energy is notoriously hard to simulate: the detector smears and distorts the true energy in ways that depend on the jet's own energy, direction, and surrounding collision environment. The authors construct three datasets using Pythia and Herwig (widely-used physics event generators) with Delphes (a fast detector simulation package) and a parametrized full simulation playing the roles of coarse and precise detectors.
 
 Neural conditional reweighting learns the detector response correction conditioned on particle-level jet energy. The trained model then applies to an entirely different generator (Herwig instead of Pythia) without refitting, because the detector correction has been cleanly separated from the generator-level physics.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2107_08979/figure_3.png)
 
 ## Why It Matters
 
@@ -92,18 +92,15 @@ The technique extends naturally to signal interpolation in new physics searches.
 
 > **Bottom Line:** Neural conditional reweighting lets physicists correct detector simulations for specific particle energies rather than averaging over all of them. The corrections are portable across physics models and extrapolate sensibly into data-sparse regions, a practical step forward for fast simulation.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects modern machine learning (classifier-based density ratio estimation) with a core challenge in experimental particle physics: making fast simulations accurate enough for precision measurements without running full Geant4 simulations for every physics scenario.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a custom loss function that achieves conditional density ratio estimation in a single neural network training, with stable interpolation through data-sparse regions. The technique is a general-purpose ML tool applicable well beyond physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Neural conditional reweighting enables more accurate and portable detector corrections for collider experiments, directly improving the fidelity of physics object modeling in LHC analyses and new physics searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include applying this technique to full LHC datasets and integrating it into standard fast simulation workflows; the work is available at [arXiv:2107.08979](https://arxiv.org/abs/2107.08979).
 
-- **Interdisciplinary Research Achievement:** This work connects modern machine learning (classifier-based density ratio estimation) with a core challenge in experimental particle physics: making fast simulations accurate enough for precision measurements without running full Geant4 simulations for every physics scenario.
-
-- **Impact on Artificial Intelligence:** The paper introduces a custom loss function that achieves conditional density ratio estimation in a single neural network training, with stable interpolation through data-sparse regions. The technique is a general-purpose ML tool applicable well beyond physics.
-
-- **Impact on Fundamental Interactions:** Neural conditional reweighting enables more accurate and portable detector corrections for collider experiments, directly improving the fidelity of physics object modeling in LHC analyses and new physics searches.
-
-- **Outlook and References:** Future directions include applying this technique to full LHC datasets and integrating it into standard fast simulation workflows; the work is available at [arXiv:2107.08979](https://arxiv.org/abs/2107.08979).
-
-## Original Paper Details
-- **Title:** Neural Conditional Reweighting
-- **arXiv ID:** [2107.08979](https://arxiv.org/abs/2107.08979)
-- **Authors:** Benjamin Nachman, Jesse Thaler
-- **Abstract:** There is a growing use of neural network classifiers as unbinned, high-dimensional (and variable-dimensional) reweighting functions. To date, the focus has been on marginal reweighting, where a subset of features are used for reweighting while all other features are integrated over. There are some situations, though, where it is preferable to condition on auxiliary features instead of marginalizing over them. In this paper, we introduce neural conditional reweighting, which extends neural marginal reweighting to the conditional case. This approach is particularly relevant in high-energy physics experiments for reweighting detector effects conditioned on particle-level truth information. We leverage a custom loss function that not only allows us to achieve neural conditional reweighting through a single training procedure, but also yields sensible interpolation even in the presence of phase space holes. As a specific example, we apply neural conditional reweighting to the energy response of high-energy jets, which could be used to improve the modeling of physics objects in parametrized fast simulation packages.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Neural Conditional Reweighting</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2107.08979](https://arxiv.org/abs/2107.08979)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Benjamin Nachman, Jesse Thaler</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">There is a growing use of neural network classifiers as unbinned, high-dimensional (and variable-dimensional) reweighting functions. To date, the focus has been on marginal reweighting, where a subset of features are used for reweighting while all other features are integrated over. There are some situations, though, where it is preferable to condition on auxiliary features instead of marginalizing over them. In this paper, we introduce neural conditional reweighting, which extends neural marginal reweighting to the conditional case. This approach is particularly relevant in high-energy physics experiments for reweighting detector effects conditioned on particle-level truth information. We leverage a custom loss function that not only allows us to achieve neural conditional reweighting through a single training procedure, but also yields sensible interpolation even in the presence of phase space holes. As a specific example, we apply neural conditional reweighting to the energy response of high-energy jets, which could be used to improve the modeling of physics objects in parametrized fast simulation packages.</span></div></div>
+</div>

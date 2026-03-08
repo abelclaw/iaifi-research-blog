@@ -42,7 +42,7 @@ pdfUrl: https://arxiv.org/pdf/2507.00284v1
 published: '2025-06-30T21:53:00+00:00'
 theme: Astrophysics
 title: Modeling the Cosmological Lyman-$α$ Forest at the Field Level
-wordCount: 1118
+wordCount: 1066
 ---
 
 ## The Big Picture
@@ -65,7 +65,7 @@ The model starts with a deceptively simple equation. The **transmitted flux fluc
 
 The Lyman-α forest has an important wrinkle. Absorption happens along lines of sight to quasars, so the physics depends strongly on direction. The model therefore includes **line-of-sight operators**, mathematical terms accounting for this broken symmetry. Space no longer looks the same from every angle.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2507_00284/figure_1.png)
 
 Beyond the linear model, the team adds three layers of higher-order corrections:
 
@@ -75,11 +75,11 @@ Beyond the linear model, the team adds three layers of higher-order corrections:
 
 Validation comes from the **Sherwood simulation**, a high-fidelity hydrodynamic simulation of the intergalactic medium that directly evolves gas, dark matter, gravity, and radiative processes together. The test is stringent: the model must not only reproduce statistical averages like the power spectrum, but match the actual spatial distribution of absorption, cell by cell, at the few-percent level down to scales of just a few megaparsecs.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2507_00284/figure_2.png)
 
 The model passes. It reproduces the flux probability distribution function, the cross-correlation between the Lyman-α forest and dark matter halos, and **count-in-cell statistics** (a sensitive probe of how flux values vary across different regions of space) all at the percent level. It even captures the extreme tail of the flux distribution, where most of the signal from rare, heavily absorbed regions lives.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2507_00284/figure_3.png)
 
 ## Why It Matters
 
@@ -93,12 +93,9 @@ The timing is right. DESI's Lyman-α forest measurements are already yielding ne
 
 > **Bottom Line:** By casting the Lyman-α forest in the language of effective field theory and validating it against state-of-the-art simulations at the few-percent level, this work provides the theoretical backbone for the next generation of cosmological analyses, one where we finally use all the information the universe is giving us.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings together effective field theory from particle physics, large-scale structure cosmology, and hydrodynamic simulation science to build the first analytic field-level model of the Lyman-α forest.
-
-- **Impact on Artificial Intelligence:** The forward model provides the analytically tractable likelihood function that simulation-based inference and machine-learning-driven parameter estimation need to scale Lyman-α forest analyses to full cosmological volumes.
-
-- **Impact on Fundamental Interactions:** By enabling field-level extraction of cosmological parameters from quasar spectra, the model opens new windows on neutrino masses, dark matter properties, and the thermal history of the intergalactic medium across cosmic time.
-
-- **Outlook and References:** Future work will connect this analytic framework directly to DESI data pipelines and extend it to smaller scales using simulation-based priors; the paper is available at [arXiv:2507.00284](https://arxiv.org/abs/2507.00284).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together effective field theory from particle physics, large-scale structure cosmology, and hydrodynamic simulation science to build the first analytic field-level model of the Lyman-α forest.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The forward model provides the analytically tractable likelihood function that simulation-based inference and machine-learning-driven parameter estimation need to scale Lyman-α forest analyses to full cosmological volumes.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling field-level extraction of cosmological parameters from quasar spectra, the model opens new windows on neutrino masses, dark matter properties, and the thermal history of the intergalactic medium across cosmic time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will connect this analytic framework directly to DESI data pipelines and extend it to smaller scales using simulation-based priors; the paper is available at [arXiv:2507.00284](https://arxiv.org/abs/2507.00284).</span></div></div>
+</div>

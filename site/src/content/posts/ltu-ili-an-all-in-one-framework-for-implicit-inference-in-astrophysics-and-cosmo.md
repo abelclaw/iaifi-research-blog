@@ -76,7 +76,7 @@ A team of fifteen researchers from institutions in Paris, New York, Cambridge, a
 
 The core idea behind LtU-ILI is **Implicit Likelihood Inference (ILI)**, also called simulation-based inference or likelihood-free inference. Instead of deriving a formula for how likely your observations are given a model, you train a neural network to *learn* that relationship from thousands of simulated examples. Feed it enough pairs of (simulation inputs, simulation outputs), and the network learns to invert the process: given new observations, it produces a full probability distribution over the underlying parameters. This distribution, called the **posterior**, is the central goal of Bayesian statistical inference. It's a map of which parameter values are plausible and how plausible each one is.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2402_05137/figure_1.png)
 
 The pipeline is modular. Researchers can swap in different **neural architectures**, different **density estimators** (the mathematical machinery representing probability distributions), and different training strategies. The three main approaches are:
 
@@ -88,7 +88,7 @@ Each method has different strengths. NPE is fast at inference time. NLE handles 
 
 Raw inference isn't enough, though. A posterior that looks confident can still be wrong. LtU-ILI bakes in **validation metrics**, including simulation-based calibration (SBC) tests that check whether the pipeline's credible intervals actually deliver on their promise. If your 90% credible interval only captures the truth 60% of the time, you've got a problem, and LtU-ILI will flag it.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2402_05137/figure_1.png)
 
 The team tested the pipeline on five real astrophysics problems: galaxy cluster masses from X-ray photometry, cosmological parameters from matter power spectra and dark matter halo point clouds, gravitational wave signals from merging black holes and neutron stars, dust physics from galaxy colors, and semi-analytic models of galaxy formation. In each case, they benchmarked multiple ILI methods head-to-head, which is uncommon in a field where methods are usually tested in isolation.
 
@@ -100,18 +100,9 @@ The challenges the authors document (model misspecification, hyperparameter sens
 
 > **Bottom Line:** LtU-ILI gives astrophysicists a plug-and-play toolkit for machine-learning-powered Bayesian inference, and its open design means the next generation of cosmic surveys won't have to start from scratch every time they face a new inference problem.
 
-## IAIFI Research Highlights
-
-**Interdisciplinary Research Achievement:** LtU-ILI puts the IAIFI mission into practice by turning deep learning architectures (normalizing flows, graph neural networks, transformer-based embeddings) into statistical tools for cosmological and astrophysical inference.
-
-**Impact on Artificial Intelligence:** The pipeline advances best practices for deploying neural density estimators in scientific contexts, providing a unified benchmark of NPE, NLE, and NRE methods alongside calibration diagnostics rarely included in ML toolkits.
-
-**Impact on Fundamental Interactions:** By enabling simulation-based inference across gravitational waves, galaxy formation, and large-scale structure, LtU-ILI opens new routes to measuring cosmological parameters and astrophysical properties that resist analytic likelihood treatment.
-
-**Outlook and References:** Future development will extend the pipeline to sequential inference schemes and larger simulation datasets. The paper is available as [arXiv:2402.05137](https://arxiv.org/abs/2402.05137), and all code is publicly released at https://github.com/maho3/ltu-ili.
-
-## Original Paper Details
-- **Title:** LtU-ILI: An All-in-One Framework for Implicit Inference in Astrophysics and Cosmology
-- **arXiv ID:** 2402.05137
-- **Authors:** ["Matthew Ho", "Deaglan J. Bartlett", "Nicolas Chartier", "Carolina Cuesta-Lazaro", "Simon Ding", "Axel Lapel", "Pablo Lemos", "Christopher C. Lovell", "T. Lucas Makinen", "Chirag Modi", "Viraj Pandya", "Shivam Pandey", "Lucia A. Perez", "Benjamin Wandelt", "Greg L. Bryan"]
-- **Abstract:** This paper presents the Learning the Universe Implicit Likelihood Inference (LtU-ILI) pipeline, a codebase for rapid, user-friendly, and cutting-edge machine learning (ML) inference in astrophysics and cosmology. The pipeline includes software for implementing various neural architectures, training schemata, priors, and density estimators in a manner easily adaptable to any research workflow. It includes comprehensive validation metrics to assess posterior estimate coverage, enhancing the reliability of inferred results. Additionally, the pipeline is easily parallelizable and is designed for efficient exploration of modeling hyperparameters. To demonstrate its capabilities, we present real applications across a range of astrophysics and cosmology problems, such as: estimating galaxy cluster masses from X-ray photometry; inferring cosmology from matter power spectra and halo point clouds; characterizing progenitors in gravitational wave signals; capturing physical dust parameters from galaxy colors and luminosities; and establishing properties of semi-analytic models of galaxy formation. We also include exhaustive benchmarking and comparisons of all implemented methods as well as discussions about the challenges and pitfalls of ML inference in astronomical sciences. All code and examples are made publicly available at https://github.com/maho3/ltu-ili.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">LtU-ILI: An All-in-One Framework for Implicit Inference in Astrophysics and Cosmology</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2402.05137</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Matthew Ho", "Deaglan J. Bartlett", "Nicolas Chartier", "Carolina Cuesta-Lazaro", "Simon Ding", "Axel Lapel", "Pablo Lemos", "Christopher C. Lovell", "T. Lucas Makinen", "Chirag Modi", "Viraj Pandya", "Shivam Pandey", "Lucia A. Perez", "Benjamin Wandelt", "Greg L. Bryan"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">This paper presents the Learning the Universe Implicit Likelihood Inference (LtU-ILI) pipeline, a codebase for rapid, user-friendly, and cutting-edge machine learning (ML) inference in astrophysics and cosmology. The pipeline includes software for implementing various neural architectures, training schemata, priors, and density estimators in a manner easily adaptable to any research workflow. It includes comprehensive validation metrics to assess posterior estimate coverage, enhancing the reliability of inferred results. Additionally, the pipeline is easily parallelizable and is designed for efficient exploration of modeling hyperparameters. To demonstrate its capabilities, we present real applications across a range of astrophysics and cosmology problems, such as: estimating galaxy cluster masses from X-ray photometry; inferring cosmology from matter power spectra and halo point clouds; characterizing progenitors in gravitational wave signals; capturing physical dust parameters from galaxy colors and luminosities; and establishing properties of semi-analytic models of galaxy formation. We also include exhaustive benchmarking and comparisons of all implemented methods as well as discussions about the challenges and pitfalls of ML inference in astronomical sciences. All code and examples are made publicly available at https://github.com/maho3/ltu-ili.</span></div></div>
+</div>

@@ -36,7 +36,7 @@ pdfUrl: https://arxiv.org/pdf/2407.03524v1
 published: '2024-07-03T22:00:35+00:00'
 theme: Foundational AI
 title: A multicategory jet image classification framework using deep neural network
-wordCount: 1034
+wordCount: 998
 ---
 
 ## The Big Picture
@@ -53,7 +53,7 @@ Researchers at the University of Puerto Rico, Mayaguez, took a different approac
 
 The raw material is a **point cloud**, a set of particles each described by four numbers capturing its position in the detector, its direction of travel, its energy, and its mass. Think of it as a three-dimensional scatter plot of individual raindrops in a storm, where each drop also carries metadata about its energy and direction. Straight from the detector, these point clouds look like tangled blobs. Jets from different source particles cluster in ways that make classification unreliable with simple models.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_03524/figure_1.png)
 
 The team built a two-track pipeline:
 
@@ -62,7 +62,7 @@ The team built a two-track pipeline:
 
 After merging these two streams, the team added two handcrafted features: **particle density** (how tightly packed the jet's particles are) and **average intensity** (the mean energy deposition). These push different jet categories further apart in the feature space before classification even begins.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_03524/figure_2.png)
 
 The payoff shows up in 3D plots of the embedded data. Before feature extraction, all five jet classes pile up in an undifferentiated mass. After embedding, the classes fan out into distinct clusters. Once the data looks like that, a straightforward deep neural network (DNN) can draw clean boundaries between classes. No massive transformer, no graph network needed.
 
@@ -72,7 +72,7 @@ The team tested their framework on the JetNet benchmark dataset: 250,000 jets ac
 
 Removing one member of that similar pair and reducing to four classes pushed accuracy to **84.00%**, with top quarks hitting 88.91%. These numbers are comparable to the Particle Flow Network (PFN), a well-established and considerably more complex benchmark, but achieved with a simpler, more interpretable architecture.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2407_03524/figure_3.png)
 
 Better jet tagging directly improves the LHC's ability to identify rare processes, including potential signatures of new particles beyond the Standard Model. Every percentage point of classification accuracy translates into sharper physics reach. At the HL-LHC, where data rates become almost incomprehensible, computational efficiency stops being a nice-to-have and becomes a hard requirement.
 
@@ -80,9 +80,9 @@ The broader lesson here is about **representation learning**: how you organize d
 
 > **Bottom Line:** By pairing a point cloud transformer with a CNN autoencoder to reorganize jet data before classification, this approach ([arXiv:2407.03524](https://arxiv.org/abs/2407.03524)) matches state-of-the-art accuracy with a simpler, more interpretable model, offering a template for efficient AI at the extreme data rates of next-generation colliders.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** The work borrows attention-based deep learning from NLP and adapts it to the geometric structure of particle jets, showing that cross-domain architectural transfer can yield efficient, physics-grounded solutions.
-- **Impact on Artificial Intelligence:** Constructing a separable feature space through parallel transformer and autoencoder streams reduces model complexity without sacrificing classification performance. The principle applies broadly to any high-dimensional data problem where brute-force scaling hits practical limits.
-- **Impact on Fundamental Interactions:** Improved jet tagging accuracy sharpens physicists' ability to identify rare particle decays and probe physics beyond the Standard Model, squeezing more information from each collision event.
-- **Outlook and References:** Future extensions could include finer-grained flavor tagging, anomaly detection for new physics searches, and real-time trigger integration at the HL-LHC. The full methodology is described in the authors' [paper](https://arxiv.org/abs/2407.03524) from the University of Puerto Rico, Mayaguez.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">The work borrows attention-based deep learning from NLP and adapts it to the geometric structure of particle jets, showing that cross-domain architectural transfer can yield efficient, physics-grounded solutions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Constructing a separable feature space through parallel transformer and autoencoder streams reduces model complexity without sacrificing classification performance. The principle applies broadly to any high-dimensional data problem where brute-force scaling hits practical limits.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Improved jet tagging accuracy sharpens physicists' ability to identify rare particle decays and probe physics beyond the Standard Model, squeezing more information from each collision event.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could include finer-grained flavor tagging, anomaly detection for new physics searches, and real-time trigger integration at the HL-LHC. The full methodology is described in the authors' [paper](https://arxiv.org/abs/2407.03524) from the University of Puerto Rico, Mayaguez.</span></div></div>
+</div>

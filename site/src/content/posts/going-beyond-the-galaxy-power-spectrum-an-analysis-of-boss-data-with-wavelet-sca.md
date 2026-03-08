@@ -46,7 +46,7 @@ published: '2022-04-28T18:00:07+00:00'
 theme: Astrophysics
 title: 'Going Beyond the Galaxy Power Spectrum: an Analysis of BOSS Data with Wavelet
   Scattering Transforms'
-wordCount: 1100
+wordCount: 1349
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ Georgios Valogiannis and Cora Dvorkin at Harvard have taken a major step toward 
 
 The Wavelet Scattering Transform borrows its architecture from deep learning, but with a twist: its internal filters are fixed, not learned. Think of it as a convolutional neural network where someone has already chosen the optimal lens prescription. The WST passes the galaxy density field through a series of wavelet convolutions (mathematically defined filters tuned to different spatial scales and orientations) and applies an absolute value operation at each layer. This cascade of filtering produces a compact set of numerical coefficients that characterize clustering at multiple scales, including non-Gaussian features the power spectrum ignores.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2204_13717/figure_1.png)
 
 Applying WST to real data is hard. Real galaxy surveys are far from clean, uniform snapshots of the sky. They carry **redshift-space distortions**, where galaxy peculiar velocities warp their apparent positions, along with irregular survey edges, systematic observational weights, and the **Alcock-Paczynski effect** (a geometric distortion that emerges when you assume the wrong cosmology to convert observed redshifts into physical distances). Valogiannis and Dvorkin carefully incorporated all of these effects, following the same rigorous pipeline used for standard power spectrum analyses.
 
@@ -78,13 +78,13 @@ With this emulator in hand, the team performed a full Bayesian likelihood analys
 
 The Hubble constant was derived indirectly, anchored to the angular size of the sound horizon (the farthest distance pressure waves could travel in the early universe before atoms formed) as measured by the Planck satellite.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2204_13717/figure_2.png)
 
 ## Why It Matters
 
 Compared to the standard power spectrum analysis, the WST delivered posterior uncertainties 3 to 5 times smaller with flat priors, and 3 to 8 times smaller when a Big Bang Nucleosynthesis prior constrains ω_b. This is not a marginal improvement. It's the difference between a blurry photograph and a sharp one, wrung from the same underlying data.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2204_13717/figure_3.png)
 
 That gain matters for the next generation of galaxy surveys. Instruments like DESI, the Vera C. Rubin Observatory's LSST, Euclid, and the Nancy Grace Roman Space Telescope will map the universe with unprecedented precision over the next decade. They need statistical tools equal to the task.
 
@@ -94,18 +94,15 @@ There's a deeper point here, too. Galaxy surveys have always been information-ri
 
 > **Bottom Line:** Applying the Wavelet Scattering Transform to real BOSS galaxy data for the first time, Valogiannis and Dvorkin obtain constraints on cosmological parameters 3–8 times tighter than the standard power spectrum, a result that could change how cosmologists analyze the next generation of galaxy surveys.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects modern machine learning methodology with observational cosmology, showing for the first time that AI-adjacent techniques can be applied rigorously to real galaxy survey data with major gains in constraining power.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The WST provides an interpretable, physics-motivated alternative to black-box deep learning for scientific data analysis. Fixed, mathematically principled network architectures can outperform traditional statistical estimators while remaining fully understandable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The dramatic improvement in constraints on σ_8 and n_s opens a path toward resolving outstanding cosmological tensions and probing dark matter, dark energy, and neutrino masses with existing survey data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will refine the simulation-based modeling and extend the WST framework to next-generation surveys like DESI and Euclid; see [arXiv:2204.13717](https://arxiv.org/abs/2204.13717) for the full analysis.
 
-- **Interdisciplinary Research Achievement:** This work connects modern machine learning methodology with observational cosmology, showing for the first time that AI-adjacent techniques can be applied rigorously to real galaxy survey data with major gains in constraining power.
-
-- **Impact on Artificial Intelligence:** The WST provides an interpretable, physics-motivated alternative to black-box deep learning for scientific data analysis. Fixed, mathematically principled network architectures can outperform traditional statistical estimators while remaining fully understandable.
-
-- **Impact on Fundamental Interactions:** The dramatic improvement in constraints on σ_8 and n_s opens a path toward resolving outstanding cosmological tensions and probing dark matter, dark energy, and neutrino masses with existing survey data.
-
-- **Outlook and References:** Future work will refine the simulation-based modeling and extend the WST framework to next-generation surveys like DESI and Euclid; see [arXiv:2204.13717](https://arxiv.org/abs/2204.13717) for the full analysis.
-
-## Original Paper Details
-- **Title:** Going Beyond the Galaxy Power Spectrum: an Analysis of BOSS Data with Wavelet Scattering Transforms
-- **arXiv ID:** 2204.13717
-- **Authors:** ["Georgios Valogiannis", "Cora Dvorkin"]
-- **Abstract:** We perform the first application of the wavelet scattering transform (WST) to actual galaxy observations, through a WST analysis of the BOSS DR12 CMASS dataset. We included the effects of redshift-space anisotropy, non-trivial survey geometry, systematic weights, and the Alcock-Paczynski distortion effect, following the commonly adopted steps for the power spectrum analysis. In order to capture the cosmological dependence of the WST, we use galaxy mocks obtained from the state-of-the-art ABACUSSUMMIT simulations, tuned to match the anisotropic correlation function of the BOSS CMASS sample in the redshift range $0.46<z<0.60$. Using our model for the WST coefficients, as well as for the first 2 multipoles of the galaxy power spectrum, that we use as reference, we perform a likelihood analysis of the CMASS data. We obtain the posterior probability distributions of 4 cosmological parameters, $\{ω_b,ω_c,n_s,σ_8\}$, as well as the Hubble constant, derived from a fixed value of the angular size of the sound horizon at last scattering measured by the Planck satellite, all of which are marginalized over the 7 nuisance parameters of the Halo Occupation Distribution model. The WST is found to deliver a substantial improvement in the values of the predicted $1σ$ errors compared to the regular power spectrum, which are tighter by a factor of $3-5$ in the case of flat and uninformative priors and by a factor of $3-8$, when a Big Bang Nucleosynthesis prior is applied on the value of $ω_b$. Our results are investigative and subject to certain approximations, which we discuss in the text.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Going Beyond the Galaxy Power Spectrum: an Analysis of BOSS Data with Wavelet Scattering Transforms</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2204.13717</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Georgios Valogiannis", "Cora Dvorkin"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We perform the first application of the wavelet scattering transform (WST) to actual galaxy observations, through a WST analysis of the BOSS DR12 CMASS dataset. We included the effects of redshift-space anisotropy, non-trivial survey geometry, systematic weights, and the Alcock-Paczynski distortion effect, following the commonly adopted steps for the power spectrum analysis. In order to capture the cosmological dependence of the WST, we use galaxy mocks obtained from the state-of-the-art ABACUSSUMMIT simulations, tuned to match the anisotropic correlation function of the BOSS CMASS sample in the redshift range $0.46<z<0.60$. Using our model for the WST coefficients, as well as for the first 2 multipoles of the galaxy power spectrum, that we use as reference, we perform a likelihood analysis of the CMASS data. We obtain the posterior probability distributions of 4 cosmological parameters, $\{ω_b,ω_c,n_s,σ_8\}$, as well as the Hubble constant, derived from a fixed value of the angular size of the sound horizon at last scattering measured by the Planck satellite, all of which are marginalized over the 7 nuisance parameters of the Halo Occupation Distribution model. The WST is found to deliver a substantial improvement in the values of the predicted $1σ$ errors compared to the regular power spectrum, which are tighter by a factor of $3-5$ in the case of flat and uninformative priors and by a factor of $3-8$, when a Big Bang Nucleosynthesis prior is applied on the value of $ω_b$. Our results are investigative and subject to certain approximations, which we discuss in the text.</span></div></div>
+</div>

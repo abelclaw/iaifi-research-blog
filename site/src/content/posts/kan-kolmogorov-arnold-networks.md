@@ -68,7 +68,7 @@ The mathematical foundation comes from a 1957 theorem by Andrey Kolmogorov and V
 
 Classical neural networks draw from a different result, the universal approximation theorem, which says you can approximate any function by stacking enough neurons with fixed nonlinearities. Both guarantee expressive power, but they suggest radically different architectures.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2404_19756/figure_1.png)
 
 Here's the practical difference:
 
@@ -85,7 +85,7 @@ The authors demonstrate this on a benchmark function, a high-dimensional sum of 
 
 The accuracy gains alone would justify interest in KANs, but the interpretability story matters more. After training, a KAN's learned edge functions can be visualized directly. Each connection is a curve you can inspect, prune, or symbolically identify. The authors pair this with simplification techniques: pruning unimportant connections, matching learned functions to known mathematical operations, and collapsing redundant structure.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2404_19756/figure_1.png)
 
 This turns KANs into scientific collaborators. In two case studies, the researchers fed experimental data to a KAN and asked it to find structure. In knot theory, a KAN recovered a known mathematical relationship between topological invariants, a result that took human mathematicians years to establish. In condensed matter physics, a KAN identified the functional form governing **Anderson localization** (the quantum phenomenon where electrons become trapped in disordered materials), reproducing the known scaling law from scratch. These aren't curve-fits. They're structured mathematical hypotheses the network generates and humans can verify.
 
@@ -99,12 +99,9 @@ For physics and mathematics, the promise goes further. Science produces more dat
 
 > **Bottom Line:** KANs replace fixed activations with learnable spline functions on every edge, achieving better accuracy with smaller models while producing networks whose internal structure can be read, pruned, and interpreted as mathematical laws.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** KANs translate a classical theorem from pure mathematics into a working neural network architecture, then deploy it to rediscover known laws in knot theory and condensed matter physics from data alone.
-
-- **Impact on Artificial Intelligence:** KANs exhibit faster neural scaling laws than MLPs and match or exceed MLP accuracy with far fewer parameters, while producing networks whose learned functions can be directly visualized and symbolically identified.
-
-- **Impact on Fundamental Interactions:** By recovering known physical scaling laws, such as those governing Anderson localization, from experimental data without prior knowledge, KANs offer a new approach for symbolic scientific discovery in physics and mathematics.
-
-- **Outlook and References:** Future work will explore whether KANs scale to large transformer architectures and whether their interpretability advantages hold in higher-dimensional regimes. The paper ([arXiv:2404.19756](https://arxiv.org/abs/2404.19756)) has open-source code available via `pip install pykan`.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">KANs translate a classical theorem from pure mathematics into a working neural network architecture, then deploy it to rediscover known laws in knot theory and condensed matter physics from data alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">KANs exhibit faster neural scaling laws than MLPs and match or exceed MLP accuracy with far fewer parameters, while producing networks whose learned functions can be directly visualized and symbolically identified.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering known physical scaling laws, such as those governing Anderson localization, from experimental data without prior knowledge, KANs offer a new approach for symbolic scientific discovery in physics and mathematics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore whether KANs scale to large transformer architectures and whether their interpretability advantages hold in higher-dimensional regimes. The paper ([arXiv:2404.19756](https://arxiv.org/abs/2404.19756)) has open-source code available via `pip install pykan`.</span></div></div>
+</div>

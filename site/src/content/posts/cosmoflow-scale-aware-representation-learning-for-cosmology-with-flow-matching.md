@@ -37,7 +37,7 @@ pdfUrl: https://arxiv.org/pdf/2507.11842v1
 published: '2025-07-16T02:15:31+00:00'
 theme: Astrophysics
 title: 'CosmoFlow: Scale-Aware Representation Learning for Cosmology with Flow Matching'
-wordCount: 1072
+wordCount: 1045
 ---
 
 ## The Big Picture
@@ -54,7 +54,7 @@ Researchers from UC Santa Barbara and MIT have built a model called **CosmoFlow*
 
 The core idea harnesses a generative modeling technique called **flow matching**. Instead of encoding data into a fixed representation and decoding it directly (the VAE approach), flow matching learns a *trajectory*: a smooth path through probability space that gradually transforms random noise into a realistic simulation output. The model learns the velocity field at every point along this path, meaning the direction and speed of the transformation.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2507_11842/figure_1.png)
 
 CosmoFlow's architecture has two main components:
 
@@ -73,13 +73,13 @@ The result is a latent space 32 times smaller than the raw data, yet rich enough
 
 The most striking result here isn't the compression ratio. It's what the model learned on its own.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2507_11842/figure_3.png)
 
 Without being told to, CosmoFlow organized its 8-element latent code so that different channels correspond to cosmological features at different spatial scales. Interpolating only the high-frequency channels produced more granular, small-scale clumping and shifted only the high-frequency components of the power spectrum. Interpolating the low-frequency channels smoothed the image and shifted only large-scale structure. The model spontaneously discovered a scale-organized representation of the universe.
 
 This kind of interpretability is rare. In most deep learning systems, internal representations are inscrutable: useful for prediction but meaningless to physicists. CosmoFlow's latent space has a physical grammar. Different dimensions speak to different scales of cosmic structure, echoing how cosmologists themselves decompose the universe by length scale.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2507_11842/figure_2.png)
 
 On the practical side, 32x compression that preserves both reconstruction quality and downstream task performance dramatically shrinks the computational burden of working with cosmological simulations. Training datasets currently requiring petabytes of storage could be represented in a fraction of the space. For large collaborations running thousands of simulations to explore parameter space, that changes the game.
 
@@ -89,9 +89,9 @@ Open questions remain. The current model operates on 2D projected fields; extend
 
 > **Bottom Line:** CosmoFlow compresses dark matter simulations 32-fold using flow matching, achieving reconstruction quality that leaves VAEs behind. Along the way, it spontaneously learns a physically interpretable latent space organized by cosmological scale, with no supervision required.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** CosmoFlow applies flow matching, a generative AI technique, to a core problem in observational cosmology. The model's inductive biases turn out to naturally align with the multiscale structure of the cosmic web.
-- **Impact on Artificial Intelligence:** Flow matching models can learn compact, semantically rich, and interpretable latent representations of scientific field data without supervision, extending generative representation learning beyond natural images.
-- **Impact on Fundamental Interactions:** By enabling 32x compression of cold dark matter simulations while preserving parameter inference accuracy, CosmoFlow makes it feasible to train machine learning models on much larger cosmological datasets, advancing our ability to test and constrain the ΛCDM model.
-- **Outlook and References:** Future directions include scaling to 3D simulation volumes and improving high-frequency reconstruction fidelity; the full paper is available at [arXiv:2507.11842](https://arxiv.org/abs/2507.11842) from the UC Santa Barbara and MIT collaboration.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">CosmoFlow applies flow matching, a generative AI technique, to a core problem in observational cosmology. The model's inductive biases turn out to naturally align with the multiscale structure of the cosmic web.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Flow matching models can learn compact, semantically rich, and interpretable latent representations of scientific field data without supervision, extending generative representation learning beyond natural images.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling 32x compression of cold dark matter simulations while preserving parameter inference accuracy, CosmoFlow makes it feasible to train machine learning models on much larger cosmological datasets, advancing our ability to test and constrain the ΛCDM model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include scaling to 3D simulation volumes and improving high-frequency reconstruction fidelity; the full paper is available at [arXiv:2507.11842](https://arxiv.org/abs/2507.11842) from the UC Santa Barbara and MIT collaboration.</span></div></div>
+</div>

@@ -68,7 +68,7 @@ Their architecture is attention-based, similar in spirit to transformer models. 
 
 The team studied spin-polarized electrons confined in a GaAs-like quantum well, scanning across two key parameters: electron density (*r_s*, the ratio of interparticle spacing to effective Bohr radius) and well thickness *d*. By letting the neural network find the lowest-energy state at each point, they built a complete phase diagram with no preconceptions required.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_10909/figure_1.png)
 
 ## Phases Emerge from First Principles
 
@@ -76,21 +76,21 @@ At narrow well thicknesses, the physics is familiar. At low density (*r_s* aroun
 
 Widen the well, and something new happens. Higher energy levels become accessible, and electrons spread out along the depth of the well, spontaneously splitting into two layers even though the well itself has no physical divider. The **Fermi surface** (the boundary in momentum space separating occupied from empty electron states) splits from one circular surface into two distinct ones.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_10909/figure_1.png)
 
 In the bilayer regime at low density, crystalline phases appear. But the bilayer geometry introduces a frustration problem: two triangular lattices stacked on top of each other can't simultaneously minimize all their interlayer repulsions. The triangular crystal isn't always the winner.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_10909/figure_2.png)
 
 What wins instead, in a specific range of densities and well widths, is the **quantum quasicrystal**. The simulations reveal a phase with 12-fold rotational symmetry, a pattern that tiles the plane with two different shapes, never repeating, yet never disordered. This dodecagonal order appears in the **structure factor** (a mathematical fingerprint of how electron density is organized in space) with sharp peaks no ordinary crystal can produce.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2512_10909/figure_2.png)
 
 The quasicrystal isn't a classical effect. By computing the **zero-point quantum fluctuations**, the irreducible quantum jitter electrons retain even at absolute zero, the team showed these fluctuations actually *stabilize* the quasicrystal relative to competing crystal phases. Remove quantum mechanics, and the quasicrystal disappears.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2512_10909/figure_3.png)
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2512_10909/figure_3.png)
 
 ## Why It Matters
 
@@ -102,9 +102,9 @@ Beyond the specific prediction, the approach itself is the point. The neural net
 
 > **Bottom Line:** MIT researchers used a neural network to simulate strongly interacting electrons in semiconductor quantum wells from first principles and discovered a new quantum phase of matter: the electronic quasicrystal, stabilized entirely by quantum fluctuations. The prediction is testable in real materials today.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses transformer-style deep learning with quantum many-body physics to discover a new phase of matter, showing AI can function as a genuine discovery tool in condensed matter physics.
-- **Impact on Artificial Intelligence:** The attention-based NN-VMC method scales to continuous three-dimensional quantum systems with strong correlations, a regime where conventional methods fail, pushing the frontier of neural quantum state methods.
-- **Impact on Fundamental Interactions:** The discovery reveals that Coulomb interactions combined with quantum zero-point fluctuations can produce electronic order with no classical analogue, adding a new entry to the catalog of quantum phases of matter.
-- **Outlook and References:** This work motivates direct experimental searches for quasicrystalline charge order in wide GaAs quantum wells and van der Waals heterostructures; see [arXiv:2512.10909](https://arxiv.org/abs/2512.10909) for full details and supplementary methods.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses transformer-style deep learning with quantum many-body physics to discover a new phase of matter, showing AI can function as a genuine discovery tool in condensed matter physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The attention-based NN-VMC method scales to continuous three-dimensional quantum systems with strong correlations, a regime where conventional methods fail, pushing the frontier of neural quantum state methods.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The discovery reveals that Coulomb interactions combined with quantum zero-point fluctuations can produce electronic order with no classical analogue, adding a new entry to the catalog of quantum phases of matter.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">This work motivates direct experimental searches for quasicrystalline charge order in wide GaAs quantum wells and van der Waals heterostructures; see [arXiv:2512.10909](https://arxiv.org/abs/2512.10909) for full details and supplementary methods.</span></div></div>
+</div>

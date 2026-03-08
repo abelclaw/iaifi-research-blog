@@ -68,7 +68,7 @@ A team of researchers from MIT, MIT-IBM Watson AI Lab, and collaborating institu
 
 The central concept is the distinction between **invariance** and **equivariance**, two ways a model can respond to geometric transformations like rotation, reflection, or flipping.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2303_02484/figure_1.png)
 
 An **invariant** model, shown a rotated image, produces the same output regardless of rotation. It has learned to ignore the change entirely. An **equivariant** model tracks the rotation, its output changing *in sync with* how the input changed, preserving orientation information. Neither approach is universally better.
 
@@ -82,11 +82,11 @@ MSE solves this by deliberately constructing the ensemble from both camps:
 
 3. **Greedy ensembling.** Once diverse members are trained, the researchers use a greedy selection strategy to combine them. Rather than blindly averaging all models, they pick combinations that maximize validation performance, efficiently identifying which symmetry assumptions help for a given task.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2303_02484/figure_1.png)
 
 The team tested MSE on ImageNet classification, uncertainty calibration (how well a model knows when it doesn't know), and a battery of transfer tasks. The results are telling: combining a high-accuracy equivariant model with a *weaker* invariant model can outperform an ensemble of multiple high-accuracy equivariant models. The weaker model isn't dead weight. It carries information the stronger model fundamentally cannot represent. Diversity, not raw accuracy, drives ensemble performance.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2303_02484/figure_2.png)
 
 MSE also extends beyond rotational symmetry. The framework generalizes to other symmetry groups, including horizontal flipping and color jitter. Combining models with opposing hypotheses across *multiple* symmetry axes yields further gains. The geometry of the hypothesis space is rich, and MSE systematically explores it.
 
@@ -102,12 +102,9 @@ Plenty of open questions remain. Can MSE extend to more exotic symmetry groups r
 
 > **Bottom Line:** Multi-Symmetry Ensembles show that the best path to diverse, reliable neural networks isn't more randomness but structured geometric disagreement. By pairing models with opposing symmetry hypotheses, MSE achieves classification, calibration, and transfer performance that purely stochastic ensembles cannot match.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work directly imports concepts from physics (symmetry groups, invariance, and equivariance) into the engineering of machine learning systems, showing that the mathematical language of fundamental physics provides actionable design principles for AI.
-
-- **Impact on Artificial Intelligence:** MSE establishes a new paradigm for ensemble diversity. Structured symmetry-based disagreement between models outperforms stochastic diversity alone, with measurable gains in classification accuracy, uncertainty quantification, and cross-dataset transfer.
-
-- **Impact on Fundamental Interactions:** Large visual datasets contain inherently conflicting symmetry hypotheses. This work formalizes an observation familiar to physicists, that the correct symmetry group depends on context, and builds models that respect this multiplicity.
-
-- **Outlook and References:** Future work may extend MSE to symmetry groups central to physics (gauge invariance, Lorentz symmetry) and to adaptive inference-time ensemble routing. The paper is available at [arXiv:2303.02484](https://arxiv.org/abs/2303.02484), and the code at github.com/clott3/multi-sym-ensem.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly imports concepts from physics (symmetry groups, invariance, and equivariance) into the engineering of machine learning systems, showing that the mathematical language of fundamental physics provides actionable design principles for AI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">MSE establishes a new paradigm for ensemble diversity. Structured symmetry-based disagreement between models outperforms stochastic diversity alone, with measurable gains in classification accuracy, uncertainty quantification, and cross-dataset transfer.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Large visual datasets contain inherently conflicting symmetry hypotheses. This work formalizes an observation familiar to physicists, that the correct symmetry group depends on context, and builds models that respect this multiplicity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend MSE to symmetry groups central to physics (gauge invariance, Lorentz symmetry) and to adaptive inference-time ensemble routing. The paper is available at [arXiv:2303.02484](https://arxiv.org/abs/2303.02484), and the code at github.com/clott3/multi-sym-ensem.</span></div></div>
+</div>

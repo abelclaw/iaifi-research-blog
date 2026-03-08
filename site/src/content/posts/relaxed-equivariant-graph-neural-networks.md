@@ -32,7 +32,7 @@ pdfUrl: https://arxiv.org/pdf/2407.20471v2
 published: '2024-07-30T00:16:50+00:00'
 theme: Foundational AI
 title: Relaxed Equivariant Graph Neural Networks
-wordCount: 993
+wordCount: 1045
 ---
 
 ## The Big Picture
@@ -58,15 +58,15 @@ The **e3nn framework**, an open-source library for building symmetry-aware neura
 
 Each "path" in this tensor product can be independently weighted by a scalar, and this is where things get interesting. Normally, those scalar weights are constrained to be identical across all orientations, which guarantees equivariance. Hofgard and colleagues introduce **relaxed weights**: weights that are *mostly* equivariant but carry a small learnable perturbation that can break symmetry in a controlled, data-driven way.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2407_20471/figure_1.png)
 
 The relaxed weight for each tensor product path takes the standard equivariant weight and adds a symmetry-breaking correction. The network learns the magnitude of this correction from training data. If the physics truly respects E(3) symmetry, the correction learns to be zero. If the system has broken symmetry (say, a crystal undergoing a phase transition) the correction grows to capture that asymmetry.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2407_20471/figure_2.png)
 
 This connects to **Landau theory**, the classical physics framework for describing phase transitions. In Landau theory, an "order parameter" tracks how much symmetry a system has broken: zero in the disordered phase, nonzero below the transition temperature. The relaxed weights function as learned order parameters, measures of symmetry breaking that emerge automatically from training rather than being specified by hand.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2407_20471/figure_3.png)
 
 Empirically, these relaxed weights converge to the correct amount of symmetry breaking for systems with known, controllable asymmetry. The network neither over-breaks symmetry nor under-breaks it. It finds the physics.
 
@@ -82,18 +82,15 @@ Symmetry constraints are one of the best tools for building models that generali
 
 > **Bottom Line:** Relaxed equivariant graph neural networks give physicists and AI researchers a principled tool for modeling symmetry breaking in continuous 3D space, learning the right amount of asymmetry from data without sacrificing the geometric structure that makes equivariant networks powerful.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects abstract group representation theory with practical neural network architecture design, producing a framework fluent in both Clebsch-Gordan coefficients and PyTorch tensor operations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Relaxed equivariant networks extend learnable symmetry structures in geometric deep learning from discrete groups to the continuous E(3) group, enabling richer inductive biases for real-world physical data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By connecting learned symmetry-breaking weights to Landau order parameters, the framework offers a data-driven route to characterizing phase transitions and spontaneous symmetry breaking in condensed matter systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include applying relaxed equivariance to molecular dynamics simulations under external fields and crystallographic phase transition modeling. The work appeared at the Geometry-grounded Representation Learning workshop at ICML 2024.
 
-- **Interdisciplinary Research Achievement:** This work connects abstract group representation theory with practical neural network architecture design, producing a framework fluent in both Clebsch-Gordan coefficients and PyTorch tensor operations.
-
-- **Impact on Artificial Intelligence:** Relaxed equivariant networks extend learnable symmetry structures in geometric deep learning from discrete groups to the continuous E(3) group, enabling richer inductive biases for real-world physical data.
-
-- **Impact on Fundamental Interactions:** By connecting learned symmetry-breaking weights to Landau order parameters, the framework offers a data-driven route to characterizing phase transitions and spontaneous symmetry breaking in condensed matter systems.
-
-- **Outlook and References:** Future directions include applying relaxed equivariance to molecular dynamics simulations under external fields and crystallographic phase transition modeling. The work appeared at the Geometry-grounded Representation Learning workshop at ICML 2024.
-
-## Original Paper Details
-- **Title:** Relaxed Equivariant Graph Neural Networks
-- **arXiv ID:** [arXiv:2407.20471](https://arxiv.org/abs/2407.20471)
-- **Authors:** Elyssa Hofgard, Rui Wang, Robin Walters, Tess Smidt
-- **Abstract:** 3D Euclidean symmetry equivariant neural networks have demonstrated notable success in modeling complex physical systems. We introduce a framework for relaxed E(3) graph equivariant neural networks that can learn and represent symmetry breaking within continuous groups. Building on the existing e3nn framework, we propose the use of relaxed weights to allow for controlled symmetry breaking. We show empirically that these relaxed weights learn the correct amount of symmetry breaking.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Relaxed Equivariant Graph Neural Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2407.20471](https://arxiv.org/abs/2407.20471)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Elyssa Hofgard, Rui Wang, Robin Walters, Tess Smidt</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">3D Euclidean symmetry equivariant neural networks have demonstrated notable success in modeling complex physical systems. We introduce a framework for relaxed E(3) graph equivariant neural networks that can learn and represent symmetry breaking within continuous groups. Building on the existing e3nn framework, we propose the use of relaxed weights to allow for controlled symmetry breaking. We show empirically that these relaxed weights learn the correct amount of symmetry breaking.</span></div></div>
+</div>

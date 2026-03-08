@@ -55,7 +55,7 @@ published: '2024-12-27T19:00:01+00:00'
 theme: Astrophysics
 title: A Neural Network-Based Search for Unmodeled Transients in LIGO-Virgo-KAGRA's
   Third Observing Run
-wordCount: 1076
+wordCount: 1241
 ---
 
 ## The Big Picture
@@ -78,11 +78,11 @@ GWAK is built on a **semi-supervised learning** architecture, a hybrid that uses
 
 An autoencoder compresses input data through a bottleneck (a low-dimensional **latent space**) then tries to reconstruct the original on the other side. Reconstruction error reveals how well the model "understands" the input. A noise-trained autoencoder handles noise well but stumbles on gravitational-wave signals; a CBC-trained autoencoder does the opposite.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2412_19883/figure_1.png)
 
 GWAK's key move is combining multiple autoencoders into a unified **embedding space**. Think of this as a map: each region corresponds to a different "flavor" of signal, and any new data gets placed based on which autoencoders recognize it. Rather than asking "does this match template X?", GWAK asks "where does this sit in the space of all possible physical phenomena?"
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2412_19883/figure_1.png)
 
 The search covered 203.3 days of coincident data from the Hanford (H1) and Livingston (L1) detectors, targeting the 30–1500 Hz band with signal durations from milliseconds to a few seconds. The algorithm assumed nothing about signal direction, polarization, or waveform shape, making this the broadest possible search criteria.
 
@@ -92,15 +92,15 @@ One methodological choice worth noting: rather than training on simulated Gaussi
 
 The search successfully recovered three compact binary coalescence events already identified by conventional pipelines, confirming that the method works as expected. GWAK also flagged a substantial number of known detector glitches, which makes sense: the embedding space cleanly separates glitch-like features from astrophysical signal features.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2412_19883/figure_2.png)
 
 After excluding the three CBC candidates and vetoing known glitch categories, the team found **no statistically significant new detections** of unmodeled gravitational-wave bursts in O3. This is a genuinely meaningful null result. It places new constraints on the rate and strength of burst sources in the local universe, and it establishes GWAK as a credible, operational search pipeline ready for future observing runs.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2412_19883/figure_2.png)
 
 No new detections isn't a failure. It's the baseline. A neural network-based pipeline now has proven O3 performance and is ready for O4 and O5 data, where detectors will probe deeper into the universe than ever before.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2412_19883/figure_3.png)
 
 ## Why It Matters
 
@@ -108,24 +108,21 @@ Gravitational-wave astronomy is entering a new era. The fourth and fifth observi
 
 The implications reach well beyond gravitational waves. The semi-supervised autoencoder framework is a general strategy for anomaly detection in high-dimensional time-series data from physics experiments, adaptable to particle physics searches at the LHC, pulsar timing arrays searching for nanohertz gravitational waves, or neutrino detectors watching for supernova bursts. Machine learning here isn't just a faster way to do what we were already doing. It's a new kind of scientific sensor.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2412_19883/figure_3.png)
 
 > **Bottom Line:** GWAK's first full observing run search finds no new gravitational-wave burst sources beyond known CBCs, but in doing so, it proves that neural network-based anomaly detection is ready for real deployment in gravitational-wave astronomy, setting the stage for discoveries in more sensitive future runs.
 
 ---
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects deep learning methodology with gravitational-wave physics, putting a semi-supervised autoencoder framework into operation as an astrophysical search pipeline on real observing data for the first time.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">GWAK's embedding-space approach, training specialized autoencoders on distinct signal classes and combining their representations, provides a reusable template for model-agnostic anomaly detection in high-dimensional physics data streams.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By completing the first neural network-based all-sky unmodeled search of O3 data, this work extends gravitational-wave astronomy's reach to entirely new signal classes, including core-collapse supernovae, neutron star excitations, and cosmic string phenomena.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Next-generation detectors will substantially expand the discovery reach of GWAK-style searches; the full methodology and O3 results are detailed in [arXiv:2412.19883](https://arxiv.org/abs/2412.19883).
 
-- **Interdisciplinary Research Achievement:** This work connects deep learning methodology with gravitational-wave physics, putting a semi-supervised autoencoder framework into operation as an astrophysical search pipeline on real observing data for the first time.
-
-- **Impact on Artificial Intelligence:** GWAK's embedding-space approach, training specialized autoencoders on distinct signal classes and combining their representations, provides a reusable template for model-agnostic anomaly detection in high-dimensional physics data streams.
-
-- **Impact on Fundamental Interactions:** By completing the first neural network-based all-sky unmodeled search of O3 data, this work extends gravitational-wave astronomy's reach to entirely new signal classes, including core-collapse supernovae, neutron star excitations, and cosmic string phenomena.
-
-- **Outlook and References:** Next-generation detectors will substantially expand the discovery reach of GWAK-style searches; the full methodology and O3 results are detailed in [arXiv:2412.19883](https://arxiv.org/abs/2412.19883).
-
-## Original Paper Details
-- **Title:** A Neural Network-Based Search for Unmodeled Transients in LIGO-Virgo-KAGRA's Third Observing Run
-- **arXiv ID:** 2412.19883
-- **Authors:** ["Ryan Raikman", "Eric A. Moreno", "Katya Govorkova", "Siddharth Soni", "Ethan Marx", "William Benoit", "Alec Gunny", "Deep Chatterjee", "Christina Reissel", "Malina M. Desai", "Rafia Omer", "Muhammed Saleem", "Philip Harris", "Erik Katsavounidis", "Michael W. Coughlin", "Dylan Rankin"]
-- **Abstract:** This paper presents the results of a Neural Network (NN)-based search for short-duration gravitational-wave transients in data from the third observing run of LIGO, Virgo, and KAGRA. The search targets unmodeled transients with durations of milliseconds to a few seconds in the 30-1500 Hz frequency band, without assumptions about the incoming signal direction, polarization, or morphology. Using the Gravitational Wave Anomalous Knowledge (GWAK) method, three compact binary coalescences (CBCs) identified by existing pipelines are successfully detected, along with a range of detector glitches. The algorithm constructs a low-dimensional embedded space to capture the physical features of signals, enabling the detection of CBCs, detector glitches, and unmodeled transients. This study demonstrates GWAK's ability to enhance gravitational-wave searches beyond the limits of existing pipelines, laying the groundwork for future detection strategies.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A Neural Network-Based Search for Unmodeled Transients in LIGO-Virgo-KAGRA's Third Observing Run</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2412.19883</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Ryan Raikman", "Eric A. Moreno", "Katya Govorkova", "Siddharth Soni", "Ethan Marx", "William Benoit", "Alec Gunny", "Deep Chatterjee", "Christina Reissel", "Malina M. Desai", "Rafia Omer", "Muhammed Saleem", "Philip Harris", "Erik Katsavounidis", "Michael W. Coughlin", "Dylan Rankin"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">This paper presents the results of a Neural Network (NN)-based search for short-duration gravitational-wave transients in data from the third observing run of LIGO, Virgo, and KAGRA. The search targets unmodeled transients with durations of milliseconds to a few seconds in the 30-1500 Hz frequency band, without assumptions about the incoming signal direction, polarization, or morphology. Using the Gravitational Wave Anomalous Knowledge (GWAK) method, three compact binary coalescences (CBCs) identified by existing pipelines are successfully detected, along with a range of detector glitches. The algorithm constructs a low-dimensional embedded space to capture the physical features of signals, enabling the detection of CBCs, detector glitches, and unmodeled transients. This study demonstrates GWAK's ability to enhance gravitational-wave searches beyond the limits of existing pipelines, laying the groundwork for future detection strategies.</span></div></div>
+</div>

@@ -48,7 +48,7 @@ pdfUrl: https://arxiv.org/pdf/2104.04529v2
 published: '2021-04-09T18:00:00+00:00'
 theme: Astrophysics
 title: A Compound Poisson Generator approach to Point-Source Inference in Astrophysics
-wordCount: 1121
+wordCount: 1080
 ---
 
 ## The Big Picture
@@ -75,7 +75,7 @@ Here's where it goes wrong. NPTF assumes you can *factorize* three separate inst
 
 In gamma-ray astronomy, where instruments are relatively uniform, this independence approximation holds. In X-ray astronomy, it doesn't. The PSF varies across the detector. The effective area changes on scales smaller than a single resolution element. Sources aren't uniformly distributed.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2104_04529/figure_1.png)
 
 The CPG approach abandons factorization entirely. It builds the likelihood by following what physically happens when photons from a source population hit a real detector:
 
@@ -94,7 +94,7 @@ The paper also uncovers a subtler but equally dangerous issue: **prior bias** in
 
 In this limit, nearly any "uninformative" prior causes the posterior to pile up at one extreme. The model confidently assigns all observed flux to either point sources or diffuse emission, even when the data have nothing to say about the question.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2104_04529/figure_2.png)
 
 The fix is a reparameterization. Instead of working directly with the normalization of the source-count function, the authors define a coordinate system that separates total flux from its fractional assignment between populations. With this parameterization, CPG correctly identifies that when the data can't constrain the split, the posterior stays broad and honest rather than collapsing to spurious certainty.
 
@@ -106,12 +106,9 @@ The stakes go further still. NPTF was developed for gamma-ray searches, includin
 
 > **Bottom Line:** The Compound Poisson Generator gives X-ray and gamma-ray astronomers a statistically rigorous tool for counting faint sources, correcting systematic errors in the dominant existing method and exposing a hidden prior pathology that has likely affected results across the field.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings advanced probabilistic modeling and Bayesian statistical methods to bear on a fundamental problem in observational astronomy. Principled likelihood construction from first principles outperforms the field-standard approximation.
-
-- **Impact on Artificial Intelligence:** The CPG framework offers a general approach to hierarchical probabilistic inference with nested randomness, applicable to any domain where aggregated counts are observed from an underlying population through an imperfect instrument.
-
-- **Impact on Fundamental Interactions:** By correcting biases in point-source inference, CPG sharpens the statistical tools used to detect dark matter signals and measure compact object populations, improving constraints on fundamental physics from astrophysical observations.
-
-- **Outlook and References:** The CPG implementation is publicly available, and future applications to gamma-ray Galactic Center analyses could revisit the contested dark matter interpretation; see [arXiv:2104.04529](https://arxiv.org/abs/2104.04529) for the full paper.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings advanced probabilistic modeling and Bayesian statistical methods to bear on a fundamental problem in observational astronomy. Principled likelihood construction from first principles outperforms the field-standard approximation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The CPG framework offers a general approach to hierarchical probabilistic inference with nested randomness, applicable to any domain where aggregated counts are observed from an underlying population through an imperfect instrument.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By correcting biases in point-source inference, CPG sharpens the statistical tools used to detect dark matter signals and measure compact object populations, improving constraints on fundamental physics from astrophysical observations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The CPG implementation is publicly available, and future applications to gamma-ray Galactic Center analyses could revisit the contested dark matter interpretation; see [arXiv:2104.04529](https://arxiv.org/abs/2104.04529) for the full paper.</span></div></div>
+</div>

@@ -33,7 +33,7 @@ pdfUrl: https://arxiv.org/pdf/2410.12529v4
 published: '2024-10-16T13:09:56+00:00'
 theme: Theoretical Physics
 title: Hodge Theory for Entanglement Cohomology
-wordCount: 1072
+wordCount: 1109
 ---
 
 ## The Big Picture
@@ -54,7 +54,7 @@ The starting point is a framework from earlier work ([arXiv:1901.02011](https://
 
 The new paper focuses on the **commutant complex** (`Com`), built from operators that commute with the quantum state in a precisely structured way. On each rung of this ladder live **entanglement k-forms**: objects built from subsets of k parties in a system of n total particles, encoding how those parties are collectively entangled. The commutant complex turns out to have exactly the right structure to support Hodge theory.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_12529/figure_1.png)
 
 What does that actually mean? The team constructs four ingredients for entanglement k-forms, mirroring the classical geometric toolkit:
 
@@ -67,7 +67,7 @@ With these tools, the authors prove three theorems. The **Hodge isomorphism theo
 
 Chain these isomorphisms together and you get the headline result: the k-th and (n−k)-th cohomology groups always have the same dimension. In the language of **Poincaré polynomials**, generating functions that package all cohomology dimensions into a single object, the polynomial is always palindromic. Symmetric around its middle term. This symmetry had been observed numerically before but never explained. Now there's a proof.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_12529/figure_1.png)
 
 The authors ground everything in concrete two-qubit examples, explicitly computing Hodge stars, inner products, and harmonic forms for specific entangled states. These calculations confirm the theorems and give readers a foothold for building intuition.
 
@@ -81,18 +81,9 @@ Plenty of questions remain open. Classifying multipartite entanglement is a noto
 
 ---
 
-## IAIFI Research Highlights
-
-**Interdisciplinary Research Achievement:** This paper builds a direct bridge between homological algebra, classical differential geometry, and quantum information theory, showing that entanglement in finite-dimensional quantum systems obeys the same Hodge-theoretic structure as differential forms on smooth manifolds.
-
-**Impact on Artificial Intelligence:** The cohomological framework provides new mathematical invariants for classifying quantum states that could inform quantum machine learning architectures and error-correcting codes where understanding multipartite entanglement structure is essential.
-
-**Impact on Fundamental Interactions:** The proof of Poincaré duality for entanglement cohomology resolves a previously unexplained symmetry in entanglement Poincaré polynomials and opens new avenues for connecting entanglement geometry to quantum gravity via holographic principles.
-
-**Outlook and References:** Future work may extend these results to infinite-dimensional systems and quantum field theories, with implications for holography and the emergence of spacetime; the paper is available at [arXiv:2410.12529](https://arxiv.org/abs/2410.12529).
-
-## Original Paper Details
-- **Title:** Hodge Theory for Entanglement Cohomology
-- **arXiv ID:** 2410.12529
-- **Authors:** ["Christian Ferko", "Eashan Iyer", "Kasra Mossayebi", "Gregor Sanfey"]
-- **Abstract:** We explore and extend the application of homological algebra to describe quantum entanglement, initiated in arXiv:1901.02011, focusing on the Hodge-theoretic structure of entanglement cohomology in finite-dimensional quantum systems. We construct analogues of the Hodge star operator, inner product, codifferential, and Laplacian for entanglement $k$-forms. We also prove that such $k$-forms obey versions of the Hodge isomorphism theorem and Hodge decomposition, and that they exhibit Hodge duality. As a corollary, we conclude that the dimensions of the $k$-th and $(n-k)$-th cohomologies coincide for entanglement in $n$-partite pure states, which explains a symmetry property ("Poincare duality") of the associated Poincare polynomials.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Hodge Theory for Entanglement Cohomology</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2410.12529</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Christian Ferko", "Eashan Iyer", "Kasra Mossayebi", "Gregor Sanfey"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We explore and extend the application of homological algebra to describe quantum entanglement, initiated in arXiv:1901.02011, focusing on the Hodge-theoretic structure of entanglement cohomology in finite-dimensional quantum systems. We construct analogues of the Hodge star operator, inner product, codifferential, and Laplacian for entanglement $k$-forms. We also prove that such $k$-forms obey versions of the Hodge isomorphism theorem and Hodge decomposition, and that they exhibit Hodge duality. As a corollary, we conclude that the dimensions of the $k$-th and $(n-k)$-th cohomologies coincide for entanglement in $n$-partite pure states, which explains a symmetry property ("Poincare duality") of the associated Poincare polynomials.</span></div></div>
+</div>

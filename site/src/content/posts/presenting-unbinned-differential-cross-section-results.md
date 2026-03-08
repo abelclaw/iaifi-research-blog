@@ -50,7 +50,7 @@ pdfUrl: https://arxiv.org/pdf/2109.13243v3
 published: '2021-09-27T18:00:00+00:00'
 theme: Experimental Physics
 title: Presenting Unbinned Differential Cross Section Results
-wordCount: 1189
+wordCount: 1354
 ---
 
 ## The Big Picture
@@ -69,7 +69,7 @@ Why do physicists bin data in the first place? A **differential cross section** 
 
 The catch: you have to choose your bins *before* analyzing the data, and the optimal binning depends on what you want to do with the result. A **parton distribution function (PDF) fit**, which extracts the internal quark-and-gluon structure of protons, needs different bin boundaries than an **effective field theory** analysis (a framework for detecting how undiscovered particles might subtly alter known physics). With a binned result, you're locked into whatever choices the original experimenters made.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2109_13243/figure_1.png)
 
 Unbinned measurements dissolve this problem. Instead of a histogram, an unbinned result is a **density estimate**: a continuous function assigning a probability weight to every possible collision outcome. Need a PDF fit? Bin it however that analysis requires. New theoretical calculation arrives years later? Re-bin the stored density. No new experiment needed.
 
@@ -82,13 +82,13 @@ Both approaches output the same thing for archiving: per-event weights encoding 
 
 Publishing an unbinned result means releasing something more complex than a table of bin counts. The authors propose storing results as collections of weighted pseudo-data points. Each event carries coordinates in the observable space plus a weight representing its contribution to the cross section. The format must also encode **systematic uncertainties**, which in the unbinned world aren't simple percentage errors but correlated shifts across the entire continuous distribution.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2109_13243/figure_2.png)
 
 A few statistical subtleties need explicit handling. **Acceptance effects** (the fact that detectors don't catch every particle) must be folded in. **Background subtraction** enters through negative-weight events rather than subtracted bin counts. And **local statistical uncertainty** gets special treatment, since a density estimate is smoothly defined even where only a handful of events exist.
 
 The proposed format handles all of this through a structured file schema integrated with **HEPData**, the existing community repository for particle physics measurements. Shared reference software lets theorists and phenomenologists immediately start using unbinned results in global fits. A worked example walks through the full pipeline: simulated dataset, unbinned unfolding, proposed format, then re-binned comparison with a traditional analysis. The agreement validates the approach and makes the information-preservation advantage concrete.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2109_13243/figure_3.png)
 
 ## Why It Matters
 
@@ -102,18 +102,15 @@ The paper frames itself as the opening of a community dialogue. But the concrete
 
 > **Bottom Line:** By proposing a concrete standard for publishing unbinned particle physics measurements, this paper lays the groundwork for a new generation of physics analyses, ones that preserve full information, enable post-hoc observable definition, and remain usable for decades after the original data were collected.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies machine learning to one of experimental physics' most basic challenges, data representation, connecting ML-based unfolding algorithms with traditional physics analysis workflows.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows how density estimation and classifier-based neural networks can replace handcrafted histograms as the primary output of physics measurements, pushing ML from analysis tool to archival infrastructure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Unbinned measurements preserve full phase-space information from particle collisions, enabling more powerful extractions of Standard Model parameters, parton distribution functions, and searches for physics beyond the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors frame this as the opening of a community dialogue rather than a final answer, with integration into HEPData and shared software tools as near-term goals; the work is available at [arXiv:2109.13243](https://arxiv.org/abs/2109.13243).
 
-- **Interdisciplinary Research Achievement:** This work applies machine learning to one of experimental physics' most basic challenges, data representation, connecting ML-based unfolding algorithms with traditional physics analysis workflows.
-
-- **Impact on Artificial Intelligence:** The paper shows how density estimation and classifier-based neural networks can replace handcrafted histograms as the primary output of physics measurements, pushing ML from analysis tool to archival infrastructure.
-
-- **Impact on Fundamental Interactions:** Unbinned measurements preserve full phase-space information from particle collisions, enabling more powerful extractions of Standard Model parameters, parton distribution functions, and searches for physics beyond the Standard Model.
-
-- **Outlook and References:** The authors frame this as the opening of a community dialogue rather than a final answer, with integration into HEPData and shared software tools as near-term goals; the work is available at [arXiv:2109.13243](https://arxiv.org/abs/2109.13243).
-
-## Original Paper Details
-- **Title:** Presenting Unbinned Differential Cross Section Results
-- **arXiv ID:** [2109.13243](https://arxiv.org/abs/2109.13243)
-- **Authors:** ["Miguel Arratia", "Anja Butter", "Mario Campanelli", "Vincent Croft", "Aishik Ghosh", "Dag Gillberg", "Kristin Lohwasser", "Bogdan Malaescu", "Vinicius Mikuni", "Benjamin Nachman", "Juan Rojo", "Jesse Thaler", "Ramon Winterhalder"]
-- **Abstract:** Machine learning tools have empowered a qualitatively new way to perform differential cross section measurements whereby the data are unbinned, possibly in many dimensions. Unbinned measurements can enable, improve, or at least simplify comparisons between experiments and with theoretical predictions. Furthermore, many-dimensional measurements can be used to define observables after the measurement instead of before. There is currently no community standard for publishing unbinned data. While there are also essentially no measurements of this type public, unbinned measurements are expected in the near future given recent methodological advances. The purpose of this paper is to propose a scheme for presenting and using unbinned results, which can hopefully form the basis for a community standard to allow for integration into analysis workflows. This is foreseen to be the start of an evolving community dialogue, in order to accommodate future developments in this field that is rapidly evolving.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Presenting Unbinned Differential Cross Section Results</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2109.13243](https://arxiv.org/abs/2109.13243)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Miguel Arratia", "Anja Butter", "Mario Campanelli", "Vincent Croft", "Aishik Ghosh", "Dag Gillberg", "Kristin Lohwasser", "Bogdan Malaescu", "Vinicius Mikuni", "Benjamin Nachman", "Juan Rojo", "Jesse Thaler", "Ramon Winterhalder"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Machine learning tools have empowered a qualitatively new way to perform differential cross section measurements whereby the data are unbinned, possibly in many dimensions. Unbinned measurements can enable, improve, or at least simplify comparisons between experiments and with theoretical predictions. Furthermore, many-dimensional measurements can be used to define observables after the measurement instead of before. There is currently no community standard for publishing unbinned data. While there are also essentially no measurements of this type public, unbinned measurements are expected in the near future given recent methodological advances. The purpose of this paper is to propose a scheme for presenting and using unbinned results, which can hopefully form the basis for a community standard to allow for integration into analysis workflows. This is foreseen to be the start of an evolving community dialogue, in order to accommodate future developments in this field that is rapidly evolving.</span></div></div>
+</div>

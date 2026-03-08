@@ -29,7 +29,7 @@ pdfUrl: https://arxiv.org/pdf/2410.08161v1
 published: '2024-10-10T17:43:13+00:00'
 theme: Theoretical Physics
 title: Dirac Traces and the Tutte Polynomial
-wordCount: 1093
+wordCount: 1170
 ---
 
 ## The Big Picture
@@ -50,7 +50,7 @@ The connection between these two worlds rests on one observation. The defining r
 
 Swapping two adjacent gamma matrices introduces a correction term proportional to the **metric tensor**, a table encoding distances and angles in spacetime. This swap-or-contract structure is the same recurrence used to compute the Tutte polynomial via **deletion-contraction**: to evaluate a graph property, you either remove an edge entirely or merge its two endpoints, then combine the results recursively. Dirac algebra, it turns out, is doing graph theory in disguise.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_08161/figure_1.png)
 
 To make this precise, Lin constructs a graph from any string of Dirac matrices. Place the matrix indices around the circumference of a circle and draw straight chords connecting each pair of repeated indices. Each chord becomes a *vertex* of a new graph, and two vertices are connected by an *edge* if their chords cross.
 
@@ -64,7 +64,7 @@ For the physical case d=4, this collapses to something strikingly clean. The Tut
 
 **Tr_4 = 4 · (−2)^{n + c + dim(B)}**
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_08161/figure_1.png)
 
 The computational payoff shows up in benchmarks. Lin compared standard Mathematica packages (TRACER, FeynCalc, and FormTracer) against a naive implementation using Mathematica's built-in `TuttePolynomial` function. For traces up to 18 gamma matrices, the Tutte-based approach matches or outperforms the specialized physics codes. The log-scale runtime plot shows the Tutte method staying competitive even as the others slow exponentially. Dedicated Tutte polynomial algorithms, extensively optimized by the combinatorics community, could potentially be repurposed directly for particle physics.
 
@@ -78,18 +78,15 @@ New identities for Dirac traces can now be derived directly from known identitie
 
 > **Bottom Line:** By proving that *d*-dimensional Dirac traces equal evaluations of the Tutte polynomial, Lin provides both a conceptual unification between particle physics and graph theory, and a practical toolkit: new algorithms, new identities, and a rigorous complexity analysis for one of QFT's most routine but demanding calculations.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work establishes a precise mathematical equivalence between quantum field theory calculations (Dirac traces under dimensional regularization) and combinatorial graph theory (the Tutte polynomial), showing that connections between physics and mathematics can yield both conceptual clarity and computational gains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The deletion-contraction framework underlying the Tutte polynomial is central to graph neural network research and combinatorial optimization; this result suggests that physics-motivated graph problems may benefit from AI-accelerated Tutte polynomial algorithms.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Dirac trace computations are a bottleneck in multi-loop perturbative QCD and QED calculations; the Tutte polynomial formulation opens algorithmic paths to speed up precision predictions for collider experiments and tests of fundamental particle interactions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include implementing dedicated Tutte polynomial solvers optimized for chord intersection graphs from Feynman diagrams, and extending the framework to traces involving γ^5 in chiral theories; the paper is available at [arXiv:2410.08161](https://arxiv.org/abs/2410.08161).
 
-- **Interdisciplinary Research Achievement:** This work establishes a precise mathematical equivalence between quantum field theory calculations (Dirac traces under dimensional regularization) and combinatorial graph theory (the Tutte polynomial), showing that connections between physics and mathematics can yield both conceptual clarity and computational gains.
-
-- **Impact on Artificial Intelligence:** The deletion-contraction framework underlying the Tutte polynomial is central to graph neural network research and combinatorial optimization; this result suggests that physics-motivated graph problems may benefit from AI-accelerated Tutte polynomial algorithms.
-
-- **Impact on Fundamental Interactions:** Dirac trace computations are a bottleneck in multi-loop perturbative QCD and QED calculations; the Tutte polynomial formulation opens algorithmic paths to speed up precision predictions for collider experiments and tests of fundamental particle interactions.
-
-- **Outlook and References:** Future directions include implementing dedicated Tutte polynomial solvers optimized for chord intersection graphs from Feynman diagrams, and extending the framework to traces involving γ^5 in chiral theories; the paper is available at [arXiv:2410.08161](https://arxiv.org/abs/2410.08161).
-
-## Original Paper Details
-- **Title:** Dirac Traces and the Tutte Polynomial
-- **arXiv ID:** [2410.08161](https://arxiv.org/abs/2410.08161)
-- **Authors:** Joshua Lin
-- **Abstract:** Perturbative calculations involving fermion loops in quantum field theories require tracing over Dirac matrices. A simple way to regulate the divergences that generically appear in these calculations is dimensional regularisation, which has the consequence of replacing 4-dimensional Dirac matrices with d-dimensional counterparts for arbitrary complex values of d. In this work, a connection between traces of d-dimensional Dirac matrices and computations of the Tutte polynomial of associated graphs is proven. The time complexity of computing Dirac traces is analysed by this connection, and improvements to algorithms for computing Dirac traces are proposed.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Dirac Traces and the Tutte Polynomial</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2410.08161](https://arxiv.org/abs/2410.08161)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Joshua Lin</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Perturbative calculations involving fermion loops in quantum field theories require tracing over Dirac matrices. A simple way to regulate the divergences that generically appear in these calculations is dimensional regularisation, which has the consequence of replacing 4-dimensional Dirac matrices with d-dimensional counterparts for arbitrary complex values of d. In this work, a connection between traces of d-dimensional Dirac matrices and computations of the Tutte polynomial of associated graphs is proven. The time complexity of computing Dirac traces is analysed by this connection, and improvements to algorithms for computing Dirac traces are proposed.</span></div></div>
+</div>

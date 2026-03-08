@@ -98,7 +98,7 @@ published: '2025-10-20T02:32:26+00:00'
 theme: Astrophysics
 title: 'Optimizing Kilonova Searches: A Case Study of the Type IIb SN 2025ulz in the
   Localization Volume of the Low-Significance Gravitational Wave Event S250818k'
-wordCount: 1119
+wordCount: 1075
 ---
 
 ## The Big Picture
@@ -119,7 +119,7 @@ The search began immediately after S250818k was flagged. The alert came with a *
 
 One candidate stood out early: **SN 2025ulz**. It was bright, appeared to fade quickly, and sat within the GW localization region. Rapid fading is a kilonova hallmark. Unlike supernovae that stay bright for weeks, kilonovae typically dim within days. SN 2025ulz ticked that box.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2510_17104/figure_1.png)
 
 The team didn't stop at first impressions. They mobilized telescopes across ultraviolet, optical, infrared, and radio bands to build a **multi-wavelength dataset** over multiple epochs. That kind of coverage is what separates a confident identification from a lucky guess.
 
@@ -136,11 +136,11 @@ Rather than just reporting that SN 2025ulz fooled them, the team built a quantit
 
 Applied retroactively to all candidates from the S250818k campaign, the result was striking: at every moment after SN 2025ulz was discovered, at least four other candidates had comparable or higher scores. SN 2025ulz had been heavily prioritized by the observing community, but it never clearly dominated the field. Resources spent characterizing it might have been better distributed.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2510_17104/figure_2.png)
 
 Telescope time during GW follow-up campaigns is genuinely precious. Observers race against the clock, juggling instruments across hemispheres, making judgment calls under pressure. A tool that turns expert intuition into a reproducible number can make those calls faster and fairer.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2510_17104/figure_3.png)
 
 ## Why It Matters
 
@@ -152,12 +152,9 @@ A deeper open question remains: how common are genuine kilonovae relative to the
 
 > SN 2025ulz was a cosmic impersonator, a supernova that briefly mimicked the rarest of events. But the real discovery is a smarter way to search: a scoring algorithm that could prevent future teams from investing all their telescope hours in a single red herring.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work combines gravitational wave astronomy, multi-wavelength transient astrophysics, and algorithmic data analysis to address one of multi-messenger astronomy's core practical challenges: distinguishing real kilonova signals from an overwhelming background of impostor transients.
-
-- **Impact on Artificial Intelligence:** The quantitative scoring algorithm introduced here is a direct precursor to automated machine-learning classifiers that could triage gravitational wave follow-up candidates in real time, cutting the delay between alert and informed decision.
-
-- **Impact on Fundamental Interactions:** By systematically characterizing what a kilonova is *not*, this study sharpens the community's ability to identify genuine neutron star merger counterparts. These events encode information about r-process nucleosynthesis (the process that forges heavy elements like gold in neutron star mergers), the nuclear equation of state, and the engines of short gamma-ray bursts.
-
-- **Outlook and References:** Future GW observing runs will generate more alerts than ever, making real-time candidate scoring essential. This work, available at [arXiv:2510.17104](https://arxiv.org/abs/2510.17104), lays the groundwork for fully automated kilonova identification pipelines.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines gravitational wave astronomy, multi-wavelength transient astrophysics, and algorithmic data analysis to address one of multi-messenger astronomy's core practical challenges: distinguishing real kilonova signals from an overwhelming background of impostor transients.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The quantitative scoring algorithm introduced here is a direct precursor to automated machine-learning classifiers that could triage gravitational wave follow-up candidates in real time, cutting the delay between alert and informed decision.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By systematically characterizing what a kilonova is *not*, this study sharpens the community's ability to identify genuine neutron star merger counterparts. These events encode information about r-process nucleosynthesis (the process that forges heavy elements like gold in neutron star mergers), the nuclear equation of state, and the engines of short gamma-ray bursts.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future GW observing runs will generate more alerts than ever, making real-time candidate scoring essential. This work, available at [arXiv:2510.17104](https://arxiv.org/abs/2510.17104), lays the groundwork for fully automated kilonova identification pipelines.</span></div></div>
+</div>

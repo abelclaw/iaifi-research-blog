@@ -66,13 +66,13 @@ The paper identifies a deep tension in how physicists use autoencoders. **Phase 
 
 An autoencoder works by squeezing data through a narrow **latent space** (think of summarizing a detailed city map with just a handful of coordinates) then expanding it back out. If training data lives on a sphere, the autoencoder must map points on that sphere into a flat latent space and back. But you can't continuously map a sphere onto a line without tearing it somewhere. The autoencoder, as a composition of continuous functions, is bound by the same topological laws that plague mapmakers.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2102_08380/figure_1.png)
 
 The authors make this concrete through a sequence of increasingly complex examples. The simplest is the unit circle $S^1$, every point at exactly distance 1 from a center, like the rim of a wheel. A single angle $\phi$ labels every point, but $\phi$ and $\phi + 2\pi$ are the same point: the angle wraps around.
 
 When an autoencoder compresses the circle onto a line, it must "cut" the circle somewhere. Points near that cut are genuine neighbors on the circle but end up far apart in latent space, so the autoencoder flags them as badly reconstructed outliers. These are false positives, plain and simple.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2102_08380/figure_1.png)
 
 The researchers trained actual autoencoders on these toy problems and watched this failure unfold. On a circle dataset, the network reliably produces a "dead zone" where reconstruction error spikes, not because those points are rare, but purely because of topology. The dead zone shifts with random initialization but never disappears.
 
@@ -82,15 +82,15 @@ The problems get worse in higher dimensions:
 - **The double cone** (two sheets joined at a point) shows how sharp geometric features and non-uniform sampling further confuse the autoencoder.
 - **3-body phase space**, directly relevant to collider physics, inherits spherical topology and displays all the same pathologies.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2102_08380/figure_2.png)
 
 There's a second failure mode cutting in the opposite direction. Neural networks have a strong **inductive bias** toward local interpolation: they excel at smoothly filling gaps between nearby training examples. If an anomaly signal is a rare but localized cluster of events (like Higgs decays concentrated at a specific **invariant mass**), the autoencoder may reconstruct those events *too well*. It interpolates across the gap, treating the signal as a natural extension of the background, and assigns a low reconstruction error. That's exactly the wrong answer.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2102_08380/figure_2.png)
 
 The paper illustrates this with a mock **bump hunt**, a standard search technique where physicists look for an unexpected spike in event counts at a particular energy, potentially signaling an unknown particle. The autoencoder fails to flag the signal because the signal events live on a topologically equivalent submanifold that the network confidently interpolates over.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2102_08380/figure_3.png)
 
 ## Why It Matters
 
@@ -102,12 +102,9 @@ Plenty of questions remain. How much does this failure mode affect real LHC sear
 
 > **Bottom Line:** Autoencoders can't escape topology. The same mathematics that prevents a perfect flat map of Earth prevents autoencoders from faithfully representing curved data manifolds. Physicists searching for new particles with these tools may be chasing topological artifacts or missing real signals hiding in plain sight.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies algebraic topology and differential geometry to diagnose neural network failure modes in particle physics, building a rigorous bridge between pure mathematics, machine learning theory, and experimental high-energy physics.
-
-- **Impact on Artificial Intelligence:** The paper identifies a fundamental, architecture-independent limitation of autoencoder-based anomaly detection when data has non-trivial topology, and provides a principled diagnostic framework using low-dimensional examples to anticipate these failures at scale.
-
-- **Impact on Fundamental Interactions:** By showing that $n$-particle phase space has spherical topology that systematically undermines autoencoder anomaly detection, this research challenges model-independent new-physics searches at colliders and motivates topologically informed analysis strategies.
-
-- **Outlook and References:** Future work should explore topology-aware latent representations and anomaly scores that hold up under manifold geometry; the full analysis is available at [arXiv:2102.08380](https://arxiv.org/abs/2102.08380) (MIT-CTP/5264).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies algebraic topology and differential geometry to diagnose neural network failure modes in particle physics, building a rigorous bridge between pure mathematics, machine learning theory, and experimental high-energy physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper identifies a fundamental, architecture-independent limitation of autoencoder-based anomaly detection when data has non-trivial topology, and provides a principled diagnostic framework using low-dimensional examples to anticipate these failures at scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that $n$-particle phase space has spherical topology that systematically undermines autoencoder anomaly detection, this research challenges model-independent new-physics searches at colliders and motivates topologically informed analysis strategies.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should explore topology-aware latent representations and anomaly scores that hold up under manifold geometry; the full analysis is available at [arXiv:2102.08380](https://arxiv.org/abs/2102.08380) (MIT-CTP/5264).</span></div></div>
+</div>

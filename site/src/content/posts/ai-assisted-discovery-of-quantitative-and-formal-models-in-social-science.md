@@ -58,7 +58,7 @@ The MIT team, led by Julia Balla and collaborators, shows that **symbolic regres
 
 The core tool is OccamNet, a system that combines neural networks with symbolic math to search for equations (think `Y = AK^α L^(1-α)` rather than neural network weights). OccamNet uses **genetic algorithms**, nature-inspired search methods that "breed" and refine candidate solutions, alongside deep learning. It samples candidate equations and evolves toward better fits, running in parallel on GPUs to explore enormous spaces of possible mathematical forms.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2210_00563/figure_1.png)
 
 Raw OccamNet wasn't built for social science data. The researchers made two key extensions:
 
@@ -72,13 +72,13 @@ Three benchmark tests show what this looks like in practice.
 
 **Solow-Swan growth model.** The researchers fed OccamNet data from 18 OECD countries and asked it to discover the governing growth equation from scratch, with no theoretical guidance. It recovered the correct form. The Pareto complexity map also revealed which countries fit the standard model well and which showed systematic deviations, pointing toward where theory needs updating.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2210_00563/figure_1.png)
 
 **Epidemic dynamics.** Using real COVID-19 wave data, the system recovered the **Lotka-Volterra equations**, the classic predator-prey framework that also describes disease spread. The weight-sharing approach, trained across multiple epidemic waves simultaneously, outperformed models trained on single waves. Panel structure genuinely helps when individual time series are short.
 
 **Production functions.** OccamNet didn't just recover the standard Cobb-Douglas form. It found higher-order corrections, suggesting where the standard model breaks down. The Pareto front gives researchers a systematic way to compare models rather than anchoring on whatever equation their theory happened to suggest first.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2210_00563/figure_2.png)
 
 ## Why It Matters
 
@@ -90,12 +90,9 @@ Open questions remain. How do you handle variables that are fundamentally unobse
 
 The upshot: by teaching AI to search for interpretable equations rather than just patterns, this framework gives social scientists a new scientific instrument, one that can find the hidden mathematics in human behavior while remaining transparent enough to actually be trusted.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings physics-inspired symbolic regression, originally developed for discovering laws of nature, directly into the social sciences. The same AI tools that find physical equations can also reveal mathematical structure in economic and sociological data.
-
-- **Impact on Artificial Intelligence:** The team extended neuro-symbolic regression with two advances: improved noise tolerance via complexity regularization and a novel weight-sharing scheme for longitudinal panel data. Together, these make symbolic AI workable for small, messy real-world datasets.
-
-- **Impact on Fundamental Interactions:** By recovering governing equations like the Solow-Swan growth model and Lotka-Volterra epidemic dynamics from empirical data alone, the work shows that the mechanistic modeling paradigm central to physics transfers to complex social phenomena.
-
-- **Outlook and References:** Future work could integrate large language models to propose candidate functional forms and extend the framework to handle latent variables and causal inference; the full paper is available as [arXiv:2210.00563](https://arxiv.org/abs/2210.00563).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings physics-inspired symbolic regression, originally developed for discovering laws of nature, directly into the social sciences. The same AI tools that find physical equations can also reveal mathematical structure in economic and sociological data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The team extended neuro-symbolic regression with two advances: improved noise tolerance via complexity regularization and a novel weight-sharing scheme for longitudinal panel data. Together, these make symbolic AI workable for small, messy real-world datasets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering governing equations like the Solow-Swan growth model and Lotka-Volterra epidemic dynamics from empirical data alone, the work shows that the mechanistic modeling paradigm central to physics transfers to complex social phenomena.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could integrate large language models to propose candidate functional forms and extend the framework to handle latent variables and causal inference; the full paper is available as [arXiv:2210.00563](https://arxiv.org/abs/2210.00563).</span></div></div>
+</div>

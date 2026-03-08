@@ -55,7 +55,7 @@ published: '2024-10-11T18:00:00+00:00'
 theme: Astrophysics
 title: 'Auriga Streams II: orbital properties of tidally disrupting satellites of
   Milky Way-mass galaxies'
-wordCount: 1009
+wordCount: 954
 ---
 
 ## The Big Picture
@@ -72,7 +72,7 @@ A new study led by Nora Shipp at the University of Washington attacks this quest
 
 The Auriga simulations model the formation and evolution of 28 Milky Way-mass galaxies from cosmic dawn to today. They capture the full **baryonic physics** of ordinary matter: gas cooling into clouds, star formation, stellar explosions that push gas around, even magnetic fields. The team ran them at three different numerical resolutions to verify that their conclusions don't depend on simulation granularity.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_09143/figure_1.png)
 
 The first task was sorting every accreted system around each simulated host into three categories:
 
@@ -90,7 +90,7 @@ The results were striking. The vast majority of satellites that look "intact" to
 
 The team then compared the orbital properties of simulated streams against known Milky Way stellar streams and intact dwarf galaxies. The discrepancy is vivid. Simulated streams cluster at larger orbits than Milky Way streams but overlap heavily with the orbits of Milky Way *intact* satellites. In simulations, those orbital zones are dominated by debris. In reality, they're occupied by galaxies that appear healthy.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_09143/figure_1.png)
 
 Resolution doesn't drive the discrepancy. Running the same galaxy at different numerical resolutions produces nearly identical orbital distributions, ruling out coarse simulations as the culprit. There is, however, substantial variation from one simulated galaxy to another. More massive hosts disrupt their satellites at systematically larger orbital distances, consistent with their stronger tidal fields.
 
@@ -104,12 +104,9 @@ The study also makes a case for multi-halo statistical approaches. By spanning 2
 
 > **Bottom Line:** Milky Way-mass galaxies in current simulations disrupt their satellites far more thoroughly than observations suggest. Either our models have a flaw, or a vast hidden population of stellar streams is waiting to be discovered.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects high-performance cosmological simulation with observational survey science, using the Auriga suite to generate testable predictions about stellar stream populations that next-generation telescopes like the Rubin Observatory can directly probe.
-
-- **Impact on Artificial Intelligence:** Classifying simulated satellites into intact, stream, and phase-mixed categories across tens of thousands of accreted systems is exactly the kind of large-scale population analysis that machine learning methods are increasingly built to handle, in both simulation and observational contexts.
-
-- **Impact on Fundamental Interactions:** The results expose a tension in ΛCDM cosmology: either the physics governing tidal disruption of dark matter subhalos is incorrectly modeled, or current photometric surveys are blind to a substantial population of dissolved Milky Way satellites.
-
-- **Outlook and References:** Future mock observations of Auriga streams at realistic survey depths will be critical for distinguishing simulation artifacts from observational incompleteness; the paper is available at [arXiv:2410.09143](https://arxiv.org/abs/2410.09143).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects high-performance cosmological simulation with observational survey science, using the Auriga suite to generate testable predictions about stellar stream populations that next-generation telescopes like the Rubin Observatory can directly probe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Classifying simulated satellites into intact, stream, and phase-mixed categories across tens of thousands of accreted systems is exactly the kind of large-scale population analysis that machine learning methods are increasingly built to handle, in both simulation and observational contexts.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The results expose a tension in ΛCDM cosmology: either the physics governing tidal disruption of dark matter subhalos is incorrectly modeled, or current photometric surveys are blind to a substantial population of dissolved Milky Way satellites.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future mock observations of Auriga streams at realistic survey depths will be critical for distinguishing simulation artifacts from observational incompleteness; the paper is available at [arXiv:2410.09143](https://arxiv.org/abs/2410.09143).</span></div></div>
+</div>

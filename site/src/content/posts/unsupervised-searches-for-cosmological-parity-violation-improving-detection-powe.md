@@ -53,7 +53,7 @@ published: '2024-05-21T07:12:44+00:00'
 theme: Astrophysics
 title: 'Unsupervised Searches for Cosmological Parity Violation: Improving Detection
   Power with the Neural Field Scattering Transform'
-wordCount: 1168
+wordCount: 1108
 ---
 
 ## The Big Picture
@@ -78,7 +78,7 @@ Traditional approaches compute these statistics directly (the **4PCF**, or four-
 
 The NFST sidesteps this with an **unsupervised learning** strategy, where the model discovers patterns on its own rather than being told what to look for. Instead of comparing against simulations, the model trains directly on observational data, learning to distinguish a patch of the galaxy distribution from its mirror-flipped counterpart. If it consistently identifies the difference on held-out data, that's evidence of real parity violation, not a simulation artifact.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_13083/figure_1.png)
 
 The architecture layers three ideas:
 
@@ -88,7 +88,7 @@ The architecture layers three ideas:
 
 3. **Symmetry engineering:** The NFST enforces specific symmetries by design. It preserves rotational and translational invariance but *allows* parity asymmetry to emerge through the learned filters, so the model doesn't confuse "the universe is rotated" with "the universe has a handedness."
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_13083/figure_1.png)
 
 The team first benchmarked on simplified 2D datasets with known parity violation signals, then compared the NFST against the standard WST and a Convolutional Neural Network (CNN) across a range of training set sizes. In real cosmology, data is always limited, so this comparison matters.
 
@@ -98,7 +98,7 @@ The performance difference is stark. The NFST detects parity violation with 4 ti
 
 In the most data-limited regimes, the NFST reaches 6σ statistical confidence (the gold standard for a discovery claim in physics) while the WST and CNN fail to register any detection at all.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2405_13083/figure_2.png)
 
 Two properties drive this advantage: the ability to learn genuinely asymmetric filters (the WST's fixed wavelets are symmetric and thus parity-blind by construction), and architectural symmetry constraints that prevent the model from wasting capacity on irrelevant invariances.
 
@@ -110,12 +110,9 @@ The next step is applying the NFST to real three-dimensional galaxy survey data.
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work unites classical wavelet mathematics, neural architecture design, and observational cosmology to tackle one of the field's hardest statistical challenges: detecting subtle symmetry violation hidden in the three-dimensional map of the universe.
-
-- **Impact on Artificial Intelligence:** The Neural Field Scattering Transform introduces trainable filters parameterized as neural fields that inherit the stability of wavelet theory while gaining the flexibility to learn task-specific, symmetry-breaking representations.
-
-- **Impact on Fundamental Interactions:** By demonstrating a simulation-free route to detecting cosmological parity violation, achieving 6σ confidence where previous approaches fail, this work could resolve a contentious debate and point toward new physics beyond the standard cosmological model.
-
-- **Outlook and References:** The team's next target is applying the NFST to real 3D galaxy survey data. The full methodology and benchmarks are available at [arXiv:2405.13083](https://arxiv.org/abs/2405.13083) (Craigie et al., "Unsupervised Searches for Cosmological Parity Violation: Improving Detection Power with the Neural Field Scattering Transform").
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work unites classical wavelet mathematics, neural architecture design, and observational cosmology to tackle one of the field's hardest statistical challenges: detecting subtle symmetry violation hidden in the three-dimensional map of the universe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Neural Field Scattering Transform introduces trainable filters parameterized as neural fields that inherit the stability of wavelet theory while gaining the flexibility to learn task-specific, symmetry-breaking representations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By demonstrating a simulation-free route to detecting cosmological parity violation, achieving 6σ confidence where previous approaches fail, this work could resolve a contentious debate and point toward new physics beyond the standard cosmological model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The team's next target is applying the NFST to real 3D galaxy survey data. The full methodology and benchmarks are available at [arXiv:2405.13083](https://arxiv.org/abs/2405.13083) (Craigie et al., "Unsupervised Searches for Cosmological Parity Violation: Improving Detection Power with the Neural Field Scattering Transform").</span></div></div>
+</div>

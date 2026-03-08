@@ -85,7 +85,7 @@ Here's the core idea:
 3. It evolves them through **mutation** (randomly swapping a node) and **crossover** (swapping subtrees between two candidates), just like genetic recombination in biology.
 4. Over many generations, the fittest functions, those that best describe the data, survive and propagate.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2411_09851/figure_1.png)
 
 The result is a catalog of candidate functions at varying levels of complexity. SymbolFit then re-optimizes every promising candidate's free parameters using standard curve-fitting algorithms, computing uncertainty bands at the same time.
 
@@ -97,11 +97,11 @@ Under the hood, SymbolFit builds on **PySR**, Miles Cranmer's open-source symbol
 
 The team validated SymbolFit on five real CMS datasets from the LHC, covering searches involving dijets, trijets, paired-dijets, diphotons, and dimuons. These are among the highest-energy, highest-statistics datasets from the world's most powerful particle collider.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2411_09851/figure_1.png)
 
 In each case, a single fit configuration (defining the allowed mathematical building blocks) worked across distributions with substantially different shapes. SymbolFit generated a wide variety of candidate functions in one run, varying only the random seed. With traditional methods, each new distribution requires a physicist to start over: rethink the functional form, rerun fits, manually vet results. SymbolFit collapses all of that into an automated pipeline.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2411_09851/figure_2.png)
 
 For a single dataset, SymbolFit might return dozens of valid candidates, from simple power laws to exotic combinations of exponentials and polynomials, each with its own uncertainty band. A physicist picks the best-performing ones for downstream analysis, rather than struggling to construct even one good option by hand.
 
@@ -113,9 +113,9 @@ The team plans to extend SymbolFit to two-dimensional distributions and joint si
 
 > **Bottom Line:** SymbolFit automates one of experimental physics' most tedious and error-prone tasks, finding the right equation to describe messy LHC data, by treating the function's mathematical form itself as something a machine can discover and validate automatically.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** SymbolFit connects machine learning and experimental high-energy physics, deploying symbolic regression as a core tool in LHC data analysis workflows that require rigorous statistical uncertainty quantification.
-- **Impact on Artificial Intelligence:** Symbolic regression can scale to real-world scientific datasets with non-trivial distributions and tight uncertainty requirements, extending its practical reach well beyond toy benchmarks.
-- **Impact on Fundamental Interactions:** By automating background modeling for resonance searches at the LHC, SymbolFit removes a major manual bottleneck in new physics discovery pipelines, potentially accelerating the search for particles and phenomena beyond the Standard Model.
-- **Outlook and References:** Future extensions include two-dimensional fitting and signal-plus-background joint modeling; the full framework is open-source and the paper is available at [arXiv:2411.09851](https://arxiv.org/abs/2411.09851).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">SymbolFit connects machine learning and experimental high-energy physics, deploying symbolic regression as a core tool in LHC data analysis workflows that require rigorous statistical uncertainty quantification.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Symbolic regression can scale to real-world scientific datasets with non-trivial distributions and tight uncertainty requirements, extending its practical reach well beyond toy benchmarks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By automating background modeling for resonance searches at the LHC, SymbolFit removes a major manual bottleneck in new physics discovery pipelines, potentially accelerating the search for particles and phenomena beyond the Standard Model.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions include two-dimensional fitting and signal-plus-background joint modeling; the full framework is open-source and the paper is available at [arXiv:2411.09851](https://arxiv.org/abs/2411.09851).</span></div></div>
+</div>

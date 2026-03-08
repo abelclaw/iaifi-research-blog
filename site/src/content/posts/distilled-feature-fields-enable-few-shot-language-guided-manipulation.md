@@ -61,7 +61,7 @@ A team from MIT CSAIL and IAIFI went after the problem head-on. The result is **
 
 The pipeline starts with something almost comically low-tech: the robot takes a series of photos of a tabletop scene using an RGB camera mounted on a selfie stick. Those photos feed into the first major component.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2308_07931/figure_1.png)
 
 **Step 1: Build a feature field.** The team trains a **Neural Radiance Field (NeRF)**, a neural network that reconstructs a 3D scene from ordinary 2D photos by predicting color and density at every point in space. F3RM adds a twist: alongside RGB color, the NeRF simultaneously predicts *feature vectors* from a pre-trained 2D vision model at every 3D location.
 
@@ -80,7 +80,7 @@ There's a subtlety here. CLIP produces image-level features: a single descriptor
 
 For language-guided manipulation, a user types a query like "the green toy" or "the object you would pour water from," and the system queries the CLIP feature field to generate a 3D heatmap of relevance. The highest-activation region identifies the target object, and the robot infers a full **6-DOF grasp pose** from that location: three values for position, three for orientation.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2308_07931/figure_1.png)
 
 That full six-degrees-of-freedom precision is what allows the system to handle objects in arbitrary poses, not just upright items sitting neatly on a flat surface.
 
@@ -94,18 +94,15 @@ As large AI models continue to scale and improve, robotic systems built on this 
 
 > **Bottom Line:** F3RM shows that a robot armed with a few demos and a semantic 3D feature field can pick up objects it has never seen before, guided by nothing but plain English. That's a meaningful step toward warehouse robots, assistive systems, and any machine that must act intelligently in an uncontrolled world.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses techniques from computer vision (NeRF, CLIP, DINO), natural language processing, and robotic manipulation into a single pipeline, a clear example of the cross-disciplinary work at the core of IAIFI's mission.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">F3RM provides a general method for lifting rich 2D foundation model features into 3D neural representations, opening a path for grounding language and vision in physical 3D space.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Giving robots the ability to reason jointly about 3D geometry and semantics pushes forward the physical understanding needed for machines to interact precisely and safely with the material world.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending F3RM to dynamic scenes and multi-step manipulation tasks. The work was presented at CoRL 2023, with code and demos available at f3rm.csail.mit.edu.
 
-- **Interdisciplinary Research Achievement:** This work fuses techniques from computer vision (NeRF, CLIP, DINO), natural language processing, and robotic manipulation into a single pipeline, a clear example of the cross-disciplinary work at the core of IAIFI's mission.
-
-- **Impact on Artificial Intelligence:** F3RM provides a general method for lifting rich 2D foundation model features into 3D neural representations, opening a path for grounding language and vision in physical 3D space.
-
-- **Impact on Fundamental Interactions:** Giving robots the ability to reason jointly about 3D geometry and semantics pushes forward the physical understanding needed for machines to interact precisely and safely with the material world.
-
-- **Outlook and References:** Future directions include extending F3RM to dynamic scenes and multi-step manipulation tasks. The work was presented at CoRL 2023, with code and demos available at f3rm.csail.mit.edu.
-
-## Original Paper Details
-- **Title:** Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation
-- **arXiv ID:** [arXiv:2308.07931](https://arxiv.org/abs/2308.07931)
-- **Authors:** William Shen, Ge Yang, Alan Yu, Jansen Wong, Leslie Pack Kaelbling, Phillip Isola
-- **Abstract:** Self-supervised and language-supervised image models contain rich knowledge of the world that is important for generalization. Many robotic tasks, however, require a detailed understanding of 3D geometry, which is often lacking in 2D image features. This work bridges this 2D-to-3D gap for robotic manipulation by leveraging distilled feature fields to combine accurate 3D geometry with rich semantics from 2D foundation models. We present a few-shot learning method for 6-DOF grasping and placing that harnesses these strong spatial and semantic priors to achieve in-the-wild generalization to unseen objects. Using features distilled from a vision-language model, CLIP, we present a way to designate novel objects for manipulation via free-text natural language, and demonstrate its ability to generalize to unseen expressions and novel categories of objects.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2308.07931](https://arxiv.org/abs/2308.07931)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">William Shen, Ge Yang, Alan Yu, Jansen Wong, Leslie Pack Kaelbling, Phillip Isola</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Self-supervised and language-supervised image models contain rich knowledge of the world that is important for generalization. Many robotic tasks, however, require a detailed understanding of 3D geometry, which is often lacking in 2D image features. This work bridges this 2D-to-3D gap for robotic manipulation by leveraging distilled feature fields to combine accurate 3D geometry with rich semantics from 2D foundation models. We present a few-shot learning method for 6-DOF grasping and placing that harnesses these strong spatial and semantic priors to achieve in-the-wild generalization to unseen objects. Using features distilled from a vision-language model, CLIP, we present a way to designate novel objects for manipulation via free-text natural language, and demonstrate its ability to generalize to unseen expressions and novel categories of objects.</span></div></div>
+</div>

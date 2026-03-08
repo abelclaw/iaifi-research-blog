@@ -74,7 +74,7 @@ A new paper by Catherine Zucker, Andrew Saydjari, Joshua Speagle, and collaborat
 
 The core idea is elegant: dust reddens starlight. Just as sunsets turn orange because blue light scatters away through the atmosphere, starlight passing through interstellar dust shifts toward longer wavelengths. Measure how much a star's colors deviate from what they should be, and you can infer how much dust lies between you and that star. Do this for millions of stars at a range of distances, and you build a 3D dust density map by asking: at what distance does the reddening jump?
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2503_02657/figure_1.png)
 
 The team built their map on **photometry** (brightness measurements across multiple wavelengths) drawn from four major surveys:
 
@@ -86,7 +86,7 @@ The team built their map on **photometry** (brightness measurements across multi
 
 Combining optical with infrared data matters here. Different wavelengths respond to dust differently, and using both lets the team pierce through heavier obscuration while constraining stellar types more precisely.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2503_02657/figure_1.png)
 
 The inference pipeline uses **brutus**, a Bayesian statistical framework fed with **MIST stellar models** (MESA Isochrones and Stellar Tracks, a library of computer simulations showing how stars of different masses, ages, and compositions should appear across the electromagnetic spectrum). For each of the 700+ million stars, brutus simultaneously estimates three entangled quantities:
 
@@ -96,11 +96,11 @@ The inference pipeline uses **brutus**, a Bayesian statistical framework fed wit
 
 A star can look faint because it's dim, far away, or heavily extincted. Brutus untangles these degeneracies by analyzing brightness across many wavelengths at once, finding the combination that best explains all the observations together.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2503_02657/figure_2.png)
 
 With stellar distances and extinctions in hand, the team tallies dust encountered along each line of sight and reconstructs a three-dimensional density map. The result covers galactic longitudes 239° to 6° (the entire southern Galactic plane) at 1 arcminute resolution. For comparison, the widely used **Bayestar19** map of the northern sky achieves 7–14 arcminute resolution. This new map is roughly ten times sharper.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2503_02657/figure_2.png)
 
 It reaches reliably to ~10 kiloparsecs from the Sun and detects extinction up to AV ≈ 12 magnitudes, tracing dust through some of the galaxy's most obscured regions. The team also identifies dust concentrations at distances consistent with two major spiral arms, the **Sagittarius-Carina arm** and the **Scutum-Centaurus arm**, visible as dense clumps in the 3D density field.
 
@@ -108,7 +108,7 @@ It reaches reliably to ~10 kiloparsecs from the Sun and detects extinction up to
 
 The practical impact is immediate. Every astronomical observation through the Galactic plane must correct for dust extinction. Get it wrong and you distort distance estimates, luminosities, and color measurements. Surveys hunting for supernovae, variable stars, exoplanets, stellar clusters, and gravitational wave counterparts all depend on accurate extinction corrections.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2503_02657/figure_3.png)
 
 Before this work, the southern Galactic plane was a blind spot. Bayestar19 covered the north, but the south lacked a comparable 3D resource. The team has released both the stellar catalog and the dust map through the Python **dustmaps** package, so anyone can now query extinction anywhere in the southern disk with unprecedented precision.
 
@@ -116,16 +116,13 @@ There's a deeper payoff, too. Mapping dust in 3D is really mapping the galaxy's 
 
 It also points the way forward for the next generation of wide-field surveys. The **Vera Rubin Observatory** (LSST) and **Nancy Grace Roman Space Telescope** will push even deeper, imaging billions of stars in regimes where Gaia's parallaxes run out. The multi-band inference framework, spatial reconstruction pipeline, and public query tools developed here lay the groundwork for maps that will be orders of magnitude more complete.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2503_02657/figure_3.png)
 
 > **Bottom Line:** Zucker, Saydjari, Speagle, and collaborators have delivered the definitive 3D dust map of the southern Milky Way (700 million stars, 1 arcminute resolution, 10 kiloparsec depth), completing the full-sky 3D picture of Galactic dust and opening a new window on the structure of our galaxy's interstellar medium.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings together large-scale machine learning inference and fundamental astrophysics, using a Bayesian stellar parameter framework to convert raw photometry from hundreds of millions of stars into a physically interpretable 3D map of the Milky Way's dust distribution.
-
-- **Impact on Artificial Intelligence:** The brutus pipeline shows how probabilistic inference, simultaneously fitting distance, extinction, and stellar type across 700+ million objects, can run at industrial scale on heterogeneous multi-wavelength datasets, expanding what's possible in AI-driven catalog science.
-
-- **Impact on Fundamental Interactions:** The resulting 3D dust map resolves spiral arm dust concentrations at 1 arcminute angular resolution, providing a new observational baseline for models of Galactic structure, star formation, and the interstellar medium, and completing the full-sky extinction correction resource the astronomical community has needed.
-
-- **Outlook and References:** Future surveys including LSST and Roman will extend this approach to billions of stars at greater depths; the methods and public data releases here provide direct infrastructure for the next generation of 3D Galactic cartography. The paper is available at [arXiv:2503.02657](https://arxiv.org/abs/2503.02657).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings together large-scale machine learning inference and fundamental astrophysics, using a Bayesian stellar parameter framework to convert raw photometry from hundreds of millions of stars into a physically interpretable 3D map of the Milky Way's dust distribution.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The brutus pipeline shows how probabilistic inference, simultaneously fitting distance, extinction, and stellar type across 700+ million objects, can run at industrial scale on heterogeneous multi-wavelength datasets, expanding what's possible in AI-driven catalog science.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The resulting 3D dust map resolves spiral arm dust concentrations at 1 arcminute angular resolution, providing a new observational baseline for models of Galactic structure, star formation, and the interstellar medium, and completing the full-sky extinction correction resource the astronomical community has needed.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future surveys including LSST and Roman will extend this approach to billions of stars at greater depths; the methods and public data releases here provide direct infrastructure for the next generation of 3D Galactic cartography. The paper is available at [arXiv:2503.02657](https://arxiv.org/abs/2503.02657).</span></div></div>
+</div>

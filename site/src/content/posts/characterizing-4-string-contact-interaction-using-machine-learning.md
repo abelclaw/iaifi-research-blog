@@ -39,7 +39,7 @@ pdfUrl: https://arxiv.org/pdf/2211.09129v1
 published: '2022-11-16T19:00:00+00:00'
 theme: Theoretical Physics
 title: Characterizing 4-string contact interaction using machine learning
-wordCount: 1060
+wordCount: 988
 ---
 
 ## The Big Picture
@@ -70,11 +70,11 @@ The workflow breaks into three steps:
 
 3. **Train the indicator function network.** Not every arrangement of four punctures corresponds to a genuine string contact interaction. Some belong to Feynman regions, diagrams built from simpler lower-order interactions that shouldn't be double-counted. A second neural network learns the indicator function Θ₀,₄: a binary classifier that outputs 1 for configurations in the vertex region (a true contact interaction) and 0 otherwise.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2211_09129/figure_1.png)
 
 This classifier replaces an explicit geometric description of the vertex region with a trainable function, one that can be retrained for any number of punctures.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2211_09129/figure_2.png)
 
 To validate the approach, the team computed the **4-tachyon contact term** in the tachyon potential, a benchmark involving an unstable particle-like state called a *tachyon* that Nicolas Moeller had previously calculated using classical methods. Their result matched the literature well.
 
@@ -88,12 +88,9 @@ There's a broader point here, too. Unsupervised learning with a physics-motivate
 
 > **Bottom Line:** A neural network trained with a graph-agnostic loss function can solve the geometry of string contact interactions, and unlike every previous approach, it scales to as many strings as needed.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of deep learning and one of the most mathematically demanding areas of theoretical physics, using neural networks to solve a geometric problem in closed string field theory that has resisted classical methods.
-
-- **Impact on Artificial Intelligence:** Unsupervised learning with a physics-motivated loss function can perform non-parametric regression on complex mathematical objects, a technique applicable across computational mathematics and physics.
-
-- **Impact on Fundamental Interactions:** A scalable algorithm for computing Strebel differentials and vertex regions on n-punctured spheres opens a concrete path toward higher-order terms in the closed string tachyon potential and a deeper understanding of tachyon condensation.
-
-- **Outlook and References:** The authors plan to extend the algorithm to six- and higher-punctured spheres, with the longer-term goal of resolving the closed string tachyon vacuum problem; the paper is available at [arXiv:2211.09129](https://arxiv.org/abs/2211.09129).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of deep learning and one of the most mathematically demanding areas of theoretical physics, using neural networks to solve a geometric problem in closed string field theory that has resisted classical methods.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Unsupervised learning with a physics-motivated loss function can perform non-parametric regression on complex mathematical objects, a technique applicable across computational mathematics and physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">A scalable algorithm for computing Strebel differentials and vertex regions on n-punctured spheres opens a concrete path toward higher-order terms in the closed string tachyon potential and a deeper understanding of tachyon condensation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors plan to extend the algorithm to six- and higher-punctured spheres, with the longer-term goal of resolving the closed string tachyon vacuum problem; the paper is available at [arXiv:2211.09129](https://arxiv.org/abs/2211.09129).</span></div></div>
+</div>

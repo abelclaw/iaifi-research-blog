@@ -50,7 +50,7 @@ published: '2022-12-14T18:59:07+00:00'
 theme: Theoretical Physics
 title: Simulating 2+1D Lattice Quantum Electrodynamics at Finite Density with Neural
   Flow Wavefunctions
-wordCount: 1156
+wordCount: 1362
 ---
 
 ## The Big Picture
@@ -69,7 +69,7 @@ Researchers from MIT, the University of Michigan, and UIUC have introduced **Gau
 
 The architecture splits the problem into two coupled pieces, one for each of the hardest features of the physics.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2212_06835/figure_1.png)
 
 The first handles the **gauge field**, the electromagnetic potential living on each bond of the lattice that governs how charged particles push and pull on each other. Standard approaches truncate this continuous field to a finite set of allowed values, introducing systematic errors. The team instead uses a **discretized normalizing flow**: a neural network that learns a smooth, invertible transformation from a simple random distribution into the full continuous distribution over field configurations. Because the transformation is mathematically tractable, the network gives exact probability amplitudes without any cutoff.
 
@@ -83,17 +83,17 @@ The resulting wave function handles continuous electromagnetic fields without an
 
 With Gauge-Fermion FlowNet, the team probed several non-trivial regimes of 2+1D compact QED.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2212_06835/figure_1.png)
 
 **String breaking and confinement** is among the most dramatic phenomena in gauge theories. At weak matter coupling, opposite charges connect via a tube of electric flux, a "string" whose energy grows with separation, confining the charges. Add enough dynamical fermions and the string breaks: popping a fermion-antifermion pair from the vacuum becomes energetically cheaper than stretching the string further. The team maps this transition as a function of fermion density and hopping amplitude, finding clear signatures in the electric field profile between static test charges.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2212_06835/figure_2.png)
 
 At zero fermion density, they track a **phase transition from a charge crystal phase to a vacuum phase**. In the crystal phase, fermions spontaneously arrange into a regular pattern, breaking translational symmetry. As coupling strength changes, this order melts. The neural network correctly captures both phases and the transition, a nontrivial test of the method's accuracy.
 
 At finite density, a subtler effect shows up: **net charge penetration blocking**. Magnetic interactions between the gauge field and fermions create a traffic jam, preventing additional charge from entering certain lattice regions. This phase separation would be invisible to methods that can't handle the sign problem.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2212_06835/figure_3.png)
 
 The team also studies a **magnetic phase transition** driven by competition between fermionic kinetic energy and magnetic field energy. This is a genuine quantum phase transition, and the team finds that its order may differ between the continuous U(1) theory and truncated versions. That's a concrete warning for the broader community relying on truncated simulations.
 
@@ -105,18 +105,15 @@ On the machine learning side, the architecture shows that neural networks can re
 
 ---
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Modern generative AI architectures, specifically autoregressive normalizing flows, can be redesigned to satisfy exact physical symmetry constraints, enabling ab initio simulations of quantum gauge theories that were previously intractable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Gauge-Fermion FlowNet introduces a principled method for embedding hard physical constraints (Gauss's law, fermionic antisymmetry) directly into neural network architecture, providing a template for constraint-respecting generative models across scientific domains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The method enables direct simulation of 2+1D compact QED with finite-density dynamical fermions, including confinement, string breaking, charge crystal phases, and magnetic phase transitions, without sign-problem limitations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this framework to non-Abelian gauge theories and 3+1 dimensions, targeting dense nuclear matter and QCD. The paper comes from the IAIFI group at MIT with collaborators at the University of Michigan and UIUC.
 
-- **Interdisciplinary Research Achievement:** Modern generative AI architectures, specifically autoregressive normalizing flows, can be redesigned to satisfy exact physical symmetry constraints, enabling ab initio simulations of quantum gauge theories that were previously intractable.
-
-- **Impact on Artificial Intelligence:** Gauge-Fermion FlowNet introduces a principled method for embedding hard physical constraints (Gauss's law, fermionic antisymmetry) directly into neural network architecture, providing a template for constraint-respecting generative models across scientific domains.
-
-- **Impact on Fundamental Interactions:** The method enables direct simulation of 2+1D compact QED with finite-density dynamical fermions, including confinement, string breaking, charge crystal phases, and magnetic phase transitions, without sign-problem limitations.
-
-- **Outlook and References:** Future work will extend this framework to non-Abelian gauge theories and 3+1 dimensions, targeting dense nuclear matter and QCD. The paper comes from the IAIFI group at MIT with collaborators at the University of Michigan and UIUC.
-
-## Original Paper Details
-- **Title:** Simulating 2+1D Lattice Quantum Electrodynamics at Finite Density with Neural Flow Wavefunctions
-- **arXiv ID:** 2212.06835
-- **Authors:** ["Zhuo Chen", "Di Luo", "Kaiwen Hu", "Bryan K. Clark"]
-- **Abstract:** We present a neural flow wavefunction, Gauge-Fermion FlowNet, and use it to simulate 2+1D lattice compact quantum electrodynamics with finite density dynamical fermions. The gauge field is represented by a neural network which parameterizes a discretized flow-based transformation of the amplitude while the fermionic sign structure is represented by a neural net backflow. This approach directly represents the $U(1)$ degree of freedom without any truncation, obeys Guass's law by construction, samples autoregressively avoiding any equilibration time, and variationally simulates Gauge-Fermion systems with sign problems accurately. In this model, we investigate confinement and string breaking phenomena in different fermion density and hopping regimes. We study the phase transition from the charge crystal phase to the vacuum phase at zero density, and observe the phase seperation and the net charge penetration blocking effect under magnetic interaction at finite density. In addition, we investigate a magnetic phase transition due to the competition effect between the kinetic energy of fermions and the magnetic energy of the gauge field. With our method, we further note potential differences on the order of the phase transitions between a continuous $U(1)$ system and one with finite truncation. Our state-of-the-art neural network approach opens up new possibilities to study different gauge theories coupled to dynamical matter in higher dimensions.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Simulating 2+1D Lattice Quantum Electrodynamics at Finite Density with Neural Flow Wavefunctions</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2212.06835</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Zhuo Chen", "Di Luo", "Kaiwen Hu", "Bryan K. Clark"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present a neural flow wavefunction, Gauge-Fermion FlowNet, and use it to simulate 2+1D lattice compact quantum electrodynamics with finite density dynamical fermions. The gauge field is represented by a neural network which parameterizes a discretized flow-based transformation of the amplitude while the fermionic sign structure is represented by a neural net backflow. This approach directly represents the $U(1)$ degree of freedom without any truncation, obeys Guass's law by construction, samples autoregressively avoiding any equilibration time, and variationally simulates Gauge-Fermion systems with sign problems accurately. In this model, we investigate confinement and string breaking phenomena in different fermion density and hopping regimes. We study the phase transition from the charge crystal phase to the vacuum phase at zero density, and observe the phase seperation and the net charge penetration blocking effect under magnetic interaction at finite density. In addition, we investigate a magnetic phase transition due to the competition effect between the kinetic energy of fermions and the magnetic energy of the gauge field. With our method, we further note potential differences on the order of the phase transitions between a continuous $U(1)$ system and one with finite truncation. Our state-of-the-art neural network approach opens up new possibilities to study different gauge theories coupled to dynamical matter in higher dimensions.</span></div></div>
+</div>

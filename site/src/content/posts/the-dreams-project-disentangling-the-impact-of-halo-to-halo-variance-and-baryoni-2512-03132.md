@@ -92,7 +92,7 @@ The team varied four key parameters across all 1,024 runs:
 
 They sampled this space using a **Latin hypercube** strategy, a method for spreading test cases evenly across a multi-dimensional parameter space so no two simulations are clones of each other. Each simulation also started from a different random initial condition, capturing both physics variation and the intrinsic scatter built into the universe's structure.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_03132/figure_1.png)
 
 When researchers compared dark matter density profiles across the full sample, **halo-to-halo variance** consistently dominated over any systematic shift from varying the feedback parameters. Halo-to-halo variance is the natural scatter in how galaxies form, driven by different merger histories, proximity to galaxy clusters, and the randomness of structure formation.
 
@@ -100,13 +100,13 @@ Turn up the supernova winds. Turn down the black hole feedback. Tweak the cosmol
 
 One exception stood out: when supernova wind energies were cranked to extreme values, feedback became so powerful it suppressed star formation almost entirely. The remaining halos were nearly **collisionless**, dominated almost entirely by dark matter, with almost no **baryons** (ordinary matter like gas, stars, and dust) left to influence the structure. These extreme halos are a regime where astrophysics genuinely matters, but they also fail to produce realistic Milky Way analogs.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_03132/figure_2.png)
 
 Then there's the shape of the inner density profile. A long-standing debate asks whether baryonic feedback creates a flat **dark matter core** (constant density at the center) or preserves the sharp **cusp** that dark matter-only simulations universally predict, where density rises steeply inward.
 
 Some simulations with explosive, episodic "bursty" stellar feedback do create cores by repeatedly shaking the gravitational potential, causing rapid fluctuations that scour out the center. The DREAMS halos tell a different story: regardless of feedback variation, all 1,024 simulations are consistent with **adiabatic contraction**, a process where dark matter responds smoothly to the slow accumulation of baryons at the center. This makes the inner profile *denser* rather than hollow. IllustrisTNG's smooth feedback model simply doesn't generate the violent potential fluctuations needed to carve out a core.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_03132/figure_3.png)
 
 ## Why It Matters
 
@@ -120,12 +120,9 @@ The work also raises a pointed question for the broader simulation community: do
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** The DREAMS Project produced the largest suite of Milky Way-mass hydrodynamical simulations to date, combining cosmological simulation, systematic parameter exploration, and dark matter phenomenology to directly inform experimental dark matter searches.
-
-- **Impact on Artificial Intelligence:** The Latin hypercube sampling design and simulation-based inference frameworks developed within DREAMS provide a reusable template for AI-accelerated sensitivity analysis across high-dimensional astrophysical parameter spaces.
-
-- **Impact on Fundamental Interactions:** By showing that adiabatic contraction, not core formation, characterizes IllustrisTNG Milky Way halos across all feedback variations, this work establishes a stronger theoretical baseline for interpreting direct and indirect dark matter detection experiments.
-
-- **Outlook and References:** Future DREAMS work will extend to warm dark matter and self-interacting dark matter models, directly testing how non-CDM physics alters these conclusions; the paper is available at [arXiv:2512.03132](https://arxiv.org/abs/2512.03132).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">The DREAMS Project produced the largest suite of Milky Way-mass hydrodynamical simulations to date, combining cosmological simulation, systematic parameter exploration, and dark matter phenomenology to directly inform experimental dark matter searches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Latin hypercube sampling design and simulation-based inference frameworks developed within DREAMS provide a reusable template for AI-accelerated sensitivity analysis across high-dimensional astrophysical parameter spaces.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that adiabatic contraction, not core formation, characterizes IllustrisTNG Milky Way halos across all feedback variations, this work establishes a stronger theoretical baseline for interpreting direct and indirect dark matter detection experiments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future DREAMS work will extend to warm dark matter and self-interacting dark matter models, directly testing how non-CDM physics alters these conclusions; the paper is available at [arXiv:2512.03132](https://arxiv.org/abs/2512.03132).</span></div></div>
+</div>

@@ -96,13 +96,13 @@ SN 2024epr was caught within two days of first light, making it one of the earli
 
 The research team, led by W. B. Hoogendam at the University of Hawai'i, ran an intensive observational campaign across multiple telescopes. They collected **photometry** (brightness measurements over time) in optical and near-infrared wavelengths, alongside **spectroscopy**, splitting the supernova's light into its constituent colors to identify chemical fingerprints.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2502_17556/figure_1.png)
 
 The spectra told a striking story. In visible light, the team spotted **absorption features**, dark gaps in the spectrum created when gas absorbs light at characteristic wavelengths. These fingerprints revealed calcium and silicon moving at roughly 30,000 km/s, about 10% the speed of light. Typical high-velocity features in Type Ia supernovae sit around 20,000 km/s. These were faster still, placing them among the rarest velocities ever recorded in a Type Ia spectrum. The interpretation: an unusually dense shell of material in the outermost layers of the exploding star.
 
 The near-infrared spectra added another twist. A feature called the **C I "knee"** turned up: a signature left by unburned carbon lingering in the outermost expelled material, or *ejecta*. "C I" is spectroscopic notation for neutral carbon. This diagnostic is visible only in near-infrared light, and only in the earliest observations, before the material spreads too thin to detect.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2502_17556/figure_1.png)
 
 Here's the paradox at the heart of SN 2024epr:
 
@@ -113,7 +113,7 @@ One leading class of models, **thick-shell helium detonation**, predicts high-ve
 
 Other leading frameworks fail too. **Delayed detonation**, where the explosion begins as a slow burn before accelerating to supersonic speeds, and **thin-shell double detonation**, a similar helium-trigger scenario involving a thinner outer shell, both struggle to reproduce the peculiar early colors alongside everything else.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2502_17556/figure_2.png)
 
 ## Why It Matters
 
@@ -121,7 +121,7 @@ SN 2024epr is more than a single puzzling supernova. By combing the literature, 
 
 The "standardizability" of Type Ia supernovae, our ability to use them as precise cosmic rulers, rests on properties measured at peak brightness. If there's hidden diversity in the first days that we almost always miss, we may be systematically misunderstanding these objects.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2502_17556/figure_2.png)
 
 Next-generation surveys could change that. The Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST) will catch thousands of supernovae within hours of explosion. Pairing those optical detections with rapid near-infrared follow-up, the combination that made SN 2024epr so revealing, could finally discriminate between explosion mechanisms that look identical at peak light.
 
@@ -129,12 +129,9 @@ The density enhancement hinted at by SN 2024epr's high-velocity features may be 
 
 > **Bottom Line:** SN 2024epr's extreme early behavior, invisible at peak light, reveals that standard candles may be hiding rich diversity in their first moments. No current theoretical model can explain it, pointing toward new physics in the explosion mechanism of Type Ia supernovae.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work uses multi-wavelength observational astrophysics to probe the fundamental physics of thermonuclear explosions, with IAIFI researchers contributing constraints that challenge every existing theoretical model of Type Ia supernova explosions.
-
-- **Impact on Artificial Intelligence:** While primarily an observational study, this research shapes the training datasets and physical priors needed for AI-based supernova classifiers and cosmological inference pipelines, which must now account for the newly revealed early-time diversity in Type Ia spectra.
-
-- **Impact on Fundamental Interactions:** SN 2024epr places strong new constraints on the outer ejecta structure of a Type Ia explosion, ruling out thick-shell helium detonation models and challenging delayed-detonation scenarios, and pushing toward a new understanding of white dwarf thermonuclear physics.
-
-- **Outlook and References:** Future large-scale surveys paired with rapid near-infrared follow-up could finally distinguish between competing explosion mechanisms using populations of early-caught Type Ia supernovae; the full paper is available at [arXiv:2502.17556](https://arxiv.org/abs/2502.17556).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work uses multi-wavelength observational astrophysics to probe the fundamental physics of thermonuclear explosions, with IAIFI researchers contributing constraints that challenge every existing theoretical model of Type Ia supernova explosions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">While primarily an observational study, this research shapes the training datasets and physical priors needed for AI-based supernova classifiers and cosmological inference pipelines, which must now account for the newly revealed early-time diversity in Type Ia spectra.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2024epr places strong new constraints on the outer ejecta structure of a Type Ia explosion, ruling out thick-shell helium detonation models and challenging delayed-detonation scenarios, and pushing toward a new understanding of white dwarf thermonuclear physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future large-scale surveys paired with rapid near-infrared follow-up could finally distinguish between competing explosion mechanisms using populations of early-caught Type Ia supernovae; the full paper is available at [arXiv:2502.17556](https://arxiv.org/abs/2502.17556).</span></div></div>
+</div>

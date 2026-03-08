@@ -63,7 +63,7 @@ A team of researchers from Harvard, MIT, Microsoft Research, and IAIFI has now c
 
 Standard **Masked Diffusion Models (MDMs)** work by a process of hide-and-reveal: take a clean piece of text, progressively replace words with a special `[MASK]` placeholder, then train a neural network to reverse the process — predicting the original words at masked positions. At inference time, the model starts from a fully masked sequence and iteratively fills it in, in any order it chooses.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2509_01025/figure_1.png)
 
 The "any order" part is a genuine superpower. Unlike **autoregressive models** (like GPT) — which must generate text strictly left-to-right, committing to each word before writing the next — MDMs can fill in the middle of a sentence first, then the beginning, then the end. This makes them faster and surprisingly effective at tasks where structure doesn't flow left-to-right, like planning, **code infilling** (completing code that has gaps in the middle), and mathematical reasoning.
 
@@ -80,7 +80,7 @@ The theoretical machinery underpinning this is non-trivial. The researchers grou
 
 Crucially, the researchers prove that FlexMDMs don't just work empirically; they're theoretically sound. Under perfect training, the model samples from the true data distribution and retains the any-order generation property. Getting both guarantees simultaneously required a continuous-time perspective — tracking changes moment-by-moment rather than in fixed steps — which is necessary to correctly capture how length evolves during generation.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2509_01025/figure_2.png)
 
 ## Why It Matters
 
@@ -90,7 +90,7 @@ On a synthetic maze-planning task, where variable-length solution paths are the 
 
 Perhaps most practically important: you don't need to train a FlexMDM from scratch. The researchers took **LLaDA-8B** — a publicly available 8-billion parameter MDM — and fine-tuned it into a FlexMDM using just 16 H100 GPUs over three days. The retrofitted model improved math reasoning on GSM8K (a standard test of grade-school math word problems) from 58% to 67%, and code infilling from 52% to 65%. Those aren't incremental gains; they represent a qualitative jump in capability enabled entirely by unlocking variable-length generation.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2509_01025/figure_3.png)
 
 This opens a clear path for the broader research community. The enormous investment that has gone into training large MDMs doesn't have to be discarded — it can be upgraded. FlexMDMs are a framework, not a model, and existing models can adopt it at modest cost.
 
@@ -100,12 +100,9 @@ The work also raises fascinating open questions. How does the insertion schedule
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies rigorous mathematical machinery from stochastic processes — continuous-time Markov chains and the stochastic interpolant framework developed at IAIFI — to solve a core limitation in large language model generation, exemplifying the institute's mission of bringing physics-inspired mathematics to frontier AI.
-
-- **Impact on Artificial Intelligence:** FlexMDMs are the first theoretically grounded masked diffusion framework capable of variable-length generation with any-order inference, directly improving state-of-the-art performance on math reasoning and code infilling benchmarks.
-
-- **Impact on Fundamental Interactions:** The joint interpolant formalism introduced here extends the stochastic interpolant framework in a mathematically principled way, contributing new theoretical tools that could inform generative modeling across physics simulation and beyond.
-
-- **Outlook and References:** The ability to retrofit existing large MDMs into FlexMDMs at modest computational cost suggests rapid near-term adoption; the full paper and theoretical derivations are available on arXiv (arXiv:2602.09093).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies rigorous mathematical machinery from stochastic processes — continuous-time Markov chains and the stochastic interpolant framework developed at IAIFI — to solve a core limitation in large language model generation, exemplifying the institute's mission of bringing physics-inspired mathematics to frontier AI.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">FlexMDMs are the first theoretically grounded masked diffusion framework capable of variable-length generation with any-order inference, directly improving state-of-the-art performance on math reasoning and code infilling benchmarks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The joint interpolant formalism introduced here extends the stochastic interpolant framework in a mathematically principled way, contributing new theoretical tools that could inform generative modeling across physics simulation and beyond.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The ability to retrofit existing large MDMs into FlexMDMs at modest computational cost suggests rapid near-term adoption; the full paper and theoretical derivations are available on arXiv (arXiv:2602.09093).</span></div></div>
+</div>

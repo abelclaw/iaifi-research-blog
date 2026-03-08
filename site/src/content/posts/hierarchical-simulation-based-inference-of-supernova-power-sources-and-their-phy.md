@@ -44,7 +44,7 @@ published: '2025-10-16T01:20:52+00:00'
 theme: Astrophysics
 title: Hierarchical Simulation-Based Inference of Supernova Power Sources and their
   Physical Properties
-wordCount: 958
+wordCount: 1151
 ---
 
 ## The Big Picture
@@ -65,7 +65,7 @@ The framework has three tightly coupled pieces, all trained together on roughly 
 
 **1. A transformer-based light curve summarizer.** This neural network architecture, borrowed from language AI but adapted for irregular, multi-color brightness data, takes observations as time-magnitude pairs, uses positional markers to track when each measurement was taken, and distills everything into a compact 64-dimensional fingerprint of each event. This summary vector feeds everything downstream.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2510_14202/figure_1.png)
 
 **2. A categorical classifier.** Three candidate power sources (radioactive nickel decay, **circumstellar material interaction** where the blast wave slams into gas the star shed before dying, and **magnetar spin-down**) can appear alone or in any combination, giving seven possible non-empty subsets. The classifier assigns probabilities to all seven simultaneously, achieving 90% accuracy across all model types.
 
@@ -79,30 +79,27 @@ The system does something traditional pipelines couldn't manage cleanly: it find
 
 When the researchers fed in **tidal disruption events** (TDEs, caused by stars being shredded by black holes, a completely different class of transient), the model had never seen them during training. Yet these events landed far from all supernova clusters in the learned space, flagged as outliers purely from their geometric isolation. A telescope doing blind surveys will encounter genuinely unknown phenomena, and this system catches them automatically.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2510_14202/figure_2.png)
 
 This matters because of the coming data flood from Rubin. Spectroscopic follow-up, the gold standard for understanding a transient, is a limited and expensive resource. Astronomers need to prioritize which events get telescope time. A fast, automated system that correctly identifies power sources, produces calibrated uncertainty estimates, and highlights genuine anomalies changes how that prioritization works.
 
 The framework is also built for population studies: not just characterizing individual events, but mapping the distribution of physical parameters across entire classes of explosions. That tells you about the diversity of stellar deaths across cosmic time.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2510_14202/figure_3.png)
 
 Open questions remain. The model was trained on MOSFiT synthetic data, and real observations will bring noise, cadence gaps, and astrophysical messiness that simulations may not fully capture. Closing that gap and extending the framework to handle more exotic transient classes is the natural next step.
 
 > **Bottom Line:** A single AI framework now handles source identification, physical parameter estimation, and anomaly detection for supernovae, with 90% classification accuracy and calibrated uncertainties, ready for the Rubin era.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work co-designs transformer and flow-matching architectures with a physical model hierarchy, embedding modern deep learning directly into the supernova energy source identification problem rather than applying it as an afterthought.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The hierarchical posterior factorization, where a shared summarizer feeds both a categorical classifier and a conditional density estimator, offers a generalizable pattern for structured multi-task inference under physical constraints.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling simultaneous multi-component inference at scale, this framework opens systematic population-level measurements of magnetar birth properties, CSM geometries, and radioactive yields across thousands of supernovae, directly constraining stellar evolution and explosion physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As the Rubin Observatory begins its Legacy Survey of Space and Time, extensions handling photometric noise, irregular cadence, and novel transient classes will be critical; the full paper is available at [arXiv:2510.14202](https://arxiv.org/abs/2510.14202).
 
-- **Interdisciplinary Research Achievement:** This work co-designs transformer and flow-matching architectures with a physical model hierarchy, embedding modern deep learning directly into the supernova energy source identification problem rather than applying it as an afterthought.
-
-- **Impact on Artificial Intelligence:** The hierarchical posterior factorization, where a shared summarizer feeds both a categorical classifier and a conditional density estimator, offers a generalizable pattern for structured multi-task inference under physical constraints.
-
-- **Impact on Fundamental Interactions:** By enabling simultaneous multi-component inference at scale, this framework opens systematic population-level measurements of magnetar birth properties, CSM geometries, and radioactive yields across thousands of supernovae, directly constraining stellar evolution and explosion physics.
-
-- **Outlook and References:** As the Rubin Observatory begins its Legacy Survey of Space and Time, extensions handling photometric noise, irregular cadence, and novel transient classes will be critical; the full paper is available at [arXiv:2510.14202](https://arxiv.org/abs/2510.14202).
-
-## Original Paper Details
-- **Title:** Hierarchical Simulation-Based Inference of Supernova Power Sources and their Physical Properties
-- **arXiv ID:** 2510.14202
-- **Authors:** ["Edgar P. Vidal", "Alexander T. Gagliano", "Carolina Cuesta-Lazaro"]
-- **Abstract:** Time domain surveys such as the Vera C. Rubin Observatory are projected to annually discover millions of astronomical transients. This and complementary programs demand fast, automated methods to constrain the physical properties of the most interesting objects for spectroscopic follow up. Traditional approaches to likelihood-based inference are computationally expensive and ignore the multi-component energy sources powering astrophysical phenomena. In this work, we present a hierarchical simulation-based inference model for multi-band light curves that 1) identifies the energy sources powering an event of interest, 2) infers the physical properties of each subclass, and 3) separates physical anomalies in the learned embedding space. Our architecture consists of a transformer-based light curve summarizer coupled to a flow-matching regression module and a categorical classifier for the physical components. We train and test our model on $\sim$150k synthetic light curves generated with $\texttt{MOSFiT}$. Our network achieves a 90% classification accuracy at identifying energy sources, yields well-calibrated posteriors for all active components, and detects rare anomalies such as tidal disruption events (TDEs) through the learned latent space. This work demonstrates a scalable joint framework for population studies of known transients and the discovery of novel populations in the era of Rubin.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Hierarchical Simulation-Based Inference of Supernova Power Sources and their Physical Properties</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2510.14202</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Edgar P. Vidal", "Alexander T. Gagliano", "Carolina Cuesta-Lazaro"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Time domain surveys such as the Vera C. Rubin Observatory are projected to annually discover millions of astronomical transients. This and complementary programs demand fast, automated methods to constrain the physical properties of the most interesting objects for spectroscopic follow up. Traditional approaches to likelihood-based inference are computationally expensive and ignore the multi-component energy sources powering astrophysical phenomena. In this work, we present a hierarchical simulation-based inference model for multi-band light curves that 1) identifies the energy sources powering an event of interest, 2) infers the physical properties of each subclass, and 3) separates physical anomalies in the learned embedding space. Our architecture consists of a transformer-based light curve summarizer coupled to a flow-matching regression module and a categorical classifier for the physical components. We train and test our model on $\sim$150k synthetic light curves generated with $\texttt{MOSFiT}$. Our network achieves a 90% classification accuracy at identifying energy sources, yields well-calibrated posteriors for all active components, and detects rare anomalies such as tidal disruption events (TDEs) through the learned latent space. This work demonstrates a scalable joint framework for population studies of known transients and the discovery of novel populations in the era of Rubin.</span></div></div>
+</div>

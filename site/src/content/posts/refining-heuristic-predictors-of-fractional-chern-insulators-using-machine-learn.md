@@ -70,13 +70,13 @@ Two geometric quantities emerged as prime suspects. The **trace violation** *T* 
 
 Together, *T* and σ_B form a two-number summary of how "Landau-level-like" a given band is. But how predictive are they?
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2512_01873/figure_1.png)
 
 To find out, the team built a large dataset using **exact diagonalization (ED)**, a brute-force numerical method that computes full quantum behavior by constructing and directly solving enormous matrices. They swept across parameter space in two prototypical lattice models (the checkerboard and kagome lattices) at filling fraction ν = 1/3, evaluating a continuous FCI quality metric at each point. This metric captures both the many-body gap and the ground-state energy spread under flux insertion, a richer target than a simple binary FCI/not-FCI label.
 
 With this dataset in hand, the team turned to **Kolmogorov-Arnold Networks (KANs)**, a neural architecture introduced in 2024 that places learnable activation functions on each *edge* of the network graph rather than fixed activations on nodes. After training, those learned functions can often be matched to known mathematical expressions (logarithms, polynomials, exponentials), enabling symbolic extraction of the underlying formula.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2512_01873/figure_1.png)
 
 The pipeline:
 1. Train a KAN to regress the FCI quality metric from (*T*, σ_B) pairs
@@ -86,19 +86,19 @@ The pipeline:
 
 The formulas that emerged were genuinely compact, the kind a physicist could write on a whiteboard.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2512_01873/figure_2.png)
 
 A naive expectation would be that both large *T* and large σ_B uniformly hurt FCI stability, since both measure departures from ideal Landau-level geometry. The KAN formulas told a more nuanced story. In the **kagome lattice**, large σ_B does indeed destabilize the FCI, consistent with standard heuristics. But in the **checkerboard lattice**, the relationship inverts: larger Berry curvature fluctuations *enhance* FCI stability in certain parameter regimes. This isn't a numerical artifact. It reflects genuine model-dependent physics that one-size-fits-all heuristics cannot capture.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2512_01873/figure_2.png)
 
 The framework also turned out to be very data-efficient. With as few as ~100 exact diagonalization samples, a tiny fraction of what standard studies use, the KAN approach still captured dominant trends in FCI stability. Since ED is computationally expensive, this efficiency opens the door to scanning far larger material spaces.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2512_01873/figure_3.png)
 
 Classification accuracy exceeded 80% for both lattice models, and the regression formulas tracked the continuous quality metric closely enough to distinguish stable FCI regions from marginal ones.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2512_01873/figure_3.png)
 
 ## Why It Matters
 
@@ -112,12 +112,9 @@ Open questions remain. How do the learned formulas extend to other lattice model
 
 > **Bottom Line:** By training interpretable KAN networks on exact diagonalization data, this MIT team extracted simple analytical formulas that predict fractional Chern insulator stability with >80% accuracy and revealed that standard Landau-level heuristics break down in model-dependent ways that matter for real material design.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects interpretable machine learning with condensed matter physics, using Kolmogorov-Arnold Networks to distill complex many-body quantum simulations into compact physical laws governing exotic topological phases.
-
-- **Impact on Artificial Intelligence:** The study shows that KANs can function as "law extractors" in a scientific context, producing human-readable formulas from numerical data with high accuracy even in data-scarce regimes. It makes a strong case for interpretable ML in physical discovery.
-
-- **Impact on Fundamental Interactions:** By quantitatively mapping band geometry to FCI stability and revealing model-dependent deviations from Landau-level heuristics, the work sharpens our understanding of what makes topologically ordered quantum phases arise in lattice systems without magnetic fields.
-
-- **Outlook and References:** Future work can extend this pipeline to other lattice geometries, fillings, and geometric descriptors, potentially accelerating the design of moiré and photonic systems hosting fractionalized phases; the paper is available at [arXiv:2512.01873](https://arxiv.org/abs/2512.01873).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects interpretable machine learning with condensed matter physics, using Kolmogorov-Arnold Networks to distill complex many-body quantum simulations into compact physical laws governing exotic topological phases.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study shows that KANs can function as "law extractors" in a scientific context, producing human-readable formulas from numerical data with high accuracy even in data-scarce regimes. It makes a strong case for interpretable ML in physical discovery.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By quantitatively mapping band geometry to FCI stability and revealing model-dependent deviations from Landau-level heuristics, the work sharpens our understanding of what makes topologically ordered quantum phases arise in lattice systems without magnetic fields.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work can extend this pipeline to other lattice geometries, fillings, and geometric descriptors, potentially accelerating the design of moiré and photonic systems hosting fractionalized phases; the paper is available at [arXiv:2512.01873](https://arxiv.org/abs/2512.01873).</span></div></div>
+</div>

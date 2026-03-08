@@ -41,7 +41,7 @@ pdfUrl: https://arxiv.org/pdf/2410.08201v2
 published: '2024-10-10T17:59:11+00:00'
 theme: Foundational AI
 title: Efficient Dictionary Learning with Switch Sparse Autoencoders
-wordCount: 1061
+wordCount: 1013
 ---
 
 ## The Big Picture
@@ -72,7 +72,7 @@ The Switch SAE sidesteps this wall entirely:
 
 This design is directly inspired by **Switch Transformers**, a prior architecture that applied the same "route to one expert" trick to make massive language models trainable. The Switch SAE brings that logic to interpretability for the first time.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_08201/figure_1.png)
 
 Across a range of compute budgets, Switch SAEs consistently achieve lower reconstruction error than conventional (TopK) SAEs trained with the same number of floating-point operations (FLOPs). For a fixed FLOP budget, Switch SAEs land at a better point on the reconstruction-vs-sparsity frontier.
 
@@ -90,12 +90,9 @@ Future work could explore whether the expert structure itself reveals meaningful
 
 > **Bottom Line:** Switch SAEs deliver a substantial improvement in reconstruction quality per unit of training compute, making it feasible to scale sparse autoencoders toward the feature counts needed to interpret frontier AI.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies sparse mixture-of-experts scaling, originally developed for large language models, to neural network interpretability. It connects efficient ML engineering with the scientific goal of understanding AI from the inside out.
-
-- **Impact on Artificial Intelligence:** Switch SAEs reduce the compute cost of training sparse autoencoders through expert routing, enabling SAEs to scale to far more features for a fixed training budget and pushing mechanistic interpretability tools closer to frontier model scales.
-
-- **Impact on Fundamental Interactions:** By developing more efficient tools to decompose neural network representations into interpretable features, this research advances the study of internal structure in AI systems, a foundational question for both AI safety and our scientific understanding of learned computation.
-
-- **Outlook and References:** Future directions include studying whether expert specialization reveals deeper organizational structure in language model knowledge representations. The paper is available at [arXiv:2410.08201](https://arxiv.org/abs/2410.08201) and corresponds to work from the MIT group led by Max Tegmark.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies sparse mixture-of-experts scaling, originally developed for large language models, to neural network interpretability. It connects efficient ML engineering with the scientific goal of understanding AI from the inside out.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Switch SAEs reduce the compute cost of training sparse autoencoders through expert routing, enabling SAEs to scale to far more features for a fixed training budget and pushing mechanistic interpretability tools closer to frontier model scales.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By developing more efficient tools to decompose neural network representations into interpretable features, this research advances the study of internal structure in AI systems, a foundational question for both AI safety and our scientific understanding of learned computation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include studying whether expert specialization reveals deeper organizational structure in language model knowledge representations. The paper is available at [arXiv:2410.08201](https://arxiv.org/abs/2410.08201) and corresponds to work from the MIT group led by Max Tegmark.</span></div></div>
+</div>

@@ -66,7 +66,7 @@ published: '2021-03-09T17:34:44+00:00'
 theme: Experimental Physics
 title: 'hls4ml: An Open-Source Codesign Workflow to Empower Scientific Low-Power Machine
   Learning Devices'
-wordCount: 1089
+wordCount: 1038
 ---
 
 ## The Big Picture
@@ -90,19 +90,19 @@ Here's the pipeline in practice:
 3. That HLS code gets compiled into a **bitstream** (the configuration file that programs an FPGA) or into an ASIC design ready for fabrication.
 4. The result runs on hardware with latencies measured in nanoseconds and power draws measured in milliwatts.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2103_05579/figure_1.png)
 
 The capabilities described in this paper push hls4ml considerably further toward low-power deployments. The team introduced **quantization-aware pruning (QAP)**, which combines two powerful compression techniques. Pruning removes **weights**, the learned numerical parameters inside a neural network, that contribute little to accuracy, setting them to zero and reducing computation. Quantization reduces the numerical precision of the remaining weights from full 32-bit floating-point numbers down to 8, 4, or even 2 bits.
 
 Doing both together during training, rather than as an afterthought, lets the network learn to be compact and low-precision simultaneously. You squeeze far more performance out of constrained hardware this way.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2103_05579/figure_2.png)
 
 For low-power operation, the team developed **long pipeline kernels**, a way of spacing out the chip's calculations over more clock cycles rather than cramming one result out every cycle. Standard hls4ml optimizes for the shortest possible latency, but that's power-hungry. Spreading the work across more cycles trades some speed for drastically reduced energy consumption, which matters in edge deployments where power budgets are measured in milliwatts.
 
 The workflow also now supports end-to-end integration with Xilinx's Vitis Accel framework, embedding an hls4ml model directly into a complete FPGA system as part of a full data acquisition and processing chain. The team has also added an **ASIC backend** for custom silicon chips built for one specific job. That matters enormously for mass-deployment scenarios, like embedding tiny ML accelerators across thousands of detector readout chips simultaneously.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2103_05579/figure_3.png)
 
 ## Why It Matters
 
@@ -114,9 +114,9 @@ Open questions remain. The interactions between sparsity, quantization, and hard
 
 > **Bottom Line:** hls4ml transforms trained neural networks into deployable hardware firmware with a few lines of Python, enabling real-time ML at nanosecond latency and milliwatt power budgets. It puts that capability directly in the hands of domain scientists who have never written a line of hardware description language.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** hls4ml gives physicists, astronomers, and materials scientists a direct pipeline from trained neural networks to custom FPGA and ASIC implementations, no hardware engineering background required.
-- **Impact on Artificial Intelligence:** The framework introduces quantization-aware pruning as a first-class codesign technique for TinyML, enabling models to be jointly optimized for accuracy and hardware efficiency during training rather than after the fact.
-- **Impact on Fundamental Interactions:** Real-time neural network inference on hls4ml-powered hardware directly supports trigger and data acquisition systems at experiments like the LHC, where decisions about which particle collisions to record must be made in tens of nanoseconds.
-- **Outlook and References:** Future work targets tighter ASIC integration and broader support for complex architectures like graph neural networks. The full paper is available at [arXiv:2103.05579](https://arxiv.org/abs/2103.05579) as part of the TinyML Research Symposium 2021 proceedings.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">hls4ml gives physicists, astronomers, and materials scientists a direct pipeline from trained neural networks to custom FPGA and ASIC implementations, no hardware engineering background required.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The framework introduces quantization-aware pruning as a first-class codesign technique for TinyML, enabling models to be jointly optimized for accuracy and hardware efficiency during training rather than after the fact.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Real-time neural network inference on hls4ml-powered hardware directly supports trigger and data acquisition systems at experiments like the LHC, where decisions about which particle collisions to record must be made in tens of nanoseconds.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets tighter ASIC integration and broader support for complex architectures like graph neural networks. The full paper is available at [arXiv:2103.05579](https://arxiv.org/abs/2103.05579) as part of the TinyML Research Symposium 2021 proceedings.</span></div></div>
+</div>

@@ -38,7 +38,7 @@ pdfUrl: https://arxiv.org/pdf/2212.00782v4
 published: '2022-12-01T18:58:40+00:00'
 theme: Experimental Physics
 title: Variational Neural-Network Ansatz for Continuum Quantum Field Theory
-wordCount: 1024
+wordCount: 1154
 ---
 
 ## The Big Picture
@@ -57,7 +57,7 @@ Researchers at MIT and IBM Quantum have found that deep learning offers a surpri
 
 The mathematical core of quantum field theory is **Fock space**, a unified structure combining separate spaces for zero particles, one particle, two particles, and so on. A quantum field state is a superposition of wave functions across all these sectors simultaneously. To apply the variational principle, you need an **ansatz**: a parameterized family of states you can tune. The catch is that a general ansatz must handle wave functions for *any* particle number using a *shared* set of parameters.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2212_00782/figure_1.png)
 
 The **Deep Sets** architecture, originally developed for machine learning on unordered sets, turns out to be exactly right for this job. It computes a **permutation-invariant** function (giving the same result regardless of the order particles are listed, which is essential for identical bosons) by applying a network to each element individually, summing the results, then passing that sum through another network. The architecture is also **variadic**, accepting any number of inputs.
 
@@ -77,7 +77,7 @@ The team validated NQFS on three test cases of increasing complexity:
 
 3. **Regularized Klein-Gordon model**: an inhomogeneous system with a spatially varying mass term. cMPS methods are unstable for inhomogeneous systems and typically fall back on discretization. NQFS solved it directly in the continuum.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2212_00782/figure_2.png)
 
 Across all three cases, variational energies converged reliably to the ground state.
 
@@ -85,24 +85,21 @@ Across all three cases, variational energies converged reliably to the ground st
 
 This paper closes a gap that has been open for decades. Lattice field theory (discretizing spacetime onto a grid) is the workhorse for non-perturbative calculations in nuclear and particle physics, but reaching the true continuum limit requires extrapolating across many lattice spacings, which is computationally brutal. Continuous matrix product states offered a continuum alternative but struggled with inhomogeneity and long-range interactions. NQFS sidesteps both limitations.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2212_00782/figure_3.png)
 
 The deeper point is that modern deep learning architectures can be matched to the mathematical structure of quantum field theories in principled ways. Deep Sets isn't a hack: permutation invariance is fundamental to quantum mechanics for identical particles, making it the right tool by design. Future extensions could target fermionic systems (requiring antisymmetric wave functions), higher spatial dimensions, and relativistic theories including quantum chromodynamics (QCD). The variational toolbox for quantum field theory just got a lot more powerful.
 
 > **Bottom Line:** Neural-network quantum field states provide the first practical, continuum variational ansatz that handles variable particle number, long-range interactions, and inhomogeneous systems, opening new computational routes into strongly-interacting quantum field theories.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects deep learning and quantum field theory by recognizing that Fock space, the natural language of QFT, maps onto the Deep Sets architecture, letting each field inform the other.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">NQFS shows that permutation-invariant, variadic neural networks can parameterize infinite-dimensional mathematical objects, expanding the scope of neural network quantum states beyond fixed-particle systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling variational calculations directly in the continuum, NQFS opens a new computational pathway to ground states of strongly-interacting field theories, including systems with long-range interactions where prior methods required approximations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extensions to fermions, higher dimensions, and relativistic theories such as QCD; the full paper is available at [arXiv:2212.00782](https://arxiv.org/abs/2212.00782).
 
-- **Interdisciplinary Research Achievement:** This work connects deep learning and quantum field theory by recognizing that Fock space, the natural language of QFT, maps onto the Deep Sets architecture, letting each field inform the other.
-
-- **Impact on Artificial Intelligence:** NQFS shows that permutation-invariant, variadic neural networks can parameterize infinite-dimensional mathematical objects, expanding the scope of neural network quantum states beyond fixed-particle systems.
-
-- **Impact on Fundamental Interactions:** By enabling variational calculations directly in the continuum, NQFS opens a new computational pathway to ground states of strongly-interacting field theories, including systems with long-range interactions where prior methods required approximations.
-
-- **Outlook and References:** Future directions include extensions to fermions, higher dimensions, and relativistic theories such as QCD; the full paper is available at [arXiv:2212.00782](https://arxiv.org/abs/2212.00782).
-
-## Original Paper Details
-- **Title:** Variational Neural-Network Ansatz for Continuum Quantum Field Theory
-- **arXiv ID:** 2212.00782
-- **Authors:** ["John M. Martyn", "Khadijeh Najafi", "Di Luo"]
-- **Abstract:** Physicists dating back to Feynman have lamented the difficulties of applying the variational principle to quantum field theories. In non-relativistic quantum field theories, the challenge is to parameterize and optimize over the infinitely many $n$-particle wave functions comprising the state's Fock space representation. Here we approach this problem by introducing neural-network quantum field states, a deep learning ansatz that enables application of the variational principle to non-relativistic quantum field theories in the continuum. Our ansatz uses the Deep Sets neural network architecture to simultaneously parameterize all of the $n$-particle wave functions comprising a quantum field state. We employ our ansatz to approximate ground states of various field theories, including an inhomogeneous system and a system with long-range interactions, thus demonstrating a powerful new tool for probing quantum field theories.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Variational Neural-Network Ansatz for Continuum Quantum Field Theory</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2212.00782</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["John M. Martyn", "Khadijeh Najafi", "Di Luo"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Physicists dating back to Feynman have lamented the difficulties of applying the variational principle to quantum field theories. In non-relativistic quantum field theories, the challenge is to parameterize and optimize over the infinitely many $n$-particle wave functions comprising the state's Fock space representation. Here we approach this problem by introducing neural-network quantum field states, a deep learning ansatz that enables application of the variational principle to non-relativistic quantum field theories in the continuum. Our ansatz uses the Deep Sets neural network architecture to simultaneously parameterize all of the $n$-particle wave functions comprising a quantum field state. We employ our ansatz to approximate ground states of various field theories, including an inhomogeneous system and a system with long-range interactions, thus demonstrating a powerful new tool for probing quantum field theories.</span></div></div>
+</div>

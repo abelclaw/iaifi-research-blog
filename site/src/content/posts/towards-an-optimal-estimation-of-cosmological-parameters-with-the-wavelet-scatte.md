@@ -41,7 +41,7 @@ published: '2021-08-17T18:00:04+00:00'
 theme: Astrophysics
 title: Towards an Optimal Estimation of Cosmological Parameters with the Wavelet Scattering
   Transform
-wordCount: 1054
+wordCount: 1255
 ---
 
 ## The Big Picture
@@ -69,19 +69,19 @@ The recipe:
 3. **Average spatially** to produce S₁ coefficients, one number per (scale, angular order) combination summarizing how much structure exists at that scale.
 4. **Repeat** the convolution-modulus-average chain on the modulus fields from step 2 to get S₂ coefficients, which capture correlations *between* scales, encoding information up to the four-point function.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2108_07821/figure_1.png)
 
 The authors implement this using the KYMATIO package, applying WST coefficients to the 3D overdensity field from the **Quijote N-body simulations**, a large suite of cosmological simulations spanning a grid in parameter space. From these, they compute a Fisher matrix: a formal measure of how much information each statistic contains about each cosmological parameter.
 
 Six parameters are under scrutiny: matter density (Ωm), baryon density (Ωb), amplitude of primordial fluctuations (σ₈), spectral index (ns), the Hubble constant (h), and the hardest nut in modern cosmology, the sum of neutrino masses (Mν).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2108_07821/figure_2.png)
 
 Across all six parameters, WST delivers 1.2 to 4× tighter constraints than the standard 3D power spectrum from the same simulations. The gains are largest for parameters most sensitive to nonlinear structure.
 
 For neutrino masses specifically, WST beats the marked power spectrum (a recent competitor that up-weights underdense regions to amplify neutrino signatures) by 50%. That's not a marginal improvement. For a single-dataset analysis, that kind of gain changes what questions you can answer.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2108_07821/figure_3.png)
 
 ## Why It Matters
 
@@ -95,15 +95,15 @@ Applying WST to galaxy catalogs will require modeling survey geometry, selection
 
 > **Bottom Line:** The Wavelet Scattering Transform extracts up to four times more cosmological information than the standard power spectrum from the same 3D density field. It is mathematically transparent, requires no training, and offers a practical route to getting the full science return from galaxy surveys.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports a signal-processing tool developed for image recognition and molecular modeling into precision cosmology, showing that wavelet scattering's mathematical structure transfers effectively across physical domains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The WST sits at a useful middle ground between classical statistics and opaque neural networks: a fixed-weight, interpretable architecture that captures nonlinear structure without requiring labeled training data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By achieving up to 4× tighter constraints on cosmological parameters and a 50% improvement on neutrino mass bounds over the marked power spectrum, this method could make definitive measurements of absolute neutrino mass possible with upcoming galaxy surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend WST to the biased galaxy field and explore custom wavelets designed for cosmological symmetries; the full analysis is available at [arXiv:2108.07821](https://arxiv.org/abs/2108.07821).
 
-- **Interdisciplinary Research Achievement:** This work imports a signal-processing tool developed for image recognition and molecular modeling into precision cosmology, showing that wavelet scattering's mathematical structure transfers effectively across physical domains.
-- **Impact on Artificial Intelligence:** The WST sits at a useful middle ground between classical statistics and opaque neural networks: a fixed-weight, interpretable architecture that captures nonlinear structure without requiring labeled training data.
-- **Impact on Fundamental Interactions:** By achieving up to 4× tighter constraints on cosmological parameters and a 50% improvement on neutrino mass bounds over the marked power spectrum, this method could make definitive measurements of absolute neutrino mass possible with upcoming galaxy surveys.
-- **Outlook and References:** Future work will extend WST to the biased galaxy field and explore custom wavelets designed for cosmological symmetries; the full analysis is available at [arXiv:2108.07821](https://arxiv.org/abs/2108.07821).
-
-## Original Paper Details
-- **Title:** Towards an Optimal Estimation of Cosmological Parameters with the Wavelet Scattering Transform
-- **arXiv ID:** 2108.07821
-- **Authors:** ["Georgios Valogiannis", "Cora Dvorkin"]
-- **Abstract:** Optimal extraction of the non-Gaussian information encoded in the Large-Scale Structure (LSS) of the universe lies at the forefront of modern precision cosmology. We propose achieving this task through the use of the Wavelet Scattering Transform (WST), which subjects an input field to a layer of non-linear transformations that are sensitive to non-Gaussianity in spatial density distributions through a generated set of WST coefficients. In order to assess its applicability in the context of LSS surveys, we apply the WST on the 3D overdensity field obtained by the Quijote simulations, out of which we extract the Fisher information in 6 cosmological parameters. It is subsequently found to deliver a large improvement in the marginalized errors on all parameters, ranging between $1.2-4\times$ tighter than the corresponding ones obtained from the regular 3D cold dark matter + baryon power spectrum, as well as a $50 \%$ improvement over the neutrino mass constraint given by the marked power spectrum. Through this first application on 3D cosmological fields, we demonstrate the great promise held by this novel statistic and set the stage for its future application to actual galaxy observations.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Towards an Optimal Estimation of Cosmological Parameters with the Wavelet Scattering Transform</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2108.07821</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Georgios Valogiannis", "Cora Dvorkin"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Optimal extraction of the non-Gaussian information encoded in the Large-Scale Structure (LSS) of the universe lies at the forefront of modern precision cosmology. We propose achieving this task through the use of the Wavelet Scattering Transform (WST), which subjects an input field to a layer of non-linear transformations that are sensitive to non-Gaussianity in spatial density distributions through a generated set of WST coefficients. In order to assess its applicability in the context of LSS surveys, we apply the WST on the 3D overdensity field obtained by the Quijote simulations, out of which we extract the Fisher information in 6 cosmological parameters. It is subsequently found to deliver a large improvement in the marginalized errors on all parameters, ranging between $1.2-4\times$ tighter than the corresponding ones obtained from the regular 3D cold dark matter + baryon power spectrum, as well as a $50 \%$ improvement over the neutrino mass constraint given by the marked power spectrum. Through this first application on 3D cosmological fields, we demonstrate the great promise held by this novel statistic and set the stage for its future application to actual galaxy observations.</span></div></div>
+</div>

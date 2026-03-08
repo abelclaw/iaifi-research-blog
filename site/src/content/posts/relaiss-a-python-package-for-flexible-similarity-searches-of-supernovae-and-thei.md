@@ -41,7 +41,7 @@ published: '2025-07-17T18:00:13+00:00'
 theme: Astrophysics
 title: 'reLAISS: A Python Package for Flexible Similarity Searches of Supernovae and
   Their Host Galaxies'
-wordCount: 1018
+wordCount: 1213
 ---
 
 ## The Big Picture
@@ -58,7 +58,7 @@ A team from IAIFI and the Center for Astrophysics at Harvard & Smithsonian has b
 
 reLAISS builds on an earlier tool called LAISS with two major upgrades. The pipeline starts simply: give it a supernova's identifier from the Zwicky Transient Facility (ZTF), a sky survey that systematically scans for transient events, and it gets to work.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2507_13449/figure_1.png)
 
 **Step 1: Light curve features.** A **light curve** is a graph of a supernova's brightness from ignition to fade. reLAISS extracts compact numerical summaries of that graph's shape: peak magnitude, rise time, decline time, duration above half-brightness, and rolling variance, in both ZTF's green and red filters, plus how the explosion's color evolves over time.
 
@@ -85,18 +85,15 @@ The team plans to extend the feature set beyond ZTF's current filters and to tes
 
 > **Bottom Line:** reLAISS turns the coming supernova data deluge into a navigable map: a nearest-neighbor search engine for stellar explosions that's fast, flexible, and physically interpretable. It arrives just in time for the era of million-event-per-year astronomy.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">reLAISS applies machine learning nearest-neighbor search, originally developed for recommendation systems, to astrophysical transient discovery, connecting scalable AI indexing with the physics of stellar explosions and their galactic environments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The package shows how approximate nearest-neighbor algorithms combined with uncertainty-aware Monte Carlo resampling can deliver interpretable similarity search at scale across noisy, heterogeneous scientific datasets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By jointly modeling supernova light curve morphology and host galaxy stellar populations, reLAISS opens a path to discovering rare or anomalous explosion mechanisms that could reveal progenitor physics beyond the standard core-collapse and thermonuclear channels.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The reLAISS package is pip-installable with a 20,000-event reference set and tutorials; future work will extend its reach to Rubin/LSST cadences and additional photometric passbands (Reynolds, Gagliano & Villar 2025, [arXiv:2507.13449](https://arxiv.org/abs/2507.13449)).
 
-- **Interdisciplinary Research Achievement:** reLAISS applies machine learning nearest-neighbor search, originally developed for recommendation systems, to astrophysical transient discovery, connecting scalable AI indexing with the physics of stellar explosions and their galactic environments.
-
-- **Impact on Artificial Intelligence:** The package shows how approximate nearest-neighbor algorithms combined with uncertainty-aware Monte Carlo resampling can deliver interpretable similarity search at scale across noisy, heterogeneous scientific datasets.
-
-- **Impact on Fundamental Interactions:** By jointly modeling supernova light curve morphology and host galaxy stellar populations, reLAISS opens a path to discovering rare or anomalous explosion mechanisms that could reveal progenitor physics beyond the standard core-collapse and thermonuclear channels.
-
-- **Outlook and References:** The reLAISS package is pip-installable with a 20,000-event reference set and tutorials; future work will extend its reach to Rubin/LSST cadences and additional photometric passbands (Reynolds, Gagliano & Villar 2025, [arXiv:2507.13449](https://arxiv.org/abs/2507.13449)).
-
-## Original Paper Details
-- **Title:** reLAISS: A Python Package for Flexible Similarity Searches of Supernovae and Their Host Galaxies
-- **arXiv ID:** [2507.13449](https://arxiv.org/abs/2507.13449)
-- **Authors:** ["E. Reynolds", "A. Gagliano", "V. A. Villar"]
-- **Abstract:** Discovery rates of supernovae are expected to surpass one million events annually with the Vera C. Rubin Observatory. With unprecedented sample sizes of both common and rare transient types, photometric classification alone will be insufficient for finding one-in-a-million events and prioritizing the 1% of events for spectroscopic follow-up observations. Here, we present reLAISS, a modified framework for similarity searches of supernovae using extracted features of ZTF light curves and Pan-STARRS host galaxy photometry and built on the original LAISS framework. Unlike its predecessor, reLAISS couples interpretable light curve morphology features with extinction-corrected host-galaxy colors to probe both explosion physics and associated stellar populations simultaneously. The library allows users to customize the number of neighbors retrieved, the weight of host and light curve features, and the use of Monte Carlo simulations to ensure relevant matches when features are poorly constrained. We release reLAISS as a pip-installable package with an accompanying reference set of 20,000 features, and a set of tutorials that demonstrate the code's expanded functionality. All source code can be found at https://github.com/evan-reynolds/re-laiss .
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">reLAISS: A Python Package for Flexible Similarity Searches of Supernovae and Their Host Galaxies</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2507.13449](https://arxiv.org/abs/2507.13449)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["E. Reynolds", "A. Gagliano", "V. A. Villar"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Discovery rates of supernovae are expected to surpass one million events annually with the Vera C. Rubin Observatory. With unprecedented sample sizes of both common and rare transient types, photometric classification alone will be insufficient for finding one-in-a-million events and prioritizing the 1% of events for spectroscopic follow-up observations. Here, we present reLAISS, a modified framework for similarity searches of supernovae using extracted features of ZTF light curves and Pan-STARRS host galaxy photometry and built on the original LAISS framework. Unlike its predecessor, reLAISS couples interpretable light curve morphology features with extinction-corrected host-galaxy colors to probe both explosion physics and associated stellar populations simultaneously. The library allows users to customize the number of neighbors retrieved, the weight of host and light curve features, and the use of Monte Carlo simulations to ensure relevant matches when features are poorly constrained. We release reLAISS as a pip-installable package with an accompanying reference set of 20,000 features, and a set of tutorials that demonstrate the code's expanded functionality. All source code can be found at https://github.com/evan-reynolds/re-laiss .</span></div></div>
+</div>

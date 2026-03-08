@@ -74,7 +74,7 @@ The original **Distribution Matching Distillation (DMD)** had a clever core idea
 
 But DMD had a weakness. To keep training stable, it required a **regression loss** computed from millions of pre-generated noise-image pairs, which forced the student to memorize specific teacher trajectories. Generating these pairs is expensive, and worse, it caps the student's quality: it can never exceed what the teacher produces along those fixed paths.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_14867/figure_1.png)
 
 DMD2 removes this requirement through three linked improvements:
 
@@ -84,7 +84,7 @@ DMD2 removes this requirement through three linked improvements:
 
 **Backward Simulation for Multi-Step Sampling.** The original DMD only supported one-step generation. DMD2 extends this to 2–4 steps, but doing so naively creates a training-inference mismatch: during training, the model sees inputs from one distribution, while during inference it sees inputs from a slightly different one. The solution runs the generator itself to produce the noisy intermediate samples used during training. The model then practices on exactly the kind of inputs it will encounter at test time.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_14867/figure_2.png)
 
 Under the hood, DMD2 minimizes an approximate **KL divergence** between the student generator's outputs and the teacher's approximation of real images. The gradient of this divergence decomposes into two score functions: one pointing toward the real image distribution, one characterizing where the student currently generates. The GAN loss sharpens the first signal with actual ground-truth photos, while the two-timescale rule keeps the second signal accurate.
 
@@ -94,7 +94,7 @@ DMD2 achieves an **FID score of 1.28** on ImageNet-64×64 in one step. FID measu
 
 On zero-shot COCO 2014, the standard text-to-image benchmark, DMD2 scores 8.35, again outperforming its teacher.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2405_14867/figure_3.png)
 
 The team also distilled SDXL, one of the most capable open text-to-image models, showing that DMD2 scales to megapixel resolution. The 4-step SDXL distillation produces images with strong visual quality, competitive with or exceeding methods that require far more computation.
 
@@ -104,12 +104,9 @@ The broader lesson here is that matching the *output* of a complex system is oft
 
 > **Bottom Line:** DMD2 proves that one-step image generators don't have to compromise quality. By combining two-timescale training, adversarial objectives on real data, and backward simulation, the student model exceeds its teacher at 1/500th the inference cost.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects generative AI with theoretical ideas from optimal transport and divergence minimization, applying rigorous mathematical frameworks to the practical problem of making large-scale AI models computationally tractable.
-
-- **Impact on Artificial Intelligence:** DMD2 sets new records for one-step and few-step image generation, showing that distribution-matching distillation, augmented with adversarial training and two-timescale updates, can surpass teacher diffusion models at 500x lower inference cost.
-
-- **Impact on Fundamental Interactions:** Fast, high-quality generative models accelerate scientific workflows in physics and astronomy, where simulation-based inference and synthetic data generation are increasingly important tools for interpreting complex observational datasets.
-
-- **Outlook and References:** Future work may extend DMD2's backward simulation and GAN-augmented distillation to video generation and 3D synthesis. The full approach is described in [arXiv:2405.14867](https://arxiv.org/abs/2405.14867).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects generative AI with theoretical ideas from optimal transport and divergence minimization, applying rigorous mathematical frameworks to the practical problem of making large-scale AI models computationally tractable.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">DMD2 sets new records for one-step and few-step image generation, showing that distribution-matching distillation, augmented with adversarial training and two-timescale updates, can surpass teacher diffusion models at 500x lower inference cost.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Fast, high-quality generative models accelerate scientific workflows in physics and astronomy, where simulation-based inference and synthetic data generation are increasingly important tools for interpreting complex observational datasets.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend DMD2's backward simulation and GAN-augmented distillation to video generation and 3D synthesis. The full approach is described in [arXiv:2405.14867](https://arxiv.org/abs/2405.14867).</span></div></div>
+</div>

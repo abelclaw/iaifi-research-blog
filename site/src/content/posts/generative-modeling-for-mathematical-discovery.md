@@ -53,7 +53,7 @@ This team has built an accessible implementation of **funsearch** — a search t
 
 ## How It Works
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2503_11061/figure_1.png)
 
 The core loop of funsearch is simple. Instead of evolving bacteria in a petri dish, you're evolving *programs*. The population consists of hundreds of Python scripts, each encoding a strategy for solving a mathematical problem. The fittest scripts get selected, combined in a prompt, and fed to an LLM, which writes a new candidate script. Repeat until something remarkable emerges.
 
@@ -74,22 +74,19 @@ The benchmarks are encouraging. Tested on the **cap set problem** — a classic 
 
 In some cases it discovered principles that *generalized* beyond the specific problem it was trained on. That's not brute-force search. That's something closer to learning.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2503_11061/figure_2.png)
 
 This points toward a genuinely new role for AI in mathematics: not replacing human insight, but dramatically accelerating the exploratory phase of research. The hardest part of mathematical discovery is often knowing *where to look*. Funsearch doesn't just search faster — it learns to search smarter. And because results are executable Python programs, mathematicians can inspect exactly *what* the LLM learned, potentially extracting new conjectures or proof strategies from the evolved code.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2503_11061/figure_3.png)
 
 The broader implications extend beyond pure mathematics. Many problems in theoretical physics share the same structure: easy to check, hard to find. Whether searching for optimal lattice configurations, extremal quantum states, or combinatorial structures underlying physical symmetries, funsearch could become a standard tool in the computational scientist's toolkit. The team's open-source release lowers the barrier to adoption considerably — any researcher with a laptop and an API key can try it.
 
 > **Bottom Line:** Funsearch turns LLMs into mathematical explorers — and this new implementation means working mathematicians, not just ML engineers, can put them to work.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work directly bridges AI and pure mathematics, showing that LLM-driven evolutionary search can discover novel examples in combinatorics and number theory — domains central to the mathematical foundations of physics.
-
-- **Impact on Artificial Intelligence:** The paper establishes concrete benchmarking metrics for funsearch across multiple problem types, providing a practical roadmap for applying LLM-based program synthesis to new mathematical domains.
-
-- **Impact on Fundamental Interactions:** Making funsearch accessible to working mathematicians without ML expertise puts AI-assisted discovery within reach for researchers working on the mathematical structures — extremal combinatorics, number theory — that sit at the foundations of fundamental physics.
-
-- **Outlook and References:** Future work will target harder open problems in combinatorics and explore whether the generalizing behavior observed here scales to richer mathematical settings. The implementation is freely available on GitHub; the paper appears in *Advances in Theoretical and Mathematical Physics* (2025) and is available at [arXiv:2503.11061](https://arxiv.org/abs/2503.11061).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly bridges AI and pure mathematics, showing that LLM-driven evolutionary search can discover novel examples in combinatorics and number theory — domains central to the mathematical foundations of physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper establishes concrete benchmarking metrics for funsearch across multiple problem types, providing a practical roadmap for applying LLM-based program synthesis to new mathematical domains.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Making funsearch accessible to working mathematicians without ML expertise puts AI-assisted discovery within reach for researchers working on the mathematical structures — extremal combinatorics, number theory — that sit at the foundations of fundamental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will target harder open problems in combinatorics and explore whether the generalizing behavior observed here scales to richer mathematical settings. The implementation is freely available on GitHub; the paper appears in *Advances in Theoretical and Mathematical Physics* (2025) and is available at [arXiv:2503.11061](https://arxiv.org/abs/2503.11061).</span></div></div>
+</div>

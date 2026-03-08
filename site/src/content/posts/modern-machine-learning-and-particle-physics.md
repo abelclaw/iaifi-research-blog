@@ -52,7 +52,7 @@ Particle physics turns out to be a near-perfect laboratory for modern ML. It gen
 
 The LHC's detectors read out roughly 100 million electronic channels per collision event, producing data in a space so high-dimensional that no visualization can grasp it whole. Traditional approaches collapse all of this into a handful of composite features: total energy deposited in a region, combined particle mass, the angle between two jets. These **hand-crafted features** are reliable and well-understood, but they inevitably discard information.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2103_12226/figure_1.png)
 
 Modern ML takes the opposite approach: feed the network everything. **Jets**, the sprays of particles produced when quarks and gluons are ejected at high energy, carry detailed information about the underlying physics. A jet from a decaying top quark has different internal substructure than one from an ordinary background quark. Neural networks can learn to read this directly.
 
@@ -65,13 +65,13 @@ The ML approaches reviewed span a wide range:
 
 Here's what makes particle physics genuinely unusual as an ML domain: individual events don't have truth labels. Because of quantum mechanical interference, a collision event isn't purely "signal" or purely "background." It's a superposition of both. The probability distribution takes the form |M_S + M_B|², where the cross term represents quantum interference between signal and background amplitudes. Only mixture fractions can be inferred, never per-event identity. You can't train on ground truth labels the way you'd label cats and dogs.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2103_12226/figure_1.png)
 
 What saves the field is 40+ years of expert-built simulation tools that model collisions across 20 orders of magnitude in length scale, from 10⁻¹⁸ meters where perturbative quantum field theory governs, up to the 100-meter scale of the ATLAS detector. These simulators generate roughly one trillion synthetic events, enabling supervised training even without event-level labels.
 
 The most promising frontier is **weakly supervised and unsupervised learning**, methods that reduce or eliminate simulation dependence entirely. Techniques like **CWoLa (Classification Without Labels)** exploit the fact that different data regions contain different signal fractions, training classifiers directly on real data rather than simulations. **Anomaly detection** methods search for events that look unlike any simulated background, a way to find unexpected signals without specifying in advance what new physics should look like.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2103_12226/figure_2.png)
 
 ## Why It Matters
 
@@ -81,18 +81,15 @@ The LHC has already recorded more data than physicists can fully analyze with tr
 
 The influence runs both directions. The unique demands of particle physics (high-dimensional, physically structured, quantum-mechanical data without individual ground truth) are pushing ML toward new architectures, training paradigms, and theoretical frameworks. Networks that respect the symmetries of special relativity. Generative models that faithfully reproduce complex multi-particle collisions. Classifiers calibrated rigorously enough for scientific inference. Particle physics is helping to define all of these frontiers.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2103_12226/figure_2.png)
 
 Open challenges remain significant. Systematic uncertainties, the differences between simulation and reality, can bias ML classifiers in subtle, hard-to-detect ways. Interpretability is a persistent concern: when a deep network finds a signal, can physicists understand *why*? And the field is still developing the statistical frameworks needed to rigorously combine ML outputs with traditional hypothesis testing.
 
 Machine learning isn't just making particle physics faster. It's enabling fundamentally new kinds of analyses that were impossible with traditional methods, while simultaneously pushing AI research toward richer, more physically-grounded approaches.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This review captures how the demands of particle physics (quantum-mechanical data, massive simulation infrastructure, extreme signal-to-background ratios) have driven an unusually deep and productive integration of AI methodology with fundamental physics questions at the LHC.
-
-- **Impact on Artificial Intelligence:** Particle physics has motivated new ML architectures including Lorentz-equivariant networks, physically-constrained generative models, and weakly supervised classifiers that learn without per-event ground truth labels, with broad applicability beyond physics.
-
-- **Impact on Fundamental Interactions:** ML-based analyses are increasing the sensitivity of LHC searches for new physics and enabling model-agnostic anomaly detection approaches that could uncover signatures no theorist has yet imagined.
-
-- **Outlook and References:** The field is rapidly moving toward data-driven methods that minimize simulation dependence, with open questions around systematic uncertainties and interpretability defining the next frontier; see [arXiv:2103.12226](https://arxiv.org/abs/2103.12226) for the full review.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This review captures how the demands of particle physics (quantum-mechanical data, massive simulation infrastructure, extreme signal-to-background ratios) have driven an unusually deep and productive integration of AI methodology with fundamental physics questions at the LHC.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Particle physics has motivated new ML architectures including Lorentz-equivariant networks, physically-constrained generative models, and weakly supervised classifiers that learn without per-event ground truth labels, with broad applicability beyond physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">ML-based analyses are increasing the sensitivity of LHC searches for new physics and enabling model-agnostic anomaly detection approaches that could uncover signatures no theorist has yet imagined.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The field is rapidly moving toward data-driven methods that minimize simulation dependence, with open questions around systematic uncertainties and interpretability defining the next frontier; see [arXiv:2103.12226](https://arxiv.org/abs/2103.12226) for the full review.</span></div></div>
+</div>

@@ -56,7 +56,7 @@ A team of MIT physicists has built a machine learning framework that does both a
 
 The architecture has two components. First, an **encoder**: a neural network that takes a sequence of visible measurements and infers the values of unobserved variables. Second, a **sparse symbolic model** that represents governing equations as a weighted sum of candidate mathematical terms (polynomials, spatial derivatives, trigonometric functions, whatever is physically plausible).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2107_10879/figure_1.png)
 
 How do you train these components together when you can only compare predictions against *partial* observations? The answer involves **higher-order time derivatives**: not just rates of change, but rates of change *of* rates of change, the way acceleration describes how velocity is shifting rather than position itself. The training loop works like this:
 
@@ -70,11 +70,11 @@ This neatly sidesteps a chicken-and-egg problem. You don't need to know the hidd
 
 The sparsity piece matters too. Real physical laws tend to be parsimonious; Newton's second law has three terms, not three hundred. The framework imposes a **sparsity prior** on the symbolic model's coefficients, pushing the network toward compact, interpretable equations. The result isn't a black-box prediction. It's an actual equation you can write down and reason about.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2107_10879/figure_1.png)
 
 The team tested their framework across multiple systems. For ordinary differential equations, they recovered coupled nonlinear oscillators with hidden coordinates. For partial differential equations, they tackled the **nonlinear Schrödinger equation**, a workhorse of fiber optics and quantum mechanics, reconstructing the phase of the field from intensity-only measurements (a classic problem called **phase retrieval**) while simultaneously discovering the governing equation. The method correctly identified the symbolic dynamics in each case.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2107_10879/figure_2.png)
 
 ## Why It Matters
 
@@ -88,12 +88,9 @@ Open questions remain. The method currently assumes the number of hidden state d
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work merges machine learning methodology with classical physics system identification, using neural encoders to solve a physics-motivated inverse problem and producing symbolic equations with genuine physical interpretability.
-
-- **Impact on Artificial Intelligence:** The joint encoder–symbolic model architecture, trained end-to-end via higher-order derivative matching, introduces a principled technique for learning interpretable dynamics under partial observability, pushing the boundaries of physics-informed machine learning.
-
-- **Impact on Fundamental Interactions:** By enabling phase reconstruction and equation discovery for the nonlinear Schrödinger equation from intensity-only data, the method tackles a longstanding measurement challenge in quantum optics, fiber communications, and wave physics.
-
-- **Outlook and References:** Future extensions may tackle higher-dimensional PDE systems and relax assumptions about the number of hidden variables; see [arXiv:2107.10879](https://arxiv.org/abs/2107.10879) for the full paper from MIT's IAIFI-affiliated researchers.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work merges machine learning methodology with classical physics system identification, using neural encoders to solve a physics-motivated inverse problem and producing symbolic equations with genuine physical interpretability.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The joint encoder–symbolic model architecture, trained end-to-end via higher-order derivative matching, introduces a principled technique for learning interpretable dynamics under partial observability, pushing the boundaries of physics-informed machine learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling phase reconstruction and equation discovery for the nonlinear Schrödinger equation from intensity-only data, the method tackles a longstanding measurement challenge in quantum optics, fiber communications, and wave physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions may tackle higher-dimensional PDE systems and relax assumptions about the number of hidden variables; see [arXiv:2107.10879](https://arxiv.org/abs/2107.10879) for the full paper from MIT's IAIFI-affiliated researchers.</span></div></div>
+</div>

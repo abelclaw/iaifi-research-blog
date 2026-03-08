@@ -64,7 +64,7 @@ $$G^{(n)}(x_1, \ldots, x_n) = \mathbb{E}[f(x_1) \cdots f(x_n)]$$
 
 Here's the core theorem: if these correlation functions are invariant under a transformation, the underlying density over functions *must also be invariant*. You don't need to know the density. The correlators tell you everything.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2106_00694/figure_1.png)
 
 The team applies this across two symmetry types:
 - **Input symmetries**: transformations of the network's inputs, such as translations, rotations, or other operations on data
@@ -72,7 +72,7 @@ The team applies this across two symmetry types:
 
 For each case, invariance of the correlation functions (computable directly from the parameter distribution) implies invariance of the functional density. This holds even when no single network in the ensemble is equivariant. The density can be symmetric even if individual networks are not.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2106_00694/figure_1.png)
 
 The approach extends beyond initialization. When networks train, their parameters become correlated, which is a challenge for most analytical tools. Symmetry-via-duality handles this: if the correlated parameter distribution preserves the relevant invariances, the symmetry carries through. The framework also applies to the **Neural Tangent Kernel (NTK)**, the mathematical object describing how a wide network's outputs shift during training, deriving its symmetry properties by the same mechanism.
 
@@ -84,7 +84,7 @@ The practical stakes show up in Fashion-MNIST experiments. The team constructs i
 
 When it does, breaking symmetry helps. When it doesn't, it hurts.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2106_00694/figure_2.png)
 
 For network design, the implication is concrete. If you know the symmetry structure of your problem (rotational symmetry in a physics dataset, permutation symmetry in a particle physics task) you can engineer the initialization distribution to match or purposefully break it in the right directions. The symmetry-via-duality framework lets you verify that your chosen parameter distribution produces the desired functional symmetry, all without computing the density itself.
 
@@ -92,18 +92,15 @@ There's also a longer-term payoff. QFT physicists have spent decades building po
 
 > **Bottom Line:** Symmetry-via-duality lets researchers determine the hidden symmetries of neural network densities using parameter-space correlation functions, no explicit density required, and shows that initialization symmetry has measurable effects on trained network performance.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work transplants duality and correlation-function machinery from quantum field theory into neural network theory, establishing a rigorous connection between fundamental physics formalism and deep learning foundations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Symmetry-via-duality provides a practical diagnostic for network initialization: by computing parameter-space correlators, researchers can verify or engineer the symmetry properties of a network density before training begins, with measurable effects on accuracy.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering NNGP and NTK symmetry results as special cases and extending them to finite-width non-Gaussian regimes, the framework deepens the QFT-inspired understanding of neural network densities that underlies gauge-equivariant lattice field theory applications.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work can extend symmetry-via-duality to characterize how symmetry flows during gradient-descent training and to constrain non-Gaussian process models at finite width; the paper is available at [arXiv:2106.00694](https://arxiv.org/abs/2106.00694).
 
-- **Interdisciplinary Research Achievement:** This work transplants duality and correlation-function machinery from quantum field theory into neural network theory, establishing a rigorous connection between fundamental physics formalism and deep learning foundations.
-
-- **Impact on Artificial Intelligence:** Symmetry-via-duality provides a practical diagnostic for network initialization: by computing parameter-space correlators, researchers can verify or engineer the symmetry properties of a network density before training begins, with measurable effects on accuracy.
-
-- **Impact on Fundamental Interactions:** By recovering NNGP and NTK symmetry results as special cases and extending them to finite-width non-Gaussian regimes, the framework deepens the QFT-inspired understanding of neural network densities that underlies gauge-equivariant lattice field theory applications.
-
-- **Outlook and References:** Future work can extend symmetry-via-duality to characterize how symmetry flows during gradient-descent training and to constrain non-Gaussian process models at finite width; the paper is available at [arXiv:2106.00694](https://arxiv.org/abs/2106.00694).
-
-## Original Paper Details
-- **Title:** Symmetry-via-Duality: Invariant Neural Network Densities from Parameter-Space Correlators
-- **arXiv ID:** [arXiv:2106.00694](https://arxiv.org/abs/2106.00694)
-- **Authors:** Anindita Maiti, Keegan Stoner, James Halverson
-- **Abstract:** Parameter-space and function-space provide two different duality frames in which to study neural networks. We demonstrate that symmetries of network densities may be determined via dual computations of network correlation functions, even when the density is unknown and the network is not equivariant. Symmetry-via-duality relies on invariance properties of the correlation functions, which stem from the choice of network parameter distributions. Input and output symmetries of neural network densities are determined, which recover known Gaussian process results in the infinite width limit. The mechanism may also be utilized to determine symmetries during training, when parameters are correlated, as well as symmetries of the Neural Tangent Kernel. We demonstrate that the amount of symmetry in the initialization density affects the accuracy of networks trained on Fashion-MNIST, and that symmetry breaking helps only when it is in the direction of ground truth.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Symmetry-via-Duality: Invariant Neural Network Densities from Parameter-Space Correlators</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2106.00694](https://arxiv.org/abs/2106.00694)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Anindita Maiti, Keegan Stoner, James Halverson</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Parameter-space and function-space provide two different duality frames in which to study neural networks. We demonstrate that symmetries of network densities may be determined via dual computations of network correlation functions, even when the density is unknown and the network is not equivariant. Symmetry-via-duality relies on invariance properties of the correlation functions, which stem from the choice of network parameter distributions. Input and output symmetries of neural network densities are determined, which recover known Gaussian process results in the infinite width limit. The mechanism may also be utilized to determine symmetries during training, when parameters are correlated, as well as symmetries of the Neural Tangent Kernel. We demonstrate that the amount of symmetry in the initialization density affects the accuracy of networks trained on Fashion-MNIST, and that symmetry breaking helps only when it is in the direction of ground truth.</span></div></div>
+</div>

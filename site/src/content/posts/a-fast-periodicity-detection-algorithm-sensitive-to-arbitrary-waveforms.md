@@ -67,27 +67,27 @@ The core computation has three steps:
 
 The algorithm handles non-uniform photometric errors naturally, since each brightness measurement carries its own uncertainty. For ZTF, errors are calibrated using all sources in a 47-square-degree camera quadrant, capturing systematic effects like variations in the **point spread function** (the way a star's light spreads across the detector) that affect entire regions simultaneously.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2502_00243/figure_1.png)
 
 The mathematical grounding comes from **Gaussian Process (GP) theory**. The FPW statistic is formally the difference in χ² between two hypotheses: "this source is periodic at this trial frequency" versus "this source is constant." So FPW isn't heuristic. It optimizes the detection of any signal that creates coherent structure when folded in phase.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2502_00243/figure_1.png)
 
 There is a trade-off: for pure sinusoids, FPW is slightly less sensitive than Lomb-Scargle. But the gain everywhere else is overwhelming. ZTF contains eclipsing binaries, cataclysmic variables, accreting white dwarfs, and contact binaries, all sources whose complex waveforms are nearly invisible to a sine-wave detector. FPW recovers them.
 
 Eclipsing systems produce sharp dips with flat tops, nothing like a sinusoid. Accreting compact objects generate asymmetric multi-peaked patterns that shift with orbital phase. Cyclotron emitters pulse in ways that depend on the viewer's angle relative to the magnetic field axis.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2502_00243/figure_2.png)
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2502_00243/figure_2.png)
 
 For each candidate period, FPW constructs a periodogram, plotting *S_FPW* values versus frequency. A real period stands out as a sharp peak above the noise floor. The team validated FPW on known ZTF variable stars, recovering periods cleanly across all these morphologies where Lomb-Scargle produces weak or aliased detections.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2502_00243/figure_3.png)
 
 FPW also handles irregularly sampled time series without difficulty. ZTF doesn't observe every source on a perfect schedule, and the algorithm takes uneven gaps in stride. The implementation runs efficiently on both CPUs and GPUs, with open code available for both.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2502_00243/figure_3.png)
 
 ## Why It Matters
 
@@ -99,12 +99,9 @@ A companion paper will provide the full Gaussian Process derivation, quantitativ
 
 > **Bottom Line:** FPW delivers waveform-agnostic period detection grounded in Bayesian statistics, fast enough to process 1.5 billion ZTF light curves as billion-source sky surveys come online.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies Gaussian Process machine learning methodology to classical astrophysical time-series analysis, producing a period-finding algorithm that is both theoretically grounded and computationally scalable to billion-source surveys.
-
-- **Impact on Artificial Intelligence:** FPW shows how GP-derived probabilistic frameworks can be condensed into simple, hardware-accelerated statistics, offering a template for deploying ML-inspired inference at production scale in data-intensive science.
-
-- **Impact on Fundamental Interactions:** By detecting periodic signals across the full waveform diversity of variable stars, FPW expands access to compact object physics (accreting white dwarfs, eclipsing binaries, cyclotron emitters) encoding fundamental interactions in extreme environments.
-
-- **Outlook and References:** A follow-up paper will provide rigorous statistical benchmarking and full GP derivations; the algorithm and GPU code are publicly available, with application to ZTF's 1.5 billion-object dataset ongoing ([arXiv:2502.00243](https://arxiv.org/abs/2502.00243)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies Gaussian Process machine learning methodology to classical astrophysical time-series analysis, producing a period-finding algorithm that is both theoretically grounded and computationally scalable to billion-source surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">FPW shows how GP-derived probabilistic frameworks can be condensed into simple, hardware-accelerated statistics, offering a template for deploying ML-inspired inference at production scale in data-intensive science.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By detecting periodic signals across the full waveform diversity of variable stars, FPW expands access to compact object physics (accreting white dwarfs, eclipsing binaries, cyclotron emitters) encoding fundamental interactions in extreme environments.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">A follow-up paper will provide rigorous statistical benchmarking and full GP derivations; the algorithm and GPU code are publicly available, with application to ZTF's 1.5 billion-object dataset ongoing ([arXiv:2502.00243](https://arxiv.org/abs/2502.00243)).</span></div></div>
+</div>

@@ -61,7 +61,7 @@ The researchers trained their model on the **CAMELS Multifield Dataset**, a coll
 
 The core architecture is a **denoising diffusion probabilistic model (DDPM)**, a neural network that learns to reverse a gradual noising process. Think of it like teaching a network to restore a painting from static. You corrupt the original with noise in small, controlled steps, then train the model to undo them. At inference time, you start from pure noise and let the model sculpt it into a realistic cosmic field.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2312_07534/figure_1.png)
 
 Two design choices made the physics work:
 
@@ -72,7 +72,7 @@ Training proceeded in two stages. First, train on downsampled 64×64 images for 
 
 The generated fields' power spectra matched the simulated distribution closely for three validation parameter sets, with z-scores near zero across nearly all wavenumber bins. The best checkpoint achieved a mean reduced chi-squared of 1.30, versus 1.27 for actual simulation samples. A perfect match scores 1.0. These numbers put the diffusion model's fields statistically on par with real simulations.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2312_07534/figure_1.png)
 
 The model also captures differential signatures. Increasing Ωm boosts power across all scales and shifts the pixel value distribution. Changes in σ8 affect only large scales. These are physically meaningful distinctions the model picked up without being explicitly told.
 
@@ -88,9 +88,9 @@ Open questions remain. How well does the model generalize beyond its training pa
 
 > **Bottom Line:** Diffusion models trained on cosmological simulations can generate statistically faithful dark matter density fields *and* recover tight cosmological parameter constraints, doing with one neural network what previously required two separate modeling pipelines.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects generative AI and observational cosmology, showing that the diffusion model architecture powering modern image synthesis can faithfully encode the physical statistics of the cosmic web.
-- **Impact on Artificial Intelligence:** Conditional diffusion models can function simultaneously as high-fidelity scientific emulators and probabilistic inference engines, extending their utility well beyond creative image generation.
-- **Impact on Fundamental Interactions:** By accurately emulating cold dark matter density fields and recovering tight constraints on Ωm and σ8, this approach offers a scalable path to field-level cosmological inference from next-generation surveys.
-- **Outlook and References:** Future work could extend this framework to 3D fields, baryonic tracers, and larger parameter spaces. The paper was presented at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023. [arXiv:2312.07534](https://arxiv.org/abs/2312.07534)
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects generative AI and observational cosmology, showing that the diffusion model architecture powering modern image synthesis can faithfully encode the physical statistics of the cosmic web.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Conditional diffusion models can function simultaneously as high-fidelity scientific emulators and probabilistic inference engines, extending their utility well beyond creative image generation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By accurately emulating cold dark matter density fields and recovering tight constraints on Ωm and σ8, this approach offers a scalable path to field-level cosmological inference from next-generation surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this framework to 3D fields, baryonic tracers, and larger parameter spaces. The paper was presented at the Machine Learning and the Physical Sciences Workshop at NeurIPS 2023. [arXiv:2312.07534](https://arxiv.org/abs/2312.07534)</span></div></div>
+</div>

@@ -32,7 +32,7 @@ pdfUrl: https://arxiv.org/pdf/2303.08162v2
 published: '2023-03-14T18:21:50+00:00'
 theme: Theoretical Physics
 title: 'Artificial intelligence for artificial materials: moiré atom'
-wordCount: 1243
+wordCount: 1207
 ---
 
 ## The Big Picture
@@ -53,7 +53,7 @@ A team from MIT and Harvard has cut through this complexity using a 2D fermionic
 
 The starting point is a deceptively clean model. In semiconductor moiré heterostructures (layered combinations like WSe₂ on WS₂, or twisted molybdenum diselenide bilayers) electrons feel two things: a gently varying periodic potential with the periodicity of the moiré lattice, and the electrical repulsion of every other electron. The **continuum Hamiltonian**, the equation describing all forces on the electrons, is essentially the old "jellium model" of electron gases, now living in a potential with crystal symmetry rather than in flat space.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2303_08162/figure_1.png)
 
 The researchers focused on a single moiré potential minimum, one isolated atom. They expanded the moiré potential around its minimum up to sixth order in distance from the center, yielding a harmonic oscillator core plus higher-order **moiré crystal field** corrections. These corrections warp the bowl into hexagonal or triangular shapes depending on a phase parameter φ, which is controlled by the choice of material.
 
@@ -74,13 +74,13 @@ For a single electron, the charge density hugs the bottom of the potential well 
 
 Electrical repulsion fights confinement, and the electrons arrange into geometric patterns (triangles, squares, pentagons) like charges evenly distributed on a tiny two-dimensional cage. These are **Wigner molecules**, named for Eugene Wigner, who predicted that strongly interacting electrons would crystallize into ordered arrangements. Wigner molecules were already known in semiconductor quantum dots, but the moiré setting adds a twist: the crystal field breaks rotational symmetry and locks the Wigner molecule's orientation to the underlying lattice, making each pattern a fingerprint of the material's symmetry.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2303_08162/figure_2.png)
 
 This isn't just theory. Scanning tunneling microscopy (STM) can image electron density at atomic resolution, and modern STM experiments on moiré systems have already resolved individual trapped electrons. The charge density patterns predicted by the neural network, whether triangular or hexagonal depending on φ, should be directly observable.
 
 That means you could measure the charge density shape in a known TMD heterostructure and infer the interaction strength and crystal field symmetry, effectively using the moiré atom as a quantum sensor for its own physics.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2303_08162/figure_3.png)
 
 The payoff runs in two directions. For condensed matter physics, neural networks can now solve strongly-correlated continuum models without the approximations that held back earlier methods: no band truncation, no self-interaction error, no neglected quantum correlations. For machine learning, neural network quantum states have arrived as practical tools for real materials problems, not just toy models.
 
@@ -88,12 +88,9 @@ FermiNet was first developed for quantum chemistry of real atoms. Now it extends
 
 > **Bottom Line:** A fermionic neural network solved a quantum many-body problem that defeated conventional methods, predicting Wigner molecule electron arrangements in moiré atoms. This is a concrete, testable prediction for STM experiments and a proof of concept for AI-driven study of artificial quantum materials.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work brings neural network quantum state methods together with the physics of moiré heterostructures, showing that machine learning architectures can directly address open problems in strongly-correlated condensed matter.
-
-- **Impact on Artificial Intelligence:** FermiNet-style fermionic neural networks now extend into 2D materials physics, achieving accuracies beyond exact diagonalization, Hartree-Fock, and density functional theory in the relevant parameter regime.
-
-- **Impact on Fundamental Interactions:** By predicting observable Wigner molecule charge density profiles in moiré atoms, the research connects the abstract many-body Coulomb problem to a measurable STM signature, establishing moiré atoms as a tunable system for studying strong electron correlations.
-
-- **Outlook and References:** Future work will extend this approach to coupled moiré atom arrays and finite-temperature dynamics, with potential to guide the design of engineered quantum phases; full results appear at [arXiv:2303.08162](https://arxiv.org/abs/2303.08162).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work brings neural network quantum state methods together with the physics of moiré heterostructures, showing that machine learning architectures can directly address open problems in strongly-correlated condensed matter.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">FermiNet-style fermionic neural networks now extend into 2D materials physics, achieving accuracies beyond exact diagonalization, Hartree-Fock, and density functional theory in the relevant parameter regime.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By predicting observable Wigner molecule charge density profiles in moiré atoms, the research connects the abstract many-body Coulomb problem to a measurable STM signature, establishing moiré atoms as a tunable system for studying strong electron correlations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this approach to coupled moiré atom arrays and finite-temperature dynamics, with potential to guide the design of engineered quantum phases; full results appear at [arXiv:2303.08162](https://arxiv.org/abs/2303.08162).</span></div></div>
+</div>

@@ -37,7 +37,7 @@ pdfUrl: https://arxiv.org/pdf/2206.14820v2
 published: '2022-06-29T18:00:01+00:00'
 theme: Astrophysics
 title: Strong Lensing Source Reconstruction Using Continuous Neural Fields
-wordCount: 1044
+wordCount: 1005
 ---
 
 ## The Big Picture
@@ -56,7 +56,7 @@ Siddharth Mishra-Sharma and Ge Yang tackle this with a new approach. They treat 
 
 Rather than directly inverting the lensed image, the method builds a forward model: a **differentiable renderer** (a physics simulator designed so that optimization algorithms can systematically adjust its inputs to better match observed data) that simulates what any source galaxy would look like after being lensed by a given foreground mass. Then it optimizes backward, asking: what source and lens configuration best explains the observed image?
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2206_14820/figure_1.png)
 
 The pipeline has three main components:
 
@@ -66,7 +66,7 @@ The pipeline has three main components:
 
 3. **Variational inference over everything.** With both the source (neural network weights) and the lens (7 physical parameters) as unknowns, the method applies **gradient-based variational inference** (a technique for efficiently mapping the full range of plausible solutions consistent with the data) to simultaneously optimize the neural field and estimate a probability distribution over lens parameters. Rather than yielding a single best-fit answer, this produces a **posterior** that captures our uncertainty about the lens configuration.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2206_14820/figure_2.png)
 
 The results on simulated data hold up well. Tested on a mock lensed image of galaxy NGC2906, the reconstructed source closely matches the true source, with residuals consistent with noise. The predicted lensed image agrees with the true observation at the noise level, and the recovered posterior over lens parameters correctly encompasses the true values.
 
@@ -78,12 +78,9 @@ The continuous neural field approach scales naturally. The source network doesn'
 
 > **Bottom Line:** Neural fields offer a flexible, resolution-independent way to reconstruct complex galaxy morphologies from gravitational lensing observations. Combining them with differentiable physics simulators and variational inference enables principled uncertainty quantification over both source and lens, which is what next-generation surveys will need.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits squarely at the intersection of neural representation learning and observational astrophysics, applying continuous neural fields to a classical inverse problem in gravitational lensing that has resisted clean solutions for decades.
-
-- **Impact on Artificial Intelligence:** Implicit neural representations, typically used in computer vision for 3D scene reconstruction, transfer effectively to physics-driven inverse problems when embedded in a differentiable simulation framework with variational inference.
-
-- **Impact on Fundamental Interactions:** High-fidelity, probabilistic reconstruction of strongly lensed source galaxies improves our ability to probe dark matter substructure and measure cosmological parameters like the Hubble constant from next-generation survey data.
-
-- **Outlook and References:** Future work will extend this approach to real telescope data and explore more expressive lens mass models. The full method is described in [arXiv:2206.14820](https://arxiv.org/abs/2206.14820).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits squarely at the intersection of neural representation learning and observational astrophysics, applying continuous neural fields to a classical inverse problem in gravitational lensing that has resisted clean solutions for decades.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Implicit neural representations, typically used in computer vision for 3D scene reconstruction, transfer effectively to physics-driven inverse problems when embedded in a differentiable simulation framework with variational inference.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">High-fidelity, probabilistic reconstruction of strongly lensed source galaxies improves our ability to probe dark matter substructure and measure cosmological parameters like the Hubble constant from next-generation survey data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend this approach to real telescope data and explore more expressive lens mass models. The full method is described in [arXiv:2206.14820](https://arxiv.org/abs/2206.14820).</span></div></div>
+</div>

@@ -50,7 +50,7 @@ published: '2023-02-23T18:54:27+00:00'
 theme: Theoretical Physics
 title: 'Q-Flow: Generative Modeling for Differential Equations of Open Quantum Dynamics
   with Normalizing Flows'
-wordCount: 989
+wordCount: 977
 ---
 
 ## The Big Picture
@@ -69,7 +69,7 @@ The core trick in Q-Flow is a change of representation. Instead of working with 
 
 The Q function is a *quasi-probability distribution*: real-valued, always non-negative, and normalized like an ordinary probability distribution. The "quasi" prefix is a physicist's caveat. It encodes quantum information, but looks classical from the outside.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2302_12235/figure_1.png)
 
 What does this buy you? The **quantum master equation** governing how the density matrix evolves becomes a **partial differential equation (PDE)** for the Q function. High-dimensional, yes, but living entirely in the world of real-valued probability distributions. And modeling probability distributions is exactly what modern generative AI excels at.
 
@@ -80,17 +80,17 @@ Training the flow to follow the Q function's time evolution required two complem
 - **Euler-KL method**: Advances the simulation one small time step at a time. At each step, the current flow predicts the Q function a moment later, and **KL divergence**, a standard measure of distributional mismatch, adjusts the flow to match. Conceptually clean and scalable.
 - **TDVP (Time-Dependent Variational Principle)**: A more sophisticated update derived from the Euler approach that accounts for the internal geometry of the model's parameter space, making updates more efficient and better-conditioned.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2302_12235/figure_1.png)
 
 The team tested Q-Flow on two canonical problems: the **dissipative harmonic oscillator** and a **dissipative bosonic model**, both run across increasing numbers of dimensions. In low dimensions, Q-Flow matches or beats traditional PDE solvers (finite-difference and pseudo-spectral methods) in accuracy. As dimension increases, those classical methods collapse under exponential cost. Q-Flow doesn't.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2302_12235/figure_2.png)
 
 Q-Flow also outperforms **physics-informed neural networks (PINNs)**, a popular approach that trains neural networks to satisfy PDE residuals. PINNs struggle to scale. Q-Flow's normalizing flow representation is better matched to high-dimensional probability distributions, and the Euler-KL training signal is more stable than minimizing raw residuals.
 
 The real takeaway: for Q-Flow, the computational bottleneck is no longer *dimension* but the *complexity of the Q function itself*. If the quantum state isn't wildly irregular, Q-Flow handles systems that are completely out of reach for conventional methods.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2302_12235/figure_2.png)
 
 ## Why It Matters
 
@@ -102,9 +102,9 @@ The Husimi Q function is a real probability distribution. So use tools built for
 
 > **Bottom Line:** Q-Flow turns the simulation of open quantum systems into a generative modeling problem by working with the Husimi Q function instead of the density matrix. This makes state-of-the-art deep learning tools available for high-dimensional quantum physics, outperforming both classical PDE solvers and physics-informed neural networks where it counts most.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** Q-Flow connects deep generative modeling and open quantum system simulation by reformulating quantum dynamics as a PDE over a real probability distribution, allowing direct application of machine learning tools to fundamental physics problems.
-- **Impact on Artificial Intelligence:** The work introduces novel training methods, Euler-KL and TDVP, for teaching normalizing flows to evolve according to high-dimensional PDEs, pushing the state of the art in physics-constrained generative modeling.
-- **Impact on Fundamental Interactions:** Q-Flow provides scalable simulation of continuous-variable open quantum systems in high dimensions, a regime where all prior methods fail, with direct applications to quantum computing and quantum engineering.
-- **Outlook and References:** Future directions include extending Q-Flow to fermionic systems, exploring diffusion models and flow matching as alternative architectures, and applying the framework to real quantum hardware noise modeling; the full paper is available at [arXiv:2302.12235](https://arxiv.org/abs/2302.12235).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Q-Flow connects deep generative modeling and open quantum system simulation by reformulating quantum dynamics as a PDE over a real probability distribution, allowing direct application of machine learning tools to fundamental physics problems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The work introduces novel training methods, Euler-KL and TDVP, for teaching normalizing flows to evolve according to high-dimensional PDEs, pushing the state of the art in physics-constrained generative modeling.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Q-Flow provides scalable simulation of continuous-variable open quantum systems in high dimensions, a regime where all prior methods fail, with direct applications to quantum computing and quantum engineering.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending Q-Flow to fermionic systems, exploring diffusion models and flow matching as alternative architectures, and applying the framework to real quantum hardware noise modeling; the full paper is available at [arXiv:2302.12235](https://arxiv.org/abs/2302.12235).</span></div></div>
+</div>

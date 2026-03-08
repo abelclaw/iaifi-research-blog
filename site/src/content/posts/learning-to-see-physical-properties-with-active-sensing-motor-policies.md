@@ -63,13 +63,13 @@ The MIT team's answer: don't use human labels at all. Instead, teach the robot t
 
 The system unfolds in four interlocking stages, each feeding into the next.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_01405/figure_1.png)
 
 The foundation is **Active Sensing Motor Policies (ASMP)**, the paper's central contribution and a new idea about how robots should move. Standard locomotion controllers are trained to get efficiently from A to B. ASMPs do something subtler: move in ways that *reveal* physical information about the ground.
 
 The policy receives an **estimation reward**, a bonus signal tied to how accurately the robot's onboard **state estimator** can measure terrain slipperiness or roughness. The state estimator is a software module trained entirely in simulation to infer hidden physical conditions from sensor readings. The result is emergent, almost animal-like behavior: the quadruped learns on its own to drag a foot sideways to probe friction, or vary its gait to make roughness measurable. Nobody programmed that swiping motion. The robot discovered it because sliding a foot is simply the most informative thing it can do.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_01405/figure_1.png)
 
 Here's how the full pipeline chains together:
 
@@ -94,12 +94,9 @@ Open questions remain. The current system focuses on two parameters, friction an
 
 > **Bottom Line:** By teaching a robot to move in physically revealing ways, MIT researchers built a self-labeling loop that transfers physical intuition from body to eye. The resulting vision system generalizes across viewpoints that task-specific models cannot handle.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects robotics control theory, physics-based simulation, and computer vision, using physical parameter estimation as the connective tissue between a robot's bodily experience and its visual perception of the world.
-
-- **Impact on Artificial Intelligence:** The Active Sensing Motor Policy framework offers a new take on active perception: the agent learns which actions maximize informational value, rather than relying on hand-designed information-gathering behavior.
-
-- **Impact on Fundamental Interactions:** The pipeline treats terrain as a dynamical system with measurable physical parameters (friction coefficients, roughness magnitudes), showing that sim-to-real transfer of physics-based estimators can ground real-world machine perception in genuine physical quantities.
-
-- **Outlook and References:** Future work may extend active sensing to richer terrain parameter spaces. The paper is available at [arXiv:2311.01405](https://arxiv.org/abs/2311.01405).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects robotics control theory, physics-based simulation, and computer vision, using physical parameter estimation as the connective tissue between a robot's bodily experience and its visual perception of the world.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Active Sensing Motor Policy framework offers a new take on active perception: the agent learns which actions maximize informational value, rather than relying on hand-designed information-gathering behavior.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The pipeline treats terrain as a dynamical system with measurable physical parameters (friction coefficients, roughness magnitudes), showing that sim-to-real transfer of physics-based estimators can ground real-world machine perception in genuine physical quantities.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend active sensing to richer terrain parameter spaces. The paper is available at [arXiv:2311.01405](https://arxiv.org/abs/2311.01405).</span></div></div>
+</div>

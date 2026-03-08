@@ -46,7 +46,7 @@ published: '2025-05-30T18:00:18+00:00'
 theme: Astrophysics
 title: 'SPLASH: A Rapid Host-Based Supernova Classifier for Wide-Field Time-Domain
   Surveys'
-wordCount: 1113
+wordCount: 1057
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ The Vera C. Rubin Observatory, launching its **Legacy Survey of Space and Time (
 
 The SPLASH pipeline has three stages, each feeding into the next.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2506_00121/figure_1.png)
 
 **Stage 1: Finding the host.** When LSST flags a new transient, SPLASH identifies which galaxy it belongs to using **directional light radius (DLR) association**, a method that accounts for the angular separation between the supernova and potential host galaxies as well as the shape and orientation of those galaxies. This step also yields a **photometric redshift**: an estimate of how far away the supernova is, derived from the host's light profile.
 
@@ -76,7 +76,7 @@ These aren't just convenient numbers. Old, massive, "red and dead" elliptical ga
 
 **Stage 3: The random forest classifier.** SPLASH takes the inferred stellar mass, star formation rate, host-SN angular separation, and redshift and feeds them into a **random forest**, an ensemble of decision trees that votes on the most likely supernova type. The classifier handles both binary classification (Type Ia vs. core-collapse) and finer-grained multi-class scenarios covering subtypes like Type Ib/c, Type II, and superluminous supernovae (SLSNe).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2506_00121/figure_2.png)
 
 The results are competitive with state-of-the-art photometric classifiers: 76% binary accuracy and a 69% F1-score, a combined measure of how well the classifier avoids both false alarms and missed detections. SPLASH can also tune its confidence threshold to return highly pure samples. If you only want confident Type Ia candidates for a cosmology study, you can dial up the purity at the cost of completeness. That kind of flexibility matters enormously for real observational programs.
 
@@ -88,16 +88,13 @@ SPLASH's value goes beyond speed, though. Because it infers physical host proper
 
 This opens the door to population-level studies of how stellar death rates vary with galactic environment, a window into the life cycles of stars across cosmic time. As LSST's dataset grows over its ten-year run, tools like SPLASH will be essential for carving massive catalogs into scientifically meaningful subpopulations.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2506_00121/figure_3.png)
 
 > **Bottom Line:** SPLASH classifies 500 supernovae per second using only host galaxy photometry, achieving 76% accuracy at the moment of detection. It's an ideal first-response tool for the data tsunami that LSST is about to unleash.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** SPLASH sits squarely at the intersection of astrophysics and machine learning. Deep neural networks extract galaxy physics from photometry, then feed those physical priors into a downstream classifier. The pipeline architecture mirrors the real causal chain from stellar environment to stellar death.
-
-- **Impact on Artificial Intelligence:** The two-stage approach (inferring interpretable physical properties before classification, rather than classifying from raw photometry) shows how embedding domain knowledge into an ML pipeline can improve generalization while also producing a scientifically useful intermediate product.
-
-- **Impact on Fundamental Interactions:** Rapid, environment-aware classification of millions of supernovae accelerates discovery on multiple fronts: constraining progenitor physics, measuring the cosmic equation of state through Type Ia cosmology, and mapping how star formation history drives transient demographics.
-
-- **Outlook and References:** Future work will incorporate photometric light-curve data alongside host properties to push accuracy further, and the pipeline can scale with LSST's alert stream from day one; see [arXiv:2506.00121](https://arxiv.org/abs/2506.00121) (Boesky et al. 2025).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">SPLASH sits squarely at the intersection of astrophysics and machine learning. Deep neural networks extract galaxy physics from photometry, then feed those physical priors into a downstream classifier. The pipeline architecture mirrors the real causal chain from stellar environment to stellar death.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The two-stage approach (inferring interpretable physical properties before classification, rather than classifying from raw photometry) shows how embedding domain knowledge into an ML pipeline can improve generalization while also producing a scientifically useful intermediate product.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Rapid, environment-aware classification of millions of supernovae accelerates discovery on multiple fronts: constraining progenitor physics, measuring the cosmic equation of state through Type Ia cosmology, and mapping how star formation history drives transient demographics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will incorporate photometric light-curve data alongside host properties to push accuracy further, and the pipeline can scale with LSST's alert stream from day one; see [arXiv:2506.00121](https://arxiv.org/abs/2506.00121) (Boesky et al. 2025).</span></div></div>
+</div>

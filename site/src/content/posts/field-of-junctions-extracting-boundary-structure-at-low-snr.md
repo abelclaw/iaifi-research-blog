@@ -60,13 +60,13 @@ The central building block is deceptively elegant. The researchers define a **ge
 - A corner (two wedges meeting at an acute angle)
 - A junction of degree M (M wedges, M boundary rays meeting at a point)
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2011_13866/figure_1.png)
 
 To analyze an entire image, the model fits M+2 parameters to dense, overlapping small patches at every location: the M angles, the vertex position, and the regional colors. This requires solving a non-convex optimization problem (a mathematical search where the landscape has many local valleys, making it easy to get stuck before finding the best answer) across the full image simultaneously. Patches share information with their neighbors, so a noisy patch with ambiguous boundary evidence gets help from surrounding patches where the signal is clearer.
 
 Making the optimization work demanded two innovations. First, a greedy initialization algorithm builds up the junction configuration one wedge at a time, establishing good starting conditions before the global search begins. Second, a novel **spatial regularizer**, a mathematical penalty that steers the model toward smooth, physically plausible boundaries, penalizes boundary curvature while *simultaneously* preserving sharp corners and multi-way junctions. Previous curvature-minimization methods couldn't do this because they only handled two-region boundaries.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2011_13866/figure_1.png)
 
 The regularizer's design is subtle but important. Traditional curvature penalties round off corners because the math doesn't distinguish between a corner that should be sharp and curvature that should be smoothed away. The field of junctions sidesteps this by encoding the distinction structurally: corners and junctions are zero-dimensional events that the model *explicitly represents*. The regularizer then smooths contours *between* them without blurring the junctions themselves.
 
@@ -82,12 +82,9 @@ The framework also produces an *interpretable* intermediate representation: not 
 
 > **Bottom Line:** The field of junctions reframes boundary detection as a cooperative, unified problem. In doing so, it achieves noise tolerance that leaves specialized, state-of-the-art methods behind, pointing toward a new class of interpretable, model-based vision primitives.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work draws on optimization theory, signal processing, and computational geometry to build a vision model that behaves more like a physicist's structured inference problem than a traditional machine learning system.
-
-- **Impact on Artificial Intelligence:** The field of junctions shows that carefully designed model-based representations can outperform deep neural networks in high-noise regimes, offering a principled alternative for domains where large labeled datasets are unavailable or imaging conditions are extreme.
-
-- **Impact on Fundamental Interactions:** Boundary extraction from noisy images is directly relevant to scientific imaging in physics, from detecting particle tracks in detectors to parsing structure in astronomical observations, where signal-to-noise constraints are severe.
-
-- **Outlook and References:** Future work may explore integrating the field of junctions as a structural prior within neural architectures and extending the framework to 3D or temporal data; the paper is available at [arXiv:2011.13866](https://arxiv.org/abs/2011.13866).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work draws on optimization theory, signal processing, and computational geometry to build a vision model that behaves more like a physicist's structured inference problem than a traditional machine learning system.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The field of junctions shows that carefully designed model-based representations can outperform deep neural networks in high-noise regimes, offering a principled alternative for domains where large labeled datasets are unavailable or imaging conditions are extreme.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Boundary extraction from noisy images is directly relevant to scientific imaging in physics, from detecting particle tracks in detectors to parsing structure in astronomical observations, where signal-to-noise constraints are severe.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may explore integrating the field of junctions as a structural prior within neural architectures and extending the framework to 3D or temporal data; the paper is available at [arXiv:2011.13866](https://arxiv.org/abs/2011.13866).</span></div></div>
+</div>

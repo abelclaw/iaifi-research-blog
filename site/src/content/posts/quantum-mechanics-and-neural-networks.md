@@ -63,13 +63,13 @@ That expansion is exactly a neural network. The network's neurons correspond to 
 
 These properties hold for every legitimate quantum mechanical system. So every quantum system already lives inside a neural network.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2504_05462/figure_1.png)
 
 Correlation functions computed in imaginary time must also satisfy **reflection positivity (RP)** to guarantee a valid real-time quantum theory. Reflection positivity is the imaginary-time expression of unitarity, the requirement that probabilities add up to one. How do you ensure a neural network has this property?
 
 Ferko and Halverson identify two mechanisms. A **parameter splitting** method divides the network's parameter space into two halves, one for positive times and one for negative, and constrains their relationship so that reflection positivity is forced into any architecture. A second, more elegant route: **Markov processes** (random walks where only the current state matters) are automatically reflection positive. This second route turns out to be especially productive.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2504_05462/figure_1.png)
 
 ### Deep Neural Network Quantum Mechanics
 
@@ -83,11 +83,11 @@ The authors test this framework numerically using the **Ornstein-Uhlenbeck (OU) 
 - **Non-trivial commutators**: $[x, p] = i\hbar$ arises because paths are *nowhere differentiable*, too rough to have well-defined slopes. This roughness is the mechanism by which non-commutativity enters the theory.
 - **Energy spectrum**: reconstructed eigenvalues recover the correct harmonic oscillator spectrum
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2504_05462/figure_2.png)
 
 Passing the OU process through increasingly complex architectures (deeper networks, different activation functions) produces genuinely different quantum systems. The machinery works.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2504_05462/figure_2.png)
 
 ## Why It Matters
 
@@ -97,9 +97,9 @@ The practical payoff runs in both directions. If every quantum system has a neur
 
 Open directions include extending the framework to quantum field theories in higher dimensions, mapping specific architectures to classes of quantum systems, and understanding how training dynamics modify quantum properties.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2504_05462/figure_3.png)
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2504_05462/figure_3.png)
 
 For decades, physicists have used neural networks as tools to probe quantum systems. This paper argues the relationship is more intimate: quantum mechanics and neural networks are, in a precise mathematical sense, the same kind of object.
 
@@ -107,18 +107,15 @@ For decades, physicists have used neural networks as tools to probe quantum syst
 
 ---
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work proves a mathematical equivalence between quantum mechanics and neural network ensembles, connecting machine learning theory directly to the foundations of quantum physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Neural network architectures can systematically encode physical constraints like unitarity and reflection positivity, giving a principled route to building physics-respecting AI systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Deep neural networks define valid quantum systems, offering a new non-Lagrangian route to constructing and classifying quantum mechanical theories without traditional action-based methods.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending the framework to quantum field theories in higher dimensions and connecting network expressivity to the space of physically realizable quantum systems; see [arXiv:2504.05462](https://arxiv.org/abs/2504.05462).
 
-- **Interdisciplinary Research Achievement:** This work proves a mathematical equivalence between quantum mechanics and neural network ensembles, connecting machine learning theory directly to the foundations of quantum physics.
-
-- **Impact on Artificial Intelligence:** Neural network architectures can systematically encode physical constraints like unitarity and reflection positivity, giving a principled route to building physics-respecting AI systems.
-
-- **Impact on Fundamental Interactions:** Deep neural networks define valid quantum systems, offering a new non-Lagrangian route to constructing and classifying quantum mechanical theories without traditional action-based methods.
-
-- **Outlook and References:** Future directions include extending the framework to quantum field theories in higher dimensions and connecting network expressivity to the space of physically realizable quantum systems; see [arXiv:2504.05462](https://arxiv.org/abs/2504.05462).
-
-## Original Paper Details
-- **Title:** Quantum Mechanics and Neural Networks
-- **arXiv ID:** [2504.05462](https://arxiv.org/abs/2504.05462)
-- **Authors:** Christian Ferko, James Halverson
-- **Abstract:** We demonstrate that any Euclidean-time quantum mechanical theory may be represented as a neural network, ensured by the Kosambi-Karhunen-Loève theorem, mean-square path continuity, and finite two-point functions. The additional constraint of reflection positivity, which is related to unitarity, may be achieved by a number of mechanisms, such as imposing neural network parameter space splitting or the Markov property. Non-differentiability of the networks is related to the appearance of non-trivial commutators. Neural networks acting on Markov processes are no longer Markov, but still reflection positive, which facilitates the definition of deep neural network quantum systems. We illustrate these principles in several examples using numerical implementations, recovering classic quantum mechanical results such as Heisenberg uncertainty, non-trivial commutators, and the spectrum.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Quantum Mechanics and Neural Networks</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2504.05462](https://arxiv.org/abs/2504.05462)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Christian Ferko, James Halverson</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We demonstrate that any Euclidean-time quantum mechanical theory may be represented as a neural network, ensured by the Kosambi-Karhunen-Loève theorem, mean-square path continuity, and finite two-point functions. The additional constraint of reflection positivity, which is related to unitarity, may be achieved by a number of mechanisms, such as imposing neural network parameter space splitting or the Markov property. Non-differentiability of the networks is related to the appearance of non-trivial commutators. Neural networks acting on Markov processes are no longer Markov, but still reflection positive, which facilitates the definition of deep neural network quantum systems. We illustrate these principles in several examples using numerical implementations, recovering classic quantum mechanical results such as Heisenberg uncertainty, non-trivial commutators, and the spectrum.</span></div></div>
+</div>

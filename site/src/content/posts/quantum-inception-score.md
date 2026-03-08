@@ -44,7 +44,7 @@ pdfUrl: https://arxiv.org/pdf/2311.12163v4
 published: '2023-11-20T20:28:30+00:00'
 theme: Foundational AI
 title: Quantum Inception Score
-wordCount: 1174
+wordCount: 1114
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ A team from the University of Massachusetts Boston and Keio University has now b
 
 The classical inception score works by feeding generated samples through a classifier and measuring how confidently and diversely the classifier responds. High confidence on individual samples plus high diversity across samples equals a high score. Mathematically, it reduces to **mutual information** between generated samples and classifier labels: how much knowing one tells you about the other.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_12163/figure_1.png)
 
 The qIS construction follows the same logic but replaces every component with its quantum counterpart. Instead of a classical probability distribution over labels, the quantum classifier produces a **quantum channel**, a map that transforms quantum states into other quantum states. The relevant information measure becomes the **Holevo information**, which quantifies the maximum classical information extractable from a quantum communication channel. The qIS is defined as the Holevo information of the quantum classifier channel acting on the generated quantum states.
 
@@ -79,11 +79,11 @@ The paper also tests qIS in practice. The authors apply it to classifying phases
 
 The quantum generative model is a **variational quantum circuit**, a programmable sequence of quantum operations whose parameters are tuned by an optimization algorithm, much like training a neural network. The classifier is a **quantum convolutional neural network (QCNN)**, a quantum analogue of the image-recognition networks that power modern computer vision. It processes generated states through alternating layers of local quantum gates, progressively coarse-graining the system until a phase label emerges.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_12163/figure_2.png)
 
 By computing qIS and comparing it to cIS, the researchers can quantify exactly how much the quantum nature of the generator and classifier contributes to performance. The gap between qIS and cIS becomes a diagnostic: not just "is this model good?" but "how quantum is its advantage?"
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2311_12163/figure_3.png)
 
 ## Why It Matters
 
@@ -93,12 +93,9 @@ For physics, the connection between generative model quality, quantum informatio
 
 > **Bottom Line:** The quantum inception score gives the field its first principled metric for quantum generative models, proving that quantum coherence and entanglement translate directly into measurable quality gains, with thermodynamics setting the ultimate limit.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects quantum information theory, machine learning, and condensed matter physics by defining a quality metric for quantum generative models grounded in Holevo information and the resource theory of asymmetry.
-
-- **Impact on Artificial Intelligence:** The quantum inception score provides the quantum ML community with a rigorous, computable benchmark analogous to the classical inception score, enabling systematic evaluation and comparison of quantum generative models.
-
-- **Impact on Fundamental Interactions:** By applying qIS to quantum phase classification in 1D spin chains, the work shows how quantum generative models can be formally assessed on tasks central to quantum many-body physics, with performance directly tied to quantum coherence.
-
-- **Outlook and References:** Future work may extend qIS to mixed-state generators, study its behavior near phase transitions, and develop hardware-efficient methods to estimate Holevo information on near-term devices; the paper by Sone, Tanji, and Yamamoto is available at [arXiv:2311.12163](https://arxiv.org/abs/2311.12163).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects quantum information theory, machine learning, and condensed matter physics by defining a quality metric for quantum generative models grounded in Holevo information and the resource theory of asymmetry.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The quantum inception score provides the quantum ML community with a rigorous, computable benchmark analogous to the classical inception score, enabling systematic evaluation and comparison of quantum generative models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By applying qIS to quantum phase classification in 1D spin chains, the work shows how quantum generative models can be formally assessed on tasks central to quantum many-body physics, with performance directly tied to quantum coherence.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend qIS to mixed-state generators, study its behavior near phase transitions, and develop hardware-efficient methods to estimate Holevo information on near-term devices; the paper by Sone, Tanji, and Yamamoto is available at [arXiv:2311.12163](https://arxiv.org/abs/2311.12163).</span></div></div>
+</div>

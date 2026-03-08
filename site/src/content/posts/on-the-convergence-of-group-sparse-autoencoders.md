@@ -43,7 +43,7 @@ pdfUrl: https://arxiv.org/pdf/2102.07003v2
 published: '2021-02-13T21:17:07+00:00'
 theme: Astrophysics
 title: On the convergence of group-sparse autoencoders
-wordCount: 1013
+wordCount: 929
 ---
 
 ## The Big Picture
@@ -62,7 +62,7 @@ An **autoencoder** is a neural network with two halves. An encoder compresses in
 
 Traditional autoencoders impose **sparsity**: they push most hidden neurons toward zero, forcing the network to represent data using only a handful of active units. This works, but it misses something. In many natural datasets, the nonzero activations don't scatter randomly. They cluster in blocks. Think of a light panel where you can only turn on entire rows at a time, never individual bulbs from different rows.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2102_07003/figure_1.png)
 
 The paper introduces a **group-sparse ReLU** (GReLU) activation function that enforces exactly this block structure. Where a standard ReLU zeroes out negative values one at a time, GReLU zeroes out entire groups of units if the group's total activation falls below a threshold. Active neurons appear in coherent blocks rather than arbitrary patterns.
 
@@ -75,7 +75,7 @@ The hard part is proving this actually converges. The team analyzes the **gradie
 
 This is a non-trivial result. The loss surface that autoencoders navigate during training is full of flat regions and deceptive local minima where learning can stall. Showing that gradient descent reliably finds the right answer, rather than getting stuck, required careful analysis of how the error signal behaves near the target.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2102_07003/figure_2.png)
 
 ## Why It Matters
 
@@ -83,7 +83,7 @@ In both simulated experiments and real data tests, networks using GReLU consiste
 
 There's also a direct connection to **clustering**. When a group-sparse network encodes an input, the particular group of units that activates acts as a label: all inputs activating the same group belong to the same cluster. The convergence results therefore imply that, under mild conditions, the network automatically discovers cluster membership in **union-of-subspaces** data models. Abstract optimization theory translates into a concrete capability: unsupervised classification without labels.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2102_07003/figure_3.png)
 
 For physics and astrophysics, group-sparse structure is a natural fit. Particle collision events, gravitational wave signals, and galaxy morphologies all exhibit natural grouping, and similar events share similar activation patterns in their latent representations. A network architecture with provable recovery guarantees is more trustworthy than a black-box approach, especially for scientific inference where interpretability matters.
 
@@ -91,12 +91,9 @@ The current theory handles shallow (single-layer) autoencoders. Extending conver
 
 > **Bottom Line:** Group-sparse autoencoders don't just work better empirically. They come with a mathematical certificate that gradient descent finds the right answer, putting structured-sparsity networks on rigorous theoretical footing for the first time.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects signal processing, optimization theory, and deep learning, building neural architectures on sparse coding, dictionary learning, and union-of-subspaces models — mathematical structures that appear throughout physics data analysis.
-
-- **Impact on Artificial Intelligence:** The paper provides the first convergence guarantees for group-sparse autoencoders, establishing that gradient descent reliably recovers underlying generative models when data exhibit block-structured sparsity. This is a significant step toward interpretable, model-based deep learning.
-
-- **Impact on Fundamental Interactions:** Group-sparse representations offer a mathematically grounded approach to unsupervised clustering in structured scientific datasets, with applications to physics signals that naturally cluster by event type, particle species, or morphological class.
-
-- **Outlook and References:** Future directions include extending convergence theory to deep multi-layer group-sparse networks and relaxing strict generative model assumptions; the full paper is available at [arXiv:2102.07003](https://arxiv.org/abs/2102.07003).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects signal processing, optimization theory, and deep learning, building neural architectures on sparse coding, dictionary learning, and union-of-subspaces models — mathematical structures that appear throughout physics data analysis.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper provides the first convergence guarantees for group-sparse autoencoders, establishing that gradient descent reliably recovers underlying generative models when data exhibit block-structured sparsity. This is a significant step toward interpretable, model-based deep learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Group-sparse representations offer a mathematically grounded approach to unsupervised clustering in structured scientific datasets, with applications to physics signals that naturally cluster by event type, particle species, or morphological class.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending convergence theory to deep multi-layer group-sparse networks and relaxing strict generative model assumptions; the full paper is available at [arXiv:2102.07003](https://arxiv.org/abs/2102.07003).</span></div></div>
+</div>

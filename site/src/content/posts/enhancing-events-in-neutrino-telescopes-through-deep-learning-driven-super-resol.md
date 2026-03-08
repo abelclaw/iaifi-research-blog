@@ -57,7 +57,7 @@ This sparse sampling limits how precisely scientists can reconstruct the directi
 
 Instead of adding real hardware, the team adds imaginary hardware. They define **virtual optical modules (virtual OMs)**, sensors that don't physically exist but whose readings the network learns to predict from the sensors that do.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2408_08474/figure_1.png)
 
 Here's the pipeline, step by step:
 
@@ -71,11 +71,11 @@ Here's the pipeline, step by step:
 
 5. **Decode and reconstruct.** The predicted latent vectors are decoded back into time series, and the now-complete, super-resolved event feeds into standard reconstruction algorithms.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2408_08474/figure_1.png)
 
 The network operates entirely in **latent space**, the compressed numerical world of the VAE's summaries, rather than on raw sensor data. This keeps computation tractable: instead of predicting nanosecond-by-nanosecond photon counts across 5,000 bins per sensor, the UNet works with 64-dimensional summaries. The team trained on roughly 500,000 simulated muon track events (muons being a heavier, unstable cousin of the electron), with 75,000 held aside for testing.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2408_08474/figure_2.png)
 
 One subtle challenge: sensors far from the neutrino interaction point record very few photons, making their timing distributions hard for the VAE to capture faithfully. But for reconstruction purposes, what matters most is the *first hit time* and the *peak position*, and the network captures both reliably.
 
@@ -89,12 +89,9 @@ There's a bigger point about detector design here. Next-generation telescopes li
 
 > **Bottom Line:** By teaching a neural network to predict the readings of sensors that don't exist, this IAIFI team has demonstrated a new strategy for neutrino telescope reconstruction, one that could sharpen the sight of both existing and future detectors without a single additional piece of hardware.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies deep learning super-resolution, a technique from computer vision, to particle astrophysics, showing that image-processing architectures like UNet++ can learn the physics of photon transport through kilometers of polar ice.
-
-- **Impact on Artificial Intelligence:** The paper introduces a two-stage encoding pipeline (VAE for temporal compression + UNet++ for spatial super-resolution) that handles the unique challenges of sparse, variable-length time series data in high-energy physics detectors.
-
-- **Impact on Fundamental Interactions:** Improved angular reconstruction of neutrino events will strengthen IceCube's and future telescopes' ability to identify astrophysical neutrino sources, advancing multi-messenger astronomy and the search for extreme cosmic accelerators.
-
-- **Outlook and References:** The authors plan to extend this technique to realistic IceCube geometries, cascade events, and water-based detectors; code is publicly available and the work appears on arXiv ([arXiv:2408.08474](https://arxiv.org/abs/2408.08474)).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies deep learning super-resolution, a technique from computer vision, to particle astrophysics, showing that image-processing architectures like UNet++ can learn the physics of photon transport through kilometers of polar ice.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a two-stage encoding pipeline (VAE for temporal compression + UNet++ for spatial super-resolution) that handles the unique challenges of sparse, variable-length time series data in high-energy physics detectors.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Improved angular reconstruction of neutrino events will strengthen IceCube's and future telescopes' ability to identify astrophysical neutrino sources, advancing multi-messenger astronomy and the search for extreme cosmic accelerators.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The authors plan to extend this technique to realistic IceCube geometries, cascade events, and water-based detectors; code is publicly available and the work appears on arXiv ([arXiv:2408.08474](https://arxiv.org/abs/2408.08474)).</span></div></div>
+</div>

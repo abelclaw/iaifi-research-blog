@@ -47,7 +47,7 @@ pdfUrl: https://arxiv.org/pdf/2409.13810v1
 published: '2024-09-20T18:00:00+00:00'
 theme: Astrophysics
 title: 'StreamGen: Connecting Populations of Streams and Shells to Their Host Galaxies'
-wordCount: 1158
+wordCount: 1146
 ---
 
 ## The Big Picture
@@ -70,7 +70,7 @@ StreamGen is built on top of **SatGen**, a semi-analytic galaxy formation code (
 
 For each of those ~1,500 host galaxies, the researchers tracked satellite populations and applied a theoretical model of **phase mixing**, the process by which tidal debris (stars torn loose by gravity) gradually loses coherence over time. Think of dropping dye into a swirling coffee cup: right after you drop it in, you see a streak (a stream); after enough stirring, the dye spreads into a diffuse cloud (a shell). The phase-mixing model translates this intuition into math, using a satellite's mass, orbital path, and interaction timescale to predict whether its debris looks more stream-like or shell-like.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2409_13810/figure_1.png)
 
 The researchers varied four key host galaxy properties across their sample:
 
@@ -79,7 +79,7 @@ The researchers varied four key host galaxy properties across their sample:
 - **Disk shape** — how thick or thin the disk is, measured by the ratio of its vertical height to its horizontal extent
 - **Stellar feedback model** — the physical recipe governing how supernovae and stellar winds regulate star formation
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2409_13810/figure_1.png)
 
 Each satellite is then classified as intact, stream-like, or shell-like. These classifications feed directly into population statistics: how many streams exist, where they orbit, and how that distribution shifts when you change the host.
 
@@ -87,22 +87,22 @@ Each satellite is then classified as intact, stream-like, or shell-like. These c
 
 The headline result is that *total counts* of tidal debris are stable across different host galaxy models, as long as you compare galaxies within the same mass range. Changing disk shape, feedback recipe, or other structural parameters doesn't dramatically alter how many streams or shells a galaxy hosts. That's good news for cosmologists, since it means debris abundance is a relatively reliable signal.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2409_13810/figure_2.png)
 
 But the *orbital energy distribution* of streams, essentially where in the galaxy those streams tend to orbit, is another story. Disk properties leave a clear fingerprint:
 
 - Galaxies with a thicker, lower-density disk host stream-like debris on lower-energy orbits, closer to the galactic center.
 - Galaxies with a more massive disk show a preference for streams on higher-energy orbits, farther out in the outer halo.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2409_13810/figure_2.png)
 
 This matters for interpreting Milky Way observations. The streams we see around our galaxy sit on notably low-energy orbits compared to simulated counterparts. StreamGen offers a physical explanation: a thicker or lower-mass Milky Way disk could naturally produce exactly that pattern, with no need to invoke exotic dark matter physics.
 
 The study also quantified **halo-to-halo variance**, the natural galaxy-to-galaxy scatter that exists even among galaxies with identical average properties. That variance is large enough that drawing firm conclusions from a single galaxy like our own Milky Way is inherently risky.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2409_13810/figure_3.png)
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2409_13810/figure_3.png)
 
 This work sits at the heart of **near-field cosmology**, the idea that we can test dark matter theories by studying the detailed structure of the Milky Way and its neighbors. Stellar streams are one of the sharpest tools in that toolkit, because their shapes and orbits encode information about the gravitational forces acting on them, and therefore about how dark matter is distributed around the galaxy.
 
@@ -112,12 +112,9 @@ One Milky Way is not enough. Only by simulating large samples of Milky Way-mass 
 
 > **Bottom Line:** StreamGen shows that a galaxy's disk structure leaves a measurable imprint on the orbital energies of its stellar streams. This cautions against one-to-one comparisons between the Milky Way and simulations that don't match its specific properties, and argues for population-level, statistical analyses in near-field cosmology.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** StreamGen combines a semi-analytic galaxy formation code with a phase-mixing classifier to systematically map how host galaxy properties shape tidal debris populations across ~1,500 simulated systems, linking computational astrophysics with statistical modeling.
-
-- **Impact on Artificial Intelligence:** The semi-analytic pipeline shows how fast, scalable surrogate modeling can stand in for computationally prohibitive full simulations when population-level inference is the goal, a strategy with clear applications in AI-assisted scientific discovery.
-
-- **Impact on Fundamental Interactions:** By showing that disk mass and thickness alter the orbital energy distribution of stellar streams, this work provides a necessary calibration for near-field cosmological probes of dark matter using observed streams in the Milky Way and external galaxies.
-
-- **Outlook and References:** Future work will integrate StreamGen predictions with upcoming Rubin/LSST stream catalogs and extend the framework to constrain dark matter models; the paper is available at [arXiv:2409.13810](https://arxiv.org/abs/2409.13810).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">StreamGen combines a semi-analytic galaxy formation code with a phase-mixing classifier to systematically map how host galaxy properties shape tidal debris populations across ~1,500 simulated systems, linking computational astrophysics with statistical modeling.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The semi-analytic pipeline shows how fast, scalable surrogate modeling can stand in for computationally prohibitive full simulations when population-level inference is the goal, a strategy with clear applications in AI-assisted scientific discovery.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that disk mass and thickness alter the orbital energy distribution of stellar streams, this work provides a necessary calibration for near-field cosmological probes of dark matter using observed streams in the Milky Way and external galaxies.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will integrate StreamGen predictions with upcoming Rubin/LSST stream catalogs and extend the framework to constrain dark matter models; the paper is available at [arXiv:2409.13810](https://arxiv.org/abs/2409.13810).</span></div></div>
+</div>

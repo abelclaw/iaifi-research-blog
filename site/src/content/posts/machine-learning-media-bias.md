@@ -65,7 +65,7 @@ These **phrase frequency signatures**, numerical fingerprints of which words app
 
 The team frames the problem as a classification task: given an article's phrase counts, predict which of the ~100 newspapers published it. But they don't actually care about getting the classification right. What matters is the **conditional probability distribution**, the underlying statistical patterns the model builds to distinguish one newspaper from another. Those learned patterns are themselves the signal about bias.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2109_00024/figure_1.png)
 
 Technically, the method centers on a **generalized Singular Value Decomposition (SVD)**, a mathematical technique that compresses thousands of phrase-count columns down to just two or three key dimensions. Standard SVD fails here for two reasons: it can produce nonsensical negative phrase counts, and it treats all observations equally even when some phrase counts are measured far more precisely than others.
 
@@ -79,15 +79,15 @@ Here's what's striking: this purely data-driven method recovers the same two-dim
 
 This result points toward real-time, scalable, transparent bias monitoring. Because the method is fully automated and relies only on publicly available text, it can be applied to new outlets, new topics, and new time periods without any additional human labeling. The team analyzes dozens of distinct news topics and finds that biases are correlated across them in consistent ways, which is precisely what allows the two-dimensional structure to emerge at all.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2109_00024/figure_1.png)
 
 Natural extensions include other languages, tracking how newspaper bias shifts over time, and applying similar techniques to social media, political speeches, or corporate press releases.
 
 > **Bottom Line:** Machine learning can measure media bias from phrase statistics alone, no human labels required. The resulting bias map matches expert classifications while being far more scalable and transparent than any human-driven alternative.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies physics-inspired mathematical tools (Poisson likelihood maximization and generalized SVD) to a social science problem, bringing quantitative rigor from physics to bear on the study of media institutions.
-- **Impact on Artificial Intelligence:** The paper introduces a scalable, unsupervised NLP method that discovers interpretable bias dimensions directly from a million-article corpus, with no hand-crafted features or human-labeled training data.
-- **Impact on Fundamental Interactions:** Political polarization structures (left-right and establishment axes) emerge automatically from language statistics, contributing to a quantitative understanding of how information ecosystems shape society.
-- **Outlook and References:** Future extensions could track bias evolution over time or across languages; the paper is available at [arXiv:2109.00024](https://arxiv.org/abs/2109.00024) with open-source tools for reproducible bias measurement.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies physics-inspired mathematical tools (Poisson likelihood maximization and generalized SVD) to a social science problem, bringing quantitative rigor from physics to bear on the study of media institutions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper introduces a scalable, unsupervised NLP method that discovers interpretable bias dimensions directly from a million-article corpus, with no hand-crafted features or human-labeled training data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Political polarization structures (left-right and establishment axes) emerge automatically from language statistics, contributing to a quantitative understanding of how information ecosystems shape society.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions could track bias evolution over time or across languages; the paper is available at [arXiv:2109.00024](https://arxiv.org/abs/2109.00024) with open-source tools for reproducible bias measurement.</span></div></div>
+</div>

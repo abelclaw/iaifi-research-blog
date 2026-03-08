@@ -45,7 +45,7 @@ pdfUrl: https://arxiv.org/pdf/2410.14670v2
 published: '2024-10-18T17:58:53+00:00'
 theme: Foundational AI
 title: Decomposing The Dark Matter of Sparse Autoencoders
-wordCount: 1231
+wordCount: 1202
 ---
 
 ## The Big Picture
@@ -68,7 +68,7 @@ They work by taking a model's internal state at a given processing step, squeezi
 
 The team's first move was to ask: how much of this error is *predictable*? They trained a **linear probe**, a simple mathematical function with no hidden layers, to predict the SAE error directly from the model's original internal state. A linear transformation of the input explained roughly half the variance in the error vector and over 90% of the error's *norm*, meaning the overall magnitude of the mistake is almost entirely foreseeable before the SAE even runs. The result surprised even the authors.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2410_14670/figure_1.png)
 
 This led them to carve dark matter into two fundamentally different pieces:
 
@@ -83,13 +83,13 @@ To test whether nonlinear error is qualitatively different from linear error, or
 2. **Harder to learn**: SAEs trained on nonlinear error achieve worse reconstruction quality. It isn't just a smaller version of the same problem.
 3. **Proportional downstream harm**: Nonlinear error degrades language modeling performance in direct proportion to its norm, while the linear component behaves differently.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2410_14670/figure_2.png)
 
 So SAE dark matter has two layers. The outer layer (linear error) is large but tractable, representing features the SAE hasn't found yet. Scaling up will eventually help. The inner core (nonlinear error) may reflect components that simply don't fit the linear feature model: Gaussian noise, circular representations, or other non-sparse structures that no number of dictionary features will capture.
 
 The team tested two strategies for attacking nonlinear error. **Inference-time gradient pursuit** optimizes feature activations at test time rather than just running the encoder forward; it produced only a small reduction. **Linear transformations from earlier layers** worked better. Using SAE outputs from a previous layer to predict the current layer's error shaved off a more meaningful chunk by exploiting predictable structure in how representations evolve across layers.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2410_14670/figure_3.png)
 
 ## Why It Matters
 
@@ -103,12 +103,9 @@ Open questions remain. What generates nonlinear error: is it a property of how t
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work imports the metaphor and methodology of dark matter physics into AI interpretability, using structured decomposition (a staple of physical modeling) to reveal hidden organization in neural network residuals.
-
-- **Impact on Artificial Intelligence:** The paper shows that SAE reconstruction error is not random noise but a structured quantity with two qualitatively distinct components, changing how interpretability researchers should think about SAE limitations and scaling.
-
-- **Impact on Fundamental Interactions:** Max Tegmark's involvement continues IAIFI's mission of applying physics-inspired thinking to AI foundations, with the linear representation hypothesis treated as a physical model whose failures carry diagnostic information.
-
-- **Outlook and References:** Future work may develop architectures that target nonlinear error specifically or use multi-layer SAE pipelines to progressively reduce unexplained variance. The paper is published in *Transactions on Machine Learning Research* (04/2025) and available as [arXiv:2410.14670](https://arxiv.org/abs/2410.14670).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports the metaphor and methodology of dark matter physics into AI interpretability, using structured decomposition (a staple of physical modeling) to reveal hidden organization in neural network residuals.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper shows that SAE reconstruction error is not random noise but a structured quantity with two qualitatively distinct components, changing how interpretability researchers should think about SAE limitations and scaling.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Max Tegmark's involvement continues IAIFI's mission of applying physics-inspired thinking to AI foundations, with the linear representation hypothesis treated as a physical model whose failures carry diagnostic information.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may develop architectures that target nonlinear error specifically or use multi-layer SAE pipelines to progressively reduce unexplained variance. The paper is published in *Transactions on Machine Learning Research* (04/2025) and available as [arXiv:2410.14670](https://arxiv.org/abs/2410.14670).</span></div></div>
+</div>

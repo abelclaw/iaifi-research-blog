@@ -79,7 +79,7 @@ A team led by Daichi Hiramatsu at the Center for Astrophysics | Harvard & Smiths
 
 The Zwicky Transient Facility (ZTF) first spotted SN 2021qqp on May 23, 2021, but the real story started earlier. Archival data from Pan-STARRS showed the source brightening roughly 150 days *before* discovery, and tracing back further revealed a **precursor**: a prolonged brightening lasting about 300 days before the main explosion. Stars don't usually glow brighter years before dying. This one did.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2305_11168/figure_1.png)
 
 The light curve (a graph of how brightness changed over time) is the paper's most striking feature. After the precursor, SN 2021qqp shot up by 1.6 magnitudes in just a few days, reaching a first peak of M_r ≈ -19.5 mag. On the astronomical magnitude scale, more negative means brighter, placing this among the most luminous supernovae ever recorded.
 
@@ -90,11 +90,11 @@ The spectra tell the deeper story. SN 2021qqp is classified as a **Type IIn supe
 - A **narrow component** at ~1300 km/s (first peak) and ~2500 km/s (second peak), tracing the CSM itself
 - A **P Cygni component** at ~8500 km/s (first peak) and ~5600 km/s (second peak), tracing where ejecta crash into the CSM. P Cygni profiles are a spectral signature, named after the famous eruptive star P Cygni, that reveals fast-moving gas rushing toward the observer.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2305_11168/figure_2.png)
 
 The slowing velocities aren't random. They're a diagnostic: faster ejecta hitting denser gas slow down more. By modeling how both luminosity *and* velocity evolved together, the team reconstructed what the star was doing in its final years.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2305_11168/figure_3.png)
 
 Their model reveals **two distinct mass-loss episodes**: one about 2 years before explosion, shedding roughly 5 solar masses per year, and a more intense burst about 0.8 years before explosion reaching ~10 solar masses per year. For comparison, our Sun loses about one ten-trillionth of its mass annually through the solar wind. This star was shedding mass tens of trillions of times faster, briefly, catastrophically, and repeatedly.
 
@@ -112,12 +112,9 @@ SN 2021qqp also shows that structured CSM environments produce light curves far 
 
 > **Bottom Line:** SN 2021qqp's double-peaked light curve and long precursor reveal a star that catastrophically shed multiple solar masses of gas in two separate eruptions before exploding. The resulting shells produced distinct luminosity peaks as the supernova shock crashed through them in sequence.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work uses flexible analytical modeling to extract physical structure from multi-wavelength time-series data, combining observational astronomy with quantitative physical inference in ways that reflect IAIFI's approach of bringing AI-informed techniques to fundamental astrophysics.
-
-- **Impact on Artificial Intelligence:** The analytical framework simultaneously fits luminosity and velocity measurements to extract CSM density profiles and explosion parameters. This kind of data-driven physical modeling is exactly what machine learning methods are being developed to automate and scale across large transient surveys.
-
-- **Impact on Fundamental Interactions:** SN 2021qqp offers rare direct observational evidence of extreme pre-explosion mass loss from a massive star, constraining the physics of stellar instability near the pair-instability threshold and the dynamics of shock-CSM interaction in energetic core-collapse events.
-
-- **Outlook and References:** Next-generation surveys like Rubin/LSST are expected to discover thousands of similar multi-peaked transients, and the modeling framework from this paper will be a natural starting point for systematic characterization. The paper is available at [arXiv:2305.11168](https://arxiv.org/abs/2305.11168) and was led by Daichi Hiramatsu at the Center for Astrophysics | Harvard & Smithsonian and IAIFI.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work uses flexible analytical modeling to extract physical structure from multi-wavelength time-series data, combining observational astronomy with quantitative physical inference in ways that reflect IAIFI's approach of bringing AI-informed techniques to fundamental astrophysics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The analytical framework simultaneously fits luminosity and velocity measurements to extract CSM density profiles and explosion parameters. This kind of data-driven physical modeling is exactly what machine learning methods are being developed to automate and scale across large transient surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2021qqp offers rare direct observational evidence of extreme pre-explosion mass loss from a massive star, constraining the physics of stellar instability near the pair-instability threshold and the dynamics of shock-CSM interaction in energetic core-collapse events.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Next-generation surveys like Rubin/LSST are expected to discover thousands of similar multi-peaked transients, and the modeling framework from this paper will be a natural starting point for systematic characterization. The paper is available at [arXiv:2305.11168](https://arxiv.org/abs/2305.11168) and was led by Daichi Hiramatsu at the Center for Astrophysics | Harvard & Smithsonian and IAIFI.</span></div></div>
+</div>

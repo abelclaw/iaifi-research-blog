@@ -52,7 +52,7 @@ published: '2025-01-02T19:00:05+00:00'
 theme: Astrophysics
 title: 'ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for
   the LSST'
-wordCount: 955
+wordCount: 1154
 ---
 
 ## The Big Picture
@@ -67,7 +67,7 @@ A team led by Ved G. Shah, including IAIFI researcher Alex Gagliano, built **ORA
 
 ORACLE's core is a **recurrent neural network** built with **gated recurrent units (GRUs)**, specialized memory cells that decide what to remember and what to discard as new observations arrive. Unlike classifiers that wait for a complete picture, GRUs update their internal state with each new measurement. This makes them naturally suited to astronomical data, where a **light curve** (an object's brightness record over time) arrives point by point over days, months, or years.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_01496/figure_1.png)
 
 The real innovation is the training objective. Shah et al. developed a **hierarchical cross-entropy loss function** that encodes 19 astrophysical classes in a tree structure, teaching the model to be correct at multiple levels of detail simultaneously.
 
@@ -77,7 +77,7 @@ At the top, everything is either a "transient" (something that changes and fades
 - After **64 days**: top-level precision exceeds 0.99
 - After **1024 days**: 0.83 precision across all 19 classes
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2501_01496/figure_1.png)
 
 ORACLE also ingests host galaxy context: photometric redshift (distance), the transient's spatial offset from the galaxy's center, ellipticity, and brightness. These features combine with the light curve summary before the final prediction. A transient in the outskirts of a dim dwarf galaxy is probably not the same phenomenon as one sitting dead-center in a massive elliptical, and the model learns these associations from data rather than hand-coded rules.
 
@@ -89,21 +89,21 @@ Most existing classifiers treat classification as a single-shot problem: accumul
 
 Benchmarked against state-of-the-art competitors, ORACLE delivers comparable performance on the 19-way task while dramatically outperforming rivals at early times on the top-level triage decision.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2501_01496/figure_2.png)
 
 The payoff goes well beyond supernovae. Kilonovae evolve on timescales of hours to days; an early, confident "transient" flag could trigger spectroscopic resources before the optical emission fades. The same logic applies to tidal disruption events, fast blue optical transients, and any rare phenomenon whose secrets live in early-phase behavior.
 
 As LSST comes online and alert rates climb to millions of events per night, classifiers like ORACLE will be the first filter, separating signal from noise at a scale no human team can handle alone. ORACLE achieves 96% precision in distinguishing transients from variables with just one day of data, scaling to 83% precision across 19 classes with full light curves, giving astronomers a real-time triage system for the most information-rich sky survey ever built.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">ORACLE puts deep sequence modeling to work on a fundamental problem in time-domain astrophysics, embedding physical taxonomy directly into the loss function so the network learns the structure of the cosmos alongside its data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The hierarchical cross-entropy loss function is a generalizable technique for any domain where class relationships form a meaningful tree, from medical diagnosis to ecological species identification.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling near-instantaneous classification of rare events like kilonovae, ORACLE directly supports multi-messenger astronomy and the study of neutron star mergers, the physical laboratories where the universe forges heavy elements through r-process nucleosynthesis.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The team plans to deploy ORACLE within LSST's live alert broker infrastructure. Code and model weights are publicly available at [github.com/uiucsn/ELAsTiCC-Classification](https://github.com/uiucsn/ELAsTiCC-Classification), and the work appears in *The Astrophysical Journal* (2025). [arXiv:2501.01496](https://arxiv.org/abs/2501.01496)
 
-- **Interdisciplinary Research Achievement:** ORACLE puts deep sequence modeling to work on a fundamental problem in time-domain astrophysics, embedding physical taxonomy directly into the loss function so the network learns the structure of the cosmos alongside its data.
-- **Impact on Artificial Intelligence:** The hierarchical cross-entropy loss function is a generalizable technique for any domain where class relationships form a meaningful tree, from medical diagnosis to ecological species identification.
-- **Impact on Fundamental Interactions:** By enabling near-instantaneous classification of rare events like kilonovae, ORACLE directly supports multi-messenger astronomy and the study of neutron star mergers, the physical laboratories where the universe forges heavy elements through r-process nucleosynthesis.
-- **Outlook and References:** The team plans to deploy ORACLE within LSST's live alert broker infrastructure. Code and model weights are publicly available at [github.com/uiucsn/ELAsTiCC-Classification](https://github.com/uiucsn/ELAsTiCC-Classification), and the work appears in *The Astrophysical Journal* (2025). [arXiv:2501.01496](https://arxiv.org/abs/2501.01496)
-
-## Original Paper Details
-- **Title:** ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST
-- **arXiv ID:** [2501.01496](https://arxiv.org/abs/2501.01496)
-- **Authors:** Ved G. Shah, Alex Gagliano, Konstantin Malanchev, Gautham Narayan, Alex I. Malz, The LSST Dark Energy Science Collaboration
-- **Abstract:** We present ORACLE, the first hierarchical deep-learning model for real-time, context-aware classification of transient and variable astrophysical phenomena. ORACLE is a recurrent neural network with Gated Recurrent Units (GRUs), and has been trained using a custom hierarchical cross-entropy loss function to provide high-confidence classifications along an observationally-driven taxonomy with as little as a single photometric observation. Contextual information for each object, including host galaxy photometric redshift, offset, ellipticity and brightness, is concatenated to the light curve embedding and used to make a final prediction. Training on ~0.5M events from the Extended LSST Astronomical Time-Series Classification Challenge, we achieve a top-level (Transient vs Variable) macro-averaged precision of 0.96 using only 1 day of photometric observations after the first detection in addition to contextual information, for each event; this increases to >0.99 once 64 days of the light curve has been obtained, and 0.83 at 1024 days after first detection for 19-way classification (including supernova sub-types, active galactic nuclei, variable stars, microlensing events, and kilonovae). We also compare ORACLE with other state-of-the-art classifiers and report comparable performance for the 19-way classification task, in addition to delivering accurate top-level classifications much earlier. The code and model weights used in this work are publicly available at our associated GitHub repository (https://github.com/uiucsn/ELAsTiCC-Classification).
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2501.01496](https://arxiv.org/abs/2501.01496)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Ved G. Shah, Alex Gagliano, Konstantin Malanchev, Gautham Narayan, Alex I. Malz, The LSST Dark Energy Science Collaboration</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present ORACLE, the first hierarchical deep-learning model for real-time, context-aware classification of transient and variable astrophysical phenomena. ORACLE is a recurrent neural network with Gated Recurrent Units (GRUs), and has been trained using a custom hierarchical cross-entropy loss function to provide high-confidence classifications along an observationally-driven taxonomy with as little as a single photometric observation. Contextual information for each object, including host galaxy photometric redshift, offset, ellipticity and brightness, is concatenated to the light curve embedding and used to make a final prediction. Training on ~0.5M events from the Extended LSST Astronomical Time-Series Classification Challenge, we achieve a top-level (Transient vs Variable) macro-averaged precision of 0.96 using only 1 day of photometric observations after the first detection in addition to contextual information, for each event; this increases to >0.99 once 64 days of the light curve has been obtained, and 0.83 at 1024 days after first detection for 19-way classification (including supernova sub-types, active galactic nuclei, variable stars, microlensing events, and kilonovae). We also compare ORACLE with other state-of-the-art classifiers and report comparable performance for the 19-way classification task, in addition to delivering accurate top-level classifications much earlier. The code and model weights used in this work are publicly available at our associated GitHub repository (https://github.com/uiucsn/ELAsTiCC-Classification).</span></div></div>
+</div>

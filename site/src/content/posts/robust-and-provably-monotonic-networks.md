@@ -44,7 +44,7 @@ pdfUrl: https://arxiv.org/pdf/2112.00038v2
 published: '2021-11-30T19:01:32+00:00'
 theme: Experimental Physics
 title: Robust and Provably Monotonic Networks
-wordCount: 1043
+wordCount: 1023
 ---
 
 ## The Big Picture
@@ -63,7 +63,7 @@ Researchers at MIT's IAIFI have built exactly that: a neural network architectur
 
 The technical core rests on a concept called the **Lipschitz constant**, a number that bounds how "jumpy" a function is. A smaller Lipschitz constant means a smoother, more stable function. For neural networks, this translates directly to robustness: a network with a bounded Lipschitz constant won't wildly flip its output because a detector drifted by 0.1% overnight.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_00038/figure_1.png)
 
 Previous methods to control the Lipschitz constant existed, but they came with a tradeoff. Constraining the network too tightly crushed its ability to learn complex patterns. The MIT team's solution was **column-wise weight normalization**. Instead of rescaling an entire weight matrix by its largest **singular value** (the standard spectral normalization approach, which can be very conservative), they normalize each column independently, keeping the absolute sum of each column's entries within a target bound. The network retains far more expressiveness because the constraint acts locally rather than globally.
 
@@ -79,7 +79,7 @@ The result is a network *g(x)* whose Lipschitz constant is provably bounded by a
 
 Because the base network *g(x)* has a Lipschitz constant of at most λ, its gradient in any direction is bounded by λ in magnitude. Adding a linear term with slope exactly λ guarantees the combined output always increases with that input: the partial derivative ∂f/∂xᵢ is always non-negative. Monotonicity is enforced structurally. It cannot be violated even if training data is noisy or the model overfits.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_00038/figure_2.png)
 
 ## Why It Matters
 
@@ -87,7 +87,7 @@ LHCb adopted this architecture as the primary data-selection algorithm for its r
 
 Encoding the physical prior that "more displaced track = more interesting" directly into the network avoids a specific failure mode. If a miscalibrated detector begins artificially inflating one variable, a conventional classifier might suddenly select the wrong events. A monotonic classifier cannot be fooled this way.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_00038/figure_3.png)
 
 The same principles extend well beyond particle physics. The team demonstrated state-of-the-art results on benchmarks in medicine, where monotonic relationships between biomarkers and risk scores are often clinically required, and in finance, where regulatory fairness demands that certain inputs only push scores in one direction. Algorithmic fairness (the requirement that raising an applicant's income can never hurt their loan approval odds) is directly expressible as a monotonicity constraint.
 
@@ -97,12 +97,9 @@ The broader point: **inductive biases** drawn from domain expertise can be encod
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work directly encodes particle physics domain knowledge (the "more displaced = more interesting" principle for exotic decays) as a mathematical guarantee in a neural network, showing how physics intuition can sharpen AI design rather than merely being approximated by it.
-
-- **Impact on Artificial Intelligence:** The column-wise weight normalization scheme achieves tighter Lipschitz control with less loss of expressiveness than standard spectral normalization, advancing the theory of constrained neural architectures with broad applications in robustness, fairness, and certified machine learning.
-
-- **Impact on Fundamental Interactions:** The resulting classifier was adopted as LHCb's primary real-time trigger algorithm for Run 3, directly determining which proton collision events are preserved for analysis, making it one of the highest-stakes machine learning deployments in experimental particle physics to date.
-
-- **Outlook and References:** Future work may extend the column-wise normalization scheme to convolutional and graph neural network architectures, broadening its applicability across modern deep learning; the full method is described in [arXiv:2112.00038](https://arxiv.org/abs/2112.00038).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly encodes particle physics domain knowledge (the "more displaced = more interesting" principle for exotic decays) as a mathematical guarantee in a neural network, showing how physics intuition can sharpen AI design rather than merely being approximated by it.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The column-wise weight normalization scheme achieves tighter Lipschitz control with less loss of expressiveness than standard spectral normalization, advancing the theory of constrained neural architectures with broad applications in robustness, fairness, and certified machine learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The resulting classifier was adopted as LHCb's primary real-time trigger algorithm for Run 3, directly determining which proton collision events are preserved for analysis, making it one of the highest-stakes machine learning deployments in experimental particle physics to date.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend the column-wise normalization scheme to convolutional and graph neural network architectures, broadening its applicability across modern deep learning; the full method is described in [arXiv:2112.00038](https://arxiv.org/abs/2112.00038).</span></div></div>
+</div>

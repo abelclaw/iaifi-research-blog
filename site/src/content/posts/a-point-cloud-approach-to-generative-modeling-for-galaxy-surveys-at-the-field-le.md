@@ -60,7 +60,7 @@ Carolina Cuesta-Lazaro and Siddharth Mishra-Sharma at MIT and Harvard have built
 
 At the core is a **diffusion model**, the same class of algorithm behind modern AI image generators like DALL-E and Stable Diffusion. Diffusion models learn to reverse a noise-addition process: during training, you gradually corrupt data with Gaussian noise until it becomes pure static, then teach a neural network to run that process backward. At inference time, you start from noise and iteratively denoise your way to a realistic sample.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_17141/figure_1.png)
 
 The twist is that the "data" isn't an image. It's a set of 3D coordinates (and optionally velocities and masses) for thousands of **dark matter halos**, the gravitationally bound clumps of dark matter that host galaxies. Standard diffusion architectures assume a fixed grid. This one doesn't.
 
@@ -73,7 +73,7 @@ Both architectures respect two important symmetries. The output shouldn't change
 
 Training data comes from the **Quijote simulation suite**, a large library of N-body cosmological simulations (computer models that track gravitational interactions among millions of particles to simulate how cosmic structure forms) spanning a range of cosmological parameters like matter density (Ω_m) and the amplitude of primordial fluctuations (σ_8).
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_17141/figure_1.png)
 
 Once trained, the model does two things. **Emulation:** sample new halo catalogs consistent with a given cosmology, acting as a fast surrogate for expensive N-body simulations. **Inference:** compute the conditional likelihood p(x|θ), the probability that a specific observed galaxy field arose from a given set of cosmological parameters. This is exactly the quantity needed for Bayesian parameter estimation, the statistical framework for determining which physical parameters best explain observed data.
 
@@ -83,7 +83,7 @@ The standard toolkit for extracting cosmological information from galaxy surveys
 
 Recent work has shown that alternative summaries can more than double the extractable information from existing surveys. Still, any compression discards something.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2311_17141/figure_2.png)
 
 Field-level inference, working directly with the full galaxy catalog rather than any compressed version, is the holy grail. It promises access to *all* available information. The obstacle has been both fundamental and computational: computing p(x|θ) requires integrating over an enormous space of possible cosmic histories.
 
@@ -95,12 +95,9 @@ Future extensions will incorporate baryonic physics (the behavior of ordinary ma
 
 > **Bottom Line:** Treating galaxies as point clouds rather than pixels lets diffusion models learn the full statistical structure of cosmic large-scale structure, enabling both fast simulation and rigorous likelihood-based inference without the information loss of voxelization or summary statistics.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work applies state-of-the-art generative AI (diffusion models with equivariant neural networks) directly to field-level inference from galaxy surveys, showing a concrete path from machine learning methods to fundamental physics constraints.
-
-- **Impact on Artificial Intelligence:** The paper develops permutation- and geometrically-equivariant diffusion architectures for point cloud data, pushing generative modeling of irregular, variable-size 3D point sets well beyond the image and voxel domains where diffusion models have traditionally operated.
-
-- **Impact on Fundamental Interactions:** By enabling likelihood-based inference directly on the galaxy field without voxelization or summary compression, this approach could sharpen constraints on dark matter, dark energy, and the universe's initial conditions from large-scale structure surveys.
-
-- **Outlook and References:** Future work will extend the framework to baryonic effects, observational systematics, and full galaxy catalogs from DESI and Euclid. Code is publicly available; the paper is on arXiv as [arXiv:2311.17141](https://arxiv.org/abs/2311.17141) by Cuesta-Lazaro & Mishra-Sharma.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work applies state-of-the-art generative AI (diffusion models with equivariant neural networks) directly to field-level inference from galaxy surveys, showing a concrete path from machine learning methods to fundamental physics constraints.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper develops permutation- and geometrically-equivariant diffusion architectures for point cloud data, pushing generative modeling of irregular, variable-size 3D point sets well beyond the image and voxel domains where diffusion models have traditionally operated.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling likelihood-based inference directly on the galaxy field without voxelization or summary compression, this approach could sharpen constraints on dark matter, dark energy, and the universe's initial conditions from large-scale structure surveys.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will extend the framework to baryonic effects, observational systematics, and full galaxy catalogs from DESI and Euclid. Code is publicly available; the paper is on arXiv as [arXiv:2311.17141](https://arxiv.org/abs/2311.17141) by Cuesta-Lazaro & Mishra-Sharma.</span></div></div>
+</div>

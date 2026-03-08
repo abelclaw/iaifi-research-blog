@@ -43,7 +43,7 @@ pdfUrl: https://arxiv.org/pdf/2202.05255v3
 published: '2022-02-10T18:57:17+00:00'
 theme: Astrophysics
 title: 'Topogivity: A Machine-Learned Chemical Rule for Discovering Topological Materials'
-wordCount: 1077
+wordCount: 1236
 ---
 
 ## The Big Picture
@@ -66,7 +66,7 @@ The starting point is a labeled dataset from existing first-principles databases
 
 The researchers deliberately chose an interpretable ML model. Not a deep neural network, but something far simpler, because their goal wasn't just prediction accuracy. They wanted insight.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2202_05255/figure_1.png)
 
 The heuristic rule works like this:
 
@@ -94,15 +94,15 @@ Open questions remain. Topogivity operates only on stoichiometry, ignoring cryst
 
 > **Bottom Line:** By distilling the quantum complexity of electronic topology into a single number per element, topogivity makes materials discovery faster, broader, and, for the first time, chemically intuitive, uncovering topological materials invisible to every prior method.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">Machine learning can extract human-interpretable chemical rules from quantum-mechanical databases, directly connecting AI-driven pattern recognition with the physics of electronic band topology.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Prioritizing interpretable over black-box ML models can yield transferable scientific principles, a template for using AI to generate insight, not just predictions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Topogivity provides the first broadly applicable chemical heuristic for identifying topological insulators and semimetals, including non-symmetry-diagnosable materials inaccessible to all existing symmetry-based approaches.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend topogivity to magnetic materials and structure-conditioned variants; full methodology and discovered candidates are detailed in [arXiv:2202.05255](https://arxiv.org/abs/2202.05255).
 
-- **Interdisciplinary Research Achievement:** Machine learning can extract human-interpretable chemical rules from quantum-mechanical databases, directly connecting AI-driven pattern recognition with the physics of electronic band topology.
-- **Impact on Artificial Intelligence:** Prioritizing interpretable over black-box ML models can yield transferable scientific principles, a template for using AI to generate insight, not just predictions.
-- **Impact on Fundamental Interactions:** Topogivity provides the first broadly applicable chemical heuristic for identifying topological insulators and semimetals, including non-symmetry-diagnosable materials inaccessible to all existing symmetry-based approaches.
-- **Outlook and References:** Future work could extend topogivity to magnetic materials and structure-conditioned variants; full methodology and discovered candidates are detailed in [arXiv:2202.05255](https://arxiv.org/abs/2202.05255).
-
-## Original Paper Details
-- **Title:** Topogivity: A Machine-Learned Chemical Rule for Discovering Topological Materials
-- **arXiv ID:** 2202.05255
-- **Authors:** ["Andrew Ma", "Yang Zhang", "Thomas Christensen", "Hoi Chun Po", "Li Jing", "Liang Fu", "Marin Soljačić"]
-- **Abstract:** Topological materials present unconventional electronic properties that make them attractive for both basic science and next-generation technological applications. The majority of currently known topological materials have been discovered using methods that involve symmetry-based analysis of the quantum wavefunction. Here we use machine learning to develop a simple-to-use heuristic chemical rule that diagnoses with a high accuracy whether a material is topological using only its chemical formula. This heuristic rule is based on a notion that we term topogivity, a machine-learned numerical value for each element that loosely captures its tendency to form topological materials. We next implement a high-throughput procedure for discovering topological materials based on the heuristic topogivity-rule prediction followed by ab initio validation. This way, we discover new topological materials that are not diagnosable using symmetry indicators, including several that may be promising for experimental observation.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Topogivity: A Machine-Learned Chemical Rule for Discovering Topological Materials</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">2202.05255</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Andrew Ma", "Yang Zhang", "Thomas Christensen", "Hoi Chun Po", "Li Jing", "Liang Fu", "Marin Soljačić"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">Topological materials present unconventional electronic properties that make them attractive for both basic science and next-generation technological applications. The majority of currently known topological materials have been discovered using methods that involve symmetry-based analysis of the quantum wavefunction. Here we use machine learning to develop a simple-to-use heuristic chemical rule that diagnoses with a high accuracy whether a material is topological using only its chemical formula. This heuristic rule is based on a notion that we term topogivity, a machine-learned numerical value for each element that loosely captures its tendency to form topological materials. We next implement a high-throughput procedure for discovering topological materials based on the heuristic topogivity-rule prediction followed by ab initio validation. This way, we discover new topological materials that are not diagnosable using symmetry indicators, including several that may be promising for experimental observation.</span></div></div>
+</div>

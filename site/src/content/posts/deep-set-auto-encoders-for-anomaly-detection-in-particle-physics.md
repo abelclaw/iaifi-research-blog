@@ -54,7 +54,7 @@ Bryan Ostdiek at Harvard's IAIFI developed a powerful tool for exactly this chal
 
 Particle physics experiments don't record individual quarks. They record *reconstructed objects*: jets of particles, electrons, muons, photons, each described by energy and direction. An event might contain anywhere from a few to twenty such objects. The crucial observation: these objects form a **set**, not a sequence. There's no meaningful "first" or "second" particle.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2109_01695/figure_1.png)
 
 Traditional neural networks struggle with unordered inputs. Ostdiek builds on **Particle Flow Networks**, architectures designed for exactly this problem. The method works in two stages:
 
@@ -71,19 +71,19 @@ The full model includes a decoder that reconstructs the original particle set us
 
 At β = 1, you don't need a decoder at all. The method reduces to a pure encoder asking one question: how well does this event fit the Gaussian? Standard Model events, trained to fit that shape, compress easily. New physics (unusual particle multiplicities, unexpected energy distributions, exotic combinations) resists.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2109_01695/figure_1.png)
 
 Ostdiek tested the approach on the **Dark Machines Anomaly Score Challenge**, a rigorous benchmark with over one billion simulated proton-proton collisions at 13 TeV, drawn from 26 Standard Model processes. The challenge included four search channels: a hadronic channel with missing energy, two leptonic channels, and a high-activity inclusive channel. Eleven exotic physics scenarios covered dark matter candidates and two variants of **supersymmetry** (a theoretical framework predicting heavier partner particles for every known particle), spanning 18 different mass spectra. Signals were initially *blinded*, so methods had to perform without knowing what was hidden in the test data.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2109_01695/figure_2.png)
 
 The Deep Set VAE with β = 1 ranked among the top-performing methods on both open and blinded datasets. It was particularly strong at flagging individual anomalous events, a harder task than finding statistical bumps in aggregate distributions.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2109_01695/figure_2.png)
 
 The other top methods shared a common theme: all used "fixed target" approaches, either mapping events to a Gaussian or to a single fixed vector. Methods that tried to reconstruct their inputs consistently underperformed. One hypothesis: reconstruction forces the network to memorize event details rather than learn the deep structure of what's "normal."
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2109_01695/figure_3.png)
 
 ## Why It Matters
 
@@ -93,16 +93,13 @@ The deep sets framework also points toward a useful architectural lesson. By res
 
 The finding that "learn a good encoding" outperforms "reconstruct the input" may carry implications well beyond collider physics. The same principle applies wherever data arrives as unordered collections: molecular modeling, 3D point cloud analysis, social network graphs. Whether the decoder half of an autoencoder actually earns its keep is a question worth revisiting across these fields.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2109_01695/figure_3.png)
 
 > **Bottom Line:** By treating particle collision events as mathematical sets and optimizing purely for compact latent representations, Ostdiek's Deep Set VAE achieved top-tier anomaly detection in a major international challenge and revealed that the decoder half of an autoencoder may be hurting more than it helps.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects modern deep learning (deep set networks and variational autoencoders) with particle physics search strategies, producing a principled, physics-motivated tool for model-agnostic BSM detection at the LHC.
-
-- **Impact on Artificial Intelligence:** The finding that β = 1 (encoding without reconstruction) outperforms full autoencoders runs counter to standard assumptions about autoencoder design and raises real questions about what information is actually useful for anomaly detection.
-
-- **Impact on Fundamental Interactions:** The method provides a competitive, theory-agnostic tool for flagging exotic physics events at the LHC without requiring any prior model of new physics, widening what the collider program can discover beyond targeted searches alone.
-
-- **Outlook and References:** Future work should investigate why fixed-target encoding consistently outperforms reconstruction-based approaches and whether these techniques extend to the High-Luminosity LHC era; the full paper is available at [arXiv:2109.01695](https://arxiv.org/abs/2109.01695).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects modern deep learning (deep set networks and variational autoencoders) with particle physics search strategies, producing a principled, physics-motivated tool for model-agnostic BSM detection at the LHC.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The finding that β = 1 (encoding without reconstruction) outperforms full autoencoders runs counter to standard assumptions about autoencoder design and raises real questions about what information is actually useful for anomaly detection.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The method provides a competitive, theory-agnostic tool for flagging exotic physics events at the LHC without requiring any prior model of new physics, widening what the collider program can discover beyond targeted searches alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work should investigate why fixed-target encoding consistently outperforms reconstruction-based approaches and whether these techniques extend to the High-Luminosity LHC era; the full paper is available at [arXiv:2109.01695](https://arxiv.org/abs/2109.01695).</span></div></div>
+</div>

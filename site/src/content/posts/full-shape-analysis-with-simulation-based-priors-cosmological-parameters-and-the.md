@@ -51,7 +51,7 @@ published: '2024-09-16T18:00:03+00:00'
 theme: Astrophysics
 title: 'Full-shape analysis with simulation-based priors: cosmological parameters
   and the structure growth anomaly'
-wordCount: 1087
+wordCount: 1057
 ---
 
 ## The Big Picture
@@ -79,13 +79,13 @@ Here's the pipeline:
 3. **Train a neural density estimator** on the resulting parameter cloud. The neural network learns the shape of the physically realistic region of parameter space.
 4. **Use that learned distribution as a prior** when analyzing real data from BOSS (the Baryon Oscillation Spectroscopic Survey).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2409_10609/figure_1.png)
 
 On the theory side, the team developed an efficient method to compute field-level transfer functions using **time-sliced perturbation theory** combined with the **logarithmic fast Fourier transform**, making forward-model calculations fast enough to run across thousands of simulations.
 
 Something important turned up during the simulation phase: the EFT parameters' dependence on cosmology is largely degenerate with the HOD parameters. In plain terms, adjusting the galaxy formation recipe can mimic the effect of changing the cosmology. This meant the team could generate their priors at a single fixed cosmology without introducing significant bias, a major practical simplification.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2409_10609/figure_2.png)
 
 The neural density estimator captures the complex, irregular shape of the realistic EFT parameter region, something a simple bell-curve assumption would miss entirely. When this learned prior is applied to BOSS power spectrum data, the results sharpen considerably.
 
@@ -97,7 +97,7 @@ That σ_8 value matters. The Planck satellite, measuring the **cosmic microwave 
 
 This discrepancy is the **structure growth tension**: the universe appears to have grown less clumpy than ΛCDM predicts. The tension isn't new, but this analysis sharpens it considerably, making it harder to dismiss as statistical noise or poorly constrained nuisance parameters.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2409_10609/figure_3.png)
 
 There's a broader point here too. The gap between simulation-based inference and analytic EFT methods is closing. Rather than choosing between EFT's physical interpretability and simulations' small-scale power, researchers can now combine the two.
 
@@ -105,12 +105,9 @@ The approach is deliberately modest (HOD simulations rather than expensive hydro
 
 > **Bottom Line:** By teaching a neural network the physical rules of galaxy formation and using that knowledge to constrain theory parameters, this team squeezed 60% more information out of existing BOSS data and made the structure growth anomaly harder than ever to explain away.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work combines simulation-based machine learning with analytic field theory, using neural density estimation trained on galaxy simulations to inform a rigorous EFT cosmological analysis, a direct example of AI-physics integration.
-
-- **Impact on Artificial Intelligence:** Neural density estimators trained on simulation suites to model high-dimensional, non-Gaussian parameter distributions offer a template for learned priors in scientific inference problems well beyond cosmology.
-
-- **Impact on Fundamental Interactions:** The analysis sharpens the structure growth tension to a level increasingly difficult to reconcile with standard ΛCDM, potentially pointing toward new physics in dark matter, dark energy, or gravity.
-
-- **Outlook and References:** Natural next steps include applying simulation-based priors to DESI and Euclid datasets, where the gains in constraining power will be even more critical. The paper is available as [arXiv:2409.10609](https://arxiv.org/abs/2409.10609).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines simulation-based machine learning with analytic field theory, using neural density estimation trained on galaxy simulations to inform a rigorous EFT cosmological analysis, a direct example of AI-physics integration.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Neural density estimators trained on simulation suites to model high-dimensional, non-Gaussian parameter distributions offer a template for learned priors in scientific inference problems well beyond cosmology.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The analysis sharpens the structure growth tension to a level increasingly difficult to reconcile with standard ΛCDM, potentially pointing toward new physics in dark matter, dark energy, or gravity.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Natural next steps include applying simulation-based priors to DESI and Euclid datasets, where the gains in constraining power will be even more critical. The paper is available as [arXiv:2409.10609](https://arxiv.org/abs/2409.10609).</span></div></div>
+</div>

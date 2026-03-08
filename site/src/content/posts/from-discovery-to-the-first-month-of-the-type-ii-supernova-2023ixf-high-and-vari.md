@@ -91,7 +91,7 @@ A team led by Daichi Hiramatsu at the Center for Astrophysics | Harvard & Smiths
 
 Amateur astronomer Koichi Itagaki spotted the supernova on May 19, 2023, and the team confirmed it within hours. Observations began within roughly one day of **first light**, the moment the explosion's radiation first escaped the star. That head start proved invaluable.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2307_03165/figure_1.png)
 
 The team assembled a detailed **light curve** spanning the first 30 days. The behavior was striking:
 
@@ -102,7 +102,7 @@ The team assembled a detailed **light curve** spanning the first 30 days. The be
 
 That color evolution matters. Normally, supernovae cool and redden as they expand. A blueward shift during the rise indicates the shock was *heating up* as it plowed through something dense right outside the star.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2307_03165/figure_2.png)
 
 The real tell came from **flash spectroscopy**, a technique that captures the light signatures of specific elements in the first days after an explosion. The spectra showed prominent signatures of hydrogen, helium, carbon, and nitrogen, glowing because the explosion's intense ultraviolet radiation was stripping electrons from gas the star had previously shed.
 
@@ -110,7 +110,7 @@ These **flash features** (light signatures from energized atoms that appear and 
 
 The color evolution and flash features together pointed to a **delayed shock breakout**: the explosion's shockwave punching through a shell of dense **circumstellar material (CSM)**, gas the star had cast off before dying. From the timescales involved, the team calculated how far that shell extended outward, roughly (3–7) × 10¹⁴ cm, or about 20 to 47 times the Earth-Sun distance.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2307_03165/figure_3.png)
 
 To figure out how that CSM got there, the researchers built two classes of numerical light-curve models:
 
@@ -123,7 +123,7 @@ Both scenarios produce similar CSM masses and extents, so the observations alone
 
 The progenitor of SN 2023ixf was almost certainly a **red supergiant**, a bloated, cool giant with a mass between roughly 8 and 25 times the Sun's. Pre-explosion archival images from Hubble, Spitzer, and ground-based observatories had already flagged a dust-obscured candidate with a ~1000-day periodic variability, hinting that the star was pulsating dramatically in its final years.
 
-![Figure 6](figure:6)
+![Figure 6](/iaifi-research-blog/figures/2307_03165/figure_3.png)
 
 The extreme mass loss revealed by SN 2023ixf fits a disturbing pattern: massive stars don't quietly collapse. They convulse and heave material into space in their final moments, reshaping their immediate surroundings before the core gives way.
 
@@ -131,12 +131,9 @@ This has real consequences for how we model stellar evolution, supernova light c
 
 > **Bottom Line:** SN 2023ixf exposes the chaotic, poorly understood final year of a massive star's life, revealing mass-loss rates up to 100 times higher than standard theory predicts and raising new questions about what drives such extreme stellar behavior just before core collapse.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work combines rapid multiwavelength observational astronomy with numerical hydrodynamic modeling to decode the physics of stellar death, spanning computational astrophysics and fundamental stellar physics.
-
-- **Impact on Artificial Intelligence:** Modern time-domain survey infrastructure and rapid data pipelines, increasingly powered by machine-learning alert systems, enabled near-instantaneous detection and follow-up of this rare transient event within hours of first light.
-
-- **Impact on Fundamental Interactions:** SN 2023ixf provides the most detailed constraints yet on pre-supernova mass loss from a red supergiant, revealing mass-loss rates of 0.1–1.0 solar masses per year that challenge standard stellar evolution theory and call for new physics to explain the final year before core collapse.
-
-- **Outlook and References:** Future multiwavelength observations, especially in X-ray and radio, will further constrain the CSM geometry and progenitor properties; the full study is available at [arXiv:2307.03165](https://arxiv.org/abs/2307.03165).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work combines rapid multiwavelength observational astronomy with numerical hydrodynamic modeling to decode the physics of stellar death, spanning computational astrophysics and fundamental stellar physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Modern time-domain survey infrastructure and rapid data pipelines, increasingly powered by machine-learning alert systems, enabled near-instantaneous detection and follow-up of this rare transient event within hours of first light.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">SN 2023ixf provides the most detailed constraints yet on pre-supernova mass loss from a red supergiant, revealing mass-loss rates of 0.1–1.0 solar masses per year that challenge standard stellar evolution theory and call for new physics to explain the final year before core collapse.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future multiwavelength observations, especially in X-ray and radio, will further constrain the CSM geometry and progenitor properties; the full study is available at [arXiv:2307.03165](https://arxiv.org/abs/2307.03165).</span></div></div>
+</div>

@@ -85,7 +85,7 @@ published: '2021-01-20T21:03:06+00:00'
 theme: Experimental Physics
 title: 'The LHC Olympics 2020: A Community Challenge for Anomaly Detection in High
   Energy Physics'
-wordCount: 1126
+wordCount: 1039
 ---
 
 ## The Big Picture
@@ -104,7 +104,7 @@ The challenge was built around blind testing. Organizers provided an **R&D datas
 
 Then came the hard part: three **black boxes**, each containing either no signal, the same type of signal, or something completely different. Teams had to figure out not just what the anomaly was, but whether one existed at all.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2101_08320/figure_1.png)
 
 Participants deployed methods across three broad categories:
 
@@ -116,7 +116,7 @@ Participants deployed methods across three broad categories:
 
 The target observable was the **dijet invariant mass** spectrum, the combined-mass distribution of jet pairs produced in a collision. A genuine new resonance would show up as a localized **bump** on an otherwise smooth, falling distribution. Most methods tried to enhance any such bump by reweighting or filtering events based on anomaly scores.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2101_08320/figure_2.png)
 
 ## Why It Matters
 
@@ -126,18 +126,15 @@ The real takeaway isn't which method won. No single algorithm dominated across a
 
 This suggests that **ensemble strategies**, combining multiple complementary algorithms, may be the most reliable path forward. The challenge also exposed a hard practical problem: **decorrelation**. If an anomaly score inadvertently sculpts artificial bumps in the mass spectrum (false positives from the algorithm's own biases, not real physics), the whole search is compromised. This remains an open problem across the field.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2101_08320/figure_3.png)
 
 The LHC Olympics model matters for what comes next. Run 3 of the LHC and the forthcoming **High-Luminosity LHC** will deliver vastly larger datasets where rare signals become statistically accessible. Follow-up challenges are already being planned with more diverse signal types, higher-dimensional inputs, and real detector effects. For future colliders like the FCC or a muon collider, model-agnostic searches may be even more important: we know even less about what to expect at those energy frontiers.
 
 > **Bottom Line:** The LHC Olympics 2020 showed that machine learning can find hidden signals in collider data without being told what to look for, and it produced the community infrastructure, datasets, and benchmarks to keep this effort moving.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of modern machine learning (variational autoencoders, GANs, density estimation, weakly supervised classification) and particle physics. It shows that AI techniques can function as real discovery tools at the LHC, not just analysis aids.
-
-- **Impact on Artificial Intelligence:** The challenge produced a domain-specific benchmark for anomaly detection algorithms, exposing failure modes and generalization limits that matter well beyond particle physics, anywhere unsupervised or weakly supervised learning is applied to messy real-world data.
-
-- **Impact on Fundamental Interactions:** Model-agnostic searches expand the LHC's discovery reach to signatures no theorist has specifically predicted, opening up parts of the search space that traditional analyses miss entirely.
-
-- **Outlook and References:** Future LHC Olympics editions will incorporate more complex signals, real detector data, and higher-dimensional inputs. Full challenge results and datasets are described in [arXiv:2101.08320](https://arxiv.org/abs/2101.08320).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of modern machine learning (variational autoencoders, GANs, density estimation, weakly supervised classification) and particle physics. It shows that AI techniques can function as real discovery tools at the LHC, not just analysis aids.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The challenge produced a domain-specific benchmark for anomaly detection algorithms, exposing failure modes and generalization limits that matter well beyond particle physics, anywhere unsupervised or weakly supervised learning is applied to messy real-world data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Model-agnostic searches expand the LHC's discovery reach to signatures no theorist has specifically predicted, opening up parts of the search space that traditional analyses miss entirely.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future LHC Olympics editions will incorporate more complex signals, real detector data, and higher-dimensional inputs. Full challenge results and datasets are described in [arXiv:2101.08320](https://arxiv.org/abs/2101.08320).</span></div></div>
+</div>

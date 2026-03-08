@@ -61,7 +61,7 @@ The team built their framework from the ground up, starting with the simplest po
 
 They trained a one-hidden-layer network to regress the function y = x², adding **sparsity regularization**, a penalty that pressures the network to use as few neurons as possible. A hyperparameter α controls the tradeoff: set it low, and the network manages with a handful of neurons; crank it up, and it drafts more of the hidden layer into service.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2402_05164/figure_1.png)
 
 The result was clean. Count the allocated neurons (those with nonzero weights above a threshold of 10⁻³), plot them against task loss, and you get a power law with exponent −1. Double the neurons devoted to the task and the loss halves. This is **Resource Model Hypothesis 1**: for a single subtask, loss scales as ℓ ∼ N⁻¹.
 
@@ -74,7 +74,7 @@ They constructed composite tasks in two configurations:
 
 Then they tracked how neuron allocation shifted as the network grew.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2402_05164/figure_1.png)
 
 The answer was the **homogeneous growth hypothesis**: network growth is uniform across subtasks. As total size increases, every subtask acquires more neurons, and the *ratios* stay constant. The salad station and the pasta station both grow at the same rate. No subtask monopolizes new capacity. If Task A had twice the neurons of Task B in a small model, it still has twice the neurons in a model ten times larger.
 
@@ -88,27 +88,24 @@ The derivation goes through a chain of physical assumptions. A neural network wi
 
 That's not a fit. That's a *derivation*, from first principles, matching Chinchilla's observed exponent of 0.34 within rounding.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 Beyond scaling laws, the resource framework opens a new diagnostic lens. If you can measure how neurons are allocated across subtasks, you can ask whether a model is efficiently distributing capacity or whether certain skills are being starved while others hoard neurons. This connects to the growing field of **mechanistic interpretability**, where researchers map the circuits inside neural networks. The resource model gives that effort a quantitative backbone.
 
 Open questions remain. The homogeneous growth hypothesis was validated on toy problems; does it hold in full-scale transformers? Are there tasks where growth is *not* homogeneous, say when subtasks conflict? Can the resource framework predict which subtasks get prioritized when data is limited?
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2402_05164/figure_2.png)
 
 > **Bottom Line:** By treating neurons as finite resources that subtasks compete for, MIT and IAIFI researchers derived the famous Chinchilla scaling law from first principles, while providing a mechanistic picture of how AI models grow.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports concepts from resource competition in biology and economics into deep learning theory, showing that physical intuitions about resource allocation can explain one of AI's most persistent empirical puzzles.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The resource model provides the first principled, mechanistic derivation of compute-optimal scaling laws and offers a way to diagnose how neural networks distribute capacity across learned skills.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The framework connects mechanistic interpretability to quantitative predictions, tying abstract scaling observations to the concrete structure of neurons and modules inside trained networks.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend the homogeneous growth hypothesis to large transformers and test whether resource ratios can diagnose capability gaps. The paper builds on the Chinchilla results of Hoffmann et al. ([arXiv:2203.15556](https://arxiv.org/abs/2203.15556)).
 
-- **Interdisciplinary Research Achievement:** This work imports concepts from resource competition in biology and economics into deep learning theory, showing that physical intuitions about resource allocation can explain one of AI's most persistent empirical puzzles.
-
-- **Impact on Artificial Intelligence:** The resource model provides the first principled, mechanistic derivation of compute-optimal scaling laws and offers a way to diagnose how neural networks distribute capacity across learned skills.
-
-- **Impact on Fundamental Interactions:** The framework connects mechanistic interpretability to quantitative predictions, tying abstract scaling observations to the concrete structure of neurons and modules inside trained networks.
-
-- **Outlook and References:** Future work could extend the homogeneous growth hypothesis to large transformers and test whether resource ratios can diagnose capability gaps. The paper builds on the Chinchilla results of Hoffmann et al. ([arXiv:2203.15556](https://arxiv.org/abs/2203.15556)).
-
-## Original Paper Details
-- **Title:** A Resource Model For Neural Scaling Law
-- **arXiv ID:** [2402.05164](https://arxiv.org/abs/2402.05164)
-- **Authors:** Jinyeop Song, Ziming Liu, Max Tegmark, Jeff Gore
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">A Resource Model For Neural Scaling Law</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2402.05164](https://arxiv.org/abs/2402.05164)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Jinyeop Song, Ziming Liu, Max Tegmark, Jeff Gore</span></div></div>
+</div>

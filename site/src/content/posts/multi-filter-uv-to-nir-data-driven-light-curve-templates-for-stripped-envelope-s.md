@@ -70,7 +70,7 @@ A team led by Somayeh Khakpash has built exactly that. Their paper delivers 54 d
 
 The team assembled light curves for 165 SESNe totaling 29,531 data points, drawn entirely from the Open Supernova Catalog, a publicly accessible archive rather than proprietary observatory data. That open-science commitment meant wrestling with heterogeneous data quality, but it also produced a dataset anyone can reproduce and build on.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_01672/figure_1.png)
 
 To convert that noisy, unevenly sampled scatter of measurements into smooth templates, the researchers used **Gaussian Processes (GPs)**, a machine learning technique that fits a flexible curve through data while estimating uncertainty at every point. Unlike simple interpolation, GPs propagate uncertainty honestly: where data is sparse, the template widens; where data is dense, it tightens. The process unfolded in four stages:
 
@@ -85,22 +85,19 @@ The result: 54 templates (one per subtype-band combination) spanning Swift's ult
 
 The templates immediately revealed something striking: SNe Ibn and Ic-bl rise faster and fade faster than their cousins. They are sprinters in a field of marathon runners. This speed difference has physical meaning; it constrains the mass of radioactive nickel-56 powering the explosion and the geometry of ejected material. The Ibn subtype, which shows signs of crashing into dense gas shed before the star's death, often displays two distinct brightness peaks, a feature the templates now characterize systematically for the first time.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_01672/figure_2.png)
 
 The more urgent finding concerns the simulated datasets the machine learning community uses to train automated brightness classifiers. The team compared their observational templates against **PLAsTiCC** and **ELAsTiCC** (synthetic light curve datasets developed specifically to train and benchmark LSST classification algorithms). The simulated supernovae don't match the real ones: peak brightnesses differ, how colors shift over time diverges, and fast-evolving subtypes are underrepresented.
 
 A classifier trained on these simulations is learning a distorted picture of the real supernova population. As LSST approaches first observations, fixing these biases in the training data could meaningfully improve automated classification accuracy for millions of events.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_01672/figure_3.png)
 
 > **Bottom line:** These 54 templates give the astronomical community an honest, data-driven baseline for classifying stellar explosions from photometry alone, and expose systematic errors in the simulated training data that current AI classifiers depend on.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work directly bridges machine learning and observational astrophysics. Gaussian Process regression turns thousands of noisy photometric measurements into physically interpretable templates that will anchor AI-driven classification of LSST's flood of transient detections.
-
-- **Impact on Artificial Intelligence:** The study identifies concrete biases in PLAsTiCC and ELAsTiCC, the canonical simulated datasets used to develop and benchmark supernova photometric classifiers. The templates give the community a data-driven benchmark for retraining and validating future models.
-
-- **Impact on Fundamental Interactions:** The templates quantify the photometric diversity of stripped envelope supernovae across UV to near-infrared wavelengths, constraining progenitor and explosion physics for five distinct subtypes and characterizing the double-peaked light curves of fast-evolving Ibn events.
-
-- **Outlook and References:** As Rubin/LSST begins operations, these templates will serve as essential reference standards for photometric inference at scale. The full dataset and templates are publicly available, with the paper accessible at [arXiv:2405.01672](https://arxiv.org/abs/2405.01672).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work directly bridges machine learning and observational astrophysics. Gaussian Process regression turns thousands of noisy photometric measurements into physically interpretable templates that will anchor AI-driven classification of LSST's flood of transient detections.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study identifies concrete biases in PLAsTiCC and ELAsTiCC, the canonical simulated datasets used to develop and benchmark supernova photometric classifiers. The templates give the community a data-driven benchmark for retraining and validating future models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The templates quantify the photometric diversity of stripped envelope supernovae across UV to near-infrared wavelengths, constraining progenitor and explosion physics for five distinct subtypes and characterizing the double-peaked light curves of fast-evolving Ibn events.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As Rubin/LSST begins operations, these templates will serve as essential reference standards for photometric inference at scale. The full dataset and templates are publicly available, with the paper accessible at [arXiv:2405.01672](https://arxiv.org/abs/2405.01672).</span></div></div>
+</div>

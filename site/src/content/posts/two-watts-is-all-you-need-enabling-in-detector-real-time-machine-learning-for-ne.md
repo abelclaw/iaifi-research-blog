@@ -65,7 +65,7 @@ A team from Harvard and the University of Washington has now found a third path:
 
 The heart of the approach is a carefully engineered neural network matched to unusual hardware. The **Google Edge TPU** is a microchip designed for machine learning inference at the network's edge (think smart cameras or mobile devices), consuming only 2 watts for the chip itself and 3 watts for the full development board. Squeezing a physics reconstruction algorithm onto it requires rethinking the model from the ground up.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2311_04983/figure_1.png)
 
 The team's pipeline has three major stages:
 
@@ -77,7 +77,7 @@ The team's pipeline has three major stages:
 
 The two test detectors, **WaterHex** and **IceHex**, mimic realistic next-generation telescope geometries: 114 strings of 60 optical modules each (6,840 total), inspired by the KM3NeT layout but testing water and ice media separately.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2311_04983/figure_2.png)
 
 ## Why It Matters
 
@@ -87,7 +87,7 @@ The implications extend well beyond IceCube. Experiments like TAMBO in Peru and 
 
 With power budgets measured in watts rather than kilowatts, in-detector intelligence has historically meant crude threshold cuts, not neural networks. This work opens a door to genuine real-time physics discrimination — separating signal neutrinos from background muons, flagging rare high-energy events for rapid follow-up alerts — without a power cable to the outside world.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2311_04983/figure_3.png)
 
 The team frames this as a proof of concept, acknowledging that the current architecture is shaped by hardware constraints rather than optimized for peak reconstruction performance. Future iterations could explore newer edge AI chips, different quantization schemes, or hybrid designs where an edge processor handles first-level selection and passes only the most interesting events to more powerful off-site systems. There's also a natural path toward deployment on actual IceCube hardware as part of the IceCube-Gen2 upgrade.
 
@@ -95,12 +95,9 @@ Neutrino astronomy is entering a data-rich era, and the algorithms that process 
 
 > **Bottom Line:** Two watts is genuinely enough. This proof-of-concept shows that edge AI hardware can match GPU-level accuracy in neutrino reconstruction at a fraction of the power cost, unlocking real-time in-detector machine learning for experiments that were previously too power-constrained to benefit from it.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work bridges deep learning model design with experimental particle physics constraints, translating GPU-era neural network methods into an architecture expressly shaped by the power and memory limits of remote detector hardware.
-
-- **Impact on Artificial Intelligence:** A full pipeline — custom recursive network with residual convolutional embedding, post-training quantization, and fine-tuning recovery — for deploying neural networks on 8-bit integer edge hardware without significant accuracy loss, a technique broadly applicable beyond physics.
-
-- **Impact on Fundamental Interactions:** Real-time in-detector ML reconstruction lets neutrino telescopes issue rapid alerts for rare astrophysical events and discriminate signal from background at the source, directly enhancing sensitivity to cosmic neutrino sources and new physics signatures.
-
-- **Outlook and References:** Future directions include extending this framework to next-generation telescopes like IceCube-Gen2 and TRIDENT and exploring newer edge AI chips with higher throughput; the full paper is available at [arXiv:2311.04983](https://arxiv.org/abs/2311.04983).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work bridges deep learning model design with experimental particle physics constraints, translating GPU-era neural network methods into an architecture expressly shaped by the power and memory limits of remote detector hardware.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">A full pipeline — custom recursive network with residual convolutional embedding, post-training quantization, and fine-tuning recovery — for deploying neural networks on 8-bit integer edge hardware without significant accuracy loss, a technique broadly applicable beyond physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Real-time in-detector ML reconstruction lets neutrino telescopes issue rapid alerts for rare astrophysical events and discriminate signal from background at the source, directly enhancing sensitivity to cosmic neutrino sources and new physics signatures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending this framework to next-generation telescopes like IceCube-Gen2 and TRIDENT and exploring newer edge AI chips with higher throughput; the full paper is available at [arXiv:2311.04983](https://arxiv.org/abs/2311.04983).</span></div></div>
+</div>

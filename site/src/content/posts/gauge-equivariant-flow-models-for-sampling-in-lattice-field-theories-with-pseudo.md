@@ -49,7 +49,7 @@ pdfUrl: https://arxiv.org/pdf/2207.08945v3
 published: '2022-07-18T21:13:34+00:00'
 theme: Theoretical Physics
 title: Gauge-equivariant flow models for sampling in lattice field theories with pseudofermions
-wordCount: 1013
+wordCount: 1125
 ---
 
 ## The Big Picture
@@ -70,7 +70,7 @@ The core challenge is symmetry. QCD's **gauge symmetry**, the mathematical redun
 
 The standard solution in lattice QCD is elegant. Instead of tracking fermionic degrees of freedom directly (fields with mathematically awkward properties that resist numerical simulation), you integrate them out analytically, leaving the fermion determinant. Rather than computing it exactly, physicists introduce **pseudofermions**: auxiliary bosonic fields $\phi$ whose statistical average reproduces the determinant at a fraction of the cost. Think of them as stand-ins, complex scalar fields doing the fermion's job cheaply.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2207_08945/figure_1.png)
 
 The new flow architecture is built around a joint model that splits sampling into two stages:
 
@@ -79,15 +79,15 @@ The new flow architecture is built around a joint model that splits sampling int
 
 The conditional piece required new architectural machinery. The authors introduce a **parallel transporter convolutional network**, a layer that convolves field data across the lattice while transporting it along gauge links, preserving gauge equivariance at every step. This is the architectural heart of the paper. It lets the flow model "see" local gauge geometry when placing pseudofermion fields.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2207_08945/figure_1.png)
 
 The paper also incorporates two proven tricks from conventional lattice QCD. **Even/odd preconditioning** reorganizes the lattice into checkerboard sublattices, reducing the effective matrix size the model must invert. **Hasenbusch factorization** splits the fermion determinant into a product of individually easier terms, a divide-and-conquer strategy the flow model exploits directly.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2207_08945/figure_2.png)
 
 To validate the approach, the authors tested on two 2D theories: the **Schwinger model** (a U(1) gauge theory with fermions, analogous to 2D QED) and a 2D SU(3) gauge theory with two fermion flavors, sharing QCD's gauge group without its full complexity. Both are tractable enough to compare against exact results while complex enough to stress-test the architecture. The flow models reproduced correct distributions of physical observables, with accuracy improving as the number of pseudofermion samples per gauge configuration increased.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2207_08945/figure_2.png)
 
 ## Why It Matters
 
@@ -99,18 +99,15 @@ Flow-based models generate independent samples by construction. Combined with th
 
 > This paper delivers the toolkit needed to apply flow-based machine learning to realistic fermionic gauge theories, matching the pseudofermion framework lattice QCD has relied on for decades and opening a credible path toward ML-accelerated simulations of the strong nuclear force.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses deep learning architecture design with the mathematical structure of quantum field theory, constructing neural network layers that are provably consistent with gauge symmetry. It is an advance that neither pure ML nor pure physics could have produced alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The parallel transporter convolutional network introduces a new class of geometrically structured neural network layers that respect non-Abelian gauge symmetry, pushing equivariant deep learning into territory relevant to fundamental physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling flow-based sampling with pseudofermions in both U(1) and SU(3) gauge theories, the work provides a scalable route to applying ML-accelerated Monte Carlo methods to QCD.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets scaling these architectures to four-dimensional QCD and lighter quark masses. The paper is available at [arXiv:2207.08945](https://arxiv.org/abs/2207.08945).
 
-- **Interdisciplinary Research Achievement:** This work fuses deep learning architecture design with the mathematical structure of quantum field theory, constructing neural network layers that are provably consistent with gauge symmetry. It is an advance that neither pure ML nor pure physics could have produced alone.
-
-- **Impact on Artificial Intelligence:** The parallel transporter convolutional network introduces a new class of geometrically structured neural network layers that respect non-Abelian gauge symmetry, pushing equivariant deep learning into territory relevant to fundamental physics.
-
-- **Impact on Fundamental Interactions:** By enabling flow-based sampling with pseudofermions in both U(1) and SU(3) gauge theories, the work provides a scalable route to applying ML-accelerated Monte Carlo methods to QCD.
-
-- **Outlook and References:** Future work targets scaling these architectures to four-dimensional QCD and lighter quark masses. The paper is available at [arXiv:2207.08945](https://arxiv.org/abs/2207.08945).
-
-## Original Paper Details
-- **Title:** Gauge-equivariant flow models for sampling in lattice field theories with pseudofermions
-- **arXiv ID:** [2207.08945](https://arxiv.org/abs/2207.08945)
-- **Authors:** Ryan Abbott, Michael S. Albergo, Denis Boyda, Kyle Cranmer, Daniel C. Hackett, Gurtej Kanwar, Sébastien Racanière, Danilo J. Rezende, Fernando Romero-López, Phiala E. Shanahan, Betsy Tian, Julian M. Urban
-- **Abstract:** This work presents gauge-equivariant architectures for flow-based sampling in fermionic lattice field theories using pseudofermions as stochastic estimators for the fermionic determinant. This is the default approach in state-of-the-art lattice field theory calculations, making this development critical to the practical application of flow models to theories such as QCD. Methods by which flow-based sampling approaches can be improved via standard techniques such as even/odd preconditioning and the Hasenbusch factorization are also outlined. Numerical demonstrations in two-dimensional U(1) and SU(3) gauge theories with $N_f=2$ flavors of fermions are provided.
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Gauge-equivariant flow models for sampling in lattice field theories with pseudofermions</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[2207.08945](https://arxiv.org/abs/2207.08945)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">Ryan Abbott, Michael S. Albergo, Denis Boyda, Kyle Cranmer, Daniel C. Hackett, Gurtej Kanwar, Sébastien Racanière, Danilo J. Rezende, Fernando Romero-López, Phiala E. Shanahan, Betsy Tian, Julian M. Urban</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">This work presents gauge-equivariant architectures for flow-based sampling in fermionic lattice field theories using pseudofermions as stochastic estimators for the fermionic determinant. This is the default approach in state-of-the-art lattice field theory calculations, making this development critical to the practical application of flow models to theories such as QCD. Methods by which flow-based sampling approaches can be improved via standard techniques such as even/odd preconditioning and the Hasenbusch factorization are also outlined. Numerical demonstrations in two-dimensional U(1) and SU(3) gauge theories with $N_f=2$ flavors of fermions are provided.</span></div></div>
+</div>

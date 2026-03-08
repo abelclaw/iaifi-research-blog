@@ -40,7 +40,7 @@ published: '2021-12-01T19:00:01+00:00'
 theme: Astrophysics
 title: 'Substructure Detection Reanalyzed: Dark Perturber shown to be a Line-of-Sight
   Halo'
-wordCount: 1233
+wordCount: 1202
 ---
 
 ## The Big Picture
@@ -59,7 +59,7 @@ Atınç Çağan Şengül, Cora Dvorkin, Bryan Ostdiek, and Arthur Tsang asked a 
 
 The **gravitational imaging** technique works by forward-modeling a lensed image pixel by pixel. You build a model of the main lens galaxy's mass distribution, a model of the background source, add any small perturbers, and compare the predicted image to the real Hubble Space Telescope observation. Where the model fails, where residuals are too large, you've found substructure.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2112_00749/figure_1.png)
 
 The team's approach was straightforward: they treated the **redshift** of the perturber as a free parameter. Redshift measures how far an object's light has been stretched by cosmic expansion; the farther away an object is, the higher its redshift. Letting the math decide where along the line of sight the perturber actually sits, rather than assuming it shares the main lens galaxy's redshift (z = 0.881), opens up the possibility that the perturber lives somewhere else entirely.
 
@@ -76,7 +76,7 @@ Their pipeline used `lenstronomy`, an open-source Python lensing package, with t
 
 They sampled the full posterior over all model parameters, including the perturber's redshift, position, mass, and concentration. The result was unambiguous.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2112_00749/figure_2.png)
 
 ## Why It Matters
 
@@ -84,7 +84,7 @@ The perturber's redshift converged not to z = 0.881, but to **z = 1.42** (±0.10
 
 The mass consequence is dramatic. As a tightly-bound subhalo, the perturber appeared to weigh ~1.9 × 10⁸ solar masses. Recast as a background NFW halo with its true geometry, it comes out an order of magnitude heavier. The difference arises because the lensing geometry, specifically how far the perturber sits from the observer-source line, changes entirely when you place it at a different redshift.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2112_00749/figure_3.png)
 
 This isn't a minor calibration tweak. It's a qualitatively different physical object, living in a qualitatively different environment, obeying a qualitatively different mass function.
 
@@ -96,12 +96,9 @@ Previous theoretical work, including by the same Harvard group, had already pred
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work unites gravitational lensing astrophysics with Bayesian inference and open-source computational modeling, showing how rigorous statistical reanalysis of existing data can overturn physical interpretations without new observations.
-
-- **Impact on Artificial Intelligence:** The pipeline uses differentiable lensing software and full posterior sampling over high-dimensional parameter spaces, pointing toward future ML-accelerated lens modeling that can systematically fit perturber redshifts at survey scale.
-
-- **Impact on Fundamental Interactions:** By showing that a canonical "dark matter subhalo" detection is actually a line-of-sight halo, this work challenges how the field constrains subhalo mass functions, a cornerstone observable for distinguishing cold dark matter from alternative dark matter models.
-
-- **Outlook and References:** Future strong-lensing surveys must adopt multi-plane lens modeling and treat perturber redshift as a free parameter to avoid biased inferences on dark matter properties; the full analysis is available at [arXiv:2112.00749](https://arxiv.org/abs/2112.00749).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work unites gravitational lensing astrophysics with Bayesian inference and open-source computational modeling, showing how rigorous statistical reanalysis of existing data can overturn physical interpretations without new observations.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The pipeline uses differentiable lensing software and full posterior sampling over high-dimensional parameter spaces, pointing toward future ML-accelerated lens modeling that can systematically fit perturber redshifts at survey scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By showing that a canonical "dark matter subhalo" detection is actually a line-of-sight halo, this work challenges how the field constrains subhalo mass functions, a cornerstone observable for distinguishing cold dark matter from alternative dark matter models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future strong-lensing surveys must adopt multi-plane lens modeling and treat perturber redshift as a free parameter to avoid biased inferences on dark matter properties; the full analysis is available at [arXiv:2112.00749](https://arxiv.org/abs/2112.00749).</span></div></div>
+</div>

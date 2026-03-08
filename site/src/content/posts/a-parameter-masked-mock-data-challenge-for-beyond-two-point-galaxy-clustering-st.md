@@ -74,7 +74,7 @@ published: '2024-05-03T17:09:52+00:00'
 theme: Astrophysics
 title: A Parameter-Masked Mock Data Challenge for Beyond-Two-Point Galaxy Clustering
   Statistics
-wordCount: 912
+wordCount: 911
 ---
 
 ## The Big Picture
@@ -97,7 +97,7 @@ The challenge had a built-in safeguard: **parameter masking**. The true cosmolog
 
 The mock data came from high-precision **N-body simulations**, massive computer calculations that evolve millions of simulated dark matter particles under gravity to produce realistic galaxy distributions. Three flavors of mock catalogs were included: galaxies in "real space" (without observational distortions), "redshift space" (with the distortions real telescopes see), and on a "light cone" (the most realistic scenario, mimicking how surveys observe the sky across cosmic time).
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_02252/figure_1.png)
 
 Six distinct analysis methods competed, each targeting different aspects of the **non-Gaussian** information in galaxy clustering:
 
@@ -108,7 +108,7 @@ Six distinct analysis methods competed, each targeting different aspects of the 
 - **LEFTfield** performs **field-level inference**: rather than compressing observations into summary statistics, it analyzes the full three-dimensional galaxy density field directly using **Effective Field Theory (EFT)**, a framework borrowed from particle physics that describes matter clustering at large scales without requiring a model of every small-scale detail
 - **Joint power spectrum and bispectrum analyses** add the **bispectrum** (three-point correlations measuring triangular galaxy configurations) using both EFT and **simulation-based inference (SBI)**
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_02252/figure_1.png)
 
 SBI trains neural networks on thousands of simulations to learn the statistical relationship between observations and parameters, bypassing the need for an analytic likelihood function (which becomes intractable for complex statistics). Both field-level inference and SBI are among the most ambitious applications of modern machine learning to fundamental cosmology.
 
@@ -116,7 +116,7 @@ SBI trains neural networks on thousands of simulations to learn the statistical 
 
 The validation is significant precisely because it's hard. Each method involves a long chain of modeling choices: how to simulate galaxy formation, how to handle observational effects, how to build a statistical model, how to sample parameter space. Any link can introduce systematic bias. The fact that multiple independent methods, built on completely different mathematical frameworks, all recovered the true parameters consistently is strong evidence the field is on the right track.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2405_02252/figure_2.png)
 
 The challenge also exposed where work remains. Some methods struggled with light-cone geometry or scale cuts. Others showed tension between real-space and redshift-space results that needs further investigation. The collaboration treats this as a living challenge: the dataset is publicly available, and teams are invited to submit results from methods not yet tested.
 
@@ -124,12 +124,9 @@ The next frontier includes realistic survey complications like survey geometry, 
 
 > **Bottom Line:** The Beyond-2pt challenge shows that a new toolkit of statistical methods can reliably decode cosmological information that traditional analyses miss. As next-generation surveys come online, these tools will be essential for squeezing every bit of physics out of the data.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work unites simulation-based inference and machine learning emulators with rigorous statistical cosmology, showing how AI-driven methods can be validated against traditional analytic approaches in a controlled community challenge.
-
-- **Impact on Artificial Intelligence:** Simulation-based inference and neural network emulators like BACCO proved competitive with analytic methods, showing that learned statistical models can recover unbiased cosmological parameters from complex, high-dimensional data.
-
-- **Impact on Fundamental Interactions:** Recovering ΛCDM parameters, including matter density and the amplitude of density fluctuations, from beyond-two-point statistics directly constrains the physics of dark matter, dark energy, and the growth of large-scale structure.
-
-- **Outlook and References:** Future challenge rounds will tackle realistic survey systematics and tighter constraints on extensions to ΛCDM; full results and data are described in [arXiv:2405.02252](https://arxiv.org/abs/2405.02252).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work unites simulation-based inference and machine learning emulators with rigorous statistical cosmology, showing how AI-driven methods can be validated against traditional analytic approaches in a controlled community challenge.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Simulation-based inference and neural network emulators like BACCO proved competitive with analytic methods, showing that learned statistical models can recover unbiased cosmological parameters from complex, high-dimensional data.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Recovering ΛCDM parameters, including matter density and the amplitude of density fluctuations, from beyond-two-point statistics directly constrains the physics of dark matter, dark energy, and the growth of large-scale structure.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future challenge rounds will tackle realistic survey systematics and tighter constraints on extensions to ΛCDM; full results and data are described in [arXiv:2405.02252](https://arxiv.org/abs/2405.02252).</span></div></div>
+</div>

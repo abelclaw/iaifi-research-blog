@@ -46,7 +46,7 @@ published: '2022-04-20T23:22:52+00:00'
 theme: Astrophysics
 title: 'Photometrically-Classified Superluminous Supernovae from the Pan-STARRS1 Medium
   Deep Survey: A Case Study for Science with Machine Learning-Based Classification'
-wordCount: 1072
+wordCount: 1024
 ---
 
 ## The Big Picture
@@ -74,7 +74,7 @@ Between the two algorithms, 67 events were flagged as superluminous supernova ca
 
 After filtering, the refined sample underwent the centerpiece analysis: fitting each event's multi-band light curve with a magnetar spin-down model. This model treats the supernova as powered by a rapidly spinning, intensely magnetized neutron star (a **magnetar**) whose rotational energy gets deposited into the shell of gas blasted outward in the explosion. Using the open-source MOSFiT code, the team extracted physical parameters including magnetar spin period, magnetic field strength, and ejecta mass.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2204_09809/figure_1.png)
 
 ## Why It Matters
 
@@ -82,13 +82,13 @@ The core question: does photometric classification tell you the same physics sto
 
 Yes. With an illuminating twist.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2204_09809/figure_2.png)
 
 When the team compared parameter distributions from the photometric PS1-MDS sample against both the spectroscopic PS1-MDS sample and a broader literature compilation, they found broad consistency. Magnetar spin periods, magnetic field strengths, and ejecta masses occupied largely the same ranges across all three samples. The ML classifiers are finding real superluminous supernovae, not impostors.
 
 But the photometric sample reached into territory the spectroscopic samples didn't: slower magnetar spins and lower ejecta masses, corresponding to intrinsically fainter events. The reason is straightforward. Spectroscopic follow-up is brightness-limited. Observers chase the most dramatic events. Photometric selection, free of that bias, naturally recovers the dimmer tail of the population.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2204_09809/figure_3.png)
 
 That's not a flaw. The photometric sample reveals a part of the superluminous supernova population that traditional campaigns systematically miss.
 
@@ -98,12 +98,9 @@ The methodology here (photometric classification, quality filtering, Bayesian li
 
 > **Bottom Line:** Classifying superluminous supernovae from brightness patterns alone and successfully recovering their physical parameters shows that machine learning can unlock the science of these extreme explosions at a scale spectroscopy never could. This is the playbook for LSST-era astronomy.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work fuses machine learning classification pipelines with astrophysical modeling, showing that ML-derived samples can support serious quantitative science. It's a working example of how to combine computational methods with observational cosmology.
-
-- **Impact on Artificial Intelligence:** The study validates two independent ML photometric classifiers (SuperRAENN and Superphot) against spectroscopic ground truth, providing direct evidence that semi-supervised and random-forest approaches can reliably identify rare transient classes at scale.
-
-- **Impact on Fundamental Interactions:** By recovering magnetar spin and ejecta parameters from photometric data alone, and uncovering the previously hidden low-luminosity tail of the SLSN population, the work advances our understanding of the extreme physics powering the universe's most energetic stellar explosions.
-
-- **Outlook and References:** As LSST comes online and photometric datasets grow by orders of magnitude, the methodology developed here will be essential for turning raw survey data into population-level physics; the paper is available at [arXiv:2204.09809](https://arxiv.org/abs/2204.09809).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work fuses machine learning classification pipelines with astrophysical modeling, showing that ML-derived samples can support serious quantitative science. It's a working example of how to combine computational methods with observational cosmology.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The study validates two independent ML photometric classifiers (SuperRAENN and Superphot) against spectroscopic ground truth, providing direct evidence that semi-supervised and random-forest approaches can reliably identify rare transient classes at scale.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By recovering magnetar spin and ejecta parameters from photometric data alone, and uncovering the previously hidden low-luminosity tail of the SLSN population, the work advances our understanding of the extreme physics powering the universe's most energetic stellar explosions.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">As LSST comes online and photometric datasets grow by orders of magnitude, the methodology developed here will be essential for turning raw survey data into population-level physics; the paper is available at [arXiv:2204.09809](https://arxiv.org/abs/2204.09809).</span></div></div>
+</div>

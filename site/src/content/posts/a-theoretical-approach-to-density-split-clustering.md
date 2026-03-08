@@ -68,7 +68,7 @@ A team of researchers from France, Arizona, MIT, and Harvard has developed an an
 
 The key mathematical insight is that density-split correlation functions can be expressed in terms of the **two-point probability density function (PDF)** of the underlying density field, a map of how likely any given combination of densities is to occur at two locations some distance apart. This is richer than a correlation coefficient, which collapses that relationship to a single number.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2501_14638/figure_1.png)
 
 The team develops three progressively more sophisticated approximations for this two-point PDF:
 
@@ -76,13 +76,13 @@ The team develops three progressively more sophisticated approximations for this
 2. **Shifted log-normal** — A better approximation that accounts for the fact that density is always greater than −1 (you can't have negative matter). Modeling the logarithm of the density as Gaussian captures more of the universe's true statistical character.
 3. **Large Deviation Theory (LDT)** — The most sophisticated approach, borrowed from statistical physics. LDT predicts the probability of rare, extreme events, exactly the physics governing the densest and emptiest regions of the universe. It only requires that the *variance* of density fluctuations be small, not the fluctuations themselves. This makes it valid even where perturbation theory (the standard tool for approximating small departures from a smooth, uniform universe) breaks down.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2501_14638/figure_2.png)
 
 For LDT predictions to work, the team connects density-split statistics to the **bias function**, a quantity describing how the density at one location depends on the density at another, well-separated point. In the large-separation limit, LDT makes a sharp prediction for this bias function using **spherical collapse dynamics**, a classic framework for how overdense patches gravitationally contract into halos.
 
 All three models were validated against the AbacusSummit suite of N-body simulations, large-scale computer simulations that track how gravity pulls billions of particles together over cosmic time. The comparison covered a range of density thresholds and accounted for Poisson shot noise and galaxy bias.
 
-![Figure 5](figure:5)
+![Figure 5](/iaifi-research-blog/figures/2501_14638/figure_3.png)
 
 LDT consistently outperforms the log-normal approximation. On large scales it matches simulations within the cosmic variance of a typical DESI DR1 sample, the statistical noise floor set by having only one observable universe. It does this with a single free parameter.
 
@@ -94,12 +94,9 @@ This makes density-split clustering viable as a standard tool in the cosmologica
 
 > **Bottom Line:** An analytical model for density-split clustering, grounded in Large Deviation Theory, matches N-body simulations on cosmological scales with just one free parameter, offering a physics-first alternative to computationally expensive emulators for extracting non-Gaussian information from galaxy surveys.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects statistical physics (Large Deviation Theory), cosmological perturbation theory, and data science into an analytical framework for galaxy clustering statistics that previously required machine-learning-based simulation emulators.
-
-- **Impact on Artificial Intelligence:** The analytical model provides a transparent, physically interpretable alternative to black-box simulation-based inference pipelines, showing how principled statistical theory can reduce dependence on neural network emulators in scientific contexts.
-
-- **Impact on Fundamental Interactions:** By enabling precise extraction of non-Gaussian clustering information from galaxy surveys like DESI, the model tightens our ability to constrain the fundamental physics of inflation, dark energy, and structure formation.
-
-- **Outlook and References:** Future extensions to redshift space and weak lensing data will make this framework immediately applicable to ongoing surveys; the paper is available at [arXiv:2501.14638](https://arxiv.org/abs/2501.14638).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects statistical physics (Large Deviation Theory), cosmological perturbation theory, and data science into an analytical framework for galaxy clustering statistics that previously required machine-learning-based simulation emulators.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The analytical model provides a transparent, physically interpretable alternative to black-box simulation-based inference pipelines, showing how principled statistical theory can reduce dependence on neural network emulators in scientific contexts.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By enabling precise extraction of non-Gaussian clustering information from galaxy surveys like DESI, the model tightens our ability to constrain the fundamental physics of inflation, dark energy, and structure formation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future extensions to redshift space and weak lensing data will make this framework immediately applicable to ongoing surveys; the paper is available at [arXiv:2501.14638](https://arxiv.org/abs/2501.14638).</span></div></div>
+</div>

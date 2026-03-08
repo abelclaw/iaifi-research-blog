@@ -38,7 +38,7 @@ published: '2022-09-30T17:54:09+00:00'
 theme: Experimental Physics
 title: 'Finding NEEMo: Geometric Fitting using Neural Estimation of the Energy Mover''s
   Distance'
-wordCount: 1072
+wordCount: 1032
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ That Lipschitz constraint is the crux. Most neural networks are not automaticall
 
 Previous approaches used **spectral normalization**, a technique that limits how sharply each layer can transform its inputs, or other proxies that sacrifice expressiveness. NEEMo's architecture enforces an exact upper bound on the Lipschitz constant by directly constraining weight matrix norms in a minimal way that wastes almost none of the model's capacity.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2209_15624/figure_2.png)
 
 The training procedure works as a minimax game, with two optimizers competing in alternating rounds. Given a collision event Q and a parameterized geometric shape P_θ (say, a set of circles or rings), NEEMo alternates between two steps:
 
@@ -70,7 +70,7 @@ The training procedure works as a minimax game, with two optimizers competing in
 
 Because everything is differentiable (the Lipschitz network, the geometric parameters, the energy weights), gradients flow freely. This replaces the **ε-Sinkhorn** estimation used in the prior SHAPER framework, which blurs the transport problem slightly to make it tractable but only approximates the EMD to order ε.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2209_15624/figure_1.png)
 
 The results speak for themselves. Starting from randomly placed circles, NEEMo iteratively deforms them to match three synthetic target clusters. By epoch 100, the circles are in roughly the right neighborhood. By epoch 1000, they snap into nearly perfect alignment. The heatmap overlaid on each frame shows the Kantorovich potential itself, a kind of force field whose gradients push the geometric shapes toward the data.
 
@@ -82,18 +82,15 @@ NEEMo changes that calculus. An exact, differentiable EMD makes end-to-end train
 
 The approach also generalizes beyond collider physics. Wasserstein distances appear in generative models, domain adaptation, and distributional robustness, and any of these could benefit from exact, differentiable computation.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2209_15624/figure_3.png)
 
 The main limitation right now is speed. Gradient-based minimax optimization of a neural network is slower than fast approximate solvers, making real-time detector application impractical today. Custom optimizers could close this gap, though, and differentiability already enables offline analysis tasks where compute time is less of a constraint.
 
 > **Bottom Line:** NEEMo delivers the first exact, differentiable computation of the Energy Mover's Distance via Lipschitz-constrained neural networks, turning a hard combinatorial transport problem into a smooth optimization and handing particle physicists a new tool for understanding the geometry of collisions.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** NEEMo connects mathematical optimal transport theory, neural network architecture design, and experimental particle physics, translating an abstract duality theorem into a working tool for collider data analysis.
-
-- **Impact on Artificial Intelligence:** Exact Lipschitz-constrained networks turn out to be not just theoretically elegant but practically powerful. The approach provides a blueprint for deploying Wasserstein-based losses in any differentiable ML pipeline without approximation error.
-
-- **Impact on Fundamental Interactions:** An exact, gradient-friendly EMD for jet clustering advances the data-driven phenomenology toolkit for current LHC experiments and next-generation facilities like the Electron-Ion Collider.
-
-- **Outlook and References:** Future work targets faster optimization to enable near-real-time use at detectors. The paper is available at [arXiv:2209.15624](https://arxiv.org/abs/2209.15624), and the weight-constraint implementation is open-source at github.com/niklasnolte/MonotOneNorm.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">NEEMo connects mathematical optimal transport theory, neural network architecture design, and experimental particle physics, translating an abstract duality theorem into a working tool for collider data analysis.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Exact Lipschitz-constrained networks turn out to be not just theoretically elegant but practically powerful. The approach provides a blueprint for deploying Wasserstein-based losses in any differentiable ML pipeline without approximation error.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">An exact, gradient-friendly EMD for jet clustering advances the data-driven phenomenology toolkit for current LHC experiments and next-generation facilities like the Electron-Ion Collider.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets faster optimization to enable near-real-time use at detectors. The paper is available at [arXiv:2209.15624](https://arxiv.org/abs/2209.15624), and the weight-constraint implementation is open-source at github.com/niklasnolte/MonotOneNorm.</span></div></div>
+</div>

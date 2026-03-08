@@ -65,7 +65,7 @@ Every image patch has its own feature summary. Every audio slice has its own. Th
 
 Think of it as a correlation map. If the word "dog" is spoken at time *t*, and the dog occupies pixels in the upper-left corner, the match score between that audio moment and those image patches should be high. DenseAV is trained to make it so. No bounding boxes. No transcripts. Just the raw signal of co-occurrence.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2406_05629/figure_1.png)
 
 The researchers then introduce a **multi-head feature aggregation operator**, a way of dividing processing into separate specialized channels, each independently learning what patterns to match:
 
@@ -77,7 +77,7 @@ The researchers then introduce a **multi-head feature aggregation operator**, a 
 
 The max-pooling choice is subtle but it makes all the difference. Average pooling rewards a system for being vaguely right everywhere. Max pooling rewards it for being precisely right somewhere. That pressure is what drives DenseAV's localization ability.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2406_05629/figure_3.png)
 
 When trained on video datasets containing both narrated speech and ambient sound, something unexpected happened with the two-head model: one head spontaneously specialized in physical sounds (the bark of a dog), while the other specialized in spoken language (the word "dog"). No label ever told the system these were different. The distinction arose purely from what the training signal demanded; the only way to reduce errors was to treat these two kinds of audio differently.
 
@@ -85,7 +85,7 @@ When trained on video datasets containing both narrated speech and ambient sound
 
 The gap DenseAV exposes in existing models is significant. ImageBind, Meta's widely-used multimodal model, achieves impressive **cross-modal retrieval scores** (a measure of how well a system matches content across different media, like finding the right image for an audio clip). But when you visualize its local features, as shown in the paper's qualitative comparisons, the alignment to image regions is diffuse at best.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2406_05629/figure_2.png)
 
 DenseAV outperforms ImageBind on cross-modal retrieval using fewer than half the parameters. It also outperforms all prior work on new segmentation benchmarks the researchers contributed, tasks where you prompt the system with a spoken word or a sound and ask it to highlight the corresponding region of an image.
 
@@ -95,18 +95,15 @@ That a machine learning system can discover, on its own, the distinction between
 
 > **Bottom Line:** DenseAV learns to localize spoken words and environmental sounds in images, and separates them into distinct representations, using nothing but unlabeled video. It outperforms systems with twice as many parameters and points toward a richer, grounded understanding of audio-visual AI.
 
-## IAIFI Research Highlights
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">DenseAV directly mirrors a core puzzle in developmental neuroscience: how infants separate semantic language grounding from acoustic event localization. It provides a computational model that achieves the same feat from raw sensory data alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The multi-head dense similarity aggregation operator shows that contrastive objectives over *local* features, with max-pooling over spatial and head dimensions, unlock localization and disentanglement capabilities unavailable to global-representation architectures.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By learning how physical sound events differ structurally from symbolic language references, DenseAV probes the representational geometry underlying cross-modal perception, a question relevant to how information is encoded across interacting physical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future directions include extending DenseAV to more heads for finer-grained audio category discovery and applying dense AV representations to low-resource language documentation; the work is available at https://aka.ms/denseav.
 
-- **Interdisciplinary Research Achievement:** DenseAV directly mirrors a core puzzle in developmental neuroscience: how infants separate semantic language grounding from acoustic event localization. It provides a computational model that achieves the same feat from raw sensory data alone.
-
-- **Impact on Artificial Intelligence:** The multi-head dense similarity aggregation operator shows that contrastive objectives over *local* features, with max-pooling over spatial and head dimensions, unlock localization and disentanglement capabilities unavailable to global-representation architectures.
-
-- **Impact on Fundamental Interactions:** By learning how physical sound events differ structurally from symbolic language references, DenseAV probes the representational geometry underlying cross-modal perception, a question relevant to how information is encoded across interacting physical systems.
-
-- **Outlook and References:** Future directions include extending DenseAV to more heads for finer-grained audio category discovery and applying dense AV representations to low-resource language documentation; the work is available at https://aka.ms/denseav.
-
-## Original Paper Details
-- **Title:** Separating the "Chirp" from the "Chat": Self-supervised Visual Grounding of Sound and Language
-- **arXiv ID:** [arXiv:2406.05629](https://arxiv.org/abs/2406.05629)
-- **Authors:** ["Mark Hamilton", "Andrew Zisserman", "John R. Hershey", "William T. Freeman"]
-- **Abstract:** We present DenseAV, a novel dual encoder grounding architecture that learns high-resolution, semantically meaningful, and audio-visually aligned features solely through watching videos. We show that DenseAV can discover the ``meaning'' of words and the ``location'' of sounds without explicit localization supervision. Furthermore, it automatically discovers and distinguishes between these two types of associations without supervision. We show that DenseAV's localization abilities arise from a new multi-head feature aggregation operator that directly compares dense image and audio representations for contrastive learning. In contrast, many other systems that learn ``global'' audio and video representations cannot localize words and sound. Finally, we contribute two new datasets to improve the evaluation of AV representations through speech and sound prompted semantic segmentation. On these and other datasets we show DenseAV dramatically outperforms the prior art on speech and sound prompted semantic segmentation. DenseAV outperforms the previous state-of-the-art, ImageBind, on cross-modal retrieval using fewer than half of the parameters. Project Page: \href{https://aka.ms/denseav}{https://aka.ms/denseav}
+## Original Paper Details</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Title</strong><br/><span style="color:#374151;">Separating the "Chirp" from the "Chat": Self-supervised Visual Grounding of Sound and Language</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">arXiv ID</strong><br/><span style="color:#374151;">[arXiv:2406.05629](https://arxiv.org/abs/2406.05629)</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Authors</strong><br/><span style="color:#374151;">["Mark Hamilton", "Andrew Zisserman", "John R. Hershey", "William T. Freeman"]</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f9fafb;border:1px solid #e5e7eb;"><div><strong style="color:#374151;">Abstract</strong><br/><span style="color:#374151;">We present DenseAV, a novel dual encoder grounding architecture that learns high-resolution, semantically meaningful, and audio-visually aligned features solely through watching videos. We show that DenseAV can discover the ``meaning'' of words and the ``location'' of sounds without explicit localization supervision. Furthermore, it automatically discovers and distinguishes between these two types of associations without supervision. We show that DenseAV's localization abilities arise from a new multi-head feature aggregation operator that directly compares dense image and audio representations for contrastive learning. In contrast, many other systems that learn ``global'' audio and video representations cannot localize words and sound. Finally, we contribute two new datasets to improve the evaluation of AV representations through speech and sound prompted semantic segmentation. On these and other datasets we show DenseAV dramatically outperforms the prior art on speech and sound prompted semantic segmentation. DenseAV outperforms the previous state-of-the-art, ImageBind, on cross-modal retrieval using fewer than half of the parameters. Project Page: \href{https://aka.ms/denseav}{https://aka.ms/denseav}</span></div></div>
+</div>

@@ -43,7 +43,7 @@ pdfUrl: https://arxiv.org/pdf/2010.11998v2
 published: '2020-10-22T19:18:19+00:00'
 theme: Experimental Physics
 title: Mapping Machine-Learned Physics into a Human-Readable Space
-wordCount: 1067
+wordCount: 1026
 ---
 
 ## The Big Picture
@@ -62,7 +62,7 @@ Taylor Faucett, Jesse Thaler, and Daniel Whiteson built a systematic method to c
 
 The core challenge is defining what "makes the same decisions" means mathematically. The team introduces a metric called **Average Decision Ordering (ADO)**, inspired by classical rank-correlation statistics. Instead of asking whether two classifiers assign the same numerical score to each event, ADO asks a subtler question: for any pair of events, do the two classifiers agree on which one is *more* signal-like? This pairwise comparison measures agreement in ranking order, independent of absolute scores.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2010_11998/figure_1.png)
 
 With ADO as their compass, the researchers build an iterative search algorithm:
 
@@ -78,11 +78,11 @@ The case study is **boosted W boson classification**: distinguishing jets from W
 
 The team applies their method in two modes. In *supplementation mode*, the algorithm starts from six well-known jet substructure observables and searches for what's missing. It quickly identifies a seventh, a specific EFP with a "triangle" graph topology that the jet substructure community had not previously considered for this task. Adding it nearly closes the performance gap between the human-engineered approach and the CNN. Physically, this EFP encodes a three-particle angular correlation matching the geometry expected from a W boson's two-pronged decay.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2010_11998/figure_2.png)
 
 In *from-scratch mode*, starting only from raw jet image inputs, the algorithm iteratively assembles a set of EFPs that matches CNN performance within statistical uncertainty. The selected EFPs tell a coherent physical story about what distinguishes W jets from QCD jets.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2010_11998/figure_3.png)
 
 The black-box guided search also far outperforms both brute-force search and "truth-label guiding," where the known particle labels serve as the guide instead of the neural network. The black box turns out to be a *better* teacher than the ground truth itself, because it encodes decision boundaries tuned to the actual structure of the data, not just the labels.
 
@@ -98,12 +98,9 @@ The technique generalizes beyond jet physics to anywhere a black-box ML system o
 
 > **Bottom Line:** By treating a neural network as a guide rather than an oracle, this work translates black-box classification into discoverable physics, and in doing so, uncovers a jet substructure observable that physicists had overlooked for years.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects machine learning and experimental particle physics by developing Average Decision Ordering, a mathematical framework that translates opaque neural network decisions into physically interpretable observables grounded in collider phenomenology.
-
-- **Impact on Artificial Intelligence:** The black-box guided search strategy is a general interpretability technique applicable beyond physics, providing a principled way to approximate any high-dimensional classifier with a compact, human-readable model without sacrificing performance.
-
-- **Impact on Fundamental Interactions:** Applied to jet substructure at colliders, the method recovered all discriminating power of a CNN while identifying a previously overlooked three-particle angular correlation observable, opening new directions in the theoretical understanding of jet formation.
-
-- **Outlook and References:** Future work could extend this framework to more complex tasks such as full event reconstruction or flavor tagging, and to larger EFP libraries; the full paper is available at [arXiv:2010.11998](https://arxiv.org/abs/2010.11998).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects machine learning and experimental particle physics by developing Average Decision Ordering, a mathematical framework that translates opaque neural network decisions into physically interpretable observables grounded in collider phenomenology.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The black-box guided search strategy is a general interpretability technique applicable beyond physics, providing a principled way to approximate any high-dimensional classifier with a compact, human-readable model without sacrificing performance.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">Applied to jet substructure at colliders, the method recovered all discriminating power of a CNN while identifying a previously overlooked three-particle angular correlation observable, opening new directions in the theoretical understanding of jet formation.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work could extend this framework to more complex tasks such as full event reconstruction or flavor tagging, and to larger EFP libraries; the full paper is available at [arXiv:2010.11998](https://arxiv.org/abs/2010.11998).</span></div></div>
+</div>

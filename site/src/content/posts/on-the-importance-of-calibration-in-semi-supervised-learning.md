@@ -46,7 +46,7 @@ pdfUrl: https://arxiv.org/pdf/2210.04783v1
 published: '2022-10-10T15:41:44+00:00'
 theme: Theoretical Physics
 title: On the Importance of Calibration in Semi-supervised Learning
-wordCount: 1052
+wordCount: 986
 ---
 
 ## The Big Picture
@@ -65,7 +65,7 @@ The problem is that these methods can spiral. When a model generates wrong pseud
 
 **Model calibration** is the alignment between a model's stated confidence and its real accuracy: a well-calibrated model that says "I'm 80% sure" should be right about 80% of the time. The researchers analyze two leading SSL families: threshold-mediated methods like **FixMatch** (which only accepts pseudo-labels above a confidence threshold) and representation-learning methods like **PAWS** (which learns visual features before fine-tuning on labels). Both use indirect tricks to maintain calibration, but neither was designed with calibration as an explicit goal.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2210_04783/figure_1.png)
 
 The core finding: calibration during training predicts final performance. Models that stay well-calibrated throughout the pseudo-labeling process end up more accurate. So instead of engineering ever-more-clever confidence thresholds after the fact, why not improve how the model quantifies its own uncertainty?
 
@@ -76,7 +76,7 @@ The proposed fix draws on **approximate Bayesian inference**, techniques that av
 
 Both slot into existing SSL frameworks as modular upgrades. FixMatch and PAWS get Bayesian-enhanced variants, dubbed BayFixMatch and BayPAWS.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2210_04783/figure_1.png)
 
 On CIFAR-10 with only 40 labeled examples, BayFixMatch achieves up to 15.9% higher test accuracy than the standard FixMatch baseline. Across CIFAR-100 and ImageNet experiments, the improvements hold: better calibration reliably translates into better classification. The gains come not from architectural changes or more compute, but purely from improved uncertainty quantification.
 
@@ -84,7 +84,7 @@ On CIFAR-10 with only 40 labeled examples, BayFixMatch achieves up to 15.9% high
 
 The team puts their approach to a harder test: a real-world **photonics** problem, designing nanoscale structures for manipulating light, where labeled examples are scarce because simulations are expensive. The class distribution is severely imbalanced, which notoriously breaks SSL methods that assume all categories are equally common. The Bayesian methods handle this gracefully, maintaining calibration even when some classes have only a handful of examples.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2210_04783/figure_2.png)
 
 There's a broader principle here. Whenever a learning system relies on its own predictions as training signal (and that increasingly describes much of modern AI), calibration isn't a secondary concern. It's load-bearing. A model that doesn't know what it doesn't know can't improve reliably.
 
@@ -94,12 +94,9 @@ The Bayesian framing provides generalization bounds, giving the approach mathema
 
 ---
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects fundamental Bayesian inference theory, a probabilistic framework rooted in mathematics and physics, to the practical challenge of training AI on scarce labeled data, validated on a real photonics design problem.
-
-- **Impact on Artificial Intelligence:** Showing that calibration causally drives performance in semi-supervised learning reframes how SSL systems should be designed, with Bayesian model averaging delivering up to 15.9% accuracy improvements over state-of-the-art baselines.
-
-- **Impact on Fundamental Interactions:** The photonics application shows that better-calibrated AI can reliably learn from limited experimental data in physical science domains, opening a path to more trustworthy AI-assisted design of optical and electromagnetic devices.
-
-- **Outlook and References:** Future work will explore scaling Bayesian calibration techniques to larger architectures and more extreme label-scarcity regimes; the paper is available at [arXiv:2210.04783](https://arxiv.org/abs/2210.04783) as part of ongoing MIT-IBM Watson AI Lab research.
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects fundamental Bayesian inference theory, a probabilistic framework rooted in mathematics and physics, to the practical challenge of training AI on scarce labeled data, validated on a real photonics design problem.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">Showing that calibration causally drives performance in semi-supervised learning reframes how SSL systems should be designed, with Bayesian model averaging delivering up to 15.9% accuracy improvements over state-of-the-art baselines.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The photonics application shows that better-calibrated AI can reliably learn from limited experimental data in physical science domains, opening a path to more trustworthy AI-assisted design of optical and electromagnetic devices.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work will explore scaling Bayesian calibration techniques to larger architectures and more extreme label-scarcity regimes; the paper is available at [arXiv:2210.04783](https://arxiv.org/abs/2210.04783) as part of ongoing MIT-IBM Watson AI Lab research.</span></div></div>
+</div>

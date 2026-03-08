@@ -38,7 +38,7 @@ pdfUrl: https://arxiv.org/pdf/2304.00027v1
 published: '2023-03-31T18:00:00+00:00'
 theme: Theoretical Physics
 title: Level Crossings, Attractor Points and Complex Multiplication
-wordCount: 989
+wordCount: 937
 ---
 
 ## The Big Picture
@@ -61,7 +61,7 @@ A torus's shape is encoded in a single complex number τ, its **complex structur
 
 What they found: eigenmodes divide into symmetry classes called **irreducible representations**, distinct families of vibrations that don't normally mix. As τ changes, eigenvalues from different families can approach each other, and at specific values of τ, they cross.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2304_00027/figure_1.png)
 
 Those crossing points aren't random. They correspond to values of τ where the torus has **complex multiplication (CM)**, a special algebraic property where the endomorphism ring contains more than just the integers. In plain terms, the torus at these points carries an extra symmetry visible only through number theory. CM tori include familiar examples like τ = i (the square torus) and τ = e^(2πi/3) (the hexagonal torus).
 
@@ -72,11 +72,11 @@ With this analytic foundation in hand, the team moved to higher dimensions, wher
 
 Analytic metrics don't exist for these cases. The team used **neural network-approximated Ricci-flat metrics**, building on work pioneered at IAIFI, to numerically compute the Laplacian eigenspectrum. They characterized numerical errors carefully, varying metric approximation quality, sampling density, eigenbasis truncation, and proximity to degeneration points.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2304_00027/figure_2.png)
 
 For the K3, crossings matched known CM points where the Picard rank jumps. For the quintic, they matched **rank one attractor points**, special moduli values where BPS black hole flows in string theory converge. This is the paper's most striking result: the same points governing the thermodynamics of extremal black holes in 4D supergravity also mark where vibrational modes on the compactification manifold exchange identity.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2304_00027/figure_3.png)
 
 ## Why It Matters
 
@@ -88,12 +88,9 @@ Several open questions remain. Does the crossing-to-attractor connection hold fo
 
 > **Bottom Line:** Level crossings in Calabi-Yau spectra are a spectral fingerprint of attractor points, extraordinary geometric locations tied to black hole physics and number theory alike. Ahmed and Ruehle turn a puzzling numerical observation into a precise conjecture, backed by analytic proof for the torus and strong numerical evidence for K3 and quintic geometries.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects algebraic geometry, number theory, black hole physics, and machine learning-based numerical methods, bringing together the kinds of cross-disciplinary tools that define IAIFI's research program.
-
-- **Impact on Artificial Intelligence:** The paper rigorously benchmarks neural network-approximated Ricci-flat metrics as a tool for detecting subtle spectral phenomena in curved geometry, demonstrating the reliability of ML methods for mathematical physics.
-
-- **Impact on Fundamental Interactions:** By connecting Laplacian level crossings to rank one attractor points and complex multiplication in Calabi-Yau manifolds, this work provides a new spectral probe of the string landscape and the geometry underlying 4D supergravity theories.
-
-- **Outlook and References:** Future work may extend this conjecture to multi-parameter Calabi-Yau families and provide a computational shortcut for locating attractor points; the full paper is available at [arXiv:2304.00027](https://arxiv.org/abs/2304.00027).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects algebraic geometry, number theory, black hole physics, and machine learning-based numerical methods, bringing together the kinds of cross-disciplinary tools that define IAIFI's research program.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The paper rigorously benchmarks neural network-approximated Ricci-flat metrics as a tool for detecting subtle spectral phenomena in curved geometry, demonstrating the reliability of ML methods for mathematical physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By connecting Laplacian level crossings to rank one attractor points and complex multiplication in Calabi-Yau manifolds, this work provides a new spectral probe of the string landscape and the geometry underlying 4D supergravity theories.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend this conjecture to multi-parameter Calabi-Yau families and provide a computational shortcut for locating attractor points; the full paper is available at [arXiv:2304.00027](https://arxiv.org/abs/2304.00027).</span></div></div>
+</div>

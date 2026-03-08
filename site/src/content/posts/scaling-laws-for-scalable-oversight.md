@@ -65,13 +65,13 @@ Researchers at MIT have built the first mathematical framework for scalable over
 
 The MIT team reframes oversight as a two-player game. On one side sits the **Houdini** — an AI trying to escape detection, hide malicious code, or manipulate the outcome. On the other sits the **Guard** — a weaker AI trying to catch it. The question: under what conditions does the Guard win, and how does that probability change as the capability gap grows?
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2504_18530/figure_1.png)
 
 To measure capability, they borrow **Elo scores** from competitive chess — a number capturing relative skill, where a 400-point gap means the stronger player wins roughly 91% of the time. Each model gets two scores: one as Guard, one as Houdini.
 
 Those scores don't track general AI capability in a straight line. The researchers propose the **Double ReLU model** (named after a mathematical function that produces a bent-line shape) with three distinct phases: flat at the bottom when a model is too weak to even engage, rising through a "payoff region" where more intelligence genuinely helps, then flat again once the task is fully solved. They validate this on a modified version of the game Nim and find that large language model (LLM) performance follows exactly this three-phase shape.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2504_18530/figure_2.png)
 
 They then apply the framework to four oversight challenges:
 
@@ -86,7 +86,7 @@ The paper's deepest contribution is a theoretical analysis of **Nested Scalable 
 
 The answer depends on three things: the capability gap between adjacent levels, the Double ReLU slope (how much domain skill you gain per unit of general intelligence), and the number of steps in the chain. The researchers derive the **optimal number of oversight levels** that maximizes total success probability. Too few levels and a weak Guard faces a powerful Houdini; too many and errors compound, each step's failure probability multiplying.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2504_18530/figure_3.png)
 
 Applying NSO theory to the four games — assuming a 400 Elo gap between the weakest and strongest AI in the chain — yields:
 
@@ -107,9 +107,9 @@ The paper doesn't claim these numbers are final — they depend on which LLMs ar
 
 > **Bottom Line:** This is the first paper to put real numbers on whether scalable oversight can keep pace with increasingly powerful AI — and the answer is "sometimes, but not reliably enough, yet." Debate-style oversight reaches 51.7% success; code auditing falls to 10%. These benchmarks give the field a concrete target to beat.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work imports quantitative risk-assessment methodology from nuclear safety and aviation into AI alignment, applying Elo-based game theory to derive formal scaling laws for oversight — a bridge between statistical physics, information theory, and machine learning.
-- **Impact on Artificial Intelligence:** The Double ReLU model and Nested Scalable Oversight framework provide the first quantitative foundation for reasoning about weak-to-strong supervision chains, giving AI safety researchers concrete parameters to measure and optimize.
-- **Impact on Fundamental Interactions:** By treating AI capability as a continuous variable with phase-transition-like behavior (incompetence → payoff → saturation), the work draws a direct analogy to renormalization group flows and scaling phenomena from condensed matter and particle physics.
-- **Outlook and References:** The framework can be extended to new oversight games and larger model families; the authors call for developing tasks where NSO success rates reliably exceed safety-critical thresholds. Find the full paper at [arXiv:2504.18530](https://arxiv.org/abs/2504.18530) (NeurIPS 2025 proceedings).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work imports quantitative risk-assessment methodology from nuclear safety and aviation into AI alignment, applying Elo-based game theory to derive formal scaling laws for oversight — a bridge between statistical physics, information theory, and machine learning.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The Double ReLU model and Nested Scalable Oversight framework provide the first quantitative foundation for reasoning about weak-to-strong supervision chains, giving AI safety researchers concrete parameters to measure and optimize.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By treating AI capability as a continuous variable with phase-transition-like behavior (incompetence → payoff → saturation), the work draws a direct analogy to renormalization group flows and scaling phenomena from condensed matter and particle physics.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">The framework can be extended to new oversight games and larger model families; the authors call for developing tasks where NSO success rates reliably exceed safety-critical thresholds. Find the full paper at [arXiv:2504.18530](https://arxiv.org/abs/2504.18530) (NeurIPS 2025 proceedings).</span></div></div>
+</div>

@@ -72,7 +72,7 @@ At any given frequency, the matching condition (where the electron's motion and 
 
 Here's the trick. **Flatbands**, photonic modes whose frequency is nearly constant across a wide range of momenta, replace that needle-and-eye geometry with something far more accommodating. In a flatband, a broad continuum of photonic modes all sit at the same frequency simultaneously. When an electron's momentum surface sweeps through this flat region, it intersects not a point but an entire line of modes. The shape mismatch disappears.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2110_03550/figure_1.png)
 
 To build this in hardware, the team designed a **silicon-on-insulator photonic crystal slab**: a thin silicon layer patterned with a precise array of microscopic holes, atop a silica substrate. By carefully engineering the hole geometry, they created flatband resonances where the **group velocity** (the speed at which energy travels through the material) nearly vanishes and the **density of states** spikes sharply.
 
@@ -82,13 +82,13 @@ They then tuned the radiation by:
 - Adjusting the **twist angle** between the electron beam trajectory and the crystal lattice orientation
 - Selecting among multiple flatbands to access different radiation polarizations
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2110_03550/figure_1.png)
 
 The experimental setup fired electron beams from a scanning electron microscope at grazing incidence over the photonic crystal chip and collected the emitted light. Compared to conventional Smith-Purcell radiation from a plain grating, flatband-enhanced emission was **100 times brighter**. Theoretical modeling, extrapolating to optimized device geometries, projects enhancements reaching 10⁶ or higher.
 
 The team also used the electron beam itself as a probe. By mapping the angle-resolved emission spectrum (measuring how light is emitted at different angles as electron speed changes) they reconstructed the photonic band structure of the crystal. This technique works where conventional optical measurements can't easily reach, opening a new window onto how light propagates through complex materials.
 
-![Figure 4](figure:4)
+![Figure 4](/iaifi-research-blog/figures/2110_03550/figure_2.png)
 
 ## Why It Matters
 
@@ -102,12 +102,9 @@ The researchers frame flatbands explicitly as "ideal test beds for strong light-
 
 > **Bottom Line:** By harnessing photonic flatband resonances in a silicon chip, MIT and Harvard researchers achieved a 100-fold enhancement of free-electron light emission, with theory pointing toward million-fold gains, opening new possibilities for how electrons and photons can be coupled in compact, chip-integrated devices.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects condensed matter physics (flatbands in Kagome and moiré systems), photonics (photonic crystal engineering), and accelerator science (free-electron radiation), showing that a concept from quantum materials can reshape electron-photon coupling on a silicon chip.
-
-- **Impact on Artificial Intelligence:** The experimental and theoretical frameworks developed here, including angle-resolved electron-beam band mapping, create new data-rich platforms for training AI models to design and optimize photonic structures for target emission properties.
-
-- **Impact on Fundamental Interactions:** The experiment directly tests a long-standing prediction about the dimensionality mismatch in light-matter coupling, converting a theoretical point degeneracy into a line degeneracy via flatband engineering and measuring the resulting radiation enhancement.
-
-- **Outlook and References:** Future work targets the predicted 10⁶-fold enhancement regime using optimized flatband geometries, with direct implications for chip-scale free-electron lasers and dielectric particle accelerators. The paper is available at [arXiv:2110.03550](https://arxiv.org/abs/2110.03550).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects condensed matter physics (flatbands in Kagome and moiré systems), photonics (photonic crystal engineering), and accelerator science (free-electron radiation), showing that a concept from quantum materials can reshape electron-photon coupling on a silicon chip.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The experimental and theoretical frameworks developed here, including angle-resolved electron-beam band mapping, create new data-rich platforms for training AI models to design and optimize photonic structures for target emission properties.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The experiment directly tests a long-standing prediction about the dimensionality mismatch in light-matter coupling, converting a theoretical point degeneracy into a line degeneracy via flatband engineering and measuring the resulting radiation enhancement.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work targets the predicted 10⁶-fold enhancement regime using optimized flatband geometries, with direct implications for chip-scale free-electron lasers and dielectric particle accelerators. The paper is available at [arXiv:2110.03550](https://arxiv.org/abs/2110.03550).</span></div></div>
+</div>

@@ -35,7 +35,7 @@ published: '2021-11-19T19:00:02+00:00'
 theme: Astrophysics
 title: New limits on light dark matter - proton cross section from the cosmic large-scale
   structure
-wordCount: 1039
+wordCount: 1014
 ---
 
 ## The Big Picture
@@ -54,7 +54,7 @@ A team led by Keir Rogers, Cora Dvorkin, and Hiranya Peiris took a different pat
 
 The cosmic detector here is the **Lyman-alpha forest**, a thicket of absorption lines imprinted on quasar spectra as their light passes through intergalactic hydrogen gas. Each absorption dip marks a clump of hydrogen that swallowed a photon at a specific wavelength. Together, these dips trace matter structure across cosmic scales, turning quasar spectra into one-dimensional maps of the universe's density field.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2111_10386/figure_1.png)
 
 If dark matter collides with protons in the very early universe, those collisions dampen the growth of small-scale structure. Think of dark matter clumps trying to collapse under gravity while being buffeted by constant proton collisions, like a ball bearing falling through honey. The result is a smoothing-out of structure that leaves a permanent imprint, visible billions of years later in the Lyman-alpha forest.
 
@@ -69,7 +69,7 @@ The statistical inference required careful handling of several systematic effect
 - **Primordial power spectrum:** Density fluctuations from the Big Bang were treated as a free parameter to prevent the dark matter signal from being confused with inflation's imprint.
 - **Model robustness:** Bayesian optimization, an active learning technique, identified corners of parameter space where the emulator might fail. Targeted additional simulations patched those gaps.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2111_10386/figure_2.png)
 
 ## Why It Matters
 
@@ -79,16 +79,13 @@ From a particle physics perspective, these bounds rule out large regions of para
 
 For cosmology, the work shows what high-fidelity simulation emulators can do when paired with small-scale observational data. The sub-Mpc scales used here had never been tapped for dark matter constraints in this way. As next-generation quasar surveys come online and simulators improve, the same framework can extend to velocity-dependent cross sections, exotic IGM heating scenarios, and combinations with CMB damping tail measurements.
 
-![Figure 3](figure:3)
+![Figure 3](/iaifi-research-blog/figures/2111_10386/figure_3.png)
 
 > **Bottom Line:** Using the cosmic fossil record of intergalactic hydrogen as a dark matter detector, Rogers, Dvorkin, and Peiris set the world's strongest limits on light dark matter, improving previous cosmological bounds by up to 25× across eight decades of mass. The universe itself turns out to be our best dark matter experiment.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work sits at the intersection of machine learning and observational cosmology. A neural-network emulator of hydrodynamical simulations made it possible to run statistical inference on dark matter microphysics from quasar spectra, a task that would be intractable with traditional simulation approaches alone.
-
-- **Impact on Artificial Intelligence:** The use of Bayesian optimization as an active learning strategy to adaptively improve emulator accuracy in poorly-sampled parameter regions is a methodological contribution that applies well beyond this specific problem, to any physics simulation surrogate.
-
-- **Impact on Fundamental Interactions:** The paper sets the strongest constraints to date on the dark matter–proton cross section for masses between 10 keV and 100 GeV, closing off large swaths of parameter space for light dark matter candidates including magnetic dipole models.
-
-- **Outlook and References:** Future surveys with higher quasar resolution and density will enable even tighter bounds using this forward-modeling framework; full details are available at [arXiv:2111.10386](https://arxiv.org/abs/2111.10386).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work sits at the intersection of machine learning and observational cosmology. A neural-network emulator of hydrodynamical simulations made it possible to run statistical inference on dark matter microphysics from quasar spectra, a task that would be intractable with traditional simulation approaches alone.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The use of Bayesian optimization as an active learning strategy to adaptively improve emulator accuracy in poorly-sampled parameter regions is a methodological contribution that applies well beyond this specific problem, to any physics simulation surrogate.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">The paper sets the strongest constraints to date on the dark matter–proton cross section for masses between 10 keV and 100 GeV, closing off large swaths of parameter space for light dark matter candidates including magnetic dipole models.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future surveys with higher quasar resolution and density will enable even tighter bounds using this forward-modeling framework; full details are available at [arXiv:2111.10386](https://arxiv.org/abs/2111.10386).</span></div></div>
+</div>

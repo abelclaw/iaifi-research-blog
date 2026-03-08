@@ -60,7 +60,7 @@ The result: a four-legged robot with an arm that has calibrated, controllable to
 
 The team reframed the learning problem. Standard **sim-to-real reinforcement learning (RL)** trains a robot policy in a physics simulation, then deploys it in the real world. This has become the dominant paradigm for legged locomotion, but those policies typically learn to achieve positions, not forces. The MIT team added a force-tracking objective directly into the training loop.
 
-![Figure 2](figure:2)
+![Figure 2](/iaifi-research-blog/figures/2405_01402/figure_1.png)
 
 Here's the clever part: rather than equipping the robot with expensive **wrist force-torque sensors**, the policy learns to estimate contact forces entirely from **proprioception**, the robot's internal sense of its own joint positions, velocities, and motor torques. No additional hardware. The policy infers how hard the gripper is pushing from the same signals a human feels as muscle tension and joint resistance.
 
@@ -72,7 +72,7 @@ Training happens in a carefully designed simulation environment. The researchers
 
 A single neural network, the **whole-body controller**, coordinates all four legs and the arm at once to execute these commands. When the arm needs to push harder, the legs automatically shift weight and reposition the torso to provide a stable foundation. The human teleoperator doesn't manage any of this. They simply command "push with 10 Newtons" and the robot handles the rest.
 
-![Figure 1](figure:1)
+![Figure 1](/iaifi-research-blog/figures/2405_01402/figure_1.png)
 
 This architecture produces two classical control behaviors that roboticists have prized for decades. **Gravity compensation** makes the arm feel weightless when a human physically guides it; the robot cancels out its own arm's mass so a person can move it through tasks by hand. **Impedance control** lets the operator set the gripper's effective stiffness: dial it up for precise positioning, dial it down for compliant contact with fragile or irregular surfaces. Both behaviors emerge from the same learned force controller, simply by changing the commanded force profile.
 
@@ -88,12 +88,9 @@ The teleoperation angle deserves attention too. By making force a first-class co
 
 > **Bottom Line:** MIT researchers trained a quadruped robot to directly control the forces it applies, without force sensors, by learning from simulation alone. This is the first legged robot to deploy learned whole-body force control in the real world, enabling compliant, intuitive manipulation that could change how robots work alongside humans in unstructured environments.
 
-## IAIFI Research Highlights
-
-- **Interdisciplinary Research Achievement:** This work connects reinforcement learning theory with classical robotics concepts like impedance control and gravity compensation. Learned neural policies can recover principled force-regulation behaviors without explicit physics-based programming.
-
-- **Impact on Artificial Intelligence:** The research extends sim-to-real RL by introducing explicit force-tracking objectives and proprioceptive force estimation, expanding what learned policies can do beyond position control into compliant physical interaction.
-
-- **Impact on Fundamental Interactions:** By modeling contact mechanics through a potential-field training environment and proprioceptive feedback, the work sharpens our picture of how physical interaction forces can be represented and regulated in learned dynamical systems.
-
-- **Outlook and References:** Future work may extend this framework to tasks requiring precise force profiles, such as surgical assistance or material testing. Integration with tactile sensing could yield even richer contact feedback. See the full paper by Portela, Margolis, Ji, and Agrawal at [arXiv:2405.01402](https://arxiv.org/abs/2405.01402).
+<div style="margin-top:2rem;"><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">IAIFI Research Highlights</h2>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#f5f5f5;border:1px solid #d4d4d4;"><img src="/iaifi-research-blog/images/logo-fi-black.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#1a1a1a;">Interdisciplinary Research Achievement</strong><br/><span style="color:#374151;">This work connects reinforcement learning theory with classical robotics concepts like impedance control and gravity compensation. Learned neural policies can recover principled force-regulation behaviors without explicit physics-based programming.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#eff6ff;border:1px solid #bfdbfe;"><img src="/iaifi-research-blog/images/logo-ai-blue.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#2c5f8a;">Impact on Artificial Intelligence</strong><br/><span style="color:#374151;">The research extends sim-to-real RL by introducing explicit force-tracking objectives and proprioceptive force estimation, expanding what learned policies can do beyond position control into compliant physical interaction.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#faf5ff;border:1px solid #e9d5ff;"><img src="/iaifi-research-blog/images/logo-fi-purple.svg" alt="" style="width:32px;height:32px;flex-shrink:0;" /><div><strong style="color:#7b2d8e;">Impact on Fundamental Interactions</strong><br/><span style="color:#374151;">By modeling contact mechanics through a potential-field training environment and proprioceptive feedback, the work sharpens our picture of how physical interaction forces can be represented and regulated in learned dynamical systems.</span></div></div>
+<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;margin-bottom:0.75rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;"><div><strong style="color:#059669;">Outlook and References</strong><br/><span style="color:#374151;">Future work may extend this framework to tasks requiring precise force profiles, such as surgical assistance or material testing. Integration with tactile sensing could yield even richer contact feedback. See the full paper by Portela, Margolis, Ji, and Agrawal at [arXiv:2405.01402](https://arxiv.org/abs/2405.01402).</span></div></div>
+</div>
