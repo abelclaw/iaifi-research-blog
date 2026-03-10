@@ -305,6 +305,7 @@ const hasPapers = papers.length > 0;
     const TILE_PX = 512;
 
     const tileCache = new Map<string, HTMLImageElement | "loading" | "error">();
+    const MAX_TILE_CACHE = 80;
 
     function getBestTiling() {
       for (let i = tilings.length - 1; i >= 0; i--) {
@@ -316,6 +317,13 @@ const hasPapers = papers.length > 0;
     function drawTiles() {
       ctx.fillStyle = "#1a1a2e";
       ctx.fillRect(0, 0, W, H);
+
+      // Evict old tile images to bound memory
+      if (tileCache.size > MAX_TILE_CACHE) {
+        const keys = Array.from(tileCache.keys());
+        const toEvict = keys.slice(0, keys.length - MAX_TILE_CACHE);
+        for (const k of toEvict) tileCache.delete(k);
+      }
 
       const zoomRatio = camScale / initialScale;
 
@@ -436,6 +444,9 @@ const hasPapers = papers.length > 0;
       document.head.appendChild(script);
     }
 
+    const MAX_ZONE_CIRCLES = 8000; // cap circles per frame to prevent browser hang
+    const MAX_ZONE_TILES = 60;    // cap concurrent zone tiles in cache
+
     function drawZoneLabels() {
       const zoomRatio = camScale / initialScale;
       if (zoomRatio < ZONE_MIN_ZOOM) return;
@@ -448,8 +459,18 @@ const hasPapers = papers.length > 0;
       const iyMin = Math.max(1, Math.floor((vyMin - world.ymin) / ZONE_TH) + 1);
       const iyMax = Math.min(ZONE_NY, Math.ceil((vyMax - world.ymin) / ZONE_TH));
 
+      // Evict oldest zone tiles when cache is too large
+      if (zoneCache.size > MAX_ZONE_TILES) {
+        const keys = Array.from(zoneCache.keys());
+        const toEvict = keys.slice(0, keys.length - MAX_ZONE_TILES);
+        for (const k of toEvict) zoneCache.delete(k);
+      }
+
       // Zone circles fade in: 0 at 8x, full at 20x
       const zoneAlpha = Math.min(1, (zoomRatio - ZONE_MIN_ZOOM) / 12);
+      let circleCount = 0;
+
+      ctx.globalAlpha = zoneAlpha * 0.85;
 
       for (let ix = ixMin; ix <= ixMax; ix++) {
         for (let iy = iyMin; iy <= iyMax; iy++) {
@@ -461,22 +482,21 @@ const hasPapers = papers.length > 0;
           }
 
           for (const lbl of labels) {
+            if (circleCount >= MAX_ZONE_CIRCLES) break;
             const screenR = lbl.r * camScale;
-            if (screenR < 1.5) continue;
+            if (screenR < 2.5) continue; // skip sub-pixel dots
 
             const [sx, sy] = worldToScreen(lbl.x, lbl.y);
             if (sx < -50 || sx > W + 50 || sy < -50 || sy > H + 50) continue;
 
-            const drawR = Math.max(1.5, screenR);
+            const drawR = Math.max(2, screenR);
 
-            // Color by arXiv category based on map position
             const color = colorForPosition(lbl.x, lbl.y);
+            ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(sx, sy, drawR, 0, Math.PI * 2);
-            ctx.fillStyle = color;
-            ctx.globalAlpha = zoneAlpha * 0.85;
             ctx.fill();
-            ctx.globalAlpha = 1.0;
+            circleCount++;
 
             // Author labels at deep zoom
             if (screenR > 12) {
@@ -491,10 +511,14 @@ const hasPapers = papers.length > 0;
               ctx.textBaseline = "top";
               ctx.fillStyle = `rgba(220, 225, 245, ${0.8 * zoneAlpha})`;
               ctx.fillText(displayLabel, sx, sy + drawR + 3);
+              ctx.globalAlpha = zoneAlpha * 0.85;
             }
           }
+          if (circleCount >= MAX_ZONE_CIRCLES) break;
         }
+        if (circleCount >= MAX_ZONE_CIRCLES) break;
       }
+      ctx.globalAlpha = 1.0;
     }
 
     // ── Paper rendering ──
@@ -834,13 +858,13 @@ const hasPapers = papers.length > 0;
       }
     }
 
-    setTimeout(() => { animating = false; }, 5000);
+    setTimeout(() => { animating = false; }, 2000);
 
     function restartAnimation() {
       if (!animating) {
         animating = true;
         scheduleRender();
-        setTimeout(() => { animating = false; }, 2000);
+        setTimeout(() => { animating = false; }, 800);
       }
     }
 
