@@ -1,0 +1,350 @@
+---
+import Header from "../components/Header.astro";
+const base = import.meta.env.BASE_URL;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPECTER Landscape - IAIFI Research Blog</title>
+  <style>
+    /* Reset for this page only */
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+    /* ── Oscar's CSS scoped under #specter-app ── */
+    #specter-app {
+      --color-bg: #0d1117;
+      --color-surface: #161b22;
+      --color-text: #e2e8f0;
+      --color-text-muted: #94a3b8;
+      --color-border: rgba(255, 255, 255, 0.08);
+      --color-border-subtle: rgba(255, 255, 255, 0.05);
+      --color-accent: #38bdf8;
+      --color-ai: #60a5fa;
+      --color-physics: #fbbf24;
+      --color-both: #a78bfa;
+      --color-background-point: rgba(148, 163, 184, 0.12);
+      --color-noise: rgba(100, 116, 139, 0.2);
+      --panel-width: 380px;
+      --transition-speed: 0.3s;
+      --footer-height: 36px;
+
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 14px;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+
+    #specter-app *, #specter-app *::before, #specter-app *::after { box-sizing: border-box; }
+
+    #specter-app header {
+      padding: 10px 16px;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: 0 1px 12px rgba(56, 189, 248, 0.04);
+      z-index: 100;
+      position: relative;
+    }
+    #specter-app header h1 { font-size: 1.25rem; font-weight: 500; margin: 0 0 0 0; color: #f1f5f9; letter-spacing: 0.01em; }
+    #specter-app #title-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+    #specter-app #controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+    /* Search */
+    #specter-app #search-wrap { position: relative; flex: 0 1 240px; min-width: 160px; }
+    #specter-app #search { width: 100%; padding: 6px 30px 6px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 0.875rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: rgba(255,255,255,0.04); color: var(--color-text); }
+    #specter-app #search::placeholder { color: var(--color-text-muted); opacity: 0.6; }
+    #specter-app #search:focus { border-color: var(--color-accent); box-shadow: 0 0 0 2px rgba(56,189,248,0.15); }
+    #specter-app #search-clear { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.1rem; color: var(--color-text-muted); cursor: pointer; padding: 2px 6px; }
+    #specter-app #search-clear:hover { color: var(--color-text); }
+    #specter-app #search-count { position: absolute; right: 28px; top: 50%; transform: translateY(-50%); font-size: 0.7rem; color: var(--color-accent); font-weight: 600; pointer-events: none; }
+
+    /* Theme filters */
+    #specter-app #theme-filters { display: flex; gap: 4px; }
+    #specter-app #theme-filters button { padding: 4px 12px; border: 1px solid var(--color-border); border-radius: 6px; background: transparent; color: var(--color-text-muted); font-size: 0.8rem; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s; }
+    #specter-app #theme-filters button:hover { background: rgba(255,255,255,0.06); color: var(--color-text); border-color: rgba(255,255,255,0.15); }
+    #specter-app #theme-filters button.active { background: var(--color-accent); color: #0d1117; border-color: var(--color-accent); font-weight: 600; box-shadow: 0 0 8px rgba(56,189,248,0.3); }
+    #specter-app #theme-filters button[data-theme="AI"].active { background: var(--color-ai); border-color: var(--color-ai); color: #0d1117; box-shadow: 0 0 8px rgba(96,165,250,0.3); }
+    #specter-app #theme-filters button[data-theme="Physics"].active { background: var(--color-physics); border-color: var(--color-physics); color: #0d1117; box-shadow: 0 0 8px rgba(251,191,36,0.3); }
+    #specter-app #theme-filters button[data-theme="Both"].active { background: var(--color-both); border-color: var(--color-both); color: #fff; box-shadow: 0 0 8px rgba(167,139,250,0.3); }
+
+    /* Color-by */
+    #specter-app #color-by { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--color-text-muted); }
+    #specter-app #color-mode { padding: 4px 8px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 0.8rem; background: rgba(255,255,255,0.04); color: var(--color-text); cursor: pointer; }
+    #specter-app #color-mode option { background: var(--color-surface); color: var(--color-text); }
+
+    /* Year slider */
+    #specter-app #year-slider { display: flex; flex-direction: column; min-width: 180px; font-size: 0.8rem; color: var(--color-text-muted); }
+    #specter-app #year-slider label { margin-bottom: 2px; }
+    #specter-app #year-range { font-weight: 600; color: var(--color-text); }
+    #specter-app #year-inputs { position: relative; height: 24px; }
+    #specter-app #year-inputs input[type="range"] { position: absolute; width: 100%; top: 0; left: 0; -webkit-appearance: none; appearance: none; background: transparent; pointer-events: none; height: 24px; }
+    #specter-app #year-inputs input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); cursor: pointer; pointer-events: all; border: 2px solid var(--color-surface); box-shadow: 0 0 6px rgba(56,189,248,0.4); }
+    #specter-app #year-inputs input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); cursor: pointer; pointer-events: all; border: 2px solid var(--color-surface); }
+    #specter-app #year-inputs input[type="range"]::-webkit-slider-runnable-track { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+    #specter-app #year-inputs input[type="range"]::-moz-range-track { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+    /* Citation & hover toggles */
+    #specter-app #citation-toggle-wrap, #specter-app #hover-toggle-wrap { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--color-text-muted); }
+    #specter-app #citation-toggle-wrap label, #specter-app #hover-toggle-wrap label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
+    #specter-app #citation-legend { display: flex; align-items: center; gap: 8px; }
+    #specter-app .legend-item { display: flex; align-items: center; gap: 3px; font-size: 0.7rem; color: var(--color-text-muted); }
+    #specter-app .legend-dot { display: inline-block; border-radius: 50%; background: var(--color-accent); box-shadow: 0 0 4px rgba(56,189,248,0.4); }
+    #specter-app input[type="checkbox"] { accent-color: var(--color-accent); }
+    #specter-app #paper-count { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 4px; }
+    #specter-app #data-version { font-size: 0.7rem; color: var(--color-text-muted); margin-left: 12px; }
+    #specter-app #data-version::before { content: " | "; }
+
+    /* Main / Scatter */
+    #specter-app main { position: relative; flex: 1; overflow: hidden; }
+    #specter-app #scatter-container { width: 100%; height: 100%; }
+    #specter-app #scatter-container canvas { display: block; }
+
+    /* Zoom controls */
+    #specter-app #zoom-controls { position: absolute; bottom: 16px; left: 16px; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 120; background: rgba(22,27,34,0.85); border: 1px solid var(--color-border); border-radius: 10px; padding: 10px 10px 8px; width: 52px; backdrop-filter: blur(8px); }
+    #specter-app #zoom-label-in, #specter-app #zoom-label-out { font-size: 0.9rem; font-weight: 600; color: var(--color-text-muted); user-select: none; line-height: 1; }
+    #specter-app #zoom-slider { -webkit-appearance: none; appearance: none; width: 250px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; outline: none; transform: rotate(-90deg); cursor: pointer; margin: 122px 0; }
+    #specter-app #zoom-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); border: 2px solid var(--color-surface); box-shadow: 0 0 6px rgba(56,189,248,0.4); cursor: pointer; margin-top: -4px; }
+    #specter-app #zoom-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); border: 2px solid var(--color-surface); cursor: pointer; }
+    #specter-app #zoom-fit { width: 32px; height: 24px; margin-top: 2px; border: 1px solid var(--color-border); border-radius: 6px; background: transparent; color: var(--color-text-muted); font-size: 0.65rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    #specter-app #zoom-fit:hover { background: rgba(56,189,248,0.15); color: var(--color-text); }
+
+    /* Search results panel */
+    #specter-app #search-results { position: absolute; top: 0; left: 0; width: 300px; max-width: 40vw; height: 100%; background: rgba(22,27,34,0.95); border-right: 1px solid var(--color-border); box-shadow: 4px 0 24px rgba(0,0,0,0.4); z-index: 140; display: flex; flex-direction: column; backdrop-filter: blur(12px); }
+    #specter-app #search-results-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid var(--color-border); flex-shrink: 0; }
+    #specter-app #search-results-title { font-size: 0.8rem; font-weight: 600; color: var(--color-text); }
+    #specter-app #search-results-close { background: none; border: none; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer; padding: 2px 6px; border-radius: 4px; }
+    #specter-app #search-results-close:hover { background: rgba(255,255,255,0.08); color: var(--color-text); }
+    #specter-app #search-results-list { list-style: none; overflow-y: auto; flex: 1; padding: 4px 0; margin: 0; }
+    #specter-app #search-results-list li { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid var(--color-border-subtle); transition: background 0.15s; }
+    #specter-app #search-results-list li:hover { background: rgba(56,189,248,0.08); }
+    #specter-app #search-results-list li.active { background: rgba(56,189,248,0.15); border-left: 3px solid var(--color-accent); }
+    #specter-app #search-results-list .sr-title { font-size: 0.8rem; font-weight: 500; color: var(--color-text); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    #specter-app #search-results-list .sr-meta { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 2px; }
+    #specter-app #search-results-list .sr-theme-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+
+    /* Tooltip */
+    #specter-app #tooltip { position: absolute; z-index: 200; background: rgba(15,23,42,0.95); border: 1px solid rgba(56,189,248,0.15); border-radius: 8px; padding: 8px 12px; max-width: 340px; font-size: 0.8rem; line-height: 1.4; pointer-events: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); backdrop-filter: blur(12px); color: var(--color-text); }
+    #specter-app #tooltip .tooltip-title { font-weight: 600; margin-bottom: 2px; color: #f1f5f9; }
+    #specter-app #tooltip .tooltip-authors { color: var(--color-text-muted); font-size: 0.72rem; margin-bottom: 2px; max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #specter-app #tooltip .tooltip-meta { color: var(--color-text-muted); font-size: 0.75rem; }
+    #specter-app #tooltip .tooltip-theme-badge { display: inline-block; padding: 0 5px; border-radius: 3px; font-size: 0.68rem; font-weight: 600; color: #0d1117; margin-left: 4px; vertical-align: middle; }
+    #specter-app #tooltip .tooltip-bg-label { font-size: 0.7rem; color: var(--color-text-muted); font-style: italic; margin-top: 2px; }
+
+    /* Side panel */
+    #specter-app #side-panel { position: absolute; top: 0; right: 0; width: var(--panel-width); max-width: 90vw; height: 100%; background: var(--color-surface); border-left: 1px solid var(--color-border); box-shadow: -4px 0 24px rgba(0,0,0,0.4); overflow-y: auto; padding: 20px; z-index: 150; transform: translateX(100%); transition: transform var(--transition-speed) ease; color: var(--color-text); }
+    #specter-app #side-panel.visible { transform: translateX(0); }
+    #specter-app #close-panel { position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text-muted); padding: 4px 8px; border-radius: 4px; }
+    #specter-app #close-panel:hover { background: rgba(255,255,255,0.08); color: var(--color-text); }
+    #specter-app #panel-bg-notice { background: rgba(251,191,36,0.1); color: #fbbf24; font-size: 0.78rem; font-weight: 500; padding: 6px 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid rgba(251,191,36,0.2); }
+    #specter-app #panel-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; padding-right: 36px; color: #f1f5f9; }
+    #specter-app #panel-authors { color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 6px; }
+    #specter-app #panel-meta { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 12px; }
+    #specter-app #panel-meta .meta-tag { display: inline-block; padding: 1px 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--color-border); border-radius: 4px; margin-right: 4px; margin-bottom: 2px; font-size: 0.75rem; color: var(--color-text-muted); }
+    #specter-app #panel-abstract { font-size: 0.85rem; line-height: 1.6; margin-bottom: 16px; max-height: 200px; overflow-y: auto; color: #cbd5e1; }
+    #specter-app #side-panel h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+    #specter-app #panel-neighbors { list-style: none; margin-bottom: 8px; padding: 0; }
+    #specter-app #panel-neighbors li { padding: 6px 4px; border-bottom: 1px solid var(--color-border); font-size: 0.8rem; cursor: pointer; transition: background 0.15s; border-radius: 4px; }
+    #specter-app #panel-neighbors li:hover { background: rgba(255,255,255,0.04); }
+    #specter-app #panel-neighbors li .neighbor-title { font-weight: 500; color: var(--color-text); }
+    #specter-app #panel-neighbors li .neighbor-meta { font-size: 0.7rem; color: var(--color-text-muted); }
+    #specter-app #panel-neighbors li .neighbor-iaifi-badge { display: inline-block; font-size: 0.62rem; font-weight: 600; color: var(--color-accent); background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); padding: 0 4px; border-radius: 3px; margin-left: 4px; }
+    #specter-app #show-more-neighbors { display: block; width: 100%; padding: 6px; margin-bottom: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--color-border); border-radius: 6px; cursor: pointer; font-size: 0.8rem; text-align: center; color: var(--color-text-muted); }
+    #specter-app #show-more-neighbors:hover { background: rgba(255,255,255,0.08); color: var(--color-text); }
+    #specter-app #panel-arxiv { display: inline-block; padding: 8px 16px; background: var(--color-accent); color: #0d1117; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+    #specter-app #panel-arxiv:hover { background: #7dd3fc; box-shadow: 0 0 12px rgba(56,189,248,0.3); }
+
+    /* Cluster labels */
+    #specter-app .cluster-label { position: absolute; pointer-events: none; font-size: 0.7rem; font-weight: 600; color: rgba(226,232,240,0.7); text-shadow: 0 0 8px rgba(56,189,248,0.3), 0 0 2px rgba(0,0,0,0.8); white-space: nowrap; transform: translate(-50%,-50%); transition: opacity 0.3s; z-index: 50; }
+
+    /* Info modal */
+    #specter-app #info-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 500; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+    #specter-app #info-modal-content { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; max-width: 560px; max-height: 80vh; overflow-y: auto; padding: 28px 32px; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+    #specter-app #info-modal-content h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; color: #f1f5f9; padding-right: 32px; }
+    #specter-app #info-modal-content p { font-size: 0.85rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 12px; }
+    #specter-app #info-modal-content a { color: var(--color-accent); text-decoration: none; }
+    #specter-app #info-modal-content a:hover { text-decoration: underline; }
+    #specter-app #info-modal-content strong { color: var(--color-text); font-weight: 600; }
+    #specter-app #info-modal-close { position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--color-text-muted); font-size: 1.4rem; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
+    #specter-app #info-modal-close:hover { background: rgba(255,255,255,0.08); color: var(--color-text); }
+    #specter-app #info-btn { background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.45); border-radius: 999px; color: #7dd3fc; font-size: 0.8rem; font-weight: 600; cursor: pointer; padding: 3px 10px; line-height: 1.2; white-space: nowrap; box-shadow: 0 0 0 1px rgba(56,189,248,0.1), 0 0 10px rgba(56,189,248,0.18); transition: background 0.2s, color 0.2s; }
+    #specter-app #info-btn:hover { background: rgba(56,189,248,0.15); color: #e0f2fe; }
+
+    /* Footer */
+    #specter-app footer { height: var(--footer-height); display: flex; align-items: center; justify-content: center; background: var(--color-surface); border-top: 1px solid var(--color-border); font-size: 0.75rem; color: var(--color-text-muted); z-index: 100; flex-shrink: 0; }
+    #specter-app footer a { color: var(--color-accent); text-decoration: none; }
+    #specter-app footer a:hover { text-decoration: underline; }
+
+    /* Scrollbar */
+    #specter-app ::-webkit-scrollbar { width: 8px; height: 8px; }
+    #specter-app ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+    #specter-app ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+    /* Utility */
+    #specter-app .hidden { display: none !important; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #specter-app #controls { gap: 8px; }
+      #specter-app #search-wrap { flex: 1 1 100%; }
+      #specter-app #year-slider { min-width: 140px; flex: 1 1 100%; }
+      #specter-app #side-panel { width: 100vw; max-width: 100vw; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Site navigation -->
+  <Header />
+
+  <!-- Oscar's SPECTER visualization -->
+  <div id="specter-app" style="height: calc(100vh - 52px);">
+    <header>
+      <div id="title-row">
+        <h1>SPECTER Landscape</h1>
+        <button id="info-btn">How was this made?</button>
+      </div>
+      <div id="controls">
+        <div id="search-wrap">
+          <input type="text" id="search" placeholder="Search by title or author...">
+          <button id="search-clear" class="hidden" aria-label="Clear search">&times;</button>
+          <span id="search-count" class="hidden"></span>
+        </div>
+        <div id="theme-filters">
+          <button data-theme="all" class="active">All</button>
+          <button data-theme="AI">AI</button>
+          <button data-theme="Physics">Physics</button>
+          <button data-theme="Both">Both</button>
+        </div>
+        <div id="color-by">
+          <label>Color by:</label>
+          <select id="color-mode">
+            <option value="theme">IAIFI Theme</option>
+            <option value="category">arXiv Category</option>
+            <option value="enrichment">Cluster Enrichment</option>
+          </select>
+        </div>
+        <div id="year-slider">
+          <label>Year: <span id="year-range"></span></label>
+          <div id="year-inputs">
+            <input type="range" id="year-min">
+            <input type="range" id="year-max">
+          </div>
+        </div>
+        <div id="citation-toggle-wrap">
+          <label>
+            <input type="checkbox" id="citation-toggle">
+            Size by citations
+          </label>
+          <div id="citation-legend" class="hidden">
+            <span class="legend-item"><span class="legend-dot" style="width:6px;height:6px;"></span>1</span>
+            <span class="legend-item"><span class="legend-dot" style="width:10px;height:10px;"></span>10</span>
+            <span class="legend-item"><span class="legend-dot" style="width:16px;height:16px;"></span>100</span>
+            <span class="legend-item"><span class="legend-dot" style="width:24px;height:24px;"></span>1000+</span>
+          </div>
+        </div>
+        <div id="hover-toggle-wrap">
+          <label>
+            <input type="checkbox" id="hover-all-toggle">
+            Show arXiv papers
+          </label>
+        </div>
+      </div>
+      <div id="paper-count"></div>
+    </header>
+
+    <main>
+      <div id="scatter-container"></div>
+      <div id="zoom-controls">
+        <span id="zoom-label-in">+</span>
+        <input type="range" id="zoom-slider" min="0" max="100" value="50">
+        <span id="zoom-label-out">&minus;</span>
+        <button id="zoom-fit" title="Fit all papers">Fit</button>
+      </div>
+      <div id="search-results" class="hidden">
+        <div id="search-results-header">
+          <span id="search-results-title">Results</span>
+          <button id="search-results-close">&times;</button>
+        </div>
+        <ul id="search-results-list"></ul>
+      </div>
+      <div id="tooltip" class="hidden"></div>
+      <div id="side-panel" class="hidden">
+        <button id="close-panel">&times;</button>
+        <div id="panel-bg-notice" class="hidden">Background paper — not an IAIFI publication</div>
+        <h2 id="panel-title"></h2>
+        <p id="panel-authors"></p>
+        <p id="panel-meta"></p>
+        <div id="panel-abstract"></div>
+        <h3>Related Papers</h3>
+        <ul id="panel-neighbors"></ul>
+        <button id="show-more-neighbors" class="hidden">Show 5 more</button>
+        <a id="panel-arxiv" href="#" target="_blank">View on arXiv &rarr;</a>
+      </div>
+    </main>
+
+    <div id="info-modal" class="hidden">
+      <div id="info-modal-content">
+        <button id="info-modal-close">&times;</button>
+        <h2>How was this made?</h2>
+        <p>
+          Each dot on this map is a research paper. The colored ones are
+          publications from <a href="https://iaifi.org">IAIFI</a> (the NSF
+          Institute for Artificial Intelligence and Fundamental Interactions);
+          the faint grey dots are nearby papers from the broader arXiv that give
+          the IAIFI work context.
+        </p>
+        <p>
+          Paper positions come from <strong>SPECTER2</strong>, a language model
+          trained on scientific text. SPECTER2 reads each paper's title and
+          abstract and produces a 768-dimensional vector that captures what the
+          paper is about. Papers with similar content end up with similar
+          vectors. We project those vectors down to 2D with
+          <strong>DensMAP</strong> (a density-preserving variant of UMAP) so
+          they can be drawn on screen. Papers that are close together on the
+          map really do discuss related topics; papers far apart are about
+          different things. Local neighborhoods are trustworthy, but
+          long-range distances are only approximate.
+        </p>
+        <p>
+          Clusters are identified with <strong>HDBSCAN</strong> and
+          labeled automatically from the most common arXiv categories and
+          keywords in each group. The "IAIFI Theme" colors (AI, Physics, Both)
+          come from cross-referencing each paper's arXiv categories against
+          typical AI and physics category prefixes.
+        </p>
+        <p>
+          Built by <a href="https://github.com/OscarBarreraGithub/IAIFI-Paperscape">Oscar Barrera</a>.
+          The data pipeline scrapes paper metadata from
+          <a href="https://iaifi.org">iaifi.org</a>, pulls related
+          background papers from the Semantic Scholar API, embeds everything
+          with SPECTER2, selects the most relevant background via
+          diversity-weighted kNN, and exports the final JSON that this page
+          reads. The visualization is plain Canvas 2D with no external
+          libraries.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Local neighborhoods are meaningful; global geometry is approximate.
+        <a href="https://iaifi.org">IAIFI</a>
+        <span id="data-version"></span>
+      </p>
+    </footer>
+  </div>
+
+  <script is:inline define:vars={{ base }}>
+    window.__SPECTER_BASE = base;
+  </script>
+  <script is:inline>
+    (function() {
+      var s = document.createElement("script");
+      s.src = window.__SPECTER_BASE + "js/specter-scatter.js";
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
